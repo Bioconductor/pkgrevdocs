@@ -39,6 +39,7 @@ jobs:
 
       - name: Session info
         run: |
+          install.packages('sessioninfo')
           options(width = 100)
           pkgs <- installed.packages()[, "Package"]
           sessioninfo::session_info(pkgs, include_base = TRUE)
