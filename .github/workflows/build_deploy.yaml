@@ -7,7 +7,7 @@ on:
 name: build_deploy
 
 jobs:
-  compile:
+  build_deploy:
     runs-on: ubuntu-latest
     container: bioconductor/bioconductor_docker:devel
 
