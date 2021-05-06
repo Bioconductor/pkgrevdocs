@@ -3,4 +3,7 @@ Type: Book
 Title: Does not matter.
 Version: 0.0.1
 Suggests:
-  bookdown
+  bookdown,
+  downlit,
+  xml2,
+  bslib
