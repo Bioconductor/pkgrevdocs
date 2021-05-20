@@ -6,4 +6,6 @@ Suggests:
   bookdown,
   downlit,
   xml2,
-  bslib
+  bslib,
+  BiocManager,
+  BiocStyle

@@ -1,21 +1,9 @@
 # Introduction {#intro}
 
-You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods).
+The [_Bioconductor_](https://bioconductor.org/) project promotes high-quality, well documented, and interoperable software. These guidelines help to achieve this objective; they are not meant to put undue burden on package authors, and authors having difficultly satisfying guidelines should seek advice on the [bioc-devel](https://bioconductor.org/help/support/) mailing list.
 
-Figures and tables with captions will be placed in `figure` and `table` environments, respectively.
+Package maintainers are urged to follow these guidelines as closely as possible when developing [_Bioconductor_](https://bioconductor.org/) packages.
 
-```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'}
-par(mar = c(4, 4, .1, .1))
-plot(pressure, type = 'b', pch = 19)
-```
+General instructions for producing packages can be found in the [Writing R Extensions](https://cran.r-project.org/doc/manuals/R-exts.html) manual, available from within R (`RShowDoc("R-exts")`) or on the [R web site](http://cran.fhcrc.org/manuals.html).
 
-Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab).
-
-```{r nice-tab, tidy=FALSE}
-knitr::kable(
-  head(iris, 20), caption = 'Here is a nice table!',
-  booktabs = TRUE
-)
-```
-
-You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015].
+Remember these are the minimum requirements for package acceptance and the package will still be subject to other guidelines below and a formal technical review by trained [_Bioconductor_](https://bioconductor.org/) package reviewer.
