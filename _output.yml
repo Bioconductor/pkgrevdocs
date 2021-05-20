@@ -1,9 +1,11 @@
 bookdown::bs4_book:
   theme:
-    primary: "#1f58a3"
+    primary: "#87b13f"
     yellow: "#804600"
     h4-font-size: "1.1rem"
-  repo: https://github.com/ropensci/dev_guide
+    headings-color: "#00758a"
+  repo: https://github.com/kevinrue/bioc_package_guide
+# Refer to https://rstudio.github.io/bslib/articles/bs4-variables.html for theme variable names
 
 bookdown::pdf_book:
   includes:
