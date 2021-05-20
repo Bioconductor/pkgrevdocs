@@ -1,0 +1,54 @@
+# General Package Development
+
+## Version of Bioconductor and R
+
+Package developers should always use the [devel version of Bioconductor](https://bioconductor.org/packages/devel/BiocViews.html#___Software) when developing and testing packages to be contributed.
+
+Depending on the R release cycle, using [_Bioconductor_](https://bioconductor.org/) devel may or may not involve also using the devel version of R.
+See the how-to on [using devel version of Bioconductor](https://bioconductor.org/developers/how-to/useDevel/) for up-to-date information.
+
+## Correctness, Space and Time
+
+### R CMD build
+
+[_Bioconductor_](https://bioconductor.org/) packages must minimally pass `R CMD build` (or `R CMD INSTALL --build`) and pass `R CMD check` with no errors and no warnings using a recent R-devel.
+Authors should also try to address all errors, warnings, and notes that arise during build or check.
+^[The [_Bioconductor_](https://bioconductor.org/) team member assigned to review the package during the submission process will expect all ERROR, WARNINGS, and NOTES to be addressed.
+If there are any remaining, a justification of why they are not corrected will be expected.]
+
+### BiocCheck
+
+Packages must also pass `BiocCheck::BiocCheckGitClone()` and `BiocCheck::BiocCheck()` with no errors and no warnings.
+The `r BiocStyle::Biocpkg("BiocCheck")` package is a set of tests that encompass [_Bioconductor_](https://bioconductor.org/) Best Practices.
+Every effort should be made to address any notes that arise during this build or check.
+^[The [_Bioconductor_](https://bioconductor.org/) team member assigned to review the package during the submission process will expect all ERROR, WARNINGS, and NOTES to be addressed.
+If there are any remaining, a justification of why they are not corrected will be expected.]
+
+### File names
+
+Do not use filenames that differ only in case, as not all file systems are case-sensitive.
+
+### Package size
+
+The source package resulting from running `R CMD build` should occupy less than 5 MB on disk.
+
+### Check duration
+
+The package should require less than 10 minutes to run `R CMD check --no-build-vignettes`.
+Using the `--no-build-vignettes` option ensures that the vignette is built only once.
+^[This is true only for Software Packages.
+Experiment Data, Annotation, and Workflow packages are allowed additional space and check time.]
+
+### Memory
+
+Vignette and man page examples should not use more than 3 GB of memory since R cannot allocate more than this on 32-bit Windows.
+
+### Individual file size
+
+For software packages, individual files must be <= 5MB.
+This restriction exists even after the package is accepted and added to the [_Bioconductor_](https://bioconductor.org/) repository.
+
+### Undesirable files
+
+The raw package directory should not contain unnecessary files, system files, or hidden files such as `.DS_Store`, `.project`, `.git`, cache files, log files, `*.Rproj`, `*.so`, etc.
+These files may be present in your local directory but should not be commited to git (see `.gitignore`).
