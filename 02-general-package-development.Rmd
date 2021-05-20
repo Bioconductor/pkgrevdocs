@@ -52,3 +52,26 @@ This restriction exists even after the package is accepted and added to the [_Bi
 
 The raw package directory should not contain unnecessary files, system files, or hidden files such as `.DS_Store`, `.project`, `.git`, cache files, log files, `*.Rproj`, `*.so`, etc.
 These files may be present in your local directory but should not be commited to git (see `.gitignore`).
+
+## R CMD check environment
+
+It is possible to activate or deactivate a number of options in `R CMD build` and `R CMD check`.
+Options can be set as individual environment variables or they can be [listed in a file](https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Checking-and-building-packages).
+Descriptions of all the different options available can be found [here](https://cran.r-project.org/doc/manuals/r-devel/R-ints.html#Tools).
+[_Bioconductor_](https://bioconductor.org/) has chosen to customize some of these options for incoming submission during `R CMD check`.
+The file of utilized flags can be downloaded from [Github](https://github.com/Bioconductor/packagebuilder/blob/master/check.Renviron).
+The file can either be placed in a default directory as directed [here](https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Checking-and-building-packages) or can be set through environment variable `R_CHECK_ENVIRON` with a command similar to:
+
+```{bash, eval=FALSE}
+export R_CHECK_ENVIRON = <path to downloaded file>
+```
+
+## README file
+
+If a `README` file is included in the package or the GitHub  repository and it provides installation instructions, those instruction should also include [_Bioconductor_](https://bioconductor.org/) installation instructions.
+
+If a `README.Rmd` is provided (rather than `README.md`, or other) those installation instructions should be in an `eval=FALSE` code chunk.
+
+Nowhere in the code (R code, man pages, vignettes, Rmd files) should someone try to install or download system dependencies, applications, packages, etc.
+
+Developers can provide instructions to follow but not executed and should assume all necessary dependencies, applications, or packages are already set up on a user's system.
