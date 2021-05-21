@@ -1,0 +1,19 @@
+# The NAMESPACE file
+
+A [NAMESPACE](http://cran.fhcrc.org/doc/manuals/R-exts.html#Package-namespaces) file defines the functions, classes, and methods that are imported into the namespace, and exported for users.
+
+In the following section we describe what [_Bioconductor_](https://bioconductor.org/) reviewers will be looking for in this file.
+
+## Function names
+
+Exported functions should use camel case or underscoring and not include `.`, which indicates S3 dispatch.
+
+## Imported functions
+
+Generally `importFrom()` is encouraged over importing an entire package.
+However, if there are many functions from a single package, `import()` can be acceptable.
+
+## Exported functions
+
+Exporting all functions with `exportPattern("^[[:alpha:]]+")` is strongly discouraged.
+Functions and generics should be exported individually, for clarity and control.
