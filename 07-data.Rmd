@@ -1,4 +1,4 @@
-# Package data
+# Package data {#data}
 
 When developing a software package, an excellent practice is to give a comprehensive illustration of the methods in the package using an existing [experiment data package](https://bioconductor.org/packages/release/BiocViews.html#___ExperimentData), annotation data or data in the `r BiocStyle::Biocpkg("ExperimentHub")` or `r BiocStyle::Biocpkg("AnnotationHub")`, or submitting new data to those resources yourself.
 
@@ -25,7 +25,7 @@ Some key points are summarized in the following sections.
 ### Exported Data and the `data/` directory
 
 Data in `data/` is exported to the user and readily available.
-It is made available in an R session through the use of `data()`.
+It is made available in an <i class="fab fa-r-project"></i> session through the use of `data()`.
 It will require documentation concerning its creation and source information.
 It is most often a `.RData` file created with `save()` but other types are acceptable as well, see `?data()`.
 

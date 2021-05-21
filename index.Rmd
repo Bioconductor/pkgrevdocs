@@ -18,9 +18,9 @@ description: "This is a minimal example of using the bookdown package to write a
 knitr::include_graphics("https://raw.githubusercontent.com/Bioconductor/BiocStickers/master/Bioconductor/Bioconductor.png")
 ```
 
-[_Bioconductor_](https://bioconductor.org/) provides tools for the analysis and comprehension of high-throughput genomic data.
+[_Bioconductor_](https://bioconductor.org/) provides tools for the analysis and comprehension of high-throughput genomic data [@orchestrating2015].
 
-[_Bioconductor_](https://bioconductor.org/) uses the R statistical programming language, and is open source and open development. It has two releases each year, and an active user community.
+[_Bioconductor_](https://bioconductor.org/) uses the <i class="fab fa-r-project"></i> statistical programming language [@r2021], and is open source and open development. It has two releases each year, and an active user community.
 
 [_Bioconductor_](https://bioconductor.org/) is also available as an [AMI](https://bioconductor.org/help/bioconductor-cloud-ami/) (Amazon Machine Image) and [Docker](https://bioconductor.org/help/docker/) images.
 

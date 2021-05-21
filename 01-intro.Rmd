@@ -4,6 +4,6 @@ The [_Bioconductor_](https://bioconductor.org/) project promotes high-quality, w
 
 Package maintainers are urged to follow these guidelines as closely as possible when developing [_Bioconductor_](https://bioconductor.org/) packages.
 
-General instructions for producing packages can be found in the [Writing R Extensions](https://cran.r-project.org/doc/manuals/R-exts.html) manual, available from within R (`RShowDoc("R-exts")`) or on the [R web site](http://cran.fhcrc.org/manuals.html).
+General instructions for producing packages can be found in the [Writing R Extensions](https://cran.r-project.org/doc/manuals/R-exts.html) manual, available from within <i class="fab fa-r-project"></i> (`RShowDoc("R-exts")`) or on the [R web site](http://cran.fhcrc.org/manuals.html).
 
 Remember these are the minimum requirements for package acceptance and the package will still be subject to other guidelines below and a formal technical review by trained [_Bioconductor_](https://bioconductor.org/) package reviewer.

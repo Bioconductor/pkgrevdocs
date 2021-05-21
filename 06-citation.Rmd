@@ -1,4 +1,4 @@
-# The CITATION file
+# The CITATION file {#citation}
 
 Appropriate citations must be included in help pages (e.g., in the see also section) and vignettes; this aspect of documentation is no different from any scientific endeavor.
 The file `inst/CITATION` can be used to specify how a package is to be cited.

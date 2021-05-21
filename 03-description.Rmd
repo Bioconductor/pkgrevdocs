@@ -1,4 +1,4 @@
-# The DESCRIPTION file
+# The DESCRIPTION file {#description}
 
 The `DESCRIPTION` file must be properly formatted.
 The following section will review some important notes regarding fields of the `DESCRIPTION` file and associated files.
@@ -68,7 +68,7 @@ This approach enables development by many but restricts push access to `git.bioc
 
 ### `License`
 
-The license field should preferably refer to a standard license (see [wikipedia](http://en.wikipedia.org/wiki/Comparison_of_free_software_licences)) using one of R’s standard specifications.
+The license field should preferably refer to a standard license (see [wikipedia](http://en.wikipedia.org/wiki/Comparison_of_free_software_licences)) using one of <i class="fab fa-r-project"></i>’s standard specifications.
 
 Be specific about any version that applies (e.g., `GPL-2`).
 Licenses restricting use, e.g., to academic or non-profit researchers, are not suitable for Bioconductor. Core Bioconductor packages are typically licensed under `Artistic-2.0`.

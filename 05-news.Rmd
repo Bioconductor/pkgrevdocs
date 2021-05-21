@@ -1,4 +1,4 @@
-# The NEWS file
+# The NEWS file {#news}
 
 A `NEWS` file should be included to keep track of changes to the code from one version to the next.
 It can be a top level file or in the `inst/` directory.

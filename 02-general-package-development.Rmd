@@ -1,10 +1,10 @@
-# General Package Development
+# General Package Development {#general}
 
-## Version of Bioconductor and R
+## Version of _Bioconductor_ and <i class="fab fa-r-project"></i>
 
-Package developers should always use the [devel version of Bioconductor](https://bioconductor.org/packages/devel/BiocViews.html#___Software) when developing and testing packages to be contributed.
+Package developers should always use the [devel version of _Bioconductor_](https://bioconductor.org/packages/devel/BiocViews.html#___Software) when developing and testing packages to be contributed.
 
-Depending on the R release cycle, using [_Bioconductor_](https://bioconductor.org/) devel may or may not involve also using the devel version of R.
+Depending on the <i class="fab fa-r-project"></i> release cycle, using [_Bioconductor_](https://bioconductor.org/) devel may or may not involve also using the devel version of <i class="fab fa-r-project"></i>.
 See the how-to on [using devel version of Bioconductor](https://bioconductor.org/developers/how-to/useDevel/) for up-to-date information.
 
 ## Correctness, Space and Time
@@ -30,22 +30,22 @@ Do not use filenames that differ only in case, as not all file systems are case-
 
 ### Package size
 
-The source package resulting from running `R CMD build` should occupy less than 5 MB on disk.
+The source package resulting from running `R CMD build` should occupy less than 5 MB on disk.
 
 ### Check duration
 
-The package should require less than 10 minutes to run `R CMD check --no-build-vignettes`.
+The package should require less than 10 minutes to run `R CMD check --no-build-vignettes`.
 Using the `--no-build-vignettes` option ensures that the vignette is built only once.
 ^[This is true only for Software Packages.
 Experiment Data, Annotation, and Workflow packages are allowed additional space and check time.]
 
 ### Memory
 
-Vignette and man page examples should not use more than 3 GB of memory since R cannot allocate more than this on 32-bit Windows.
+Vignette and man page examples should not use more than 3 GB of memory since <i class="fab fa-r-project"></i> cannot allocate more than this on 32-bit Windows.
 
 ### Individual file size
 
-For software packages, individual files must be <= 5MB.
+For software packages, individual files must be <= 5MB.
 This restriction exists even after the package is accepted and added to the [_Bioconductor_](https://bioconductor.org/) repository.
 
 ### Undesirable files
@@ -72,6 +72,6 @@ If a `README` file is included in the package or the <i class="fab fa-github"></
 
 If a `README.Rmd` is provided (rather than `README.md`, or other) those installation instructions should be in an `eval=FALSE` code chunk.
 
-Nowhere in the code (R code, man pages, vignettes, Rmd files) should someone try to install or download system dependencies, applications, packages, etc.
+Nowhere in the code (<i class="fab fa-r-project"></i> code, man pages, vignettes, Rmd files) should someone try to install or download system dependencies, applications, packages, etc.
 
 Developers can provide instructions to follow but not executed and should assume all necessary dependencies, applications, or packages are already set up on a user's system.
