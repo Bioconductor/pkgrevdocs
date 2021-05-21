@@ -1,0 +1,10 @@
+# Unit tests {#tests}
+
+Unit tests are highly recommended.
+We find them indispensable for both package development and maintenance.
+
+Two of the main frameworks for testing are `r BiocStyle::CRANpkg("RUnit")` and `r BiocStyle::CRANpkg("testthat")`.
+Examples and explanations are provided [here](http://bioconductor.org/developers/unitTesting-guidelines).
+
+There is also the opportunity to create a full testing suite more in depth than traditional testing guidelines but this will require the use of [long tests](https://bioconductor.org/developers/how-to/long-tests).
+If a package developer is considering the use of long tests we highly recommend reaching out on the bioc-devel mailing list to ensure proper use and justification.
