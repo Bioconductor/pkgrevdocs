@@ -1,0 +1,8 @@
+# The CITATION file
+
+Appropriate citations must be included in help pages (e.g., in the see also section) and vignettes; this aspect of documentation is no different from any scientific endeavor.
+The file `inst/CITATION` can be used to specify how a package is to be cited.
+If this option is utilized, a maintainer can check proper formatting of the `CITATION` file by running `readCitationFile("inst/CITATION")`; This must run without error for the citation to be accurately displayed on the package landing page.
+
+Whether or not a `CITATION` file is present, an automatically-generated citation will appear on the package landing page on the [_Bioconductor_](https://bioconductor.org/) web site.
+For optimal formatting of author names (if a `CITATION` file is not present), specify the package author and maintainer using the `Authors@R` field as described in the [Writing R Extensions](http://cran.r-project.org/doc/manuals/R-exts.html) manual.

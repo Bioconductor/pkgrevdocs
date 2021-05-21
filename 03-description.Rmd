@@ -128,7 +128,7 @@ It is encouraged to include the relevant links to <i class="fab fa-github"></i> 
 
 ### `URL`
 
-This field directs users to source code repositories, additional help resources, etc; details are provided in [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html), `RShowDoc("R-exts")`.
+This field directs users to source code repositories, additional help resources, etc; details are provided in the [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html) manual, `RShowDoc("R-exts")`.
 
 ### `Video`
 
