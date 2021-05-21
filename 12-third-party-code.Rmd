@@ -1,0 +1,8 @@
+# Third-party code {#third-party-code}
+
+Use of external libraries whose functionality is redundant with libraries already supported is strongly discouraged.
+In cases where the external library is complex, the author may need to supply pre-built binary versions for some platforms.
+
+By including third-party code a package maintainer assumes responsibility for maintenance of that code. Part of the maintenance responsibility includes keeping the code up to date as bug fixes and updates are released for the mainline third-party project.
+
+For guidance on including code from some specific third-party sources, see the [external code sources](https://bioconductor.org/developers/how-to/mavericks-howto/#external-code-sources) section of the C++ Best Practices guide.

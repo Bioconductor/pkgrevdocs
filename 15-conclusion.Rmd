@@ -1,0 +1,9 @@
+# Conclusion {#conclusion}
+
+The exercise [How to a Build Bioconductor Package with RStudio](http://bioconductor.org/developers/how-to/buildingPackagesForBioc/) may also be helpful.
+
+Remember that every [_Bioconductor_](https://bioconductor.org/) package goes through a formal review process and may still receive technical feedback from the assigned [_Bioconductor_](https://bioconductor.org/) reviewer.
+
+An overview of the submission process may be found [here](http://bioconductor.org/developers/package-submission/) and a package may be submitted to the [GitHub package submission repository](https://github.com/Bioconductor/Contributions).
+
+Thank you for reading these guidelines, and welcome to the [_Bioconductor_](https://bioconductor.org/) community of users and developers!
