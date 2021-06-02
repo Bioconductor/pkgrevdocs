@@ -1,6 +1,5 @@
-# (APPENDIX) Appendix {-}
+# Changelog {-}
 
-# NEWS
 ## Version 1.0.0
 
 - Initial definition of the package development guidelines based on [bioc
