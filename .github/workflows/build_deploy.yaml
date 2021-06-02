@@ -45,20 +45,20 @@ jobs:
           sessioninfo::session_info(pkgs, include_base = TRUE)
         shell: Rscript {0}
 
-      - name: Render book (git)
-        run: |
-          bookdown::render_book('index.Rmd', 'bookdown::gitbook')
-        shell: Rscript {0}
+      # - name: Render book (git)
+      #   run: |
+      #     bookdown::render_book('index.Rmd', 'bookdown::gitbook')
+      #   shell: Rscript {0}
 
       # - name: Render book (pdf)
       #   run: |
       #     bookdown::render_book('index.Rmd', 'bookdown::pdf_book')
       #   shell: Rscript {0}
 
-      - name: Render book (epub)
-        run: |
-          bookdown::render_book('index.Rmd', 'bookdown::epub_book')
-        shell: Rscript {0}
+      # - name: Render book (epub)
+      #   run: |
+      #     bookdown::render_book('index.Rmd', 'bookdown::epub_book')
+      #   shell: Rscript {0}
         
       - name: Render book (bs4_book)
         run: |

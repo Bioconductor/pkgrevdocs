@@ -8,4 +8,5 @@ Suggests:
   xml2,
   bslib,
   BiocManager,
-  BiocStyle
+  BiocStyle,
+  r-lib/downlit
