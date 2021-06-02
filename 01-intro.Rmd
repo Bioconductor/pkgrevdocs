@@ -1,5 +1,7 @@
 # Introduction {#intro}
 
+**version `r read.dcf("DESCRIPTION")[,"Version"]` June 2021**
+
 The [_Bioconductor_](https://bioconductor.org/) project promotes high-quality, well documented, and interoperable software. These guidelines help to achieve this objective; they are not meant to put undue burden on package authors, and authors having difficultly satisfying guidelines should seek advice on the [bioc-devel](https://bioconductor.org/help/support/) mailing list.
 
 Package maintainers are urged to follow these guidelines as closely as possible when developing [_Bioconductor_](https://bioconductor.org/) packages.
