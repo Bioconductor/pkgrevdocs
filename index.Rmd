@@ -2,6 +2,7 @@
 title: "Bioconductor Package Guidelines for Developers and Reviewers"
 author:
   - Kevin Rue-Albrecht
+  - Daniela Cassol
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book

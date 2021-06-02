@@ -1,11 +1,9 @@
 # The DESCRIPTION file {#description}
 
 The `DESCRIPTION` file must be properly formatted.
-The following section will review some important notes regarding fields of the `DESCRIPTION` file and associated files.
+The following sections will review some important notes regarding fields of the `DESCRIPTION` file and associated files.
 
-## Fields
-
-### `Package`
+## `Package`
 
 This is the name of the package.
 
@@ -21,11 +19,11 @@ if (!requireNamespace("BiocManager")) {
 BiocManager::install("MyPackage")
 ```
 
-### `Title`
+## `Title`
 
 This is a brief but descriptive title for the package.
 
-### `Version`
+## `Version`
 
 All Bioconductor packages use an `x.y.z` version scheme.
 See [Version Numbering](https://bioconductor.org/developers/how-to/version-numbering/) for specifics to how the release and devel [_Bioconductor_](https://bioconductor.org) versioning proceeds.
@@ -38,12 +36,12 @@ The following rules apply:
   Generally, do not bump this number especially in pre-release.
 - `z` is incremented whenever committing changes to a package.
 
-### `Description`
+## `Description`
 
 The description should be a relatively short but detailed overview of what the package functionality entails.
 It should be at least three complete sentences.
 
-### `Authors@R`
+## `Authors@R`
 
 The `Authors@R` field should be used.
 A maintainer designation (`cre` for `Authors@R`) is required with an actively maintained email address.
@@ -66,7 +64,7 @@ Commit access can be given to other developers by request on the [bioc-devel](ht
 Another option is to add collaborators to the <i class="fab fa-github"></i> GitHub repository.
 This approach enables development by many but restricts push access to `git.bioconductor.org`.
 
-### `License`
+## `License`
 
 The license field should preferably refer to a standard license (see [wikipedia](http://en.wikipedia.org/wiki/Comparison_of_free_software_licences)) using one of <i class="fab fa-r-project"></i>’s standard specifications.
 
@@ -79,13 +77,13 @@ The package should contain only code that can be redistributed according to the 
 Be aware of the licensing agreements for packages you are depending on in your package.
 Not all packages are open source even if they are publicly available.
 
-### `LazyData`
+## `LazyData`
 
 For packages that include data, we recommend not including `LazyData: TRUE`.
 However, this rarely proves to be a good thing.
 In our experience it only slows down the loading of packages with large data.
 
-### `Depends`, `Imports`, `Suggests`, `Enhances`
+## `Depends`, `Imports`, `Suggests`, `Enhances`
 
 All packages must be available via [_Bioconductor_](https://bioconductor.org/packages/release/BiocViews.html) or [CRAN](https://cran.r-project.org/web/packages/available_packages_by_name.html); the use of the `Remotes:` field is not supported, hence dependencies only available on other repositories (e.g. <i class="fab fa-github"></i> GitHub) are not allowed.
 
@@ -109,36 +107,36 @@ Determine placement of package based on the following guidelines:
 It is seldom necessary to specify <i class="fab fa-r-project"></i> or specific versions as dependencies, since the [_Bioconductor_](https://bioconductor.org) release strategy and standard installation instructions guarantee these constraints.
 Repositories mirrored outside [_Bioconductor_](https://bioconductor.org) should include branches for each [_Bioconductor_](https://bioconductor.org) release, and may find it useful to fully specify versions to enforce constraints otherwise guaranteed by [_Bioconductor_](https://bioconductor.org) installation practices.
 
-### `SystemRequirements`
+## `SystemRequirements`
 
 This field is for listing any external software which is required, but not automatically installed by the normal package installation process.
 
 If the installation process is non-trivial, a top-level `README` file should be included to document the process.
 
-### `biocViews`
+## `biocViews`
 
 This field is **required**!
 
 Specify at least two leaf node from [biocViews](https://bioconductor.org/packages/release/BiocViews.html).
 Multiple leaf terms are encouraged but terms must come from the same trunk or package type (i.e., `Software`, `AnnotationData`, `ExperimentData`, or `Workflow`).
 
-### `BugReports`
+## `BugReports`
 
 It is encouraged to include the relevant links to <i class="fab fa-github"></i> GitHub for reporting issues.
 
-### `URL`
+## `URL`
 
 This field directs users to source code repositories, additional help resources, etc; details are provided in the [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html) manual, `RShowDoc("R-exts")`.
 
-### `Video`
+## `Video`
 
 This field displays links to instructional videos.
 
-### `Collates`
+## `Collates`
 
 This may be necessary to order class and method definitions appropriately during package installation.
 
-### `BiocType`
+## `BiocType`
 
 This is required if submitting a `Docker` or `Workflow`.
 Otherwise this field could optionally define the type of Bioconductor package `Software`, `ExperimentData`, `Annotation`.
