@@ -1,0 +1,7 @@
+# (APPENDIX) Appendix {-}
+
+# NEWS {#booknews}
+
+## 0.0.1
+
+* 2021-06-02, imported contents from <https://bioconductor.org/developers/package-guidelines/>.

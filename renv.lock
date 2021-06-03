@@ -28,7 +28,23 @@
       }
     ]
   },
+  "Bioconductor": {
+    "Version": "3.13"
+  },
   "Packages": {
+    "BiocManager": {
+      "Package": "BiocManager",
+      "Version": "1.30.15",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "87a690190741d0791c9c10b390c933ff"
+    },
+    "BiocStyle": {
+      "Package": "BiocStyle",
+      "Version": "2.19.2",
+      "Source": "Bioconductor",
+      "Hash": "da36ccf31c262b029faa60bf11779c00"
+    },
     "base64enc": {
       "Package": "base64enc",
       "Version": "0.1-3",
