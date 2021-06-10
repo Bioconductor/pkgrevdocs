@@ -2,6 +2,7 @@
 
 # NEWS {#booknews}
 
-## 0.0.1
+## 1.0.0
 
-* 2021-06-02, imported contents from <https://bioconductor.org/developers/package-guidelines/>.
+- 2021-06-02: import contents from [Bioconductor package guidelines](https://bioconductor.org/developers/package-guidelines).
+
