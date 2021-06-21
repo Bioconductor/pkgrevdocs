@@ -34,16 +34,22 @@
   "Packages": {
     "BiocManager": {
       "Package": "BiocManager",
-      "Version": "1.30.15",
+      "Version": "1.30.16",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "87a690190741d0791c9c10b390c933ff"
+      "Hash": "2fdca0877debdd4668190832cdee4c31"
     },
     "BiocStyle": {
       "Package": "BiocStyle",
-      "Version": "2.19.2",
+      "Version": "2.20.2",
       "Source": "Bioconductor",
-      "Hash": "da36ccf31c262b029faa60bf11779c00"
+      "Hash": "d834ffcaa5c84ae5e8a2147abff3c17f"
+    },
+    "BiocVersion": {
+      "Package": "BiocVersion",
+      "Version": "3.13.1",
+      "Source": "Bioconductor",
+      "Hash": "94abf4508341d86378c2a78d219b3fca"
     },
     "base64enc": {
       "Package": "base64enc",
@@ -131,10 +137,10 @@
     },
     "renv": {
       "Package": "renv",
-      "Version": "0.13.0",
+      "Version": "0.13.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "9f10d9db5b50400c348920c5c603385e"
+      "Hash": "079cb1f03ff972b30401ed05623cbe92"
     },
     "rlang": {
       "Package": "rlang",
@@ -145,10 +151,10 @@
     },
     "rmarkdown": {
       "Package": "rmarkdown",
-      "Version": "2.8",
+      "Version": "2.9",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "f518ba47713f92d0d603eec7c6888faf"
+      "Hash": "912c09266d5470516df4df7a303cde92"
     },
     "stringi": {
       "Package": "stringi",
@@ -166,17 +172,17 @@
     },
     "tinytex": {
       "Package": "tinytex",
-      "Version": "0.31",
+      "Version": "0.32",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "25b572f764f3c19fef9aac33b5724f3d"
+      "Hash": "db9a6f2cf147751322d22c9f6647c7bd"
     },
     "xfun": {
       "Package": "xfun",
-      "Version": "0.23",
+      "Version": "0.24",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "791a57f43c887111490851dcd166d344"
+      "Hash": "88cdb9779a657ad80ad942245fffba31"
     },
     "yaml": {
       "Package": "yaml",
