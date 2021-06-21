@@ -27,11 +27,10 @@ Some of the more prominent offenders:
 * Avoid use of direct slot access with `@` or `slot()`.
   Accessor methods should be created and utilized
 * Use the packages `r BiocStyle::Biocpkg("ExperimentHub")` and `r BiocStyle::Biocpkg("AnnotationHub")` instead of downloading external data from unsanctioned providers such as <i class="fab fa-github"></i> GitHub, <i class="fa fa-dropbox" aria-hidden="true"></i> Dropbox, etc.
-* Use `<-` instead of `=` for assigning variables outside function calls.
+* Use `<-` instead of `=` for assigning variables.
 
 ### Formatting and syntax
 
-* Use `<-` instead of `=` for assignment.
 * Function names should be `camelCase` or utilize the underscore `_` and not have a dot `.` (which indicates S3 dispatch).
 * Use `dev.new()` to start a graphics drive if necessary.
   Avoid using `x11()` or `X11()`, for it can only be called on machines that have access to an X server.
