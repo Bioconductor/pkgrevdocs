@@ -2,18 +2,15 @@
 
 **Version 1.0.0**
 
-This checklist is supposed to aid and guide the reviewer through the review
-process. The individual checkboxes match the package review criteria [listed
-here](https://kevinrue.github.io/bioc_package_guide/). The package review
-itself (including comments) should be posted in the corresponding issue on the
-submission tracker.
+This checklist is intended to aid and guide the reviewer through the review
+process.
+The individual checkboxes match the package review criteria [listed here](https://kevinrue.github.io/bioc_package_guide/).
+The package review itself (including comments) should be posted in the corresponding issue on the submission tracker.
 
-Reviewers should be respectful and kind to the authors in the review
-process. Following the code of conduct is mandatory for everyone involved in the
-review process. Emphasis should be put on interoperability of the package and
-the re-use of code, concepts and classes from existing Bioconductor packages
-where it makes sense. The functionality should be sufficiently documented in man
-pages with runnable examples and package vignette(s).
+Reviewers should be respectful and kind to the authors in the review process.
+Following the code of conduct is mandatory for everyone involved in the review process.
+Emphasis should be put on interoperability of the package and the re-use of code, concepts and classes from existing Bioconductor packages where it makes sense.
+The functionality should be sufficiently documented in man pages with runnable examples and package vignette(s).
 
 *package name*:
 *link to issue*:
@@ -31,9 +28,7 @@ pages with runnable examples and package vignette(s).
 
 ## The DESCRIPTION file
 
-Refer to the
-[DESCRIPTION](https://kevinrue.github.io/bioc_package_guide/description.html)
-section in the BioC package guideline for details on the individual points.
+Refer to the [DESCRIPTION](https://kevinrue.github.io/bioc_package_guide/description.html) section in the BioC package guideline for details on the individual points.
 
 - [ ] `Package` field.
 - [ ] `Title` field.
@@ -54,8 +49,7 @@ section in the BioC package guideline for details on the individual points.
 ## The NAMESPACE file
 
 - [ ] Function names use `camelCase` or `snake_case` and do not include `.`.
-- [ ] Selective imports using `importFrom` instead of *import all* with
-      `import`.
+- [ ] Selective imports using `importFrom` instead of *import all* with `import`.
 - [ ] Individual functions/methods are exported instead of all.
 
 ## The NEWS file
@@ -70,10 +64,8 @@ section in the BioC package guideline for details on the individual points.
 ## Package data
 
 - [ ] Included data not too large. Need for separate data package?
-- [ ] Exported data and the `data/` directory has correct format, is compressed
-      and documented.
-- [ ] Raw data in `inst/extdata/` directory. Small enough to justify inclusion
-      in package?
+- [ ] Exported data and the `data/` directory has correct format, is compressed and documented.
+- [ ] Raw data in `inst/extdata/` directory. Small enough to justify inclusion in package?
 - [ ] If data downloaded from web: really necessary? `BiocFileCache` used?
 
 ## Documentation
@@ -85,8 +77,7 @@ section in the BioC package guideline for details on the individual points.
 - [ ] Vignette has an *Installation* section.
 - [ ] Vignette has a table of contents.
 - [ ] Vignette includes `sessionInfo()`.
-- [ ] `vignettes/` directory contains only vignette file(s) and necessary static
-      images.
+- [ ] The `vignettes/` directory contains only vignette file(s) and necessary static images.
 - [ ] All exported functions and classes have a man page.
 - [ ] Package man page present.
 - [ ] All man pages have runnable examples.
@@ -121,8 +112,7 @@ section in the BioC package guideline for details on the individual points.
 - [ ] Function arguments should have defaults.
 - [ ] Function arguments are tested for validity.
 - [ ] Vectorize: no unnecessary `for` loops present.
-- [ ] Web resources follow the guideline [Querying Web
-      Resources](http://bioconductor.org/developers/how-to/web-query/).
+- [ ] Web resources follow the guideline [Querying Web Resources](http://bioconductor.org/developers/how-to/web-query/).
 - [ ] Parallelisation uses `BiocParallel`.
 - [ ] Downloaded files cached with `BiocFileCache`.
 - [ ] Additional files and dependencies: nothing installed on a user's system.
@@ -130,8 +120,7 @@ section in the BioC package guideline for details on the individual points.
 ## C and Fortran code
 
 - [ ] Internal functions from R's C library used (e.g. `R_alloc`).
-- [ ] C function registration used (See [Registering native
-      routines](http://cran.fhcrc.org/doc/manuals/R-exts.html#Registering-native-routines).
+- [ ] C function registration used (See [Registering native routines](http://cran.fhcrc.org/doc/manuals/R-exts.html#Registering-native-routines).
 - [ ] Checks for user interruption.
 - [ ] `Makevars` and `Makefile` within a package.
 
@@ -146,8 +135,4 @@ section in the BioC package guideline for details on the individual points.
 
 ## Unacceptable files
 
-- [ ] No *unacceptable* files present (see
-      [.gitignore](https://kevinrue.github.io/bioc_package_guide/gitignore.html)
-      for a listing).
-
-
+- [ ] No *unacceptable* files present (see [.gitignore](https://kevinrue.github.io/bioc_package_guide/gitignore.html) for a listing).
