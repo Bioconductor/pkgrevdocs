@@ -31,6 +31,7 @@ Some of the more prominent offenders:
 
 ### Formatting and syntax
 
+* Use `<-` instead of `=` for assignment.
 * Function names should be `camelCase` or utilize the underscore `_` and not have a dot `.` (which indicates S3 dispatch).
 * Use `dev.new()` to start a graphics drive if necessary.
   Avoid using `x11()` or `X11()`, for it can only be called on machines that have access to an X server.
