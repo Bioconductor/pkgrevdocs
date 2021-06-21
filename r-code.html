@@ -7,6 +7,7 @@
 <title>Chapter 10 R code | Bioconductor Package Guidelines for Developers and Reviewers</title>
 <meta name="author" content="Kevin Rue-Albrecht">
 <meta name="author" content="Daniela Cassol">
+<meta name="author" content="Johannes Rainer">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.9/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -90,14 +91,13 @@ There are however some best practice guidelines that <a href="https://bioconduct
 <li>Avoid use of direct slot access with <code>@</code> or <code>slot()</code>.
 Accessor methods should be created and utilized</li>
 <li>Use the packages <em><a href="https://bioconductor.org/packages/3.13/ExperimentHub">ExperimentHub</a></em> and <em><a href="https://bioconductor.org/packages/3.13/AnnotationHub">AnnotationHub</a></em> instead of downloading external data from unsanctioned providers such as <i class="fab fa-github"></i> GitHub, <i class="fa fa-dropbox" aria-hidden="true"></i> Dropbox, etc.</li>
-<li>Use <code>&lt;-</code> instead of <code>=</code> for assigning variables outside function calls.</li>
+<li>Use <code>&lt;-</code> instead of <code>=</code> for assigning variables.</li>
 </ul>
 <div id="formatting-and-syntax" class="section level3" number="10.2.1">
 <h3>
 <span class="header-section-number">10.2.1</span> Formatting and syntax<a class="anchor" aria-label="anchor" href="#formatting-and-syntax"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
-<li>Use <code>&lt;-</code> instead of = for assignment.</li>
 <li>Function names should be <code>camelCase</code> or utilize the underscore <code>_</code> and not have a dot <code>.</code> (which indicates S3 dispatch).</li>
 <li>Use <code><a href="https://rdrr.io/r/grDevices/dev.html">dev.new()</a></code> to start a graphics drive if necessary.
 Avoid using <code><a href="https://rdrr.io/r/grDevices/x11.html">x11()</a></code> or <code><a href="https://rdrr.io/r/grDevices/x11.html">X11()</a></code>, for it can only be called on machines that have access to an X server.</li>
@@ -222,7 +222,7 @@ Please use <em><a href="https://bioconductor.org/packages/3.13/BiocFileCache">Bi
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Package Guidelines for Developers and Reviewers</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol. It was last built on 2021-06-21.</p>
+    <p>"<strong>Bioconductor Package Guidelines for Developers and Reviewers</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer. It was last built on 2021-06-21.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
