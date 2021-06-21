@@ -1,7 +1,0 @@
-# NEWS
-## Version 1.0.0
-
-- Initial definition of the package development guidelines based on [bioc
-  package guidelines](https://bioconductor.org/developers/package-guidelines/).
-  
-
