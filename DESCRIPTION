@@ -2,6 +2,7 @@ Package: placeholder
 Type: Book
 Title: Does not matter.
 Version: 1.0.0
+Date: 2021-06-21
 Suggests:
   bookdown,
   downlit,
