@@ -23,7 +23,7 @@ knitr::include_graphics("https://raw.githubusercontent.com/Bioconductor/BiocStic
 
 [_Bioconductor_](https://bioconductor.org/) uses the <i class="fab fa-r-project"></i> statistical programming language [@r2021], and is open source and open development. It has two releases each year, and an active user community.
 
-[_Bioconductor_](https://bioconductor.org/) is also available as an [AMI](https://bioconductor.org/help/bioconductor-cloud-ami/) (Amazon Machine Image) and [Docker](https://bioconductor.org/help/docker/) images.
+[_Bioconductor_](https://bioconductor.org/) is also available as [Docker](https://bioconductor.org/help/docker/) images.
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages
