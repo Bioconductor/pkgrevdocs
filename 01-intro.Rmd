@@ -1,4 +1,4 @@
-# Introduction {#intro}
+# Package Development Guidelines {-}
 
 **version `r read.dcf("DESCRIPTION")[,"Version"]` (`r read.dcf("DESCRIPTION")[, "Date"]`)**
 
