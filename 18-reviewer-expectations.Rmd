@@ -1,16 +1,16 @@
-# Review Expectations {#expectations}
+# Review Expectations {#review-expectation}
 
 Anyone from the Bioconductor community can volunteer to become a Bioconductor
 community reviewer to review incoming packages submitted through the [New
 Submission Tracker](https://github.com/Bioconductor/Contributions/issues). The
 following overviews what is expected of community reviewers.
 
-## Qualifications {-}
+## Qualifications {.unnumbered #review-qualifications}
 
 Actively maintaining a Bioconductor package 
 
 
-## Time Commitment  {-}
+## Time commitment {.unnumbered #review-time-commitment}
 
 Package reviews can vary depending on the quality and organization of the
 submitted package. On average a package review for a single package is between
@@ -27,7 +27,7 @@ made to attend these meetings and we would expect a reviewer to attend at least
 once a year.
 
 
-## Assignments  {-}
+## Assignments {.unnumbered #review-assignments}
 
 Packages will be assigned evenly and randomly, the more community review
 engagement the more distributed but currently anticipate a package assigned once
@@ -40,7 +40,7 @@ this occurs, the assigned reviewer is responsible for both reviews and should
 not accept the issue until both packages are in an accepted state.
 
 
-## Expectations and deadline  {-}
+## Expectations and deadlines {.unnumbered #review-expectations-and-deadlines}
 
 Package will be expected to be reviewed within 3 weeks of assignment and a clean
 build report from the build machine.  We plan to make a hard limit for 3
@@ -55,7 +55,7 @@ Bioconductor release cycle. Otherwise they will be removed from being an active
 reviewer.
 
 
-## Requesting reassignment and temporary leave of assignment  {-}
+## Requesting reassignment and temporary leave of assignment {.unnumbered #review-reassignment-and-temporary-leave}
 
 If a temporary leave of assigning packages needs to occur (vacation,
 particularly busy period of time, etc) , a reviewer should reach out to a
@@ -75,7 +75,7 @@ officially part of the package review list) without explicitly asking for
 reassignment.
 
 
-## On-boarding  {-}
+## On-boarding {.unnumbered #review-onboarding}
 
 New volunteers will undergo an on-boarding process before becoming fully active
 reviewers. The on-boarding process involves doing at least one paired review
@@ -87,7 +87,7 @@ paired review is necessary or if the review was sufficient to continue on with
 solo reviews.
 
 
-## Recognition {-}
+## Recognition {.unnumbered #review-recognition}
 
 Feel free to advertise on CV and resumes as being a Bioconductor reviewer.
 Reviewers will also be listed on the [Community Reviewers Webpage](). Reviewers
@@ -96,8 +96,6 @@ review administrator. Ideally, we plan to have badges for notable achievements
 and milestones, and a sticker is in progress.
 
 
-## Volunteer {-}
+## Volunteer {.unnumbered #review-volunteer}
 
-To apply to become a community reviewer, please fill out the following:
-[Form](https://forms.gle/myLWsb7JVVrZa3xM9)
-
+Refer to the chapter [Volunteer to Review](#review-volunteer-chapter) for more details.

@@ -4,6 +4,7 @@ author:
   - Kevin Rue-Albrecht
   - Daniela Cassol
   - Johannes Rainer
+  - Lori Shepherd
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book

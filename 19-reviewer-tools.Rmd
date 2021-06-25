@@ -3,6 +3,6 @@
 Reviewers may find the following links and references useful.
 
 
-## Package Review checklist
+## Package Review checklist {.unnumbered #review-checklist}
 
-## Example Review
+## Example Review {.unnumbered #review-example}
