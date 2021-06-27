@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 4 The NEWS file | Bioconductor Package Guidelines for Developers and Reviewers</title>
+<title>Chapter 16 Reviewer Resources and Tools | Bioconductor Package Guidelines for Developers and Reviewers</title>
 <meta name="author" content="Kevin Rue-Albrecht">
 <meta name="author" content="Daniela Cassol">
 <meta name="author" content="Johannes Rainer">
@@ -40,7 +40,7 @@
 <li><a class="" href="general.html"><span class="header-section-number">1</span> General Package Development</a></li>
 <li><a class="" href="description.html"><span class="header-section-number">2</span> The DESCRIPTION file</a></li>
 <li><a class="" href="namespace.html"><span class="header-section-number">3</span> The NAMESPACE file</a></li>
-<li><a class="active" href="news.html"><span class="header-section-number">4</span> The NEWS file</a></li>
+<li><a class="" href="news.html"><span class="header-section-number">4</span> The NEWS file</a></li>
 <li><a class="" href="citation.html"><span class="header-section-number">5</span> The CITATION file</a></li>
 <li><a class="" href="data.html"><span class="header-section-number">6</span> Package data</a></li>
 <li><a class="" href="docs.html"><span class="header-section-number">7</span> Documentation</a></li>
@@ -55,7 +55,7 @@
 <li class="book-part">Package Reviewer Resources</li>
 <li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
 <li><a class="" href="review-expectation.html"><span class="header-section-number">15</span> Review Expectations</a></li>
-<li><a class="" href="reviewtools.html"><span class="header-section-number">16</span> Reviewer Resources and Tools</a></li>
+<li><a class="active" href="reviewtools.html"><span class="header-section-number">16</span> Reviewer Resources and Tools</a></li>
 <li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">17</span> Volunteer to Review</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="booknews.html"><span class="header-section-number">A</span> NEWS</a></li>
@@ -66,97 +66,40 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="news" class="section level1" number="4">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="reviewtools" class="section level1" number="16">
 <h1>
-<span class="header-section-number">4</span> The NEWS file<a class="anchor" aria-label="anchor" href="#news"><i class="fas fa-link"></i></a>
+<span class="header-section-number">16</span> Reviewer Resources and Tools<a class="anchor" aria-label="anchor" href="#reviewtools"><i class="fas fa-link"></i></a>
 </h1>
-<p>A <code>NEWS</code> file should be included to keep track of changes to the code from one version to the next.
-It can be a top level file or in the <code>inst/</code> directory.
-Only one <code>NEWS</code> file should exist in the repository.</p>
-<p>The following are acceptable locations and formats:</p>
-<div class="inline-table"><table class="table table-sm">
-<thead><tr class="header">
-<th align="left">location</th>
-<th align="left">format</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left"><code>./inst/NEWS.Rd</code></td>
-<td align="left"><span class="math inline">\(\LaTeX\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"><code>./inst/NEWS</code></td>
-<td align="left">formatted text see <code><a href="https://rdrr.io/r/utils/news.html">?news</a></code>
-</td>
-</tr>
-<tr class="odd">
-<td align="left"><code>./inst/NEWS.md</code></td>
-<td align="left">markdown</td>
-</tr>
-<tr class="even">
-<td align="left"><code>./NEWS.md</code></td>
-<td align="left">markdown</td>
-</tr>
-<tr class="odd">
-<td align="left"><code>./NEWS</code></td>
-<td align="left">formatted text see <code><a href="https://rdrr.io/r/utils/news.html">?news</a></code>
-</td>
-</tr>
-</tbody>
-</table></div>
-<p>Specifics on formatting can be found on the help page for <code><a href="https://rdrr.io/r/utils/news.html">?news</a></code>.
-<a href="https://bioconductor.org/"><em>Bioconductor</em></a> uses the <code>NEWS</code> file to create the semi-annual release announcement.
-It must include list elements and <strong>cannot</strong> be a plain text file.</p>
-<p>An example format:</p>
-<pre><code>Changes in version 0.99.0 (2018-05-15)
-+ Submitted to Bioconductor
-
-Changes in version 1.1.1 (2018-06-15)
-+ Fixed bug. Begin indexing from 1 instead of 2
-+ Made the following significant changes
-  o added a subsetting method
-  o added a new field to database</code></pre>
-<p>After you install your package, the following can be run to see if the <code>NEWS</code> is properly formatted:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">utils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/utils/news.html">news</a></span><span class="op">(</span>package<span class="op">=</span><span class="st">"&lt;name of your package&gt;"</span><span class="op">)</span></code></pre></div>
-<p>The output should look similar to the following:</p>
-<pre><code>Changes in version 1.1.1 (2018-06-15):
-
-    o   Fixed bug. Begin indexing from 1 instead of 2
-
-    o   Made the following significant changes
-    o added a subsetting method
-    o added a new field to database
-
-Changes in version 0.99.0 (2018-05-15):
-
-    o   Submitted to Bioconductor</code></pre>
-<p>If you get something like the following there are formatting errors that need to be corrected:</p>
-<pre><code>Version: 0.99.0
-Date: 2018-05-15
-Text: Submitted to Bioconductor
-
-Version: 1.1.1
-Date: 2018-06-15
-Text: Fixed bug. Begin indexing from 1 instead of 2
-
-Version: 1.1.1
-Date: 2018-06-15
-Text: Made the following significant changes o added a subsetting
-    method o added a new field to database</code></pre>
+<p>Reviewers may find the following links and references useful.</p>
+<div id="review-checklist" class="section level2 unnumbered">
+<h2>Package Review checklist<a class="anchor" aria-label="anchor" href="#review-checklist"><i class="fas fa-link"></i></a>
+</h2>
+<p>Reviewers can obtain a template review checklist <a href="docs/package-review-checklist.Rmd" target="_blank">here</a> <i class="fas fa-external-link-alt"></i>.</p>
+<p>This checklist can be pasted into the relevant issue of the <a href="https://github.com/Bioconductor/Contributions/issues">New Submission Tracker</a>,
+and updated as the review progresses.</p>
+</div>
+<div id="review-example" class="section level2 unnumbered">
+<h2>Example Review<a class="anchor" aria-label="anchor" href="#review-example"><i class="fas fa-link"></i></a>
+</h2>
+<p><em>Coming soon.</em></p>
 
 </div>
+</div>
   <div class="chapter-nav">
-<div class="prev"><a href="namespace.html"><span class="header-section-number">3</span> The NAMESPACE file</a></div>
-<div class="next"><a href="citation.html"><span class="header-section-number">5</span> The CITATION file</a></div>
+<div class="prev"><a href="review-expectation.html"><span class="header-section-number">15</span> Review Expectations</a></div>
+<div class="next"><a href="review-volunteer-chapter.html"><span class="header-section-number">17</span> Volunteer to Review</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#news"><span class="header-section-number">4</span> The NEWS file</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#reviewtools"><span class="header-section-number">16</span> Reviewer Resources and Tools</a></li>
+<li><a class="nav-link" href="#review-checklist">Package Review checklist</a></li>
+<li><a class="nav-link" href="#review-example">Example Review</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/kevinrue/bioc_package_guide/blob/master/05-news.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/kevinrue/bioc_package_guide/edit/master/05-news.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/kevinrue/bioc_package_guide/blob/master/19-reviewer-tools.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/kevinrue/bioc_package_guide/edit/master/19-reviewer-tools.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
