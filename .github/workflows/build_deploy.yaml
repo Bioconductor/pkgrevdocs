@@ -64,6 +64,10 @@ jobs:
         run: |
           bookdown::render_book('index.Rmd', 'bookdown::bs4_book')
         shell: Rscript {0}
+        
+      - name: Copy docs/ subdirectory to book
+        run: |
+          cp -R docs _book/
 
       # deploy needs rsync? Seems so.
       - name: Install deploy dependencies
