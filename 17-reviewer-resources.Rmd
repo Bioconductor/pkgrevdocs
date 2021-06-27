@@ -1,0 +1,7 @@
+# (PART) Package Reviewer Resources {-}
+
+# Overview {.unnumbered #reviewer-resources-overview}
+
+The following sections contain resources for package reviewers and those
+interested in becoming package reviewers. You will find reviewer expectations,
+useful tools, and how to volunteer to be a community reviewer.
