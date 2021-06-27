@@ -5,4 +5,10 @@ Reviewers may find the following links and references useful.
 
 ## Package Review checklist {.unnumbered #review-checklist}
 
+Reviewers can obtain a template review checklist [here](docs/package-review-checklist.Rmd).
+
+This checklist can be pasted into the relevant issue of the [New Submission Tracker](https://github.com/Bioconductor/Contributions/issues),
+and updated as the review progresses.
+
+
 ## Example Review {.unnumbered #review-example}
