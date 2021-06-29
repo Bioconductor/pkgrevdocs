@@ -90,7 +90,7 @@ solo reviews.
 ## Recognition {.unnumbered #review-recognition}
 
 Feel free to advertise on CV and resumes as being a Bioconductor reviewer.
-Reviewers will also be listed on the [Community Reviewers Webpage](). Reviewers
+Reviewers will also be listed on the [Community Reviewers Webpage](http://bioconductor.org/about/package-reviewers/). Reviewers
 may optionally opt-out of being listed on the webpage by contacting a package
 review administrator. Ideally, we plan to have badges for notable achievements
 and milestones, and a sticker is in progress.
