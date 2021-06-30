@@ -5,7 +5,7 @@ Bioconductor Packages: Guidelines for Developers and Reviewers
 [![GitHub Actions](https://github.com/kevinrue/bioc_package_guide/workflows/build_deploy/badge.svg)](https://github.com/kevinrue/bioc_package_guide/actions)
 
 [_Bioconductor_](https://bioconductor.org/)'s guide for package development, maintenance, and peer review.
-[Read it here](https://kevinrue.github.io/bioc_package_guide).
+[Read it here](https://bioconductor.github.io/pkgrevdocs/).
 
 ## Contributing
 
