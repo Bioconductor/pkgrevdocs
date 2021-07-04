@@ -42,3 +42,8 @@ This book is based on contents from the following original sources:
 
 - https://bioconductor.org
 - https://bioconductor.org/developers/package-guidelines/
+
+The template used for this book is credited to the book _rOpenSci Packages: Development, Maintenance, and Peer Review_:
+
+- https://devguide.ropensci.org/ (deployed book)
+- https://github.com/ropensci/dev_guide (source)
