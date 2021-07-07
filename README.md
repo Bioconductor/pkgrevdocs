@@ -2,10 +2,10 @@ Bioconductor Packages: Guidelines for Developers and Reviewers
 ==============================================================
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) 
-[![GitHub Actions](https://github.com/kevinrue/bioc_package_guide/workflows/build_deploy/badge.svg)](https://github.com/kevinrue/bioc_package_guide/actions)
+[![GitHub Actions](https://github.com/Bioconductor/pkgrevdocs/workflows/build_deploy/badge.svg)](https://github.com/Bioconductor/pkgrevdocs/actions)
 
 [_Bioconductor_](https://bioconductor.org/)'s guide for package development, maintenance, and peer review.
-[Read it here](https://kevinrue.github.io/bioc_package_guide).
+[Read it here](https://bioconductor.github.io/pkgrevdocs/).
 
 ## Contributing
 
@@ -42,3 +42,8 @@ This book is based on contents from the following original sources:
 
 - https://bioconductor.org
 - https://bioconductor.org/developers/package-guidelines/
+
+The template used for this book is credited to the book _rOpenSci Packages: Development, Maintenance, and Peer Review_:
+
+- https://devguide.ropensci.org/ (deployed book)
+- https://github.com/ropensci/dev_guide (source)

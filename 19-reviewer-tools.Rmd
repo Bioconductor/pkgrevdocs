@@ -5,7 +5,7 @@ Reviewers may find the following links and references useful.
 
 ## Package Review checklist {.unnumbered #review-checklist}
 
-Reviewers can download a template review checklist <a href="docs/package-review-checklist.Rmd" target="_blank">here</a> <i class="fas fa-external-link-alt"></i>.
+Reviewers can download a template review checklist <a href="docs/package-review-checklist.md" target="_blank">here</a> <i class="fas fa-external-link-alt"></i>.
 
 This checklist can be pasted into the relevant issue of the [New Submission Tracker](https://github.com/Bioconductor/Contributions/issues),
 and updated as the review progresses.
