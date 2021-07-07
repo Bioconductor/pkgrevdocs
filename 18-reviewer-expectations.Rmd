@@ -74,6 +74,12 @@ package they can request someone offer additional comments (including those not
 officially part of the package review list) without explicitly asking for
 reassignment.
 
+Frequent requests for reassignement should consider a longer leave of absence
+agreement with the package review administrator. If freuqent requests are being
+made for reassignement the reviewer will be notified and at risk for being
+removed from the active review process. If a reviewer is removed, they must
+reapply to become an active reviewer.
+
 [slack channel]: https://community-bioc.slack.com/archives/C0207H5QC3X
 
 ## On-boarding {.unnumbered #review-onboarding}
