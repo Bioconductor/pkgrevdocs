@@ -111,7 +111,9 @@ Repositories mirrored outside [_Bioconductor_](https://bioconductor.org) should 
 
 This field is for listing any external software which is required, but not automatically installed by the normal package installation process.
 
-If the installation process is non-trivial, a top-level `README` file should be included to document the process.
+If the installation process is non-trivial, a top-level `INSTALL` file should be
+included to document the process. If a user facing `README` is included it is
+also recommended to document the process there.
 
 ## `biocViews`
 
