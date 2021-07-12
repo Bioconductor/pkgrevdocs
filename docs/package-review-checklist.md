@@ -1,10 +1,10 @@
 # Package Review Checklist {#review-checklist}
 
-**Version 1.0.0**
+**Version 1.0.1**
 
 This checklist is intended to aid and guide the reviewer through the review
 process.
-The individual checkboxes match the package review criteria [listed here](https://kevinrue.github.io/bioc_package_guide/).
+The individual checkboxes match the package review criteria [listed here](https://contributions.bioconductor.org/).
 The package review itself (including comments) should be posted in the corresponding issue on the submission tracker.
 
 Reviewers should be respectful and kind to the authors in the review process.
@@ -28,7 +28,7 @@ The functionality should be sufficiently documented in man pages with runnable e
 
 ## The DESCRIPTION file
 
-Refer to the [DESCRIPTION](https://kevinrue.github.io/bioc_package_guide/description.html) section in the BioC package guideline for details on the individual points.
+Refer to the [DESCRIPTION](https://contributions.bioconductor.org/description.html) section in the BioC package guideline for details on the individual points.
 
 - [ ] `Package` field.
 - [ ] `Title` field.
@@ -126,7 +126,7 @@ Refer to the [DESCRIPTION](https://kevinrue.github.io/bioc_package_guide/descrip
 
 ## Third-party code
 
-- [ ] Inclusion of third-party code follows the [guideline](https://kevinrue.github.io/bioc_package_guide/third-party-code.html).
+- [ ] Inclusion of third-party code follows the [guideline](https://contributions.bioconductor.org/third-party-code.html).
 
 ## Shiny apps
 
@@ -135,4 +135,4 @@ Refer to the [DESCRIPTION](https://kevinrue.github.io/bioc_package_guide/descrip
 
 ## Unacceptable files
 
-- [ ] No *unacceptable* files present (see [.gitignore](https://kevinrue.github.io/bioc_package_guide/gitignore.html) for a listing).
+- [ ] No *unacceptable* files present (see [.gitignore](https://contributions.bioconductor.org/gitignore.html) for a listing).
