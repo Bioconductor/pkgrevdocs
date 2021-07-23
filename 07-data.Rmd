@@ -4,12 +4,21 @@ When developing a software package, an excellent practice is to give a comprehen
 
 If existing data is not available or applicable, or a new smaller dataset is needed for examples in the package, data can be included either as a separate data package (for larger amounts of data) or within the package (for smaller datasets).
 
+The Bioconductor Build system does not support git-lfs.  This is not a current
+option for storing large data. Large data sets must be included through the [ExperimentHub](https://bioconductor.org/packages/release/bioc/vignettes/ExperimentHub/inst/doc/CreateAnExperimentHubPackage.html).
+
 ## Experiment Data Package
 
 Experimental data packages contain data specific to a particular analysis or experiment.
 They often accompany a software package for use in the examples and vignettes and in general are not updated regularly. If you need a general subset of data for workflows or examples first check the `r BiocStyle::Biocpkg("AnnotationHub")` resource for available files (e.g., BAM, FASTA, BigWig, etc.).
 
-[_Bioconductor_](https://bioconductor.org/) strongly encourages creating an experiment data package that utilizes `r BiocStyle::Biocpkg("ExperimentHub")` or `r BiocStyle::Biocpkg("AnnotationHub")` (See [Creating an Experiment Hub Package](https://bioconductor.org/packages/release/bioc/vignettes/ExperimentHub/inst/doc/CreateAnExperimentHubPackage.html) or [Creating an Annotation Hub Package](https://bioconductor.org/packages/release/bioc/vignettes/AnnotationHub/inst/doc/CreateAnAnnotationPackage.html)) but a traditional package that encapsulates the data is also acceptable.
+[_Bioconductor_](https://bioconductor.org/) strongly encourages creating an
+experiment data package that utilizes `r BiocStyle::Biocpkg("ExperimentHub")` or
+`r BiocStyle::Biocpkg("AnnotationHub")` (See [Creating an Experiment Hub
+Package](https://bioconductor.org/packages/release/bioc/vignettes/ExperimentHub/inst/doc/CreateAnExperimentHubPackage.html)
+or [Creating an Annotation Hub
+Package](https://bioconductor.org/packages/release/bioc/vignettes/AnnotationHub/inst/doc/CreateAnAnnotationPackage.html))
+but a traditional package that encapsulates the data is also acceptable.
 
 See the [Package Submission guidelines](https://www.bioconductor.org/developers/package-submission/) for submitting related packages.
 
