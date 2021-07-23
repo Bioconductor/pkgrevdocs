@@ -1,6 +1,6 @@
 # Package Review Checklist {#review-checklist}
 
-**Version 1.0.1**
+**Version 1.0.0**
 
 This checklist is intended to aid and guide the reviewer through the review
 process.
