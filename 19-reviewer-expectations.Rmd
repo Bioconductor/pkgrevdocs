@@ -42,14 +42,14 @@ not accept the issue until both packages are in an accepted state.
 
 ## Expectations and deadlines {.unnumbered #review-expectations-and-deadlines}
 
-Package will be expected to be reviewed within 3 weeks of assignment and a clean
-build report from the build machine.  We plan to make a hard limit for 3
-weeks. If the delay is on the submitter, the issue will be closed for
-inactivity; it will be reopened when a submitter can commit to timely updates
-and engagement of the review process.  If the delay is in the reviewer, it will
-be reassigned to someone else.  We will keep track of how many reassignments
-occur and if there are frequent reassignments (3-4 unexplained) we will remove
-from being an active reviewer and the person must reapply to be
+Package[s] will be expected to be reviewed within 3 weeks of assignment and
+producea clean build report from the build machine.  We plan to make a hard
+limit for 3 weeks. If the delay is on the submitter, the issue will be closed
+for inactivity; it will be reopened when a submitter can commit to timely
+updates and engagement of the review process.  If the delay is in the reviewer,
+it will be reassigned to someone else.  We will keep track of how many
+reassignments occur and if there are frequent reassignments (3-4 unexplained) we
+will remove the reviewer and the person must reapply to be
 reactivated. Active reviewers are expected to review at least 1 package per
 Bioconductor release cycle. Otherwise they will be removed from being an active
 reviewer.
@@ -58,7 +58,7 @@ reviewer.
 ## Requesting reassignment and temporary leave of assignment {.unnumbered #review-reassignment-and-temporary-leave}
 
 If a temporary leave of assigning packages needs to occur (vacation,
-particularly busy period of time, etc) , a reviewer should reach out to a
+particularly busy period of time, etc), a reviewer should reach out to a
 package review committee administrator. The administrator will temporarily stop
 assignments and can discuss if currently assigned packages need re-assignment.
 
@@ -73,6 +73,12 @@ reviewer knows of a particular ‘expert’ in the field relating to the submitt
 package they can request someone offer additional comments (including those not
 officially part of the package review list) without explicitly asking for
 reassignment.
+
+Frequent requests for reassignement should consider a longer leave of absence
+agreement with the package review administrator. If frequent requests are being
+made for reassignement the reviewer will be notified and at risk for being
+removed from the active review process. If a reviewer is removed, they must
+reapply to become an active reviewer.
 
 [slack channel]: https://community-bioc.slack.com/archives/C0207H5QC3X
 
