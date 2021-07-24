@@ -77,6 +77,10 @@ makevars
 warnings-and-optimizations
 third-party-code
 shiny
+non-software
+annotation-and-experiment-data-packages
+annotationexperiment-hub-packages
+workflow-packages
 gitignore
 conclusion
 review-expectation
