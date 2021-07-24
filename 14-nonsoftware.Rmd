@@ -1,0 +1,40 @@
+# Non-Software Packages {#non-software}
+
+Most packages contributed by users are software packages. However, there are
+instances where other package types are submitted. The following sections will
+go into specifics we look for in each of the non-software type packages.
+
+## Annotation and Experiment data packages
+
+Annotation packages are database-like packages that provide information linking
+identifies (e.g., Entrez gene names or Affymetrix probe ids) to other
+information (e.g., chromosomal location, Gene Ontology category).
+
+Experiment data packages provide data sets that are used, often by software
+packages, to illustrate particular analyses. These packages contain curated
+data from an experiment, teaching course or publication and in most cases
+contain a single data set.
+
+We look for similar requirements as software packages, but most importantly is
+proper documentation for the data included within the package.
+
+## Annotation/Experiment Hub packages
+
+These light weight packages are related to resources added to AnnotationHub or
+ExperimentHub. The package should minimally contain the resource metadata, man
+pages describing the resources, and a vignette. It may also contain supporting
+R function the author wants to provide. These packages are similar to the
+above Annotation or Experiment data packages except the data is stored in AWS S3
+buckets or publicly accessibly sites instead of in the package itself.
+
+There is more information about creating a hub packages as well as the contents
+of on in the "Creating a Hub Package" vignette within the `HubPub` Bioconductor
+package.
+
+## Workflow packages
+
+Workflow packages contain vignettes that describe a bioinformatics workflow
+that involves multiple Bioconductor packages. These vignettes are usually more
+extensive than the vignettes that accompany software packages. These packages do
+not need `man/` or `R/` directories nor a `data/` directory as ideally
+workflows make use of existing data in a Bioconductor package.
