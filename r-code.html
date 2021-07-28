@@ -113,9 +113,9 @@ Avoid using <code><a href="https://rdrr.io/r/grDevices/x11.html">x11()</a></code
 <code><a href="https://rdrr.io/r/base/paste.html">paste0()</a></code> should generally not be used in these methods except for collapsing multiple values from a variable.</li>
 </ul>
 </div>
-<div id="re-use-functionality-and-classes" class="section level3" number="9.2.2">
+<div id="re-use-of-functionality-classes-and-generics" class="section level3" number="9.2.2">
 <h3>
-<span class="header-section-number">9.2.2</span> Re-use functionality and classes<a class="anchor" aria-label="anchor" href="#re-use-functionality-and-classes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.2.2</span> Re-use of functionality, classes, and generics<a class="anchor" aria-label="anchor" href="#re-use-of-functionality-classes-and-generics"><i class="fas fa-link"></i></a>
 </h3>
 <p>Avoid re-implementing functionality or classes (see also <a href="the-description-file.html#depends-imports-suggests-enhances">The DESCRIPTION file</a>).
 Make use of appropriate existing packages (e.g., <em><a href="https://bioconductor.org/packages/3.13/biomaRt">biomaRt</a></em>, <em><a href="https://bioconductor.org/packages/3.13/AnnotationDbi">AnnotationDbi</a></em>, <em><a href="https://bioconductor.org/packages/3.13/Biostrings">Biostrings</a></em>, <em><a href="https://bioconductor.org/packages/3.13/GenomicRanges">GenomicRanges</a></em>) and classes (e.g., <em><a href="https://bioconductor.org/packages/3.13/SummarizedExperiment">SummarizedExperiment</a></em>, <em><a href="https://bioconductor.org/packages/3.13/AnnotatedDataFrame">AnnotatedDataFrame</a></em>, <em><a href="https://bioconductor.org/packages/3.13/GRanges">GRanges</a></em>, <em><a href="https://bioconductor.org/packages/3.13/DNAStringSet">DNAStringSet</a></em>) to avoid duplication of functionality available in other <a href="https://bioconductor.org/"><em>Bioconductor</em></a> packages.
@@ -123,17 +123,45 @@ See also <a href="https://bioconductor.org/developers/how-to/commonMethodsAndCla
 <p>This encourages interoperability and simplifies your own package development.
 If a new representation is needed, see the <a href="https://bioconductor.org/developers/how-to/efficient-code/#essential-s4-interface">Essential S4 interface</a> section of <a href="https://bioconductor.org/developers/how-to/efficient-code">Robust and Efficient Code</a>.
 In general, <a href="https://bioconductor.org/"><em>Bioconductor</em></a> will insist on interoperability with <a href="https://bioconductor.org/developers/how-to/commonMethodsAndClasses/">Common Classes</a> for acceptance.</p>
+<p>Developers should make an effort to re-use generics that fit the generic
+contract for the proposed class-method pair i.e., the behavior of the method
+aligns with the originally proposed behavior of the generic. Specifically,
+the behavior can be one where the return value is of the same class across
+methods. The method behavior can also be a performant conceptual transformation
+or procedure across classes as described by the generic.
+<em><a href="https://bioconductor.org/packages/3.13/BiocGenerics">BiocGenerics</a></em> lists commonly used generics in
+Bioconductor. One example of a generic and method implementation is that of the
+<code>rowSums</code> generic and the corresponding method within the
+<em><a href="https://bioconductor.org/packages/3.13/DelayedArray">DelayedArray</a></em> package. This generic contract returns a
+numeric vector of the same length as the rows and is adhered to across classes
+including the <code>DelayedMatrix</code> class. Re-using generics reduces the amount of
+new generics by consolidating existing operations and avoids the mistake of
+introducing a “new” generic with the same name. Generic name collisions may
+mask or be masked by previous definitions in ways that are hard to diagnose.</p>
 </div>
-<div id="functional-programming" class="section level3" number="9.2.3">
+<div id="methods-development" class="section level3" number="9.2.3">
 <h3>
-<span class="header-section-number">9.2.3</span> Functional programming<a class="anchor" aria-label="anchor" href="#functional-programming"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.2.3</span> Methods development<a class="anchor" aria-label="anchor" href="#methods-development"><i class="fas fa-link"></i></a>
+</h3>
+<p>We encourage maintainers to only create new methods for classes exported within
+their packages. We discourage the generation of methods for external classes,
+i.e., classes outside of the package <a href="namespace.html#namespace"><code>NAMESPACE</code></a>. This can
+potentially cause method name collisions (i.e., where two methods defined on
+the same object but in different packages) and pollute the methods environment
+for those external classes. New methods for established classes can also cause
+confusion among users given that the new method and class definition are in
+separate packages.</p>
+</div>
+<div id="functional-programming" class="section level3" number="9.2.4">
+<h3>
+<span class="header-section-number">9.2.4</span> Functional programming<a class="anchor" aria-label="anchor" href="#functional-programming"><i class="fas fa-link"></i></a>
 </h3>
 <p>Avoid large chunks of repeated code.
 If code is being repeated this is generally a good indication a helper function could be implemented.</p>
 </div>
-<div id="function-length" class="section level3" number="9.2.4">
+<div id="function-length" class="section level3" number="9.2.5">
 <h3>
-<span class="header-section-number">9.2.4</span> Function length<a class="anchor" aria-label="anchor" href="#function-length"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.2.5</span> Function length<a class="anchor" aria-label="anchor" href="#function-length"><i class="fas fa-link"></i></a>
 </h3>
 <p>Excessively long functions should also be avoided.
 Write small functions.</p>
@@ -142,47 +170,47 @@ And it is also best if that function does that job in as few lines of code as po
 If you find yourself writing great long functions that extend for more than a screen, then you should probably take a moment to split it up into smaller helper functions.</p>
 <p>Smaller functions are easier to read, debug and to reuse.</p>
 </div>
-<div id="function-arguments" class="section level3" number="9.2.5">
+<div id="function-arguments" class="section level3" number="9.2.6">
 <h3>
-<span class="header-section-number">9.2.5</span> Function arguments<a class="anchor" aria-label="anchor" href="#function-arguments"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.2.6</span> Function arguments<a class="anchor" aria-label="anchor" href="#function-arguments"><i class="fas fa-link"></i></a>
 </h3>
 <p>Argument names to functions should be descriptive and well documented.
 Arguments should generally have default values.
 Check arguments against a validity check.</p>
 </div>
-<div id="vectorization" class="section level3" number="9.2.6">
+<div id="vectorization" class="section level3" number="9.2.7">
 <h3>
-<span class="header-section-number">9.2.6</span> Vectorization<a class="anchor" aria-label="anchor" href="#vectorization"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.2.7</span> Vectorization<a class="anchor" aria-label="anchor" href="#vectorization"><i class="fas fa-link"></i></a>
 </h3>
 <p>Vectorize!</p>
 <p>Many R operations are performed on the whole object, not just the elements of the object (e.g., <code>sum(x)</code> instead of <code>x[1] + x[2] + x[2] + ...</code>).
 In particular, relatively few situations require an explicit <code>for</code> loop.
 See the <a href="https://bioconductor.org/developers/how-to/efficient-code/#vectorize">Vectorize</a> section of <a href="https://bioconductor.org/developers/how-to/efficient-code">Robust and Efficient Code for additional detail</a>.</p>
 </div>
-<div id="web-resources" class="section level3" number="9.2.7">
+<div id="web-resources" class="section level3" number="9.2.8">
 <h3>
-<span class="header-section-number">9.2.7</span> Web resources<a class="anchor" aria-label="anchor" href="#web-resources"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.2.8</span> Web resources<a class="anchor" aria-label="anchor" href="#web-resources"><i class="fas fa-link"></i></a>
 </h3>
 <p>Follow guiding principles on <a href="http://bioconductor.org/developers/how-to/web-query/">Querying Web Resources</a>, if applicable.</p>
 </div>
-<div id="parallelisation" class="section level3" number="9.2.8">
+<div id="parallelisation" class="section level3" number="9.2.9">
 <h3>
-<span class="header-section-number">9.2.8</span> Parallelisation<a class="anchor" aria-label="anchor" href="#parallelisation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.2.9</span> Parallelisation<a class="anchor" aria-label="anchor" href="#parallelisation"><i class="fas fa-link"></i></a>
 </h3>
 <p>For parallel implementation please use <em><a href="https://bioconductor.org/packages/3.13/BiocParallel">BiocParallel</a></em>.
 See also the <a href="https://bioconductor.org/developers/how-to/efficient-code/#parallel-recommendations">Parallel Recommendations</a> section of <a href="https://bioconductor.org/developers/how-to/efficient-code">Robust and Efficient Code</a>.</p>
 <p>A minimal number of cores (1 or 2) should be set as a default.</p>
 </div>
-<div id="file-caching" class="section level3" number="9.2.9">
+<div id="file-caching" class="section level3" number="9.2.10">
 <h3>
-<span class="header-section-number">9.2.9</span> File caching<a class="anchor" aria-label="anchor" href="#file-caching"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.2.10</span> File caching<a class="anchor" aria-label="anchor" href="#file-caching"><i class="fas fa-link"></i></a>
 </h3>
 <p>Files downloaded should be cached.
 Please use <em><a href="https://bioconductor.org/packages/3.13/BiocFileCache">BiocFileCache</a></em>.</p>
 </div>
-<div id="additional-files-and-dependencies" class="section level3" number="9.2.10">
+<div id="additional-files-and-dependencies" class="section level3" number="9.2.11">
 <h3>
-<span class="header-section-number">9.2.10</span> Additional files and dependencies<a class="anchor" aria-label="anchor" href="#additional-files-and-dependencies"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.2.11</span> Additional files and dependencies<a class="anchor" aria-label="anchor" href="#additional-files-and-dependencies"><i class="fas fa-link"></i></a>
 </h3>
 <p>Do NOT install anything on a users system.</p>
 <p>System dependencies, applications, and additionally needed packages should be assumed already present on the user’s system.</p>
@@ -202,15 +230,16 @@ Please use <em><a href="https://bioconductor.org/packages/3.13/BiocFileCache">Bi
 <li>
 <a class="nav-link" href="#r-cmd-check-and-bioccheck"><span class="header-section-number">9.2</span> R CMD check and BiocCheck</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#formatting-and-syntax"><span class="header-section-number">9.2.1</span> Formatting and syntax</a></li>
-<li><a class="nav-link" href="#re-use-functionality-and-classes"><span class="header-section-number">9.2.2</span> Re-use functionality and classes</a></li>
-<li><a class="nav-link" href="#functional-programming"><span class="header-section-number">9.2.3</span> Functional programming</a></li>
-<li><a class="nav-link" href="#function-length"><span class="header-section-number">9.2.4</span> Function length</a></li>
-<li><a class="nav-link" href="#function-arguments"><span class="header-section-number">9.2.5</span> Function arguments</a></li>
-<li><a class="nav-link" href="#vectorization"><span class="header-section-number">9.2.6</span> Vectorization</a></li>
-<li><a class="nav-link" href="#web-resources"><span class="header-section-number">9.2.7</span> Web resources</a></li>
-<li><a class="nav-link" href="#parallelisation"><span class="header-section-number">9.2.8</span> Parallelisation</a></li>
-<li><a class="nav-link" href="#file-caching"><span class="header-section-number">9.2.9</span> File caching</a></li>
-<li><a class="nav-link" href="#additional-files-and-dependencies"><span class="header-section-number">9.2.10</span> Additional files and dependencies</a></li>
+<li><a class="nav-link" href="#re-use-of-functionality-classes-and-generics"><span class="header-section-number">9.2.2</span> Re-use of functionality, classes, and generics</a></li>
+<li><a class="nav-link" href="#methods-development"><span class="header-section-number">9.2.3</span> Methods development</a></li>
+<li><a class="nav-link" href="#functional-programming"><span class="header-section-number">9.2.4</span> Functional programming</a></li>
+<li><a class="nav-link" href="#function-length"><span class="header-section-number">9.2.5</span> Function length</a></li>
+<li><a class="nav-link" href="#function-arguments"><span class="header-section-number">9.2.6</span> Function arguments</a></li>
+<li><a class="nav-link" href="#vectorization"><span class="header-section-number">9.2.7</span> Vectorization</a></li>
+<li><a class="nav-link" href="#web-resources"><span class="header-section-number">9.2.8</span> Web resources</a></li>
+<li><a class="nav-link" href="#parallelisation"><span class="header-section-number">9.2.9</span> Parallelisation</a></li>
+<li><a class="nav-link" href="#file-caching"><span class="header-section-number">9.2.10</span> File caching</a></li>
+<li><a class="nav-link" href="#additional-files-and-dependencies"><span class="header-section-number">9.2.11</span> Additional files and dependencies</a></li>
 </ul>
 </li>
 </ul>
@@ -230,7 +259,7 @@ Please use <em><a href="https://bioconductor.org/packages/3.13/BiocFileCache">Bi
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Package Guidelines for Developers and Reviewers</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2021-07-24.</p>
+    <p>"<strong>Bioconductor Package Guidelines for Developers and Reviewers</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2021-07-28.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

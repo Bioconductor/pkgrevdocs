@@ -60,7 +60,8 @@ r-code
 license-1
 r-cmd-check-and-bioccheck
 formatting-and-syntax
-re-use-functionality-and-classes
+re-use-of-functionality-classes-and-generics
+methods-development
 functional-programming
 function-length
 function-arguments
