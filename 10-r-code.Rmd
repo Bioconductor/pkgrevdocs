@@ -37,7 +37,7 @@ Some of the more prominent offenders:
 * Use the functions `message()`, `warning()` and `error()`, instead of the `cat()` function (except for customized `show()` methods).
   `paste0()` should generally not be used in these methods except for collapsing multiple values from a variable.
 
-### Re-use functionality and classes 
+### Re-use of functionality, classes, and generics
 
 Avoid re-implementing functionality or classes (see also [The DESCRIPTION file](the-description-file.html#depends-imports-suggests-enhances)).
 Make use of appropriate existing packages (e.g., `r BiocStyle::Biocpkg("biomaRt")`, `r BiocStyle::Biocpkg("AnnotationDbi")`, `r BiocStyle::Biocpkg("Biostrings")`, `r BiocStyle::Biocpkg("GenomicRanges")`) and classes (e.g., `r BiocStyle::Biocpkg("SummarizedExperiment")`, `r BiocStyle::Biocpkg("AnnotatedDataFrame")`, `r BiocStyle::Biocpkg("GRanges")`, `r BiocStyle::Biocpkg("DNAStringSet")`) to avoid duplication of functionality available in other [_Bioconductor_](https://bioconductor.org/) packages.
@@ -46,6 +46,33 @@ See also [Common Bioconductor Methods and Classes](https://bioconductor.org/deve
 This encourages interoperability and simplifies your own package development.
 If a new representation is needed, see the [Essential S4 interface](https://bioconductor.org/developers/how-to/efficient-code/#essential-s4-interface) section of [Robust and Efficient Code](https://bioconductor.org/developers/how-to/efficient-code).
 In general, [_Bioconductor_](https://bioconductor.org/) will insist on interoperability with [Common Classes](https://bioconductor.org/developers/how-to/commonMethodsAndClasses/) for acceptance.
+
+Developers should make an effort to re-use generics that fit the generic
+contract for the proposed class-method pair i.e., the behavior of the method
+aligns with the originally proposed behavior of the generic. Specifically,
+the behavior can be one where the return value is of the same class across
+methods. The method behavior can also be a performant conceptual transformation
+or procedure across classes as described by the generic.
+`r BiocStyle::Biocpkg("BiocGenerics")` lists commonly used generics in
+Bioconductor. One example of a generic and method implementation is that of the
+`rowSums` generic and the corresponding method within the
+`r BiocStyle::Biocpkg("DelayedArray")` package. This generic contract returns a
+numeric vector of the same length as the rows and is adhered to across classes
+including the `DelayedMatrix` class. Re-using generics reduces the amount of
+new generics by consolidating existing operations and avoids the mistake of
+introducing a "new" generic with the same name. Generic name collisions may
+mask or be masked by previous definitions in ways that are hard to diagnose.
+
+### Methods development
+
+We encourage maintainers to only create new methods for classes exported within
+their packages. We discourage the generation of methods for external classes,
+i.e., classes outside of the package [`NAMESPACE`](#namespace). This can
+potentially cause method name collisions (i.e., where two methods defined on
+the same object but in different packages) and pollute the methods environment
+for those external classes. New methods for established classes can also cause
+confusion among users given that the new method and class definition are in
+separate packages.
 
 ### Functional programming
 
