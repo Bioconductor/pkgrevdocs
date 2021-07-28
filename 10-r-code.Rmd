@@ -37,7 +37,7 @@ Some of the more prominent offenders:
 * Use the functions `message()`, `warning()` and `error()`, instead of the `cat()` function (except for customized `show()` methods).
   `paste0()` should generally not be used in these methods except for collapsing multiple values from a variable.
 
-### Re-use functionality and classes 
+### Re-use of functionality, classes, and generics
 
 Avoid re-implementing functionality or classes (see also [The DESCRIPTION file](the-description-file.html#depends-imports-suggests-enhances)).
 Make use of appropriate existing packages (e.g., `r BiocStyle::Biocpkg("biomaRt")`, `r BiocStyle::Biocpkg("AnnotationDbi")`, `r BiocStyle::Biocpkg("Biostrings")`, `r BiocStyle::Biocpkg("GenomicRanges")`) and classes (e.g., `r BiocStyle::Biocpkg("SummarizedExperiment")`, `r BiocStyle::Biocpkg("AnnotatedDataFrame")`, `r BiocStyle::Biocpkg("GRanges")`, `r BiocStyle::Biocpkg("DNAStringSet")`) to avoid duplication of functionality available in other [_Bioconductor_](https://bioconductor.org/) packages.
