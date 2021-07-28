@@ -47,6 +47,23 @@ This encourages interoperability and simplifies your own package development.
 If a new representation is needed, see the [Essential S4 interface](https://bioconductor.org/developers/how-to/efficient-code/#essential-s4-interface) section of [Robust and Efficient Code](https://bioconductor.org/developers/how-to/efficient-code).
 In general, [_Bioconductor_](https://bioconductor.org/) will insist on interoperability with [Common Classes](https://bioconductor.org/developers/how-to/commonMethodsAndClasses/) for acceptance.
 
+Developers should make an effort to re-use generics that fit the generic
+contract for the proposed class-method pair i.e., the behavior of the method
+fits the originally proposed behavior of the generic.
+`r BiocStyle::Biocpkg("BiocGenerics")` lists commonly used generics in
+Bioconductor. Re-using generics reduces the amount of new generics by
+consolidating existing operations.
+
+### Methods development
+
+We encourage maintainers to only create new methods for classes exported within
+their packages. We discourage the generation of methods for external classes,
+i.e., classes outside of the package [`NAMESPACE`](#namespace). This can
+potentially cause method name collisions and pollute the methods environment
+for those external classes. New methods for established classes can also cause
+confusion among users given that the new method and class definition are in
+separate packages.
+
 ### Functional programming
 
 Avoid large chunks of repeated code.
