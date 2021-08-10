@@ -9,7 +9,7 @@
 <meta name="author" content="Daniela Cassol">
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.9/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS -->
@@ -206,7 +206,12 @@ See also the <a href="https://bioconductor.org/developers/how-to/efficient-code/
 <span class="header-section-number">9.2.10</span> File caching<a class="anchor" aria-label="anchor" href="#file-caching"><i class="fas fa-link"></i></a>
 </h3>
 <p>Files downloaded should be cached.
-Please use <em><a href="https://bioconductor.org/packages/3.13/BiocFileCache">BiocFileCache</a></em>.</p>
+Please use <em><a href="https://bioconductor.org/packages/3.13/BiocFileCache">BiocFileCache</a></em>.
+If a maintainer creates their own caching directory, it should utilize standard
+caching directories <code>tools::R_user_dir(package, which="cache")</code>. It is not
+allowed to download or write any files to a users home directory or working
+directory. Files should be cached as stated above with <code>BiocFileCache</code> (preferred)
+or <code>R_user_dir</code> or <code>tempdir()/tempfile()</code> if files should not be persistent.</p>
 </div>
 <div id="additional-files-and-dependencies" class="section level3" number="9.2.11">
 <h3>
@@ -259,7 +264,7 @@ Please use <em><a href="https://bioconductor.org/packages/3.13/BiocFileCache">Bi
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Package Guidelines for Developers and Reviewers</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2021-08-03.</p>
+    <p>"<strong>Bioconductor Package Guidelines for Developers and Reviewers</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2021-08-10.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
