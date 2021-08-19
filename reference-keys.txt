@@ -1,3 +1,4 @@
+package-name
 general
 version-of-bioconductor-and
 correctness-space-and-time
@@ -88,4 +89,5 @@ review-expectation
 reviewtools
 review-volunteer-chapter
 booknews
+version-1.0.1-2021-08-19
 version-1.0.0-2021-06-02

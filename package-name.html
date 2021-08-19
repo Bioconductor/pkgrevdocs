@@ -4,19 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 19 Volunteer to Review | Bioconductor Package Guidelines for Developers and Reviewers</title>
+<title>Chapter 1 Package name | Bioconductor Package Guidelines for Developers and Reviewers</title>
 <meta name="author" content="Kevin Rue-Albrecht">
 <meta name="author" content="Daniela Cassol">
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
-<meta name="description" content="Anyone from the Bioconductor community can volunteer to become a Bioconductor community reviewer to review incoming packages submitted through the New Submission Tracker. Please review the...">
+<meta name="description" content="The package name should match the GitHub repository name and is case-sensitive. A package name should be descriptive and should not already exist as a current package (case-insensitive) in...">
 <meta name="generator" content="bookdown 0.23 with bs4_book()">
-<meta property="og:title" content="Chapter 19 Volunteer to Review | Bioconductor Package Guidelines for Developers and Reviewers">
+<meta property="og:title" content="Chapter 1 Package name | Bioconductor Package Guidelines for Developers and Reviewers">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Anyone from the Bioconductor community can volunteer to become a Bioconductor community reviewer to review incoming packages submitted through the New Submission Tracker. Please review the...">
+<meta property="og:description" content="The package name should match the GitHub repository name and is case-sensitive. A package name should be descriptive and should not already exist as a current package (case-insensitive) in...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 19 Volunteer to Review | Bioconductor Package Guidelines for Developers and Reviewers">
-<meta name="twitter:description" content="Anyone from the Bioconductor community can volunteer to become a Bioconductor community reviewer to review incoming packages submitted through the New Submission Tracker. Please review the...">
+<meta name="twitter:title" content="Chapter 1 Package name | Bioconductor Package Guidelines for Developers and Reviewers">
+<meta name="twitter:description" content="The package name should match the GitHub repository name and is case-sensitive. A package name should be descriptive and should not already exist as a current package (case-insensitive) in...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -45,7 +45,7 @@
 <li><a class="" href="index.html">About Bioconductor</a></li>
 <li class="book-part">Package Development Guidelines</li>
 <li><a class="" href="develop-overview.html">Overview</a></li>
-<li><a class="" href="package-name.html"><span class="header-section-number">1</span> Package name</a></li>
+<li><a class="active" href="package-name.html"><span class="header-section-number">1</span> Package name</a></li>
 <li><a class="" href="general.html"><span class="header-section-number">2</span> General Package Development</a></li>
 <li><a class="" href="description.html"><span class="header-section-number">3</span> The DESCRIPTION file</a></li>
 <li><a class="" href="namespace.html"><span class="header-section-number">4</span> The NAMESPACE file</a></li>
@@ -66,7 +66,7 @@
 <li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
 <li><a class="" href="review-expectation.html"><span class="header-section-number">17</span> Review Expectations</a></li>
 <li><a class="" href="reviewtools.html"><span class="header-section-number">18</span> Reviewer Resources and Tools</a></li>
-<li><a class="active" href="review-volunteer-chapter.html"><span class="header-section-number">19</span> Volunteer to Review</a></li>
+<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">19</span> Volunteer to Review</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="booknews.html"><span class="header-section-number">A</span> NEWS</a></li>
 </ul>
@@ -76,33 +76,50 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="review-volunteer-chapter" class="section level1" number="19">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="package-name" class="section level1" number="1">
 <h1>
-<span class="header-section-number">19</span> Volunteer to Review<a class="anchor" aria-label="anchor" href="#review-volunteer-chapter"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1</span> Package name<a class="anchor" aria-label="anchor" href="#package-name"><i class="fas fa-link"></i></a>
 </h1>
-<p>Anyone from the Bioconductor community can volunteer to become a Bioconductor
-community reviewer to review incoming packages submitted through the <a href="https://github.com/Bioconductor/Contributions/issues">New
-Submission
-Tracker</a>. Please review
-the <a href="http://contributions.bioconductor.org/review-expectation.html#review-expectation">Reviewer Expectations</a> and the <a href="https://bioconductor.org/about/code-of-conduct/">Bioconductor Code of
-Conduct</a> before filling out the
-<a href="https://forms.gle/myLWsb7JVVrZa3xM9">volunteer form</a>.</p>
+<p>The package name should match the <i class="fab fa-github"></i> GitHub
+repository name and is case-sensitive. A package name should be descriptive and
+should not already exist as a current package (case-insensitive) in
+<a href="https://bioconductor.org/packages/release/BiocViews.html"><em>Bioconductor</em></a> nor
+<a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">CRAN</a>.</p>
+<p>An easy way to check whether your name is already in use is to check that the
+following command fails:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span>
+<span class="op">}</span>
+<span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span><span class="op">(</span><span class="st">"MyPackage"</span><span class="op">)</span></code></pre></div>
+<p>In addition, avoid package names that:</p>
+<ul>
+<li>Are easily confused with existing package names.</li>
+<li>Imply a temporal (e.g. <code>ExistingPackage2</code>) or qualitative
+(e.g. <code>ExistingPackagePlus</code>) relationship.</li>
+<li>Suggest hate speech, slurs or profanity, either implicitly or explicitly.</li>
+<li>Invoke or refer to any historical, ethical, or political contexts.</li>
+<li>Reference well known people, characters, brands, places or icons.</li>
+</ul>
+<p>Also, to avoid unwanted meanings in foreign languages, name checkers such as
+<a href="http://wordsafety.com">wordsafety</a> might be used on the proposed package name.</p>
+<p>Please consider the name of your package carefully. Bioconductor will discourage
+renaming your package after acceptance. The process for renaming a package is to
+deprecate the old named package and to re-submit the newly named package to the
+review tracker and be subject to a new review.</p>
 
 </div>
-
-
-
   <div class="chapter-nav">
-<div class="prev"><a href="reviewtools.html"><span class="header-section-number">18</span> Reviewer Resources and Tools</a></div>
-<div class="next"><a href="booknews.html"><span class="header-section-number">A</span> NEWS</a></div>
+<div class="prev"><a href="develop-overview.html">Overview</a></div>
+<div class="next"><a href="general.html"><span class="header-section-number">2</span> General Package Development</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#review-volunteer-chapter"><span class="header-section-number">19</span> Volunteer to Review</a></li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#package-name"><span class="header-section-number">1</span> Package name</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/Bioconductor/pkgrevdocs/blob/master/21-become-a-reviewer.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/Bioconductor/pkgrevdocs/edit/master/21-become-a-reviewer.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/Bioconductor/pkgrevdocs/blob/master/01b-package-name.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/Bioconductor/pkgrevdocs/edit/master/01b-package-name.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
