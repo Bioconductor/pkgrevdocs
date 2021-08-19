@@ -28,3 +28,8 @@ In addition, avoid package names that:
 Also, to avoid unwanted meanings in foreign languages, name checkers such as
 [wordsafety](http://wordsafety.com) might be used on the proposed package name.
 
+
+Please consider the name of your package carefully. Bioconductor will discourage
+renaming your package after acceptance. The process for renaming a package is to
+deprecate the old named package and to re-submit the newly named package to the
+review tracker and be subject to a new review.
