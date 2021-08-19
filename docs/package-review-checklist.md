@@ -1,6 +1,6 @@
 # Package Review Checklist {#review-checklist}
 
-**Version 1.0.0**
+**Version 1.0.1**
 
 This checklist is intended to aid and guide the reviewer through the review
 process.
@@ -14,6 +14,10 @@ The functionality should be sufficiently documented in man pages with runnable e
 
 *package name*:
 *link to issue*:
+
+## Package name
+
+- [ ] Package name complies the criteria listed on the [Package name section](https://contributions.bioconductor.org/package-name) of the development guide.
 
 ## General package development
 
