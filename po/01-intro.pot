@@ -1,0 +1,61 @@
+#. extracted from 01-intro.Rmd
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-30 02:48+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Translate Toolkit 3.4.1\n"
+
+#: 01-intro.Rmd:2
+msgid "# (PART) Package Development Guidelines {-}"
+msgstr ""
+
+#: 01-intro.Rmd:4
+msgid ""
+"**version `r read.dcf(\"DESCRIPTION\")[,\"Version\"]` (`r read.dcf("
+"\"DESCRIPTION\")[, \"Date\"]`)**"
+msgstr ""
+
+#: 01-intro.Rmd:6
+msgid "# Overview {.unnumbered #develop-overview}"
+msgstr ""
+
+#: 01-intro.Rmd:9
+msgid ""
+"The [_Bioconductor_](https://bioconductor.org/) project promotes high-"
+"quality, well documented, and interoperable software.\n"
+"These guidelines help to achieve this objective; they are not meant to put "
+"undue burden on package authors, and authors having difficultly satisfying "
+"guidelines should seek advice on the [bioc-devel](https://bioconductor.org/"
+"help/support/) mailing list."
+msgstr ""
+
+#: 01-intro.Rmd:11
+msgid ""
+"Package maintainers are urged to follow these guidelines as closely as "
+"possible when developing [_Bioconductor_](https://bioconductor.org/) "
+"packages."
+msgstr ""
+
+#: 01-intro.Rmd:13
+msgid ""
+"General instructions for producing packages can be found in the [Writing R "
+"Extensions](https://cran.r-project.org/doc/manuals/R-exts.html) manual, "
+"available from within <i class=\"fab fa-r-project\"></i> (`RShowDoc(\"R-"
+"exts\")`) or on the [R web site](http://cran.fhcrc.org/manuals.html)."
+msgstr ""
+
+#: 01-intro.Rmd:14
+msgid ""
+"Remember these are the minimum requirements for package acceptance and the "
+"package will still be subject to other guidelines below and a formal "
+"technical review by trained [_Bioconductor_](https://bioconductor.org/) "
+"package reviewer."
+msgstr ""
