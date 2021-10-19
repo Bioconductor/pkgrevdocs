@@ -1,0 +1,35 @@
+# Package name {#package-name}
+
+The package name should match the <i class="fab fa-github"></i> GitHub
+repository name and is case-sensitive. A package name should be descriptive and
+should not already exist as a current package (case-insensitive) in
+[_Bioconductor_](https://bioconductor.org/packages/release/BiocViews.html) nor
+[CRAN](https://cran.r-project.org/web/packages/available_packages_by_name.html).
+
+An easy way to check whether your name is already in use is to check that the
+following command fails:
+
+```{r, eval=FALSE}
+if (!requireNamespace("BiocManager")) {
+  install.packages("BiocManager")
+}
+BiocManager::install("MyPackage")
+```
+
+In addition, avoid package names that:
+
+- Are easily confused with existing package names.
+- Imply a temporal (e.g. `ExistingPackage2`) or qualitative
+  (e.g. `ExistingPackagePlus`) relationship.
+- Suggest hate speech, slurs or profanity, either implicitly or explicitly.
+- Invoke or refer to any historical, ethical, or political contexts.
+- Reference well known people, characters, brands, places or icons.
+
+Also, to avoid unwanted meanings in foreign languages, name checkers such as
+[wordsafety](http://wordsafety.com) might be used on the proposed package name.
+
+
+Please consider the name of your package carefully. Bioconductor will discourage
+renaming your package after acceptance. The process for renaming a package is to
+deprecate the old named package and to re-submit the newly named package to the
+review tracker and be subject to a new review.
