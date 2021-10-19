@@ -80,7 +80,8 @@ made for reassignement the reviewer will be notified and at risk for being
 removed from the active review process. If a reviewer is removed, they must
 reapply to become an active reviewer.
 
-[slack channel]: https://community-bioc.slack.com/archives/C0207H5QC3X
+[slack channel]: https://community-bioc.slack.com/archives/C02A1B8HUHZ
+[submission channel]: https://community-bioc.slack.com/archives/C0207H5QC3X
 
 ## On-boarding {.unnumbered #review-onboarding}
 

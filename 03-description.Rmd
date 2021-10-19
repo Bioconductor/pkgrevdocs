@@ -7,18 +7,6 @@ The following sections will review some important notes regarding fields of the 
 
 This is the name of the package.
 
-This should match the <i class="fab fa-github"></i> GitHub repository name and is case-sensitive.
-A package name should be descriptive and should not already exist as a current package (case-insensitive) in [_Bioconductor_](https://bioconductor.org/packages/release/BiocViews.html) nor [CRAN](https://cran.r-project.org/web/packages/available_packages_by_name.html).
-Avoid names that are easily confused with existing package names, or that imply a temporal (e.g., `ExistingPackage2`) or qualitative (e.g., `ExistingPackagePlus`) relationship.
-An easy way to check whether your name is already in use is to check that the following command fails:
-
-```{r, eval=FALSE}
-if (!requireNamespace("BiocManager")) {
-  install.packages("BiocManager")
-}
-BiocManager::install("MyPackage")
-```
-
 ## `Title`
 
 This is a brief but descriptive title for the package.

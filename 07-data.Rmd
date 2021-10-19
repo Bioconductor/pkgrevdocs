@@ -60,3 +60,8 @@ Downloads of files and external data from the web should be avoided.
 
 If it is necessary, at minimum the files should be cached.
 See `r BiocStyle::Biocpkg("BiocFileCache")` for Bioconductor recommended package for caching of files.
+If a maintainer creates their own caching directory, it should utilize standard
+caching directories `tools::R_user_dir(package, which="cache")`. It is not
+allowed to download or write any files to a users home directory or working
+directory. Files should be cached as stated above with `BiocFileCache` (preferred)
+or `R_user_dir` or `tempdir()/tempfile()` if files should not be persistent.
