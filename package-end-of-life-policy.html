@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 15 Package End of Life Policy | Bioconductor Package Guidelines for Developers and Reviewers</title>
+<meta name="author" content="Kevin Rue-Albrecht">
+<meta name="author" content="Daniela Cassol">
+<meta name="author" content="Johannes Rainer">
+<meta name="author" content="Lori Shepherd">
+<meta name="description" content="The Bioconductor project strives to provide a software repository that is stable and relevant to users across the community. Each year 100-150 new software packages are added to the repository; as...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 15 Package End of Life Policy | Bioconductor Package Guidelines for Developers and Reviewers">
+<meta property="og:type" content="book">
+<meta property="og:description" content="The Bioconductor project strives to provide a software repository that is stable and relevant to users across the community. Each year 100-150 new software packages are added to the repository; as...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 15 Package End of Life Policy | Bioconductor Package Guidelines for Developers and Reviewers">
+<meta name="twitter:description" content="The Bioconductor project strives to provide a software repository that is stable and relevant to users across the community. Each year 100-150 new software packages are added to the repository; as...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Bioconductor Package Guidelines for Developers and Reviewers</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About Bioconductor</a></li>
+<li class="book-part">Package Development Guidelines</li>
+<li><a class="" href="develop-overview.html">Overview</a></li>
+<li><a class="" href="package-name.html"><span class="header-section-number">1</span> Package name</a></li>
+<li><a class="" href="general.html"><span class="header-section-number">2</span> General Package Development</a></li>
+<li><a class="" href="description.html"><span class="header-section-number">3</span> The DESCRIPTION file</a></li>
+<li><a class="" href="namespace.html"><span class="header-section-number">4</span> The NAMESPACE file</a></li>
+<li><a class="" href="news.html"><span class="header-section-number">5</span> The NEWS file</a></li>
+<li><a class="" href="citation.html"><span class="header-section-number">6</span> The CITATION file</a></li>
+<li><a class="" href="data.html"><span class="header-section-number">7</span> Package data</a></li>
+<li><a class="" href="docs.html"><span class="header-section-number">8</span> Documentation</a></li>
+<li><a class="" href="tests.html"><span class="header-section-number">9</span> Unit tests</a></li>
+<li><a class="" href="r-code.html"><span class="header-section-number">10</span> R code</a></li>
+<li><a class="" href="c-fortran.html"><span class="header-section-number">11</span> C and Fortran code</a></li>
+<li><a class="" href="third-party-code.html"><span class="header-section-number">12</span> Third-party code</a></li>
+<li><a class="" href="shiny.html"><span class="header-section-number">13</span> Shiny apps</a></li>
+<li><a class="" href="non-software.html"><span class="header-section-number">14</span> Non-Software Packages</a></li>
+<li><a class="active" href="package-end-of-life-policy.html"><span class="header-section-number">15</span> Package End of Life Policy</a></li>
+<li><a class="" href="gitignore.html"><span class="header-section-number">16</span> The .gitignore file</a></li>
+<li><a class="" href="conclusion.html"><span class="header-section-number">17</span> Conclusion</a></li>
+<li><a class="" href="references-1.html">References</a></li>
+<li class="book-part">Package Reviewer Resources</li>
+<li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
+<li><a class="" href="review-expectation.html"><span class="header-section-number">18</span> Review Expectations</a></li>
+<li><a class="" href="reviewtools.html"><span class="header-section-number">19</span> Reviewer Resources and Tools</a></li>
+<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">20</span> Volunteer to Review</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="booknews.html"><span class="header-section-number">A</span> NEWS</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/Bioconductor/pkgrevdocs">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="package-end-of-life-policy" class="section level1" number="15">
+<h1>
+<span class="header-section-number">15</span> Package End of Life Policy<a class="anchor" aria-label="anchor" href="#package-end-of-life-policy"><i class="fas fa-link"></i></a>
+</h1>
+<p>The Bioconductor project strives to provide a software repository that is
+stable and relevant to users across the community. Each year 100-150 new
+software packages are added to the repository; as of Spring 2021 over 2000
+packages are hosted. The Bioconductor Build System (BBS) installs, builds, and
+checks each software package every 24 hours. Regular execution of example,
+vignette, and unit test code ensures the package is operating as expected and
+all required dependencies are available. The
+<a href="http://www.bioconductor.org/checkResults/devel/bioc-LATEST/">build system</a>
+provides a detailed report for each package across three platforms: Linux,
+Windows, and Mac.</p>
+<p>In an effort to maintain a high quality repository we have adopted a
+one-year end of life (EOL) process for packages that no longer pass
+build or check and do not have an active maintainer. Packages are
+assessed for EOL deprecation prior to each Bioconductor release; the
+EOL policies apply to software, annotation, workflow, and experiment data
+packages.</p>
+<div id="criteria-for-package-deprecation-by-core-team" class="section level2" number="15.1">
+<h2>
+<span class="header-section-number">15.1</span> Criteria for package deprecation by Core Team<a class="anchor" aria-label="anchor" href="#criteria-for-package-deprecation-by-core-team"><i class="fas fa-link"></i></a>
+</h2>
+<ol style="list-style-type: decimal">
+<li>
+<p>R CMD build or check errors on one or more platforms</p>
+<p>The package must build and check without error on all platforms
+(exceptions to cross-platform builds are available under limited
+circumstances) at each Bioconductor release. All efforts will be
+made to keep a package in the repository if the maintainer is
+actively attempting a fix.</p>
+<p>If a package is broken for an extended period of time the maintainer will
+be given a final 2 week notice. If the package is not fixed by the end
+of the 2 weeks, End of Life will be started.</p>
+</li>
+<li>
+<p>Inactive maintainer</p>
+<p>The maintainer listed in the DESCRIPTION file must be responsive to
+questions on the support site, package-related email from users and
+Bioconductor team members, package-related errors in the build
+system, and requests for bug fixes. The email in the DESCRIPTION must also
+remain a valid, active email.</p>
+</li>
+</ol>
+</div>
+<div id="user-requested-deprecation" class="section level2" number="15.2">
+<h2>
+<span class="header-section-number">15.2</span> User Requested Deprecation<a class="anchor" aria-label="anchor" href="#user-requested-deprecation"><i class="fas fa-link"></i></a>
+</h2>
+<p>Alternatively, a package maintainer may request package deprecation. The
+maintainer may have any number of reasons for deprecating their package. Some
+common reasons:</p>
+<ol style="list-style-type: decimal">
+<li><p>They no longer wish to maintain their package</p></li>
+<li><p>The package has been superseded though other packages</p></li>
+<li><p>The package material has become out-dated and it makes sense to retire the
+package.</p></li>
+</ol>
+<p>We ask that maintainers wishing to deprecate their package send an email
+notification to <a href="mailto:bioc-devel@r-project.org" class="email">bioc-devel@r-project.org</a>. The core team will ensure all
+necessary steps and notifications can occur.</p>
+</div>
+<div id="end-of-life-process" class="section level2" number="15.3">
+<h2>
+<span class="header-section-number">15.3</span> End of Life process<a class="anchor" aria-label="anchor" href="#end-of-life-process"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>Step I</strong>: Deprecation</p>
+<p>Packages to be deprecated will be marked with a deprecation warning and the
+package name will have a strikethrough on the build report. The warning is
+emitted when the package is loaded, and is reported on the package ‘landing
+page.’ The message alerts users that the package currently fails the minimal
+build and check criteria, and that the package will likely be removed from
+Bioconductor in the next release.</p>
+<p>If at any time in this 6 month period the required criteria are met (e.g., the
+package returns to active maintenance, perhaps after ‘adoption’ by a third
+party) the warning is removed.</p>
+<p><strong>Step II</strong>: Defunct</p>
+<p>When a package has gone through one development cycle as ‘deprecated’ without
+remedial action, the package is marked as ‘Defunct.’ The package is removed
+from the nightly build system, is no longer available through
+‘BiocManager::install(),’ and does not have a current ‘landing page.’</p>
+<p>The package remains available in the git archive, and in previous
+versions of Bioconductor.</p>
+<p>Defunct packages cannot re-enter the Bioconductor repository except through
+review as a ‘new package.’</p>
+<p><strong>Example</strong>:</p>
+<p>A package identified for deprecation during Bioconductor release 3.2 /
+devel 3.3 would make the following transitions:</p>
+<pre><code>- deprecate in devel 3.3
+** Bioc Release **
+- deprecate in release 3.3 (i.e., no change in release status)
+- defunct in devel 3.4
+** Bioc Release **
+- defunct in release 3.4
+- gone in devel 3.5
+** Bioc Release **
+- gone in release 3.5</code></pre>
+</div>
+<div id="implementation-detail" class="section level2" number="15.4">
+<h2>
+<span class="header-section-number">15.4</span> Implementation detail<a class="anchor" aria-label="anchor" href="#implementation-detail"><i class="fas fa-link"></i></a>
+</h2>
+<ol style="list-style-type: decimal">
+<li><p>Notify the bioc-devel mailing list and maintainers of packages
+Depending, Importing, or Suggesting the package that the package
+will be deprecated. If appropriate, indicate that a new maintainer
+is welcome to take over.</p></li>
+<li>
+<p>Add the following code chunk to the ‘devel’ version of the package
+in a file <code>R/zzz.R</code>, adjusting the Bioconductor version to the
+version <em>after</em> the current devel version.</p>
+<pre><code>.onAttach &lt;- function(libname, pkgname) {
+    msg &lt;- sprintf(
+        "Package '%s' is deprecated and will be removed from Bioconductor
+         version %s", pkgname, "3.4")
+    .Deprecated(msg=paste(strwrap(msg, exdent=2), collapse="\n"))
+}</code></pre>
+</li>
+<li>
+<p>Add the following annotation to the package DESCRIPTION file.</p>
+<p>PackageStatus: Deprecated</p>
+</li>
+<li><p>The package remains deprecated in the ‘devel’ branch for up to 6
+months, after which time Bioconductor core
+team members remove the package from the ‘devel’ package manifest.</p></li>
+</ol>
+</div>
+<div id="reversing-end-of-life-status" class="section level2" number="15.5">
+<h2>
+<span class="header-section-number">15.5</span> Reversing End of Life Status<a class="anchor" aria-label="anchor" href="#reversing-end-of-life-status"><i class="fas fa-link"></i></a>
+</h2>
+<p>A deprecated package can be un-deprecated and removed from the End of Life
+process if it is fixed before the next Bioconductor release. To have a
+package un-deprecated, please contact <a href="mailto:maintainer@bioconductor.org" class="email">maintainer@bioconductor.org</a>. If a package
+is already in the defunct stage; the package will mostly likely be requested to
+go through the new package submission process again.</p>
+</div>
+<div id="orphaned-packages" class="section level2" number="15.6">
+<h2>
+<span class="header-section-number">15.6</span> ‘Orphaned’ packages<a class="anchor" aria-label="anchor" href="#orphaned-packages"><i class="fas fa-link"></i></a>
+</h2>
+<p>An ‘orphaned’ package is a Bioconductor package with an inactive and
+non-responsive maintainer. As described above, Bioconductor makes multiple
+efforts to reach out to package maintainers to fix broken packages. If there is
+no response from a maintainer to the emails sent out from the core team, the
+package is considered ‘orphaned.’ Occasionally, members of the Bioconductor
+community reach out to take over maintenance of an ‘orphaned’ package. The
+interested replacement maintainer is asked to email the original maintainer and
+<a href="mailto:maintainer@bioconductor.org" class="email">maintainer@bioconductor.org</a>, to formally request permission to take over. Unless
+there is an explicit request for a package to be retired, Bioconductor will
+grant access to the interested replacement maintainer in accordance with open
+source software licenses that Bioconductor packages require and <a href="https://bioconductor.org/developers/package-submission/#naming">package naming
+policy</a> that maintainers agree to upon submission.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="non-software.html"><span class="header-section-number">14</span> Non-Software Packages</a></div>
+<div class="next"><a href="gitignore.html"><span class="header-section-number">16</span> The .gitignore file</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#package-end-of-life-policy"><span class="header-section-number">15</span> Package End of Life Policy</a></li>
+<li><a class="nav-link" href="#criteria-for-package-deprecation-by-core-team"><span class="header-section-number">15.1</span> Criteria for package deprecation by Core Team</a></li>
+<li><a class="nav-link" href="#user-requested-deprecation"><span class="header-section-number">15.2</span> User Requested Deprecation</a></li>
+<li><a class="nav-link" href="#end-of-life-process"><span class="header-section-number">15.3</span> End of Life process</a></li>
+<li><a class="nav-link" href="#implementation-detail"><span class="header-section-number">15.4</span> Implementation detail</a></li>
+<li><a class="nav-link" href="#reversing-end-of-life-status"><span class="header-section-number">15.5</span> Reversing End of Life Status</a></li>
+<li><a class="nav-link" href="#orphaned-packages"><span class="header-section-number">15.6</span> ‘Orphaned’ packages</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/Bioconductor/pkgrevdocs/blob/master/14b-endoflife.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/Bioconductor/pkgrevdocs/edit/master/14b-endoflife.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Bioconductor Package Guidelines for Developers and Reviewers</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2021-10-19.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

@@ -4,18 +4,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 15 The .gitignore file | Bioconductor Package Guidelines for Developers and Reviewers</title>
+<title>Chapter 16 The .gitignore file | Bioconductor Package Guidelines for Developers and Reviewers</title>
 <meta name="author" content="Kevin Rue-Albrecht">
 <meta name="author" content="Daniela Cassol">
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
 <meta name="description" content="Bioconductor requires a Git repository for submission. There are certain system files that should not be tracked by the repository and are unacceptable to include. These files can remain on a...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 15 The .gitignore file | Bioconductor Package Guidelines for Developers and Reviewers">
+<meta property="og:title" content="Chapter 16 The .gitignore file | Bioconductor Package Guidelines for Developers and Reviewers">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Bioconductor requires a Git repository for submission. There are certain system files that should not be tracked by the repository and are unacceptable to include. These files can remain on a...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 15 The .gitignore file | Bioconductor Package Guidelines for Developers and Reviewers">
+<meta name="twitter:title" content="Chapter 16 The .gitignore file | Bioconductor Package Guidelines for Developers and Reviewers">
 <meta name="twitter:description" content="Bioconductor requires a Git repository for submission. There are certain system files that should not be tracked by the repository and are unacceptable to include. These files can remain on a...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -59,14 +59,15 @@
 <li><a class="" href="third-party-code.html"><span class="header-section-number">12</span> Third-party code</a></li>
 <li><a class="" href="shiny.html"><span class="header-section-number">13</span> Shiny apps</a></li>
 <li><a class="" href="non-software.html"><span class="header-section-number">14</span> Non-Software Packages</a></li>
-<li><a class="active" href="gitignore.html"><span class="header-section-number">15</span> The .gitignore file</a></li>
-<li><a class="" href="conclusion.html"><span class="header-section-number">16</span> Conclusion</a></li>
+<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">15</span> Package End of Life Policy</a></li>
+<li><a class="active" href="gitignore.html"><span class="header-section-number">16</span> The .gitignore file</a></li>
+<li><a class="" href="conclusion.html"><span class="header-section-number">17</span> Conclusion</a></li>
 <li><a class="" href="references-1.html">References</a></li>
 <li class="book-part">Package Reviewer Resources</li>
 <li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
-<li><a class="" href="review-expectation.html"><span class="header-section-number">17</span> Review Expectations</a></li>
-<li><a class="" href="reviewtools.html"><span class="header-section-number">18</span> Reviewer Resources and Tools</a></li>
-<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">19</span> Volunteer to Review</a></li>
+<li><a class="" href="review-expectation.html"><span class="header-section-number">18</span> Review Expectations</a></li>
+<li><a class="" href="reviewtools.html"><span class="header-section-number">19</span> Reviewer Resources and Tools</a></li>
+<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">20</span> Volunteer to Review</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="booknews.html"><span class="header-section-number">A</span> NEWS</a></li>
 </ul>
@@ -76,15 +77,15 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="gitignore" class="section level1" number="15">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="gitignore" class="section level1" number="16">
 <h1>
-<span class="header-section-number">15</span> The <code>.gitignore</code> file<a class="anchor" aria-label="anchor" href="#gitignore"><i class="fas fa-link"></i></a>
+<span class="header-section-number">16</span> The <code>.gitignore</code> file<a class="anchor" aria-label="anchor" href="#gitignore"><i class="fas fa-link"></i></a>
 </h1>
 <p><a href="https://bioconductor.org/"><em>Bioconductor</em></a> requires a Git repository for submission.</p>
 <p>There are certain system files that should not be tracked by the repository and are unacceptable to include.
 These files can remain on a local system but should be excluded from the Git repository which is possible by including a <code>.gitignore</code> file.</p>
 <p>The following are files that are checked by <a href="https://bioconductor.org/"><em>Bioconductor</em></a> and flagged as unacceptable:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">hidden_file_ext</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>
     <span class="st">".renviron"</span>, <span class="st">".rprofile"</span>, <span class="st">".rproj"</span>, <span class="st">".rproj.user"</span>, <span class="st">".rhistory"</span>,
     <span class="st">".rapp.history"</span>, <span class="st">".o"</span>, <span class="st">".sl"</span>, <span class="st">".so"</span>, <span class="st">".dylib"</span>, <span class="st">".a"</span>, <span class="st">".dll"</span>,
@@ -96,11 +97,11 @@ These files can remain on a local system but should be excluded from the Git rep
 
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="non-software.html"><span class="header-section-number">14</span> Non-Software Packages</a></div>
-<div class="next"><a href="conclusion.html"><span class="header-section-number">16</span> Conclusion</a></div>
+<div class="prev"><a href="package-end-of-life-policy.html"><span class="header-section-number">15</span> Package End of Life Policy</a></div>
+<div class="next"><a href="conclusion.html"><span class="header-section-number">17</span> Conclusion</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#gitignore"><span class="header-section-number">15</span> The .gitignore file</a></li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#gitignore"><span class="header-section-number">16</span> The .gitignore file</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">

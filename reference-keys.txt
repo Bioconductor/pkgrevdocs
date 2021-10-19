@@ -83,6 +83,13 @@ non-software
 annotation-and-experiment-data-packages
 annotationexperiment-hub-packages
 workflow-packages
+package-end-of-life-policy
+criteria-for-package-deprecation-by-core-team
+user-requested-deprecation
+end-of-life-process
+implementation-detail
+reversing-end-of-life-status
+orphaned-packages
 gitignore
 conclusion
 review-expectation
