@@ -10,16 +10,16 @@
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
 <meta name="description" content="Everyone has their own coding style and formats. There are however some best practice guidelines that Bioconductor reviewers will look for (see coding style). There are also some other key points,...">
-<meta name="generator" content="bookdown 0.23 with bs4_book()">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 10 R code | Bioconductor Package Guidelines for Developers and Reviewers">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Everyone has their own coding style and formats. There are however some best practice guidelines that Bioconductor reviewers will look for (see coding style). There are also some other key points,...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 10 R code | Bioconductor Package Guidelines for Developers and Reviewers">
 <meta name="twitter:description" content="Everyone has their own coding style and formats. There are however some best practice guidelines that Bioconductor reviewers will look for (see coding style). There are also some other key points,...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
 </head>
 <body data-spy="scroll" data-target="#toc">
@@ -115,19 +115,33 @@ Accessor methods should be created and utilized</li>
 <span class="header-section-number">10.2.1</span> Formatting and syntax<a class="anchor" aria-label="anchor" href="#formatting-and-syntax"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
-<li>Function names should be <code>camelCase</code> or utilize the underscore <code>_</code> and not have a dot <code>.</code> (which indicates S3 dispatch).</li>
-<li>Use <code><a href="https://rdrr.io/r/grDevices/dev.html">dev.new()</a></code> to start a graphics drive if necessary.
-Avoid using <code><a href="https://rdrr.io/r/grDevices/x11.html">x11()</a></code> or <code><a href="https://rdrr.io/r/grDevices/x11.html">X11()</a></code>, for it can only be called on machines that have access to an X server.</li>
-<li>Use the functions <code><a href="https://rdrr.io/r/base/message.html">message()</a></code>, <code><a href="https://rdrr.io/r/base/warning.html">warning()</a></code> and <code>error()</code>, instead of the <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> function (except for customized <code>show()</code> methods).
-<code><a href="https://rdrr.io/r/base/paste.html">paste0()</a></code> should generally not be used in these methods except for collapsing multiple values from a variable.</li>
+<li>Function names should be <code>camelCase</code> or utilize the underscore <code>_</code> and not
+have a dot <code>.</code> (which indicates S3 dispatch).</li>
+<li>Use <code><a href="https://rdrr.io/r/grDevices/dev.html">dev.new()</a></code> to start a graphics drive if necessary. Avoid using <code><a href="https://rdrr.io/r/grDevices/x11.html">x11()</a></code>
+or <code><a href="https://rdrr.io/r/grDevices/x11.html">X11()</a></code>, for it can only be called on machines that have access to an X
+server.</li>
+<li>Use the functions <code><a href="https://rdrr.io/r/base/message.html">message()</a></code>, <code><a href="https://rdrr.io/r/base/warning.html">warning()</a></code> and <code>error()</code>, instead of the
+<code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> function (except for customized <code>show()</code> methods). <code><a href="https://rdrr.io/r/base/paste.html">paste0()</a></code> should
+generally not be used in these methods except for collapsing multiple values
+from a variable.</li>
 </ul>
 </div>
 <div id="re-use-of-functionality-classes-and-generics" class="section level3" number="10.2.2">
 <h3>
 <span class="header-section-number">10.2.2</span> Re-use of functionality, classes, and generics<a class="anchor" aria-label="anchor" href="#re-use-of-functionality-classes-and-generics"><i class="fas fa-link"></i></a>
 </h3>
-<p>Avoid re-implementing functionality or classes (see also <a href="the-description-file.html#depends-imports-suggests-enhances">The DESCRIPTION file</a>).
-Make use of appropriate existing packages (e.g., <em><a href="https://bioconductor.org/packages/3.13/biomaRt">biomaRt</a></em>, <em><a href="https://bioconductor.org/packages/3.13/AnnotationDbi">AnnotationDbi</a></em>, <em><a href="https://bioconductor.org/packages/3.13/Biostrings">Biostrings</a></em>, <em><a href="https://bioconductor.org/packages/3.13/GenomicRanges">GenomicRanges</a></em>) and classes (e.g., <em><a href="https://bioconductor.org/packages/3.13/SummarizedExperiment">SummarizedExperiment</a></em>, <em><a href="https://bioconductor.org/packages/3.13/AnnotatedDataFrame">AnnotatedDataFrame</a></em>, <em><a href="https://bioconductor.org/packages/3.13/GRanges">GRanges</a></em>, <em><a href="https://bioconductor.org/packages/3.13/DNAStringSet">DNAStringSet</a></em>) to avoid duplication of functionality available in other <a href="https://bioconductor.org/"><em>Bioconductor</em></a> packages.
+<p>Avoid re-implementing functionality or classes (see also
+<a href="the-description-file.html#depends-imports-suggests-enhances">The DESCRIPTION file</a>).
+Make use of appropriate existing packages (e.g.,
+<em><a href="https://bioconductor.org/packages/3.13/biomaRt">biomaRt</a></em>,
+<em><a href="https://bioconductor.org/packages/3.13/AnnotationDbi">AnnotationDbi</a></em>,
+<em><a href="https://bioconductor.org/packages/3.13/Biostrings">Biostrings</a></em>,
+<em><a href="https://bioconductor.org/packages/3.13/GenomicRanges">GenomicRanges</a></em>) and classes (e.g.,
+<em><a href="https://bioconductor.org/packages/3.13/SummarizedExperiment">SummarizedExperiment</a></em>,
+<em><a href="https://bioconductor.org/packages/3.13/AnnotatedDataFrame">AnnotatedDataFrame</a></em>,
+<em><a href="https://bioconductor.org/packages/3.13/GRanges">GRanges</a></em>,
+<em><a href="https://bioconductor.org/packages/3.13/DNAStringSet">DNAStringSet</a></em>) to avoid duplication of functionality
+available in other <a href="https://bioconductor.org/"><em>Bioconductor</em></a> packages.
 See also <a href="https://bioconductor.org/developers/how-to/commonMethodsAndClasses/">Common Bioconductor Methods and Classes</a>.</p>
 <p>This encourages interoperability and simplifies your own package development.
 If a new representation is needed, see the <a href="https://bioconductor.org/developers/how-to/efficient-code/#essential-s4-interface">Essential S4 interface</a> section of <a href="https://bioconductor.org/developers/how-to/efficient-code">Robust and Efficient Code</a>.
@@ -165,18 +179,19 @@ separate packages.</p>
 <h3>
 <span class="header-section-number">10.2.4</span> Functional programming<a class="anchor" aria-label="anchor" href="#functional-programming"><i class="fas fa-link"></i></a>
 </h3>
-<p>Avoid large chunks of repeated code.
-If code is being repeated this is generally a good indication a helper function could be implemented.</p>
+<p>Avoid large chunks of repeated code. If code is being repeated this is
+generally a good indication a helper function could be implemented.</p>
 </div>
 <div id="function-length" class="section level3" number="10.2.5">
 <h3>
 <span class="header-section-number">10.2.5</span> Function length<a class="anchor" aria-label="anchor" href="#function-length"><i class="fas fa-link"></i></a>
 </h3>
-<p>Excessively long functions should also be avoided.
-Write small functions.</p>
-<p>It is best if each function has only one job that it needs to do.
-And it is also best if that function does that job in as few lines of code as possible.
-If you find yourself writing great long functions that extend for more than a screen, then you should probably take a moment to split it up into smaller helper functions.</p>
+<p>Excessively long functions should also be avoided. Write small functions.</p>
+<p>It is best if each function has only one job that it needs to do. And it is
+also best if that function does that job in as few lines of code as possible.
+If you find yourself writing great long functions that extend for more than a
+screen, then you should probably take a moment to split it up into smaller
+helper functions.</p>
 <p>Smaller functions are easier to read, debug and to reuse.</p>
 </div>
 <div id="function-arguments" class="section level3" number="10.2.6">
@@ -184,17 +199,19 @@ If you find yourself writing great long functions that extend for more than a sc
 <span class="header-section-number">10.2.6</span> Function arguments<a class="anchor" aria-label="anchor" href="#function-arguments"><i class="fas fa-link"></i></a>
 </h3>
 <p>Argument names to functions should be descriptive and well documented.
-Arguments should generally have default values.
-Check arguments against a validity check.</p>
+Arguments should generally have default values. Check arguments against a
+validity check.</p>
 </div>
 <div id="vectorization" class="section level3" number="10.2.7">
 <h3>
 <span class="header-section-number">10.2.7</span> Vectorization<a class="anchor" aria-label="anchor" href="#vectorization"><i class="fas fa-link"></i></a>
 </h3>
 <p>Vectorize!</p>
-<p>Many R operations are performed on the whole object, not just the elements of the object (e.g., <code>sum(x)</code> instead of <code>x[1] + x[2] + x[2] + ...</code>).
-In particular, relatively few situations require an explicit <code>for</code> loop.
-See the <a href="https://bioconductor.org/developers/how-to/efficient-code/#vectorize">Vectorize</a> section of <a href="https://bioconductor.org/developers/how-to/efficient-code">Robust and Efficient Code for additional detail</a>.</p>
+<p>Many R operations are performed on the whole object, not just the elements of
+the object (e.g., <code>sum(x)</code> instead of <code>x[1] + x[2] + x[2] + ...</code>). In
+particular, relatively few situations require an explicit <code>for</code> loop.
+See the <a href="https://bioconductor.org/developers/how-to/efficient-code/#vectorize">Vectorize</a>
+section of <a href="https://bioconductor.org/developers/how-to/efficient-code">Robust and Efficient Code for additional detail</a>.</p>
 </div>
 <div id="web-resources" class="section level3" number="10.2.8">
 <h3>
@@ -273,7 +290,7 @@ or <code>R_user_dir</code> or <code>tempdir()/tempfile()</code> if files should 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Package Guidelines for Developers and Reviewers</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2021-08-19.</p>
+    <p>"<strong>Bioconductor Package Guidelines for Developers and Reviewers</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2021-10-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

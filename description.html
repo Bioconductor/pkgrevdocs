@@ -10,16 +10,16 @@
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
 <meta name="description" content="The DESCRIPTION file must be properly formatted. The following sections will review some important notes regarding fields of the DESCRIPTION file and associated files.  3.1 Package This is the...">
-<meta name="generator" content="bookdown 0.23 with bs4_book()">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 3 The DESCRIPTION file | Bioconductor Package Guidelines for Developers and Reviewers">
 <meta property="og:type" content="book">
 <meta property="og:description" content="The DESCRIPTION file must be properly formatted. The following sections will review some important notes regarding fields of the DESCRIPTION file and associated files.  3.1 Package This is the...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 3 The DESCRIPTION file | Bioconductor Package Guidelines for Developers and Reviewers">
 <meta name="twitter:description" content="The DESCRIPTION file must be properly formatted. The following sections will review some important notes regarding fields of the DESCRIPTION file and associated files.  3.1 Package This is the...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
 </head>
 <body data-spy="scroll" data-target="#toc">
@@ -179,8 +179,13 @@ Most packages are listed here.</li>
 It is unusual for more than three packages to be listed as <code>Depends:</code>.</li>
 <li>
 <code>Suggests:</code> is for packages used in vignettes, examples, and in conditional code.
-Commonly, annotation and experiment packages (e.g., <code>TxDb*</code>) used in vignette and example code are included in this field thus avoiding users a costly download.
-In the case where an external one-off function is required for package code, external package availability can be checked via <code>if (!requireNamespace('extraPKG')) stop(...)</code>.</li>
+Commonly, annotation and experiment packages (e.g., <code>TxDb*</code>) used in vignette and example code are included in this field thus avoiding a costly download.
+In the case where an external one-off function is required for package code, the package availability and usage can be done via:</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="description.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">'suggPKG'</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb4-2"><a href="description.html#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"Install 'suggPKG' to use this function."</span>)</span>
+<span id="cb4-3"><a href="description.html#cb4-3" aria-hidden="true" tabindex="-1"></a>suggPKG<span class="sc">::</span><span class="cf">function</span>()</span></code></pre></div>
+<ul>
 <li>
 <code>Enhances:</code> is for packages such as <code>Rmpi</code> or <code>parallel</code> that enhance the performance of your package, but are not strictly needed for its functionality.</li>
 </ul>
@@ -276,7 +281,7 @@ Otherwise this field could optionally define the type of Bioconductor package <c
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Package Guidelines for Developers and Reviewers</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2021-08-19.</p>
+    <p>"<strong>Bioconductor Package Guidelines for Developers and Reviewers</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2021-10-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
