@@ -25,9 +25,8 @@ section 6.3.3. setting for instance
 
     CFLAGS=-ggdb -O0
 
-in .R/Makevars. See the relevant [Package Guidelines
-section](/developers/package-guidelines/#development-compiler-settings)
-for more examples and information.
+in .R/Makevars. See the relevant Package Guidelines
+section for more examples and information.
 
 ## Detecting memory errors (Valgrind)
 
@@ -47,9 +46,8 @@ locations. The former typically contribute to bad data, the latter to
 memory corruption and spectacular failures. The output will require C
 familiarity to interpret. It is helpful to run the buggy code with a
 package that has been installed without compiler optimizations. See
-section 4.3 of `RShowDoc("R-exts")` and the relevant [Package
-Guidelines
-section](/developers/package-guidelines/#development-compiler-settings).
+section 4.3 of `RShowDoc("R-exts")` and the relevant Package Guidelines
+section.
 
 ## Interactive debugging (gdb or lldb)
 
@@ -97,9 +95,7 @@ You can also view a (b)ack(t)race of the call stack, navigate (u)p and
 
 and our mutual friend Google for additional information.
 
-<a name="diagnose-a-crash"></a>
-
-### Finding clues for causes of a program crash
+### Finding clues for causes of a program crash {#diagnose-a-crash}
 
 Perhaps the most useful function of debuggers is to provide a
 breadcrumb trail ("backtrace") of the routines that led to the crash
@@ -109,9 +105,8 @@ the crash.
 
 It is worth reiterating that it is *essential* optimizations be turned
 off and the compiler be instructed to include debugging symbols if one
-hopes to have a fruitful debugging session. See the relevant [Package
-Guidelines
-section](/developers/package-guidelines/#development-compiler-settings).
+hopes to have a fruitful debugging session. See the relevant Package
+Guidelines section.
 
 Though the debugger output in the example may differ slightly compared
 to output from other computing environments, the underlying techniques
@@ -258,9 +253,7 @@ crash. Obviously this example is contrived; in a real-world scenario
 the extra help afforded by the insight about relevant program state is
 invaluable.
 
-<a name="case-study"></a>
-
-# Case study
+## Case study
 
 As a case study, a colleague reported that their complicated program
 would, on one particular computer, produce a segmentation fault or
@@ -280,22 +273,24 @@ players) because it is the least tested of the code. We could be
 wrong, of course... After many iterations, my colleague arrived at
 buggy24.R:
 
-    library(RCurl)
+```{r, eval=FALSE}
+library(RCurl)
 
-    foo <- function() {
-        url <- "https://google.com"
-        curl <- getCurlHandle()
-        opts <- list(followlocation=NULL, ssl.verifypeer=TRUE)
-        d <- debugGatherer()
-        getURL(url,customrequest="GET",curl=curl,debugfunction=d$update,.opts=opts)
-    }
+foo <- function() {
+    url <- "https://google.com"
+    curl <- getCurlHandle()
+    opts <- list(followlocation=NULL, ssl.verifypeer=TRUE)
+    d <- debugGatherer()
+    getURL(url,customrequest="GET",curl=curl,debugfunction=d$update,.opts=opts)
+}
 
-    execute <- function() {
-        foo()
-        gc()
-    }
+execute <- function() {
+    foo()
+    gc()
+}
 
-    execute()
+execute()
+```
 
 This is pretty simple, and doesn't require access to any special
 resources (like the server that was originally being queried). This
