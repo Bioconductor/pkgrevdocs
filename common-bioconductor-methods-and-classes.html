@@ -4,19 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 25 Reviewer Resources and Tools | Bioconductor Package Guidelines for Developers and Reviewers</title>
+<title>Chapter 13 Common Bioconductor Methods and Classes | Bioconductor Package Guidelines for Developers and Reviewers</title>
 <meta name="author" content="Kevin Rue-Albrecht">
 <meta name="author" content="Daniela Cassol">
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
-<meta name="description" content="Reviewers may find the following links and references useful. Package Review checklist Reviewers can download a template review checklist here . This checklist can be pasted into the relevant...">
+<meta name="description" content="We strongly recommend reusing existing methods for importing data, and reusing established classes for representing data. Here are some suggestions for importing different file types and commonly...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 25 Reviewer Resources and Tools | Bioconductor Package Guidelines for Developers and Reviewers">
+<meta property="og:title" content="Chapter 13 Common Bioconductor Methods and Classes | Bioconductor Package Guidelines for Developers and Reviewers">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Reviewers may find the following links and references useful. Package Review checklist Reviewers can download a template review checklist here . This checklist can be pasted into the relevant...">
+<meta property="og:description" content="We strongly recommend reusing existing methods for importing data, and reusing established classes for representing data. Here are some suggestions for importing different file types and commonly...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 25 Reviewer Resources and Tools | Bioconductor Package Guidelines for Developers and Reviewers">
-<meta name="twitter:description" content="Reviewers may find the following links and references useful. Package Review checklist Reviewers can download a template review checklist here . This checklist can be pasted into the relevant...">
+<meta name="twitter:title" content="Chapter 13 Common Bioconductor Methods and Classes | Bioconductor Package Guidelines for Developers and Reviewers">
+<meta name="twitter:description" content="We strongly recommend reusing existing methods for importing data, and reusing established classes for representing data. Here are some suggestions for importing different file types and commonly...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -57,7 +57,7 @@
 <li><a class="" href="tests.html"><span class="header-section-number">10</span> Unit tests</a></li>
 <li><a class="" href="long-tests.html"><span class="header-section-number">11</span> Long Tests</a></li>
 <li><a class="" href="r-code.html"><span class="header-section-number">12</span> R code</a></li>
-<li><a class="" href="common-bioconductor-methods-and-classes.html"><span class="header-section-number">13</span> Common Bioconductor Methods and Classes</a></li>
+<li><a class="active" href="common-bioconductor-methods-and-classes.html"><span class="header-section-number">13</span> Common Bioconductor Methods and Classes</a></li>
 <li><a class="" href="robust-and-efficient-code.html"><span class="header-section-number">14</span> Robust and Efficient Code</a></li>
 <li><a class="" href="c-fortran.html"><span class="header-section-number">15</span> C and Fortran code</a></li>
 <li><a class="" href="cmavericks-best-practices.html"><span class="header-section-number">16</span> C++/Mavericks Best Practices</a></li>
@@ -72,7 +72,7 @@
 <li class="book-part">Package Reviewer Resources</li>
 <li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
 <li><a class="" href="review-expectation.html"><span class="header-section-number">24</span> Review Expectations</a></li>
-<li><a class="active" href="reviewtools.html"><span class="header-section-number">25</span> Reviewer Resources and Tools</a></li>
+<li><a class="" href="reviewtools.html"><span class="header-section-number">25</span> Reviewer Resources and Tools</a></li>
 <li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">26</span> Volunteer to Review</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="booknews.html"><span class="header-section-number">A</span> NEWS</a></li>
@@ -83,68 +83,84 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="reviewtools" class="section level1" number="25">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="common-bioconductor-methods-and-classes" class="section level1" number="13">
 <h1>
-<span class="header-section-number">25</span> Reviewer Resources and Tools<a class="anchor" aria-label="anchor" href="#reviewtools"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13</span> Common Bioconductor Methods and Classes<a class="anchor" aria-label="anchor" href="#common-bioconductor-methods-and-classes"><i class="fas fa-link"></i></a>
 </h1>
-<p>Reviewers may find the following links and references useful.</p>
-<div id="review-checklist" class="section level2 unnumbered">
-<h2>Package Review checklist<a class="anchor" aria-label="anchor" href="#review-checklist"><i class="fas fa-link"></i></a>
+<p>We strongly recommend reusing existing methods for importing data, and
+reusing established classes for representing data. Here are some
+suggestions for importing different file types and commonly used
+<em>Bioconductor</em> classes. For more classes and functionality also try
+searching in <a href="/packages">BiocViews</a> for your data type.</p>
+<div id="importing" class="section level2" number="13.1">
+<h2>
+<span class="header-section-number">13.1</span> Importing<a class="anchor" aria-label="anchor" href="#importing"><i class="fas fa-link"></i></a>
 </h2>
-<p>Reviewers can download a template review checklist <a href="docs/package-review-checklist.md" target="_blank">here</a> <i class="fas fa-external-link-alt"></i>.</p>
-<p>This checklist can be pasted into the relevant issue of the <a href="https://github.com/Bioconductor/Contributions/issues">New Submission Tracker</a>,
-and updated as the review progresses.</p>
+<ul>
+<li>GTF, GFF, BED, BigWig, etc., – <a href="https://bioconductor.org/packages/rtracklayer">rtracklayer</a><code>::import()</code>
+</li>
+<li>VCF – <a href="https://bioconductor.org/packages/VariantAnnotation">VariantAnnotation</a><code>::readVcf()</code>
+</li>
+<li>SAM / BAM – <a href="https://bioconductor.org/packages/Rsamtools">Rsamtools</a><code>::scanBam()</code>,
+<a href="https://bioconductor.org/packages/GenomicAlignments">GenomicAlignments</a><code>::readGAlignment*()</code>
+</li>
+<li>FASTA – <a href="https://bioconductor.org/packages/Biostrings">Biostrings</a><code>::readDNAStringSet()</code>
+</li>
+<li>FASTQ – <a href="https://bioconductor.org/packages/ShortRead">ShortRead</a><code>::readFastq()</code>
+</li>
+<li>MS data (XML-based and mgf formats) – <a href="https://bioconductor.org/packages/Spectra">Spectra</a><code>::Spectra()</code>,
+<a href="https://bioconductor.org/packages/MSnbase">MSnbase</a><code>::readMSData()</code>, <a href="https://bioconductor.org/packages/Spectra">Spectra</a><code>::Spectra(source = MsBackendMgf::MsBackendMgf())</code>,
+<a href="https://bioconductor.org/packages/MSnbase">MSnbase</a><code>::readMgfData()</code>
+</li>
+</ul>
 </div>
-<div id="review-example" class="section level2 unnumbered">
-<h2>Example Review<a class="anchor" aria-label="anchor" href="#review-example"><i class="fas fa-link"></i></a>
+<div id="common-classes" class="section level2" number="13.2">
+<h2>
+<span class="header-section-number">13.2</span> Common Classes<a class="anchor" aria-label="anchor" href="#common-classes"><i class="fas fa-link"></i></a>
 </h2>
-Example Software Package Reviews:
 <ul>
-<li>
-<a href="https://github.com/Bioconductor/Contributions/issues/2090">Review 2090: HubPub</a>
+<li>Rectangular feature x sample data –
+<a href="https://bioconductor.org/packages/SummarizedExperiment">SummarizedExperiment</a><code>::SummarizedExperiment()</code> (RNAseq count
+matrix, microarray, …)</li>
+<li>Genomic coordinates – <a href="https://bioconductor.org/packages/GenomicRanges">GenomicRanges</a><code>::GRanges()</code> (1-based,
+closed interval)</li>
+<li>Genomic coordinates from multiple samples –
+<a href="https://bioconductor.org/packages/GenomicRanges">GenomicRanges</a><code>::GRangesList()</code>
 </li>
-<li>
-<a href="https://github.com/Bioconductor/Contributions/issues/1229">Review 1229: BiocSet</a>
+<li>Ragged genomic coordinates – <a href="https://bioconductor.org/packages/RaggedExperiment">RaggedExperiment</a><code>::RaggedExperiment()</code>
 </li>
-<li>
-<a href="https://github.com/Bioconductor/Contributions/issues/1659">Review 1659: AnVILBilling</a>
+<li>DNA / RNA / AA sequences – <a href="https://bioconductor.org/packages/Biostrings">Biostrings</a><code>::*StringSet()</code>
 </li>
-<li>
-<a href="https://github.com/Bioconductor/Contributions/issues/1671">Review 1671: AnVILPublish</a>
+<li>Gene sets – <a href="https://bioconductor.org/packages/BiocSet">BiocSet</a><code>::BiocSet()</code>,
+<a href="https://bioconductor.org/packages/GSEABase">GSEABase</a><code>::GeneSet()</code>,
+<a href="https://bioconductor.org/packages/GSEABase">GSEABase</a><code>::GeneSetCollection()</code>
 </li>
-<li>
-<a href="https://github.com/Bioconductor/Contributions/issues/311">Review 311: AnnotationFilter</a>
+<li>Multi-omics data –
+<a href="https://bioconductor.org/packages/MultiAssayExperiment">MultiAssayExperiment</a><code>::MultiAssayExperiment()</code>
 </li>
-</ul>
-Example of Large Data Package / Request conversion to Hub:
-<ul>
-<li>
-<a href="https://github.com/Bioconductor/Contributions/issues/498">Review 498: restfulSEData</a>
+<li>Single cell data –
+<a href="https://bioconductor.org/packages/SingleCellExperiment">SingleCellExperiment</a><code>::SingleCellExperiment()</code>
 </li>
-</ul>
-Example of Multiple Package Review / AdditionalPackage usage:
-<ul>
-<li>
-<a href="https://github.com/Bioconductor/Contributions/issues/1270">Review 1270: biscuiteerData/biscuiteer</a>
+<li>Mass spec data – <a href="https://bioconductor.org/packages/Spectra">Spectra</a><code>::Spectra()</code>, <a href="https://bioconductor.org/packages/MSnbase">MSnbase</a><code>::MSnExp()</code>
 </li>
 </ul>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="review-expectation.html"><span class="header-section-number">24</span> Review Expectations</a></div>
-<div class="next"><a href="review-volunteer-chapter.html"><span class="header-section-number">26</span> Volunteer to Review</a></div>
+<div class="prev"><a href="r-code.html"><span class="header-section-number">12</span> R code</a></div>
+<div class="next"><a href="robust-and-efficient-code.html"><span class="header-section-number">14</span> Robust and Efficient Code</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#reviewtools"><span class="header-section-number">25</span> Reviewer Resources and Tools</a></li>
-<li><a class="nav-link" href="#review-checklist">Package Review checklist</a></li>
-<li><a class="nav-link" href="#review-example">Example Review</a></li>
+<li><a class="nav-link" href="#common-bioconductor-methods-and-classes"><span class="header-section-number">13</span> Common Bioconductor Methods and Classes</a></li>
+<li><a class="nav-link" href="#importing"><span class="header-section-number">13.1</span> Importing</a></li>
+<li><a class="nav-link" href="#common-classes"><span class="header-section-number">13.2</span> Common Classes</a></li>
 </ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/Bioconductor/pkgrevdocs/blob/master/20-reviewer-tools.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/Bioconductor/pkgrevdocs/edit/master/20-reviewer-tools.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/Bioconductor/pkgrevdocs/blob/master/10a-commonMethodsAndClasses.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/Bioconductor/pkgrevdocs/edit/master/10a-commonMethodsAndClasses.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>

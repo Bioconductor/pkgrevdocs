@@ -4,19 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 25 Reviewer Resources and Tools | Bioconductor Package Guidelines for Developers and Reviewers</title>
+<title>Chapter 17 Querying Web Resources | Bioconductor Package Guidelines for Developers and Reviewers</title>
 <meta name="author" content="Kevin Rue-Albrecht">
 <meta name="author" content="Daniela Cassol">
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
-<meta name="description" content="Reviewers may find the following links and references useful. Package Review checklist Reviewers can download a template review checklist here . This checklist can be pasted into the relevant...">
+<meta name="description" content="Packages that rely on access to web resources need to be written carefully. Web resources can change location, can be temporarily unavailable, or can be very slow to access and retrieve. Functions...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 25 Reviewer Resources and Tools | Bioconductor Package Guidelines for Developers and Reviewers">
+<meta property="og:title" content="Chapter 17 Querying Web Resources | Bioconductor Package Guidelines for Developers and Reviewers">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Reviewers may find the following links and references useful. Package Review checklist Reviewers can download a template review checklist here . This checklist can be pasted into the relevant...">
+<meta property="og:description" content="Packages that rely on access to web resources need to be written carefully. Web resources can change location, can be temporarily unavailable, or can be very slow to access and retrieve. Functions...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 25 Reviewer Resources and Tools | Bioconductor Package Guidelines for Developers and Reviewers">
-<meta name="twitter:description" content="Reviewers may find the following links and references useful. Package Review checklist Reviewers can download a template review checklist here . This checklist can be pasted into the relevant...">
+<meta name="twitter:title" content="Chapter 17 Querying Web Resources | Bioconductor Package Guidelines for Developers and Reviewers">
+<meta name="twitter:description" content="Packages that rely on access to web resources need to be written carefully. Web resources can change location, can be temporarily unavailable, or can be very slow to access and retrieve. Functions...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -61,7 +61,7 @@
 <li><a class="" href="robust-and-efficient-code.html"><span class="header-section-number">14</span> Robust and Efficient Code</a></li>
 <li><a class="" href="c-fortran.html"><span class="header-section-number">15</span> C and Fortran code</a></li>
 <li><a class="" href="cmavericks-best-practices.html"><span class="header-section-number">16</span> C++/Mavericks Best Practices</a></li>
-<li><a class="" href="querying-web-resources.html"><span class="header-section-number">17</span> Querying Web Resources</a></li>
+<li><a class="active" href="querying-web-resources.html"><span class="header-section-number">17</span> Querying Web Resources</a></li>
 <li><a class="" href="third-party-code.html"><span class="header-section-number">18</span> Third-party code</a></li>
 <li><a class="" href="shiny.html"><span class="header-section-number">19</span> Shiny apps</a></li>
 <li><a class="" href="non-software.html"><span class="header-section-number">20</span> Non-Software Packages</a></li>
@@ -72,7 +72,7 @@
 <li class="book-part">Package Reviewer Resources</li>
 <li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
 <li><a class="" href="review-expectation.html"><span class="header-section-number">24</span> Review Expectations</a></li>
-<li><a class="active" href="reviewtools.html"><span class="header-section-number">25</span> Reviewer Resources and Tools</a></li>
+<li><a class="" href="reviewtools.html"><span class="header-section-number">25</span> Reviewer Resources and Tools</a></li>
 <li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">26</span> Volunteer to Review</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="booknews.html"><span class="header-section-number">A</span> NEWS</a></li>
@@ -83,68 +83,106 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="reviewtools" class="section level1" number="25">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="querying-web-resources" class="section level1" number="17">
 <h1>
-<span class="header-section-number">25</span> Reviewer Resources and Tools<a class="anchor" aria-label="anchor" href="#reviewtools"><i class="fas fa-link"></i></a>
+<span class="header-section-number">17</span> Querying Web Resources<a class="anchor" aria-label="anchor" href="#querying-web-resources"><i class="fas fa-link"></i></a>
 </h1>
-<p>Reviewers may find the following links and references useful.</p>
-<div id="review-checklist" class="section level2 unnumbered">
-<h2>Package Review checklist<a class="anchor" aria-label="anchor" href="#review-checklist"><i class="fas fa-link"></i></a>
+<p>Packages that rely on access to web resources need to be written
+carefully. Web resources can change location, can be temporarily
+unavailable, or can be very slow to access and retrieve. Functions
+that query web resources, should anticipate and handle such situations
+gracefully – failing quickly and clearly when the resource is not
+available in a reasonable time frame. Some avoidable problems seen in
+<em>Bioconductor</em> package code include infinite loops, use of all
+available <em>R</em> connections, and unclear error messages.</p>
+<div id="guiding-principles-1" class="section level2" number="17.1">
+<h2>
+<span class="header-section-number">17.1</span> Guiding Principles<a class="anchor" aria-label="anchor" href="#guiding-principles-1"><i class="fas fa-link"></i></a>
 </h2>
-<p>Reviewers can download a template review checklist <a href="docs/package-review-checklist.md" target="_blank">here</a> <i class="fas fa-external-link-alt"></i>.</p>
-<p>This checklist can be pasted into the relevant issue of the <a href="https://github.com/Bioconductor/Contributions/issues">New Submission Tracker</a>,
-and updated as the review progresses.</p>
+<p>Remember the <em>Bioconductor</em> packages are built nightly across multiple
+operating systems, and that users benefit from easy-to-run vignettes
+and examples.</p>
+<ol style="list-style-type: decimal">
+<li><p>Download files of reasonable size. Use <code><a href="https://rdrr.io/r/base/system.time.html">system.time()</a></code> to estimate the
+download time. Remember the package should require less than 5 minutes to
+run <code>R CMD check --no-build-vignettes</code>.</p></li>
+<li><p>Set a limit on the number of times the function tries a URL. Avoid
+<code>while()</code> statements that have no guaranteed termination. These
+become infinite loops and eventually result in build-system <code>TIMEOUT</code>s.</p></li>
+<li><p>Supply an informative error message.</p></li>
+</ol>
 </div>
-<div id="review-example" class="section level2 unnumbered">
-<h2>Example Review<a class="anchor" aria-label="anchor" href="#review-example"><i class="fas fa-link"></i></a>
+<div id="template-for-resource-queries" class="section level2" number="17.2">
+<h2>
+<span class="header-section-number">17.2</span> Template for Resource Queries<a class="anchor" aria-label="anchor" href="#template-for-resource-queries"><i class="fas fa-link"></i></a>
 </h2>
-Example Software Package Reviews:
+<p>This function can serve as a template for appropriate resource
+retrieval. It tries to retrieve the resource one or several times before
+failing, and takes as arguments:</p>
 <ul>
 <li>
-<a href="https://github.com/Bioconductor/Contributions/issues/2090">Review 2090: HubPub</a>
-</li>
+<code>URL</code>, the resource to be queried, typically <code>character(1)</code> or
+<code><a href="https://rdrr.io/r/base/connections.html">url()</a></code>.</li>
 <li>
-<a href="https://github.com/Bioconductor/Contributions/issues/1229">Review 1229: BiocSet</a>
-</li>
+<code>FUN</code>, the function to be used to query the resource. Examples might
+include <code><a href="https://rdrr.io/r/base/readLines.html">readLines()</a></code>, <code><a href="https://rdrr.io/r/utils/download.file.html">download.file()</a></code>, <code>httr::GET()</code>,
+<code>RCurl::getURL()</code>.</li>
 <li>
-<a href="https://github.com/Bioconductor/Contributions/issues/1659">Review 1659: AnVILBilling</a>
-</li>
+<code>...</code>: additional arguments used by <code>FUN</code>.</li>
 <li>
-<a href="https://github.com/Bioconductor/Contributions/issues/1671">Review 1671: AnVILPublish</a>
-</li>
-<li>
-<a href="https://github.com/Bioconductor/Contributions/issues/311">Review 311: AnnotationFilter</a>
-</li>
+<code>N.TRIES</code>: the number of times the URL will be attempted; only under
+exceptional circumstances might this differ from its default value.</li>
 </ul>
-Example of Large Data Package / Request conversion to Hub:
-<ul>
-<li>
-<a href="https://github.com/Bioconductor/Contributions/issues/498">Review 498: restfulSEData</a>
-</li>
-</ul>
-Example of Multiple Package Review / AdditionalPackage usage:
-<ul>
-<li>
-<a href="https://github.com/Bioconductor/Contributions/issues/1270">Review 1270: biscuiteerData/biscuiteer</a>
-</li>
-</ul>
+<p>The return value is the retrieved resource. If resource retrieval
+fails, the function indicates the failure, including the condition
+(error) message on the last attempt. Warnings propagate to the user in
+the normal way.</p>
+<pre><code>getURL &lt;- function(URL, FUN, ..., N.TRIES=1L) {
+    N.TRIES &lt;- as.integer(N.TRIES)
+    stopifnot(length(N.TRIES) == 1L, !is.na(N.TRIES))
+
+    while (N.TRIES &gt; 0L) {
+        result &lt;- tryCatch(FUN(URL, ...), error=identity)
+        if (!inherits(result, "error"))
+            break
+        N.TRIES &lt;- N.TRIES - 1L
+    }
+
+    if (N.TRIES == 0L) {
+        stop("'getURL()' failed:",
+             "\n  URL: ", URL,
+             "\n  error: ", conditionMessage(result))
+    }
+
+    result
+}</code></pre>
+<p>Base <em>R</em> functions using <code><a href="https://rdrr.io/r/base/connections.html">url()</a></code> connections respect
+<code>getOption("timeout")</code>; see <code><a href="https://rdrr.io/r/base/connections.html">?url</a></code> for details.</p>
+<p><code>FUN</code> might be implemented to retrieve the resource and test for
+status, e.g.,</p>
+<pre><code>FUN &lt;- function(URL, ...) {
+    response &lt;- httr::GET(URL, timeout(getOption("timeout")), ...)
+    stop_for_status(response)
+    response
+}</code></pre>
+
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="review-expectation.html"><span class="header-section-number">24</span> Review Expectations</a></div>
-<div class="next"><a href="review-volunteer-chapter.html"><span class="header-section-number">26</span> Volunteer to Review</a></div>
+<div class="prev"><a href="cmavericks-best-practices.html"><span class="header-section-number">16</span> C++/Mavericks Best Practices</a></div>
+<div class="next"><a href="third-party-code.html"><span class="header-section-number">18</span> Third-party code</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#reviewtools"><span class="header-section-number">25</span> Reviewer Resources and Tools</a></li>
-<li><a class="nav-link" href="#review-checklist">Package Review checklist</a></li>
-<li><a class="nav-link" href="#review-example">Example Review</a></li>
+<li><a class="nav-link" href="#querying-web-resources"><span class="header-section-number">17</span> Querying Web Resources</a></li>
+<li><a class="nav-link" href="#guiding-principles-1"><span class="header-section-number">17.1</span> Guiding Principles</a></li>
+<li><a class="nav-link" href="#template-for-resource-queries"><span class="header-section-number">17.2</span> Template for Resource Queries</a></li>
 </ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/Bioconductor/pkgrevdocs/blob/master/20-reviewer-tools.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/Bioconductor/pkgrevdocs/edit/master/20-reviewer-tools.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/Bioconductor/pkgrevdocs/blob/master/11a-webquery.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/Bioconductor/pkgrevdocs/edit/master/11a-webquery.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>

@@ -4,19 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 25 Reviewer Resources and Tools | Bioconductor Package Guidelines for Developers and Reviewers</title>
+<title>Chapter 4 biocViews | Bioconductor Package Guidelines for Developers and Reviewers</title>
 <meta name="author" content="Kevin Rue-Albrecht">
 <meta name="author" content="Daniela Cassol">
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
-<meta name="description" content="Reviewers may find the following links and references useful. Package Review checklist Reviewers can download a template review checklist here . This checklist can be pasted into the relevant...">
+<meta name="description" content="Packages added to the Bioconductor Project require a biocViews: field in their DESCRIPTION file. The field name “biocViews” is case-sensitive and must begin with a lower-case ‘b.’ biocViews terms...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 25 Reviewer Resources and Tools | Bioconductor Package Guidelines for Developers and Reviewers">
+<meta property="og:title" content="Chapter 4 biocViews | Bioconductor Package Guidelines for Developers and Reviewers">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Reviewers may find the following links and references useful. Package Review checklist Reviewers can download a template review checklist here . This checklist can be pasted into the relevant...">
+<meta property="og:description" content="Packages added to the Bioconductor Project require a biocViews: field in their DESCRIPTION file. The field name “biocViews” is case-sensitive and must begin with a lower-case ‘b.’ biocViews terms...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 25 Reviewer Resources and Tools | Bioconductor Package Guidelines for Developers and Reviewers">
-<meta name="twitter:description" content="Reviewers may find the following links and references useful. Package Review checklist Reviewers can download a template review checklist here . This checklist can be pasted into the relevant...">
+<meta name="twitter:title" content="Chapter 4 biocViews | Bioconductor Package Guidelines for Developers and Reviewers">
+<meta name="twitter:description" content="Packages added to the Bioconductor Project require a biocViews: field in their DESCRIPTION file. The field name “biocViews” is case-sensitive and must begin with a lower-case ‘b.’ biocViews terms...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -48,7 +48,7 @@
 <li><a class="" href="package-name.html"><span class="header-section-number">1</span> Package name</a></li>
 <li><a class="" href="general.html"><span class="header-section-number">2</span> General Package Development</a></li>
 <li><a class="" href="description.html"><span class="header-section-number">3</span> The DESCRIPTION file</a></li>
-<li><a class="" href="biocviews-1.html"><span class="header-section-number">4</span> biocViews</a></li>
+<li><a class="active" href="biocviews-1.html"><span class="header-section-number">4</span> biocViews</a></li>
 <li><a class="" href="namespace.html"><span class="header-section-number">5</span> The NAMESPACE file</a></li>
 <li><a class="" href="news.html"><span class="header-section-number">6</span> The NEWS file</a></li>
 <li><a class="" href="citation.html"><span class="header-section-number">7</span> The CITATION file</a></li>
@@ -72,7 +72,7 @@
 <li class="book-part">Package Reviewer Resources</li>
 <li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
 <li><a class="" href="review-expectation.html"><span class="header-section-number">24</span> Review Expectations</a></li>
-<li><a class="active" href="reviewtools.html"><span class="header-section-number">25</span> Reviewer Resources and Tools</a></li>
+<li><a class="" href="reviewtools.html"><span class="header-section-number">25</span> Reviewer Resources and Tools</a></li>
 <li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">26</span> Volunteer to Review</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="booknews.html"><span class="header-section-number">A</span> NEWS</a></li>
@@ -83,68 +83,87 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="reviewtools" class="section level1" number="25">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="biocviews-1" class="section level1" number="4">
 <h1>
-<span class="header-section-number">25</span> Reviewer Resources and Tools<a class="anchor" aria-label="anchor" href="#reviewtools"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4</span> biocViews<a class="anchor" aria-label="anchor" href="#biocviews-1"><i class="fas fa-link"></i></a>
 </h1>
-<p>Reviewers may find the following links and references useful.</p>
-<div id="review-checklist" class="section level2 unnumbered">
-<h2>Package Review checklist<a class="anchor" aria-label="anchor" href="#review-checklist"><i class="fas fa-link"></i></a>
+<p>Packages added to the <em>Bioconductor</em> Project require a <code>biocViews:</code>
+field in their DESCRIPTION file. The field name “biocViews” is
+case-sensitive and must begin with a lower-case ‘b.’</p>
+<p>biocViews terms are “keywords” used to describe a given package. They
+are broadly divided into three categories, representing the type of
+packages present in the <em>Bioconductor</em> Project -</p>
+<ol style="list-style-type: decimal">
+<li>Software</li>
+<li>Annotation Data</li>
+<li>Experiment Data</li>
+</ol>
+<p>biocViews are available for the <a href="http://bioconductor.org/packages/release/BiocViews.html">release</a> and <a href="http://bioconductor.org/packages/devel/BiocViews.html">devel</a> branches of
+<em>Bioconductor</em>. The devel branch has a check box under the tree
+structure which, when checked, displays biocViews that are defined but
+not used by any package, in addition to biocViews that are in use.</p>
+<div id="motivation" class="section level2" number="4.1">
+<h2>
+<span class="header-section-number">4.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation"><i class="fas fa-link"></i></a>
 </h2>
-<p>Reviewers can download a template review checklist <a href="docs/package-review-checklist.md" target="_blank">here</a> <i class="fas fa-external-link-alt"></i>.</p>
-<p>This checklist can be pasted into the relevant issue of the <a href="https://github.com/Bioconductor/Contributions/issues">New Submission Tracker</a>,
-and updated as the review progresses.</p>
+<p>One can use biocViews for two broad purposes.</p>
+<ol style="list-style-type: decimal">
+<li><p>A researcher might want to identify all packages in the
+<em>Bioconductor</em> Project which are related to a specific purpose.
+For example, one may want to look for all packages related to “Copy
+Number Variants.”</p></li>
+<li><p>During development, a package contributor can “tag” their package
+with biocViews so that when someone looking for packages (like in
+scenario 1) can easily find their package.</p></li>
+</ol>
 </div>
-<div id="review-example" class="section level2 unnumbered">
-<h2>Example Review<a class="anchor" aria-label="anchor" href="#review-example"><i class="fas fa-link"></i></a>
+<div id="biocviews-during-new-package-development" class="section level2" number="4.2">
+<h2>
+<span class="header-section-number">4.2</span> biocViews during new package development<a class="anchor" aria-label="anchor" href="#biocviews-during-new-package-development"><i class="fas fa-link"></i></a>
 </h2>
-Example Software Package Reviews:
-<ul>
-<li>
-<a href="https://github.com/Bioconductor/Contributions/issues/2090">Review 2090: HubPub</a>
-</li>
-<li>
-<a href="https://github.com/Bioconductor/Contributions/issues/1229">Review 1229: BiocSet</a>
-</li>
-<li>
-<a href="https://github.com/Bioconductor/Contributions/issues/1659">Review 1659: AnVILBilling</a>
-</li>
-<li>
-<a href="https://github.com/Bioconductor/Contributions/issues/1671">Review 1671: AnVILPublish</a>
-</li>
-<li>
-<a href="https://github.com/Bioconductor/Contributions/issues/311">Review 311: AnnotationFilter</a>
-</li>
-</ul>
-Example of Large Data Package / Request conversion to Hub:
-<ul>
-<li>
-<a href="https://github.com/Bioconductor/Contributions/issues/498">Review 498: restfulSEData</a>
-</li>
-</ul>
-Example of Multiple Package Review / AdditionalPackage usage:
-<ul>
-<li>
-<a href="https://github.com/Bioconductor/Contributions/issues/1270">Review 1270: biscuiteerData/biscuiteer</a>
-</li>
-</ul>
+<p>Visit the <a href="http://bioconductor.org/packages/devel/BiocViews.html">devel</a> branch of biocViews when you are in the process of
+adding biocViews to your new package. Identify as many terms as
+appropriate from the hierarchy. Prefer ‘leaf’ terms at the end of the
+hierarchy, over more inclusive terms. Remember to check the box
+displaying all available terms.</p>
+<p>Please Note:</p>
+<ol style="list-style-type: decimal">
+<li><p>Your package will belong to only one part of <em>Bioconductor</em> Project
+(Software, Annotation Data or Experiment Data), so choose only only
+biocViews from that category.</p></li>
+<li><p>biocViews listed in your package must match exactly (e.g.,
+spelling, capitalization) the terms in the biocViews hierarchy.</p></li>
+</ol>
+<p>When you submit your new package for review , your package is checked
+and built by the <em>Bioconductor</em> Project. We check the following for
+biocViews:</p>
+<ol style="list-style-type: decimal">
+<li><p>Package contributor has added biocViews.</p></li>
+<li><p>biocViews are valid.</p></li>
+<li><p>Package contributor has added biocViews from only one of the categories.</p></li>
+</ol>
+<p>If you receive a “RECOMMENDED” direction for any of these biocViews
+after you have submitted your package, you can try correcting them on
+your own following the directions given here or ask your package
+reviewer for more information.</p>
+
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="review-expectation.html"><span class="header-section-number">24</span> Review Expectations</a></div>
-<div class="next"><a href="review-volunteer-chapter.html"><span class="header-section-number">26</span> Volunteer to Review</a></div>
+<div class="prev"><a href="description.html"><span class="header-section-number">3</span> The DESCRIPTION file</a></div>
+<div class="next"><a href="namespace.html"><span class="header-section-number">5</span> The NAMESPACE file</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#reviewtools"><span class="header-section-number">25</span> Reviewer Resources and Tools</a></li>
-<li><a class="nav-link" href="#review-checklist">Package Review checklist</a></li>
-<li><a class="nav-link" href="#review-example">Example Review</a></li>
+<li><a class="nav-link" href="#biocviews-1"><span class="header-section-number">4</span> biocViews</a></li>
+<li><a class="nav-link" href="#motivation"><span class="header-section-number">4.1</span> Motivation</a></li>
+<li><a class="nav-link" href="#biocviews-during-new-package-development"><span class="header-section-number">4.2</span> biocViews during new package development</a></li>
 </ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/Bioconductor/pkgrevdocs/blob/master/20-reviewer-tools.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/Bioconductor/pkgrevdocs/edit/master/20-reviewer-tools.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/Bioconductor/pkgrevdocs/blob/master/03a-biocViews.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/Bioconductor/pkgrevdocs/edit/master/03a-biocViews.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>

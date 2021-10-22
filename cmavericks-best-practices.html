@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 16 C++/Mavericks Best Practices | Bioconductor Package Guidelines for Developers and Reviewers</title>
+<meta name="author" content="Kevin Rue-Albrecht">
+<meta name="author" content="Daniela Cassol">
+<meta name="author" content="Johannes Rainer">
+<meta name="author" content="Lori Shepherd">
+<meta name="description" content="This guide mostly addresses how to adapt C/C++ code in Bioconductor packages to build on Mac OS X 10.9 (Mavericks). If your package does not use C or C++ code, you can assume this document is not...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 16 C++/Mavericks Best Practices | Bioconductor Package Guidelines for Developers and Reviewers">
+<meta property="og:type" content="book">
+<meta property="og:description" content="This guide mostly addresses how to adapt C/C++ code in Bioconductor packages to build on Mac OS X 10.9 (Mavericks). If your package does not use C or C++ code, you can assume this document is not...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 16 C++/Mavericks Best Practices | Bioconductor Package Guidelines for Developers and Reviewers">
+<meta name="twitter:description" content="This guide mostly addresses how to adapt C/C++ code in Bioconductor packages to build on Mac OS X 10.9 (Mavericks). If your package does not use C or C++ code, you can assume this document is not...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Bioconductor Package Guidelines for Developers and Reviewers</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About Bioconductor</a></li>
+<li class="book-part">Package Development Guidelines</li>
+<li><a class="" href="develop-overview.html">Overview</a></li>
+<li><a class="" href="package-name.html"><span class="header-section-number">1</span> Package name</a></li>
+<li><a class="" href="general.html"><span class="header-section-number">2</span> General Package Development</a></li>
+<li><a class="" href="description.html"><span class="header-section-number">3</span> The DESCRIPTION file</a></li>
+<li><a class="" href="biocviews-1.html"><span class="header-section-number">4</span> biocViews</a></li>
+<li><a class="" href="namespace.html"><span class="header-section-number">5</span> The NAMESPACE file</a></li>
+<li><a class="" href="news.html"><span class="header-section-number">6</span> The NEWS file</a></li>
+<li><a class="" href="citation.html"><span class="header-section-number">7</span> The CITATION file</a></li>
+<li><a class="" href="data.html"><span class="header-section-number">8</span> Package data</a></li>
+<li><a class="" href="docs.html"><span class="header-section-number">9</span> Documentation</a></li>
+<li><a class="" href="tests.html"><span class="header-section-number">10</span> Unit tests</a></li>
+<li><a class="" href="long-tests.html"><span class="header-section-number">11</span> Long Tests</a></li>
+<li><a class="" href="r-code.html"><span class="header-section-number">12</span> R code</a></li>
+<li><a class="" href="common-bioconductor-methods-and-classes.html"><span class="header-section-number">13</span> Common Bioconductor Methods and Classes</a></li>
+<li><a class="" href="robust-and-efficient-code.html"><span class="header-section-number">14</span> Robust and Efficient Code</a></li>
+<li><a class="" href="c-fortran.html"><span class="header-section-number">15</span> C and Fortran code</a></li>
+<li><a class="active" href="cmavericks-best-practices.html"><span class="header-section-number">16</span> C++/Mavericks Best Practices</a></li>
+<li><a class="" href="querying-web-resources.html"><span class="header-section-number">17</span> Querying Web Resources</a></li>
+<li><a class="" href="third-party-code.html"><span class="header-section-number">18</span> Third-party code</a></li>
+<li><a class="" href="shiny.html"><span class="header-section-number">19</span> Shiny apps</a></li>
+<li><a class="" href="non-software.html"><span class="header-section-number">20</span> Non-Software Packages</a></li>
+<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">21</span> Package End of Life Policy</a></li>
+<li><a class="" href="gitignore.html"><span class="header-section-number">22</span> The .gitignore file</a></li>
+<li><a class="" href="conclusion.html"><span class="header-section-number">23</span> Conclusion</a></li>
+<li><a class="" href="references-1.html">References</a></li>
+<li class="book-part">Package Reviewer Resources</li>
+<li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
+<li><a class="" href="review-expectation.html"><span class="header-section-number">24</span> Review Expectations</a></li>
+<li><a class="" href="reviewtools.html"><span class="header-section-number">25</span> Reviewer Resources and Tools</a></li>
+<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">26</span> Volunteer to Review</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="booknews.html"><span class="header-section-number">A</span> NEWS</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/Bioconductor/pkgrevdocs">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="cmavericks-best-practices" class="section level1" number="16">
+<h1>
+<span class="header-section-number">16</span> C++/Mavericks Best Practices<a class="anchor" aria-label="anchor" href="#cmavericks-best-practices"><i class="fas fa-link"></i></a>
+</h1>
+<p>This guide mostly addresses how to adapt C/C++ code in Bioconductor
+packages to build on Mac OS X 10.9 (Mavericks). If your package does
+not use C or C++ code, you can assume this document is not relevant to
+you.</p>
+<div id="table-of-contents-1" class="section level2" number="16.1">
+<h2>
+<span class="header-section-number">16.1</span> Table of Contents<a class="anchor" aria-label="anchor" href="#table-of-contents-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>This document is written to be read from beginning to end, except for
+the last section.</p>
+<ul>
+<li>
+<a href="cmavericks-best-practices.html#orientation">Orientation</a>: how to approach developing for
+Mavericks.</li>
+<li>
+<a href="cmavericks-best-practices.html#CXX11">C++11</a>: important info about C++11 and clang’s standard
+library implementation.</li>
+<li>
+<a href="cmavericks-best-practices.html#issues-with-Mavericks-env">Issues specific to the Mavericks
+environment</a>: special considerations for
+tools available for Mavericks.</li>
+<li>
+<a href="cmavericks-best-practices.html#best-practices">C++ Best Practices</a>: generally applicable best
+practices for C++ in Bioconductor packages.</li>
+<li>
+<a href="cmavericks-best-practices.html#issues-external-code-sources">Issues with code from external
+sources</a>: tips for using code not
+written by the package contributor.</li>
+<li>
+<a href="cmavericks-best-practices.html#lessons-learned">Lessons learned from specific issues</a>: a
+repository of knowledge about specific problems.</li>
+</ul>
+<p>You might skip to the <a href="cmavericks-best-practices.html#lessons-learned">lessons-learned</a> section to
+check if your issue has already been explored.</p>
+</div>
+<div id="orientation" class="section level2" number="16.2">
+<h2>
+<span class="header-section-number">16.2</span> Orientation<a class="anchor" aria-label="anchor" href="#orientation"><i class="fas fa-link"></i></a>
+</h2>
+<p>Note: For simplicity, this guide uses ‘GCC’ (GNU Compiler Collection)
+and ‘clang’ to refer to each respective collection of tools (including
+C++ compilers), rather than simply the ‘GCC C compiler’ or ‘clang C
+compiler.’ ‘Mavericks environment’ refers to the combination of clang
+and Xcode versions available by default for Mavericks.</p>
+<p>With the release of the Mavericks
+build of R, CRAN and Bioconductor have adopted Apple’s preferred
+toolchain for building packages for the Mavericks
+platform. Bioconductor packages are built on the Mavericks platform
+using the OS X default combination of <a href="http://clang.llvm.org/">clang</a>
+and <a href="https://developer.apple.com/xcode/">Xcode</a>.</p>
+<p>The introduction of the Mavericks environment has revealed a number of
+issues with building packages, most of which are due to C/C++ code
+that relies too heavily on the GCC way of doing things. Most problems
+revealed by the transition to Mavericks are caused by C++ coding
+practices that are universally recognized as problematic, and are
+addressed by adhering to established <a href="cmavericks-best-practices.html#best-practices">best practices</a>.</p>
+<p>Here are some common sources of problems, posed as how the Mavericks
+environment contrasts with GCC:</p>
+<ul>
+<li><p><a href="cmavericks-best-practices.html#undefined-behavior">Undefined behavior</a>. Under GCC the undefined
+behavior might fail silently without affecting program execution,
+whereas the same code in the Mavericks environment leads to a
+segfault (“segmentation fault”).</p></li>
+<li><p><a href="cmavericks-best-practices.html#name-resolution-errors">Issues related to naming</a>, particularly in
+circumventing the protections offered by C++ namespaces. GCC header
+organization seems to be more forgiving of loose naming, whereas the
+Mavericks environment is more exacting.</p></li>
+<li><p><a href="cmavericks-best-practices.html#CXX11">C++11</a> as the default language specification, and clang’s
+<a href="http://libcxx.llvm.org/">libc++</a>. libc++ is an implementation of the
+C++11 standard library written from scratch. At the time of this
+writing the libc++ implementation is only available for Mac OS X.</p></li>
+<li><p><a href="cmavericks-best-practices.html#issues-external-code-sources">Code not written directly by the package
+contributor(s)</a>. Many Bioconductor
+packages that do not transition well to the Mavericks environment
+include third-party (e.g., Boost) or generated (e.g., SWIG)
+code. Many external code sources make assumptions that are not valid
+for the Mavericks environment. The compounded difficulty of
+diagnosing problems in code not written by the package author limits
+the Bioconductor team’s ability to help with your package.</p></li>
+</ul>
+<div id="what-is-different-about-developing-for-the-mavericks-environment" class="section level3" number="16.2.1">
+<h3>
+<span class="header-section-number">16.2.1</span> What is different about developing for the Mavericks environment?<a class="anchor" aria-label="anchor" href="#what-is-different-about-developing-for-the-mavericks-environment"><i class="fas fa-link"></i></a>
+</h3>
+<p>The biggest change is the introduction of clang’s
+<a href="http://libcxx.llvm.org/">libc++</a> implementation of the C++11 standard
+library and the library headers associated with Xcode. clang is
+gaining market share for several reasons, helped by the fact that
+clang is intended only as a compiler for C-based languages. Advocates
+of clang hold that clang:</p>
+<ul>
+<li>offers better diagnostic information for errors and warnings</li>
+<li>has quicker compilation times</li>
+<li>sometimes yields smaller binaries</li>
+<li>in some cases yields faster execution speeds (disputed)</li>
+</ul>
+<p>For guidance on compiler flags to use while developing, see the
+<a href="c-fortran.html#c-fortran">relevant section of the Package Guidelines page</a>.</p>
+<div id="differences-in-unspecified-behavior-memory-addressing-policies" class="section level4" number="16.2.1.1">
+<h4>
+<span class="header-section-number">16.2.1.1</span> Differences in unspecified behavior, memory addressing policies<a class="anchor" aria-label="anchor" href="#differences-in-unspecified-behavior-memory-addressing-policies"><i class="fas fa-link"></i></a>
+</h4>
+<p>Some errors encountered during the transition seem to be attributable
+to reliance on non-portable unspecified behaviors. See the section of
+this guide about <a href="cmavericks-best-practices.html#undefined-behavior">unspecified behavior</a> for more
+information.</p>
+<p>For example, many aspects of C/C++ memory addressing are
+implementation-dependent, which means expected behavior is not
+prescribed by the C/C++ standard (“unspecified”) and is therefore up
+to compiler writers to decide.</p>
+<p>The foremost difference regarding memory is clang seems to be more
+restrictive about out-of-bounds memory addressing.</p>
+</div>
+<div id="find-bugs" class="section level4" number="16.2.1.2">
+<h4>
+<span class="header-section-number">16.2.1.2</span> How to find bugs<a class="anchor" aria-label="anchor" href="#find-bugs"><i class="fas fa-link"></i></a>
+</h4>
+<p>With GCC the preferred debugger is
+<a href="http://www.gnu.org/software/gdb/">gdb</a>, but many prefer
+<a href="http://lldb.llvm.org/">lldb</a> for debugging in the Mavericks
+environment. Support for <a href="http://lldb.llvm.org/status.html">lldb on other
+platforms</a> is limited at this time.</p>
+<p>Because a number of bugs in packages are related to memory addressing
+or layout errors, relying on a debugger alone might not be sufficient
+to track down memory errors. <a href="http://valgrind.org/">Valgrind</a> is the
+premier tool for detecting memory errors.</p>
+<p>See the Bioconductor guide on <a href="/developers/how-to/c-debugging/">debugging C/C++
+code</a> for examples of using a
+debugger and Valgrind.</p>
+</div>
+<div id="what-if-i-cannot-access-a-mavericks-machine" class="section level4" number="16.2.1.3">
+<h4>
+<span class="header-section-number">16.2.1.3</span> What if I cannot access a Mavericks machine?<a class="anchor" aria-label="anchor" href="#what-if-i-cannot-access-a-mavericks-machine"><i class="fas fa-link"></i></a>
+</h4>
+<p>There is no substitute for using a Mavericks machine to troubleshoot
+packages that fail on Mavericks. Many of the errors seen are only
+reproducible with the combination of clang, Xcode, and OS X 10.9.</p>
+<p>But there are several options short of procuring a Mavericks machine:</p>
+<ol style="list-style-type: decimal">
+<li><p>As an <em>exploratory measure</em>, install a more recent version of GCC
+and compile your package with <code>-std=c++11</code> or <code>-std=gnu++11</code> compiler
+arguments (see <a href="/developers/package-guidelines#development-compiler-settings">Package
+Guidelines</a>
+for info about development compiler flags); as of <a href="https://gcc.gnu.org/gcc-4.8/cxx0x_status.html">version
+4.8.1</a>, GCC implements
+all major features of the 2011 ISO C++ standard. Diagnostics for
+errors and warnings have also greatly improved with recent GCC
+versions. Using a <a href="cmavericks-best-practices.html#CXX11">C++11</a> implementation might reveal warnings
+or errors that point to the same issues encountered on Mavericks.</p></li>
+<li><p>Install clang; this is of limited value because many errors are
+unique to the Mavericks environment.</p></li>
+<li><p>Use Valgrind for memory addressing problems; because so many errors
+on the Mavericks platform are related to memory addressing problems,
+many errors should be equally discoverable using Valgrind on Linux.</p></li>
+<li><p>If you are unable to diagnose your problem using the combination of
+<a href="http://bioconductor.org/checkResults/">build system output</a> and
+Valgrind, feel free to contact the <a href="/help/mailing-list/">bioc-devel mailing
+list</a>.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="CXX11" class="section level2" number="16.3">
+<h2>
+<span class="header-section-number">16.3</span> C++11<a class="anchor" aria-label="anchor" href="#CXX11"><i class="fas fa-link"></i></a>
+</h2>
+<p>Although the default version of clang on Mavericks includes support
+for all C++11 features, Bioconductor support for C++11 is dependent on
+the platform with the oldest toolchain. Because the current Snow
+Leopard (Mac OS X 10.6.8) toolchain does not support any C++11
+features, Bioconductor packages generally should not use C++11
+features. Eventually, when Mavericks is more widely adopted, support
+for Snow Leopard will be dropped.</p>
+<p>C++11 is <em>not</em> completely backward-compatible with older standards.</p>
+<p>It is possible to tell clang to use older versions of the standard
+library (the default is <a href="http://libcxx.llvm.org/">libc++</a>), but
+relying on OS version-specific compilation settings is not a workable
+long-term solution. This approach greatly increases the maintenance
+burden for package authors and limits the Bioconductor team’s ability
+to offer support.</p>
+<ul>
+<li>An insidious and more catastrophic consequence of using non-default
+standard libraries is the issue of binary incompatibility. Packages
+linked against one standard library are liable to crash
+(mysteriously) when interfacing with packages linked against a
+different standard library. This is also true for programs at the OS
+level: any program compiled and linked against libstdc++ on the
+Mavericks platform is, by default, assumed to be incompatible with
+programs compiled and linked against libc++.</li>
+</ul>
+<p>Code should be adapted to avoid constructs that are backward- or
+forward-incompatible. See the <a href="cmavericks-best-practices.html#forward-incompatible">forward-incompatibility
+problems</a> section for examples.</p>
+</div>
+<div id="issues-with-Mavericks-env" class="section level2" number="16.4">
+<h2>
+<span class="header-section-number">16.4</span> Issues specific to Mavericks environment<a class="anchor" aria-label="anchor" href="#issues-with-Mavericks-env"><i class="fas fa-link"></i></a>
+</h2>
+<div id="c-linkage" class="section level3" number="16.4.1">
+<h3>
+<span class="header-section-number">16.4.1</span> C Linkage<a class="anchor" aria-label="anchor" href="#c-linkage"><i class="fas fa-link"></i></a>
+</h3>
+<p>C++ uses <code>extern "C"</code> to give declarations C linkage, and hence make
+the declarations accessible to C code. Some <code>R</code> headers when
+<code>#include</code>d in C++ will include C++ system headers that should <strong>not</strong>
+have C linkage. According to the relevant <a href="http://cran.r-project.org/doc/manuals/R-exts.html#Interfacing-C_002b_002b-code">Writing R Extensions Manual
+section</a>,
+<code>R</code> header files should <strong>not</strong> be included within <code>extern "C"</code>
+blocks.</p>
+<p>A typical symptom of bad linkage is at package <em>load time</em> (not
+compilation or link time) an error says a particular symbol cannot be
+found.</p>
+<ul>
+<li>C++ mangles names, so the symbol name <code>R</code> says it cannot find will
+often be unrecognizable. Use the <code>c++filt</code> program installed on your
+system or an online name demangler to produce a human-readable
+version of the symbol name. Note that mangled names are
+environment-specific so a demangler meant for GCC symbol names on
+Linux will not demangle clang symbol names from a Mac.</li>
+</ul>
+<p>Solution: All <code>R</code> headers should be <code>#include</code>d <strong>outside</strong> <code>extern "C"</code> blocks.</p>
+<p>Example of correct <code>#include</code> of R headers:</p>
+<pre><code>#include &lt;R.h&gt;
+extern "C" {
+  void foo(); // function 'foo' and other code in this block has C linkage
+  ...
+}
+extern "C" void bar(); // function 'bar' has C linkage</code></pre>
+</div>
+<div id="openmp" class="section level3" number="16.4.2">
+<h3>
+<span class="header-section-number">16.4.2</span> OpenMP<a class="anchor" aria-label="anchor" href="#openmp"><i class="fas fa-link"></i></a>
+</h3>
+<p>As of this writing the Mavericks environment does not support OpenMP,
+and it is unknown if the tools released by Apple ever will.</p>
+<p>Code should not rely on the availability of OpenMP. Independent of
+concerns over OpenMP support, code should be written from the start to
+degrade nicely in a single-threaded environment.</p>
+<p>See the <a href="http://cran.r-project.org/doc/manuals/R-exts.html#OpenMP-support">Writing R Extensions Manual
+section</a>
+for information about OpenMP code in R packages, and detecting
+support.</p>
+<p>Solution: use preprocessor if-else directives so code degrades
+gracefully if OpenMP support is not available:</p>
+<pre><code>#ifdef SUPPORT_OPENMP
+    // multithreaded OpenMP version of code
+#else
+    // single-threaded version of code
+#endif</code></pre>
+<p>See the
+<a href="http://bioconductor.org/packages/release/bioc/html/ShortRead.html">ShortRead</a>
+package for an example of good practices around support for OpenMP.</p>
+</div>
+</div>
+<div id="best-practices" class="section level2" number="16.5">
+<h2>
+<span class="header-section-number">16.5</span> C++ Best Practices<a class="anchor" aria-label="anchor" href="#best-practices"><i class="fas fa-link"></i></a>
+</h2>
+<p>These C++ practices are applicable for most C++ projects, but have
+been identified by the Bioconductor community as particularly helpful
+in avoiding issues in the Mavericks environment.</p>
+<div id="use-rcpp" class="section level3" number="16.5.1">
+<h3>
+<span class="header-section-number">16.5.1</span> Use Rcpp<a class="anchor" aria-label="anchor" href="#use-rcpp"><i class="fas fa-link"></i></a>
+</h3>
+<p>The <a href="http://cran.r-project.org/web/packages/Rcpp/index.html">Rcpp</a>
+CRAN package allows seamless integration of C++ with <code>R</code>, and is
+cross-platform. The package affords many of the same benefits for the
+<code>R</code> C interface that make C++ so appealing as a language, while
+eliminating many of the pitfalls of programming to the <code>R</code> interface.</p>
+<p>The package is well documented, and has an extensive repository of
+working examples for many tasks: the <a href="http://gallery.rcpp.org/">Rcpp
+Gallery</a>.</p>
+</div>
+<div id="name-resolution-errors" class="section level3" number="16.5.2">
+<h3>
+<span class="header-section-number">16.5.2</span> Avoid name resolution errors<a class="anchor" aria-label="anchor" href="#name-resolution-errors"><i class="fas fa-link"></i></a>
+</h3>
+<p>A name resolution error occurs when the compiler encounters an
+identifier (e.g., variable or function name) that is ambiguous (that
+is, there is a “collision” between two or more identifiers), or name
+lookup rules lead the compiler to resolve a name incorrectly. clang is
+more exacting about identifiers.</p>
+<p>A typical symptom of a name resolution error is the compiler complains
+that the type or number of arguments a function got is different from
+what it expects, and the compiler points to a C++ header file in the
+standard library.</p>
+<p>There are two primary issues with name resolution when writing R
+packages:</p>
+<div id="re-mapping-of-identifiers-from-r-headers" class="section level4" number="16.5.2.1">
+<h4>
+<span class="header-section-number">16.5.2.1</span> Re-mapping of identifiers from R headers<a class="anchor" aria-label="anchor" href="#re-mapping-of-identifiers-from-r-headers"><i class="fas fa-link"></i></a>
+</h4>
+<p>For convenience, <code>R</code> aliases common identifiers from <code>R</code>
+headers. E.g., <code>Rf_length(SEXP)</code> becomes <code>length(SEXP)</code>. While this
+may be convenient for <code>C</code>, the organization of headers in the
+Mavericks environment seems to lead to more collisions than with
+GCC. See relevant section of the <a href="http://cran.r-project.org/doc/manuals/R-exts.html#The-R-API">Writing R Extensions
+Manual</a></p>
+<p>Solution: prevent re-mapping of <code>R</code> identifiers for C++ code by
+defining the R_NO_REMAP symbol. This can be done at the package level
+with a -DR_NO_REMAP preprocessor flag, or on a file-by-file basis with
+<code>#define R_NO_REMAP</code>. Use fully-qualified versions of <code>R</code> identifiers,
+usually by prepending <code>Rf_</code>.</p>
+<p>Example excerpt from header file that prevents re-mapping:</p>
+<pre><code>file CxxCode.h
+------------------
+
+#ifndef CXX_CODE_H
+#define CXX_CODE_H
+#ifdef __cplusplus
+#define R_NO_REMAP
+#endif
+
+...
+
+void foo(SEXP s) {
+    if(Rf_length(s) &gt; 1) // fully qualified: 'Rf_length'
+        ...
+}
+
+#endif</code></pre>
+<p>Note <code>Rf_length</code> is just one example of the many <code>R</code> identifiers that
+might conflict with names in C++ standard library headers.</p>
+</div>
+<div id="namespace-hygiene" class="section level4" number="16.5.2.2">
+<h4>
+<span class="header-section-number">16.5.2.2</span> Namespace hygiene<a class="anchor" aria-label="anchor" href="#namespace-hygiene"><i class="fas fa-link"></i></a>
+</h4>
+<p>Namespaces were introduced in C++ to limit the incidence of name
+collisions. Many authors new to C++, however, use
+<a href="http://en.cppreference.com/w/cpp/language/namespace#Using-directives">using-directives</a>
+(particularly the ‘<code>using namespace std</code>’ directive) unnecessarily,
+thereby reintroducing the very problems namespaces are meant to solve.</p>
+<p>As pointed out in the <a href="http://en.cppreference.com/w/cpp/language/namespace#Notes">cppreference Notes
+section</a>
+the use of the <code>using namespace std</code> directive introduces the entire
+std namespace for name resolution. There is a high likelihood that
+among all the headers in the standard library there is an identifier
+that conflicts with the identifiers in your package.</p>
+<p>Solution: avoid the ‘<code>using namespace std</code>’ directive completely if
+possible, <em>especially</em> in header files. Prefer
+<a href="http://en.cppreference.com/w/cpp/language/namespace#Using-declarations">using-<em>declarations</em></a>
+over using-directives or simply use fully-qualified versions of
+standard library identifiers. New C++ authors overestimate how much
+including the scope resolution operator (namely ‘<code>std::</code>’) affects
+readability.</p>
+<p>Example of introducing std namespace identifiers:</p>
+<pre><code>#include &lt;map&gt;
+#include &lt;utility&gt;
+// Suppose we want to access the std::map and std::make_pair identifiers</code></pre>
+<p>Many new C++ authors will use a using-directive to introduce the
+identifiers they need. <strong>Avoid</strong> if possible:</p>
+<pre><code>using namespace std; // introduces entire std namespace for resolution</code></pre>
+<p>One alternative is using-declarations (e.g., ‘<code>using std::map;</code>’
+which allow hand-picking of identifiers to introduce (as opposed to
+the entire std namespace); here we just want <code>std::map</code> and
+<code>std::make_pair</code>. Even if the list of identifiers we want is quite
+long we just need a single using-declaration for each one:</p>
+<pre><code>using std::map; // 'map' and 'make_pair' introduced at declaration scope
+using std::make_pair;</code></pre>
+<p>Using-declarations can also be block-scoped. This is preferred over
+using-declarations at global scope, as it prevents the unnecessary
+introduction of names at the global scope, a tenet of good namespace
+hygiene:</p>
+<pre><code>void foo() {
+     using std::map;
+     using std::make_pair;
+     map&lt;int, int&gt; m;
+     m.insert(make_pair(5, 7));
+     ...
+}</code></pre>
+<p>A perfectly good alternative is to simply precede standard library
+identifiers with ‘<code>std::</code>’ which most C++ programmers are accustomed
+to reading:</p>
+<pre><code>void foo() {
+     std::map&lt;int, int&gt; m;
+     m.insert(std::make_pair(5, 7));
+}</code></pre>
+</div>
+</div>
+<div id="undefined-behavior" class="section level3" number="16.5.3">
+<h3>
+<span class="header-section-number">16.5.3</span> Avoid undefined behavior and non-portable unspecified behavior<a class="anchor" aria-label="anchor" href="#undefined-behavior"><i class="fas fa-link"></i></a>
+</h3>
+<p>There are two major categories of behavior that is not prescribed by
+the C or C++ standards:</p>
+<ul>
+<li><p><em>undefined behavior</em> is specified to be arbitrary; code that
+produces the behavior might cause the program to crash, or it
+might execute without complaint (“silently”). The effect can also
+differ from one program execution to the next. Well-known examples
+include division by zero, indexing outside of array bounds, and
+dereferencing a null pointer.</p></li>
+<li><p><em>unspecified behavior</em> is consistent and documented, but decided by
+an implementation. These are behaviors that are either not
+mentioned at all by the respective standard, or are mentioned to
+say that they are implementation-dependent. Well-known examples
+include the size of the <code>int</code> type and the size of pointers.</p></li>
+</ul>
+<p>A typical symptom of problematic undefined or unspecified behaviors is
+a segfault that only appears in the Mavericks environment. The reason
+the problem was not discovered before might be that GCC silently
+allows the code to execute instead of crashing the program.</p>
+<p>Solution: code defensively to avoid problematic constructs and <a href="cmavericks-best-practices.html#find-bugs">use
+debuggers</a> to find the code that leads to errors.</p>
+</div>
+</div>
+<div id="issues-external-code-sources" class="section level2" number="16.6">
+<h2>
+<span class="header-section-number">16.6</span> Issues with code from external sources<a class="anchor" aria-label="anchor" href="#issues-external-code-sources"><i class="fas fa-link"></i></a>
+</h2>
+<p>Some packages need to use code not written directly by the
+contributor(s). The most common scenario is to include the source code
+of a library written by a third party. Some packages also use code
+produced by code generation tools, e.g.,
+<a href="http://www.swig.org/">SWIG</a>. First, see the relevant [Package Guidelines
+section][third-party-libraries] for
+guidance on code from external sources.</p>
+<p>See the <a href="cmavericks-best-practices.html#lessons-learned">lessons learned</a> section of this guide for
+suggestions about specific code sources.</p>
+<div id="generated-code" class="section level3" number="16.6.1">
+<h3>
+<span class="header-section-number">16.6.1</span> Generated Code<a class="anchor" aria-label="anchor" href="#generated-code"><i class="fas fa-link"></i></a>
+</h3>
+<p>Some packages use code that is generated by third-party tools, i.e.,
+code written by machines. SWIG is a common example.</p>
+<p>A problem with code written by machines is that the code is meant to
+be <em>read</em> by machines. The top of each code file produced by SWIG, for
+example, states that the code is not meant to be read or edited by
+hand.</p>
+<p>Because many code generation tools make assumptions that are invalid
+for the Mavericks environment, the code needs human attention to fix
+errors; but because of the inscrutable nature of machine-written code
+it is very difficult to isolate the errors.</p>
+<p>Solution: re-generate problem code if possible, otherwise fix by
+hand. Fixing by hand is <strong>strongly discouraged</strong>.</p>
+</div>
+<div id="third-party-libraries" class="section level3" number="16.6.2">
+<h3>
+<span class="header-section-number">16.6.2</span> Third-party libraries<a class="anchor" aria-label="anchor" href="#third-party-libraries"><i class="fas fa-link"></i></a>
+</h3>
+<p>Some packages include third-party libraries that were not written in a
+compiler-independent way, and so do not build out-of-the-box in the
+Mavericks environment.</p>
+<p>Solutions in approximate order of preference:</p>
+<ol style="list-style-type: decimal">
+<li><p>Check if an existing <a href="http://cran.r-project.org/">CRAN</a> or
+Bioconductor package provides the same functionality, while meeting
+the performance needs of your use case. Eliminating third-party
+code from your package greatly reduces the maintenance burden.</p></li>
+<li><p>Check if the library has been updated. Some libraries with an
+active user community undergo updates that add support for more
+compilers/environments.</p></li>
+<li><p>Check if the maintainers are aware the library does not work for
+the Mavericks environment, and find out if support is
+forthcoming. It is usually easy to directly contact authors of
+libraries maintained by an individual or a small group.</p></li>
+<li><p>Use an actively maintained alternate library that provides
+equivalent functionality. Sometimes if a library is no longer
+maintained, it is because the library has been abandoned for an
+alternative project that provides the same functionality.</p></li>
+<li><p>Update the library code included in your package by
+hand. <strong>Strongly discouraged</strong>. Maintainer assumes responsibility
+for keeping code up-to-date with mainline source project. If
+undertaken, record descriptions of changes that are needed so when
+the codebase is updated the changes can be easily reproduced.</p></li>
+</ol>
+</div>
+</div>
+<div id="lessons-learned" class="section level2" number="16.7">
+<h2>
+<span class="header-section-number">16.7</span> Lessons learned from specific issues<a class="anchor" aria-label="anchor" href="#lessons-learned"><i class="fas fa-link"></i></a>
+</h2>
+<p>This section serves as a loosely organized repository for knowledge
+gained about specific problems and their solutions. It is not expected
+to be comprehensive. Items will be added as the knowledge base
+grows. Bioconductor is eager for suggestions; please write the
+<a href="/help/mailing-list/">bioc-devel mailing list</a> if you have any!</p>
+<p>If you have no idea where to start for diagnosing your broken package
+it might be worthwhile to skim over all of this section.</p>
+<p>Where relevant, the issue is marked as being discoverable at compile
+time or runtime.</p>
+<p>Where applicable, a link to a live code demo is provided.</p>
+<div id="forward-incompatible" class="section level3" number="16.7.1">
+<h3>
+<span class="header-section-number">16.7.1</span> Forward-incompatibility problems with C++11<a class="anchor" aria-label="anchor" href="#forward-incompatible"><i class="fas fa-link"></i></a>
+</h3>
+<p>C++11 is not completely backward-compatible. In particular, the API
+for some parts of the standard library has changed slightly, in
+perhaps subtle ways. Most issues require minimal tweaking to fix.</p>
+<div id="container-iterator-const-ness" class="section level4" number="16.7.1.1">
+<h4>
+<span class="header-section-number">16.7.1.1</span> Container iterator const-ness<a class="anchor" aria-label="anchor" href="#container-iterator-const-ness"><i class="fas fa-link"></i></a>
+</h4>
+<p>Type: <em>compile time</em></p>
+<p>A number of operations on standard library containers now require
+iterators to be <code>const</code>. Two ready examples are the
+<a href="http://www.cplusplus.com/reference/vector/vector/insert/"><code>insert</code></a>
+and <a href="http://www.cplusplus.com/reference/vector/vector/erase/"><code>erase</code></a>
+methods that take iterator parameters.</p>
+</div>
+</div>
+<div id="iterating-standard-library-containers" class="section level3" number="16.7.2">
+<h3>
+<span class="header-section-number">16.7.2</span> Iterating standard library containers<a class="anchor" aria-label="anchor" href="#iterating-standard-library-containers"><i class="fas fa-link"></i></a>
+</h3>
+<p>Type: <em>runtime</em></p>
+<p>Generally, using the special
+<a href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/iterators.html"><em>past-the-end</em></a>
+iterator value other than for equality checks (i.e., <code>==</code> or <code>!=</code>)
+results in undefined behavior. Particularly, in the Mavericks
+environment:</p>
+<ul>
+<li>Dereferencing an iterator with the <em>past-the-end</em> value results in a
+segfault</li>
+<li>Incrementing an iterator <em>beyond</em> the <em>past-the-end</em> value results
+in a segfault</li>
+</ul>
+<p>For a walkthrough example of incrementing beyond <em>past-the-end</em>, see
+the <a href="/developers/how-to/c-debugging/#diagnose-a-crash">diagnose-a-crash
+example</a> on the
+debug C/C++ page.</p>
+</div>
+<div id="external-code-sources" class="section level3" number="16.7.3">
+<h3>
+<span class="header-section-number">16.7.3</span> External code sources<a class="anchor" aria-label="anchor" href="#external-code-sources"><i class="fas fa-link"></i></a>
+</h3>
+<p>Common examples of external code sources are
+<a href="http://www.swig.org/">SWIG</a>, <a href="http://www.boost.org/">Boost</a>, and
+numerous file format libraries. Code from external sources is
+sometimes written in non-compiler-independent way. Check the
+documentation to see if the Mavericks environment is supported.</p>
+<div id="boost" class="section level4" number="16.7.3.1">
+<h4>
+<span class="header-section-number">16.7.3.1</span> Boost<a class="anchor" aria-label="anchor" href="#boost"><i class="fas fa-link"></i></a>
+</h4>
+<p><a href="http://www.boost.org/">Boost</a> is a source of free, peer-reviewed C++
+libraries that enhance the language. Many parts of Boost are
+“header-only,” which means they do not need to be separately compiled
+and the headers merely need to appear in the search path in order for
+client code to use them.</p>
+<p>Many Boost libraries are platform-independent, but not all. Some Boost
+libraries are either in the process of adding Mavericks environment
+support, or the library authors have announced Mavericks environment
+support will <em>not</em> be added.</p>
+<p>Solutions in approximate order of preference:</p>
+<ol style="list-style-type: decimal">
+<li><p>Use the <a href="http://cran.r-project.org/web/packages/BH/index.html">BH</a>
+package on CRAN, if possible. The BH package provides several Boost
+header-only libraries. Using the BH package means the maintenance
+cost of using Boost in your package is virtually nothing.</p></li>
+<li><p>Update the Boost libraries you include with your package. Boost
+libraries sometimes contain bugs, or are later updated to add
+support for other platforms. It is the Bioconductor package
+maintainer’s responsibility to keep all code in the package
+updated.</p></li>
+<li><p>Contact the authors of the specific Boost library. If you cannot
+find an announcement regarding support for the Mavericks
+environment, it might be worth contacting the library authors to
+inquire.</p></li>
+</ol>
+</div>
+<div id="swig" class="section level4" number="16.7.3.2">
+<h4>
+<span class="header-section-number">16.7.3.2</span> SWIG<a class="anchor" aria-label="anchor" href="#swig"><i class="fas fa-link"></i></a>
+</h4>
+<p>SWIG generates code to interface between code written in C/C++ and
+other languages. At the time of this writing, SWIG support for clang
+is limited, and SWIG particularly has problems with clang’s libc++
+version of the (C++11) standard library. Some of the problems are
+limited to issues that can be addressed by tweaking function
+signatures. Other problems are deeply embedded in the way SWIG
+produces code.</p>
+<p>At the time of this writing, <a href="http://comments.gmane.org/gmane.comp.programming.swig.devel/22966">this thread on the SWIG-devel mailing
+list</a>
+seems to have the most in-depth discussion about working with SWIG on
+Mavericks.</p>
+<p>Solutions in approximate order of preference:</p>
+<ol style="list-style-type: decimal">
+<li><p>Eliminate SWIG code, if possible. This will probably do the most
+for reducing maintenance burden.</p></li>
+<li><p>Re-generate SWIG code with the newest version of SWIG. At the time
+of this writing SWIG was recently updated to include partial
+support for C++11, which might alleviate problems with clang’s
+<a href="http://libcxx.llvm.org/">libc++</a>. See the <a href="http://www.swig.org/Doc3.0/CPlusPlus11.html">SWIG document about
+C++11 support</a>. It is
+possible the new version will not produce the problematic
+code. Note code must be valid for all supported compilers.</p></li>
+<li>
+<p>Troubleshoot and fix errors by hand. <strong>Strongly discouraged</strong>. If
+undertaken, record descriptions of the changes that were needed so
+if the code is regenerated the changes can be easily reproduced.</p>
+<p>Read <a href="http://www.swig.org/doc.html">SWIG documentation</a> to find
+guidance about troubleshooting. (For example, the SWIG <code>-E</code> switch
+outputs results after the preprocessor has run.) Perhaps start by
+removing all SWIG functionality and gradually adding features. Find
+information on the web about how to fix the errors for your
+package.</p>
+</li>
+</ol>
+</div>
+<div id="f2c" class="section level4" number="16.7.3.3">
+<h4>
+<span class="header-section-number">16.7.3.3</span> f2c<a class="anchor" aria-label="anchor" href="#f2c"><i class="fas fa-link"></i></a>
+</h4>
+<p><a href="http://www.netlib.org/f2c/">f2c</a> is a tool that converts Fortran77
+code to C/C++ code. The maintenance burden required to make f2c code
+cross-platform is substantial. Since a fortran compiler (or emulator)
+is required to install <code>R</code>, f2c is usually unnecessary. Several
+packages use native fortran code without a problem.</p>
+<p>Solution: If at all possible, remove the need for f2c. The only
+recourse is to finesse makefiles to the point that each supported
+platform more or less has a targeted makefile. Please write the
+<a href="/help/mailing-list/">bioc-devel mailing list</a> if you have trouble.</p>
+
+</div>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="c-fortran.html"><span class="header-section-number">15</span> C and Fortran code</a></div>
+<div class="next"><a href="querying-web-resources.html"><span class="header-section-number">17</span> Querying Web Resources</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#cmavericks-best-practices"><span class="header-section-number">16</span> C++/Mavericks Best Practices</a></li>
+<li><a class="nav-link" href="#table-of-contents-1"><span class="header-section-number">16.1</span> Table of Contents</a></li>
+<li>
+<a class="nav-link" href="#orientation"><span class="header-section-number">16.2</span> Orientation</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#what-is-different-about-developing-for-the-mavericks-environment"><span class="header-section-number">16.2.1</span> What is different about developing for the Mavericks environment?</a></li></ul>
+</li>
+<li><a class="nav-link" href="#CXX11"><span class="header-section-number">16.3</span> C++11</a></li>
+<li>
+<a class="nav-link" href="#issues-with-Mavericks-env"><span class="header-section-number">16.4</span> Issues specific to Mavericks environment</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#c-linkage"><span class="header-section-number">16.4.1</span> C Linkage</a></li>
+<li><a class="nav-link" href="#openmp"><span class="header-section-number">16.4.2</span> OpenMP</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#best-practices"><span class="header-section-number">16.5</span> C++ Best Practices</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#use-rcpp"><span class="header-section-number">16.5.1</span> Use Rcpp</a></li>
+<li><a class="nav-link" href="#name-resolution-errors"><span class="header-section-number">16.5.2</span> Avoid name resolution errors</a></li>
+<li><a class="nav-link" href="#undefined-behavior"><span class="header-section-number">16.5.3</span> Avoid undefined behavior and non-portable unspecified behavior</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#issues-external-code-sources"><span class="header-section-number">16.6</span> Issues with code from external sources</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#generated-code"><span class="header-section-number">16.6.1</span> Generated Code</a></li>
+<li><a class="nav-link" href="#third-party-libraries"><span class="header-section-number">16.6.2</span> Third-party libraries</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#lessons-learned"><span class="header-section-number">16.7</span> Lessons learned from specific issues</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#forward-incompatible"><span class="header-section-number">16.7.1</span> Forward-incompatibility problems with C++11</a></li>
+<li><a class="nav-link" href="#iterating-standard-library-containers"><span class="header-section-number">16.7.2</span> Iterating standard library containers</a></li>
+<li><a class="nav-link" href="#external-code-sources"><span class="header-section-number">16.7.3</span> External code sources</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/Bioconductor/pkgrevdocs/blob/master/11a-mavericks.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/Bioconductor/pkgrevdocs/edit/master/11a-mavericks.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Bioconductor Package Guidelines for Developers and Reviewers</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2021-10-22.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

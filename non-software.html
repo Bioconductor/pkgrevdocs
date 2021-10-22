@@ -4,18 +4,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 14 Non-Software Packages | Bioconductor Package Guidelines for Developers and Reviewers</title>
+<title>Chapter 20 Non-Software Packages | Bioconductor Package Guidelines for Developers and Reviewers</title>
 <meta name="author" content="Kevin Rue-Albrecht">
 <meta name="author" content="Daniela Cassol">
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
 <meta name="description" content="Most packages contributed by users are software packages. However, there are instances where other package types are submitted. The following sections will go into specifics we look for in each of...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 14 Non-Software Packages | Bioconductor Package Guidelines for Developers and Reviewers">
+<meta property="og:title" content="Chapter 20 Non-Software Packages | Bioconductor Package Guidelines for Developers and Reviewers">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Most packages contributed by users are software packages. However, there are instances where other package types are submitted. The following sections will go into specifics we look for in each of...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 14 Non-Software Packages | Bioconductor Package Guidelines for Developers and Reviewers">
+<meta name="twitter:title" content="Chapter 20 Non-Software Packages | Bioconductor Package Guidelines for Developers and Reviewers">
 <meta name="twitter:description" content="Most packages contributed by users are software packages. However, there are instances where other package types are submitted. The following sections will go into specifics we look for in each of...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -48,26 +48,32 @@
 <li><a class="" href="package-name.html"><span class="header-section-number">1</span> Package name</a></li>
 <li><a class="" href="general.html"><span class="header-section-number">2</span> General Package Development</a></li>
 <li><a class="" href="description.html"><span class="header-section-number">3</span> The DESCRIPTION file</a></li>
-<li><a class="" href="namespace.html"><span class="header-section-number">4</span> The NAMESPACE file</a></li>
-<li><a class="" href="news.html"><span class="header-section-number">5</span> The NEWS file</a></li>
-<li><a class="" href="citation.html"><span class="header-section-number">6</span> The CITATION file</a></li>
-<li><a class="" href="data.html"><span class="header-section-number">7</span> Package data</a></li>
-<li><a class="" href="docs.html"><span class="header-section-number">8</span> Documentation</a></li>
-<li><a class="" href="tests.html"><span class="header-section-number">9</span> Unit tests</a></li>
-<li><a class="" href="r-code.html"><span class="header-section-number">10</span> R code</a></li>
-<li><a class="" href="c-fortran.html"><span class="header-section-number">11</span> C and Fortran code</a></li>
-<li><a class="" href="third-party-code.html"><span class="header-section-number">12</span> Third-party code</a></li>
-<li><a class="" href="shiny.html"><span class="header-section-number">13</span> Shiny apps</a></li>
-<li><a class="active" href="non-software.html"><span class="header-section-number">14</span> Non-Software Packages</a></li>
-<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">15</span> Package End of Life Policy</a></li>
-<li><a class="" href="gitignore.html"><span class="header-section-number">16</span> The .gitignore file</a></li>
-<li><a class="" href="conclusion.html"><span class="header-section-number">17</span> Conclusion</a></li>
+<li><a class="" href="biocviews-1.html"><span class="header-section-number">4</span> biocViews</a></li>
+<li><a class="" href="namespace.html"><span class="header-section-number">5</span> The NAMESPACE file</a></li>
+<li><a class="" href="news.html"><span class="header-section-number">6</span> The NEWS file</a></li>
+<li><a class="" href="citation.html"><span class="header-section-number">7</span> The CITATION file</a></li>
+<li><a class="" href="data.html"><span class="header-section-number">8</span> Package data</a></li>
+<li><a class="" href="docs.html"><span class="header-section-number">9</span> Documentation</a></li>
+<li><a class="" href="tests.html"><span class="header-section-number">10</span> Unit tests</a></li>
+<li><a class="" href="long-tests.html"><span class="header-section-number">11</span> Long Tests</a></li>
+<li><a class="" href="r-code.html"><span class="header-section-number">12</span> R code</a></li>
+<li><a class="" href="common-bioconductor-methods-and-classes.html"><span class="header-section-number">13</span> Common Bioconductor Methods and Classes</a></li>
+<li><a class="" href="robust-and-efficient-code.html"><span class="header-section-number">14</span> Robust and Efficient Code</a></li>
+<li><a class="" href="c-fortran.html"><span class="header-section-number">15</span> C and Fortran code</a></li>
+<li><a class="" href="cmavericks-best-practices.html"><span class="header-section-number">16</span> C++/Mavericks Best Practices</a></li>
+<li><a class="" href="querying-web-resources.html"><span class="header-section-number">17</span> Querying Web Resources</a></li>
+<li><a class="" href="third-party-code.html"><span class="header-section-number">18</span> Third-party code</a></li>
+<li><a class="" href="shiny.html"><span class="header-section-number">19</span> Shiny apps</a></li>
+<li><a class="active" href="non-software.html"><span class="header-section-number">20</span> Non-Software Packages</a></li>
+<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">21</span> Package End of Life Policy</a></li>
+<li><a class="" href="gitignore.html"><span class="header-section-number">22</span> The .gitignore file</a></li>
+<li><a class="" href="conclusion.html"><span class="header-section-number">23</span> Conclusion</a></li>
 <li><a class="" href="references-1.html">References</a></li>
 <li class="book-part">Package Reviewer Resources</li>
 <li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
-<li><a class="" href="review-expectation.html"><span class="header-section-number">18</span> Review Expectations</a></li>
-<li><a class="" href="reviewtools.html"><span class="header-section-number">19</span> Reviewer Resources and Tools</a></li>
-<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">20</span> Volunteer to Review</a></li>
+<li><a class="" href="review-expectation.html"><span class="header-section-number">24</span> Review Expectations</a></li>
+<li><a class="" href="reviewtools.html"><span class="header-section-number">25</span> Reviewer Resources and Tools</a></li>
+<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">26</span> Volunteer to Review</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="booknews.html"><span class="header-section-number">A</span> NEWS</a></li>
 </ul>
@@ -77,16 +83,16 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="non-software" class="section level1" number="14">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="non-software" class="section level1" number="20">
 <h1>
-<span class="header-section-number">14</span> Non-Software Packages<a class="anchor" aria-label="anchor" href="#non-software"><i class="fas fa-link"></i></a>
+<span class="header-section-number">20</span> Non-Software Packages<a class="anchor" aria-label="anchor" href="#non-software"><i class="fas fa-link"></i></a>
 </h1>
 <p>Most packages contributed by users are software packages. However, there are
 instances where other package types are submitted. The following sections will
 go into specifics we look for in each of the non-software type packages.</p>
-<div id="annotation-and-experiment-data-packages" class="section level2" number="14.1">
+<div id="annotation-and-experiment-data-packages" class="section level2" number="20.1">
 <h2>
-<span class="header-section-number">14.1</span> Annotation and Experiment data packages<a class="anchor" aria-label="anchor" href="#annotation-and-experiment-data-packages"><i class="fas fa-link"></i></a>
+<span class="header-section-number">20.1</span> Annotation and Experiment data packages<a class="anchor" aria-label="anchor" href="#annotation-and-experiment-data-packages"><i class="fas fa-link"></i></a>
 </h2>
 <p>Annotation packages are database-like packages that provide information linking
 identifies (e.g., Entrez gene names or Affymetrix probe ids) to other
@@ -98,9 +104,9 @@ contain a single data set.</p>
 <p>We look for similar requirements as software packages, but most importantly is
 proper documentation for the data included within the package.</p>
 </div>
-<div id="annotationexperiment-hub-packages" class="section level2" number="14.2">
+<div id="annotationexperiment-hub-packages" class="section level2" number="20.2">
 <h2>
-<span class="header-section-number">14.2</span> Annotation/Experiment Hub packages<a class="anchor" aria-label="anchor" href="#annotationexperiment-hub-packages"><i class="fas fa-link"></i></a>
+<span class="header-section-number">20.2</span> Annotation/Experiment Hub packages<a class="anchor" aria-label="anchor" href="#annotationexperiment-hub-packages"><i class="fas fa-link"></i></a>
 </h2>
 <p>These light weight packages are related to resources added to AnnotationHub or
 ExperimentHub. The package should minimally contain the resource metadata, man
@@ -112,9 +118,9 @@ buckets or publicly accessibly sites instead of in the package itself.</p>
 of on in the “Creating a Hub Package” vignette within the <code>HubPub</code> Bioconductor
 package.</p>
 </div>
-<div id="workflow-packages" class="section level2" number="14.3">
+<div id="workflow-packages" class="section level2" number="20.3">
 <h2>
-<span class="header-section-number">14.3</span> Workflow packages<a class="anchor" aria-label="anchor" href="#workflow-packages"><i class="fas fa-link"></i></a>
+<span class="header-section-number">20.3</span> Workflow packages<a class="anchor" aria-label="anchor" href="#workflow-packages"><i class="fas fa-link"></i></a>
 </h2>
 <p>Workflow packages contain vignettes that describe a bioinformatics workflow
 that involves multiple Bioconductor packages. These vignettes are usually more
@@ -125,15 +131,15 @@ workflows make use of existing data in a Bioconductor package.</p>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="shiny.html"><span class="header-section-number">13</span> Shiny apps</a></div>
-<div class="next"><a href="package-end-of-life-policy.html"><span class="header-section-number">15</span> Package End of Life Policy</a></div>
+<div class="prev"><a href="shiny.html"><span class="header-section-number">19</span> Shiny apps</a></div>
+<div class="next"><a href="package-end-of-life-policy.html"><span class="header-section-number">21</span> Package End of Life Policy</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#non-software"><span class="header-section-number">14</span> Non-Software Packages</a></li>
-<li><a class="nav-link" href="#annotation-and-experiment-data-packages"><span class="header-section-number">14.1</span> Annotation and Experiment data packages</a></li>
-<li><a class="nav-link" href="#annotationexperiment-hub-packages"><span class="header-section-number">14.2</span> Annotation/Experiment Hub packages</a></li>
-<li><a class="nav-link" href="#workflow-packages"><span class="header-section-number">14.3</span> Workflow packages</a></li>
+<li><a class="nav-link" href="#non-software"><span class="header-section-number">20</span> Non-Software Packages</a></li>
+<li><a class="nav-link" href="#annotation-and-experiment-data-packages"><span class="header-section-number">20.1</span> Annotation and Experiment data packages</a></li>
+<li><a class="nav-link" href="#annotationexperiment-hub-packages"><span class="header-section-number">20.2</span> Annotation/Experiment Hub packages</a></li>
+<li><a class="nav-link" href="#workflow-packages"><span class="header-section-number">20.3</span> Workflow packages</a></li>
 </ul>
 
       <div class="book-extra">
@@ -151,7 +157,7 @@ workflows make use of existing data in a Bioconductor package.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Package Guidelines for Developers and Reviewers</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2021-10-19.</p>
+    <p>"<strong>Bioconductor Package Guidelines for Developers and Reviewers</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2021-10-22.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
