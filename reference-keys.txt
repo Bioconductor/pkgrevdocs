@@ -153,6 +153,12 @@ external-code-sources
 boost
 swig
 f2c
+debugging-cc-code
+set-up
+detecting-memory-errors-valgrind
+interactive-debugging-gdb-or-lldb
+finding-clues-for-causes-of-a-program-crash
+case-study
 querying-web-resources
 guiding-principles-1
 template-for-resource-queries

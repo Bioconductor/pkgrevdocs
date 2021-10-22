@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 17 Debugging C/C++ code | Bioconductor Package Guidelines for Developers and Reviewers</title>
+<meta name="author" content="Kevin Rue-Albrecht">
+<meta name="author" content="Daniela Cassol">
+<meta name="author" content="Johannes Rainer">
+<meta name="author" content="Lori Shepherd">
+<meta name="description" content="The following applies to non-Windows operating systems. This is not for the faint of heart, and requires some C-level familiarity. For those who learn better visually, see the video by a...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 17 Debugging C/C++ code | Bioconductor Package Guidelines for Developers and Reviewers">
+<meta property="og:type" content="book">
+<meta property="og:description" content="The following applies to non-Windows operating systems. This is not for the faint of heart, and requires some C-level familiarity. For those who learn better visually, see the video by a...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 17 Debugging C/C++ code | Bioconductor Package Guidelines for Developers and Reviewers">
+<meta name="twitter:description" content="The following applies to non-Windows operating systems. This is not for the faint of heart, and requires some C-level familiarity. For those who learn better visually, see the video by a...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Bioconductor Package Guidelines for Developers and Reviewers</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About Bioconductor</a></li>
+<li class="book-part">Package Development Guidelines</li>
+<li><a class="" href="develop-overview.html">Overview</a></li>
+<li><a class="" href="package-name.html"><span class="header-section-number">1</span> Package name</a></li>
+<li><a class="" href="general.html"><span class="header-section-number">2</span> General Package Development</a></li>
+<li><a class="" href="description.html"><span class="header-section-number">3</span> The DESCRIPTION file</a></li>
+<li><a class="" href="biocviews-1.html"><span class="header-section-number">4</span> biocViews</a></li>
+<li><a class="" href="namespace.html"><span class="header-section-number">5</span> The NAMESPACE file</a></li>
+<li><a class="" href="news.html"><span class="header-section-number">6</span> The NEWS file</a></li>
+<li><a class="" href="citation.html"><span class="header-section-number">7</span> The CITATION file</a></li>
+<li><a class="" href="data.html"><span class="header-section-number">8</span> Package data</a></li>
+<li><a class="" href="docs.html"><span class="header-section-number">9</span> Documentation</a></li>
+<li><a class="" href="tests.html"><span class="header-section-number">10</span> Unit tests</a></li>
+<li><a class="" href="long-tests.html"><span class="header-section-number">11</span> Long Tests</a></li>
+<li><a class="" href="r-code.html"><span class="header-section-number">12</span> R code</a></li>
+<li><a class="" href="common-bioconductor-methods-and-classes.html"><span class="header-section-number">13</span> Common Bioconductor Methods and Classes</a></li>
+<li><a class="" href="robust-and-efficient-code.html"><span class="header-section-number">14</span> Robust and Efficient Code</a></li>
+<li><a class="" href="c-fortran.html"><span class="header-section-number">15</span> C and Fortran code</a></li>
+<li><a class="" href="cmavericks-best-practices.html"><span class="header-section-number">16</span> C++/Mavericks Best Practices</a></li>
+<li><a class="active" href="debugging-cc-code.html"><span class="header-section-number">17</span> Debugging C/C++ code</a></li>
+<li><a class="" href="case-study.html"><span class="header-section-number">18</span> Case study</a></li>
+<li><a class="" href="querying-web-resources.html"><span class="header-section-number">19</span> Querying Web Resources</a></li>
+<li><a class="" href="third-party-code.html"><span class="header-section-number">20</span> Third-party code</a></li>
+<li><a class="" href="shiny.html"><span class="header-section-number">21</span> Shiny apps</a></li>
+<li><a class="" href="non-software.html"><span class="header-section-number">22</span> Non-Software Packages</a></li>
+<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">23</span> Package End of Life Policy</a></li>
+<li><a class="" href="gitignore.html"><span class="header-section-number">24</span> The .gitignore file</a></li>
+<li><a class="" href="conclusion.html"><span class="header-section-number">25</span> Conclusion</a></li>
+<li><a class="" href="references-1.html">References</a></li>
+<li class="book-part">Package Reviewer Resources</li>
+<li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
+<li><a class="" href="review-expectation.html"><span class="header-section-number">26</span> Review Expectations</a></li>
+<li><a class="" href="reviewtools.html"><span class="header-section-number">27</span> Reviewer Resources and Tools</a></li>
+<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">28</span> Volunteer to Review</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="booknews.html"><span class="header-section-number">A</span> NEWS</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/Bioconductor/pkgrevdocs">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="debugging-cc-code" class="section level1" number="17">
+<h1>
+<span class="header-section-number">17</span> Debugging C/C++ code<a class="anchor" aria-label="anchor" href="#debugging-cc-code"><i class="fas fa-link"></i></a>
+</h1>
+<p>The following applies to non-Windows operating systems. This is not
+for the faint of heart, and requires some C-level familiarity.</p>
+<p>For those who learn better visually, see the video by a Bioconductor
+alum about <a href="http://vimeo.com/11937905">using gdb to debug R packages with native code</a>.</p>
+<p>The benefit of the <a href="#diagnose-a-crash">diagnose-a-crash</a> and <a href="case-study.html#case-study">Case
+study</a> examples is all the steps and logic are written
+out; one does not need to rewind a video to review the steps.</p>
+<div id="set-up" class="section level2" number="17.1">
+<h2>
+<span class="header-section-number">17.1</span> Set-up<a class="anchor" aria-label="anchor" href="#set-up"><i class="fas fa-link"></i></a>
+</h2>
+<p>The first, essential, step is to write a short script that reliably and
+quickly reproduces the error. Call this script <code>buggy.R</code>.</p>
+<p>For debugging package code at the C/C++ level, one usually starts by
+installing the package without any compiler optimizations, e.g., by
+following</p>
+<pre><code>RShowDoc("R-admin")</code></pre>
+<p>section 6.3.3. setting for instance</p>
+<pre><code>CFLAGS=-ggdb -O0</code></pre>
+<p>in .R/Makevars. See the relevant <a href="/developers/package-guidelines/#development-compiler-settings">Package Guidelines
+section</a>
+for more examples and information.</p>
+</div>
+<div id="detecting-memory-errors-valgrind" class="section level2" number="17.2">
+<h2>
+<span class="header-section-number">17.2</span> Detecting memory errors (Valgrind)<a class="anchor" aria-label="anchor" href="#detecting-memory-errors-valgrind"><i class="fas fa-link"></i></a>
+</h2>
+<p><a href="http://valgrind.org/">Valgrind</a> is a mature suite of tools for
+low-level program analysis. Valgrind’s <a href="http://valgrind.org/docs/manual/mc-manual.html">memory error checker
+(Memcheck)</a> is the
+premier tool for diagnosing C/C++ memory errors.</p>
+<p>Valgrind can be used to spot memory access problems, which are a
+common source of segfaults in C/C++ code. When the bug is isolated and
+easily produced in <code>buggy.R</code>, start <code>R</code> with:</p>
+<pre><code>R -d valgrind -f buggy.R</code></pre>
+<p>This runs quite slowly, and will flag invalid memory read and write
+locations. The former typically contribute to bad data, the latter to
+memory corruption and spectacular failures. The output will require C
+familiarity to interpret. It is helpful to run the buggy code with a
+package that has been installed without compiler optimizations. See
+section 4.3 of <code>RShowDoc("R-exts")</code> and the relevant <a href="/developers/package-guidelines/#development-compiler-settings">Package
+Guidelines
+section</a>.</p>
+</div>
+<div id="interactive-debugging-gdb-or-lldb" class="section level2" number="17.3">
+<h2>
+<span class="header-section-number">17.3</span> Interactive debugging (gdb or lldb)<a class="anchor" aria-label="anchor" href="#interactive-debugging-gdb-or-lldb"><i class="fas fa-link"></i></a>
+</h2>
+<p>If you have never used a command-line debugger, there are many fine
+quick-start guides on the web; it is not as daunting as it seems.</p>
+<p>On Linux the preferred debugger is
+<a href="http://www.gnu.org/software/gdb/">gdb</a>, but
+<a href="http://lldb.llvm.org/">lldb</a> is default for the Mavericks
+platform. The interfaces are similar, but if you are accustomed to
+gdb, see the <a href="http://lldb.llvm.org/lldb-gdb.html">gdb to lldb command
+map</a>.</p>
+<p>Start <code>R</code> with a C-level debugger such as gdb.</p>
+<pre><code>R -d gdb -f buggy.R</code></pre>
+<p>You’ll end up at the gdb prompt</p>
+<pre><code>(gdb)</code></pre>
+<p>and a typical operation is to (r)un or (c)ontinue execution</p>
+<pre><code>(gdb) r</code></pre>
+<p>to run buggy.R. You’ll end up back in C when there is a segfault, or
+you press cntrl-C (<code>^C</code>, below), or when you’ve inserted a
+(b)reakpoint at some C-level function that you suspect is buggy, e.g.,</p>
+<pre><code>&gt; ^C
+(gdb) b some_buggy_fun
+(gdb) c</code></pre>
+<p>When you do end up back in the debugger, you can print C variables or
+the C representation of R variables (provided R isn’t too confused by
+this point)</p>
+<pre><code>(gdb) p c_var
+(gdb) call Rf_PrintValue(some_R_variable)</code></pre>
+<p>You can also view a (b)ack(t)race of the call stack, navigate (u)p and
+(d)own the call stack, etc. See</p>
+<pre><code>(gdb) help</code></pre>
+<p>and our mutual friend Google for additional information.</p>
+<p><a name="diagnose-a-crash"></a></p>
+<div id="finding-clues-for-causes-of-a-program-crash" class="section level3" number="17.3.1">
+<h3>
+<span class="header-section-number">17.3.1</span> Finding clues for causes of a program crash<a class="anchor" aria-label="anchor" href="#finding-clues-for-causes-of-a-program-crash"><i class="fas fa-link"></i></a>
+</h3>
+<p>Perhaps the most useful function of debuggers is to provide a
+breadcrumb trail (“backtrace”) of the routines that led to the crash
+of a buggy program. With this knowledge we can narrow our inquiry to
+code that affects parts of the program state relevant at the time of
+the crash.</p>
+<p>It is worth reiterating that it is <em>essential</em> optimizations be turned
+off and the compiler be instructed to include debugging symbols if one
+hopes to have a fruitful debugging session. See the relevant <a href="/developers/package-guidelines/#development-compiler-settings">Package
+Guidelines
+section</a>.</p>
+<p>Though the debugger output in the example may differ slightly compared
+to output from other computing environments, the underlying techniques
+apply for diagnosing program crashes on any platform. See the <a href="case-study.html#case-study">Case
+study</a> for a real-world example that uses Valgrind and
+gdb in conjunction.</p>
+<p>We will use a contrived example to demonstrate how to identify
+potential places in our code that cause a crash. You should be able to
+use the example files exactly as they appear. Some extraneous output
+has been omitted for brevity.</p>
+<ul>
+<li>This particular example uses lldb on code compiled with clang on
+Mavericks. The example does not lead to a program crash on Linux
+with GCC or clang.</li>
+</ul>
+<p>C++ file <code>buggy.cpp</code>:</p>
+<pre><code>#include &lt;map&gt;
+#include &lt;utility&gt;
+#ifdef __cplusplus
+#define R_NO_REMAP
+#endif
+#include &lt;Rdefines.h&gt;
+
+extern "C" SEXP buggy_function();
+
+SEXP buggy_function() {
+    std::map&lt;int, int&gt; m;
+    m.insert(std::make_pair(5, 7));
+    m.insert(std::make_pair(9, 42));
+    std::map&lt;int,int&gt;::const_iterator it = m.begin();
+    ++it;
+    ++it;
+    ++it;
+
+    return R_NilValue;
+}</code></pre>
+<p>Compile with <code>R CMD SHLIB buggy.cpp -o buggy.so</code>.</p>
+<p><code><a href="https://rdrr.io/r/base/source.html">source()</a></code>ing this file (<code>buggy.R</code>) within an <code>R</code> session (or entering
+the commands in an <code>R</code> session) will lead to a program crash:</p>
+<pre><code>dyn.load("buggy.so")
+.Call("buggy_function")</code></pre>
+<p>Unfortunately <code>R</code>’s diagnostics are not very illuminating:</p>
+<pre><code>&gt; source("buggy.R")
+
+ *** caught segfault ***
+address 0x2, cause 'memory not mapped'
+
+Traceback:
+ 1: .Call("buggy_function")
+ 2: eval(expr, envir, enclos)
+ 3: eval(ei, envir)
+ 4: withVisible(eval(ei, envir))
+ 5: source("buggy.R")</code></pre>
+<p>Now we turn to the debugger. Start <code>R</code> with the <code>lldb</code> debugger (or
+equivalent for your platform):</p>
+<pre><code>R -d lldb
+(lldb) run
+## R startup messages elided
+## now in R session
+&gt; source("buggy.R")</code></pre>
+<p>At this point <code>R</code> crashes, lldb produces some output, and we are back
+at the lldb prompt. The lldb output looks like this (showing us the
+frame (#0) in the call stack where the crash occurred):</p>
+<pre><code>Process 21657 stopped
+* thread #1: tid = 0xbcb4ab, 0x00000001028fcbb0 buggy.so`buggy_function [inlined] std::__1::__tree_node_base&lt;void*&gt;* std::__1::__tree_min&lt;std::__1::__tree_node_base&lt;void*&gt;*&gt;(std::__1::__tree_node_base&lt;void*&gt;*) at __tree:134, queue = 'com.apple.main-thread', stop reason = EXC_BAD_ACCESS (code=1, address=0x2)
+    frame #0: 0x00000001028fcbb0 buggy.so`buggy_function [inlined] std::__1::__tree_node_base&lt;void*&gt;* std::__1::__tree_min&lt;std::__1::__tree_node_base&lt;void*&gt;*&gt;(std::__1::__tree_node_base&lt;void*&gt;*) at __tree:134
+   131  _NodePtr
+   132  __tree_min(_NodePtr __x) _NOEXCEPT
+   133  {
+-&gt; 134      while (__x-&gt;__left_ != nullptr)
+   135          __x = __x-&gt;__left_;
+   136      return __x;
+   137  }</code></pre>
+<p>It looks like the debugger is telling us there was a memory access
+error when fetching a tree node. (Trees are a common underlying data
+structure for the standard library <code>map</code>). The output is voluminous
+and looks confusing, but only the gist is important right now.</p>
+<p>Still in the same lldb session, enter the <code>bt</code> command (for
+“backtrace”) at the lldb prompt and we see all the stack frames (and
+function calls) that preceded the crash. Frames are listed in
+ascending order, starting with the frame in which crash
+happened. (Note frame #0 here is the same as frame #0 given above.)
+This means when diagnosing a crash, it usually makes sense to start
+with lower-numbered frames and proceed upwards.</p>
+<pre><code>(lldb) bt
+* thread #1: tid = 0xbcb4ab, 0x00000001028fcbb0 buggy.so`buggy_function [inlined] std::__1::__tree_node_base&lt;void*&gt;* std::__1::__tree_min&lt;std::__1::__tree_node_base&lt;void*&gt;*&gt;(std::__1::__tree_node_base&lt;void*&gt;*) at __tree:134, queue = 'com.apple.main-thread', stop reason = EXC_BAD_ACCESS (code=1, address=0x2)
+  * frame #0: 0x00000001028fcbb0 buggy.so`buggy_function [inlined] std::__1::__tree_node_base&lt;void*&gt;* std::__1::__tree_min&lt;std::__1::__tree_node_base&lt;void*&gt;*&gt;(std::__1::__tree_node_base&lt;void*&gt;*) at __tree:134
+    frame #1: 0x00000001028fcbb0 buggy.so`buggy_function [inlined] std::__1::__tree_node_base&lt;void*&gt;* std::__1::__tree_next&lt;std::__1::__tree_node_base&lt;void*&gt;*&gt;(std::__1::__tree_node_base&lt;void*&gt;*) + 20 at __tree:158
+    frame #2: 0x00000001028fcb9c buggy.so`buggy_function [inlined] std::__1::__tree_const_iterator&lt;std::__1::__value_type&lt;int, int&gt;, std::__1::__tree_node&lt;std::__1::__value_type&lt;int, int&gt;, void*&gt;*, long&gt;::operator++() at __tree:747
+    frame #3: 0x00000001028fcb9c buggy.so`buggy_function [inlined] std::__1::__map_const_iterator&lt;std::__1::__tree_const_iterator&lt;std::__1::__value_type&lt;int, int&gt;, std::__1::__tree_node&lt;std::__1::__value_type&lt;int, int&gt;, void*&gt;*, long&gt; &gt;::operator++() at map:750
+    frame #4: 0x00000001028fcb9c buggy.so`buggy_function + 188 at buggy.cpp:17
+    frame #5: 0x0000000100073a13 libR.dylib`do_dotcall(call=&lt;unavailable&gt;, op=&lt;unavailable&gt;, args=&lt;unavailable&gt;, env=&lt;unavailable&gt;) + 323 at dotcode.c:578</code></pre>
+<p>frame #5 mentions <code>do_dotcall</code>, which is the native function (in the
+<code>R</code> library) that corresponds to the <code>.Call("buggy_function")</code> line in
+<code>buggy.R</code> where we call our C entry point. We can reasonably conclude
+the useful information for our bug is probably in frames #0-4.</p>
+<p>Here is a possible chain of thought that leads to the right conclusion:</p>
+<ol style="list-style-type: decimal">
+<li><p>frames #0-2 look like they are dealing with tree/map internals;
+ignore for the moment.</p></li>
+<li><p>frame #3 indicates we are probably talking about our map
+const_iterator variable declared at line #14 in buggy.cpp
+(<code>std::map&lt;int,int&gt;::const_iterator it = m.begin();</code>).</p></li>
+<li><p>frame #4 is the key: it tells us line (#17) in the <code>buggy.cpp</code> file
+(<code>++it;</code>) is where execution went from C++ code <em>we</em> wrote into the
+map iterator internals that produced the error.</p></li>
+<li><p>Eureka! By carefully reading the code in <code>buggy.cpp</code> we realize
+that after the inserts the size of map <code>m</code> is 2. That means after
+incrementing iterator <code>it</code> at line #16 (<code>++it;</code>), the value of <code>it</code>
+is the <a href="http://www.cplusplus.com/reference/map/map/end/">special
+<em>past-the-end</em></a>
+value. Incrementing an iterator beyond <em>past-the-end</em> (the third
+<code>++it;</code> at line #17) is <a href="/developers/how-to/mavericks-howto/#undefined-behavior">undefined
+behavior</a>!</p></li>
+</ol>
+<p>If we revise <code>buggy.cpp</code> to not increment <code>it</code> beyond <em>past-the-end</em>
+by removing the third <code>++it;</code> the program runs without
+complaint. Problem solved!</p>
+<p>As you can see, the debugger was not able to immediately tell us <em>why</em>
+the program crashed, just <em>where</em> the program crashed. We used the
+information about where the crash happened to home in on the parts of
+our code that affected program state relevant at the time of the
+crash. Obviously this example is contrived; in a real-world scenario
+the extra help afforded by the insight about relevant program state is
+invaluable.</p>
+<p><a name="case-study"></a></p>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="cmavericks-best-practices.html"><span class="header-section-number">16</span> C++/Mavericks Best Practices</a></div>
+<div class="next"><a href="case-study.html"><span class="header-section-number">18</span> Case study</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#debugging-cc-code"><span class="header-section-number">17</span> Debugging C/C++ code</a></li>
+<li><a class="nav-link" href="#set-up"><span class="header-section-number">17.1</span> Set-up</a></li>
+<li><a class="nav-link" href="#detecting-memory-errors-valgrind"><span class="header-section-number">17.2</span> Detecting memory errors (Valgrind)</a></li>
+<li>
+<a class="nav-link" href="#interactive-debugging-gdb-or-lldb"><span class="header-section-number">17.3</span> Interactive debugging (gdb or lldb)</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#finding-clues-for-causes-of-a-program-crash"><span class="header-section-number">17.3.1</span> Finding clues for causes of a program crash</a></li></ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/Bioconductor/pkgrevdocs/blob/master/11b-cDebugging.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/Bioconductor/pkgrevdocs/edit/master/11b-cDebugging.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Bioconductor Package Guidelines for Developers and Reviewers</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2021-10-22.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

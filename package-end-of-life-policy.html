@@ -4,18 +4,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 21 Package End of Life Policy | Bioconductor Package Guidelines for Developers and Reviewers</title>
+<title>Chapter 23 Package End of Life Policy | Bioconductor Package Guidelines for Developers and Reviewers</title>
 <meta name="author" content="Kevin Rue-Albrecht">
 <meta name="author" content="Daniela Cassol">
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
 <meta name="description" content="The Bioconductor project strives to provide a software repository that is stable and relevant to users across the community. Each year 100-150 new software packages are added to the repository; as...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 21 Package End of Life Policy | Bioconductor Package Guidelines for Developers and Reviewers">
+<meta property="og:title" content="Chapter 23 Package End of Life Policy | Bioconductor Package Guidelines for Developers and Reviewers">
 <meta property="og:type" content="book">
 <meta property="og:description" content="The Bioconductor project strives to provide a software repository that is stable and relevant to users across the community. Each year 100-150 new software packages are added to the repository; as...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 21 Package End of Life Policy | Bioconductor Package Guidelines for Developers and Reviewers">
+<meta name="twitter:title" content="Chapter 23 Package End of Life Policy | Bioconductor Package Guidelines for Developers and Reviewers">
 <meta name="twitter:description" content="The Bioconductor project strives to provide a software repository that is stable and relevant to users across the community. Each year 100-150 new software packages are added to the repository; as...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -61,19 +61,21 @@
 <li><a class="" href="robust-and-efficient-code.html"><span class="header-section-number">14</span> Robust and Efficient Code</a></li>
 <li><a class="" href="c-fortran.html"><span class="header-section-number">15</span> C and Fortran code</a></li>
 <li><a class="" href="cmavericks-best-practices.html"><span class="header-section-number">16</span> C++/Mavericks Best Practices</a></li>
-<li><a class="" href="querying-web-resources.html"><span class="header-section-number">17</span> Querying Web Resources</a></li>
-<li><a class="" href="third-party-code.html"><span class="header-section-number">18</span> Third-party code</a></li>
-<li><a class="" href="shiny.html"><span class="header-section-number">19</span> Shiny apps</a></li>
-<li><a class="" href="non-software.html"><span class="header-section-number">20</span> Non-Software Packages</a></li>
-<li><a class="active" href="package-end-of-life-policy.html"><span class="header-section-number">21</span> Package End of Life Policy</a></li>
-<li><a class="" href="gitignore.html"><span class="header-section-number">22</span> The .gitignore file</a></li>
-<li><a class="" href="conclusion.html"><span class="header-section-number">23</span> Conclusion</a></li>
+<li><a class="" href="debugging-cc-code.html"><span class="header-section-number">17</span> Debugging C/C++ code</a></li>
+<li><a class="" href="case-study.html"><span class="header-section-number">18</span> Case study</a></li>
+<li><a class="" href="querying-web-resources.html"><span class="header-section-number">19</span> Querying Web Resources</a></li>
+<li><a class="" href="third-party-code.html"><span class="header-section-number">20</span> Third-party code</a></li>
+<li><a class="" href="shiny.html"><span class="header-section-number">21</span> Shiny apps</a></li>
+<li><a class="" href="non-software.html"><span class="header-section-number">22</span> Non-Software Packages</a></li>
+<li><a class="active" href="package-end-of-life-policy.html"><span class="header-section-number">23</span> Package End of Life Policy</a></li>
+<li><a class="" href="gitignore.html"><span class="header-section-number">24</span> The .gitignore file</a></li>
+<li><a class="" href="conclusion.html"><span class="header-section-number">25</span> Conclusion</a></li>
 <li><a class="" href="references-1.html">References</a></li>
 <li class="book-part">Package Reviewer Resources</li>
 <li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
-<li><a class="" href="review-expectation.html"><span class="header-section-number">24</span> Review Expectations</a></li>
-<li><a class="" href="reviewtools.html"><span class="header-section-number">25</span> Reviewer Resources and Tools</a></li>
-<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">26</span> Volunteer to Review</a></li>
+<li><a class="" href="review-expectation.html"><span class="header-section-number">26</span> Review Expectations</a></li>
+<li><a class="" href="reviewtools.html"><span class="header-section-number">27</span> Reviewer Resources and Tools</a></li>
+<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">28</span> Volunteer to Review</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="booknews.html"><span class="header-section-number">A</span> NEWS</a></li>
 </ul>
@@ -83,9 +85,9 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="package-end-of-life-policy" class="section level1" number="21">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="package-end-of-life-policy" class="section level1" number="23">
 <h1>
-<span class="header-section-number">21</span> Package End of Life Policy<a class="anchor" aria-label="anchor" href="#package-end-of-life-policy"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23</span> Package End of Life Policy<a class="anchor" aria-label="anchor" href="#package-end-of-life-policy"><i class="fas fa-link"></i></a>
 </h1>
 <p>The Bioconductor project strives to provide a software repository that is
 stable and relevant to users across the community. Each year 100-150 new
@@ -103,9 +105,9 @@ build or check and do not have an active maintainer. Packages are
 assessed for EOL deprecation prior to each Bioconductor release; the
 EOL policies apply to software, annotation, workflow, and experiment data
 packages.</p>
-<div id="criteria-for-package-deprecation-by-core-team" class="section level2" number="21.1">
+<div id="criteria-for-package-deprecation-by-core-team" class="section level2" number="23.1">
 <h2>
-<span class="header-section-number">21.1</span> Criteria for package deprecation by Core Team<a class="anchor" aria-label="anchor" href="#criteria-for-package-deprecation-by-core-team"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.1</span> Criteria for package deprecation by Core Team<a class="anchor" aria-label="anchor" href="#criteria-for-package-deprecation-by-core-team"><i class="fas fa-link"></i></a>
 </h2>
 <ol style="list-style-type: decimal">
 <li>
@@ -129,9 +131,9 @@ remain a valid, active email.</p>
 </li>
 </ol>
 </div>
-<div id="user-requested-deprecation" class="section level2" number="21.2">
+<div id="user-requested-deprecation" class="section level2" number="23.2">
 <h2>
-<span class="header-section-number">21.2</span> User Requested Deprecation<a class="anchor" aria-label="anchor" href="#user-requested-deprecation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.2</span> User Requested Deprecation<a class="anchor" aria-label="anchor" href="#user-requested-deprecation"><i class="fas fa-link"></i></a>
 </h2>
 <p>Alternatively, a package maintainer may request package deprecation. The
 maintainer may have any number of reasons for deprecating their package. Some
@@ -146,9 +148,9 @@ package.</p></li>
 notification to <a href="mailto:bioc-devel@r-project.org" class="email">bioc-devel@r-project.org</a>. The core team will ensure all
 necessary steps and notifications can occur.</p>
 </div>
-<div id="end-of-life-process" class="section level2" number="21.3">
+<div id="end-of-life-process" class="section level2" number="23.3">
 <h2>
-<span class="header-section-number">21.3</span> End of Life process<a class="anchor" aria-label="anchor" href="#end-of-life-process"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.3</span> End of Life process<a class="anchor" aria-label="anchor" href="#end-of-life-process"><i class="fas fa-link"></i></a>
 </h2>
 <p><strong>Step I</strong>: Deprecation</p>
 <p>Packages to be deprecated will be marked with a deprecation warning and the
@@ -182,9 +184,9 @@ devel 3.3 would make the following transitions:</p>
 ** Bioc Release **
 - gone in release 3.5</code></pre>
 </div>
-<div id="implementation-detail" class="section level2" number="21.4">
+<div id="implementation-detail" class="section level2" number="23.4">
 <h2>
-<span class="header-section-number">21.4</span> Implementation detail<a class="anchor" aria-label="anchor" href="#implementation-detail"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.4</span> Implementation detail<a class="anchor" aria-label="anchor" href="#implementation-detail"><i class="fas fa-link"></i></a>
 </h2>
 <ol style="list-style-type: decimal">
 <li><p>Notify the bioc-devel mailing list and maintainers of packages
@@ -211,9 +213,9 @@ months, after which time Bioconductor core
 team members remove the package from the ‘devel’ package manifest.</p></li>
 </ol>
 </div>
-<div id="reversing-end-of-life-status" class="section level2" number="21.5">
+<div id="reversing-end-of-life-status" class="section level2" number="23.5">
 <h2>
-<span class="header-section-number">21.5</span> Reversing End of Life Status<a class="anchor" aria-label="anchor" href="#reversing-end-of-life-status"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.5</span> Reversing End of Life Status<a class="anchor" aria-label="anchor" href="#reversing-end-of-life-status"><i class="fas fa-link"></i></a>
 </h2>
 <p>A deprecated package can be un-deprecated and removed from the End of Life
 process if it is fixed before the next Bioconductor release. To have a
@@ -221,9 +223,9 @@ package un-deprecated, please contact <a href="mailto:maintainer@bioconductor.or
 is already in the defunct stage; the package will mostly likely be requested to
 go through the new package submission process again.</p>
 </div>
-<div id="orphaned-packages" class="section level2" number="21.6">
+<div id="orphaned-packages" class="section level2" number="23.6">
 <h2>
-<span class="header-section-number">21.6</span> ‘Orphaned’ packages<a class="anchor" aria-label="anchor" href="#orphaned-packages"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.6</span> ‘Orphaned’ packages<a class="anchor" aria-label="anchor" href="#orphaned-packages"><i class="fas fa-link"></i></a>
 </h2>
 <p>An ‘orphaned’ package is a Bioconductor package with an inactive and
 non-responsive maintainer. As described above, Bioconductor makes multiple
@@ -241,18 +243,18 @@ policy</a> that maintainers agree to upon submission.</p>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="non-software.html"><span class="header-section-number">20</span> Non-Software Packages</a></div>
-<div class="next"><a href="gitignore.html"><span class="header-section-number">22</span> The .gitignore file</a></div>
+<div class="prev"><a href="non-software.html"><span class="header-section-number">22</span> Non-Software Packages</a></div>
+<div class="next"><a href="gitignore.html"><span class="header-section-number">24</span> The .gitignore file</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#package-end-of-life-policy"><span class="header-section-number">21</span> Package End of Life Policy</a></li>
-<li><a class="nav-link" href="#criteria-for-package-deprecation-by-core-team"><span class="header-section-number">21.1</span> Criteria for package deprecation by Core Team</a></li>
-<li><a class="nav-link" href="#user-requested-deprecation"><span class="header-section-number">21.2</span> User Requested Deprecation</a></li>
-<li><a class="nav-link" href="#end-of-life-process"><span class="header-section-number">21.3</span> End of Life process</a></li>
-<li><a class="nav-link" href="#implementation-detail"><span class="header-section-number">21.4</span> Implementation detail</a></li>
-<li><a class="nav-link" href="#reversing-end-of-life-status"><span class="header-section-number">21.5</span> Reversing End of Life Status</a></li>
-<li><a class="nav-link" href="#orphaned-packages"><span class="header-section-number">21.6</span> ‘Orphaned’ packages</a></li>
+<li><a class="nav-link" href="#package-end-of-life-policy"><span class="header-section-number">23</span> Package End of Life Policy</a></li>
+<li><a class="nav-link" href="#criteria-for-package-deprecation-by-core-team"><span class="header-section-number">23.1</span> Criteria for package deprecation by Core Team</a></li>
+<li><a class="nav-link" href="#user-requested-deprecation"><span class="header-section-number">23.2</span> User Requested Deprecation</a></li>
+<li><a class="nav-link" href="#end-of-life-process"><span class="header-section-number">23.3</span> End of Life process</a></li>
+<li><a class="nav-link" href="#implementation-detail"><span class="header-section-number">23.4</span> Implementation detail</a></li>
+<li><a class="nav-link" href="#reversing-end-of-life-status"><span class="header-section-number">23.5</span> Reversing End of Life Status</a></li>
+<li><a class="nav-link" href="#orphaned-packages"><span class="header-section-number">23.6</span> ‘Orphaned’ packages</a></li>
 </ul>
 
       <div class="book-extra">

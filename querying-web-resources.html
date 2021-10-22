@@ -4,18 +4,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 17 Querying Web Resources | Bioconductor Package Guidelines for Developers and Reviewers</title>
+<title>Chapter 19 Querying Web Resources | Bioconductor Package Guidelines for Developers and Reviewers</title>
 <meta name="author" content="Kevin Rue-Albrecht">
 <meta name="author" content="Daniela Cassol">
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
 <meta name="description" content="Packages that rely on access to web resources need to be written carefully. Web resources can change location, can be temporarily unavailable, or can be very slow to access and retrieve. Functions...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 17 Querying Web Resources | Bioconductor Package Guidelines for Developers and Reviewers">
+<meta property="og:title" content="Chapter 19 Querying Web Resources | Bioconductor Package Guidelines for Developers and Reviewers">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Packages that rely on access to web resources need to be written carefully. Web resources can change location, can be temporarily unavailable, or can be very slow to access and retrieve. Functions...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 17 Querying Web Resources | Bioconductor Package Guidelines for Developers and Reviewers">
+<meta name="twitter:title" content="Chapter 19 Querying Web Resources | Bioconductor Package Guidelines for Developers and Reviewers">
 <meta name="twitter:description" content="Packages that rely on access to web resources need to be written carefully. Web resources can change location, can be temporarily unavailable, or can be very slow to access and retrieve. Functions...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -61,19 +61,21 @@
 <li><a class="" href="robust-and-efficient-code.html"><span class="header-section-number">14</span> Robust and Efficient Code</a></li>
 <li><a class="" href="c-fortran.html"><span class="header-section-number">15</span> C and Fortran code</a></li>
 <li><a class="" href="cmavericks-best-practices.html"><span class="header-section-number">16</span> C++/Mavericks Best Practices</a></li>
-<li><a class="active" href="querying-web-resources.html"><span class="header-section-number">17</span> Querying Web Resources</a></li>
-<li><a class="" href="third-party-code.html"><span class="header-section-number">18</span> Third-party code</a></li>
-<li><a class="" href="shiny.html"><span class="header-section-number">19</span> Shiny apps</a></li>
-<li><a class="" href="non-software.html"><span class="header-section-number">20</span> Non-Software Packages</a></li>
-<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">21</span> Package End of Life Policy</a></li>
-<li><a class="" href="gitignore.html"><span class="header-section-number">22</span> The .gitignore file</a></li>
-<li><a class="" href="conclusion.html"><span class="header-section-number">23</span> Conclusion</a></li>
+<li><a class="" href="debugging-cc-code.html"><span class="header-section-number">17</span> Debugging C/C++ code</a></li>
+<li><a class="" href="case-study.html"><span class="header-section-number">18</span> Case study</a></li>
+<li><a class="active" href="querying-web-resources.html"><span class="header-section-number">19</span> Querying Web Resources</a></li>
+<li><a class="" href="third-party-code.html"><span class="header-section-number">20</span> Third-party code</a></li>
+<li><a class="" href="shiny.html"><span class="header-section-number">21</span> Shiny apps</a></li>
+<li><a class="" href="non-software.html"><span class="header-section-number">22</span> Non-Software Packages</a></li>
+<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">23</span> Package End of Life Policy</a></li>
+<li><a class="" href="gitignore.html"><span class="header-section-number">24</span> The .gitignore file</a></li>
+<li><a class="" href="conclusion.html"><span class="header-section-number">25</span> Conclusion</a></li>
 <li><a class="" href="references-1.html">References</a></li>
 <li class="book-part">Package Reviewer Resources</li>
 <li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
-<li><a class="" href="review-expectation.html"><span class="header-section-number">24</span> Review Expectations</a></li>
-<li><a class="" href="reviewtools.html"><span class="header-section-number">25</span> Reviewer Resources and Tools</a></li>
-<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">26</span> Volunteer to Review</a></li>
+<li><a class="" href="review-expectation.html"><span class="header-section-number">26</span> Review Expectations</a></li>
+<li><a class="" href="reviewtools.html"><span class="header-section-number">27</span> Reviewer Resources and Tools</a></li>
+<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">28</span> Volunteer to Review</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="booknews.html"><span class="header-section-number">A</span> NEWS</a></li>
 </ul>
@@ -83,9 +85,9 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="querying-web-resources" class="section level1" number="17">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="querying-web-resources" class="section level1" number="19">
 <h1>
-<span class="header-section-number">17</span> Querying Web Resources<a class="anchor" aria-label="anchor" href="#querying-web-resources"><i class="fas fa-link"></i></a>
+<span class="header-section-number">19</span> Querying Web Resources<a class="anchor" aria-label="anchor" href="#querying-web-resources"><i class="fas fa-link"></i></a>
 </h1>
 <p>Packages that rely on access to web resources need to be written
 carefully. Web resources can change location, can be temporarily
@@ -95,9 +97,9 @@ gracefully – failing quickly and clearly when the resource is not
 available in a reasonable time frame. Some avoidable problems seen in
 <em>Bioconductor</em> package code include infinite loops, use of all
 available <em>R</em> connections, and unclear error messages.</p>
-<div id="guiding-principles-1" class="section level2" number="17.1">
+<div id="guiding-principles-1" class="section level2" number="19.1">
 <h2>
-<span class="header-section-number">17.1</span> Guiding Principles<a class="anchor" aria-label="anchor" href="#guiding-principles-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">19.1</span> Guiding Principles<a class="anchor" aria-label="anchor" href="#guiding-principles-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>Remember the <em>Bioconductor</em> packages are built nightly across multiple
 operating systems, and that users benefit from easy-to-run vignettes
@@ -112,9 +114,9 @@ become infinite loops and eventually result in build-system <code>TIMEOUT</code>
 <li><p>Supply an informative error message.</p></li>
 </ol>
 </div>
-<div id="template-for-resource-queries" class="section level2" number="17.2">
+<div id="template-for-resource-queries" class="section level2" number="19.2">
 <h2>
-<span class="header-section-number">17.2</span> Template for Resource Queries<a class="anchor" aria-label="anchor" href="#template-for-resource-queries"><i class="fas fa-link"></i></a>
+<span class="header-section-number">19.2</span> Template for Resource Queries<a class="anchor" aria-label="anchor" href="#template-for-resource-queries"><i class="fas fa-link"></i></a>
 </h2>
 <p>This function can serve as a template for appropriate resource
 retrieval. It tries to retrieve the resource one or several times before
@@ -169,20 +171,20 @@ status, e.g.,</p>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="cmavericks-best-practices.html"><span class="header-section-number">16</span> C++/Mavericks Best Practices</a></div>
-<div class="next"><a href="third-party-code.html"><span class="header-section-number">18</span> Third-party code</a></div>
+<div class="prev"><a href="case-study.html"><span class="header-section-number">18</span> Case study</a></div>
+<div class="next"><a href="third-party-code.html"><span class="header-section-number">20</span> Third-party code</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#querying-web-resources"><span class="header-section-number">17</span> Querying Web Resources</a></li>
-<li><a class="nav-link" href="#guiding-principles-1"><span class="header-section-number">17.1</span> Guiding Principles</a></li>
-<li><a class="nav-link" href="#template-for-resource-queries"><span class="header-section-number">17.2</span> Template for Resource Queries</a></li>
+<li><a class="nav-link" href="#querying-web-resources"><span class="header-section-number">19</span> Querying Web Resources</a></li>
+<li><a class="nav-link" href="#guiding-principles-1"><span class="header-section-number">19.1</span> Guiding Principles</a></li>
+<li><a class="nav-link" href="#template-for-resource-queries"><span class="header-section-number">19.2</span> Template for Resource Queries</a></li>
 </ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/Bioconductor/pkgrevdocs/blob/master/11a-webquery.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/Bioconductor/pkgrevdocs/edit/master/11a-webquery.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/Bioconductor/pkgrevdocs/blob/master/11c-webquery.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/Bioconductor/pkgrevdocs/edit/master/11c-webquery.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
