@@ -157,7 +157,7 @@ debugging-cc-code
 set-up
 detecting-memory-errors-valgrind
 interactive-debugging-gdb-or-lldb
-finding-clues-for-causes-of-a-program-crash
+diagnose-a-crash
 case-study
 querying-web-resources
 guiding-principles-1

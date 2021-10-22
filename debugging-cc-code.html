@@ -62,20 +62,19 @@
 <li><a class="" href="c-fortran.html"><span class="header-section-number">15</span> C and Fortran code</a></li>
 <li><a class="" href="cmavericks-best-practices.html"><span class="header-section-number">16</span> C++/Mavericks Best Practices</a></li>
 <li><a class="active" href="debugging-cc-code.html"><span class="header-section-number">17</span> Debugging C/C++ code</a></li>
-<li><a class="" href="case-study.html"><span class="header-section-number">18</span> Case study</a></li>
-<li><a class="" href="querying-web-resources.html"><span class="header-section-number">19</span> Querying Web Resources</a></li>
-<li><a class="" href="third-party-code.html"><span class="header-section-number">20</span> Third-party code</a></li>
-<li><a class="" href="shiny.html"><span class="header-section-number">21</span> Shiny apps</a></li>
-<li><a class="" href="non-software.html"><span class="header-section-number">22</span> Non-Software Packages</a></li>
-<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">23</span> Package End of Life Policy</a></li>
-<li><a class="" href="gitignore.html"><span class="header-section-number">24</span> The .gitignore file</a></li>
-<li><a class="" href="conclusion.html"><span class="header-section-number">25</span> Conclusion</a></li>
+<li><a class="" href="querying-web-resources.html"><span class="header-section-number">18</span> Querying Web Resources</a></li>
+<li><a class="" href="third-party-code.html"><span class="header-section-number">19</span> Third-party code</a></li>
+<li><a class="" href="shiny.html"><span class="header-section-number">20</span> Shiny apps</a></li>
+<li><a class="" href="non-software.html"><span class="header-section-number">21</span> Non-Software Packages</a></li>
+<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">22</span> Package End of Life Policy</a></li>
+<li><a class="" href="gitignore.html"><span class="header-section-number">23</span> The .gitignore file</a></li>
+<li><a class="" href="conclusion.html"><span class="header-section-number">24</span> Conclusion</a></li>
 <li><a class="" href="references-1.html">References</a></li>
 <li class="book-part">Package Reviewer Resources</li>
 <li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
-<li><a class="" href="review-expectation.html"><span class="header-section-number">26</span> Review Expectations</a></li>
-<li><a class="" href="reviewtools.html"><span class="header-section-number">27</span> Reviewer Resources and Tools</a></li>
-<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">28</span> Volunteer to Review</a></li>
+<li><a class="" href="review-expectation.html"><span class="header-section-number">25</span> Review Expectations</a></li>
+<li><a class="" href="reviewtools.html"><span class="header-section-number">26</span> Reviewer Resources and Tools</a></li>
+<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">27</span> Volunteer to Review</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="booknews.html"><span class="header-section-number">A</span> NEWS</a></li>
 </ul>
@@ -93,7 +92,7 @@
 for the faint of heart, and requires some C-level familiarity.</p>
 <p>For those who learn better visually, see the video by a Bioconductor
 alum about <a href="http://vimeo.com/11937905">using gdb to debug R packages with native code</a>.</p>
-<p>The benefit of the <a href="#diagnose-a-crash">diagnose-a-crash</a> and <a href="case-study.html#case-study">Case
+<p>The benefit of the <a href="debugging-cc-code.html#diagnose-a-crash">diagnose-a-crash</a> and <a href="debugging-cc-code.html#case-study">Case
 study</a> examples is all the steps and logic are written
 out; one does not need to rewind a video to review the steps.</p>
 <div id="set-up" class="section level2" number="17.1">
@@ -108,9 +107,8 @@ following</p>
 <pre><code>RShowDoc("R-admin")</code></pre>
 <p>section 6.3.3. setting for instance</p>
 <pre><code>CFLAGS=-ggdb -O0</code></pre>
-<p>in .R/Makevars. See the relevant <a href="/developers/package-guidelines/#development-compiler-settings">Package Guidelines
-section</a>
-for more examples and information.</p>
+<p>in .R/Makevars. See the relevant Package Guidelines
+section for more examples and information.</p>
 </div>
 <div id="detecting-memory-errors-valgrind" class="section level2" number="17.2">
 <h2>
@@ -129,9 +127,8 @@ locations. The former typically contribute to bad data, the latter to
 memory corruption and spectacular failures. The output will require C
 familiarity to interpret. It is helpful to run the buggy code with a
 package that has been installed without compiler optimizations. See
-section 4.3 of <code>RShowDoc("R-exts")</code> and the relevant <a href="/developers/package-guidelines/#development-compiler-settings">Package
-Guidelines
-section</a>.</p>
+section 4.3 of <code>RShowDoc("R-exts")</code> and the relevant Package Guidelines
+section.</p>
 </div>
 <div id="interactive-debugging-gdb-or-lldb" class="section level2" number="17.3">
 <h2>
@@ -166,10 +163,9 @@ this point)</p>
 (d)own the call stack, etc. See</p>
 <pre><code>(gdb) help</code></pre>
 <p>and our mutual friend Google for additional information.</p>
-<p><a name="diagnose-a-crash"></a></p>
-<div id="finding-clues-for-causes-of-a-program-crash" class="section level3" number="17.3.1">
+<div id="diagnose-a-crash" class="section level3" number="17.3.1">
 <h3>
-<span class="header-section-number">17.3.1</span> Finding clues for causes of a program crash<a class="anchor" aria-label="anchor" href="#finding-clues-for-causes-of-a-program-crash"><i class="fas fa-link"></i></a>
+<span class="header-section-number">17.3.1</span> Finding clues for causes of a program crash<a class="anchor" aria-label="anchor" href="#diagnose-a-crash"><i class="fas fa-link"></i></a>
 </h3>
 <p>Perhaps the most useful function of debuggers is to provide a
 breadcrumb trail (“backtrace”) of the routines that led to the crash
@@ -178,12 +174,11 @@ code that affects parts of the program state relevant at the time of
 the crash.</p>
 <p>It is worth reiterating that it is <em>essential</em> optimizations be turned
 off and the compiler be instructed to include debugging symbols if one
-hopes to have a fruitful debugging session. See the relevant <a href="/developers/package-guidelines/#development-compiler-settings">Package
-Guidelines
-section</a>.</p>
+hopes to have a fruitful debugging session. See the relevant Package
+Guidelines section.</p>
 <p>Though the debugger output in the example may differ slightly compared
 to output from other computing environments, the underlying techniques
-apply for diagnosing program crashes on any platform. See the <a href="case-study.html#case-study">Case
+apply for diagnosing program crashes on any platform. See the <a href="debugging-cc-code.html#case-study">Case
 study</a> for a real-world example that uses Valgrind and
 gdb in conjunction.</p>
 <p>We will use a contrived example to demonstrate how to identify
@@ -305,13 +300,160 @@ our code that affected program state relevant at the time of the
 crash. Obviously this example is contrived; in a real-world scenario
 the extra help afforded by the insight about relevant program state is
 invaluable.</p>
-<p><a name="case-study"></a></p>
 </div>
+</div>
+<div id="case-study" class="section level2" number="17.4">
+<h2>
+<span class="header-section-number">17.4</span> Case study<a class="anchor" aria-label="anchor" href="#case-study"><i class="fas fa-link"></i></a>
+</h2>
+<p>As a case study, a colleague reported that their complicated program
+would, on one particular computer, produce a segmentation fault or
+just stop responding. The same series of actions wouldn’t cause
+problems on other computers. This sounds like a classic memory
+problem, with the segfault and difficulty of reproduction.</p>
+<p>The first advice was to develop a simple script that reproduced the
+problem: the original report had too many moving parts. A big insight
+was that the bug could be produced by running part of the code that
+uses RCurl, followed by a call to the garbage collector, <code><a href="https://rdrr.io/r/base/gc.html">gc()</a></code>. The
+role of the garbage collector suggests again memory corruption of some
+sort, and in particular that perhaps RCurl is allocating (at the C
+level) an R object but not properly PROTECT’ing it from garbage
+collection. We suspect RCurl rather than R or libcurl (other possible
+players) because it is the least tested of the code. We could be
+wrong, of course… After many iterations, my colleague arrived at
+buggy24.R:</p>
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">RCurl</span><span class="op">)</span>
+
+<span class="va">foo</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"https://google.com"</span>
+    <span class="va">curl</span> <span class="op">&lt;-</span> <span class="fu">getCurlHandle</span><span class="op">(</span><span class="op">)</span>
+    <span class="va">opts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>followlocation<span class="op">=</span><span class="cn">NULL</span>, ssl.verifypeer<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
+    <span class="va">d</span> <span class="op">&lt;-</span> <span class="fu">debugGatherer</span><span class="op">(</span><span class="op">)</span>
+    <span class="fu">getURL</span><span class="op">(</span><span class="va">url</span>,customrequest<span class="op">=</span><span class="st">"GET"</span>,curl<span class="op">=</span><span class="va">curl</span>,debugfunction<span class="op">=</span><span class="va">d</span><span class="op">$</span><span class="va">update</span>,.opts<span class="op">=</span><span class="va">opts</span><span class="op">)</span>
+<span class="op">}</span>
+
+<span class="va">execute</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span>
+    <span class="fu">foo</span><span class="op">(</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/gc.html">gc</a></span><span class="op">(</span><span class="op">)</span>
+<span class="op">}</span>
+
+<span class="fu">execute</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p>This is pretty simple, and doesn’t require access to any special
+resources (like the server that was originally being queried). This
+script doesn’t cause a segfault when run on all systems, but running
+valgrind (having installed RCurl without any optimizations) shows…</p>
+<pre><code>&gt; R -d valgrind -f buggy24.R
+...
+==10859== Conditional jump or move depends on uninitialised value(s)
+==10859==    at 0x11BF00F6: getCurlPointerForData (curl.c:798)
+==10859==    by 0x11BF0E80: R_curl_easy_setopt (curl.c:164)
+==10859==    by 0x11BF17AD: R_curl_easy_perform (curl.c:89)
+==10859==    by 0x4ED5499: do_dotcall (dotcode.c:588)
+==10859==    by 0x4F1CAA4: Rf_eval (eval.c:593)
+==10859==    by 0x4F2BD5C: do_set (eval.c:1828)
+==10859==    by 0x4F1C8B7: Rf_eval (eval.c:567)
+==10859==    by 0x4F2B957: do_begin (eval.c:1514)
+==10859==    by 0x4F1C8B7: Rf_eval (eval.c:567)
+==10859==    by 0x4F297E9: Rf_applyClosure (eval.c:960)
+==10859==    by 0x4F1CBA5: Rf_eval (eval.c:611)
+==10859==    by 0x4F2BD5C: do_set (eval.c:1828)</code></pre>
+<p>Look around the C source code in RCurl’s curl.c, as suggested by the
+backtrace, just to get oriented. Then do</p>
+<pre><code>R -d gdb -f buggy24.R</code></pre>
+<p>to run the script under gdb. Run our test script</p>
+<pre><code>(gdb) r</code></pre>
+<p>No error. Don’t give up, set a break point</p>
+<pre><code>(gdb) b curl.c:798</code></pre>
+<p>and run again</p>
+<pre><code>(gdb) r
+Breakpoint 1, getCurlPointerForData (el=0x79e038,
+    option=CURLOPT_WRITEFUNCTION, isProtected=FALSE, curl=0x1d9bdc0)
+    at curl.c:798
+798    curl.c: No such file or directory.
+(gdb)</code></pre>
+<p>That ‘no such file’ means that gdb doesn’t know where to find the
+RCurl package src/ directory, so tell it and (l)ist the context, and
+(p)rint the value of the C variable <code>isProtected</code>, which seems to be
+the source of the valgrind warning</p>
+<pre><code>(gdb) dir ~/tmp/RCurl/src
+(gdb) l
+793                        }
+794                    }
+795                }
+796                break;
+797              case CLOSXP:
+798              (gdb) l
+793                        }
+794                    }
+795                }
+796                break;
+797              case CLOSXP:
+798                  if(!isProtected) {
+799                R_PreserveObject(el);
+800                }
+801                ptr = (void *) el;
+802                break;
+(gdb) p isProtected
+$5 = FALSE</code></pre>
+<p><code>isProtected</code> has a value (it has to!), and furthermore the value of
+FALSE results in PROTECT’ing the object <code>el</code> across C calls (this is
+what <code>R_PreserveObject</code> does). This is pretty interesting, because
+we’re aware that garbage collection triggers the segfault. valgrind is
+telling us that the value of <code>isProtected</code> isn’t actually the result
+of an assignment, it could be the result of accessing an array out of
+bounds. Let’s head up the call stack and see where this value is
+coming from</p>
+<pre><code>(gdb) up
+#1  0x00007ffff426e273 in R_curl_easy_setopt (handle=0x15d9600,
+    values=0x1445788, opts=0xf3d418, isProtected=0xb7d308, encoding=0x776db0)
+    at curl.c:164
+164            val = getCurlPointerForData(el, opt, LOGICAL(isProtected)[ i % n ], obj);
+(gdb) l
+159        /* Loop over all the options we are setting. */
+160        for(i = 0; i &lt; n; i++) {
+161            opt = INTEGER(opts)[i];
+162            el = VECTOR_ELT(values, i);
+163                 /* Turn the R value into something we can use in libcurl. */
+164            val = getCurlPointerForData(el, opt, LOGICAL(isProtected)[ i % n ], obj);
+165
+166                    if(opt == CURLOPT_WRITEFUNCTION &amp;&amp; TYPEOF(el) == CLOSXP) {
+167                data-&gt;fun = val; useData++;
+168                status =  curl_easy_setopt(obj, CURLOPT_WRITEFUNCTION, &amp;R_curl_write_data);
+(gdb)</code></pre>
+<p>We’re entering the function <code>getCurlPointerForData</code> with the value
+<code>LOGICAL(isProtected)[ i % n ]</code>. Here, <code>isProtected</code> is now an R
+object, not a C variable. Looking at the surrounding code, that <code>i % n</code> doesn’t look right – it’s probably meant to recycle <code>isProtected</code>
+in the case where a shorter logical variable is provided than the
+vector of elements requiring protection, but the value of <code>n</code> is not
+necessarily the length of <code>isProtected</code>. Let’s have a look at what
+we’ve got, using a C-level R function <code>Rf_PrintValue</code> to print R
+values (SEXP’s) in an R fashion</p>
+<pre><code>(gdb) p isProtected
+$1 = (SEXP) 0xaad8a0
+(gdb) call Rf_PrintValue(isProtected )
+[1] FALSE</code></pre>
+<p><code>isProtected</code> is a logical vector of length 1.</p>
+<pre><code>(gdb) p i
+$7 = 1
+(gdb) p n
+$8 = 6
+(gdb) p i % n
+$9 = 1</code></pre>
+<p>…and we’re trying to access element 1 of it. But the C
+representation of R vectors is zero-based, so the only valid value of
+the index is 0 – we’re out of bounds! This could well be our bug, and
+it’s time to try fixing it (naively,
+<code>LOGICAL(isProtected)[ i % LENGTH(isProtected) ]</code>) to confirm our
+diagnosis, or report to the <code>packageDescription("RCurl")$Maintainer</code>
+who might have a better sense of the overall structure and intention
+of the code.</p>
+
 </div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="cmavericks-best-practices.html"><span class="header-section-number">16</span> C++/Mavericks Best Practices</a></div>
-<div class="next"><a href="case-study.html"><span class="header-section-number">18</span> Case study</a></div>
+<div class="next"><a href="querying-web-resources.html"><span class="header-section-number">18</span> Querying Web Resources</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -319,8 +461,9 @@ invaluable.</p>
 <li><a class="nav-link" href="#set-up"><span class="header-section-number">17.1</span> Set-up</a></li>
 <li><a class="nav-link" href="#detecting-memory-errors-valgrind"><span class="header-section-number">17.2</span> Detecting memory errors (Valgrind)</a></li>
 <li>
-<a class="nav-link" href="#interactive-debugging-gdb-or-lldb"><span class="header-section-number">17.3</span> Interactive debugging (gdb or lldb)</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#finding-clues-for-causes-of-a-program-crash"><span class="header-section-number">17.3.1</span> Finding clues for causes of a program crash</a></li></ul>
+<a class="nav-link" href="#interactive-debugging-gdb-or-lldb"><span class="header-section-number">17.3</span> Interactive debugging (gdb or lldb)</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#diagnose-a-crash"><span class="header-section-number">17.3.1</span> Finding clues for causes of a program crash</a></li></ul>
 </li>
+<li><a class="nav-link" href="#case-study"><span class="header-section-number">17.4</span> Case study</a></li>
 </ul>
 
       <div class="book-extra">
