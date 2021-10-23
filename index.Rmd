@@ -1,5 +1,5 @@
 --- 
-title: "Bioconductor Package Guidelines for Developers and Reviewers"
+title: "Bioconductor Packages: Development, Maintenance, and Peer Review"
 author:
   - Kevin Rue-Albrecht
   - Daniela Cassol
