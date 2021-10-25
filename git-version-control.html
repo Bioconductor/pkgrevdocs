@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 24 Git Version Control | Bioconductor Packages: Development, Maintenance, and Peer Review</title>
+<meta name="author" content="Kevin Rue-Albrecht">
+<meta name="author" content="Daniela Cassol">
+<meta name="author" content="Johannes Rainer">
+<meta name="author" content="Lori Shepherd">
+<meta name="description" content="The Bioconductor project is maintained in a Git source control system. Package maintainers update their packages by pushing changes to their git repositories. This chapter contains several...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 24 Git Version Control | Bioconductor Packages: Development, Maintenance, and Peer Review">
+<meta property="og:type" content="book">
+<meta property="og:description" content="The Bioconductor project is maintained in a Git source control system. Package maintainers update their packages by pushing changes to their git repositories. This chapter contains several...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 24 Git Version Control | Bioconductor Packages: Development, Maintenance, and Peer Review">
+<meta name="twitter:description" content="The Bioconductor project is maintained in a Git source control system. Package maintainers update their packages by pushing changes to their git repositories. This chapter contains several...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Bioconductor Packages: Development, Maintenance, and Peer Review</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About Bioconductor</a></li>
+<li class="book-part">Package Development Guidelines</li>
+<li><a class="" href="develop-overview.html">Overview</a></li>
+<li><a class="" href="package-name.html"><span class="header-section-number">1</span> Package name</a></li>
+<li><a class="" href="general.html"><span class="header-section-number">2</span> General Package Development</a></li>
+<li><a class="" href="description.html"><span class="header-section-number">3</span> The DESCRIPTION file</a></li>
+<li><a class="" href="biocviews-1.html"><span class="header-section-number">4</span> biocViews</a></li>
+<li><a class="" href="namespace.html"><span class="header-section-number">5</span> The NAMESPACE file</a></li>
+<li><a class="" href="news.html"><span class="header-section-number">6</span> The NEWS file</a></li>
+<li><a class="" href="citation.html"><span class="header-section-number">7</span> The CITATION file</a></li>
+<li><a class="" href="data.html"><span class="header-section-number">8</span> Package data</a></li>
+<li><a class="" href="docs.html"><span class="header-section-number">9</span> Documentation</a></li>
+<li><a class="" href="tests.html"><span class="header-section-number">10</span> Unit tests</a></li>
+<li><a class="" href="long-tests.html"><span class="header-section-number">11</span> Long Tests</a></li>
+<li><a class="" href="r-code.html"><span class="header-section-number">12</span> R code</a></li>
+<li><a class="" href="common-bioconductor-methods-and-classes.html"><span class="header-section-number">13</span> Common Bioconductor Methods and Classes</a></li>
+<li><a class="" href="robust-and-efficient-code.html"><span class="header-section-number">14</span> Robust and Efficient Code</a></li>
+<li><a class="" href="c-fortran.html"><span class="header-section-number">15</span> C and Fortran code</a></li>
+<li><a class="" href="cmavericks-best-practices.html"><span class="header-section-number">16</span> C++/Mavericks Best Practices</a></li>
+<li><a class="" href="debugging-cc-code.html"><span class="header-section-number">17</span> Debugging C/C++ code</a></li>
+<li><a class="" href="querying-web-resources.html"><span class="header-section-number">18</span> Querying Web Resources</a></li>
+<li><a class="" href="third-party-code.html"><span class="header-section-number">19</span> Third-party code</a></li>
+<li><a class="" href="shiny.html"><span class="header-section-number">20</span> Shiny apps</a></li>
+<li><a class="" href="non-software.html"><span class="header-section-number">21</span> Non-Software Packages</a></li>
+<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">22</span> Package End of Life Policy</a></li>
+<li><a class="" href="gitignore.html"><span class="header-section-number">23</span> The .gitignore file</a></li>
+<li><a class="active" href="git-version-control.html"><span class="header-section-number">24</span> Git Version Control</a></li>
+<li><a class="" href="conclusion.html"><span class="header-section-number">25</span> Conclusion</a></li>
+<li><a class="" href="references-1.html">References</a></li>
+<li class="book-part">Package Reviewer Resources</li>
+<li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
+<li><a class="" href="review-expectation.html"><span class="header-section-number">26</span> Review Expectations</a></li>
+<li><a class="" href="reviewtools.html"><span class="header-section-number">27</span> Reviewer Resources and Tools</a></li>
+<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">28</span> Volunteer to Review</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="booknews.html"><span class="header-section-number">A</span> NEWS</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/Bioconductor/pkgrevdocs">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="git-version-control" class="section level1" number="24">
+<h1>
+<span class="header-section-number">24</span> Git Version Control<a class="anchor" aria-label="anchor" href="#git-version-control"><i class="fas fa-link"></i></a>
+</h1>
+<p>The <em>Bioconductor</em> project is maintained in a Git source control
+system. Package maintainers update their packages by pushing changes
+to their git repositories.</p>
+<p>This chapter contains several sections that will cover typical scenarios
+encountered when adding and maintaining a Bioconductor package.</p>
+<div id="essential-work-flow" class="section level2" number="24.1">
+<h2>
+<span class="header-section-number">24.1</span> Essential work flow<a class="anchor" aria-label="anchor" href="#essential-work-flow"><i class="fas fa-link"></i></a>
+</h2>
+<p>A minimal workflow is to checkout, update, commit, and push changes to
+your repository. Using <code>BiocGenerics</code> as an example:</p>
+<pre><code>git clone git@git.bioconductor.org:packages/BiocGenerics
+cd BiocGenerics
+## add a file, e.g., `touch README`
+## edit file, e.g., `vi DESCRIPTION`
+BiocGenerics$ git commit README DESCRIPTION
+BiocGenerics$ git push</code></pre>
+<p>This requires that <em>Bioconductor</em> knows the SSH keys you use to
+establish your identity.</p>
+<p>Two useful commands are</p>
+<pre><code>BiocGenerics$ git diff     # review changes prior to commit
+BiocGenerics$ git log      # review recent commits</code></pre>
+<p>If the repository is already cloned, the work flow is to make sure
+that you are on the ‘master’ branch, pull any changes, then introduce
+your edits.</p>
+<pre><code>BiocGenerics$ git checkout master
+BiocGenerics$ git pull
+## add, edit, commit, and push as above</code></pre>
+</div>
+<div id="where-to-commit-changes" class="section level2" number="24.2">
+<h2>
+<span class="header-section-number">24.2</span> Where to Commit Changes<a class="anchor" aria-label="anchor" href="#where-to-commit-changes"><i class="fas fa-link"></i></a>
+</h2>
+<p>New features and bug fixes are introduced on the master (‘devel’)
+branch of the GIT repository.</p>
+<pre><code>BiocGenerics$ git checkout master
+BiocGenerics$ git pull
+## edit 'R/foo.R' and commit on master
+BiocGenerics$ git commit R/foo.R  #
+[master c955179] your commit message
+1 file changed, 10 insertions(+), 3 deletions(-)
+BiocGenerics$ git push</code></pre>
+<p>To make more extensive changes see <a href="git-version-control.html#bug-fix-in-release-and-devel">Fix bugs in devel and release</a>.</p>
+<p>Bug fixes can be ported to the current release branch. Use
+<code>cherry-pick</code> to identify the commmit(s) you would like to port. E.g.,
+for release 3.6, porting the most recent commit to master</p>
+<pre><code>BiocGenerics$ git checkout RELEASE_3_6
+BiocGenerics$ git cherry-pick master
+BiocGenerics$ git push</code></pre>
+</div>
+<div id="checks-and-version-bumps" class="section level2" number="24.3">
+<h2>
+<span class="header-section-number">24.3</span> Checks and version bumps<a class="anchor" aria-label="anchor" href="#checks-and-version-bumps"><i class="fas fa-link"></i></a>
+</h2>
+<p>Each commit pushed to the <em>Bioconductor</em> repository should build and
+check without errors or warnings</p>
+<pre><code>BiocGenerics$ cd ..
+R CMD build BiocGenerics
+R CMD check BiocGenerics_1.22.3.tar.gz</code></pre>
+<p>Each commit, in either release or devel, should include a bump in the
+<code>z</code> portion of the <code>x.y.z</code> package <a href="/developers/how-to/version-numbering/">versioning scheme</a>.</p>
+<p>Builds occur once per day, and take approximately 24 hours. See the
+<a href="https://bioconductor.org/checkResults/devel/bioc-LATEST/">build report</a> for git commits captured in the most recent build
+(upper left corner)</p>
+</div>
+<div id="annotation-packages" class="section level2" number="24.4">
+<h2>
+<span class="header-section-number">24.4</span> Annotation packages<a class="anchor" aria-label="anchor" href="#annotation-packages"><i class="fas fa-link"></i></a>
+</h2>
+<p>Traditional Annotation packages are not stored in GIT due to the size of
+annotation files. To update an existing Annotation package please send an email
+to <a href="mailto:maintainer@bioconductor.org" class="email">maintainer@bioconductor.org</a>. A member of the Bioconductor team will be in
+contact to receive the updated package.</p>
+<p>Newer annotation packages can be stored in GIT as it is a requirement to use the
+<a href="https://bioconductor.org/packages/AnnotationHub/">AnnotationHub</a> or similar
+server hosted data. The larger sized files are not included directly in the package.
+To contribute a new Annotation package please contact <a href="mailto:hubs@bioconductor.org" class="email">hubs@bioconductor.org</a>
+for guidance and read the documentation on <a href="https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html">How to Create A Hub
+package</a>.</p>
+<p>Currently direct updates to annotation packages, even those stored on git, are
+not supported. If you wish to updated an annotation package, make required
+changes and push to git.bioconductor.org. Then send an email to
+<a href="mailto:hubs@bioconductor.org" class="email">hubs@bioconductor.org</a> or <a href="mailto:maintainer@bioconductor.org" class="email">maintainer@bioconductor.org</a> requesting the package be propagated.</p>
+</div>
+<div id="subversion-to-git-transition" class="section level2" number="24.5">
+<h2>
+<span class="header-section-number">24.5</span> Subversion to Git Transition<a class="anchor" aria-label="anchor" href="#subversion-to-git-transition"><i class="fas fa-link"></i></a>
+</h2>
+<p>The essential steps for transitioning from SVN to git are summarized
+in</p>
+<ul>
+<li>
+<a href="git-version-control.html#new-package-workflow">New package workflow</a>: update your GitHub repository after
+package acceptance.</li>
+<li>
+<a href="git-version-control.html#maintain-github-bioc">Create a new GitHub repository</a> for an existing package.</li>
+<li>
+<a href="git-version-control.html#maintain-bioc-only">Maintain a <em>Bioconductor</em>-only repository</a> for an existing
+package.</li>
+</ul>
+<div id="new-package-workflow" class="section level3" number="24.5.1">
+<h3>
+<span class="header-section-number">24.5.1</span> New package workflow<a class="anchor" aria-label="anchor" href="#new-package-workflow"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Goal</strong>: You developed a package in GitHub, following the
+<em>Bioconductor</em> new package <a href="https://github.com/Bioconductor/Contributions">Contributions README</a> guidelines,
+<a href="http://bioconductor.org/developers/package-submission/">submitted it to <em>Bioconductor</em></a>, and your package has been
+moderated. As part of moderation process, the package to be reviewed
+has been added as a repository on the <a href="https://git.bioconductor.org"><em>Bioconductor</em> git server</a>.</p>
+<p>During and after the review process, package authors must push changes
+that include a <strong>version number ‘bump’</strong> to the <em>Bioconductor</em> git
+repository. This causes the package to be built and checked on Linux,
+macOS, and Windows operating systems, and forms the basis for the
+review process.</p>
+<p>In this document, package authors will learn best practices for
+pushing to the <em>Bioconductor</em> git repository.</p>
+<ol style="list-style-type: decimal">
+<li>
+<p><strong>SSH keys</strong>. As part of the initial moderation step,
+<em>Bioconductor</em> will use SSH ‘public key’ keys available in
+<code>https://github.com/&lt;your-github-id&gt;.keys</code>.</p>
+<p>After the review process is over, additional SSH keys can be added
+and contact information edited using the <a href="https://git.bioconductor.org/BiocCredentials/">BiocCredentials
+application</a>.</p>
+</li>
+<li>
+<p><strong>Configure the “remotes” of your local git repository</strong>. You will need
+to push any future changes to your package to the <em>Bioconductor</em> git
+repository to issue a new build of your package.</p>
+<p>Add a remote named <code>upstream</code> to your package’s local git
+repository using:</p>
+<pre><code> git remote add upstream git@git.bioconductor.org:packages/&lt;YOUR-REPOSITORY-NAME&gt;.git</code></pre>
+<p>Check that you have updated the remotes in your repository; you’ll
+see an <code>origin</code> remote pointing to <code>github.com</code>, and an <code>upstream</code> remote
+pointing to <code>bioconductor.org</code></p>
+<pre><code> $ git remote -v
+
+ origin  &lt;link to your github&gt; (fetch)
+ origin  &lt;link to your github&gt; (push)
+ upstream git@git.bioconductor.org:packages/&lt;YOUR-REPOSITORY-NAME&gt;.git (fetch)
+ upstream git@git.bioconductor.org:packages/&lt;YOUR-REPOSITORY-NAME&gt;.git (push)</code></pre>
+<p>NOTE: As a package developer, you must use the SSH protocol (as in
+the above command) to gain read/write access to your package in the
+<em>Bioconductor</em> git repository.</p>
+</li>
+<li>
+<p><strong>Add and commit changes to your local repository</strong>. During the
+review process you will likely need to update your package. Do this
+in your local repository by first making sure your repository is
+up-to-date with your <code>github.com</code> and <code>git.bioconductor.org</code>
+repositories.</p>
+<pre><code> git fetch --all
+
+ ## merge changes from git.bioconductor.org
+ git merge upstream/master
+
+ ## merge changes from github.com. If your github default branch name
+ ## is main, replace origin/master with origin/main
+ git merge origin/master</code></pre>
+<p>Make changes to your package master branch and commit them to your
+local repository</p>
+<pre><code> git add &lt;files changed&gt;
+ git commit -m "&lt;informative commit message&gt;"</code></pre>
+</li>
+<li>
+<p><strong>‘Bump’ the package version</strong>. Your package version number is in
+the format ‘major.minor.patch.’ Initial package submissions should have
+a version number of <code>0.99.0</code>, as indicated by the <code>Version</code> field in the
+<code>DESCRIPTION</code> file. Increment the <code>patch</code> version number by 1, e.g., to
+<code>0.99.1</code>, <code>0.99.2</code>, …, <code>0.99.9</code>, <code>0.99.10</code>, …</p>
+<p>Bumping the version number before pushing is essential. It ensures
+that the package is built across platforms.</p>
+<p>Remember to add and commit these changes to your local repository.</p>
+</li>
+<li>
+<p><strong>Push changes to the Bioconductor and github repositories</strong>. Push
+the changes in your local repository to the <em>Bioconductor</em> and
+github repositories.</p>
+<pre><code> ## push to git@git.bioconductor.org. If your github default
+ ## branch name is main, replace master with main:master
+ git push upstream master
+
+ ## push to your github repository
+ ## If your github default branch name is main, replace master with main
+ git push origin master</code></pre>
+</li>
+<li>
+<p><strong>Check the updated build report</strong>. If your push to
+git.bioconductor.org included a version bump, you’ll receive an
+email directing you to visit your issue on github.com,
+<code>https://github.com/Bioconductor/Contributions/issues/</code>; a comment
+is also posted on the issue indicating that a build has started.</p>
+<p>After several minutes a second email and comment will indicate that
+the build has completed, and that the build report is
+available. The comment includes a link to the build report. Follow
+the link to see whether further changes are necessary.</p>
+</li>
+<li>
+<p>See other scenarios for working with <em>Bioconductor</em> and GitHub repositories, in particular:</p>
+<ul>
+<li>
+<a href="git-version-control.html#maintain-github-bioc">Maintain GitHub and <em>Bioconductor</em> repositories</a>.</li>
+<li>
+<a href="git-version-control.html#bug-fix-in-release-and-devel">Fix bugs in devel and release</a>.</li>
+<li>
+<a href="#resolve-conflicts">Resolve merge conflicts</a>.</li>
+</ul>
+</li>
+</ol>
+</div>
+<div id="maintain-github-bioc" class="section level3" number="24.5.2">
+<h3>
+<span class="header-section-number">24.5.2</span> Create a new GitHub repository for an existing <em>Bioconductor</em> package<a class="anchor" aria-label="anchor" href="#maintain-github-bioc"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Goal:</strong> As a maintainer, you’d like to create a new GitHub
+repository for your existing <em>Bioconductor</em> repository, so that your
+user community can engage in the development of your package.</p>
+<ol style="list-style-type: decimal">
+<li><p><a href="https://help.github.com/articles/signing-up-for-a-new-github-account/">Create a new GitHub account</a> if you don’t have one.</p></li>
+<li><p>Set up remote access to GitHub via SSH or Https. Please check
+<a href="https://help.github.com/articles/which-remote-url-should-i-use/">which-remote-url-should-i-use</a> and
+<a href="https://help.github.com/articles/connecting-to-github-with-ssh/">add your public key to your GitHub account</a>.</p></li>
+<li><p>Once you have submitted your keys, you can login to the
+<a href="https://git.bioconductor.org/BiocCredentials/">BiocCredentials application</a> to check if the correct
+keys are on file with <em>Bioconductor</em>.</p></li>
+<li>
+<p><a href="https://help.github.com/articles/create-a-repo/">Create a new GitHub repo</a> on your account, with the name
+of the existing <em>Bioconductor</em> package.</p>
+<p>We use “BiocGenerics” as an example for this scenario.</p>
+<div class="inline-figure">
+<img src="images/create_repo.png"><!-- -->
+</div>
+<p>After pressing the ‘Create repository’ button, <strong>ignore</strong> the
+instructions that GitHub provides, and follow the rest of this
+document.</p>
+</li>
+<li>
+<p>On your local machine, clone the empty repository from GitHub.</p>
+<p>Use <code>https</code> URL (replace <code>&lt;developer&gt;</code> with your GitHub username)</p>
+<pre><code>git clone https://github.com/&lt;developer&gt;/BiocGenerics.git</code></pre>
+<p>or <code>SSH</code> URL</p>
+<pre><code>git clone git@github.com:&lt;developer&gt;/BiocGenerics.git</code></pre>
+</li>
+<li>
+<p>Add a remote to your cloned repository.</p>
+<p>Change the current working directory to your local repository
+cloned in the previous step.</p>
+<pre><code>cd BiocGenerics
+git remote add upstream git@git.bioconductor.org:packages/BiocGenerics.git</code></pre>
+</li>
+<li>
+<p>Fetch content from remote upstream,</p>
+<pre><code>git fetch upstream</code></pre>
+</li>
+<li>
+<p>Merge upstream with origin’s master branch,</p>
+<pre><code>git merge upstream/master</code></pre>
+<p><strong>NOTE:</strong> If you have the error <code>fatal: refusing to merge unrelated histories</code>, then the repository cloned in step 4 was not
+empty. Either clone an empty repository, or see
+<a href="git-version-control.html#sync-existing-repositories">Sync existing repositories</a>.</p>
+</li>
+<li>
+<p>Push changes to your origin master,</p>
+<pre><code> git push origin master</code></pre>
+<p><strong>NOTE:</strong> Run the command <code>git config --global push.default  matching</code> to always push local branches to the remote branch of
+the same name, allowing use of <code>git push origin</code> rather than <code>git  push origin master</code>.</p>
+</li>
+<li>
+<p>(Optional) Add a branch to GitHub,</p>
+<pre><code>## Fetch all updates
+git fetch upstream
+
+## Checkout new branch RELEASE_3_6, from upstream/RELEASE_3_6
+git checkout -b RELEASE_3_6 upstream/RELEASE_3_6
+
+## Push updates to remote origin's new branch RELEASE_3_6
+git push -u origin RELEASE_3_6</code></pre>
+</li>
+<li><p>Check your GitHub repository to confirm that the <code>master</code> (and
+optionally <code>RELEASE_3_6</code>) branches are present.</p></li>
+<li><p>Once the GitHub repository is established follow
+<a href="git-version-control.html#push-to-github-bioc">Push to GitHub and <em>Bioconductor</em></a> to maintain your repository
+on both GitHub and Bioconductor.</p></li>
+</ol>
+</div>
+<div id="maintain-bioc-only" class="section level3" number="24.5.3">
+<h3>
+<span class="header-section-number">24.5.3</span> Maintain a <em>Bioconductor</em>-only repository for an existing package<a class="anchor" aria-label="anchor" href="#maintain-bioc-only"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Goal:</strong> Developer wishes to maintain their <em>Bioconductor</em> repository
+without using GitHub.</p>
+<div id="clone-and-setup-the-package-on-your-local-machine." class="section level4" number="24.5.3.1">
+<h4>
+<span class="header-section-number">24.5.3.1</span> Clone and setup the package on your local machine.<a class="anchor" aria-label="anchor" href="#clone-and-setup-the-package-on-your-local-machine."><i class="fas fa-link"></i></a>
+</h4>
+<ol style="list-style-type: decimal">
+<li><p>Make sure that you have <code>SSH</code> access to the <em>Bioconductor</em>
+repository; be sure to <a href="https://git.bioconductor.org/BiocCredentials/">submit your SSH public key</a> or
+github id to <em>Bioconductor</em>.</p></li>
+<li>
+<p>Clone the package to your local machine,</p>
+<pre><code> git clone git@git.bioconductor.org:packages/&lt;ExamplePackage&gt;</code></pre>
+<p><strong>NOTE:</strong> If you clone with <code>https</code> you will NOT get read+write
+access.</p>
+</li>
+<li>
+<p>View existing remotes</p>
+<pre><code> git remote -v</code></pre>
+<p>which will display</p>
+<pre><code> origin    git@git.bioconductor.org:packages/&lt;ExamplePackage&gt;.git (fetch)
+ origin    git@git.bioconductor.org:packages/&lt;ExamplePackage&gt;.git (push)</code></pre>
+<p>This indicates that your git repository has only one remote
+<code>origin</code>, which is the <em>Bioconductor</em> repository.</p>
+</li>
+<li>
+<p>In other work flows, the <code>origin</code> remote has been renamed to
+<code>upstream</code>. It may be convenient to make this change to your own
+repository</p>
+<pre><code> git remote rename origin upstream</code></pre>
+<p>and confirm that <code>git remote -v</code> now associates the <code>upstream</code>
+repository name with <code>git@git.bioconductor.org</code>.</p>
+</li>
+</ol>
+</div>
+<div id="commit-changes-to-your-local-repository" class="section level4" number="24.5.3.2">
+<h4>
+<span class="header-section-number">24.5.3.2</span> Commit changes to your local repository<a class="anchor" aria-label="anchor" href="#commit-changes-to-your-local-repository"><i class="fas fa-link"></i></a>
+</h4>
+<ol style="list-style-type: decimal">
+<li>
+<p>Before making changes to your repository, make sure to <code>pull</code>
+changes or updates from the <em>Bioconductor</em> repository. This is
+needed to avoid conflicts.</p>
+<pre><code> git pull</code></pre>
+</li>
+<li>
+<p>Make the required changes, then <code>add</code> and <code>commit</code> your changes to
+your <code>master</code> branch.</p>
+<pre><code> git add &lt;files changed&gt;
+ git commit -m "My informative commit message"</code></pre>
+</li>
+<li>
+<p>(Alternative) If the changes are non-trivial, create a new branch
+where you can easily abandon any false starts. Merge the final
+version onto <code>master</code></p>
+<pre><code> git checkout -b feature-my-feature
+ ## add and commit to this branch. When the change is complete...
+ git checkout master
+ git merge feature-my-feature</code></pre>
+</li>
+</ol>
+</div>
+<div id="push-your-local-commits-to-the-bioconductor-repository" class="section level4" number="24.5.3.3">
+<h4>
+<span class="header-section-number">24.5.3.3</span> Push your local commits to the <em>Bioconductor</em> repository<a class="anchor" aria-label="anchor" href="#push-your-local-commits-to-the-bioconductor-repository"><i class="fas fa-link"></i></a>
+</h4>
+<ol style="list-style-type: decimal">
+<li>
+<p>Push your commits to the <em>Bioconductor</em> repository to make them
+available to the user community.</p>
+<p>Push changes to the <code>master</code> branch using:</p>
+<pre><code> git checkout master
+ git push upstream master</code></pre>
+</li>
+</ol>
+</div>
+<div id="optional-merge-changes-to-the-current-release-branch" class="section level4" number="24.5.3.4">
+<h4>
+<span class="header-section-number">24.5.3.4</span> (Optional) Merge changes to the current release branch<a class="anchor" aria-label="anchor" href="#optional-merge-changes-to-the-current-release-branch"><i class="fas fa-link"></i></a>
+</h4>
+<ol style="list-style-type: decimal">
+<li>
+<p>If the changes (bug fixes) need to be available on the
+<code>&lt;RELEASE_X_Y&gt;</code> branch. Checkout the branch <code>&lt;RELEASE_X_Y&gt;</code> using:</p>
+<pre><code> git checkout -b &lt;RELEASE_X_Y&gt; upstream/&lt;RELEASE_X_Y&gt;</code></pre>
+</li>
+<li>
+<p>Pull any changes from the <em>Bioconductor</em> repository to this branch</p>
+<pre><code> git pull</code></pre>
+</li>
+<li>
+<p>Then, merge <code>master</code> into the <code>&lt;RELEASE_X_Y&gt;</code> branch</p>
+<pre><code>git merge master</code></pre>
+</li>
+</ol>
+<p>A new commit message will show up after this step, with the
+message <code>Merge branch 'master' into &lt;RELEASE_X_Y&gt;</code>. It will be
+committed to <code>&lt;RELEASE_X_Y&gt;</code> branch when you save. Update the
+<a href="https://bioconductor.org/developers/how-to/version-numbering/">version number</a> so that it is correct for the release, and commit
+the modified DESCRIPTION file</p>
+<pre><code>git add DESCRIPTION
+git commit -m "Update version bump"</code></pre>
+<ol style="list-style-type: decimal">
+<li>
+<p>Push changes to the <code>&lt;RELEASE_X_Y&gt;</code> branch using:</p>
+<pre><code> git push upstream &lt;RELEASE_X_Y&gt;</code></pre>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="more-scenarios-for-repository-creation" class="section level2" number="24.6">
+<h2>
+<span class="header-section-number">24.6</span> More scenarios for repository creation<a class="anchor" aria-label="anchor" href="#more-scenarios-for-repository-creation"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>
+<a href="git-version-control.html#sync-existing-repositories">Sync an existing GitHub repository</a> with <em>Bioconductor</em>.</li>
+<li>
+<a href="git-version-control.html#create-local-repository">Create a local repository</a> for private use.</li>
+</ul>
+<div id="sync-existing-repositories" class="section level3" number="24.6.1">
+<h3>
+<span class="header-section-number">24.6.1</span> Sync an existing GitHub repository with <em>Bioconductor</em><a class="anchor" aria-label="anchor" href="#sync-existing-repositories"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Goal:</strong> Ensure that your local, <em>Bioconductor</em>, and GitHub
+repositories are all in sync.</p>
+<ol style="list-style-type: decimal">
+<li><p>Clone the GitHub repository to a local machine. Change into the
+directory containing the repository.</p></li>
+<li>
+<p>Configure the “remotes” of the GitHub clone.</p>
+<pre><code> git remote add upstream git@git.bioconductor.org:packages/&lt;YOUR-REPOSITORY&gt;.git</code></pre>
+</li>
+<li>
+<p>Fetch updates from all (<em>Bioconductor</em> and GitHub) remotes. You may
+see “warning: no common commits”; this will be addressed after
+resolving conflicts, below.</p>
+<pre><code> git fetch --all</code></pre>
+</li>
+<li>
+<p>Make sure you are on the master branch.</p>
+<pre><code> git checkout master</code></pre>
+</li>
+<li>
+<p>Merge updates from the GitHub (<code>origin</code>) remote</p>
+<pre><code> git merge origin/master</code></pre>
+</li>
+<li>
+<p>Merge updates from the <em>Bioconductor</em> (<code>upstream</code>) remote</p>
+<pre><code> git merge upstream/master</code></pre>
+<p>Users of git version &gt;= 2.9 will see an error message (“fatal:
+refusing to merge unrelated histories”) and need to use</p>
+<pre><code> git merge --allow-unrelated-histories upstream/master</code></pre>
+</li>
+<li><p><a href="#resolve-conflicts">Resolve merge conflicts</a> if necessary.</p></li>
+<li><p>After resolving conflicts and committing changes, look for duplicate
+commits (e.g., <code>git log --oneline | wc</code> returns twice as many
+commits as in SVN) and consider following the steps to
+<a href="#abandon-changes#force-bioconductor--to-github-">force Bioconductor <code>master</code> to GitHub <code>master</code></a>.</p></li>
+<li>
+<p>Push to both <em>Bioconductor</em> and GitHub repositories.</p>
+<pre><code> git push upstream master
+ git push origin master</code></pre>
+</li>
+<li>
+<p>Repeat for the release branch, replacing <code>master</code> with the name of
+the release branch, e.g., <code>RELEASE_3_6</code>. It may be necessary to
+create the release branch in the local repository.</p>
+<pre><code> git checkout RELEASE_3_6
+ git merge upstream/RELEASE_3_6
+ git merge origin/RELEASE_3_6
+ git push upstream RELEASE_3_6
+ git push origin RELEASE_3_6</code></pre>
+<p>NOTE: If you are syncing your release branch for the first time,
+you have to make a local copy of the <code>RELEASE_X_Y</code> branch, by</p>
+<pre><code> git checkout -b &lt;RELEASE_X_Y&gt; upstream/&lt;RELEASE_X_Y&gt;</code></pre>
+<p>Following this one time local checkout, you may switch between
+<code>RELEASE_X_Y</code> and <code>master</code> with <code>git checkout &lt;RELEASE_X_Y&gt;</code>. If you do
+not use the command to get a local copy of the release branch, you
+will get the message,</p>
+<pre><code>(HEAD detached from origin/RELEASE_X_Y)</code></pre>
+<p>Remember that only <code>master</code> and the current release branch of
+<em>Bioconductor</em> repositories can be updated.</p>
+</li>
+</ol>
+</div>
+<div id="create-local-repository" class="section level3" number="24.6.2">
+<h3>
+<span class="header-section-number">24.6.2</span> Create a local repository for private use<a class="anchor" aria-label="anchor" href="#create-local-repository"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Goal:</strong> A user (not the package developer) would like to modify
+functions in a package to meet their needs. There is no GitHub
+repository for the package.</p>
+<ol style="list-style-type: decimal">
+<li>
+<p>Clone the package from the <em>Bioconductor</em> repository. As an end
+user, you do not have write access to the repository, so use the
+<strong>https</strong> protocol</p>
+<pre><code> git clone https://git@git.bioconductor.org/packages/&lt;ExamplePackage&gt;</code></pre>
+</li>
+<li>
+<p>Make changes to your local repository. Commit the changes to your
+local repository. A best practice might modify the changes in a new
+branch</p>
+<pre><code> git checkout -b feature-my-feature
+ ## modify
+ git commit -a -m "feature: a new feature"</code></pre>
+<p>and then merge the feature onto the branch corresponding to the
+release in use, e.g.,</p>
+<pre><code> git checkout &lt;RELEASE_X_Y&gt;
+ git merge feature-my-feature</code></pre>
+</li>
+<li>
+<p>Rebuild (to create the vignette and help pages) and reinstall the
+package in your local machine by running in the parent directory of
+<em>ExamplePackage</em></p>
+<pre><code> R CMD build ExamplePackage
+ R CMD INSTALL ExamplePackage_&lt;version.number&gt;.tar.gz</code></pre>
+</li>
+<li><p>The package with the changes should be available in your local <em>R</em>
+installation.</p></li>
+</ol>
+</div>
+</div>
+<div id="scenarios-for-code-update" class="section level2" number="24.7">
+<h2>
+<span class="header-section-number">24.7</span> Scenarios for code update:<a class="anchor" aria-label="anchor" href="#scenarios-for-code-update"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>
+<a href="git-version-control.html#pull-upstream-changes">Pull upstream changes</a>, e.g., introduced by the core team.</li>
+<li>
+<a href="git-version-control.html#push-to-github-bioc">Push to GitHub and <em>Bioconductor</em></a> repositories.</li>
+<li>
+<a href="#resolve-conflicts">Resolve merge conflicts</a>.</li>
+<li>
+<a href="git-version-control.html#abandon-changes">Abandon changes</a>.</li>
+<li>
+<a href="git-version-control.html#bug-fix-in-release-and-devel">Fix bugs in devel and release</a>.</li>
+</ul>
+<div id="pull-upstream-changes" class="section level3" number="24.7.1">
+<h3>
+<span class="header-section-number">24.7.1</span> Pull upstream changes<a class="anchor" aria-label="anchor" href="#pull-upstream-changes"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Goal:</strong> Your <em>Bioconductor</em> repository has been updated by the core
+team. You want to fetch these commits from <em>Bioconductor</em>, merge them
+into your local repository, and push them to GitHub.</p>
+<p><strong>NOTE:</strong> It is always a good idea to fetch updates from
+<em>Bioconductor</em> before making more changes. This will help prevent
+merge conflicts.</p>
+<p>These steps update the <code>master</code> branch.</p>
+<ol style="list-style-type: decimal">
+<li>
+<p>Make sure you are on the appropriate branch.</p>
+<pre><code> git checkout master</code></pre>
+</li>
+<li>
+<p>Fetch content from <em>Bioconductor</em></p>
+<pre><code> git fetch upstream</code></pre>
+</li>
+<li>
+<p>Merge upstream with the appropriate local branch</p>
+<pre><code> git merge upstream/master</code></pre>
+<p>Get help on <a href="#resolve-conflicts">Resolve merge conflicts</a> if these occur.</p>
+</li>
+<li>
+<p>If you also maintain a GitHub repository, push changes to GitHub’s
+(<code>origin</code>) <code>master</code> branch</p>
+<pre><code> git push origin master</code></pre>
+</li>
+</ol>
+<p>To pull updates to the current <code>RELEASE_X_Y</code> branch, replace <code>master</code>
+with <code>RELEASE_X_Y</code> in the lines above.</p>
+<p>See instructions to <a href="git-version-control.html#sync-existing-repositories">Sync existing repositories</a> with
+changes to both the <em>Bioconductor</em> and GitHub repositories.</p>
+</div>
+<div id="push-to-github-bioc" class="section level3" number="24.7.2">
+<h3>
+<span class="header-section-number">24.7.2</span> Push to GitHub and <em>Bioconductor</em> repositories<a class="anchor" aria-label="anchor" href="#push-to-github-bioc"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Goal:</strong> During everyday development, you commit changes to your
+local repository <code>master</code> branch, and wish to push these commits to
+both GitHub and <em>Bioconductor</em> repositories.</p>
+<p><strong>NOTE:</strong> See <a href="git-version-control.html#pull-upstream-changes">Pull upstream changes</a> for best practices before
+committing local changes.</p>
+<ol style="list-style-type: decimal">
+<li><p>We assume you already have a GitHub repository with the right setup
+to push to <em>Bioconductor</em>’s git server
+(<a href="mailto:git@git.bioconductor.org" class="email">git@git.bioconductor.org</a>). If not please see FAQ’s on how to get
+access and follow instructions to
+<a href="git-version-control.html#maintain-github-bioc">maintain GitHub and <em>Bioconductor</em> repositories</a>. We use a clone
+of the <code>BiocGenerics</code> package in the following example.</p></li>
+<li>
+<p>To check that remotes are set up properly, run the command inside
+your local machine’s clone.</p>
+<pre><code>git remote -v</code></pre>
+<p>which should produce the result (where &lt;developer&gt; is your GitHub
+username):</p>
+<pre><code>origin  git@github.com:&lt;developer&gt;/BiocGenerics.git (fetch)
+origin  git@github.com:&lt;developer&gt;/BiocGenerics.git (push)
+upstream    git@git.bioconductor.org:packages/BiocGenerics.git (fetch)
+upstream    git@git.bioconductor.org:packages/BiocGenerics.git (push)</code></pre>
+</li>
+<li>
+<p>Make and commit changes to the <code>master</code> branch</p>
+<pre><code> git checkout master
+ ## edit files, etc.
+ git add &lt;name of file changed&gt;
+ git commit -m "My informative commit message describing the change"</code></pre>
+</li>
+<li>
+<p>(Alternative) When changes are more elaborate, best practice is to
+use a local branch for development.</p>
+<pre><code> git checkout master
+ git checkout -b feature-my-feature
+ ## multiple rounds of edit, add, commit</code></pre>
+<p>Merge the local branch to master when the feature is ‘complete.’</p>
+<pre><code> git checkout master
+
+ # Pull upstream changes before merging
+ # http://bioconductor.org/developers/how-to/git/pull-upstream-changes/
+
+ git merge feature-my-feature</code></pre>
+</li>
+<li>
+<p>Push updates to GitHub’s (<code>origin</code>) <code>master</code> branch</p>
+<pre><code> git push origin master</code></pre>
+</li>
+<li>
+<p>Next, push updates to <em>Bioconductor</em>’s (<code>upstream</code>) <code>master</code> branch</p>
+<pre><code>git push upstream master</code></pre>
+</li>
+<li><p>Confirm changes, e.g., by visiting the GitHub web page for the repository.</p></li>
+</ol>
+</div>
+<div id="resolve-merge-conflicts" class="section level3" number="24.7.3">
+<h3>
+<span class="header-section-number">24.7.3</span> Resolve merge conflicts<a class="anchor" aria-label="anchor" href="#resolve-merge-conflicts"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Goal:</strong> Resolve merge conflicts in branch and push to GitHub and
+<em>Bioconductor</em> repositories.</p>
+<ol style="list-style-type: decimal">
+<li>
+<p>You will know you have a merge conflict when you see something like
+this:</p>
+<pre><code> git merge upstream/master
+ Auto-merging DESCRIPTION
+ CONFLICT (content): Merge conflict in DESCRIPTION
+ Automatic merge failed; fix conflicts and then commit the result</code></pre>
+<p>This merge conflict occurs when the package developer makes a
+change, and also a collaborator or a <em>Bioconductor</em> core team
+member makes a change to the same file (in this case the
+<code>DESCRIPTION</code> file).</p>
+<p>How can you avoid this? <a href="git-version-control.html#pull-upstream-changes">pull upstream changes</a> before
+committing any changes. In other words, <code>fetch</code> and <code>merge</code> remote
+branches before a <code>push</code>.</p>
+</li>
+<li>
+<p>If in spite of this you have conflicts, you need to fix them. See
+which file has the conflict,</p>
+<pre><code> git status</code></pre>
+<p>This will show you something like this:</p>
+<pre><code> On branch master
+ Your branch is ahead of 'origin/master' by 1 commit.
+   (use "git push" to publish your local commits)
+ You have un-merged paths.
+   (fix conflicts and run "git commit")
+   (use "git merge --abort" to abort the merge)
+
+ Un-merged paths:
+   (use "git add &lt;file&gt;..." to mark resolution)
+
+   both modified:   DESCRIPTION
+
+ no changes added to commit (use "git add" and/or "git commit -a")</code></pre>
+</li>
+<li>
+<p>Open the file in your favorite editor. Conflicts look like:</p>
+<pre><code> &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+ Version: 0.23.2
+ =======
+ Version: 0.23.3
+ &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/master</code></pre>
+<p>Everything between <code>&lt;&lt;&lt;&lt;</code> and <code>=====</code> refers to HEAD, i.e your
+current change. And everything between <code>=====</code> and <code>&gt;&gt;&gt;&gt;&gt;</code> refers
+to the <code>remote/branch</code> shown there, i.e <code>upstream/master</code>.</p>
+<p>You want to keep the most accurate change, by deleting what is
+necessary. In this case, keep the latest version:</p>
+<pre><code> Version: 0.23.3</code></pre>
+</li>
+<li>
+<p>Add and commit the file as you would any other change.</p>
+<pre><code> git add DESCRIPTION
+ git commit -m "Fixed conflicts in version change"</code></pre>
+</li>
+<li>
+<p>Push to both your GitHub and <em>Bioconductor</em> repositories,</p>
+<pre><code>git push origin master
+git push upstream master</code></pre>
+</li>
+</ol>
+<div id="extra-resources" class="section level4" number="24.7.3.1">
+<h4>
+<span class="header-section-number">24.7.3.1</span> Extra Resources<a class="anchor" aria-label="anchor" href="#extra-resources"><i class="fas fa-link"></i></a>
+</h4>
+<p><a href="https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/">Resolving a merge conflict using command line</a></p>
+<p><a href="https://www.atlassian.com/git/tutorials/using-branches/merge-conflicts">Based on: Resolving a merge conflict</a></p>
+<iframe width="560" height="315" src="https://www.loom.com/embed/03e20ac00992408aadae33a7b7b3384d" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+</iframe>
+</div>
+</div>
+<div id="abandon-changes" class="section level3" number="24.7.4">
+<h3>
+<span class="header-section-number">24.7.4</span> Abandon changes<a class="anchor" aria-label="anchor" href="#abandon-changes"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Goal:</strong> You want to start fresh after failing to resolve conflicts
+or some other issue. If you intend to go nuclear, please contact the
+<a href="mailto:bioc-devel@bioconductor.org" class="email">bioc-devel@bioconductor.org</a> mailing list.</p>
+<div id="force-bioconductor-master-to-github-master" class="section level4" number="24.7.4.1">
+<h4>
+<span class="header-section-number">24.7.4.1</span> Force <em>Bioconductor</em> <code>master</code> to GitHub <code>master</code><a class="anchor" aria-label="anchor" href="#force-bioconductor-master-to-github-master"><i class="fas fa-link"></i></a>
+</h4>
+<p>One way you can ignore your work and make a new branch is by replacing
+your local and GitHub repository <code>master</code> branch with the
+<em>Bioconductor</em> <code>master</code> branch.</p>
+<p><strong>Note</strong>: This works only if you haven’t pushed the change causing the
+issue to the <em>Bioconductor</em> repository.</p>
+<p><strong>Note</strong>: Any references to commits on current master (e.g., in GitHub
+issues) will be invalidated.</p>
+<ol style="list-style-type: decimal">
+<li>
+<p>Checkout a new branch, e.g., <code>master_backup</code>, with tracking set to
+track the <em>Bioconductor</em> <code>master</code> branch <code>upstream/master</code>.</p>
+<pre><code> git checkout -b master_backup upstream/master</code></pre>
+</li>
+<li>
+<p>Rename the branches you currently have on your local
+machine. First, rename <code>master</code> to <code>master_deprecated</code>. Second,
+rename <code>master_backup</code> to <code>master</code>. This process is called the
+classic <strong>Switcheroo</strong>.</p>
+<pre><code> git branch -m master master_deprecated
+ git branch -m master_backup master</code></pre>
+</li>
+<li>
+<p>You will now have to “force push” the changes to your GitHub
+(<code>origin</code>) <code>master</code> branch.</p>
+<pre><code> git push -f origin master</code></pre>
+</li>
+<li>
+<p><strong>(Optional)</strong> If you have commits on your <code>master_deprecated</code>
+branch that you would like ported on to your new <code>master</code>
+branch. Git has a special feature called <code>cherry-pick</code></p>
+<p>Take a look at which commit you want to cherry-pick on to the new
+master branch, using <code>git log master_deprecated</code>, copy the correct
+commit id, and use:</p>
+<pre><code> git cherry-pick &lt;commit id&gt;</code></pre>
+<p>Push these cherry-picked changes to GitHub and <em>Bioconductor</em>
+repositories.</p>
+</li>
+</ol>
+</div>
+<div id="reset-to-a-previous-commit" class="section level4" number="24.7.4.2">
+<h4>
+<span class="header-section-number">24.7.4.2</span> Reset to a previous commit<a class="anchor" aria-label="anchor" href="#reset-to-a-previous-commit"><i class="fas fa-link"></i></a>
+</h4>
+<p>If you find yourself in a place where you want to abandon changes
+<strong>already committed</strong> to <em>Bioconductor</em> or GitHub, use <code>reset</code> to undo
+the commits on your local repository and <code>push -f</code> to force the
+changes to the remotes. Remember that the <code>HEAD</code> commit id is the most
+recent <strong>parent</strong> commit of the current state of your local
+repository.</p>
+<pre><code>git reset --hard &lt;commit id&gt;</code></pre>
+<p>Example:</p>
+<pre><code>git reset --hard e02e4d86812457fd9fdd43adae5761f5946fdfb3                                                        master
+HEAD is now at e02e4d8 version bump by bioc core</code></pre>
+<p>To make the changes permanent, you will then need to push the changes
+to GitHub, and then email the Bioconductor core team to force push to
+the repository on Bioconductor.</p>
+<pre><code>## You
+
+git push -f origin</code></pre>
+<p>Bioconductor core team will do the rest after you email.</p>
+</div>
+<div id="delete-your-local-copy-and-github-repo-because-nothing-is-working" class="section level4" number="24.7.4.3">
+<h4>
+<span class="header-section-number">24.7.4.3</span> Delete your local copy and GitHub repo, because nothing is working<a class="anchor" aria-label="anchor" href="#delete-your-local-copy-and-github-repo-because-nothing-is-working"><i class="fas fa-link"></i></a>
+</h4>
+<p><strong>CAUTION: These instructions come with many disadvantages. You have
+been warned.</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Delete your local repository, e.g., <code>rm -rf BiocGenerics</code></p></li>
+<li><p>Delete (or rename) your GitHub repository.</p></li>
+<li><p><a href="git-version-control.html#maintain-github-bioc">Maintain GitHub and <em>Bioconductor</em> repositories</a> for an existing
+<em>Bioconductor</em> repository, then <a href="git-version-control.html#pull-upstream-changes">pull upstream changes</a>.</p></li>
+</ol>
+<div id="disadvantages-of-going-nuclear" class="section level5" number="24.7.4.3.1">
+<h5>
+<span class="header-section-number">24.7.4.3.1</span> Disadvantages of going “nuclear”<a class="anchor" aria-label="anchor" href="#disadvantages-of-going-nuclear"><i class="fas fa-link"></i></a>
+</h5>
+<ol style="list-style-type: decimal">
+<li><p>You will lose all your GitHub issues</p></li>
+<li><p>You will lose your custom collaborator settings in GitHub.</p></li>
+<li><p>You will lose any GitHub-specific changes.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="bug-fix-in-release-and-devel" class="section level3" number="24.7.5">
+<h3>
+<span class="header-section-number">24.7.5</span> Fix bugs in <code>devel</code> and <code>release</code><a class="anchor" aria-label="anchor" href="#bug-fix-in-release-and-devel"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Goal:</strong> Maintainers will have to fix bugs from time to time, and
+make sure the patch is available both in the <code>master</code> branch and the current <code>release</code> branch.</p>
+<ol style="list-style-type: decimal">
+<li>
+<p><a href="git-version-control.html#sync-existing-repositories">Sync existing repositories</a>.</p>
+<pre><code> git fetch --all
+ git checkout master
+ git merge upstream/master
+ git merge origin/master
+ git checkout &lt;RELEASE_X_Y&gt;
+ git merge upstream/&lt;RELEASE_X_Y&gt;
+ git merge origin/&lt;RELEASE_X_Y&gt;</code></pre>
+</li>
+<li>
+<p>On your local machine, be sure that you are on the <code>master</code> branch.</p>
+<pre><code> git checkout master</code></pre>
+<p>Make the changes you need to fix your bug. Add the modified files
+to the commit. Remember to edit the DESCRIPTION file to update the
+version number, and ensure that <strong>only bug-fix changes</strong> are
+introduced in the commit.</p>
+<pre><code> git add &lt;files changed&gt;
+ ## after version bump
+ git add DESCRIPTION</code></pre>
+<p>Commit the modified files. It is helpful to tag the commit as bug
+fix.</p>
+<pre><code> git commit -m "bug fix: my bug fix"</code></pre>
+</li>
+<li>
+<p>(Alternative) If the changes are non-trivial, create a new branch
+where you can easily abandon any false starts. Merge the final
+version onto <code>master</code></p>
+<pre><code> git checkout master
+ git checkout -b bugfix-my-bug
+ ## add and commit to this branch. When the bug fix is complete...
+ git checkout master
+ git merge bugfix-my-bug</code></pre>
+</li>
+<li>
+<p>Switch to the release branch and cherry-pick the commits from
+master corresponding to the bug fix, e.g., reference the most
+recent commit on the <code>master</code> branch with <code>master</code>; see examples in
+<code>git cherry-pick --help</code>. Remember to edit the DESCRIPTION file to
+update the release version according to <em>Bioconductor</em>’s
+<a href="#version-numbering">version numbering scheme</a>.</p>
+<pre><code> git checkout &lt;RELEASE_X_Y&gt;
+ git cherry-pick master
+ ## Fix version bump by editing 'Version:' field of DESCRIPTION, then
+ git add DESCRIPTION
+ git commit -m "update RELEASE version number"</code></pre>
+<p>NOTE: If you are patching your release for the first time, you have to make
+a local copy of the RELEASE_X_Y branch, by</p>
+<pre><code> git checkout -b &lt;RELEASE_X_Y&gt; upstream/&lt;RELEASE_X_Y&gt;</code></pre>
+<p>Following this one time local checkout, you may switch between RELEASE_X_Y
+and master with <code>git checkout &lt;RELEASE_X_Y&gt;</code>. If you do not use the command
+to get a local copy of the release branch, you will get the message,</p>
+<pre><code> (HEAD detached from origin/RELEASE_X_Y)</code></pre>
+</li>
+<li>
+<p>Push your changes to both the GitHub and <em>Bioconductor</em> <code>master</code>
+and <code>&lt;RELEASE_X_Y&gt;</code> branches. Make sure you are on the correct
+branch on your local machine.</p>
+<p>For the <code>master</code> branch,</p>
+<pre><code> git checkout master
+ git push upstream master
+ git push origin master</code></pre>
+<p>For the <code>release</code> branch,</p>
+<pre><code> git checkout &lt;RELEASE_X_Y&gt;
+ git push upstream &lt;RELEASE_X_Y&gt;
+ git push origin &lt;RELEASE_X_Y&gt;</code></pre>
+</li>
+</ol>
+</div>
+</div>
+<div id="github-scenarios" class="section level2" number="24.8">
+<h2>
+<span class="header-section-number">24.8</span> Github scenarios<a class="anchor" aria-label="anchor" href="#github-scenarios"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>[Add collaborators][] and use Github social coding features.</li>
+<li>[Change Package Maintainer][]</li>
+<li>[Remove Large Data Files][] and clean git tree</li>
+</ul>
+<div id="add-collaborators-and-leverage-github-features" class="section level3" number="24.8.1">
+<h3>
+<span class="header-section-number">24.8.1</span> Add collaborators and leverage GitHub features<a class="anchor" aria-label="anchor" href="#add-collaborators-and-leverage-github-features"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Goal:</strong> You would like to take advantage of the social coding
+features provided by GitHub, while continuing to update your
+<em>Bioconductor</em> repository.</p>
+<div id="maintaining-collaborators-on-github" class="section level4" number="24.8.1.1">
+<h4>
+<span class="header-section-number">24.8.1.1</span> Maintaining Collaborators on GitHub<a class="anchor" aria-label="anchor" href="#maintaining-collaborators-on-github"><i class="fas fa-link"></i></a>
+</h4>
+<ol style="list-style-type: decimal">
+<li><p><a href="https://help.github.com/articles/inviting-collaborators-to-a-personal-repository/">Adding a new collaborator</a></p></li>
+<li><p><a href="https://help.github.com/articles/removing-a-collaborator-from-a-personal-repository/">Removing collaborator</a></p></li>
+</ol>
+</div>
+<div id="pull-requests-on-github" class="section level4" number="24.8.1.2">
+<h4>
+<span class="header-section-number">24.8.1.2</span> Pull requests on GitHub<a class="anchor" aria-label="anchor" href="#pull-requests-on-github"><i class="fas fa-link"></i></a>
+</h4>
+<ol style="list-style-type: decimal">
+<li><a href="https://help.github.com/articles/merging-a-pull-request/">Merging a pull request</a></li>
+</ol>
+</div>
+<div id="push-github-changes-to-the-bioconductor-repository" class="section level4" number="24.8.1.3">
+<h4>
+<span class="header-section-number">24.8.1.3</span> Push GitHub changes to the <em>Bioconductor</em> repository<a class="anchor" aria-label="anchor" href="#push-github-changes-to-the-bioconductor-repository"><i class="fas fa-link"></i></a>
+</h4>
+<p>Once you have accepted pull requests from your package community on
+GitHub, you can push these changes to <em>Bioconductor</em>.</p>
+<ol style="list-style-type: decimal">
+<li>
+<p>Make sure that you are on the branch to which the changes were
+applied, for example <code>master</code>.</p>
+<pre><code> git checkout master</code></pre>
+</li>
+<li>
+<p>Fetch and merge the GitHub changes to your local repository.</p>
+<pre><code> git fetch origin
+ git merge</code></pre>
+<p><a href="#resolve-conflicts">Resolve merge conflicts</a> if necessary.</p>
+</li>
+<li>
+<p>Push your local repository to the upstream <em>Bioconductor</em> repository.</p>
+<pre><code> git push upstream master</code></pre>
+<p>To push GitHub release branch updates to the <em>Bioconductor</em>
+release branch, replace <code>master</code> with name of the release branch,
+e.g.: <code>RELEASE_3_6</code>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="change-maintainer" class="section level3" number="24.8.2">
+<h3>
+<span class="header-section-number">24.8.2</span> Add or Transfer Maintainership of a Package<a class="anchor" aria-label="anchor" href="#change-maintainer"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Goal:</strong> Perhaps there is a point in time where you can no longer maintain your
+package in accordance with the Bioconductor package guidelines. It may be
+necessary to add or transfer maintainer-ship of a package in order to properly
+maintain the package and avoid deprecation and removal.</p>
+<ol style="list-style-type: decimal">
+<li>
+<p>Find a new maintainer</p>
+<p>You may have a collaborator or colleague volunteer to take over. If not, ask
+on the <a href="/help/mailing-list/">bioc-devel</a> mailing list.</p>
+</li>
+<li>
+<p>Email <a href="mailto:maintainer@bioconductor.org" class="email">maintainer@bioconductor.org</a> or <a href="mailto:bioc-devel@r-project.org" class="email">bioc-devel@r-project.org</a></p>
+<p>The original maintainer should email and request that the maintainer of the
+package be updated. Include the package name and the contact information for
+the new maintainer.</p>
+</li>
+<li>
+<p>Update Package DESCRIPTION file</p>
+<p>The DESCRIPTION file of the package should be updated to the new maintainer
+information and pushed to the Bioconductor git.bioconductor.org repository.</p>
+</li>
+</ol>
+</div>
+<div id="remove-large-data-files-and-clean-git-tree" class="section level3" number="24.8.3">
+<h3>
+<span class="header-section-number">24.8.3</span> Remove Large Data Files and Clean Git Tree<a class="anchor" aria-label="anchor" href="#remove-large-data-files-and-clean-git-tree"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Goal:</strong> Git remembers. Sometimes large data files are added to git
+repository (intentionally or unintentionally) causing the size of the repository
+to become large. It is necessary to remove the files and clean the git tree from
+tracking in order to reduce the size.</p>
+<p>These steps should be run on your local copy and (if necessary) pushed to your
+own github repository. The steps below assume origin is a user maintained github
+repository.</p>
+<p><strong>NOTE:</strong> Anyone that is maintaining the package repository (with a local copy)
+should run steps 1-3.</p>
+<ol style="list-style-type: decimal">
+<li><p>Download <a href="https://rtyley.github.io/bfg-repo-cleaner/">BFG Repo-Cleaner</a></p></li>
+<li>
+<p>Run BFG Repo-Cleaner on your package directory</p>
+<p>In the location of your package, run the following command</p>
+<pre><code>java -jar &lt;path to download&gt;/bfg-1.13.0.jar --strip-blobs-bigger-than 100M &lt;your
+package&gt;</code></pre>
+<p><strong>Note:</strong> The above command would remove any file that is 100Mb or
+larger. Adjust this argument based on the size of the files you are cleaning up
+after. It should be lower than the offending file size.</p>
+</li>
+<li>
+<p>Run clean up</p>
+<pre><code>cd &lt;your package&gt;
+git reflog expire --expire=now --all &amp;&amp; git gc --prune=now --aggressive</code></pre>
+</li>
+<li>
+<p>Push Changes</p>
+<pre><code>git push -f origin</code></pre>
+</li>
+<li>
+<p>Request updates on the git.bioconductor.org repository location.</p>
+<p>The Bioconductor git server does not allow <code>-f</code> or to force push to the
+git.bioconductor.org location. Please email <a href="mailto:bioc-devel@r-project.org" class="email">bioc-devel@r-project.org</a>
+explaining the package has been cleaned for large data files and needs to be
+reset.</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="faq" class="section level2" number="24.9">
+<h2>
+<span class="header-section-number">24.9</span> Frequently Asked Question (FAQs)<a class="anchor" aria-label="anchor" href="#faq"><i class="fas fa-link"></i></a>
+</h2>
+<ol style="list-style-type: decimal">
+<li>
+<p>I can’t access my package.</p>
+<p>You will need to log in to the <a href="https://git.bioconductor.org/BiocCredentials/">BiocCredentials</a> app. If you have
+not logged in before, you must first <strong>activate</strong> your account.</p>
+<p>There are two steps,</p>
+<ol style="list-style-type: decimal">
+<li><p>If there is no SSH key registered, you must add one.</p></li>
+<li><p>If there is already an SSH key registered, check the packages you
+have access to in the ‘Profile’ interface.</p></li>
+</ol>
+<p>You can alternatively check if you have access to your package
+using the command line</p>
+<pre><code>   ssh -T git@git.bioconductor.org</code></pre>
+<p>If you have access to your package, but cannot git <code>pull</code> or <code>push</code>,
+please check FAQ #13, #14, and #15.</p>
+</li>
+<li>
+<p>I’m a developer for <em>Bioconductor</em>, my package <code>ExamplePackage</code> is on
+the new server <a href="https://git.bioconductor.org" class="uri">https://git.bioconductor.org</a>. What do I do next?</p>
+<p>Take a look at <a href="git-version-control.html#maintain-github-bioc">Maintain GitHub and <em>Bioconductor</em> repositories</a>.
+This will give you the information needed.</p>
+<p>NOTE: This situation is for packages which were previously
+maintained on SVN and have never been accessed through GIT. It is
+not for newly accepted packages through Github.</p>
+</li>
+<li>
+<p>I have a GitHub repository already set up for my <em>Bioconductor</em>
+package at <code>www.github.com/&lt;developer&gt;/&lt;ExamplePackage&gt;</code> , how do I
+link my repository in GitHub and <a href="https://git.bioconductor.org" class="uri">https://git.bioconductor.org</a> ?</p>
+<p>Take a look at <a href="git-version-control.html#new-package-workflow">New package workflow</a>. Step 2 gives you
+information on how to add the remote and link both GitHub and
+<em>Bioconductor</em> repositories.</p>
+</li>
+<li>
+<p>I’m unable to <code>push</code> or <code>merge</code> my updates from my GitHub
+repository to my <em>Bioconductor</em> package on
+<code>git@git.bioconductor.org</code>, how do I go about this?</p>
+<p>If you are unable to <code>push</code> or <code>merge</code> to either your GitHub
+account or <em>Bioconductor</em> repository, it means you do not have the
+correct access rights. If you are a developer for <em>Bioconductor</em>,
+you will need to <a href="https://git.bioconductor.org/BiocCredentials/">submit your SSH public key</a> to the
+<a href="https://git.bioconductor.org/BiocCredentials/">BiocCredentials</a> app.</p>
+<p>You should also make sure to check that your public key is set up
+correctly on GitHub. Follow
+<a href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/">Adding an SSH key to your GitHub account</a>.</p>
+</li>
+<li>
+<p>I’m not sure how to fetch the updates from <code>git.bioconductor.org</code>
+with regards to my package, how do I do this?</p>
+<p>Take a look at <a href="git-version-control.html#sync-existing-repositories">Sync existing repositories</a>. This will give you
+the information needed.</p>
+</li>
+<li>
+<p>I’m just a package user, do I need to do any of this?</p>
+<p>As a package user, you do not need any of these <strong>developer</strong>
+related documentation. Although, it is a good primer if you want
+to be a contributor to <em>Bioconductor</em>.</p>
+<p>You can also open <a href="https://help.github.com/articles/creating-a-pull-request/">pull requests</a> and <a href="https://help.github.com/articles/creating-an-issue/">issues</a> on the
+<em>Bioconductor</em> packages you use, <strong>if</strong> they have a GitHub
+repository.</p>
+</li>
+<li>
+<p>I’m new to git and GitHub, where should I learn?</p>
+<p>There are many resources where you can learn about git and GitHub.</p>
+<ul>
+<li><a href="https://help.github.com/articles/git-and-github-learning-resources/">git-and-github-learning-resources</a></li>
+<li><a href="https://git-scm.com/">git-scm</a></li>
+<li><a href="https://guides.github.com/">Guides</a></li>
+</ul>
+</li>
+<li>
+<p>I’m a <em>Bioconductor</em> package maintainer, but I don’t have access to
+the <em>Bioconductor</em> server where my packages are being maintained. How
+do I gain access?</p>
+<p>Please submit your SSH public key using the <a href="https://git.bioconductor.org/BiocCredentials/">BiocCredentials</a>
+app. Your key will be added to your our server and you will get
+read+ write access to your package.</p>
+<p>All developers of <em>Bioconductor</em> packages are required to do this,
+if they don’t already have access. Please identify which packages
+you need read/write access to in the email.</p>
+</li>
+<li>
+<p>What is the relationship between the <code>origin</code> and <code>upstream</code> remote?</p>
+<p>In <code>git</code> lingo <strong>origin</strong> is just the default name for a remote
+from which a repository was originally cloned. It might equally
+have been called by another name. We recommend that <strong>origin</strong> be
+set to the developers GitHub repository.</p>
+<p>Similarly, <strong>upstream</strong> is the name for a remote which is hosted
+on the <em>Bioconductor</em> server.</p>
+<p>It is important that all the changes/updates you have on your
+<strong>origin</strong> are equal to <strong>upstream</strong>, in other words, you want
+these two remotes to be in sync.</p>
+<p>Follow <a href="git-version-control.html#sync-existing-repositories">Sync existing repositories</a> for details on how to
+achieve this.</p>
+<p>Image explaining GitHub and <em>Bioconductor</em> relationship for a
+developer</p>
+<div class="inline-figure">
+<img src="images/github-bioc-relationship.png"><!-- -->
+</div>
+</li>
+<li>
+<p>Can I have more than one upstream remote, if yes, is this recommended?</p>
+<p>You can have as many remotes as you please. But you can have only
+one remote with the name <strong>upstream</strong>. We recommend having the
+remote <code>origin</code> set to GitHub, and <code>upstream</code> set to the
+<em>Bioconductor</em> git server to avoid confusion.</p>
+</li>
+<li>
+<p>Common names used in the scenario’s</p>
+<p><code>developer</code>: This should be your GitHub username, e.g., mine is
+<code>nturaga</code>.</p>
+<p><code>BiocGenerics</code>: This is being used as an example to demonstrate
+git commands.</p>
+<p><code>ExamplePackage</code>: This is being used a place holder for a package
+name.</p>
+<p>SVN <code>trunk</code> and git <code>master</code> branch are now the development
+branches.</p>
+</li>
+<li>
+<p>I’m a <em>Bioconductor</em> developer only on the <em>Bioconductor</em> server. I do
+not have/want a GitHub account. What should I do?</p>
+<p>You do not have to get a Github account if you do not want
+one. But it is a really good idea, to maintain your package
+publicly and interact with the community via the social coding
+features available in Github.</p>
+<p>We highlight this in <a href="git-version-control.html#maintain-bioc-only">Maintain a <em>Bioconductor</em>-only repository</a></p>
+</li>
+<li>
+<p>I cannot push to my package. I get the error,</p>
+<pre><code> $ git push origin master
+ fatal: remote error: FATAL: W any packages/myPackage nobody DENIED by fallthru
+ (or you mis-spelled the reponame)</code></pre>
+<p>(you might have renamed the <code>origin</code> remote as <code>upstream</code>;
+substitute <code>upstream</code> for <code>origin</code>. Check your remote,</p>
+<pre><code> $ git remote -v
+ origin  https://git.bioconductor.org/packages/myPackage.git (fetch)
+ origin  https://git.bioconductor.org/packages/myPackage.git (push)</code></pre>
+<p>As a developer you should be using the SSH protocol, but the
+<code>origin</code> remote is HTTPS. Use</p>
+<pre><code> git remote add origin git@git.bioconductor.org:packages/myPackage</code></pre>
+<p>to change the remote to the SSH protocol. Note the <code>:</code> after the
+host name in the SSH protocol, rather than the <code>/</code> in the HTTPS
+protocol. Confirm that the remote has been updated correctly with
+<code>git remote -v</code>.</p>
+<p>If your remote is correct and you still see the message, then your
+SSH key is invalid. See the next FAQ.</p>
+</li>
+<li>
+<p>Before sending a question to the Bioc-devel mailing list about
+git, please check the output of the following commands for
+correctness so that we can help you better.</p>
+<ul>
+<li>
+<p>As a developer check to make sure, you are using SSH as your
+access protocol. Check the output of <code>git remote -v</code> for
+consistency. Include this in your email to bioc-devel, if you
+are unsure. The remote should look like,</p>
+<pre><code>  origin  git@git.bioconductor.org:packages/myPackage.git (fetch)
+  origin  git@git.bioconductor.org:packages/myPackage.git (push)</code></pre>
+<p>or</p>
+<pre><code>  origin  git@github.com:&lt;github username&gt;/myPackage.git (fetch)
+  origin  git@github.com:&lt;github username&gt;/myPackage.git (push)
+  upstream  git@git.bioconductor.org:packages/myPackage.git (fetch)
+  upstream  git@git.bioconductor.org:packages/myPackage.git (push)</code></pre>
+</li>
+<li>
+<p>Check if you have access to the bioc-git server
+(<a href="mailto:git@git.bioconductor.org" class="email">git@git.bioconductor.org</a>), by using <code>ssh -T    git@git.bioconductor.org</code>. This will show you a list of
+packages with READ(R) and WRITE(W) permissions. As a developer
+you should have <code>R W</code> next to your package. This is based on the
+SSH public key you are using, the default for ssh authentication
+is <code>id_rsa</code>.</p>
+<pre><code>  R       admin/..*
+  R       packages/..*
+  R   admin/manifest
+  R   packages/ABAData
+  R   packages/ABAEnrichment
+  R   packages/ABSSeq
+  R W     packages/ABarray
+  R   packages/ACME
+  R   packages/ADaCGH2
+  R   packages/AGDEX</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>SSH key not being recognized because of different name?</p>
+<p>If you have named your SSH public key differently from <code>id_rsa</code> as
+suggested by <code>ssh-keygen</code>, you may find it useful to set up a
+<code>~/.ssh/config</code> file on your machine. Simply make a
+<code>~/.ssh/config</code> file if it does not exist, and add,</p>
+<pre><code> host git.bioconductor.org
+     HostName git.bioconductor.org
+     IdentityFile ~/.ssh/id_rsa_bioconductor
+     User git</code></pre>
+<p>In this example, my private key is called <code>id_rsa_bioconductor</code>
+instead of <code>id_rsa</code>.</p>
+<p>You may find it useful to check the <a href="https://git.bioconductor.org/BiocCredentials/">BiocCredentials</a> app to see
+what SSH key you have registered.</p>
+</li>
+<li>
+<p>SSH key asking for a password and I don’t know it? How do I
+retrieve it?</p>
+<p>There are a few possibilities here,</p>
+<ul>
+<li><p>You have set a password. The bioc-devel mailing list cannot help
+you with this. You have to submit a new key on the
+<a href="https://git.bioconductor.org/BiocCredentials/">BiocCredentials</a> app.</p></li>
+<li>
+<p>The permissions on your SSH key are wrong. Verify that the
+permissions on SSH IdentityFile are <code>400</code>. SSH will reject, in a
+not clearly explicit manner, SSH keys that are too readable. It
+will just look like a credential rejection. The solution, in this
+case, is (if your SSH key for bioconductor is called <code>id_rsa</code>):</p>
+<pre><code>  chmod 400 ~/.ssh/id_rsa</code></pre>
+</li>
+<li><p>You have the wrong remote set up, please check <code>git remote -v</code>
+to make sure the SSH access protocol is being used. Your bioc-git
+server remote, should be
+<code>git@git.bioconductor.org:packages/myPackage</code>.</p></li>
+</ul>
+</li>
+<li>
+<p>Can I create and push new branches to my repository on git.bioconductor.org?</p>
+<p>No. Maintainers only have access to <code>master</code> and the current <code>RELEASE_X_Y</code>.
+New branches cannot be created and pushed to the bioconductor server. We
+recommend maintainers have additional branches on their Github repository
+if they are maintaining one.</p>
+</li>
+<li>
+<p>How can I fix my duplicate commits issue and find the required
+documentation?</p>
+<p>The detailed documentation to <a href="#resolve-duplicate-commits">resolve duplicate commits</a>
+can be found at the link.</p>
+</li>
+</ol>
+<div id="more-questions" class="section level4" number="24.9.0.1">
+<h4>
+<span class="header-section-number">24.9.0.1</span> More questions?<a class="anchor" aria-label="anchor" href="#more-questions"><i class="fas fa-link"></i></a>
+</h4>
+<p>If you have additional questions which are not answered here already,
+please send an email to <a href="mailto:bioc-devel@bioconductor.org" class="email">bioc-devel@bioconductor.org</a>.</p>
+</div>
+<div id="helpful-resources" class="section level3" number="24.9.1">
+<h3>
+<span class="header-section-number">24.9.1</span> Helpful resources:<a class="anchor" aria-label="anchor" href="#helpful-resources"><i class="fas fa-link"></i></a>
+</h3>
+<p><a href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/">Adding a new SSH key to your GitHub account</a></p>
+<p><a href="https://help.github.com/articles/creating-a-pull-request/">Create a pull request on GitHub</a></p>
+<p><a href="https://help.github.com/articles/creating-an-issue/">Create an issue on GitHub</a></p>
+<p><a href="https://help.github.com/articles/git-and-github-learning-resources/">Git and GitHub learning resources</a></p>
+<p><a href="https://git-scm.com/">git-scm manual</a></p>
+<p><a href="https://guides.github.com/">GitHub Guides</a></p>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="gitignore.html"><span class="header-section-number">23</span> The .gitignore file</a></div>
+<div class="next"><a href="conclusion.html"><span class="header-section-number">25</span> Conclusion</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#git-version-control"><span class="header-section-number">24</span> Git Version Control</a></li>
+<li><a class="nav-link" href="#essential-work-flow"><span class="header-section-number">24.1</span> Essential work flow</a></li>
+<li><a class="nav-link" href="#where-to-commit-changes"><span class="header-section-number">24.2</span> Where to Commit Changes</a></li>
+<li><a class="nav-link" href="#checks-and-version-bumps"><span class="header-section-number">24.3</span> Checks and version bumps</a></li>
+<li><a class="nav-link" href="#annotation-packages"><span class="header-section-number">24.4</span> Annotation packages</a></li>
+<li>
+<a class="nav-link" href="#subversion-to-git-transition"><span class="header-section-number">24.5</span> Subversion to Git Transition</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#new-package-workflow"><span class="header-section-number">24.5.1</span> New package workflow</a></li>
+<li><a class="nav-link" href="#maintain-github-bioc"><span class="header-section-number">24.5.2</span> Create a new GitHub repository for an existing Bioconductor package</a></li>
+<li><a class="nav-link" href="#maintain-bioc-only"><span class="header-section-number">24.5.3</span> Maintain a Bioconductor-only repository for an existing package</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#more-scenarios-for-repository-creation"><span class="header-section-number">24.6</span> More scenarios for repository creation</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#sync-existing-repositories"><span class="header-section-number">24.6.1</span> Sync an existing GitHub repository with Bioconductor</a></li>
+<li><a class="nav-link" href="#create-local-repository"><span class="header-section-number">24.6.2</span> Create a local repository for private use</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#scenarios-for-code-update"><span class="header-section-number">24.7</span> Scenarios for code update:</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#pull-upstream-changes"><span class="header-section-number">24.7.1</span> Pull upstream changes</a></li>
+<li><a class="nav-link" href="#push-to-github-bioc"><span class="header-section-number">24.7.2</span> Push to GitHub and Bioconductor repositories</a></li>
+<li><a class="nav-link" href="#resolve-merge-conflicts"><span class="header-section-number">24.7.3</span> Resolve merge conflicts</a></li>
+<li><a class="nav-link" href="#abandon-changes"><span class="header-section-number">24.7.4</span> Abandon changes</a></li>
+<li><a class="nav-link" href="#bug-fix-in-release-and-devel"><span class="header-section-number">24.7.5</span> Fix bugs in devel and release</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#github-scenarios"><span class="header-section-number">24.8</span> Github scenarios</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#add-collaborators-and-leverage-github-features"><span class="header-section-number">24.8.1</span> Add collaborators and leverage GitHub features</a></li>
+<li><a class="nav-link" href="#change-maintainer"><span class="header-section-number">24.8.2</span> Add or Transfer Maintainership of a Package</a></li>
+<li><a class="nav-link" href="#remove-large-data-files-and-clean-git-tree"><span class="header-section-number">24.8.3</span> Remove Large Data Files and Clean Git Tree</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#faq"><span class="header-section-number">24.9</span> Frequently Asked Question (FAQs)</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#helpful-resources"><span class="header-section-number">24.9.1</span> Helpful resources:</a></li></ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/Bioconductor/pkgrevdocs/blob/master/15a-git.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/Bioconductor/pkgrevdocs/edit/master/15a-git.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2021-10-25.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
