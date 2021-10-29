@@ -168,12 +168,17 @@ pushing to the _Bioconductor_ git repository.
 
         git fetch --all
 
-        ## merge changes from git.bioconductor.org
+        ## merge changes from Bioc (upstream remote at git@git.bioconductor.org)
         git merge upstream/master
 
-        ## merge changes from github.com. If your github default branch name
-        ## is main, replace origin/master with origin/main
+        ## merge changes from GitHub (origin remote)
         git merge origin/master
+
+   **Note**. If your GitHub default branch is `main`, replace `master` with
+        `main`:
+
+        ## merge changes from GitHub (origin remote)
+        git merge origin/main
 
    Make changes to your package master branch and commit them to your
    local repository
@@ -192,17 +197,24 @@ pushing to the _Bioconductor_ git repository.
 
    Remember to add and commit these changes to your local repository.
 
-1. **Push changes to the Bioconductor and github repositories**.  Push
+1. **Push changes to the Bioconductor and GitHub repositories**.  Push
    the changes in your local repository to the _Bioconductor_ and
-   github repositories.
+   GitHub repositories.
 
-        ## push to git@git.bioconductor.org. If your github default
-        ## branch name is main, replace master with main:master
+        ## push to BioC (upstream remote at git@git.bioconductor.org)
         git push upstream master
 
-        ## push to your github repository
-        ## If your github default branch name is main, replace master with main
+        ## push to GitHub (origin remote)
         git push origin master
+
+   **Note**. If your GitHub default branch is `main`, replace `master` with
+        `main`:
+
+        ## push to Bioc (upstream remote at git@git.bioconductor.org)
+        git push upstream main:master
+
+        ## push to GitHub (origin remote)
+        git push origin main
 
 1. **Check the updated build report**. If your push to
    git.bioconductor.org included a version bump, you'll receive an
