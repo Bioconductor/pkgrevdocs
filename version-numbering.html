@@ -4,19 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 5 biocViews | Bioconductor Packages: Development, Maintenance, and Peer Review</title>
+<title>Chapter 6 Version Numbering | Bioconductor Packages: Development, Maintenance, and Peer Review</title>
 <meta name="author" content="Kevin Rue-Albrecht">
 <meta name="author" content="Daniela Cassol">
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
-<meta name="description" content="Packages added to the Bioconductor Project require a biocViews: field in their DESCRIPTION file. The field name “biocViews” is case-sensitive and must begin with a lower-case ‘b.’ biocViews terms...">
+<meta name="description" content="All Bioconductor packages should have a version number in x.y.z format. Examples of good version numbers: 1.2.3 0.99.5 2.3.0 3.12.44  6.1 Even Odd Schedule Bioconductor has a ‘devel’ branch where...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 5 biocViews | Bioconductor Packages: Development, Maintenance, and Peer Review">
+<meta property="og:title" content="Chapter 6 Version Numbering | Bioconductor Packages: Development, Maintenance, and Peer Review">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Packages added to the Bioconductor Project require a biocViews: field in their DESCRIPTION file. The field name “biocViews” is case-sensitive and must begin with a lower-case ‘b.’ biocViews terms...">
+<meta property="og:description" content="All Bioconductor packages should have a version number in x.y.z format. Examples of good version numbers: 1.2.3 0.99.5 2.3.0 3.12.44  6.1 Even Odd Schedule Bioconductor has a ‘devel’ branch where...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 5 biocViews | Bioconductor Packages: Development, Maintenance, and Peer Review">
-<meta name="twitter:description" content="Packages added to the Bioconductor Project require a biocViews: field in their DESCRIPTION file. The field name “biocViews” is case-sensitive and must begin with a lower-case ‘b.’ biocViews terms...">
+<meta name="twitter:title" content="Chapter 6 Version Numbering | Bioconductor Packages: Development, Maintenance, and Peer Review">
+<meta name="twitter:description" content="All Bioconductor packages should have a version number in x.y.z format. Examples of good version numbers: 1.2.3 0.99.5 2.3.0 3.12.44  6.1 Even Odd Schedule Bioconductor has a ‘devel’ branch where...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -49,8 +49,8 @@
 <li><a class="" href="general.html"><span class="header-section-number">2</span> General Package Development</a></li>
 <li><a class="" href="use-devel.html"><span class="header-section-number">3</span> Using the ‘Devel’ Version of Bioconductor</a></li>
 <li><a class="" href="description.html"><span class="header-section-number">4</span> The DESCRIPTION file</a></li>
-<li><a class="active" href="biocviews-1.html"><span class="header-section-number">5</span> biocViews</a></li>
-<li><a class="" href="version-numbering.html"><span class="header-section-number">6</span> Version Numbering</a></li>
+<li><a class="" href="biocviews-1.html"><span class="header-section-number">5</span> biocViews</a></li>
+<li><a class="active" href="version-numbering.html"><span class="header-section-number">6</span> Version Numbering</a></li>
 <li><a class="" href="namespace.html"><span class="header-section-number">7</span> The NAMESPACE file</a></li>
 <li><a class="" href="news.html"><span class="header-section-number">8</span> The NEWS file</a></li>
 <li><a class="" href="citation.html"><span class="header-section-number">9</span> The CITATION file</a></li>
@@ -91,87 +91,221 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="biocviews-1" class="section level1" number="5">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="version-numbering" class="section level1" number="6">
 <h1>
-<span class="header-section-number">5</span> biocViews<a class="anchor" aria-label="anchor" href="#biocviews-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6</span> Version Numbering<a class="anchor" aria-label="anchor" href="#version-numbering"><i class="fas fa-link"></i></a>
 </h1>
-<p>Packages added to the <em>Bioconductor</em> Project require a <code>biocViews:</code>
-field in their DESCRIPTION file. The field name “biocViews” is
-case-sensitive and must begin with a lower-case ‘b.’</p>
-<p>biocViews terms are “keywords” used to describe a given package. They
-are broadly divided into three categories, representing the type of
-packages present in the <em>Bioconductor</em> Project -</p>
-<ol style="list-style-type: decimal">
-<li>Software</li>
-<li>Annotation Data</li>
-<li>Experiment Data</li>
-</ol>
-<p>biocViews are available for the <a href="http://bioconductor.org/packages/release/BiocViews.html">release</a> and <a href="http://bioconductor.org/packages/devel/BiocViews.html">devel</a> branches of
-<em>Bioconductor</em>. The devel branch has a check box under the tree
-structure which, when checked, displays biocViews that are defined but
-not used by any package, in addition to biocViews that are in use.</p>
-<div id="motivation" class="section level2" number="5.1">
+<p>All <em>Bioconductor</em> packages should have a version number in x.y.z format.</p>
+<p>Examples of good version numbers:</p>
+<pre><code>1.2.3
+0.99.5
+2.3.0
+3.12.44</code></pre>
+<div id="even-odd-schedule" class="section level2" number="6.1">
 <h2>
-<span class="header-section-number">5.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.1</span> Even Odd Schedule<a class="anchor" aria-label="anchor" href="#even-odd-schedule"><i class="fas fa-link"></i></a>
 </h2>
-<p>One can use biocViews for two broad purposes.</p>
-<ol style="list-style-type: decimal">
-<li><p>A researcher might want to identify all packages in the
-<em>Bioconductor</em> Project which are related to a specific purpose.
-For example, one may want to look for all packages related to “Copy
-Number Variants.”</p></li>
-<li><p>During development, a package contributor can “tag” their package
-with biocViews so that when someone looking for packages (like in
-scenario 1) can easily find their package.</p></li>
-</ol>
+<p><em>Bioconductor</em> has a ‘devel’ branch where new features are introduced,
+and release branches created twice per year. Given a package with
+version number x.y.z,</p>
+<ul>
+<li>y should be an odd number in devel.</li>
+<li>y should be an even number in release.</li>
+</ul>
+<p>During regular development of new features</p>
+<ul>
+<li>Authors increment the z version of their package in the ‘devel’
+branch by 1 for each GIT commit, e.g., from 1.1.0 to 1.1.1, 1.1.2,
+…, 1.1.10, 1.1.11</li>
+<li>Any bug fixes ported to the release branch are similarly
+incremented, 1.0.1, 1.0.2, …</li>
+<li>Changes made to GIT without a corresponding version bump <strong>do not
+propagate</strong> to the repository visible to <code><a href="https://rdrr.io/pkg/BiocManager/man/install.html">BiocManager::install()</a></code>.</li>
+</ul>
+<p>At the time of a release, the <em>Bioconductor</em> team arranges to:</p>
+<ul>
+<li>Create a release branch package with version: x <strong>.</strong> (y+1) <strong>.</strong> (z-z)</li>
+<li>Increment the devel branch package version to: x <strong>.</strong> (y+2) <strong>.</strong> (z-z)</li>
+<li>As a special case, any package with version x.99.z is bumped to
+(x+1) <strong>.</strong> 0 <strong>.</strong> (z-z) in release, and (x+1) <strong>.</strong> 1 <strong>.</strong> 0 in devel.
+Thus authors wishing to signify a major change to their package should set y
+to 99 in their devel package.</li>
+</ul>
 </div>
-<div id="biocviews-during-new-package-development" class="section level2" number="5.2">
+<div id="new-packages" class="section level2" number="6.2">
 <h2>
-<span class="header-section-number">5.2</span> biocViews during new package development<a class="anchor" aria-label="anchor" href="#biocviews-during-new-package-development"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.2</span> New packages<a class="anchor" aria-label="anchor" href="#new-packages"><i class="fas fa-link"></i></a>
 </h2>
-<p>Visit the <a href="http://bioconductor.org/packages/devel/BiocViews.html">devel</a> branch of biocViews when you are in the process of
-adding biocViews to your new package. Identify as many terms as
-appropriate from the hierarchy. Prefer ‘leaf’ terms at the end of the
-hierarchy, over more inclusive terms. Remember to check the box
-displaying all available terms.</p>
-<p>Please Note:</p>
+<p>New packages submitted to <em>Bioconductor</em> should set Version: 0.99.0 in the
+DESCRIPTION file. Specifying y=99 triggers a bump in x at the next release
+which in this case results in version 1.0.0.</p>
+<p>See additional details on
+the <a href="#package-submission">Package Submission</a> page.</p>
+<p>See also the instructions for <a href="use-devel.html#use-devel">Using Bioc Devel</a>.</p>
+</div>
+<div id="example-cases" class="section level2" number="6.3">
+<h2>
+<span class="header-section-number">6.3</span> Example Cases<a class="anchor" aria-label="anchor" href="#example-cases"><i class="fas fa-link"></i></a>
+</h2>
 <ol style="list-style-type: decimal">
-<li><p>Your package will belong to only one part of <em>Bioconductor</em> Project
-(Software, Annotation Data or Experiment Data), so choose only only
-biocViews from that category.</p></li>
-<li><p>biocViews listed in your package must match exactly (e.g.,
-spelling, capitalization) the terms in the biocViews hierarchy.</p></li>
+<li><p>Normal Case. Suppose a package in the devel branch has version
+number 1.1.25. The new release branch now contains a copy of the
+package with version 1.2.0. The devel branch of <em>Bioconductor</em>
+contains the package whose version number has been bumped to
+1.3.0</p></li>
+<li><p>Special Case. The “0.99.2” version of our package is copied by the
+<em>Bioconductor</em> team to the release branch with version number
+1.0.0. The package version is bumped to 1.1.0 in the devel
+branch.</p></li>
 </ol>
-<p>When you submit your new package for review , your package is checked
-and built by the <em>Bioconductor</em> Project. We check the following for
-biocViews:</p>
-<ol style="list-style-type: decimal">
-<li><p>Package contributor has added biocViews.</p></li>
-<li><p>biocViews are valid.</p></li>
-<li><p>Package contributor has added biocViews from only one of the categories.</p></li>
-</ol>
-<p>If you receive a “RECOMMENDED” direction for any of these biocViews
-after you have submitted your package, you can try correcting them on
-your own following the directions given here or ask your package
-reviewer for more information.</p>
+<p>Examples of the version bumping scheme:</p>
+<div class="inline-table"><table border="1" cellpadding="5" cellspacing="0" class="table table-sm">
+<thead valign="bottom"><tr>
+<th class="head">
+Current Release
+</th>
+<th class="head">
+Current Devel
+</th>
+<th class="head">
+Just before Next release
+</th>
+<th class="head">
+Next release
+</th>
+<th class="head">
+Next devel
+</th>
+</tr></thead>
+<tbody valign="top">
+<tr>
+<td>
+–
+</td>
+<td>
+0.99.1
+</td>
+<td>
+0.99.2
+</td>
+<td>
+1.0.0
+</td>
+<td>
+1.1.0
+</td>
+</tr>
+<tr>
+<td>
+1.4.0
+</td>
+<td>
+1.5.0
+</td>
+<td>
+1.5.4
+</td>
+<td>
+1.6.0
+</td>
+<td>
+1.7.0
+</td>
+</tr>
+<tr>
+<td>
+1.4.0
+</td>
+<td>
+1.5.0
+</td>
+<td>
+1.5.1
+</td>
+<td>
+1.6.0
+</td>
+<td>
+1.7.0
+</td>
+</tr>
+<tr>
+<td>
+1.4.0
+</td>
+<td>
+1.5.0
+</td>
+<td>
+1.99.3
+</td>
+<td>
+2.0.0
+</td>
+<td>
+2.1.0
+</td>
+</tr>
+<tr>
+<td>
+1.8.0
+</td>
+<td>
+1.9.0
+</td>
+<td>
+1.9.1
+</td>
+<td>
+1.10.0
+</td>
+<td>
+1.11.0
+</td>
+</tr>
+</tbody>
+</table></div>
+<p><br></p>
+</div>
+<div id="summary" class="section level2" number="6.4">
+<h2>
+<span class="header-section-number">6.4</span> Summary<a class="anchor" aria-label="anchor" href="#summary"><i class="fas fa-link"></i></a>
+</h2>
+<p>Below is a summary of how version components are bumped and the
+key limitations. Bumps “at release time” are done by the <em>Bioconductor</em>
+team and not the package maintainer.</p>
+<p><code>x</code>
+- only modified by the <em>Bioconductor</em> team
+- bumped to x+1 at release time if y=99
+<code>y</code>
+- must be even in release and odd in devel
+- must be &lt;=99
+- bumped at release time for all packages to the next
+even number in release and the next odd in devel
+<code>z</code>
+- should be incremented sequentially during regular package development
+- no limitation on the size of z
+- bumped at release time to 0 for all packages.</p>
 
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="description.html"><span class="header-section-number">4</span> The DESCRIPTION file</a></div>
-<div class="next"><a href="version-numbering.html"><span class="header-section-number">6</span> Version Numbering</a></div>
+<div class="prev"><a href="biocviews-1.html"><span class="header-section-number">5</span> biocViews</a></div>
+<div class="next"><a href="namespace.html"><span class="header-section-number">7</span> The NAMESPACE file</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#biocviews-1"><span class="header-section-number">5</span> biocViews</a></li>
-<li><a class="nav-link" href="#motivation"><span class="header-section-number">5.1</span> Motivation</a></li>
-<li><a class="nav-link" href="#biocviews-during-new-package-development"><span class="header-section-number">5.2</span> biocViews during new package development</a></li>
+<li><a class="nav-link" href="#version-numbering"><span class="header-section-number">6</span> Version Numbering</a></li>
+<li><a class="nav-link" href="#even-odd-schedule"><span class="header-section-number">6.1</span> Even Odd Schedule</a></li>
+<li><a class="nav-link" href="#new-packages"><span class="header-section-number">6.2</span> New packages</a></li>
+<li><a class="nav-link" href="#example-cases"><span class="header-section-number">6.3</span> Example Cases</a></li>
+<li><a class="nav-link" href="#summary"><span class="header-section-number">6.4</span> Summary</a></li>
 </ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/Bioconductor/pkgrevdocs/blob/master/03a-biocViews.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/Bioconductor/pkgrevdocs/edit/master/03a-biocViews.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/Bioconductor/pkgrevdocs/blob/master/03b-version-numbering.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/Bioconductor/pkgrevdocs/edit/master/03b-version-numbering.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>

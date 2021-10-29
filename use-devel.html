@@ -4,19 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 5 biocViews | Bioconductor Packages: Development, Maintenance, and Peer Review</title>
+<title>Chapter 3 Using the ‘Devel’ Version of Bioconductor | Bioconductor Packages: Development, Maintenance, and Peer Review</title>
 <meta name="author" content="Kevin Rue-Albrecht">
 <meta name="author" content="Daniela Cassol">
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
-<meta name="description" content="Packages added to the Bioconductor Project require a biocViews: field in their DESCRIPTION file. The field name “biocViews” is case-sensitive and must begin with a lower-case ‘b.’ biocViews terms...">
+<meta name="description" content="3.1 Which version of R? Package authors should develop against the version of R that will be available to users when the Bioconductor devel branch becomes the Bioconductor release branch. R has a...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 5 biocViews | Bioconductor Packages: Development, Maintenance, and Peer Review">
+<meta property="og:title" content="Chapter 3 Using the ‘Devel’ Version of Bioconductor | Bioconductor Packages: Development, Maintenance, and Peer Review">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Packages added to the Bioconductor Project require a biocViews: field in their DESCRIPTION file. The field name “biocViews” is case-sensitive and must begin with a lower-case ‘b.’ biocViews terms...">
+<meta property="og:description" content="3.1 Which version of R? Package authors should develop against the version of R that will be available to users when the Bioconductor devel branch becomes the Bioconductor release branch. R has a...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 5 biocViews | Bioconductor Packages: Development, Maintenance, and Peer Review">
-<meta name="twitter:description" content="Packages added to the Bioconductor Project require a biocViews: field in their DESCRIPTION file. The field name “biocViews” is case-sensitive and must begin with a lower-case ‘b.’ biocViews terms...">
+<meta name="twitter:title" content="Chapter 3 Using the ‘Devel’ Version of Bioconductor | Bioconductor Packages: Development, Maintenance, and Peer Review">
+<meta name="twitter:description" content="3.1 Which version of R? Package authors should develop against the version of R that will be available to users when the Bioconductor devel branch becomes the Bioconductor release branch. R has a...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -47,9 +47,9 @@
 <li><a class="" href="develop-overview.html">Overview</a></li>
 <li><a class="" href="package-name.html"><span class="header-section-number">1</span> Package name</a></li>
 <li><a class="" href="general.html"><span class="header-section-number">2</span> General Package Development</a></li>
-<li><a class="" href="use-devel.html"><span class="header-section-number">3</span> Using the ‘Devel’ Version of Bioconductor</a></li>
+<li><a class="active" href="use-devel.html"><span class="header-section-number">3</span> Using the ‘Devel’ Version of Bioconductor</a></li>
 <li><a class="" href="description.html"><span class="header-section-number">4</span> The DESCRIPTION file</a></li>
-<li><a class="active" href="biocviews-1.html"><span class="header-section-number">5</span> biocViews</a></li>
+<li><a class="" href="biocviews-1.html"><span class="header-section-number">5</span> biocViews</a></li>
 <li><a class="" href="version-numbering.html"><span class="header-section-number">6</span> Version Numbering</a></li>
 <li><a class="" href="namespace.html"><span class="header-section-number">7</span> The NAMESPACE file</a></li>
 <li><a class="" href="news.html"><span class="header-section-number">8</span> The NEWS file</a></li>
@@ -91,87 +91,79 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="biocviews-1" class="section level1" number="5">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="use-devel" class="section level1" number="3">
 <h1>
-<span class="header-section-number">5</span> biocViews<a class="anchor" aria-label="anchor" href="#biocviews-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3</span> Using the ‘Devel’ Version of <em>Bioconductor</em><a class="anchor" aria-label="anchor" href="#use-devel"><i class="fas fa-link"></i></a>
 </h1>
-<p>Packages added to the <em>Bioconductor</em> Project require a <code>biocViews:</code>
-field in their DESCRIPTION file. The field name “biocViews” is
-case-sensitive and must begin with a lower-case ‘b.’</p>
-<p>biocViews terms are “keywords” used to describe a given package. They
-are broadly divided into three categories, representing the type of
-packages present in the <em>Bioconductor</em> Project -</p>
-<ol style="list-style-type: decimal">
-<li>Software</li>
-<li>Annotation Data</li>
-<li>Experiment Data</li>
-</ol>
-<p>biocViews are available for the <a href="http://bioconductor.org/packages/release/BiocViews.html">release</a> and <a href="http://bioconductor.org/packages/devel/BiocViews.html">devel</a> branches of
-<em>Bioconductor</em>. The devel branch has a check box under the tree
-structure which, when checked, displays biocViews that are defined but
-not used by any package, in addition to biocViews that are in use.</p>
-<div id="motivation" class="section level2" number="5.1">
+<div id="which-version-of-r" class="section level2" number="3.1">
 <h2>
-<span class="header-section-number">5.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.1</span> Which version of R?<a class="anchor" aria-label="anchor" href="#which-version-of-r"><i class="fas fa-link"></i></a>
 </h2>
-<p>One can use biocViews for two broad purposes.</p>
-<ol style="list-style-type: decimal">
-<li><p>A researcher might want to identify all packages in the
-<em>Bioconductor</em> Project which are related to a specific purpose.
-For example, one may want to look for all packages related to “Copy
-Number Variants.”</p></li>
-<li><p>During development, a package contributor can “tag” their package
-with biocViews so that when someone looking for packages (like in
-scenario 1) can easily find their package.</p></li>
-</ol>
+<p>Package authors should develop against the version of <em>R</em> that will be
+available to users when the <em>Bioconductor</em> devel branch becomes the
+<em>Bioconductor</em> release branch.</p>
+<p><em>R</em> has a ‘.y’ release in x.y.z every year (typically mid-April), but
+<em>Bioconductor</em> has a .y release (where current devel becomes release)
+every 6 months (mid-April and mid-October).</p>
+<p>This means that, from mid-October through mid-April, <em>Bioconductor</em>
+developers should be developing against R-devel. From mid-April to
+mid-October, developers should use R-release (actually, the R snapshot
+from the R-x-y-branch) for <em>Bioconductor</em> development.</p>
+<p>See the <a href="https://CRAN.R-project.org/package=BiocManager">BiocManager</a> vignette for instructions on using multiple versions
+of <em>Bioconductor</em>.</p>
 </div>
-<div id="biocviews-during-new-package-development" class="section level2" number="5.2">
+<div id="mid-april" class="section level2" number="3.2">
 <h2>
-<span class="header-section-number">5.2</span> biocViews during new package development<a class="anchor" aria-label="anchor" href="#biocviews-during-new-package-development"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.2</span> Using ‘bioc-devel’ during mid-April to mid-October<a class="anchor" aria-label="anchor" href="#mid-april"><i class="fas fa-link"></i></a>
 </h2>
-<p>Visit the <a href="http://bioconductor.org/packages/devel/BiocViews.html">devel</a> branch of biocViews when you are in the process of
-adding biocViews to your new package. Identify as many terms as
-appropriate from the hierarchy. Prefer ‘leaf’ terms at the end of the
-hierarchy, over more inclusive terms. Remember to check the box
-displaying all available terms.</p>
-<p>Please Note:</p>
-<ol style="list-style-type: decimal">
-<li><p>Your package will belong to only one part of <em>Bioconductor</em> Project
-(Software, Annotation Data or Experiment Data), so choose only only
-biocViews from that category.</p></li>
-<li><p>biocViews listed in your package must match exactly (e.g.,
-spelling, capitalization) the terms in the biocViews hierarchy.</p></li>
-</ol>
-<p>When you submit your new package for review , your package is checked
-and built by the <em>Bioconductor</em> Project. We check the following for
-biocViews:</p>
-<ol style="list-style-type: decimal">
-<li><p>Package contributor has added biocViews.</p></li>
-<li><p>biocViews are valid.</p></li>
-<li><p>Package contributor has added biocViews from only one of the categories.</p></li>
-</ol>
-<p>If you receive a “RECOMMENDED” direction for any of these biocViews
-after you have submitted your package, you can try correcting them on
-your own following the directions given here or ask your package
-reviewer for more information.</p>
+<p>In order to use the ‘bioc-devel’ version of <em>Bioconductor</em> during the
+mid-April to mid-October release cycle, use the release version of <em>R</em>
+and invoke the function <code>install(version="devel")</code> (from the
+<a href="https://CRAN.R-project.org/package=BiocManager">BiocManager</a> package):</p>
+<pre><code>if (!requireNamespace("BiocManager", quietly=TRUE))
+    install.packages("BiocManager")
+BiocManager::install(version = "devel")
+BiocManager::valid()              # checks for out of date packages</code></pre>
+<p>After doing this, all packages will be installed from the ‘bioc-devel’
+repository.</p>
+</div>
+<div id="mid-october" class="section level2" number="3.3">
+<h2>
+<span class="header-section-number">3.3</span> Using ‘bioc-devel’ during mid-October to mid-April<a class="anchor" aria-label="anchor" href="#mid-october"><i class="fas fa-link"></i></a>
+</h2>
+<p>In order to use the ‘bioc-devel’ version of <em>Bioconductor</em> during the
+mid-October to mid-April release cycle, you must install the devel
+version of <em>R</em>.</p>
+<ul>
+<li><a href="https://stat.ethz.ch/R/daily/">Source</a></li>
+<li><a href="https://mac.r-project.org/">macOS</a></li>
+<li><a href="https://cran.r-project.org/bin/windows/base/rdevel.html">Windows</a></li>
+</ul>
+<p>Then, make sure that your version of <a href="https://CRAN.R-project.org/package=BiocManager">BiocManager</a> is current and
+your packages up-to-date.</p>
+<pre><code>if (!requireNamespace("BiocManager", quietly=TRUE))
+    install.packages("BiocManager")
+BiocManager::install(version="devel")
+BiocManager::valid()</code></pre>
 
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="description.html"><span class="header-section-number">4</span> The DESCRIPTION file</a></div>
-<div class="next"><a href="version-numbering.html"><span class="header-section-number">6</span> Version Numbering</a></div>
+<div class="prev"><a href="general.html"><span class="header-section-number">2</span> General Package Development</a></div>
+<div class="next"><a href="description.html"><span class="header-section-number">4</span> The DESCRIPTION file</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#biocviews-1"><span class="header-section-number">5</span> biocViews</a></li>
-<li><a class="nav-link" href="#motivation"><span class="header-section-number">5.1</span> Motivation</a></li>
-<li><a class="nav-link" href="#biocviews-during-new-package-development"><span class="header-section-number">5.2</span> biocViews during new package development</a></li>
+<li><a class="nav-link" href="#use-devel"><span class="header-section-number">3</span> Using the ‘Devel’ Version of Bioconductor</a></li>
+<li><a class="nav-link" href="#which-version-of-r"><span class="header-section-number">3.1</span> Which version of R?</a></li>
+<li><a class="nav-link" href="#mid-april"><span class="header-section-number">3.2</span> Using ‘bioc-devel’ during mid-April to mid-October</a></li>
+<li><a class="nav-link" href="#mid-october"><span class="header-section-number">3.3</span> Using ‘bioc-devel’ during mid-October to mid-April</a></li>
 </ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/Bioconductor/pkgrevdocs/blob/master/03a-biocViews.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/Bioconductor/pkgrevdocs/edit/master/03a-biocViews.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/Bioconductor/pkgrevdocs/blob/master/02a-use-devel.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/Bioconductor/pkgrevdocs/edit/master/02a-use-devel.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>

@@ -4,19 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 3 The DESCRIPTION file | Bioconductor Packages: Development, Maintenance, and Peer Review</title>
+<title>Chapter 4 The DESCRIPTION file | Bioconductor Packages: Development, Maintenance, and Peer Review</title>
 <meta name="author" content="Kevin Rue-Albrecht">
 <meta name="author" content="Daniela Cassol">
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
-<meta name="description" content="The DESCRIPTION file must be properly formatted. The following sections will review some important notes regarding fields of the DESCRIPTION file and associated files.  3.1 Package This is the...">
+<meta name="description" content="The DESCRIPTION file must be properly formatted. The following sections will review some important notes regarding fields of the DESCRIPTION file and associated files.  4.1 Package This is the...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 3 The DESCRIPTION file | Bioconductor Packages: Development, Maintenance, and Peer Review">
+<meta property="og:title" content="Chapter 4 The DESCRIPTION file | Bioconductor Packages: Development, Maintenance, and Peer Review">
 <meta property="og:type" content="book">
-<meta property="og:description" content="The DESCRIPTION file must be properly formatted. The following sections will review some important notes regarding fields of the DESCRIPTION file and associated files.  3.1 Package This is the...">
+<meta property="og:description" content="The DESCRIPTION file must be properly formatted. The following sections will review some important notes regarding fields of the DESCRIPTION file and associated files.  4.1 Package This is the...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 3 The DESCRIPTION file | Bioconductor Packages: Development, Maintenance, and Peer Review">
-<meta name="twitter:description" content="The DESCRIPTION file must be properly formatted. The following sections will review some important notes regarding fields of the DESCRIPTION file and associated files.  3.1 Package This is the...">
+<meta name="twitter:title" content="Chapter 4 The DESCRIPTION file | Bioconductor Packages: Development, Maintenance, and Peer Review">
+<meta name="twitter:description" content="The DESCRIPTION file must be properly formatted. The following sections will review some important notes regarding fields of the DESCRIPTION file and associated files.  4.1 Package This is the...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -47,35 +47,41 @@
 <li><a class="" href="develop-overview.html">Overview</a></li>
 <li><a class="" href="package-name.html"><span class="header-section-number">1</span> Package name</a></li>
 <li><a class="" href="general.html"><span class="header-section-number">2</span> General Package Development</a></li>
-<li><a class="active" href="description.html"><span class="header-section-number">3</span> The DESCRIPTION file</a></li>
-<li><a class="" href="biocviews-1.html"><span class="header-section-number">4</span> biocViews</a></li>
-<li><a class="" href="namespace.html"><span class="header-section-number">5</span> The NAMESPACE file</a></li>
-<li><a class="" href="news.html"><span class="header-section-number">6</span> The NEWS file</a></li>
-<li><a class="" href="citation.html"><span class="header-section-number">7</span> The CITATION file</a></li>
-<li><a class="" href="data.html"><span class="header-section-number">8</span> Package data</a></li>
-<li><a class="" href="docs.html"><span class="header-section-number">9</span> Documentation</a></li>
-<li><a class="" href="tests.html"><span class="header-section-number">10</span> Unit tests</a></li>
-<li><a class="" href="long-tests.html"><span class="header-section-number">11</span> Long Tests</a></li>
-<li><a class="" href="r-code.html"><span class="header-section-number">12</span> R code</a></li>
-<li><a class="" href="common-bioconductor-methods-and-classes.html"><span class="header-section-number">13</span> Common Bioconductor Methods and Classes</a></li>
-<li><a class="" href="robust-and-efficient-code.html"><span class="header-section-number">14</span> Robust and Efficient Code</a></li>
-<li><a class="" href="c-fortran.html"><span class="header-section-number">15</span> C and Fortran code</a></li>
-<li><a class="" href="cmavericks-best-practices.html"><span class="header-section-number">16</span> C++/Mavericks Best Practices</a></li>
-<li><a class="" href="debugging-cc-code.html"><span class="header-section-number">17</span> Debugging C/C++ code</a></li>
-<li><a class="" href="querying-web-resources.html"><span class="header-section-number">18</span> Querying Web Resources</a></li>
-<li><a class="" href="third-party-code.html"><span class="header-section-number">19</span> Third-party code</a></li>
-<li><a class="" href="shiny.html"><span class="header-section-number">20</span> Shiny apps</a></li>
-<li><a class="" href="non-software.html"><span class="header-section-number">21</span> Non-Software Packages</a></li>
-<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">22</span> Package End of Life Policy</a></li>
-<li><a class="" href="gitignore.html"><span class="header-section-number">23</span> The .gitignore file</a></li>
-<li><a class="" href="git-version-control.html"><span class="header-section-number">24</span> Git Version Control</a></li>
-<li><a class="" href="conclusion.html"><span class="header-section-number">25</span> Conclusion</a></li>
+<li><a class="" href="use-devel.html"><span class="header-section-number">3</span> Using the ‘Devel’ Version of Bioconductor</a></li>
+<li><a class="active" href="description.html"><span class="header-section-number">4</span> The DESCRIPTION file</a></li>
+<li><a class="" href="biocviews-1.html"><span class="header-section-number">5</span> biocViews</a></li>
+<li><a class="" href="version-numbering.html"><span class="header-section-number">6</span> Version Numbering</a></li>
+<li><a class="" href="namespace.html"><span class="header-section-number">7</span> The NAMESPACE file</a></li>
+<li><a class="" href="news.html"><span class="header-section-number">8</span> The NEWS file</a></li>
+<li><a class="" href="citation.html"><span class="header-section-number">9</span> The CITATION file</a></li>
+<li><a class="" href="data.html"><span class="header-section-number">10</span> Package data</a></li>
+<li><a class="" href="docs.html"><span class="header-section-number">11</span> Documentation</a></li>
+<li><a class="" href="tests.html"><span class="header-section-number">12</span> Unit tests</a></li>
+<li><a class="" href="long-tests.html"><span class="header-section-number">13</span> Long Tests</a></li>
+<li><a class="" href="troubleshooting-build-report.html"><span class="header-section-number">14</span> Troubleshooting Build Report</a></li>
+<li><a class="" href="r-code.html"><span class="header-section-number">15</span> R code</a></li>
+<li><a class="" href="common-bioconductor-methods-and-classes.html"><span class="header-section-number">16</span> Common Bioconductor Methods and Classes</a></li>
+<li><a class="" href="robust-and-efficient-code.html"><span class="header-section-number">17</span> Robust and Efficient Code</a></li>
+<li><a class="" href="c-fortran.html"><span class="header-section-number">18</span> C and Fortran code</a></li>
+<li><a class="" href="cmavericks-best-practices.html"><span class="header-section-number">19</span> C++/Mavericks Best Practices</a></li>
+<li><a class="" href="debugging-cc-code.html"><span class="header-section-number">20</span> Debugging C/C++ code</a></li>
+<li><a class="" href="querying-web-resources.html"><span class="header-section-number">21</span> Querying Web Resources</a></li>
+<li><a class="" href="third-party-code.html"><span class="header-section-number">22</span> Third-party code</a></li>
+<li><a class="" href="workflow-packages.html"><span class="header-section-number">23</span> Workflow Packages</a></li>
+<li><a class="" href="shiny.html"><span class="header-section-number">24</span> Shiny apps</a></li>
+<li><a class="" href="non-software.html"><span class="header-section-number">25</span> Non-Software Packages</a></li>
+<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">26</span> Package End of Life Policy</a></li>
+<li><a class="" href="gitignore.html"><span class="header-section-number">27</span> The .gitignore file</a></li>
+<li><a class="" href="git-version-control.html"><span class="header-section-number">28</span> Git Version Control</a></li>
+<li><a class="" href="conclusion.html"><span class="header-section-number">29</span> Conclusion</a></li>
 <li><a class="" href="references-1.html">References</a></li>
+<li class="book-part">Package Submissions</li>
+<li><a class="" href="software-package-submissions.html"><span class="header-section-number">30</span> Software Package Submissions</a></li>
 <li class="book-part">Package Reviewer Resources</li>
 <li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
-<li><a class="" href="review-expectation.html"><span class="header-section-number">26</span> Review Expectations</a></li>
-<li><a class="" href="reviewtools.html"><span class="header-section-number">27</span> Reviewer Resources and Tools</a></li>
-<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">28</span> Volunteer to Review</a></li>
+<li><a class="" href="review-expectation.html"><span class="header-section-number">31</span> Review Expectations</a></li>
+<li><a class="" href="reviewtools.html"><span class="header-section-number">32</span> Reviewer Resources and Tools</a></li>
+<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">33</span> Volunteer to Review</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="booknews.html"><span class="header-section-number">A</span> NEWS</a></li>
 </ul>
@@ -85,31 +91,33 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="description" class="section level1" number="3">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="description" class="section level1" number="4">
 <h1>
-<span class="header-section-number">3</span> The DESCRIPTION file<a class="anchor" aria-label="anchor" href="#description"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4</span> The DESCRIPTION file<a class="anchor" aria-label="anchor" href="#description"><i class="fas fa-link"></i></a>
 </h1>
 <p>The <code>DESCRIPTION</code> file must be properly formatted.
 The following sections will review some important notes regarding fields of the <code>DESCRIPTION</code> file and associated files.</p>
-<div id="package" class="section level2" number="3.1">
+<div id="package" class="section level2" number="4.1">
 <h2>
-<span class="header-section-number">3.1</span> <code>Package</code><a class="anchor" aria-label="anchor" href="#package"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.1</span> <code>Package</code><a class="anchor" aria-label="anchor" href="#package"><i class="fas fa-link"></i></a>
 </h2>
 <p>This is the name of the package.</p>
 </div>
-<div id="title" class="section level2" number="3.2">
+<div id="title" class="section level2" number="4.2">
 <h2>
-<span class="header-section-number">3.2</span> <code>Title</code><a class="anchor" aria-label="anchor" href="#title"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.2</span> <code>Title</code><a class="anchor" aria-label="anchor" href="#title"><i class="fas fa-link"></i></a>
 </h2>
 <p>This is a brief but descriptive title for the package.</p>
 </div>
-<div id="version" class="section level2" number="3.3">
+<div id="version" class="section level2" number="4.3">
 <h2>
-<span class="header-section-number">3.3</span> <code>Version</code><a class="anchor" aria-label="anchor" href="#version"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.3</span> <code>Version</code><a class="anchor" aria-label="anchor" href="#version"><i class="fas fa-link"></i></a>
 </h2>
-<p>All Bioconductor packages use an <code>x.y.z</code> version scheme.
-See <a href="https://bioconductor.org/developers/how-to/version-numbering/">Version Numbering</a> for specifics to how the release and devel <a href="https://bioconductor.org"><em>Bioconductor</em></a> versioning proceeds.
-When first submitted to Bioconductor, a package should have pre-release version <code>0.99.0</code>.</p>
+<p>All <a href="https://bioconductor.org"><em>Bioconductor</em></a> packages use an <code>x.y.z</code> version scheme.
+See <a href="version-numbering.html#version-numbering">Version Numbering</a> for specifics to how the release
+and devel Bioconductor versioning proceeds. When
+first submitted to Bioconductor, a package should have pre-release version
+<code>0.99.0</code>.</p>
 <p>The following rules apply:</p>
 <ul>
 <li>
@@ -121,158 +129,203 @@ Generally, do not bump this number especially in pre-release.</li>
 <code>z</code> is incremented whenever committing changes to a package.</li>
 </ul>
 </div>
-<div id="description-1" class="section level2" number="3.4">
+<div id="description-1" class="section level2" number="4.4">
 <h2>
-<span class="header-section-number">3.4</span> <code>Description</code><a class="anchor" aria-label="anchor" href="#description-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.4</span> <code>Description</code><a class="anchor" aria-label="anchor" href="#description-1"><i class="fas fa-link"></i></a>
 </h2>
-<p>The description should be a relatively short but detailed overview of what the package functionality entails.
-It should be at least three complete sentences.</p>
+<p>The description should be a relatively short but detailed overview of what the
+package functionality entails. It should be at least three complete sentences.</p>
 </div>
-<div id="authorsr" class="section level2" number="3.5">
+<div id="authorsr" class="section level2" number="4.5">
 <h2>
-<span class="header-section-number">3.5</span> <code>Authors@R</code><a class="anchor" aria-label="anchor" href="#authorsr"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.5</span> <code>Authors@R</code><a class="anchor" aria-label="anchor" href="#authorsr"><i class="fas fa-link"></i></a>
 </h2>
 <p>The <code>Authors@R</code> field should be used.
-A maintainer designation (<code>cre</code> for <code>Authors@R</code>) is required with an actively maintained email address.
-This email address will be used for contact regarding any issues that arise with the package in the future.</p>
-<p>For persons with an <a href="https://orcid.org/">ORCiD</a> identifier provide the identifier via an element named “ORCID” in the comment argument of <code><a href="https://rdrr.io/r/utils/person.html">person()</a></code>.
-For example:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+A maintainer designation (<code>cre</code> for <code>Authors@R</code>) is required with an actively
+maintained email address. This email address will be used for contact
+regarding any issues that arise with the package in the future.</p>
+<p>For persons with an <a href="https://orcid.org/">ORCiD</a> identifier provide the
+identifier via an element named “ORCID” in the comment argument of <code><a href="https://rdrr.io/r/utils/person.html">person()</a></code>.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/person.html">person</a></span><span class="op">(</span><span class="st">"Lori"</span>, <span class="st">"Shepherd"</span>,
   email <span class="op">=</span> <span class="va">Lori.Shepherd</span><span class="op">@</span><span class="va">roswellpark.org</span>,
   role <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"cre"</span>, <span class="st">"aut"</span><span class="op">)</span>,
   comment <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>ORCID <span class="op">=</span> <span class="st">"0000-0002-5910-4010"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p>Only one person should be listed as the <code>Maintainer</code> to ensure a single point of contact.
-This person by default will have commit access to the git repository on <code>git.bioconductor.org</code>.
-Commit access can be given to other developers by request on the <a href="https://bioconductor.org/help/support/">bioc-devel</a> mailing list.</p>
-<p>Another option is to add collaborators to the <i class="fab fa-github"></i> GitHub repository.
-This approach enables development by many but restricts push access to <code>git.bioconductor.org</code>.</p>
+<p>Only one person should be listed as the <code>Maintainer</code> to ensure a single point
+of contact. This person by default will have commit access to the git
+repository on <code>git.bioconductor.org</code>. Commit access can be given to other
+developers by request on the
+<a href="https://bioconductor.org/help/support/">bioc-devel</a> mailing list.</p>
+<p>Another option is to add collaborators to the <i class="fab fa-github"></i>
+GitHub repository. This approach enables development by many but restricts
+push access to <code>git.bioconductor.org</code>.</p>
 </div>
-<div id="license" class="section level2" number="3.6">
+<div id="license" class="section level2" number="4.6">
 <h2>
-<span class="header-section-number">3.6</span> <code>License</code><a class="anchor" aria-label="anchor" href="#license"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.6</span> <code>License</code><a class="anchor" aria-label="anchor" href="#license"><i class="fas fa-link"></i></a>
 </h2>
-<p>The license field should preferably refer to a standard license (see <a href="http://en.wikipedia.org/wiki/Comparison_of_free_software_licences">wikipedia</a>) using one of <i class="fab fa-r-project"></i>’s standard specifications.</p>
+<p>The license field should preferably refer to a standard license (see
+<a href="http://en.wikipedia.org/wiki/Comparison_of_free_software_licences">wikipedia</a>)
+using one of <i class="fab fa-r-project"></i>’s standard specifications.</p>
 <p>Be specific about any version that applies (e.g., <code>GPL-2</code>).
-Licenses restricting use, e.g., to academic or non-profit researchers, are not suitable for Bioconductor. Core Bioconductor packages are typically licensed under <code>Artistic-2.0</code>.</p>
-<p>To specify a non-standard license, include a file named <code>LICENSE</code> in your package (containing the full terms of your license) and use the string <code>file LICENSE</code> in this <code>License:</code> field.</p>
-<p>The package should contain only code that can be redistributed according to the package license.
-Be aware of the licensing agreements for packages you are depending on in your package.
-Not all packages are open source even if they are publicly available.</p>
+Licenses restricting use, e.g., to academic or non-profit researchers, are not
+suitable for <a href="https://bioconductor.org"><em>Bioconductor</em></a>. Core Bioconductor packages are typically
+licensed under <code>Artistic-2.0</code>.</p>
+<p>To specify a non-standard license, include a file named <code>LICENSE</code> in your
+package (containing the full terms of your license) and use the string <code>file LICENSE</code> in this <code>License:</code> field.</p>
+<p>The package should contain only code that can be redistributed according to the
+package license. Be aware of the licensing agreements for packages you are
+depending on in your package. Not all packages are open source even if they
+are publicly available.</p>
 </div>
-<div id="lazydata" class="section level2" number="3.7">
+<div id="lazydata" class="section level2" number="4.7">
 <h2>
-<span class="header-section-number">3.7</span> <code>LazyData</code><a class="anchor" aria-label="anchor" href="#lazydata"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.7</span> <code>LazyData</code><a class="anchor" aria-label="anchor" href="#lazydata"><i class="fas fa-link"></i></a>
 </h2>
 <p>For packages that include data, we recommend not including <code>LazyData: TRUE</code>.
 However, this rarely proves to be a good thing.
 In our experience it only slows down the loading of packages with large data.</p>
 </div>
-<div id="depends-imports-suggests-enhances" class="section level2" number="3.8">
+<div id="depends-imports-suggests-enhances" class="section level2" number="4.8">
 <h2>
-<span class="header-section-number">3.8</span> <code>Depends</code>, <code>Imports</code>, <code>Suggests</code>, <code>Enhances</code><a class="anchor" aria-label="anchor" href="#depends-imports-suggests-enhances"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.8</span> <code>Depends</code>, <code>Imports</code>, <code>Suggests</code>, <code>Enhances</code><a class="anchor" aria-label="anchor" href="#depends-imports-suggests-enhances"><i class="fas fa-link"></i></a>
 </h2>
-<p>All packages must be available via <a href="https://bioconductor.org/packages/release/BiocViews.html"><em>Bioconductor</em></a> or <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">CRAN</a>; the use of the <code>Remotes:</code> field is not supported, hence dependencies only available on other repositories (e.g. <i class="fab fa-github"></i> GitHub) are not allowed.</p>
-<p>Reuse, rather than re-implement or duplicate, well-tested functionality from other packages.
-Make use of appropriate existing packages (e.g., <em><a href="https://bioconductor.org/packages/3.13/biomaRt">biomaRt</a></em>, <em><a href="https://bioconductor.org/packages/3.13/AnnotationDbi">AnnotationDbi</a></em>, <em><a href="https://bioconductor.org/packages/3.13/Biostrings">Biostrings</a></em>) and classes (e.g., <em><a href="https://bioconductor.org/packages/3.13/SummarizedExperiment">SummarizedExperiment</a></em>, <em><a href="https://bioconductor.org/packages/3.13/GRanges">GRanges</a></em>, <em><a href="https://bioconductor.org/packages/3.13/Rle">Rle</a></em>, <em><a href="https://bioconductor.org/packages/3.13/DNAStringSet">DNAStringSet</a></em>), and avoid duplication of functionality available in other <a href="https://bioconductor.org"><em>Bioconductor</em></a> packages.
-See <a href="https://bioconductor.org/developers/how-to/commonMethodsAndClasses/">Common Bioconductor Methods and Classes</a>. <a href="https://bioconductor.org"><em>Bioconductor</em></a> reviewers are very strict on this point!
-New packages should be interoperable with existing <a href="https://bioconductor.org"><em>Bioconductor</em></a> classes and should not reimplement functionality especially with regards to importing/reading data.</p>
-<p>A package can be listed only once between <code>Depends:</code>, <code>Imports:</code>, <code>Suggests:</code>, or <code>Enhances:</code>.
-Determine placement of package based on the following guidelines:</p>
+<p>All packages must be available via
+<a href="https://bioconductor.org/packages/release/BiocViews.html"><em>Bioconductor</em>’s
+biocViews</a> or
+<a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">CRAN</a>;
+the use of the <code>Remotes:</code> field is not supported, hence dependencies only
+available on other repositories (e.g. <i class="fab fa-github"></i> GitHub) are
+not allowed.</p>
+<p>Reuse, rather than re-implement or duplicate, well-tested functionality from
+other packages. Make use of appropriate existing packages (e.g.,
+<em><a href="https://bioconductor.org/packages/3.15/biomaRt">biomaRt</a></em>,
+<em><a href="https://bioconductor.org/packages/3.15/AnnotationDbi">AnnotationDbi</a></em>,
+<em><a href="https://bioconductor.org/packages/3.15/Biostrings">Biostrings</a></em>) and classes (e.g.,
+<em><a href="https://bioconductor.org/packages/3.15/SummarizedExperiment">SummarizedExperiment</a></em>,
+<em><a href="https://bioconductor.org/packages/3.15/GRanges">GRanges</a></em>,
+<em><a href="https://bioconductor.org/packages/3.15/Rle">Rle</a></em>,
+<em><a href="https://bioconductor.org/packages/3.15/DNAStringSet">DNAStringSet</a></em>), and
+avoid duplication of functionality available in other Bioconductor packages.
+See <a href="common-bioconductor-methods-and-classes.html#common-bioconductor-methods-and-classes">Common Bioconductor Methods and
+Classes</a>.
+Bioconductor reviewers are very strict on this point! New packages should be
+interoperable with existing Bioconductor classes and should not reimplement
+functionality especially with regards to importing/reading data.</p>
+<p>A package can be listed only once between <code>Depends:</code>, <code>Imports:</code>, <code>Suggests:</code>,
+or <code>Enhances:</code>. Determine placement of package based on the following
+guidelines:</p>
 <ul>
+<li><p><code>Imports:</code> is for packages that provide functions, methods, or classes that
+are used inside your package name space. Most packages are listed here.</p></li>
+<li><p><code>Depends:</code> is for packages that provide essential functionality for users of
+your package, e.g., the <code>GenomicRanges</code> package is listed in the <code>Depends:</code>
+field of <code>GenomicAlignments</code>.
+It is unusual for more than three packages to be listed as <code>Depends:</code>.</p></li>
 <li>
-<code>Imports:</code> is for packages that provide functions, methods, or classes that are used inside your package name space.
-Most packages are listed here.</li>
-<li>
-<code>Depends:</code> is for packages that provide essential functionality for users of your package, e.g., the <code>GenomicRanges</code> package is listed in the <code>Depends:</code> field of <code>GenomicAlignments</code>.
-It is unusual for more than three packages to be listed as <code>Depends:</code>.</li>
-<li>
-<code>Suggests:</code> is for packages used in vignettes, examples, and in conditional code.
-Commonly, annotation and experiment packages (e.g., <code>TxDb*</code>) used in vignette and example code are included in this field thus avoiding a costly download.
-In the case where an external one-off function is required for package code, the package availability and usage can be done via:</li>
+<p><code>Suggests:</code> is for packages used in vignettes, examples, and in conditional
+code.Commonly, annotation and experiment packages (e.g., <code>TxDb*</code>) used in
+vignette and example code are included in this field thus avoiding a costly
+download. In the case where an external one-off function is required for
+package code, the package availability and usage can be done via:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="description.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">'suggPKG'</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb6-2"><a href="description.html#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"Install 'suggPKG' to use this function."</span>)</span>
+<span id="cb6-3"><a href="description.html#cb6-3" aria-hidden="true" tabindex="-1"></a>suggPKG<span class="sc">::</span><span class="cf">function</span>()</span></code></pre></div>
+</li>
+<li><p><code>Enhances:</code> is for packages such as <code>Rmpi</code> or <code>parallel</code> that enhance the
+performance of your package, but are not strictly needed for its
+functionality.</p></li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="description.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">'suggPKG'</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb4-2"><a href="description.html#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"Install 'suggPKG' to use this function."</span>)</span>
-<span id="cb4-3"><a href="description.html#cb4-3" aria-hidden="true" tabindex="-1"></a>suggPKG<span class="sc">::</span><span class="cf">function</span>()</span></code></pre></div>
-<ul>
-<li>
-<code>Enhances:</code> is for packages such as <code>Rmpi</code> or <code>parallel</code> that enhance the performance of your package, but are not strictly needed for its functionality.</li>
-</ul>
-<p>It is seldom necessary to specify <i class="fab fa-r-project"></i> or specific versions as dependencies, since the <a href="https://bioconductor.org"><em>Bioconductor</em></a> release strategy and standard installation instructions guarantee these constraints.
-Repositories mirrored outside <a href="https://bioconductor.org"><em>Bioconductor</em></a> should include branches for each <a href="https://bioconductor.org"><em>Bioconductor</em></a> release, and may find it useful to fully specify versions to enforce constraints otherwise guaranteed by <a href="https://bioconductor.org"><em>Bioconductor</em></a> installation practices.</p>
+<p>It is seldom necessary to specify <i class="fab fa-r-project"></i> or specific
+versions as dependencies, since the Bioconductor release strategy and
+standard installation instructions guarantee these constraints. Repositories
+mirrored outside Bioconductor should include branches for each
+Bioconductor release, and may find it useful to fully specify versions to
+enforce constraints otherwise guaranteed by Bioconductor installation
+practices.</p>
 </div>
-<div id="systemrequirements" class="section level2" number="3.9">
+<div id="systemrequirements" class="section level2" number="4.9">
 <h2>
-<span class="header-section-number">3.9</span> <code>SystemRequirements</code><a class="anchor" aria-label="anchor" href="#systemrequirements"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.9</span> <code>SystemRequirements</code><a class="anchor" aria-label="anchor" href="#systemrequirements"><i class="fas fa-link"></i></a>
 </h2>
-<p>This field is for listing any external software which is required, but not automatically installed by the normal package installation process.</p>
-<p>If the installation process is non-trivial, a top-level <code>INSTALL</code> file should be
-included to document the process. If a user facing <code>README</code> is included it is
-also recommended to document the process there.</p>
+<p>This field is for listing any external software which is required, but not
+automatically installed by the normal package installation process.</p>
+<p>If the installation process is non-trivial, a top-level <code>INSTALL</code> file should
+be included to document the process. If a user facing <code>README</code> is included it
+is also recommended to document the process there.</p>
 </div>
-<div id="biocviews" class="section level2" number="3.10">
+<div id="biocviews" class="section level2" number="4.10">
 <h2>
-<span class="header-section-number">3.10</span> <code>biocViews</code><a class="anchor" aria-label="anchor" href="#biocviews"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.10</span> <code>biocViews</code><a class="anchor" aria-label="anchor" href="#biocviews"><i class="fas fa-link"></i></a>
 </h2>
 <p>This field is <strong>required</strong>!</p>
-<p>Specify at least two leaf node from <a href="https://bioconductor.org/packages/release/BiocViews.html">biocViews</a>.
-Multiple leaf terms are encouraged but terms must come from the same trunk or package type (i.e., <code>Software</code>, <code>AnnotationData</code>, <code>ExperimentData</code>, or <code>Workflow</code>).</p>
+<p>Specify at least two leaf node from
+<a href="https://bioconductor.org/packages/release/BiocViews.html">biocViews</a>.
+Multiple leaf terms are encouraged but terms must come from the same trunk or
+package type (i.e., <code>Software</code>, <code>AnnotationData</code>, <code>ExperimentData</code>, or
+<code>Workflow</code>).</p>
 </div>
-<div id="bugreports" class="section level2" number="3.11">
+<div id="bugreports" class="section level2" number="4.11">
 <h2>
-<span class="header-section-number">3.11</span> <code>BugReports</code><a class="anchor" aria-label="anchor" href="#bugreports"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.11</span> <code>BugReports</code><a class="anchor" aria-label="anchor" href="#bugreports"><i class="fas fa-link"></i></a>
 </h2>
-<p>It is encouraged to include the relevant links to <i class="fab fa-github"></i> GitHub for reporting issues.</p>
+<p>It is encouraged to include the relevant links to <i class="fab fa-github"></i>
+GitHub for reporting issues.</p>
 </div>
-<div id="url" class="section level2" number="3.12">
+<div id="url" class="section level2" number="4.12">
 <h2>
-<span class="header-section-number">3.12</span> <code>URL</code><a class="anchor" aria-label="anchor" href="#url"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.12</span> <code>URL</code><a class="anchor" aria-label="anchor" href="#url"><i class="fas fa-link"></i></a>
 </h2>
-<p>This field directs users to source code repositories, additional help resources, etc; details are provided in the <a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html">Writing R Extensions</a> manual, <code>RShowDoc("R-exts")</code>.</p>
+<p>This field directs users to source code repositories, additional help
+resources, etc; details are provided in the <a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html">Writing R
+Extensions</a>
+manual, <code>RShowDoc("R-exts")</code>.</p>
 </div>
-<div id="video" class="section level2" number="3.13">
+<div id="video" class="section level2" number="4.13">
 <h2>
-<span class="header-section-number">3.13</span> <code>Video</code><a class="anchor" aria-label="anchor" href="#video"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.13</span> <code>Video</code><a class="anchor" aria-label="anchor" href="#video"><i class="fas fa-link"></i></a>
 </h2>
 <p>This field displays links to instructional videos.</p>
 </div>
-<div id="collates" class="section level2" number="3.14">
+<div id="collates" class="section level2" number="4.14">
 <h2>
-<span class="header-section-number">3.14</span> <code>Collates</code><a class="anchor" aria-label="anchor" href="#collates"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.14</span> <code>Collates</code><a class="anchor" aria-label="anchor" href="#collates"><i class="fas fa-link"></i></a>
 </h2>
-<p>This may be necessary to order class and method definitions appropriately during package installation.</p>
+<p>This may be necessary to order class and method definitions appropriately
+during package installation.</p>
 </div>
-<div id="bioctype" class="section level2" number="3.15">
+<div id="bioctype" class="section level2" number="4.15">
 <h2>
-<span class="header-section-number">3.15</span> <code>BiocType</code><a class="anchor" aria-label="anchor" href="#bioctype"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.15</span> <code>BiocType</code><a class="anchor" aria-label="anchor" href="#bioctype"><i class="fas fa-link"></i></a>
 </h2>
 <p>This is required if submitting a <code>Docker</code> or <code>Workflow</code>.
-Otherwise this field could optionally define the type of Bioconductor package <code>Software</code>, <code>ExperimentData</code>, <code>Annotation</code>.</p>
+Otherwise this field could optionally define the type of Bioconductor package
+<code>Software</code>, <code>ExperimentData</code>, <code>Annotation</code>.</p>
 
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="general.html"><span class="header-section-number">2</span> General Package Development</a></div>
-<div class="next"><a href="biocviews-1.html"><span class="header-section-number">4</span> biocViews</a></div>
+<div class="prev"><a href="use-devel.html"><span class="header-section-number">3</span> Using the ‘Devel’ Version of Bioconductor</a></div>
+<div class="next"><a href="biocviews-1.html"><span class="header-section-number">5</span> biocViews</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#description"><span class="header-section-number">3</span> The DESCRIPTION file</a></li>
-<li><a class="nav-link" href="#package"><span class="header-section-number">3.1</span> Package</a></li>
-<li><a class="nav-link" href="#title"><span class="header-section-number">3.2</span> Title</a></li>
-<li><a class="nav-link" href="#version"><span class="header-section-number">3.3</span> Version</a></li>
-<li><a class="nav-link" href="#description-1"><span class="header-section-number">3.4</span> Description</a></li>
-<li><a class="nav-link" href="#authorsr"><span class="header-section-number">3.5</span> Authors@R</a></li>
-<li><a class="nav-link" href="#license"><span class="header-section-number">3.6</span> License</a></li>
-<li><a class="nav-link" href="#lazydata"><span class="header-section-number">3.7</span> LazyData</a></li>
-<li><a class="nav-link" href="#depends-imports-suggests-enhances"><span class="header-section-number">3.8</span> Depends, Imports, Suggests, Enhances</a></li>
-<li><a class="nav-link" href="#systemrequirements"><span class="header-section-number">3.9</span> SystemRequirements</a></li>
-<li><a class="nav-link" href="#biocviews"><span class="header-section-number">3.10</span> biocViews</a></li>
-<li><a class="nav-link" href="#bugreports"><span class="header-section-number">3.11</span> BugReports</a></li>
-<li><a class="nav-link" href="#url"><span class="header-section-number">3.12</span> URL</a></li>
-<li><a class="nav-link" href="#video"><span class="header-section-number">3.13</span> Video</a></li>
-<li><a class="nav-link" href="#collates"><span class="header-section-number">3.14</span> Collates</a></li>
-<li><a class="nav-link" href="#bioctype"><span class="header-section-number">3.15</span> BiocType</a></li>
+<li><a class="nav-link" href="#description"><span class="header-section-number">4</span> The DESCRIPTION file</a></li>
+<li><a class="nav-link" href="#package"><span class="header-section-number">4.1</span> Package</a></li>
+<li><a class="nav-link" href="#title"><span class="header-section-number">4.2</span> Title</a></li>
+<li><a class="nav-link" href="#version"><span class="header-section-number">4.3</span> Version</a></li>
+<li><a class="nav-link" href="#description-1"><span class="header-section-number">4.4</span> Description</a></li>
+<li><a class="nav-link" href="#authorsr"><span class="header-section-number">4.5</span> Authors@R</a></li>
+<li><a class="nav-link" href="#license"><span class="header-section-number">4.6</span> License</a></li>
+<li><a class="nav-link" href="#lazydata"><span class="header-section-number">4.7</span> LazyData</a></li>
+<li><a class="nav-link" href="#depends-imports-suggests-enhances"><span class="header-section-number">4.8</span> Depends, Imports, Suggests, Enhances</a></li>
+<li><a class="nav-link" href="#systemrequirements"><span class="header-section-number">4.9</span> SystemRequirements</a></li>
+<li><a class="nav-link" href="#biocviews"><span class="header-section-number">4.10</span> biocViews</a></li>
+<li><a class="nav-link" href="#bugreports"><span class="header-section-number">4.11</span> BugReports</a></li>
+<li><a class="nav-link" href="#url"><span class="header-section-number">4.12</span> URL</a></li>
+<li><a class="nav-link" href="#video"><span class="header-section-number">4.13</span> Video</a></li>
+<li><a class="nav-link" href="#collates"><span class="header-section-number">4.14</span> Collates</a></li>
+<li><a class="nav-link" href="#bioctype"><span class="header-section-number">4.15</span> BiocType</a></li>
 </ul>
 
       <div class="book-extra">
@@ -290,7 +343,7 @@ Otherwise this field could optionally define the type of Bioconductor package <c
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2021-10-25.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2021-10-29.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

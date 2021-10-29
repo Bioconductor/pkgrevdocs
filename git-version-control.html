@@ -4,18 +4,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 24 Git Version Control | Bioconductor Packages: Development, Maintenance, and Peer Review</title>
+<title>Chapter 28 Git Version Control | Bioconductor Packages: Development, Maintenance, and Peer Review</title>
 <meta name="author" content="Kevin Rue-Albrecht">
 <meta name="author" content="Daniela Cassol">
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
 <meta name="description" content="The Bioconductor project is maintained in a Git source control system. Package maintainers update their packages by pushing changes to their git repositories. This chapter contains several...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 24 Git Version Control | Bioconductor Packages: Development, Maintenance, and Peer Review">
+<meta property="og:title" content="Chapter 28 Git Version Control | Bioconductor Packages: Development, Maintenance, and Peer Review">
 <meta property="og:type" content="book">
 <meta property="og:description" content="The Bioconductor project is maintained in a Git source control system. Package maintainers update their packages by pushing changes to their git repositories. This chapter contains several...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 24 Git Version Control | Bioconductor Packages: Development, Maintenance, and Peer Review">
+<meta name="twitter:title" content="Chapter 28 Git Version Control | Bioconductor Packages: Development, Maintenance, and Peer Review">
 <meta name="twitter:description" content="The Bioconductor project is maintained in a Git source control system. Package maintainers update their packages by pushing changes to their git repositories. This chapter contains several...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -47,35 +47,41 @@
 <li><a class="" href="develop-overview.html">Overview</a></li>
 <li><a class="" href="package-name.html"><span class="header-section-number">1</span> Package name</a></li>
 <li><a class="" href="general.html"><span class="header-section-number">2</span> General Package Development</a></li>
-<li><a class="" href="description.html"><span class="header-section-number">3</span> The DESCRIPTION file</a></li>
-<li><a class="" href="biocviews-1.html"><span class="header-section-number">4</span> biocViews</a></li>
-<li><a class="" href="namespace.html"><span class="header-section-number">5</span> The NAMESPACE file</a></li>
-<li><a class="" href="news.html"><span class="header-section-number">6</span> The NEWS file</a></li>
-<li><a class="" href="citation.html"><span class="header-section-number">7</span> The CITATION file</a></li>
-<li><a class="" href="data.html"><span class="header-section-number">8</span> Package data</a></li>
-<li><a class="" href="docs.html"><span class="header-section-number">9</span> Documentation</a></li>
-<li><a class="" href="tests.html"><span class="header-section-number">10</span> Unit tests</a></li>
-<li><a class="" href="long-tests.html"><span class="header-section-number">11</span> Long Tests</a></li>
-<li><a class="" href="r-code.html"><span class="header-section-number">12</span> R code</a></li>
-<li><a class="" href="common-bioconductor-methods-and-classes.html"><span class="header-section-number">13</span> Common Bioconductor Methods and Classes</a></li>
-<li><a class="" href="robust-and-efficient-code.html"><span class="header-section-number">14</span> Robust and Efficient Code</a></li>
-<li><a class="" href="c-fortran.html"><span class="header-section-number">15</span> C and Fortran code</a></li>
-<li><a class="" href="cmavericks-best-practices.html"><span class="header-section-number">16</span> C++/Mavericks Best Practices</a></li>
-<li><a class="" href="debugging-cc-code.html"><span class="header-section-number">17</span> Debugging C/C++ code</a></li>
-<li><a class="" href="querying-web-resources.html"><span class="header-section-number">18</span> Querying Web Resources</a></li>
-<li><a class="" href="third-party-code.html"><span class="header-section-number">19</span> Third-party code</a></li>
-<li><a class="" href="shiny.html"><span class="header-section-number">20</span> Shiny apps</a></li>
-<li><a class="" href="non-software.html"><span class="header-section-number">21</span> Non-Software Packages</a></li>
-<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">22</span> Package End of Life Policy</a></li>
-<li><a class="" href="gitignore.html"><span class="header-section-number">23</span> The .gitignore file</a></li>
-<li><a class="active" href="git-version-control.html"><span class="header-section-number">24</span> Git Version Control</a></li>
-<li><a class="" href="conclusion.html"><span class="header-section-number">25</span> Conclusion</a></li>
+<li><a class="" href="use-devel.html"><span class="header-section-number">3</span> Using the ‘Devel’ Version of Bioconductor</a></li>
+<li><a class="" href="description.html"><span class="header-section-number">4</span> The DESCRIPTION file</a></li>
+<li><a class="" href="biocviews-1.html"><span class="header-section-number">5</span> biocViews</a></li>
+<li><a class="" href="version-numbering.html"><span class="header-section-number">6</span> Version Numbering</a></li>
+<li><a class="" href="namespace.html"><span class="header-section-number">7</span> The NAMESPACE file</a></li>
+<li><a class="" href="news.html"><span class="header-section-number">8</span> The NEWS file</a></li>
+<li><a class="" href="citation.html"><span class="header-section-number">9</span> The CITATION file</a></li>
+<li><a class="" href="data.html"><span class="header-section-number">10</span> Package data</a></li>
+<li><a class="" href="docs.html"><span class="header-section-number">11</span> Documentation</a></li>
+<li><a class="" href="tests.html"><span class="header-section-number">12</span> Unit tests</a></li>
+<li><a class="" href="long-tests.html"><span class="header-section-number">13</span> Long Tests</a></li>
+<li><a class="" href="troubleshooting-build-report.html"><span class="header-section-number">14</span> Troubleshooting Build Report</a></li>
+<li><a class="" href="r-code.html"><span class="header-section-number">15</span> R code</a></li>
+<li><a class="" href="common-bioconductor-methods-and-classes.html"><span class="header-section-number">16</span> Common Bioconductor Methods and Classes</a></li>
+<li><a class="" href="robust-and-efficient-code.html"><span class="header-section-number">17</span> Robust and Efficient Code</a></li>
+<li><a class="" href="c-fortran.html"><span class="header-section-number">18</span> C and Fortran code</a></li>
+<li><a class="" href="cmavericks-best-practices.html"><span class="header-section-number">19</span> C++/Mavericks Best Practices</a></li>
+<li><a class="" href="debugging-cc-code.html"><span class="header-section-number">20</span> Debugging C/C++ code</a></li>
+<li><a class="" href="querying-web-resources.html"><span class="header-section-number">21</span> Querying Web Resources</a></li>
+<li><a class="" href="third-party-code.html"><span class="header-section-number">22</span> Third-party code</a></li>
+<li><a class="" href="workflow-packages.html"><span class="header-section-number">23</span> Workflow Packages</a></li>
+<li><a class="" href="shiny.html"><span class="header-section-number">24</span> Shiny apps</a></li>
+<li><a class="" href="non-software.html"><span class="header-section-number">25</span> Non-Software Packages</a></li>
+<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">26</span> Package End of Life Policy</a></li>
+<li><a class="" href="gitignore.html"><span class="header-section-number">27</span> The .gitignore file</a></li>
+<li><a class="active" href="git-version-control.html"><span class="header-section-number">28</span> Git Version Control</a></li>
+<li><a class="" href="conclusion.html"><span class="header-section-number">29</span> Conclusion</a></li>
 <li><a class="" href="references-1.html">References</a></li>
+<li class="book-part">Package Submissions</li>
+<li><a class="" href="software-package-submissions.html"><span class="header-section-number">30</span> Software Package Submissions</a></li>
 <li class="book-part">Package Reviewer Resources</li>
 <li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
-<li><a class="" href="review-expectation.html"><span class="header-section-number">26</span> Review Expectations</a></li>
-<li><a class="" href="reviewtools.html"><span class="header-section-number">27</span> Reviewer Resources and Tools</a></li>
-<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">28</span> Volunteer to Review</a></li>
+<li><a class="" href="review-expectation.html"><span class="header-section-number">31</span> Review Expectations</a></li>
+<li><a class="" href="reviewtools.html"><span class="header-section-number">32</span> Reviewer Resources and Tools</a></li>
+<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">33</span> Volunteer to Review</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="booknews.html"><span class="header-section-number">A</span> NEWS</a></li>
 </ul>
@@ -85,18 +91,18 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="git-version-control" class="section level1" number="24">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="git-version-control" class="section level1" number="28">
 <h1>
-<span class="header-section-number">24</span> Git Version Control<a class="anchor" aria-label="anchor" href="#git-version-control"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28</span> Git Version Control<a class="anchor" aria-label="anchor" href="#git-version-control"><i class="fas fa-link"></i></a>
 </h1>
 <p>The <em>Bioconductor</em> project is maintained in a Git source control
 system. Package maintainers update their packages by pushing changes
 to their git repositories.</p>
 <p>This chapter contains several sections that will cover typical scenarios
 encountered when adding and maintaining a Bioconductor package.</p>
-<div id="essential-work-flow" class="section level2" number="24.1">
+<div id="essential-work-flow" class="section level2" number="28.1">
 <h2>
-<span class="header-section-number">24.1</span> Essential work flow<a class="anchor" aria-label="anchor" href="#essential-work-flow"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.1</span> Essential work flow<a class="anchor" aria-label="anchor" href="#essential-work-flow"><i class="fas fa-link"></i></a>
 </h2>
 <p>A minimal workflow is to checkout, update, commit, and push changes to
 your repository. Using <code>BiocGenerics</code> as an example:</p>
@@ -118,9 +124,9 @@ your edits.</p>
 BiocGenerics$ git pull
 ## add, edit, commit, and push as above</code></pre>
 </div>
-<div id="where-to-commit-changes" class="section level2" number="24.2">
+<div id="where-to-commit-changes" class="section level2" number="28.2">
 <h2>
-<span class="header-section-number">24.2</span> Where to Commit Changes<a class="anchor" aria-label="anchor" href="#where-to-commit-changes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.2</span> Where to Commit Changes<a class="anchor" aria-label="anchor" href="#where-to-commit-changes"><i class="fas fa-link"></i></a>
 </h2>
 <p>New features and bug fixes are introduced on the master (‘devel’)
 branch of the GIT repository.</p>
@@ -139,9 +145,9 @@ for release 3.6, porting the most recent commit to master</p>
 BiocGenerics$ git cherry-pick master
 BiocGenerics$ git push</code></pre>
 </div>
-<div id="checks-and-version-bumps" class="section level2" number="24.3">
+<div id="checks-and-version-bumps" class="section level2" number="28.3">
 <h2>
-<span class="header-section-number">24.3</span> Checks and version bumps<a class="anchor" aria-label="anchor" href="#checks-and-version-bumps"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.3</span> Checks and version bumps<a class="anchor" aria-label="anchor" href="#checks-and-version-bumps"><i class="fas fa-link"></i></a>
 </h2>
 <p>Each commit pushed to the <em>Bioconductor</em> repository should build and
 check without errors or warnings</p>
@@ -154,9 +160,9 @@ R CMD check BiocGenerics_1.22.3.tar.gz</code></pre>
 <a href="https://bioconductor.org/checkResults/devel/bioc-LATEST/">build report</a> for git commits captured in the most recent build
 (upper left corner)</p>
 </div>
-<div id="annotation-packages" class="section level2" number="24.4">
+<div id="annotation-packages" class="section level2" number="28.4">
 <h2>
-<span class="header-section-number">24.4</span> Annotation packages<a class="anchor" aria-label="anchor" href="#annotation-packages"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.4</span> Annotation packages<a class="anchor" aria-label="anchor" href="#annotation-packages"><i class="fas fa-link"></i></a>
 </h2>
 <p>Traditional Annotation packages are not stored in GIT due to the size of
 annotation files. To update an existing Annotation package please send an email
@@ -173,9 +179,9 @@ not supported. If you wish to updated an annotation package, make required
 changes and push to git.bioconductor.org. Then send an email to
 <a href="mailto:hubs@bioconductor.org" class="email">hubs@bioconductor.org</a> or <a href="mailto:maintainer@bioconductor.org" class="email">maintainer@bioconductor.org</a> requesting the package be propagated.</p>
 </div>
-<div id="subversion-to-git-transition" class="section level2" number="24.5">
+<div id="subversion-to-git-transition" class="section level2" number="28.5">
 <h2>
-<span class="header-section-number">24.5</span> Subversion to Git Transition<a class="anchor" aria-label="anchor" href="#subversion-to-git-transition"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.5</span> Subversion to Git Transition<a class="anchor" aria-label="anchor" href="#subversion-to-git-transition"><i class="fas fa-link"></i></a>
 </h2>
 <p>The essential steps for transitioning from SVN to git are summarized
 in</p>
@@ -189,9 +195,9 @@ package acceptance.</li>
 <a href="git-version-control.html#maintain-bioc-only">Maintain a <em>Bioconductor</em>-only repository</a> for an existing
 package.</li>
 </ul>
-<div id="new-package-workflow" class="section level3" number="24.5.1">
+<div id="new-package-workflow" class="section level3" number="28.5.1">
 <h3>
-<span class="header-section-number">24.5.1</span> New package workflow<a class="anchor" aria-label="anchor" href="#new-package-workflow"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.5.1</span> New package workflow<a class="anchor" aria-label="anchor" href="#new-package-workflow"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>Goal</strong>: You developed a package in GitHub, following the
 <em>Bioconductor</em> new package <a href="https://github.com/Bioconductor/Contributions">Contributions README</a> guidelines,
@@ -299,9 +305,9 @@ the link to see whether further changes are necessary.</p>
 </li>
 </ol>
 </div>
-<div id="maintain-github-bioc" class="section level3" number="24.5.2">
+<div id="maintain-github-bioc" class="section level3" number="28.5.2">
 <h3>
-<span class="header-section-number">24.5.2</span> Create a new GitHub repository for an existing <em>Bioconductor</em> package<a class="anchor" aria-label="anchor" href="#maintain-github-bioc"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.5.2</span> Create a new GitHub repository for an existing <em>Bioconductor</em> package<a class="anchor" aria-label="anchor" href="#maintain-github-bioc"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>Goal:</strong> As a maintainer, you’d like to create a new GitHub
 repository for your existing <em>Bioconductor</em> repository, so that your
@@ -374,15 +380,15 @@ optionally <code>RELEASE_3_6</code>) branches are present.</p></li>
 on both GitHub and Bioconductor.</p></li>
 </ol>
 </div>
-<div id="maintain-bioc-only" class="section level3" number="24.5.3">
+<div id="maintain-bioc-only" class="section level3" number="28.5.3">
 <h3>
-<span class="header-section-number">24.5.3</span> Maintain a <em>Bioconductor</em>-only repository for an existing package<a class="anchor" aria-label="anchor" href="#maintain-bioc-only"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.5.3</span> Maintain a <em>Bioconductor</em>-only repository for an existing package<a class="anchor" aria-label="anchor" href="#maintain-bioc-only"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>Goal:</strong> Developer wishes to maintain their <em>Bioconductor</em> repository
 without using GitHub.</p>
-<div id="clone-and-setup-the-package-on-your-local-machine." class="section level4" number="24.5.3.1">
+<div id="clone-and-setup-the-package-on-your-local-machine." class="section level4" number="28.5.3.1">
 <h4>
-<span class="header-section-number">24.5.3.1</span> Clone and setup the package on your local machine.<a class="anchor" aria-label="anchor" href="#clone-and-setup-the-package-on-your-local-machine."><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.5.3.1</span> Clone and setup the package on your local machine.<a class="anchor" aria-label="anchor" href="#clone-and-setup-the-package-on-your-local-machine."><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li><p>Make sure that you have <code>SSH</code> access to the <em>Bioconductor</em>
@@ -413,9 +419,9 @@ repository name with <code>git@git.bioconductor.org</code>.</p>
 </li>
 </ol>
 </div>
-<div id="commit-changes-to-your-local-repository" class="section level4" number="24.5.3.2">
+<div id="commit-changes-to-your-local-repository" class="section level4" number="28.5.3.2">
 <h4>
-<span class="header-section-number">24.5.3.2</span> Commit changes to your local repository<a class="anchor" aria-label="anchor" href="#commit-changes-to-your-local-repository"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.5.3.2</span> Commit changes to your local repository<a class="anchor" aria-label="anchor" href="#commit-changes-to-your-local-repository"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li>
@@ -441,9 +447,9 @@ version onto <code>master</code></p>
 </li>
 </ol>
 </div>
-<div id="push-your-local-commits-to-the-bioconductor-repository" class="section level4" number="24.5.3.3">
+<div id="push-your-local-commits-to-the-bioconductor-repository" class="section level4" number="28.5.3.3">
 <h4>
-<span class="header-section-number">24.5.3.3</span> Push your local commits to the <em>Bioconductor</em> repository<a class="anchor" aria-label="anchor" href="#push-your-local-commits-to-the-bioconductor-repository"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.5.3.3</span> Push your local commits to the <em>Bioconductor</em> repository<a class="anchor" aria-label="anchor" href="#push-your-local-commits-to-the-bioconductor-repository"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li>
@@ -455,9 +461,9 @@ available to the user community.</p>
 </li>
 </ol>
 </div>
-<div id="optional-merge-changes-to-the-current-release-branch" class="section level4" number="24.5.3.4">
+<div id="optional-merge-changes-to-the-current-release-branch" class="section level4" number="28.5.3.4">
 <h4>
-<span class="header-section-number">24.5.3.4</span> (Optional) Merge changes to the current release branch<a class="anchor" aria-label="anchor" href="#optional-merge-changes-to-the-current-release-branch"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.5.3.4</span> (Optional) Merge changes to the current release branch<a class="anchor" aria-label="anchor" href="#optional-merge-changes-to-the-current-release-branch"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li>
@@ -490,9 +496,9 @@ git commit -m "Update version bump"</code></pre>
 </div>
 </div>
 </div>
-<div id="more-scenarios-for-repository-creation" class="section level2" number="24.6">
+<div id="more-scenarios-for-repository-creation" class="section level2" number="28.6">
 <h2>
-<span class="header-section-number">24.6</span> More scenarios for repository creation<a class="anchor" aria-label="anchor" href="#more-scenarios-for-repository-creation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.6</span> More scenarios for repository creation<a class="anchor" aria-label="anchor" href="#more-scenarios-for-repository-creation"><i class="fas fa-link"></i></a>
 </h2>
 <ul>
 <li>
@@ -500,9 +506,9 @@ git commit -m "Update version bump"</code></pre>
 <li>
 <a href="git-version-control.html#create-local-repository">Create a local repository</a> for private use.</li>
 </ul>
-<div id="sync-existing-repositories" class="section level3" number="24.6.1">
+<div id="sync-existing-repositories" class="section level3" number="28.6.1">
 <h3>
-<span class="header-section-number">24.6.1</span> Sync an existing GitHub repository with <em>Bioconductor</em><a class="anchor" aria-label="anchor" href="#sync-existing-repositories"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.6.1</span> Sync an existing GitHub repository with <em>Bioconductor</em><a class="anchor" aria-label="anchor" href="#sync-existing-repositories"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>Goal:</strong> Ensure that your local, <em>Bioconductor</em>, and GitHub
 repositories are all in sync.</p>
@@ -566,9 +572,9 @@ will get the message,</p>
 </li>
 </ol>
 </div>
-<div id="create-local-repository" class="section level3" number="24.6.2">
+<div id="create-local-repository" class="section level3" number="28.6.2">
 <h3>
-<span class="header-section-number">24.6.2</span> Create a local repository for private use<a class="anchor" aria-label="anchor" href="#create-local-repository"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.6.2</span> Create a local repository for private use<a class="anchor" aria-label="anchor" href="#create-local-repository"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>Goal:</strong> A user (not the package developer) would like to modify
 functions in a package to meet their needs. There is no GitHub
@@ -604,9 +610,9 @@ installation.</p></li>
 </ol>
 </div>
 </div>
-<div id="scenarios-for-code-update" class="section level2" number="24.7">
+<div id="scenarios-for-code-update" class="section level2" number="28.7">
 <h2>
-<span class="header-section-number">24.7</span> Scenarios for code update:<a class="anchor" aria-label="anchor" href="#scenarios-for-code-update"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.7</span> Scenarios for code update:<a class="anchor" aria-label="anchor" href="#scenarios-for-code-update"><i class="fas fa-link"></i></a>
 </h2>
 <ul>
 <li>
@@ -620,9 +626,9 @@ installation.</p></li>
 <li>
 <a href="git-version-control.html#bug-fix-in-release-and-devel">Fix bugs in devel and release</a>.</li>
 </ul>
-<div id="pull-upstream-changes" class="section level3" number="24.7.1">
+<div id="pull-upstream-changes" class="section level3" number="28.7.1">
 <h3>
-<span class="header-section-number">24.7.1</span> Pull upstream changes<a class="anchor" aria-label="anchor" href="#pull-upstream-changes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.7.1</span> Pull upstream changes<a class="anchor" aria-label="anchor" href="#pull-upstream-changes"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>Goal:</strong> Your <em>Bioconductor</em> repository has been updated by the core
 team. You want to fetch these commits from <em>Bioconductor</em>, merge them
@@ -656,9 +662,9 @@ with <code>RELEASE_X_Y</code> in the lines above.</p>
 <p>See instructions to <a href="git-version-control.html#sync-existing-repositories">Sync existing repositories</a> with
 changes to both the <em>Bioconductor</em> and GitHub repositories.</p>
 </div>
-<div id="push-to-github-bioc" class="section level3" number="24.7.2">
+<div id="push-to-github-bioc" class="section level3" number="28.7.2">
 <h3>
-<span class="header-section-number">24.7.2</span> Push to GitHub and <em>Bioconductor</em> repositories<a class="anchor" aria-label="anchor" href="#push-to-github-bioc"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.7.2</span> Push to GitHub and <em>Bioconductor</em> repositories<a class="anchor" aria-label="anchor" href="#push-to-github-bioc"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>Goal:</strong> During everyday development, you commit changes to your
 local repository <code>master</code> branch, and wish to push these commits to
@@ -715,9 +721,9 @@ use a local branch for development.</p>
 <li><p>Confirm changes, e.g., by visiting the GitHub web page for the repository.</p></li>
 </ol>
 </div>
-<div id="resolve-merge-conflicts" class="section level3" number="24.7.3">
+<div id="resolve-merge-conflicts" class="section level3" number="28.7.3">
 <h3>
-<span class="header-section-number">24.7.3</span> Resolve merge conflicts<a class="anchor" aria-label="anchor" href="#resolve-merge-conflicts"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.7.3</span> Resolve merge conflicts<a class="anchor" aria-label="anchor" href="#resolve-merge-conflicts"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>Goal:</strong> Resolve merge conflicts in branch and push to GitHub and
 <em>Bioconductor</em> repositories.</p>
@@ -781,9 +787,9 @@ necessary. In this case, keep the latest version:</p>
 git push upstream master</code></pre>
 </li>
 </ol>
-<div id="extra-resources" class="section level4" number="24.7.3.1">
+<div id="extra-resources" class="section level4" number="28.7.3.1">
 <h4>
-<span class="header-section-number">24.7.3.1</span> Extra Resources<a class="anchor" aria-label="anchor" href="#extra-resources"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.7.3.1</span> Extra Resources<a class="anchor" aria-label="anchor" href="#extra-resources"><i class="fas fa-link"></i></a>
 </h4>
 <p><a href="https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/">Resolving a merge conflict using command line</a></p>
 <p><a href="https://www.atlassian.com/git/tutorials/using-branches/merge-conflicts">Based on: Resolving a merge conflict</a></p>
@@ -791,16 +797,16 @@ git push upstream master</code></pre>
 </iframe>
 </div>
 </div>
-<div id="abandon-changes" class="section level3" number="24.7.4">
+<div id="abandon-changes" class="section level3" number="28.7.4">
 <h3>
-<span class="header-section-number">24.7.4</span> Abandon changes<a class="anchor" aria-label="anchor" href="#abandon-changes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.7.4</span> Abandon changes<a class="anchor" aria-label="anchor" href="#abandon-changes"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>Goal:</strong> You want to start fresh after failing to resolve conflicts
 or some other issue. If you intend to go nuclear, please contact the
 <a href="mailto:bioc-devel@bioconductor.org" class="email">bioc-devel@bioconductor.org</a> mailing list.</p>
-<div id="force-bioconductor-master-to-github-master" class="section level4" number="24.7.4.1">
+<div id="force-bioconductor-master-to-github-master" class="section level4" number="28.7.4.1">
 <h4>
-<span class="header-section-number">24.7.4.1</span> Force <em>Bioconductor</em> <code>master</code> to GitHub <code>master</code><a class="anchor" aria-label="anchor" href="#force-bioconductor-master-to-github-master"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.7.4.1</span> Force <em>Bioconductor</em> <code>master</code> to GitHub <code>master</code><a class="anchor" aria-label="anchor" href="#force-bioconductor-master-to-github-master"><i class="fas fa-link"></i></a>
 </h4>
 <p>One way you can ignore your work and make a new branch is by replacing
 your local and GitHub repository <code>master</code> branch with the
@@ -841,9 +847,9 @@ repositories.</p>
 </li>
 </ol>
 </div>
-<div id="reset-to-a-previous-commit" class="section level4" number="24.7.4.2">
+<div id="reset-to-a-previous-commit" class="section level4" number="28.7.4.2">
 <h4>
-<span class="header-section-number">24.7.4.2</span> Reset to a previous commit<a class="anchor" aria-label="anchor" href="#reset-to-a-previous-commit"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.7.4.2</span> Reset to a previous commit<a class="anchor" aria-label="anchor" href="#reset-to-a-previous-commit"><i class="fas fa-link"></i></a>
 </h4>
 <p>If you find yourself in a place where you want to abandon changes
 <strong>already committed</strong> to <em>Bioconductor</em> or GitHub, use <code>reset</code> to undo
@@ -863,9 +869,9 @@ the repository on Bioconductor.</p>
 git push -f origin</code></pre>
 <p>Bioconductor core team will do the rest after you email.</p>
 </div>
-<div id="delete-your-local-copy-and-github-repo-because-nothing-is-working" class="section level4" number="24.7.4.3">
+<div id="delete-your-local-copy-and-github-repo-because-nothing-is-working" class="section level4" number="28.7.4.3">
 <h4>
-<span class="header-section-number">24.7.4.3</span> Delete your local copy and GitHub repo, because nothing is working<a class="anchor" aria-label="anchor" href="#delete-your-local-copy-and-github-repo-because-nothing-is-working"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.7.4.3</span> Delete your local copy and GitHub repo, because nothing is working<a class="anchor" aria-label="anchor" href="#delete-your-local-copy-and-github-repo-because-nothing-is-working"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>CAUTION: These instructions come with many disadvantages. You have
 been warned.</strong></p>
@@ -875,9 +881,9 @@ been warned.</strong></p>
 <li><p><a href="git-version-control.html#maintain-github-bioc">Maintain GitHub and <em>Bioconductor</em> repositories</a> for an existing
 <em>Bioconductor</em> repository, then <a href="git-version-control.html#pull-upstream-changes">pull upstream changes</a>.</p></li>
 </ol>
-<div id="disadvantages-of-going-nuclear" class="section level5" number="24.7.4.3.1">
+<div id="disadvantages-of-going-nuclear" class="section level5" number="28.7.4.3.1">
 <h5>
-<span class="header-section-number">24.7.4.3.1</span> Disadvantages of going “nuclear”<a class="anchor" aria-label="anchor" href="#disadvantages-of-going-nuclear"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.7.4.3.1</span> Disadvantages of going “nuclear”<a class="anchor" aria-label="anchor" href="#disadvantages-of-going-nuclear"><i class="fas fa-link"></i></a>
 </h5>
 <ol style="list-style-type: decimal">
 <li><p>You will lose all your GitHub issues</p></li>
@@ -887,9 +893,9 @@ been warned.</strong></p>
 </div>
 </div>
 </div>
-<div id="bug-fix-in-release-and-devel" class="section level3" number="24.7.5">
+<div id="bug-fix-in-release-and-devel" class="section level3" number="28.7.5">
 <h3>
-<span class="header-section-number">24.7.5</span> Fix bugs in <code>devel</code> and <code>release</code><a class="anchor" aria-label="anchor" href="#bug-fix-in-release-and-devel"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.7.5</span> Fix bugs in <code>devel</code> and <code>release</code><a class="anchor" aria-label="anchor" href="#bug-fix-in-release-and-devel"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>Goal:</strong> Maintainers will have to fix bugs from time to time, and
 make sure the patch is available both in the <code>master</code> branch and the current <code>release</code> branch.</p>
@@ -934,7 +940,7 @@ master corresponding to the bug fix, e.g., reference the most
 recent commit on the <code>master</code> branch with <code>master</code>; see examples in
 <code>git cherry-pick --help</code>. Remember to edit the DESCRIPTION file to
 update the release version according to <em>Bioconductor</em>’s
-<a href="#version-numbering">version numbering scheme</a>.</p>
+<a href="version-numbering.html#version-numbering">version numbering scheme</a>.</p>
 <pre><code> git checkout &lt;RELEASE_X_Y&gt;
  git cherry-pick master
  ## Fix version bump by editing 'Version:' field of DESCRIPTION, then
@@ -964,42 +970,42 @@ branch on your local machine.</p>
 </ol>
 </div>
 </div>
-<div id="github-scenarios" class="section level2" number="24.8">
+<div id="github-scenarios" class="section level2" number="28.8">
 <h2>
-<span class="header-section-number">24.8</span> Github scenarios<a class="anchor" aria-label="anchor" href="#github-scenarios"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.8</span> Github scenarios<a class="anchor" aria-label="anchor" href="#github-scenarios"><i class="fas fa-link"></i></a>
 </h2>
 <ul>
 <li>[Add collaborators][] and use Github social coding features.</li>
 <li>[Change Package Maintainer][]</li>
 <li>[Remove Large Data Files][] and clean git tree</li>
 </ul>
-<div id="add-collaborators-and-leverage-github-features" class="section level3" number="24.8.1">
+<div id="add-collaborators-and-leverage-github-features" class="section level3" number="28.8.1">
 <h3>
-<span class="header-section-number">24.8.1</span> Add collaborators and leverage GitHub features<a class="anchor" aria-label="anchor" href="#add-collaborators-and-leverage-github-features"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.8.1</span> Add collaborators and leverage GitHub features<a class="anchor" aria-label="anchor" href="#add-collaborators-and-leverage-github-features"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>Goal:</strong> You would like to take advantage of the social coding
 features provided by GitHub, while continuing to update your
 <em>Bioconductor</em> repository.</p>
-<div id="maintaining-collaborators-on-github" class="section level4" number="24.8.1.1">
+<div id="maintaining-collaborators-on-github" class="section level4" number="28.8.1.1">
 <h4>
-<span class="header-section-number">24.8.1.1</span> Maintaining Collaborators on GitHub<a class="anchor" aria-label="anchor" href="#maintaining-collaborators-on-github"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.8.1.1</span> Maintaining Collaborators on GitHub<a class="anchor" aria-label="anchor" href="#maintaining-collaborators-on-github"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li><p><a href="https://help.github.com/articles/inviting-collaborators-to-a-personal-repository/">Adding a new collaborator</a></p></li>
 <li><p><a href="https://help.github.com/articles/removing-a-collaborator-from-a-personal-repository/">Removing collaborator</a></p></li>
 </ol>
 </div>
-<div id="pull-requests-on-github" class="section level4" number="24.8.1.2">
+<div id="pull-requests-on-github" class="section level4" number="28.8.1.2">
 <h4>
-<span class="header-section-number">24.8.1.2</span> Pull requests on GitHub<a class="anchor" aria-label="anchor" href="#pull-requests-on-github"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.8.1.2</span> Pull requests on GitHub<a class="anchor" aria-label="anchor" href="#pull-requests-on-github"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li><a href="https://help.github.com/articles/merging-a-pull-request/">Merging a pull request</a></li>
 </ol>
 </div>
-<div id="push-github-changes-to-the-bioconductor-repository" class="section level4" number="24.8.1.3">
+<div id="push-github-changes-to-the-bioconductor-repository" class="section level4" number="28.8.1.3">
 <h4>
-<span class="header-section-number">24.8.1.3</span> Push GitHub changes to the <em>Bioconductor</em> repository<a class="anchor" aria-label="anchor" href="#push-github-changes-to-the-bioconductor-repository"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.8.1.3</span> Push GitHub changes to the <em>Bioconductor</em> repository<a class="anchor" aria-label="anchor" href="#push-github-changes-to-the-bioconductor-repository"><i class="fas fa-link"></i></a>
 </h4>
 <p>Once you have accepted pull requests from your package community on
 GitHub, you can push these changes to <em>Bioconductor</em>.</p>
@@ -1025,9 +1031,9 @@ e.g.: <code>RELEASE_3_6</code>.</p>
 </ol>
 </div>
 </div>
-<div id="change-maintainer" class="section level3" number="24.8.2">
+<div id="change-maintainer" class="section level3" number="28.8.2">
 <h3>
-<span class="header-section-number">24.8.2</span> Add or Transfer Maintainership of a Package<a class="anchor" aria-label="anchor" href="#change-maintainer"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.8.2</span> Add or Transfer Maintainership of a Package<a class="anchor" aria-label="anchor" href="#change-maintainer"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>Goal:</strong> Perhaps there is a point in time where you can no longer maintain your
 package in accordance with the Bioconductor package guidelines. It may be
@@ -1052,9 +1058,9 @@ information and pushed to the Bioconductor git.bioconductor.org repository.</p>
 </li>
 </ol>
 </div>
-<div id="remove-large-data-files-and-clean-git-tree" class="section level3" number="24.8.3">
+<div id="remove-large-data-files-and-clean-git-tree" class="section level3" number="28.8.3">
 <h3>
-<span class="header-section-number">24.8.3</span> Remove Large Data Files and Clean Git Tree<a class="anchor" aria-label="anchor" href="#remove-large-data-files-and-clean-git-tree"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.8.3</span> Remove Large Data Files and Clean Git Tree<a class="anchor" aria-label="anchor" href="#remove-large-data-files-and-clean-git-tree"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>Goal:</strong> Git remembers. Sometimes large data files are added to git
 repository (intentionally or unintentionally) causing the size of the repository
@@ -1095,9 +1101,9 @@ reset.</p>
 </ol>
 </div>
 </div>
-<div id="faq" class="section level2" number="24.9">
+<div id="faq" class="section level2" number="28.9">
 <h2>
-<span class="header-section-number">24.9</span> Frequently Asked Question (FAQs)<a class="anchor" aria-label="anchor" href="#faq"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.9</span> Frequently Asked Question (FAQs)<a class="anchor" aria-label="anchor" href="#faq"><i class="fas fa-link"></i></a>
 </h2>
 <ol style="list-style-type: decimal">
 <li>
@@ -1336,16 +1342,16 @@ documentation?</p>
 can be found at the link.</p>
 </li>
 </ol>
-<div id="more-questions" class="section level4" number="24.9.0.1">
+<div id="more-questions" class="section level4" number="28.9.0.1">
 <h4>
-<span class="header-section-number">24.9.0.1</span> More questions?<a class="anchor" aria-label="anchor" href="#more-questions"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.9.0.1</span> More questions?<a class="anchor" aria-label="anchor" href="#more-questions"><i class="fas fa-link"></i></a>
 </h4>
 <p>If you have additional questions which are not answered here already,
 please send an email to <a href="mailto:bioc-devel@bioconductor.org" class="email">bioc-devel@bioconductor.org</a>.</p>
 </div>
-<div id="helpful-resources" class="section level3" number="24.9.1">
+<div id="helpful-resources" class="section level3" number="28.9.1">
 <h3>
-<span class="header-section-number">24.9.1</span> Helpful resources:<a class="anchor" aria-label="anchor" href="#helpful-resources"><i class="fas fa-link"></i></a>
+<span class="header-section-number">28.9.1</span> Helpful resources:<a class="anchor" aria-label="anchor" href="#helpful-resources"><i class="fas fa-link"></i></a>
 </h3>
 <p><a href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/">Adding a new SSH key to your GitHub account</a></p>
 <p><a href="https://help.github.com/articles/creating-a-pull-request/">Create a pull request on GitHub</a></p>
@@ -1358,47 +1364,47 @@ please send an email to <a href="mailto:bioc-devel@bioconductor.org" class="emai
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="gitignore.html"><span class="header-section-number">23</span> The .gitignore file</a></div>
-<div class="next"><a href="conclusion.html"><span class="header-section-number">25</span> Conclusion</a></div>
+<div class="prev"><a href="gitignore.html"><span class="header-section-number">27</span> The .gitignore file</a></div>
+<div class="next"><a href="conclusion.html"><span class="header-section-number">29</span> Conclusion</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#git-version-control"><span class="header-section-number">24</span> Git Version Control</a></li>
-<li><a class="nav-link" href="#essential-work-flow"><span class="header-section-number">24.1</span> Essential work flow</a></li>
-<li><a class="nav-link" href="#where-to-commit-changes"><span class="header-section-number">24.2</span> Where to Commit Changes</a></li>
-<li><a class="nav-link" href="#checks-and-version-bumps"><span class="header-section-number">24.3</span> Checks and version bumps</a></li>
-<li><a class="nav-link" href="#annotation-packages"><span class="header-section-number">24.4</span> Annotation packages</a></li>
+<li><a class="nav-link" href="#git-version-control"><span class="header-section-number">28</span> Git Version Control</a></li>
+<li><a class="nav-link" href="#essential-work-flow"><span class="header-section-number">28.1</span> Essential work flow</a></li>
+<li><a class="nav-link" href="#where-to-commit-changes"><span class="header-section-number">28.2</span> Where to Commit Changes</a></li>
+<li><a class="nav-link" href="#checks-and-version-bumps"><span class="header-section-number">28.3</span> Checks and version bumps</a></li>
+<li><a class="nav-link" href="#annotation-packages"><span class="header-section-number">28.4</span> Annotation packages</a></li>
 <li>
-<a class="nav-link" href="#subversion-to-git-transition"><span class="header-section-number">24.5</span> Subversion to Git Transition</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#new-package-workflow"><span class="header-section-number">24.5.1</span> New package workflow</a></li>
-<li><a class="nav-link" href="#maintain-github-bioc"><span class="header-section-number">24.5.2</span> Create a new GitHub repository for an existing Bioconductor package</a></li>
-<li><a class="nav-link" href="#maintain-bioc-only"><span class="header-section-number">24.5.3</span> Maintain a Bioconductor-only repository for an existing package</a></li>
+<a class="nav-link" href="#subversion-to-git-transition"><span class="header-section-number">28.5</span> Subversion to Git Transition</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#new-package-workflow"><span class="header-section-number">28.5.1</span> New package workflow</a></li>
+<li><a class="nav-link" href="#maintain-github-bioc"><span class="header-section-number">28.5.2</span> Create a new GitHub repository for an existing Bioconductor package</a></li>
+<li><a class="nav-link" href="#maintain-bioc-only"><span class="header-section-number">28.5.3</span> Maintain a Bioconductor-only repository for an existing package</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#more-scenarios-for-repository-creation"><span class="header-section-number">24.6</span> More scenarios for repository creation</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#sync-existing-repositories"><span class="header-section-number">24.6.1</span> Sync an existing GitHub repository with Bioconductor</a></li>
-<li><a class="nav-link" href="#create-local-repository"><span class="header-section-number">24.6.2</span> Create a local repository for private use</a></li>
+<a class="nav-link" href="#more-scenarios-for-repository-creation"><span class="header-section-number">28.6</span> More scenarios for repository creation</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#sync-existing-repositories"><span class="header-section-number">28.6.1</span> Sync an existing GitHub repository with Bioconductor</a></li>
+<li><a class="nav-link" href="#create-local-repository"><span class="header-section-number">28.6.2</span> Create a local repository for private use</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#scenarios-for-code-update"><span class="header-section-number">24.7</span> Scenarios for code update:</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#pull-upstream-changes"><span class="header-section-number">24.7.1</span> Pull upstream changes</a></li>
-<li><a class="nav-link" href="#push-to-github-bioc"><span class="header-section-number">24.7.2</span> Push to GitHub and Bioconductor repositories</a></li>
-<li><a class="nav-link" href="#resolve-merge-conflicts"><span class="header-section-number">24.7.3</span> Resolve merge conflicts</a></li>
-<li><a class="nav-link" href="#abandon-changes"><span class="header-section-number">24.7.4</span> Abandon changes</a></li>
-<li><a class="nav-link" href="#bug-fix-in-release-and-devel"><span class="header-section-number">24.7.5</span> Fix bugs in devel and release</a></li>
+<a class="nav-link" href="#scenarios-for-code-update"><span class="header-section-number">28.7</span> Scenarios for code update:</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#pull-upstream-changes"><span class="header-section-number">28.7.1</span> Pull upstream changes</a></li>
+<li><a class="nav-link" href="#push-to-github-bioc"><span class="header-section-number">28.7.2</span> Push to GitHub and Bioconductor repositories</a></li>
+<li><a class="nav-link" href="#resolve-merge-conflicts"><span class="header-section-number">28.7.3</span> Resolve merge conflicts</a></li>
+<li><a class="nav-link" href="#abandon-changes"><span class="header-section-number">28.7.4</span> Abandon changes</a></li>
+<li><a class="nav-link" href="#bug-fix-in-release-and-devel"><span class="header-section-number">28.7.5</span> Fix bugs in devel and release</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#github-scenarios"><span class="header-section-number">24.8</span> Github scenarios</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#add-collaborators-and-leverage-github-features"><span class="header-section-number">24.8.1</span> Add collaborators and leverage GitHub features</a></li>
-<li><a class="nav-link" href="#change-maintainer"><span class="header-section-number">24.8.2</span> Add or Transfer Maintainership of a Package</a></li>
-<li><a class="nav-link" href="#remove-large-data-files-and-clean-git-tree"><span class="header-section-number">24.8.3</span> Remove Large Data Files and Clean Git Tree</a></li>
+<a class="nav-link" href="#github-scenarios"><span class="header-section-number">28.8</span> Github scenarios</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#add-collaborators-and-leverage-github-features"><span class="header-section-number">28.8.1</span> Add collaborators and leverage GitHub features</a></li>
+<li><a class="nav-link" href="#change-maintainer"><span class="header-section-number">28.8.2</span> Add or Transfer Maintainership of a Package</a></li>
+<li><a class="nav-link" href="#remove-large-data-files-and-clean-git-tree"><span class="header-section-number">28.8.3</span> Remove Large Data Files and Clean Git Tree</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#faq"><span class="header-section-number">24.9</span> Frequently Asked Question (FAQs)</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#helpful-resources"><span class="header-section-number">24.9.1</span> Helpful resources:</a></li></ul>
+<a class="nav-link" href="#faq"><span class="header-section-number">28.9</span> Frequently Asked Question (FAQs)</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#helpful-resources"><span class="header-section-number">28.9.1</span> Helpful resources:</a></li></ul>
 </li>
 </ul>
 
@@ -1417,7 +1423,7 @@ please send an email to <a href="mailto:bioc-devel@bioconductor.org" class="emai
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2021-10-25.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2021-10-29.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
