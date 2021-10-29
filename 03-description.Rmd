@@ -13,9 +13,11 @@ This is a brief but descriptive title for the package.
 
 ## `Version`
 
-All Bioconductor packages use an `x.y.z` version scheme.
-See [Version Numbering](https://bioconductor.org/developers/how-to/version-numbering/) for specifics to how the release and devel [_Bioconductor_](https://bioconductor.org) versioning proceeds.
-When first submitted to Bioconductor, a package should have pre-release version `0.99.0`.
+All [_Bioconductor_][] packages use an `x.y.z` version scheme.
+See [Version Numbering](#version-numbering) for specifics to how the release
+and devel Bioconductor versioning proceeds.  When
+first submitted to Bioconductor, a package should have pre-release version
+`0.99.0`.
 
 The following rules apply:
 
@@ -26,17 +28,18 @@ The following rules apply:
 
 ## `Description`
 
-The description should be a relatively short but detailed overview of what the package functionality entails.
-It should be at least three complete sentences.
+The description should be a relatively short but detailed overview of what the
+package functionality entails.  It should be at least three complete sentences.
 
 ## `Authors@R`
 
 The `Authors@R` field should be used.
-A maintainer designation (`cre` for `Authors@R`) is required with an actively maintained email address.
-This email address will be used for contact regarding any issues that arise with the package in the future.
+A maintainer designation (`cre` for `Authors@R`) is required with an actively
+maintained email address.  This email address will be used for contact
+regarding any issues that arise with the package in the future.
 
-For persons with an [ORCiD](https://orcid.org/) identifier provide the identifier via an element named “ORCID” in the comment argument of `person()`.
-For example:
+For persons with an [ORCiD](https://orcid.org/) identifier provide the
+identifier via an element named “ORCID” in the comment argument of `person()`.
 
 ```{r, eval=FALSE}
 person("Lori", "Shepherd",
@@ -45,25 +48,35 @@ person("Lori", "Shepherd",
   comment = c(ORCID = "0000-0002-5910-4010"))
 ```
 
-Only one person should be listed as the `Maintainer` to ensure a single point of contact.
-This person by default will have commit access to the git repository on `git.bioconductor.org`.
-Commit access can be given to other developers by request on the [bioc-devel](https://bioconductor.org/help/support/) mailing list.
+Only one person should be listed as the `Maintainer` to ensure a single point
+of contact.  This person by default will have commit access to the git
+repository on `git.bioconductor.org`.  Commit access can be given to other
+developers by request on the
+[bioc-devel](https://bioconductor.org/help/support/) mailing list.
 
-Another option is to add collaborators to the <i class="fab fa-github"></i> GitHub repository.
-This approach enables development by many but restricts push access to `git.bioconductor.org`.
+Another option is to add collaborators to the <i class="fab fa-github"></i>
+GitHub repository.  This approach enables development by many but restricts
+push access to `git.bioconductor.org`.
 
 ## `License`
 
-The license field should preferably refer to a standard license (see [wikipedia](http://en.wikipedia.org/wiki/Comparison_of_free_software_licences)) using one of <i class="fab fa-r-project"></i>’s standard specifications.
+The license field should preferably refer to a standard license (see
+[wikipedia](http://en.wikipedia.org/wiki/Comparison_of_free_software_licences))
+using one of <i class="fab fa-r-project"></i>’s standard specifications.
 
 Be specific about any version that applies (e.g., `GPL-2`).
-Licenses restricting use, e.g., to academic or non-profit researchers, are not suitable for Bioconductor. Core Bioconductor packages are typically licensed under `Artistic-2.0`.
+Licenses restricting use, e.g., to academic or non-profit researchers, are not
+suitable for [_Bioconductor_][]. Core Bioconductor packages are typically
+licensed under `Artistic-2.0`.
 
-To specify a non-standard license, include a file named `LICENSE` in your package (containing the full terms of your license) and use the string `file LICENSE` in this `License:` field.
+To specify a non-standard license, include a file named `LICENSE` in your
+package (containing the full terms of your license) and use the string `file
+LICENSE` in this `License:` field.
 
-The package should contain only code that can be redistributed according to the package license.
-Be aware of the licensing agreements for packages you are depending on in your package.
-Not all packages are open source even if they are publicly available.
+The package should contain only code that can be redistributed according to the
+package license.  Be aware of the licensing agreements for packages you are
+depending on in your package.  Not all packages are open source even if they
+are publicly available.
 
 ## `LazyData`
 
@@ -73,55 +86,94 @@ In our experience it only slows down the loading of packages with large data.
 
 ## `Depends`, `Imports`, `Suggests`, `Enhances`
 
-All packages must be available via [_Bioconductor_](https://bioconductor.org/packages/release/BiocViews.html) or [CRAN](https://cran.r-project.org/web/packages/available_packages_by_name.html); the use of the `Remotes:` field is not supported, hence dependencies only available on other repositories (e.g. <i class="fab fa-github"></i> GitHub) are not allowed.
+All packages must be available via
+[_Bioconductor_'s
+biocViews](https://bioconductor.org/packages/release/BiocViews.html) or
+[CRAN](https://cran.r-project.org/web/packages/available_packages_by_name.html);
+the use of the `Remotes:` field is not supported, hence dependencies only
+available on other repositories (e.g. <i class="fab fa-github"></i> GitHub) are
+not allowed.
 
-Reuse, rather than re-implement or duplicate, well-tested functionality from other packages.
-Make use of appropriate existing packages (e.g., `r BiocStyle::Biocpkg("biomaRt")`, `r BiocStyle::Biocpkg("AnnotationDbi")`, `r BiocStyle::Biocpkg("Biostrings")`) and classes (e.g., `r BiocStyle::Biocpkg("SummarizedExperiment")`, `r BiocStyle::Biocpkg("GRanges")`, `r BiocStyle::Biocpkg("Rle")`, `r BiocStyle::Biocpkg("DNAStringSet")`), and avoid duplication of functionality available in other [_Bioconductor_](https://bioconductor.org) packages.
-See [Common Bioconductor Methods and Classes](https://bioconductor.org/developers/how-to/commonMethodsAndClasses/). [_Bioconductor_](https://bioconductor.org) reviewers are very strict on this point!
-New packages should be interoperable with existing [_Bioconductor_](https://bioconductor.org) classes and should not reimplement functionality especially with regards to importing/reading data.
+Reuse, rather than re-implement or duplicate, well-tested functionality from
+other packages.  Make use of appropriate existing packages (e.g.,
+`r BiocStyle::Biocpkg("biomaRt")`,
+`r BiocStyle::Biocpkg("AnnotationDbi")`,
+`r BiocStyle::Biocpkg("Biostrings")`) and classes (e.g.,
+`r BiocStyle::Biocpkg("SummarizedExperiment")`,
+`r BiocStyle::Biocpkg("GRanges")`,
+`r BiocStyle::Biocpkg("Rle")`,
+`r BiocStyle::Biocpkg("DNAStringSet")`), and
+avoid duplication of functionality available in other Bioconductor packages.
+See [Common Bioconductor Methods and
+Classes](#common-bioconductor-methods-and-classes).
+Bioconductor reviewers are very strict on this point!  New packages should be
+interoperable with existing Bioconductor classes and should not reimplement
+functionality especially with regards to importing/reading data.
 
-A package can be listed only once between `Depends:`, `Imports:`, `Suggests:`, or `Enhances:`.
-Determine placement of package based on the following guidelines:
+A package can be listed only once between `Depends:`, `Imports:`, `Suggests:`,
+or `Enhances:`.  Determine placement of package based on the following
+guidelines:
 
-- `Imports:` is for packages that provide functions, methods, or classes that are used inside your package name space.
-  Most packages are listed here.
-- `Depends:` is for packages that provide essential functionality for users of your package, e.g., the `GenomicRanges` package is listed in the `Depends:` field of `GenomicAlignments`.
+- `Imports:` is for packages that provide functions, methods, or classes that
+  are used inside your package name space.  Most packages are listed here.
+- `Depends:` is for packages that provide essential functionality for users of
+  your package, e.g., the `GenomicRanges` package is listed in the `Depends:`
+  field of `GenomicAlignments`.
   It is unusual for more than three packages to be listed as `Depends:`.
-- `Suggests:` is for packages used in vignettes, examples, and in conditional code.
-  Commonly, annotation and experiment packages (e.g., `TxDb*`) used in vignette and example code are included in this field thus avoiding a costly download.
-  In the case where an external one-off function is required for package code, the package availability and usage can be done via:
-```{r, eval=FALSE}
-if (!requireNamespace('suggPKG', quietly = TRUE))
-    stop("Install 'suggPKG' to use this function.")
-suggPKG::function()
-```
-- `Enhances:` is for packages such as `Rmpi` or `parallel` that enhance the performance of your package, but are not strictly needed for its functionality.
+- `Suggests:` is for packages used in vignettes, examples, and in conditional
+  code.Commonly, annotation and experiment packages (e.g., `TxDb*`) used in
+  vignette and example code are included in this field thus avoiding a costly
+  download.  In the case where an external one-off function is required for
+  package code, the package availability and usage can be done via:
+  ```{r, eval=FALSE}
+  if (!requireNamespace('suggPKG', quietly = TRUE))
+      stop("Install 'suggPKG' to use this function.")
+  suggPKG::function()
+  ```
+- `Enhances:` is for packages such as `Rmpi` or `parallel` that enhance the
+  performance of your package, but are not strictly needed for its
+  functionality.
 
-It is seldom necessary to specify <i class="fab fa-r-project"></i> or specific versions as dependencies, since the [_Bioconductor_](https://bioconductor.org) release strategy and standard installation instructions guarantee these constraints.
-Repositories mirrored outside [_Bioconductor_](https://bioconductor.org) should include branches for each [_Bioconductor_](https://bioconductor.org) release, and may find it useful to fully specify versions to enforce constraints otherwise guaranteed by [_Bioconductor_](https://bioconductor.org) installation practices.
+It is seldom necessary to specify <i class="fab fa-r-project"></i> or specific
+versions as dependencies, since the Bioconductor release strategy and
+standard installation instructions guarantee these constraints.  Repositories
+mirrored outside Bioconductor should include branches for each
+Bioconductor release, and may find it useful to fully specify versions to
+enforce constraints otherwise guaranteed by Bioconductor installation
+practices.
+
+[_Bioconductor_]: https://bioconductor.org
 
 ## `SystemRequirements`
 
-This field is for listing any external software which is required, but not automatically installed by the normal package installation process.
+This field is for listing any external software which is required, but not
+automatically installed by the normal package installation process.
 
-If the installation process is non-trivial, a top-level `INSTALL` file should be
-included to document the process. If a user facing `README` is included it is
-also recommended to document the process there.
+If the installation process is non-trivial, a top-level `INSTALL` file should
+be included to document the process. If a user facing `README` is included it
+is also recommended to document the process there.
 
 ## `biocViews`
 
 This field is **required**!
 
-Specify at least two leaf node from [biocViews](https://bioconductor.org/packages/release/BiocViews.html).
-Multiple leaf terms are encouraged but terms must come from the same trunk or package type (i.e., `Software`, `AnnotationData`, `ExperimentData`, or `Workflow`).
+Specify at least two leaf node from
+[biocViews](https://bioconductor.org/packages/release/BiocViews.html).
+Multiple leaf terms are encouraged but terms must come from the same trunk or
+package type (i.e., `Software`, `AnnotationData`, `ExperimentData`, or
+`Workflow`).
 
 ## `BugReports`
 
-It is encouraged to include the relevant links to <i class="fab fa-github"></i> GitHub for reporting issues.
+It is encouraged to include the relevant links to <i class="fab fa-github"></i>
+GitHub for reporting issues.
 
 ## `URL`
 
-This field directs users to source code repositories, additional help resources, etc; details are provided in the [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html) manual, `RShowDoc("R-exts")`.
+This field directs users to source code repositories, additional help
+resources, etc; details are provided in the [Writing R
+Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html)
+manual, `RShowDoc("R-exts")`.
 
 ## `Video`
 
@@ -129,9 +181,11 @@ This field displays links to instructional videos.
 
 ## `Collates`
 
-This may be necessary to order class and method definitions appropriately during package installation.
+This may be necessary to order class and method definitions appropriately
+during package installation.
 
 ## `BiocType`
 
 This is required if submitting a `Docker` or `Workflow`.
-Otherwise this field could optionally define the type of Bioconductor package `Software`, `ExperimentData`, `Annotation`.
+Otherwise this field could optionally define the type of Bioconductor package
+`Software`, `ExperimentData`, `Annotation`.
