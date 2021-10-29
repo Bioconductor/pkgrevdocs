@@ -248,12 +248,15 @@ up-to-date with your <code>github.com</code> and <code>git.bioconductor.org</cod
 repositories.</p>
 <pre><code> git fetch --all
 
- ## merge changes from git.bioconductor.org
+ ## merge changes from Bioc (upstream remote at git@git.bioconductor.org)
  git merge upstream/master
 
- ## merge changes from github.com. If your github default branch name
- ## is main, replace origin/master with origin/main
+ ## merge changes from GitHub (origin remote)
  git merge origin/master</code></pre>
+<p><strong>Note</strong>. If your GitHub default branch is <code>main</code>, replace <code>master</code> with
+<code>main</code>:</p>
+<pre><code> ## merge changes from GitHub (origin remote)
+ git merge origin/main</code></pre>
 <p>Make changes to your package master branch and commit them to your
 local repository</p>
 <pre><code> git add &lt;files changed&gt;
@@ -270,16 +273,21 @@ that the package is built across platforms.</p>
 <p>Remember to add and commit these changes to your local repository.</p>
 </li>
 <li>
-<p><strong>Push changes to the Bioconductor and github repositories</strong>. Push
+<p><strong>Push changes to the Bioconductor and GitHub repositories</strong>. Push
 the changes in your local repository to the <em>Bioconductor</em> and
-github repositories.</p>
-<pre><code> ## push to git@git.bioconductor.org. If your github default
- ## branch name is main, replace master with main:master
+GitHub repositories.</p>
+<pre><code> ## push to BioC (upstream remote at git@git.bioconductor.org)
  git push upstream master
 
- ## push to your github repository
- ## If your github default branch name is main, replace master with main
+ ## push to GitHub (origin remote)
  git push origin master</code></pre>
+<p><strong>Note</strong>. If your GitHub default branch is <code>main</code>, replace <code>master</code> with
+<code>main</code>:</p>
+<pre><code> ## push to Bioc (upstream remote at git@git.bioconductor.org)
+ git push upstream main:master
+
+ ## push to GitHub (origin remote)
+ git push origin main</code></pre>
 </li>
 <li>
 <p><strong>Check the updated build report</strong>. If your push to
