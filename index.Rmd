@@ -14,7 +14,9 @@ link-citations: yes
 description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
 ---
 
-# About Bioconductor {-}
+# Welcome {-}
+
+# About Bioconductor {.unnumbered #about-bioconductor}
 
 ```{r, fig.align='center', echo=FALSE, out.height="200px"}
 knitr::include_graphics("https://raw.githubusercontent.com/Bioconductor/BiocStickers/master/Bioconductor/Bioconductor.png")
@@ -25,6 +27,11 @@ knitr::include_graphics("https://raw.githubusercontent.com/Bioconductor/BiocStic
 [_Bioconductor_](https://bioconductor.org/) uses the <i class="fab fa-r-project"></i> statistical programming language [@r2021], and is open source and open development. It has two releases each year, and an active user community.
 
 [_Bioconductor_](https://bioconductor.org/) is also available as [Docker](https://bioconductor.org/help/docker/) images.
+
+# Contribute
+
+This book is open-source and hosted at <https://github.com/Bioconductor/pkgrevdocs>.
+Contributions are welcome and encouraged in the form of forks and pull requests.
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages
