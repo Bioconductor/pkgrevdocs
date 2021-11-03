@@ -16,7 +16,7 @@ description: "This is a minimal example of using the bookdown package to write a
 
 # Welcome {-}
 
-# About Bioconductor {.unnumbered #about-bioconductor}
+## About Bioconductor {.unnumbered}
 
 ```{r, fig.align='center', echo=FALSE, out.height="200px"}
 knitr::include_graphics("https://raw.githubusercontent.com/Bioconductor/BiocStickers/master/Bioconductor/Bioconductor.png")
@@ -28,7 +28,7 @@ knitr::include_graphics("https://raw.githubusercontent.com/Bioconductor/BiocStic
 
 [_Bioconductor_](https://bioconductor.org/) is also available as [Docker](https://bioconductor.org/help/docker/) images.
 
-# Contribute
+## Contribute {.unnumbered}
 
 This book is open-source and hosted at <https://github.com/Bioconductor/pkgrevdocs>.
 Contributions are welcome and encouraged in the form of forks and pull requests.
