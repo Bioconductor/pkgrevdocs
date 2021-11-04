@@ -38,7 +38,7 @@ rmd_files: ["index.Rmd",
            "package-submission.Rmd",
            "review-overview.Rmd",
            "review-expectations.Rmd",
-           "reviewer-resources-and-tools.Rmd",
+           "review-resources-and-tools.Rmd",
            "volunteer-to-review.Rmd",
            "appendix.Rmd"]
 clean: [packages.bib]
