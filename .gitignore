@@ -4,3 +4,8 @@
 .Ruserdata
 _book/
 _bookdown_files/
+book_template.log
+book_template.pdf
+.Rprofile
+renv
+renv.lock

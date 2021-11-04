@@ -10,4 +10,5 @@ Suggests:
   bslib,
   BiocManager,
   BiocStyle,
-  r-lib/downlit
+  r-lib/downlit,
+  withr
