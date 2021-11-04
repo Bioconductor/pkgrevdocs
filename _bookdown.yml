@@ -1,5 +1,44 @@
-book_filename: "book_template"
+book_filename: "bioc-contributions-guide"
 delete_merged_file: true
 language:
   ui:
     chapter_name: "Chapter "
+rmd_files: ["index.Rmd",
+           "01-intro.Rmd",
+           "01b-package-name.Rmd",
+           "02-general-package-development.Rmd",
+           "02a-use-devel.Rmd",
+           "03-description.Rmd",
+           "03a-biocViews.Rmd",
+           "03b-version-numbering.Rmd",
+           "04-namespace.Rmd",
+           "05-news.Rmd",
+           "06-citation.Rmd",
+           "07-data.Rmd",
+           "08-docs.Rmd",
+           "09-tests.Rmd",
+           "09a-longtests.Rmd",
+           "09b-troubleshoot-build-report.Rmd",
+           "10-r-code.Rmd",
+           "10a-commonMethodsAndClasses.Rmd",
+           "10b-efficientCode.Rmd",
+           "11-c-fortran.Rmd",
+           "11a-mavericks.Rmd",
+           "11b-cDebugging.Rmd",
+           "11c-webquery.Rmd",
+           "12-third-party-code.Rmd",
+           "12a-workflows.Rmd",
+           "13-shiny.Rmd",
+           "14-nonsoftware.Rmd",
+           "14b-endoflife.Rmd",
+           "15-gitignore.Rmd",
+           "15a-git.Rmd",
+           "16-conclusion.Rmd",
+           "17-references.Rmd",
+           "17a-package-submission.Rmd",
+           "18-reviewer-resources.Rmd",
+           "19-reviewer-expectations.Rmd",
+           "20-reviewer-tools.Rmd",
+           "21-become-a-reviewer.Rmd",
+           "appendix.Rmd"]
+clean: [packages.bib]
