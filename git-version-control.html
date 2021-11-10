@@ -867,7 +867,7 @@ recent <strong>parent</strong> commit of the current state of your local
 repository.</p>
 <pre><code>git reset --hard &lt;commit id&gt;</code></pre>
 <p>Example:</p>
-<pre><code>git reset --hard e02e4d86812457fd9fdd43adae5761f5946fdfb3                                                        master
+<pre><code>git reset --hard e02e4d86812457fd9fdd43adae5761f5946fdfb3
 HEAD is now at e02e4d8 version bump by bioc core</code></pre>
 <p>To make the changes permanent, you will then need to push the changes
 to GitHub, and then email the Bioconductor core team to force push to
@@ -905,11 +905,12 @@ been warned.</strong></p>
 <h3>
 <span class="header-section-number">28.7.5</span> Fix bugs in <code>devel</code> and <code>release</code><a class="anchor" aria-label="anchor" href="#bug-fix-in-release-and-devel"><i class="fas fa-link"></i></a>
 </h3>
-<p><strong>Goal:</strong> Maintainers will have to fix bugs from time to time, and
-make sure the patch is available both in the <code>master</code> branch and the current <code>release</code> branch.</p>
+<p><strong>Goal:</strong> When a bug is present in both the release and devel branches of
+Bioconductor, a maintainer will have to introduce a patch in the default
+git branch and in the current release branch (e.g., <code>RELEASE_3_14</code>).</p>
 <ol style="list-style-type: decimal">
 <li>
-<p><a href="git-version-control.html#sync-existing-repositories">Sync existing repositories</a>.</p>
+<p>First <a href="git-version-control.html#sync-existing-repositories">Sync existing repositories</a>.</p>
 <pre><code> git fetch --all
  git checkout master
  git merge upstream/master
@@ -921,45 +922,48 @@ make sure the patch is available both in the <code>master</code> branch and the 
 <li>
 <p>On your local machine, be sure that you are on the <code>master</code> branch.</p>
 <pre><code> git checkout master</code></pre>
-<p>Make the changes you need to fix your bug. Add the modified files
-to the commit. Remember to edit the DESCRIPTION file to update the
-version number, and ensure that <strong>only bug-fix changes</strong> are
-introduced in the commit.</p>
-<pre><code> git add &lt;files changed&gt;
- ## after version bump
- git add DESCRIPTION</code></pre>
-<p>Commit the modified files. It is helpful to tag the commit as bug
-fix.</p>
+<p>Make the changes needed to fix the bug and add the modified files
+to the commit. Remember to bump the version number in the <code>DESCRIPTION</code> file
+<strong>in a separate commit</strong>. Only bug-fix changes should be introduced in this
+commit.</p>
+<pre><code> git add &lt;files changed&gt;</code></pre>
+<p>Commit the modified files. It is helpful to tag the commit message with “bug
+fix.”</p>
 <pre><code> git commit -m "bug fix: my bug fix"</code></pre>
+<p>Bump the version of the package by editing the <code>Version</code> field in the
+<code>DESCRIPTION</code> and commit the change.</p>
+<pre><code> ## after version bump
+ git add DESCRIPTION
+ git commit -m "version bump in devel"</code></pre>
 </li>
 <li>
-<p>(Alternative) If the changes are non-trivial, create a new branch
-where you can easily abandon any false starts. Merge the final
-version onto <code>master</code></p>
+<p>(Alternative) If the changes are non-trivial i.e., with multiple commits,
+create a new branch where you can easily abandon any false starts.</p>
 <pre><code> git checkout master
  git checkout -b bugfix-my-bug
- ## add and commit to this branch. When the bug fix is complete...
- git checkout master
+ ## add and commit to this branch to fix the bug</code></pre>
+<p>Merge the final version of the branch into the default branch.</p>
+<pre><code> git checkout master
  git merge bugfix-my-bug</code></pre>
 </li>
 <li>
-<p>Switch to the release branch and cherry-pick the commits from
-master corresponding to the bug fix, e.g., reference the most
-recent commit on the <code>master</code> branch with <code>master</code>; see examples in
-<code>git cherry-pick --help</code>. Remember to edit the DESCRIPTION file to
-update the release version according to <em>Bioconductor</em>’s
+<p>Switch to the release branch and <code>cherry-pick</code> the commit hash or range of
+hashes from the default branch that correspond to the bug fix (more examples
+in <code>git cherry-pick --help</code>). Remember to edit the <code>DESCRIPTION</code> file to
+update the release version of the package according to <em>Bioconductor</em>’s
 <a href="version-numbering.html#version-numbering">version numbering scheme</a>.</p>
 <pre><code> git checkout &lt;RELEASE_X_Y&gt;
- git cherry-pick master
- ## Fix version bump by editing 'Version:' field of DESCRIPTION, then
+ ## example hash from git log: 2644710
+ git cherry-pick &lt;hash&gt;
+ ## Bump the version and commit the change
  git add DESCRIPTION
- git commit -m "update RELEASE version number"</code></pre>
-<p>NOTE: If you are patching your release for the first time, you have to make
-a local copy of the RELEASE_X_Y branch, by</p>
+ git commit -m "version bump in release"</code></pre>
+<p><strong>NOTE</strong>: If you are patching your release for the first time, you have to
+make a local copy of the RELEASE_X_Y branch with</p>
 <pre><code> git checkout -b &lt;RELEASE_X_Y&gt; upstream/&lt;RELEASE_X_Y&gt;</code></pre>
 <p>Following this one time local checkout, you may switch between RELEASE_X_Y
 and master with <code>git checkout &lt;RELEASE_X_Y&gt;</code>. If you do not use the command
-to get a local copy of the release branch, you will get the message,</p>
+to get a local checkout of the release branch, you will get the message:</p>
 <pre><code> (HEAD detached from origin/RELEASE_X_Y)</code></pre>
 </li>
 <li>
@@ -976,6 +980,11 @@ branch on your local machine.</p>
  git push origin &lt;RELEASE_X_Y&gt;</code></pre>
 </li>
 </ol>
+<ul>
+<li>See the video tutorial here:</li>
+</ul>
+<iframe width="568" height="315" src="https://www.loom.com/embed/37525f9ddf434c91b11e8112db46818b" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+</iframe>
 </div>
 </div>
 <div id="github-scenarios" class="section level2" number="28.8">
@@ -1431,7 +1440,7 @@ please send an email to <a href="mailto:bioc-devel@bioconductor.org" class="emai
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2021-11-04.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2021-11-10.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
