@@ -826,7 +826,7 @@ repository.
 
 Example:
 
-    git reset --hard e02e4d86812457fd9fdd43adae5761f5946fdfb3                                                        master
+    git reset --hard e02e4d86812457fd9fdd43adae5761f5946fdfb3
     HEAD is now at e02e4d8 version bump by bioc core
 
 To make the changes permanent, you will then need to push the changes
@@ -864,10 +864,11 @@ been warned.__
 
 ### Fix bugs in `devel` and  `release` {#bug-fix-in-release-and-devel}
 
-__Goal:__ Maintainers will have to fix bugs from time to time, and
-make sure the patch is available both in the `master` branch and the current `release` branch.
+__Goal:__ When a bug is present in both the release and devel branches of
+Bioconductor, a maintainer will have to introduce a patch in the default
+git branch and in the current release branch (e.g., `RELEASE_3_14`).
 
-1. [Sync existing repositories][].
+1. First [Sync existing repositories][].
 
         git fetch --all
         git checkout master
@@ -881,51 +882,58 @@ make sure the patch is available both in the `master` branch and the current `re
 
         git checkout master
 
-   Make the changes you need to fix your bug. Add the modified files
-   to the commit. Remember to edit the DESCRIPTION file to update the
-   version number, and ensure that __only bug-fix changes__ are
-   introduced in the commit.
+   Make the changes needed to fix the bug and add the modified files
+   to the commit. Remember to bump the version number in the `DESCRIPTION` file
+   __in a separate commit__. Only bug-fix changes should be introduced in this
+   commit.
 
         git add <files changed>
-        ## after version bump
-        git add DESCRIPTION
 
-   Commit the modified files. It is helpful to tag the commit as bug
-   fix.
+   Commit the modified files. It is helpful to tag the commit message with "bug
+   fix".
 
         git commit -m "bug fix: my bug fix"
 
-1. (Alternative) If the changes are non-trivial, create a new branch
-   where you can easily abandon any false starts. Merge the final
-   version onto `master`
+   Bump the version of the package by editing the `Version` field in the
+   `DESCRIPTION` and commit the change.
+
+        ## after version bump
+        git add DESCRIPTION
+        git commit -m "version bump in devel"
+
+1. (Alternative) If the changes are non-trivial i.e., with multiple commits,
+   create a new branch where you can easily abandon any false starts.
 
         git checkout master
         git checkout -b bugfix-my-bug
-        ## add and commit to this branch. When the bug fix is complete...
+        ## add and commit to this branch to fix the bug
+
+   Merge the final version of the branch into the default branch.
+
         git checkout master
         git merge bugfix-my-bug
 
-1. Switch to the release branch and cherry-pick the commits from
-   master corresponding to the bug fix, e.g., reference the most
-   recent commit on the `master` branch with `master`; see examples in
-   `git cherry-pick --help`. Remember to edit the DESCRIPTION file to
-   update the release version according to _Bioconductor_'s
+1. Switch to the release branch and `cherry-pick` the commit hash or range of
+   hashes from the default branch that correspond to the bug fix (more examples
+   in `git cherry-pick --help`). Remember to edit the `DESCRIPTION` file to
+   update the release version of the package according to _Bioconductor_'s
    [version numbering scheme][].
 
         git checkout <RELEASE_X_Y>
-        git cherry-pick master
-        ## Fix version bump by editing 'Version:' field of DESCRIPTION, then
+        ## example hash from git log: 2644710
+        git cherry-pick <hash>
+        ## Bump the version and commit the change
         git add DESCRIPTION
-        git commit -m "update RELEASE version number"
+        git commit -m "version bump in release"
 
-    NOTE: If you are patching your release for the first time, you have to make
-    a local copy of the RELEASE_X_Y branch, by
+    __NOTE__: If you are patching your release for the first time, you have to
+    make a local copy of the RELEASE_X_Y branch with
 
         git checkout -b <RELEASE_X_Y> upstream/<RELEASE_X_Y>
 
     Following this one time local checkout, you may switch between RELEASE_X_Y
     and master with `git checkout <RELEASE_X_Y>`. If you do not use the command
-    to get a local copy of the release branch, you will get the message,
+    to get a local checkout of the release branch, you will get the message:
 
         (HEAD detached from origin/RELEASE_X_Y)
 
@@ -947,6 +955,10 @@ make sure the patch is available both in the `master` branch and the current `re
 
 [version numbering scheme]: #version-numbering
 [Sync existing repositories]: #sync-existing-repositories
+
+* See the video tutorial here:
+
+<iframe width="568" height="315" src="https://www.loom.com/embed/37525f9ddf434c91b11e8112db46818b" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 ## Github scenarios
 
