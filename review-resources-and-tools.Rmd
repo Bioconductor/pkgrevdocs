@@ -15,6 +15,7 @@ and updated as the review progresses.
 
 Example Software Package Reviews:
 <ul>
+<li>[Review 1787: MAGAR](https://github.com/Bioconductor/Contributions/issues/1787)</li>  
 <li>[Review 2090: HubPub](https://github.com/Bioconductor/Contributions/issues/2090)</li>
 <li>[Review 1229: BiocSet](https://github.com/Bioconductor/Contributions/issues/1229)</li>
 <li>[Review 1659: AnVILBilling](https://github.com/Bioconductor/Contributions/issues/1659)</li>
