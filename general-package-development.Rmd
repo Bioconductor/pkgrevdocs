@@ -18,7 +18,7 @@ If there are any remaining, a justification of why they are not corrected will b
 
 ### BiocCheck
 
-Packages must also pass `BiocCheck::BiocCheckGitClone()` and `BiocCheck::BiocCheck()` with no errors and no warnings.
+Packages must also pass `BiocCheck::BiocCheckGitClone()` and `BiocCheck::BiocCheck('new-package'=TRUE)` with no errors and no warnings.
 The `r BiocStyle::Biocpkg("BiocCheck")` package is a set of tests that encompass [_Bioconductor_](https://bioconductor.org/) Best Practices.
 Every effort should be made to address any notes that arise during this build or check.
 ^[The [_Bioconductor_](https://bioconductor.org/) team member assigned to review the package during the submission process will expect all ERROR, WARNINGS, and NOTES to be addressed.
