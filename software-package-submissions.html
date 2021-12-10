@@ -309,7 +309,7 @@ vignettes, and man pages. It will run <code>R CMD check</code> on the tarball,
 to ensure that the package conforms to standard <em>R</em> programming best
 practices. <em>Bioconductor</em> has chosen to utilize a custom <code>R CMD check</code>
 environment; See <a href="https://bioconductor.org/developers/package-guidelines/#checkingenv">R CMD check environment</a> for more details. Finally, the
-build system will run <code>BiocCheckGitClone()</code> and <code>BiocCheck()</code> to ensure that
+build system will run <code>BiocCheckGitClone()</code> and <code>BiocCheck('new-package'=TRUE)</code> to ensure that
 the package conforms to <em>Bioconductor</em> <a href="https://bioconductor.org/packages/BiocCheck/">BiocCheck</a> standards. The system
 will perform these steps using the <a href="/developers/how-to/useDevel/">‘devel’
 version</a> of <em>Bioconductor</em>, on three platforms
@@ -429,7 +429,7 @@ package documentation and structure. Use the
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2021-12-01.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2021-12-10.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
