@@ -176,7 +176,7 @@ which has almost the same contents. The second invocation of `library()`
 will not produce any output since the package has already been loaded:
 
 
-    ```{r}
+    `r ''````{r}
     library(GenomicRanges)
     library(GenomicAlignments)
     library(Biostrings)
