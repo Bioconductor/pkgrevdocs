@@ -9,7 +9,7 @@ There are also some other key points, detailed in the following sections.
 
 ## License
 
-Only contain code that can be distributed under the license specified (see also [The DESCRIPTION file](the-description-file.html#license)).
+Only contain code that can be distributed under the license specified (see also [The DESCRIPTION file](description.html#license)).
 
 ## `R CMD check` and `BiocCheck`
 
@@ -46,7 +46,7 @@ from a variable.
 ### Re-use of functionality, classes, and generics
 
 Avoid re-implementing functionality or classes (see also
-[The DESCRIPTION file](the-description-file.html#depends-imports-suggests-enhances)).
+[The DESCRIPTION file](description.html#depends-imports-suggests-enhances)).
 Make use of appropriate existing packages (e.g.,
 `r BiocStyle::Biocpkg("biomaRt")`,
 `r BiocStyle::Biocpkg("AnnotationDbi")`,
