@@ -27,7 +27,7 @@ See the [Package Submission guidelines](https://www.bioconductor.org/developers/
 [_Bioconductor_](https://bioconductor.org/) strongly encourages the use of existing datasets, but if not available data can be included directly in the package for use in the examples found in man pages, vignettes, and tests of your package.
 This is a good reference by [Hadley Wickham about data](http://r-pkgs.had.co.nz/data.html).
 
-However, as mentioned in [The DESCRIPTION file](the-description-file.html#lazydata) chapter, [_Bioconductor_](https://bioconductor.org/) does not encourage using `LazyData: True` despite its recommendataion in this article.
+However, as mentioned in [The DESCRIPTION file](description.html#lazydata) chapter, [_Bioconductor_](https://bioconductor.org/) does not encourage using `LazyData: True` despite its recommendataion in this article.
 
 Some key points are summarized in the following sections.
 
