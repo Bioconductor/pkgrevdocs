@@ -29,7 +29,7 @@ A vignette provides reproducibility: the vignette produces the same results as c
 It is therefore **essential** that the vignette embed executed <i class="fab fa-r-project"></i> code.
 Shortcuts (e.g., using a $\LaTeX$ verbatim environment, or using the *Sweave* `eval=FALSE` flag, or equivalent tricks in markdown) undermine the benefit of vignettes and are generally **not allowed**; exceptions can be made with proper justification and are at the discretion of [_Bioconductor_](https://bioconductor.org/) reviewers.
 
-All packages are required to have at least one vignette.
+All packages are required to have at least one Rmd or Rnw vignette.
 Vignettes go in the `vignettes/` directory of the package.
 Vignettes are often used as standalone documents, so best practices are to include an informative title, the primary author of the vignette, the last modification date of the vignette, and a link to the package landing page.
 We encourage the use of `r BiocStyle::Biocpkg("BiocStyle")` for formatting.
