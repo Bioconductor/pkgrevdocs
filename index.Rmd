@@ -16,17 +16,22 @@ description: "This is a minimal example of using the bookdown package to write a
 
 # Welcome {-}
 
-## About Bioconductor {.unnumbered}
-
 ```{r, fig.align='center', echo=FALSE, out.height="200px"}
 knitr::include_graphics("https://raw.githubusercontent.com/Bioconductor/BiocStickers/master/Bioconductor/Bioconductor.png")
 ```
 
-[_Bioconductor_](https://bioconductor.org/) provides tools for the analysis and comprehension of high-throughput genomic data [@orchestrating2015].
+## Introduction {.unnumbered #intro}
 
-[_Bioconductor_](https://bioconductor.org/) uses the <i class="fab fa-r-project"></i> statistical programming language [@r2021], and is open source and open development. It has two releases each year, and an active user community.
 
-[_Bioconductor_](https://bioconductor.org/) is also available as [Docker](https://bioconductor.org/help/docker/) images.
+The [_Bioconductor_](https://bioconductor.org/) project promotes high-quality, well documented, and interoperable software.
+These guidelines help to achieve this objective; they are not meant to put undue burden on package authors, and authors having difficultly satisfying guidelines should seek advice on the [bioc-devel](https://bioconductor.org/help/support/) mailing list.
+
+Package maintainers are urged to follow these guidelines as closely as possible when developing [_Bioconductor_](https://bioconductor.org/) packages.
+
+General instructions for producing R packages can be found in the [Writing R Extensions](https://cran.r-project.org/doc/manuals/R-exts.html) manual, available from within <i class="fab fa-r-project"></i> (`RShowDoc("R-exts")`) or on the [R web site](http://cran.fhcrc.org/manuals.html).
+
+Remember these are the minimum requirements for package acceptance and the package will still be subject to other guidelines below and a formal technical review by trained [_Bioconductor_](https://bioconductor.org/) package reviewer.
+
 
 ## Contribute {.unnumbered}
 

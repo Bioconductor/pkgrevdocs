@@ -6,8 +6,7 @@ language:
 rmd_files: ["index.Rmd",
            "devguide-introduction.Rmd",
            "package-name.Rmd",
-           "general-package-development.Rmd",
-           "devel-branch.Rmd",
+           "general-package-development.Rmd",           
            "description-file.Rmd",
            "biocviews.Rmd",
            "version-numbering.Rmd",
@@ -39,5 +38,7 @@ rmd_files: ["index.Rmd",
            "review-expectations.Rmd",
            "review-resources-and-tools.Rmd",
            "volunteer-to-review.Rmd",
-           "appendix.Rmd"]
+           "appendix.Rmd",
+	   "devel-branch.Rmd",
+	   "news_for_bookdown.Rmd"]
 clean: [packages.bib]
