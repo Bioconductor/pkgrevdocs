@@ -74,7 +74,7 @@ term.
 [devel]: http://bioconductor.org/packages/devel/BiocViews.html
 
 
-## Common Bioconductor Methods and Classes
+## Common Bioconductor Methods and Classes {#reusebioc}
 
 We strongly recommend reusing existing methods for importing data, and
 reusing established classes for representing data. Here are some
