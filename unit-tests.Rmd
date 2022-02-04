@@ -328,7 +328,8 @@ could mean:
 
 If tests are taking too long to achieve full test coverage, see [long
 tests][]. Before implementing long tests we highly recommend reaching out to the
-bioconductor team on the mailing list to ensure proper use and justification.
+bioconductor team on the mailing list bioc-devel@r-project.org to ensure proper
+use and justification.
 
 [long tests]: #long-tests
 
