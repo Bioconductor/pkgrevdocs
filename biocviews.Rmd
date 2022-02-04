@@ -5,12 +5,13 @@ field in their DESCRIPTION file.  The field name "biocViews" is
 case-sensitive and must begin with a lower-case 'b'.
 
 biocViews terms are "keywords" used to describe a given package. They
-are broadly divided into three categories, representing the type of
+are broadly divided into four categories, representing the type of
 packages present in the _Bioconductor_ Project -
 
 1. Software
 2. Annotation Data
 3. Experiment Data
+4. Workflow
 
 biocViews are available for the [release][] and [devel][] branches of
 _Bioconductor_. The devel branch has a check box under the tree
@@ -41,7 +42,7 @@ displaying all available terms.
 Please Note:
 
 1. Your package will belong to only one part of _Bioconductor_ Project
-   (Software, Annotation Data or Experiment Data), so choose only only
+   (Software, Annotation Data, Experiment Data, Workflow), so choose only
    biocViews from that category.
 
 2. biocViews listed in your package must match exactly (e.g.,
@@ -62,5 +63,12 @@ after you have submitted your package, you can try correcting them on
 your own following the directions given here or ask your package
 reviewer for more information.
 
+If a developer thinks a biocViews term should be added to the current acceptable
+list, please email bioc-devel@r-project.org requesting the new biocView, under
+which hierarchy the term should be placed, and the justification for the new
+term.
+
 [release]: http://bioconductor.org/packages/release/BiocViews.html
 [devel]: http://bioconductor.org/packages/devel/BiocViews.html
+
+
