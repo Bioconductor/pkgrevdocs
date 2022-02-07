@@ -1,5 +1,7 @@
 # The README file {#readme}
 
+README files are not required of Bioconductor packages.
+
 If a `README` file is included in the package or the <i class="fab fa-github"></i> Github  repository and it provides installation instructions, those instruction should also include [_Bioconductor_](https://bioconductor.org/) installation instructions.
 
 If a `README.Rmd` is provided (rather than `README.md`, or other) those installation instructions should be in an `eval=FALSE` code chunk.
