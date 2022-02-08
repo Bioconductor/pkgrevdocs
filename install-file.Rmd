@@ -1,0 +1,18 @@
+# The INSTALL file {#sysdep}
+
+An INSTALL file does not have to be included with the package. An INSTALL file
+is utilized for specifying external system requirements needed. It should be
+used in combination with the `SystemRequirements` field of the [Description
+file](#description). This file should contain installation instructions for the
+required system dependency.
+
+Specifying this requirement does not guarantee that _Bioconductor_ will agree to
+install the external system requirement. It is encourage to discuss any
+additional system requirements on the bioc-devel@r-project.org before
+development.
+
+System requirements should never be exclusive to a particular
+version. Maintainers are expected to have their package work with whatever the
+current version of external software is available.
+
+See also [third party code](#third-party-code)

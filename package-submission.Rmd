@@ -1,8 +1,8 @@
 # (PART) Package Submissions {-}
 
-# Software Package Submissions
+# Overview {.unnumbered #submission-overview}
 
-This page gives an overview of the submission process along with key
+The following page gives an overview of the submission process along with key
 principles to follow. See also [Package Guidelines][guidelines] for
 package specific guidelines and requirement and the
 [_Bioconductor_ new package submission tracker][tracker].
@@ -10,7 +10,9 @@ package specific guidelines and requirement and the
 [guidelines]: https://contributions.bioconductor.org/
 [tracker]: https://github.com/Bioconductor/Contributions
 
-- [Introduction](#intro)
+# Software Package Submissions
+
+- [Introduction](#subintro)
 - [Types of Packages](#type)
 - [Package Naming Policy](#naming)
 - [Author/Maintainer Expectations](#author)
@@ -21,7 +23,7 @@ package specific guidelines and requirement and the
 - [Following Acceptance](#afteraccept)
 - [Additional Support](#support)
 
-## Introduction {#intro}
+## Introduction {#subintro}
 
 To submit a package to _Bioconductor_ the package should:
 

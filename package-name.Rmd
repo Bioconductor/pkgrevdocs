@@ -4,7 +4,10 @@ The package name should match the <i class="fab fa-github"></i> GitHub
 repository name and is case-sensitive. A package name should be descriptive and
 should not already exist as a current package (case-insensitive) in
 [_Bioconductor_](https://bioconductor.org/packages/release/BiocViews.html) nor
-[CRAN](https://cran.r-project.org/web/packages/available_packages_by_name.html).
+[CRAN](https://cran.r-project.org/web/packages/available_packages_by_name.html). Reusing
+archived or deprecated package names is also strongly discouraged and often will
+not be allowed. Before submission please inquire about using a legacy package
+name on the bioc-devel@r-project.org mailing list.
 
 An easy way to check whether your name is already in use is to check that the
 following command fails:

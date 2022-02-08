@@ -123,9 +123,6 @@ particular, relatively few situations require an explicit `for` loop.
 See the [Vectorize](https://bioconductor.org/developers/how-to/efficient-code/#vectorize)
 section of [Robust and Efficient Code for additional detail](https://bioconductor.org/developers/how-to/efficient-code).
 
-### Web resources
-
-Follow guiding principles on [Querying Web Resources](http://bioconductor.org/developers/how-to/web-query/), if applicable.
 
 ### Parallelisation
 
@@ -134,7 +131,7 @@ See also the [Parallel Recommendations](https://bioconductor.org/developers/how-
 
 A minimal number of cores (1 or 2) should be set as a default.
 
-### File caching
+### Web Querying and File caching
 
 Files downloaded should be cached.
 Please use `r BiocStyle::Biocpkg("BiocFileCache")`.
@@ -143,6 +140,9 @@ caching directories `tools::R_user_dir(package, which="cache")`. It is not
 allowed to download or write any files to a users home directory or working
 directory. Files should be cached as stated above with `BiocFileCache` (preferred)
 or `R_user_dir` or `tempdir()/tempfile()` if files should not be persistent.
+
+Please also follow guiding principles on [Querying Web
+Resources](http://bioconductor.org/developers/how-to/web-query/), if applicable.
 
 ### Additional files and dependencies
 
