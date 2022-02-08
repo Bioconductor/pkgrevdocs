@@ -4,19 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 23 Conclusion | Bioconductor Packages: Development, Maintenance, and Peer Review</title>
+<title>Overview | Bioconductor Packages: Development, Maintenance, and Peer Review</title>
 <meta name="author" content="Kevin Rue-Albrecht">
 <meta name="author" content="Daniela Cassol">
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
-<meta name="description" content="The exercise How to a Build Bioconductor Package with RStudio may also be helpful. Remember that every Bioconductor package goes through a formal review process and may still receive technical...">
+<meta name="description" content="The following page gives an overview of the submission process along with key principles to follow. See also Package Guidelines for package specific guidelines and requirement and the Bioconductor...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 23 Conclusion | Bioconductor Packages: Development, Maintenance, and Peer Review">
+<meta property="og:title" content="Overview | Bioconductor Packages: Development, Maintenance, and Peer Review">
 <meta property="og:type" content="book">
-<meta property="og:description" content="The exercise How to a Build Bioconductor Package with RStudio may also be helpful. Remember that every Bioconductor package goes through a formal review process and may still receive technical...">
+<meta property="og:description" content="The following page gives an overview of the submission process along with key principles to follow. See also Package Guidelines for package specific guidelines and requirement and the Bioconductor...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 23 Conclusion | Bioconductor Packages: Development, Maintenance, and Peer Review">
-<meta name="twitter:description" content="The exercise How to a Build Bioconductor Package with RStudio may also be helpful. Remember that every Bioconductor package goes through a formal review process and may still receive technical...">
+<meta name="twitter:title" content="Overview | Bioconductor Packages: Development, Maintenance, and Peer Review">
+<meta name="twitter:description" content="The following page gives an overview of the submission process along with key principles to follow. See also Package Guidelines for package specific guidelines and requirement and the Bioconductor...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -44,7 +44,7 @@
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Welcome</a></li>
 <li class="book-part">Package Submissions</li>
-<li><a class="" href="submission-overview.html">Overview</a></li>
+<li><a class="active" href="submission-overview.html">Overview</a></li>
 <li><a class="" href="software-package-submissions.html"><span class="header-section-number">1</span> Software Package Submissions</a></li>
 <li class="book-part">Package Development Guidelines</li>
 <li><a class="" href="develop-overview.html">Overview</a></li>
@@ -69,7 +69,7 @@
 <li><a class="" href="shiny.html"><span class="header-section-number">20</span> Shiny apps</a></li>
 <li><a class="" href="non-software.html"><span class="header-section-number">21</span> Non-Software Packages</a></li>
 <li><a class="" href="gitignore.html"><span class="header-section-number">22</span> The .gitignore file</a></li>
-<li><a class="active" href="conclusion.html"><span class="header-section-number">23</span> Conclusion</a></li>
+<li><a class="" href="conclusion.html"><span class="header-section-number">23</span> Conclusion</a></li>
 <li class="book-part">Bioconductor Package Maintenance</li>
 <li><a class="" href="package-maintenance.html">Overview</a></li>
 <li><a class="" href="git-version-control.html"><span class="header-section-number">24</span> Git Version Control</a></li>
@@ -94,30 +94,25 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="conclusion" class="section level1" number="23">
-<h1>
-<span class="header-section-number">23</span> Conclusion<a class="anchor" aria-label="anchor" href="#conclusion"><i class="fas fa-link"></i></a>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="submission-overview" class="section level1 unnumbered">
+<h1>Overview<a class="anchor" aria-label="anchor" href="#submission-overview"><i class="fas fa-link"></i></a>
 </h1>
-<p>The exercise <a href="http://bioconductor.org/developers/how-to/buildingPackagesForBioc/">How to a Build Bioconductor Package with RStudio</a> may also be helpful.</p>
-<p>Remember that every <a href="https://bioconductor.org/"><em>Bioconductor</em></a> package goes through a formal review process and may still receive technical feedback from the assigned <a href="https://bioconductor.org/"><em>Bioconductor</em></a> reviewer.</p>
-<p>An overview of the submission process may be found <a href="http://bioconductor.org/developers/package-submission/">here</a> and a package may be submitted to the <a href="https://github.com/Bioconductor/Contributions">GitHub package submission repository</a>.</p>
-<p>Thank you for reading these guidelines, and welcome to the <a href="https://bioconductor.org/"><em>Bioconductor</em></a> community of users and developers!</p>
-
+<p>The following page gives an overview of the submission process along with key
+principles to follow. See also <a href="https://contributions.bioconductor.org/">Package Guidelines</a> for
+package specific guidelines and requirement and the
+<a href="https://github.com/Bioconductor/Contributions"><em>Bioconductor</em> new package submission tracker</a>.</p>
 </div>
-
-
-
   <div class="chapter-nav">
-<div class="prev"><a href="gitignore.html"><span class="header-section-number">22</span> The .gitignore file</a></div>
-<div class="next"><a href="package-maintenance.html">Overview</a></div>
+<div class="prev"><a href="index.html">Welcome</a></div>
+<div class="next"><a href="software-package-submissions.html"><span class="header-section-number">1</span> Software Package Submissions</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#conclusion"><span class="header-section-number">23</span> Conclusion</a></li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#submission-overview">Overview</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/Bioconductor/pkgrevdocs/blob/master/devguide-conclusion.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/Bioconductor/pkgrevdocs/edit/master/devguide-conclusion.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/Bioconductor/pkgrevdocs/blob/master/package-submission.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/Bioconductor/pkgrevdocs/edit/master/package-submission.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
