@@ -9,6 +9,9 @@ These are often not required at all (See the [Configure and cleanup](http://cran
 
 ## Fortran {#fortran}
 
+Consider utilizing the [dotCall64](https://CRAN.R-project.org/package=dotCall64)
+CRAN package. 
+
 ## C / C++ {#ccode}
 
 The [Rcpp](http://cran.r-project.org/web/packages/Rcpp/index.html)
@@ -25,7 +28,8 @@ Gallery](http://gallery.rcpp.org/).
 
 The [basilisk package](https://www.bioconductor.org/packages/basilisk) is
 encouraged to integrate python into R packages. Alternatively
-[reticulate](https://rstudio.github.io/reticulate/) may be utilized.  
+[reticulate](https://rstudio.github.io/reticulate/) may be utilized but basilisk
+is preferred.  
 
 ## Other {#third-party-code}
 
