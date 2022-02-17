@@ -4,19 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 26 Troubleshooting Build Report | Bioconductor Packages: Development, Maintenance, and Peer Review</title>
+<title>Chapter 23 Troubleshooting Build Report | Bioconductor Packages: Development, Maintenance, and Peer Review</title>
 <meta name="author" content="Kevin Rue-Albrecht">
 <meta name="author" content="Daniela Cassol">
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
-<meta name="description" content="26.1 How and when does the BBS pull? When will my changes propagate? Please remember the daily builder pulls, installs, builds, and checks package only once per day. This process starts around...">
+<meta name="description" content="23.1 How and when does the BBS pull? When will my changes propagate? Please remember the daily builder pulls, installs, builds, and checks package only once per day. This process starts around...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 26 Troubleshooting Build Report | Bioconductor Packages: Development, Maintenance, and Peer Review">
+<meta property="og:title" content="Chapter 23 Troubleshooting Build Report | Bioconductor Packages: Development, Maintenance, and Peer Review">
 <meta property="og:type" content="book">
-<meta property="og:description" content="26.1 How and when does the BBS pull? When will my changes propagate? Please remember the daily builder pulls, installs, builds, and checks package only once per day. This process starts around...">
+<meta property="og:description" content="23.1 How and when does the BBS pull? When will my changes propagate? Please remember the daily builder pulls, installs, builds, and checks package only once per day. This process starts around...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 26 Troubleshooting Build Report | Bioconductor Packages: Development, Maintenance, and Peer Review">
-<meta name="twitter:description" content="26.1 How and when does the BBS pull? When will my changes propagate? Please remember the daily builder pulls, installs, builds, and checks package only once per day. This process starts around...">
+<meta name="twitter:title" content="Chapter 23 Troubleshooting Build Report | Bioconductor Packages: Development, Maintenance, and Peer Review">
+<meta name="twitter:description" content="23.1 How and when does the BBS pull? When will my changes propagate? Please remember the daily builder pulls, installs, builds, and checks package only once per day. This process starts around...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -62,31 +62,30 @@
 <li><a class="" href="data.html"><span class="header-section-number">13</span> Package data</a></li>
 <li><a class="" href="tests.html"><span class="header-section-number">14</span> Unit tests</a></li>
 <li><a class="" href="r-code.html"><span class="header-section-number">15</span> R code</a></li>
-<li><a class="" href="robust-and-efficient-code.html"><span class="header-section-number">16</span> Robust and Efficient Code</a></li>
-<li><a class="" href="c-fortran.html"><span class="header-section-number">17</span> C and Fortran code</a></li>
-<li><a class="" href="cmavericks-best-practices.html"><span class="header-section-number">18</span> C++/Mavericks Best Practices</a></li>
-<li><a class="" href="third-party-code.html"><span class="header-section-number">19</span> Third-party code</a></li>
-<li><a class="" href="shiny.html"><span class="header-section-number">20</span> Shiny apps</a></li>
-<li><a class="" href="non-software.html"><span class="header-section-number">21</span> Non-Software Packages</a></li>
-<li><a class="" href="gitignore.html"><span class="header-section-number">22</span> The .gitignore file</a></li>
-<li><a class="" href="conclusion.html"><span class="header-section-number">23</span> Conclusion</a></li>
+<li><a class="" href="other-than-Rcode.html"><span class="header-section-number">16</span> Fortran / C / C++ / Python / Third-Party Code</a></li>
+<li><a class="" href="shiny.html"><span class="header-section-number">17</span> Shiny apps</a></li>
+<li><a class="" href="non-software.html"><span class="header-section-number">18</span> Non-Software Packages</a></li>
+<li><a class="" href="gitignore.html"><span class="header-section-number">19</span> The .gitignore file</a></li>
+<li><a class="" href="conclusion.html"><span class="header-section-number">20</span> Conclusion</a></li>
 <li class="book-part">Bioconductor Package Maintenance</li>
 <li><a class="" href="package-maintenance.html">Overview</a></li>
-<li><a class="" href="git-version-control.html"><span class="header-section-number">24</span> Git Version Control</a></li>
-<li><a class="" href="versionnum.html"><span class="header-section-number">25</span> Version Numbering</a></li>
-<li><a class="active" href="troubleshooting-build-report.html"><span class="header-section-number">26</span> Troubleshooting Build Report</a></li>
-<li><a class="" href="debugging-cc-code.html"><span class="header-section-number">27</span> Debugging C/C++ code</a></li>
-<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">28</span> Package End of Life Policy</a></li>
+<li><a class="" href="git-version-control.html"><span class="header-section-number">21</span> Git Version Control</a></li>
+<li><a class="" href="versionnum.html"><span class="header-section-number">22</span> Version Numbering</a></li>
+<li><a class="active" href="troubleshooting-build-report.html"><span class="header-section-number">23</span> Troubleshooting Build Report</a></li>
+<li><a class="" href="debugging-cc-code.html"><span class="header-section-number">24</span> Debugging C/C++ code</a></li>
+<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">25</span> Package End of Life Policy</a></li>
 <li class="book-part">Package Reviewer Resources</li>
 <li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
-<li><a class="" href="review-expectation.html"><span class="header-section-number">29</span> Review Expectations</a></li>
-<li><a class="" href="reviewtools.html"><span class="header-section-number">30</span> Reviewer Resources and Tools</a></li>
-<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">31</span> Volunteer to Review</a></li>
+<li><a class="" href="review-expectation.html"><span class="header-section-number">26</span> Review Expectations</a></li>
+<li><a class="" href="reviewtools.html"><span class="header-section-number">27</span> Reviewer Resources and Tools</a></li>
+<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">28</span> Volunteer to Review</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="use-devel.html"><span class="header-section-number">A</span> Using the ‘Devel’ Version of Bioconductor</a></li>
 <li><a class="" href="long-tests.html"><span class="header-section-number">B</span> Long Tests</a></li>
 <li><a class="" href="querying-web-resources.html"><span class="header-section-number">C</span> Querying Web Resources</a></li>
-<li><a class="" href="booknews.html"><span class="header-section-number">D</span> NEWS</a></li>
+<li><a class="" href="c-fortran.html"><span class="header-section-number">D</span> C and Fortran code</a></li>
+<li><a class="" href="cmavericks-best-practices.html"><span class="header-section-number">E</span> C++/Mavericks Best Practices</a></li>
+<li><a class="" href="booknews.html"><span class="header-section-number">F</span> NEWS</a></li>
 </ul>
 
         <div class="book-extra">
@@ -94,13 +93,13 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="troubleshooting-build-report" class="section level1" number="26">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="troubleshooting-build-report" class="section level1" number="23">
 <h1>
-<span class="header-section-number">26</span> Troubleshooting Build Report<a class="anchor" aria-label="anchor" href="#troubleshooting-build-report"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23</span> Troubleshooting Build Report<a class="anchor" aria-label="anchor" href="#troubleshooting-build-report"><i class="fas fa-link"></i></a>
 </h1>
-<div id="propagate" class="section level2" number="26.1">
+<div id="propagate" class="section level2" number="23.1">
 <h2>
-<span class="header-section-number">26.1</span> How and when does the BBS pull? When will my changes propagate?<a class="anchor" aria-label="anchor" href="#propagate"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.1</span> How and when does the BBS pull? When will my changes propagate?<a class="anchor" aria-label="anchor" href="#propagate"><i class="fas fa-link"></i></a>
 </h2>
 <p>Please remember the daily builder pulls, installs, builds, and checks package
 only once per day. This process starts around 2:30 PM (14:30) EST everyday
@@ -121,9 +120,9 @@ do not propagate broken packages. This could account for a different version on
 the landing page than was pushed to <em>Bioconductor</em>. Please also remember a
 package ALWAYS needs a valid version bump to propagate to users.</p>
 </div>
-<div id="how-do-i-reproduce-the-build-system-error" class="section level2" number="26.2">
+<div id="how-do-i-reproduce-the-build-system-error" class="section level2" number="23.2">
 <h2>
-<span class="header-section-number">26.2</span> How do I reproduce the build system ERROR?<a class="anchor" aria-label="anchor" href="#how-do-i-reproduce-the-build-system-error"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.2</span> How do I reproduce the build system ERROR?<a class="anchor" aria-label="anchor" href="#how-do-i-reproduce-the-build-system-error"><i class="fas fa-link"></i></a>
 </h2>
 <p>In order to reproduce the ERROR’s accuately locally, remember to be using the
 correct version of R and Bioconductor. The version of R used for the build
@@ -151,9 +150,9 @@ image. The documentation for using docker images can be found
 <a href="https://bioconductor.org/help/docker/">here</a>. The docker image does contain the
 environment variable setting found on the daily builder.</p>
 </div>
-<div id="common-build-report-errors" class="section level2" number="26.3">
+<div id="common-build-report-errors" class="section level2" number="23.3">
 <h2>
-<span class="header-section-number">26.3</span> Common Build Report Errors<a class="anchor" aria-label="anchor" href="#common-build-report-errors"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.3</span> Common Build Report Errors<a class="anchor" aria-label="anchor" href="#common-build-report-errors"><i class="fas fa-link"></i></a>
 </h2>
 <p>Often common Error’s will arise as R develops and matures or as Bioconductor
 packages are modified and advance. This document provides some guidance on Error’s
@@ -162,9 +161,9 @@ and potential solutions.</p>
 <li><a href="troubleshooting-build-report.html#bioc-311">Bioconductor 3.11 with R 4.0</a></li>
 </ul>
 </div>
-<div id="bioc-311" class="section level2" number="26.4">
+<div id="bioc-311" class="section level2" number="23.4">
 <h2>
-<span class="header-section-number">26.4</span> Bioconductor 3.11 with R 4.0<a class="anchor" aria-label="anchor" href="#bioc-311"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.4</span> Bioconductor 3.11 with R 4.0<a class="anchor" aria-label="anchor" href="#bioc-311"><i class="fas fa-link"></i></a>
 </h2>
 <p>R switched from 3.x to 4.0 which generally means some significant changes.</p>
 <ul>
@@ -187,9 +186,9 @@ and potential solutions.</p>
 <li><a href="troubleshooting-build-report.html#dep311">Dependency Issues</a></li>
 <li><a href="troubleshooting-build-report.html#depFun311">Deprecated Functions</a></li>
 </ul>
-<div id="s3method" class="section level3" number="26.4.1">
+<div id="s3method" class="section level3" number="23.4.1">
 <h3>
-<span class="header-section-number">26.4.1</span> S3 method registration<a class="anchor" aria-label="anchor" href="#s3method"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.4.1</span> S3 method registration<a class="anchor" aria-label="anchor" href="#s3method"><i class="fas fa-link"></i></a>
 </h3>
 <p>Many packages are currently failing because of undeclared S3 methods in the
 NAMESPACE. There is some background information found on the R developers blog
@@ -215,9 +214,9 @@ class &lt;bar&gt;</li>
 The following line would be added to the package NAMESPACE.</p>
 <pre><code>S3method(plot, TCC)  # example from TCC package</code></pre>
 </div>
-<div id="rcmdconfig" class="section level3" number="26.4.2">
+<div id="rcmdconfig" class="section level3" number="23.4.2">
 <h3>
-<span class="header-section-number">26.4.2</span> Removed Setting in R CMD config<a class="anchor" aria-label="anchor" href="#rcmdconfig"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.4.2</span> Removed Setting in R CMD config<a class="anchor" aria-label="anchor" href="#rcmdconfig"><i class="fas fa-link"></i></a>
 </h3>
 <p>The source of the ERROR is utilizing settings in package configure script that
 have been removed or replaced.
@@ -232,9 +231,9 @@ output contains lot of messages along the lines of the following:</p>
 </ul>
 <p><b>Solution:</b> Replace instances of “<code>${R} CMD config F77</code>” with “<code>${R} CMD config FC</code>”</p>
 </div>
-<div id="condLen" class="section level3" number="26.4.3">
+<div id="condLen" class="section level3" number="23.4.3">
 <h3>
-<span class="header-section-number">26.4.3</span> Conditional Length &gt; 1<a class="anchor" aria-label="anchor" href="#condLen"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.4.3</span> Conditional Length &gt; 1<a class="anchor" aria-label="anchor" href="#condLen"><i class="fas fa-link"></i></a>
 </h3>
 <p>In R 4.0 a conditional with a length greater than 1 will produce a WARNING. On
 the Bioconductor Daily Builder and Single Package Builder this is increased to
@@ -256,9 +255,9 @@ appropriate to use an <code><a href="https://rdrr.io/r/base/any.html">any( )</a>
 <p>See also <a href="https://stat.ethz.ch/pipermail/bioc-devel/2020-January/016081.html">mailing list
 post</a></p>
 </div>
-<div id="scalarvec" class="section level3" number="26.4.4">
+<div id="scalarvec" class="section level3" number="23.4.4">
 <h3>
-<span class="header-section-number">26.4.4</span> Scalar / Vector Logic<a class="anchor" aria-label="anchor" href="#scalarvec"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.4.4</span> Scalar / Vector Logic<a class="anchor" aria-label="anchor" href="#scalarvec"><i class="fas fa-link"></i></a>
 </h3>
 <p>This is not a change in R yet but we have been notified that it is forth coming
 and have escalated to an ERROR on our daily builders in preparation. This type
@@ -277,9 +276,9 @@ appropriate scalar comparison. <strong>Note:</strong> If this comparison is in a
 please see the section above; <code><a href="https://rdrr.io/r/base/any.html">any( )</a></code> or <code><a href="https://rdrr.io/r/base/all.html">all( )</a></code> will most likely be a better alternative.</p>
 <p>See also <a href="https://stat.ethz.ch/pipermail/bioc-devel/2020-January/016081.html">mailing list post</a></p>
 </div>
-<div id="classEq" class="section level3" number="26.4.5">
+<div id="classEq" class="section level3" number="23.4.5">
 <h3>
-<span class="header-section-number">26.4.5</span> Class == vs is/inherits<a class="anchor" aria-label="anchor" href="#classEq"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.4.5</span> Class == vs is/inherits<a class="anchor" aria-label="anchor" href="#classEq"><i class="fas fa-link"></i></a>
 </h3>
 <p>While this isn’t a change in R / Bioconductor as of yet, there is strong discussion
 about the affects and consequences of this code structure. A better discussion
@@ -307,9 +306,9 @@ to the following:</p>
   values must be length 1,
  but FUN(X[[4]]) result is length 2</code></pre>
 </div>
-<div id="stringsAsFactors" class="section level3" number="26.4.6">
+<div id="stringsAsFactors" class="section level3" number="23.4.6">
 <h3>
-<span class="header-section-number">26.4.6</span> data.frame stringsAsFactors<a class="anchor" aria-label="anchor" href="#stringsAsFactors"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.4.6</span> data.frame stringsAsFactors<a class="anchor" aria-label="anchor" href="#stringsAsFactors"><i class="fas fa-link"></i></a>
 </h3>
 <p>In R 4.0, the default for data.frame argument <code>stringsAsFactors</code> changed from
 TRUE to FALSE. This changes is causing the most breakage in tests where there
@@ -318,9 +317,9 @@ The ERROR’s take many different forms. The simple solution is to change or add
 the <code>stringAsFactors=TRUE</code> to the data.frame call, however maintainers may want
 to re-evaluate code for potential restructuring or ease of use.</p>
 </div>
-<div id="statsSmoothEnds" class="section level3" number="26.4.7">
+<div id="statsSmoothEnds" class="section level3" number="23.4.7">
 <h3>
-<span class="header-section-number">26.4.7</span> stats::smoothEnds<a class="anchor" aria-label="anchor" href="#statsSmoothEnds"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.4.7</span> stats::smoothEnds<a class="anchor" aria-label="anchor" href="#statsSmoothEnds"><i class="fas fa-link"></i></a>
 </h3>
 <p>A recent change to <code><a href="https://rdrr.io/r/stats/smoothEnds.html">stats::smoothEnds()</a></code>, now returns an integer vector with the
 input is an integer vector. Previously it could return a number vector.</p>
@@ -336,9 +335,9 @@ input is an integer vector. Previously it could return a number vector.</p>
 [1] "integer"</code></pre>
 <p>This has the potential to cause ERROR’s if a class type was checked.</p>
 </div>
-<div id="grid" class="section level3" number="26.4.8">
+<div id="grid" class="section level3" number="23.4.8">
 <h3>
-<span class="header-section-number">26.4.8</span> Grid package changes<a class="anchor" aria-label="anchor" href="#grid"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.4.8</span> Grid package changes<a class="anchor" aria-label="anchor" href="#grid"><i class="fas fa-link"></i></a>
 </h3>
 <p>We do not have a lot of specifics on what has changed but were notified by
 email. Important sections of the email as follows:</p>
@@ -357,9 +356,9 @@ email. Important sections of the email as follows:</p>
     Again, the main package authors have been notified and the
     'ComplexHeatmap' author is working on an update.</code></pre>
 </div>
-<div id="plot" class="section level3" number="26.4.9">
+<div id="plot" class="section level3" number="23.4.9">
 <h3>
-<span class="header-section-number">26.4.9</span> plot generic moved<a class="anchor" aria-label="anchor" href="#plot"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.4.9</span> plot generic moved<a class="anchor" aria-label="anchor" href="#plot"><i class="fas fa-link"></i></a>
 </h3>
 <p>The plot generic has moved from graphics to base. The ERROR’s seen from this
 change are non specific and can take many forms. Some of the ERROR’s we see
@@ -381,9 +380,9 @@ are</p>
   plot() was found in the normal search path, but now fail because it's
   calling the one in base instead.</code></pre>
 </div>
-<div id="partMatch" class="section level3" number="26.4.10">
+<div id="partMatch" class="section level3" number="23.4.10">
 <h3>
-<span class="header-section-number">26.4.10</span> Partial Argument Matching<a class="anchor" aria-label="anchor" href="#partMatch"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.4.10</span> Partial Argument Matching<a class="anchor" aria-label="anchor" href="#partMatch"><i class="fas fa-link"></i></a>
 </h3>
 <p>There is now more strict checking of argument matching with regards to partial
 argument matching. Best described with the following example</p>
@@ -402,9 +401,9 @@ mycoolfunction(x=2, myar=1:2, second=3)          # BAD Coding!
 
 mycoolfunction(x=2, myargum=1:2, secondarg=3)    # Good Practice!</code></pre>
 </div>
-<div id="invalidUTF" class="section level3" number="26.4.11">
+<div id="invalidUTF" class="section level3" number="23.4.11">
 <h3>
-<span class="header-section-number">26.4.11</span> Package inputenc Error: Invalid UTF-8<a class="anchor" aria-label="anchor" href="#invalidUTF"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.4.11</span> Package inputenc Error: Invalid UTF-8<a class="anchor" aria-label="anchor" href="#invalidUTF"><i class="fas fa-link"></i></a>
 </h3>
 <p>This ERROR started to appear on tokay2 (windows) in Spring 2020. We are not sure
 the exact source of the ERROR (change in MiKTek, Change in R, other?) but the
@@ -412,14 +411,14 @@ solution is simple:</p>
 <p>Please place <code>\usepackage[utf8]{inputenc}</code> in the beginning of your Sweave
 vignette right after the <code>\documentclass</code> line.</p>
 </div>
-<div id="dep311" class="section level3" number="26.4.12">
+<div id="dep311" class="section level3" number="23.4.12">
 <h3>
-<span class="header-section-number">26.4.12</span> Dependency Issues<a class="anchor" aria-label="anchor" href="#dep311"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.4.12</span> Dependency Issues<a class="anchor" aria-label="anchor" href="#dep311"><i class="fas fa-link"></i></a>
 </h3>
 <p>Dependency Issues can fall into a few sub-categories:</p>
-<div id="cran-binaries-not-available-for-r-4.0" class="section level4" number="26.4.12.1">
+<div id="cran-binaries-not-available-for-r-4.0" class="section level4" number="23.4.12.1">
 <h4>
-<span class="header-section-number">26.4.12.1</span> CRAN binaries not available for R 4.0<a class="anchor" aria-label="anchor" href="#cran-binaries-not-available-for-r-4.0"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.4.12.1</span> CRAN binaries not available for R 4.0<a class="anchor" aria-label="anchor" href="#cran-binaries-not-available-for-r-4.0"><i class="fas fa-link"></i></a>
 </h4>
 <p>The fall cycle of Bioconductor uses R-devel in preparation for the new release of
 R in the spring. This is always a slightly more disruptive cycle with regards to
@@ -430,9 +429,9 @@ not been created yet, they will be unavailable and result in a <code>package not
 these packages; when they are available, they will be added.
 <b>Solution:</b> Please be patient!</p>
 </div>
-<div id="package-have-been-removed-from-cran" class="section level4" number="26.4.12.2">
+<div id="package-have-been-removed-from-cran" class="section level4" number="23.4.12.2">
 <h4>
-<span class="header-section-number">26.4.12.2</span> Package have been removed from CRAN<a class="anchor" aria-label="anchor" href="#package-have-been-removed-from-cran"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.4.12.2</span> Package have been removed from CRAN<a class="anchor" aria-label="anchor" href="#package-have-been-removed-from-cran"><i class="fas fa-link"></i></a>
 </h4>
 <p>CRAN packages are occasionally removed. Unfortunately, Bioconductor will only
 allow package dependencies to be actively maintained packages on CRAN or Bioconductor.
@@ -440,9 +439,9 @@ A package will have to alter their package to not utilize code and not rely on t
 dependency. You may of course try to pentition CRAN for reinstatement or reach
 out to the package maintainer to fix and submit to CRAN. Good Luck!</p>
 </div>
-<div id="package-has-been-removed-from-bioconductor" class="section level4" number="26.4.12.3">
+<div id="package-has-been-removed-from-bioconductor" class="section level4" number="23.4.12.3">
 <h4>
-<span class="header-section-number">26.4.12.3</span> Package has been removed from Bioconductor<a class="anchor" aria-label="anchor" href="#package-has-been-removed-from-bioconductor"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.4.12.3</span> Package has been removed from Bioconductor<a class="anchor" aria-label="anchor" href="#package-has-been-removed-from-bioconductor"><i class="fas fa-link"></i></a>
 </h4>
 <p>We try to be more aware of orphaned packages and packages that remain broken for
 extended periods of time. Package deprecation and removal occurs and packages
@@ -457,33 +456,33 @@ SNPchip and GenomeGraphs. A full list of deprecated packages can be found
 We also documented removed packages on our <a href="/about/removed-packages/">Removed Package Page</a></p>
 </div>
 </div>
-<div id="depFun311" class="section level3" number="26.4.13">
+<div id="depFun311" class="section level3" number="23.4.13">
 <h3>
-<span class="header-section-number">26.4.13</span> Deprecated Functions<a class="anchor" aria-label="anchor" href="#depFun311"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.4.13</span> Deprecated Functions<a class="anchor" aria-label="anchor" href="#depFun311"><i class="fas fa-link"></i></a>
 </h3>
 <p>Functions can be deprecated, defunct, and eventually removed. Bioconductor tries
 to enforce this progression to allow maintainers to adjust code. Most deprecated
 or defunct functions will (should) suggest the alternative. The following are
 noted in Bioconductor 3.11</p>
-<div id="rangeddata" class="section level4" number="26.4.13.1">
+<div id="rangeddata" class="section level4" number="23.4.13.1">
 <h4>
-<span class="header-section-number">26.4.13.1</span> RangedData<a class="anchor" aria-label="anchor" href="#rangeddata"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.4.13.1</span> RangedData<a class="anchor" aria-label="anchor" href="#rangeddata"><i class="fas fa-link"></i></a>
 </h4>
 <pre><code>Error : RangedData objects are defunct. Please migrate your code to use GRanges
   or GRangesList objects instead. See IMPORTANT NOTE in ?RangedData</code></pre>
 </div>
-<div id="normalize" class="section level4" number="26.4.13.2">
+<div id="normalize" class="section level4" number="23.4.13.2">
 <h4>
-<span class="header-section-number">26.4.13.2</span> Normalize<a class="anchor" aria-label="anchor" href="#normalize"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.4.13.2</span> Normalize<a class="anchor" aria-label="anchor" href="#normalize"><i class="fas fa-link"></i></a>
 </h4>
 <pre><code>Error:
 'normalize' is defunct.
 Use ''normalize,SingleCellExperiment-method' is defunct.
 Use 'logNormCounts' instead' instead.</code></pre>
 </div>
-<div id="calculateqcmetrics" class="section level4" number="26.4.13.3">
+<div id="calculateqcmetrics" class="section level4" number="23.4.13.3">
 <h4>
-<span class="header-section-number">26.4.13.3</span> calculateQCMetrics<a class="anchor" aria-label="anchor" href="#calculateqcmetrics"><i class="fas fa-link"></i></a>
+<span class="header-section-number">23.4.13.3</span> calculateQCMetrics<a class="anchor" aria-label="anchor" href="#calculateqcmetrics"><i class="fas fa-link"></i></a>
 </h4>
 <pre><code>Error:
 'calculateQCMetrics' is defunct.
@@ -494,30 +493,30 @@ Use 'perCellQCMetrics' instead.</code></pre>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="versionnum.html"><span class="header-section-number">25</span> Version Numbering</a></div>
-<div class="next"><a href="debugging-cc-code.html"><span class="header-section-number">27</span> Debugging C/C++ code</a></div>
+<div class="prev"><a href="versionnum.html"><span class="header-section-number">22</span> Version Numbering</a></div>
+<div class="next"><a href="debugging-cc-code.html"><span class="header-section-number">24</span> Debugging C/C++ code</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#troubleshooting-build-report"><span class="header-section-number">26</span> Troubleshooting Build Report</a></li>
-<li><a class="nav-link" href="#propagate"><span class="header-section-number">26.1</span> How and when does the BBS pull? When will my changes propagate?</a></li>
-<li><a class="nav-link" href="#how-do-i-reproduce-the-build-system-error"><span class="header-section-number">26.2</span> How do I reproduce the build system ERROR?</a></li>
-<li><a class="nav-link" href="#common-build-report-errors"><span class="header-section-number">26.3</span> Common Build Report Errors</a></li>
+<li><a class="nav-link" href="#troubleshooting-build-report"><span class="header-section-number">23</span> Troubleshooting Build Report</a></li>
+<li><a class="nav-link" href="#propagate"><span class="header-section-number">23.1</span> How and when does the BBS pull? When will my changes propagate?</a></li>
+<li><a class="nav-link" href="#how-do-i-reproduce-the-build-system-error"><span class="header-section-number">23.2</span> How do I reproduce the build system ERROR?</a></li>
+<li><a class="nav-link" href="#common-build-report-errors"><span class="header-section-number">23.3</span> Common Build Report Errors</a></li>
 <li>
-<a class="nav-link" href="#bioc-311"><span class="header-section-number">26.4</span> Bioconductor 3.11 with R 4.0</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#s3method"><span class="header-section-number">26.4.1</span> S3 method registration</a></li>
-<li><a class="nav-link" href="#rcmdconfig"><span class="header-section-number">26.4.2</span> Removed Setting in R CMD config</a></li>
-<li><a class="nav-link" href="#condLen"><span class="header-section-number">26.4.3</span> Conditional Length &gt; 1</a></li>
-<li><a class="nav-link" href="#scalarvec"><span class="header-section-number">26.4.4</span> Scalar / Vector Logic</a></li>
-<li><a class="nav-link" href="#classEq"><span class="header-section-number">26.4.5</span> Class == vs is/inherits</a></li>
-<li><a class="nav-link" href="#stringsAsFactors"><span class="header-section-number">26.4.6</span> data.frame stringsAsFactors</a></li>
-<li><a class="nav-link" href="#statsSmoothEnds"><span class="header-section-number">26.4.7</span> stats::smoothEnds</a></li>
-<li><a class="nav-link" href="#grid"><span class="header-section-number">26.4.8</span> Grid package changes</a></li>
-<li><a class="nav-link" href="#plot"><span class="header-section-number">26.4.9</span> plot generic moved</a></li>
-<li><a class="nav-link" href="#partMatch"><span class="header-section-number">26.4.10</span> Partial Argument Matching</a></li>
-<li><a class="nav-link" href="#invalidUTF"><span class="header-section-number">26.4.11</span> Package inputenc Error: Invalid UTF-8</a></li>
-<li><a class="nav-link" href="#dep311"><span class="header-section-number">26.4.12</span> Dependency Issues</a></li>
-<li><a class="nav-link" href="#depFun311"><span class="header-section-number">26.4.13</span> Deprecated Functions</a></li>
+<a class="nav-link" href="#bioc-311"><span class="header-section-number">23.4</span> Bioconductor 3.11 with R 4.0</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#s3method"><span class="header-section-number">23.4.1</span> S3 method registration</a></li>
+<li><a class="nav-link" href="#rcmdconfig"><span class="header-section-number">23.4.2</span> Removed Setting in R CMD config</a></li>
+<li><a class="nav-link" href="#condLen"><span class="header-section-number">23.4.3</span> Conditional Length &gt; 1</a></li>
+<li><a class="nav-link" href="#scalarvec"><span class="header-section-number">23.4.4</span> Scalar / Vector Logic</a></li>
+<li><a class="nav-link" href="#classEq"><span class="header-section-number">23.4.5</span> Class == vs is/inherits</a></li>
+<li><a class="nav-link" href="#stringsAsFactors"><span class="header-section-number">23.4.6</span> data.frame stringsAsFactors</a></li>
+<li><a class="nav-link" href="#statsSmoothEnds"><span class="header-section-number">23.4.7</span> stats::smoothEnds</a></li>
+<li><a class="nav-link" href="#grid"><span class="header-section-number">23.4.8</span> Grid package changes</a></li>
+<li><a class="nav-link" href="#plot"><span class="header-section-number">23.4.9</span> plot generic moved</a></li>
+<li><a class="nav-link" href="#partMatch"><span class="header-section-number">23.4.10</span> Partial Argument Matching</a></li>
+<li><a class="nav-link" href="#invalidUTF"><span class="header-section-number">23.4.11</span> Package inputenc Error: Invalid UTF-8</a></li>
+<li><a class="nav-link" href="#dep311"><span class="header-section-number">23.4.12</span> Dependency Issues</a></li>
+<li><a class="nav-link" href="#depFun311"><span class="header-section-number">23.4.13</span> Deprecated Functions</a></li>
 </ul>
 </li>
 </ul>
@@ -537,7 +536,7 @@ Use 'perCellQCMetrics' instead.</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-08.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-17.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

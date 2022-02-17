@@ -9,14 +9,14 @@
 <meta name="author" content="Daniela Cassol">
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
-<meta name="description" content="Everyone has their own coding style and formats. There are however some best practice guidelines that Bioconductor reviewers will look for (see coding style section below) There are also some...">
+<meta name="description" content="Everyone has their own coding style and formats. There are however some best practice guidelines that Bioconductor reviewers will look for. R can be a robust, fast and efficient programming...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 15 R code | Bioconductor Packages: Development, Maintenance, and Peer Review">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Everyone has their own coding style and formats. There are however some best practice guidelines that Bioconductor reviewers will look for (see coding style section below) There are also some...">
+<meta property="og:description" content="Everyone has their own coding style and formats. There are however some best practice guidelines that Bioconductor reviewers will look for. R can be a robust, fast and efficient programming...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 15 R code | Bioconductor Packages: Development, Maintenance, and Peer Review">
-<meta name="twitter:description" content="Everyone has their own coding style and formats. There are however some best practice guidelines that Bioconductor reviewers will look for (see coding style section below) There are also some...">
+<meta name="twitter:description" content="Everyone has their own coding style and formats. There are however some best practice guidelines that Bioconductor reviewers will look for. R can be a robust, fast and efficient programming...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -62,31 +62,30 @@
 <li><a class="" href="data.html"><span class="header-section-number">13</span> Package data</a></li>
 <li><a class="" href="tests.html"><span class="header-section-number">14</span> Unit tests</a></li>
 <li><a class="active" href="r-code.html"><span class="header-section-number">15</span> R code</a></li>
-<li><a class="" href="robust-and-efficient-code.html"><span class="header-section-number">16</span> Robust and Efficient Code</a></li>
-<li><a class="" href="c-fortran.html"><span class="header-section-number">17</span> C and Fortran code</a></li>
-<li><a class="" href="cmavericks-best-practices.html"><span class="header-section-number">18</span> C++/Mavericks Best Practices</a></li>
-<li><a class="" href="third-party-code.html"><span class="header-section-number">19</span> Third-party code</a></li>
-<li><a class="" href="shiny.html"><span class="header-section-number">20</span> Shiny apps</a></li>
-<li><a class="" href="non-software.html"><span class="header-section-number">21</span> Non-Software Packages</a></li>
-<li><a class="" href="gitignore.html"><span class="header-section-number">22</span> The .gitignore file</a></li>
-<li><a class="" href="conclusion.html"><span class="header-section-number">23</span> Conclusion</a></li>
+<li><a class="" href="other-than-Rcode.html"><span class="header-section-number">16</span> Fortran / C / C++ / Python / Third-Party Code</a></li>
+<li><a class="" href="shiny.html"><span class="header-section-number">17</span> Shiny apps</a></li>
+<li><a class="" href="non-software.html"><span class="header-section-number">18</span> Non-Software Packages</a></li>
+<li><a class="" href="gitignore.html"><span class="header-section-number">19</span> The .gitignore file</a></li>
+<li><a class="" href="conclusion.html"><span class="header-section-number">20</span> Conclusion</a></li>
 <li class="book-part">Bioconductor Package Maintenance</li>
 <li><a class="" href="package-maintenance.html">Overview</a></li>
-<li><a class="" href="git-version-control.html"><span class="header-section-number">24</span> Git Version Control</a></li>
-<li><a class="" href="versionnum.html"><span class="header-section-number">25</span> Version Numbering</a></li>
-<li><a class="" href="troubleshooting-build-report.html"><span class="header-section-number">26</span> Troubleshooting Build Report</a></li>
-<li><a class="" href="debugging-cc-code.html"><span class="header-section-number">27</span> Debugging C/C++ code</a></li>
-<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">28</span> Package End of Life Policy</a></li>
+<li><a class="" href="git-version-control.html"><span class="header-section-number">21</span> Git Version Control</a></li>
+<li><a class="" href="versionnum.html"><span class="header-section-number">22</span> Version Numbering</a></li>
+<li><a class="" href="troubleshooting-build-report.html"><span class="header-section-number">23</span> Troubleshooting Build Report</a></li>
+<li><a class="" href="debugging-cc-code.html"><span class="header-section-number">24</span> Debugging C/C++ code</a></li>
+<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">25</span> Package End of Life Policy</a></li>
 <li class="book-part">Package Reviewer Resources</li>
 <li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
-<li><a class="" href="review-expectation.html"><span class="header-section-number">29</span> Review Expectations</a></li>
-<li><a class="" href="reviewtools.html"><span class="header-section-number">30</span> Reviewer Resources and Tools</a></li>
-<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">31</span> Volunteer to Review</a></li>
+<li><a class="" href="review-expectation.html"><span class="header-section-number">26</span> Review Expectations</a></li>
+<li><a class="" href="reviewtools.html"><span class="header-section-number">27</span> Reviewer Resources and Tools</a></li>
+<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">28</span> Volunteer to Review</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="use-devel.html"><span class="header-section-number">A</span> Using the ‘Devel’ Version of Bioconductor</a></li>
 <li><a class="" href="long-tests.html"><span class="header-section-number">B</span> Long Tests</a></li>
 <li><a class="" href="querying-web-resources.html"><span class="header-section-number">C</span> Querying Web Resources</a></li>
-<li><a class="" href="booknews.html"><span class="header-section-number">D</span> NEWS</a></li>
+<li><a class="" href="c-fortran.html"><span class="header-section-number">D</span> C and Fortran code</a></li>
+<li><a class="" href="cmavericks-best-practices.html"><span class="header-section-number">E</span> C++/Mavericks Best Practices</a></li>
+<li><a class="" href="booknews.html"><span class="header-section-number">F</span> NEWS</a></li>
 </ul>
 
         <div class="book-extra">
@@ -98,57 +97,27 @@
 <h1>
 <span class="header-section-number">15</span> R code<a class="anchor" aria-label="anchor" href="#r-code"><i class="fas fa-link"></i></a>
 </h1>
-<p>Everyone has their own coding style and formats.
-There are however some best practice guidelines that
-<a href="https://bioconductor.org/"><em>Bioconductor</em></a> reviewers will look for (see
-<a href="r-code.html#coding-style">coding style</a> section below)</p>
-<p>There are also some other key points, detailed in the following sections.</p>
+<p>Everyone has their own coding style and formats. There are however some best
+practice guidelines that <a href="https://bioconductor.org/"><em>Bioconductor</em></a> reviewers
+will look for.</p>
+<p><em>R</em> can be a robust, fast and efficient programming language but often some
+coding practices result in less than ideal use of resources.</p>
+<p>This section will review some key points, suggestions, and best practices that
+will aid in the package review process and assist in making code more
+robust and efficient.</p>
 <div id="license-1" class="section level2" number="15.1">
 <h2>
 <span class="header-section-number">15.1</span> License<a class="anchor" aria-label="anchor" href="#license-1"><i class="fas fa-link"></i></a>
 </h2>
-<p>Only contain code that can be distributed under the license specified (see also <a href="description.html#license">The DESCRIPTION file</a>).</p>
+<p>Only contain code that can be distributed under the license specified (see also <a href="license.html#license">The DESCRIPTION file</a>).</p>
 </div>
-<div id="r-cmd-check-and-bioccheck" class="section level2" number="15.2">
+<div id="r-code-development" class="section level2" number="15.2">
 <h2>
-<span class="header-section-number">15.2</span> <code>R CMD check</code> and <code>BiocCheck</code><a class="anchor" aria-label="anchor" href="#r-cmd-check-and-bioccheck"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.2</span> R Code Development<a class="anchor" aria-label="anchor" href="#r-code-development"><i class="fas fa-link"></i></a>
 </h2>
-<p>Many common coding and sytax issues are flagged in <code>R CMD check</code> and <code>BiocCheck()</code> (see the <code>R CMD check</code> <a href="http://r-pkgs.had.co.nz/check.html">cheatsheet</a> and <em><a href="https://bioconductor.org/packages/3.15/BiocCheck/vignettes/BiocCheck.html">BiocCheck</a></em> vignette.</p>
-<p>Some of the more prominent offenders:</p>
-<ul>
-<li>Use <code><a href="https://rdrr.io/r/base/lapply.html">vapply()</a></code> instead of <code><a href="https://rdrr.io/r/base/lapply.html">sapply()</a></code>, and use the various <code>apply</code> functions instead of <code>for</code> loops.</li>
-<li>Use <code><a href="https://rdrr.io/r/base/seq.html">seq_len()</a></code> or <code><a href="https://rdrr.io/r/base/seq.html">seq_along()</a></code> instead of <code>1:...</code>.</li>
-<li>Use <code>TRUE</code> and <code>FALSE</code> instead of <code>T</code> and <code>F</code>.</li>
-<li>Use of numeric indices (rather than robust named indices).</li>
-<li>Use <code>is()</code> instead of <code>class() ==</code> and <code>class() !=</code>.</li>
-<li>Use <code><a href="https://rdrr.io/r/base/system2.html">system2()</a></code> instead of <code><a href="https://rdrr.io/r/base/system.html">system()</a></code>.</li>
-<li>Do not use <code><a href="https://rdrr.io/r/base/Random.html">set.seed()</a></code> in any internal <i class="fab fa-r-project"></i> code.</li>
-<li>Do not use <code><a href="https://rdrr.io/r/base/browser.html">browser()</a></code> in any internal <i class="fab fa-r-project"></i> code.</li>
-<li>Avoid the use of <code>&lt;&lt;-</code>.</li>
-<li>Avoid use of direct slot access with <code>@</code> or <code>slot()</code>.
-Accessor methods should be created and utilized</li>
-<li>Use the packages <em><a href="https://bioconductor.org/packages/3.15/ExperimentHub">ExperimentHub</a></em> and <em><a href="https://bioconductor.org/packages/3.15/AnnotationHub">AnnotationHub</a></em> instead of downloading external data from unsanctioned providers such as <i class="fab fa-github"></i> GitHub, <i class="fa fa-dropbox" aria-hidden="true"></i> Dropbox, etc.</li>
-<li>Use <code>&lt;-</code> instead of <code>=</code> for assigning variables.</li>
-</ul>
-<div id="formatting-and-syntax" class="section level3" number="15.2.1">
+<div id="re-use-of-functionality-classes-and-generics" class="section level3" number="15.2.1">
 <h3>
-<span class="header-section-number">15.2.1</span> Formatting and syntax<a class="anchor" aria-label="anchor" href="#formatting-and-syntax"><i class="fas fa-link"></i></a>
-</h3>
-<ul>
-<li>Function names should be <code>camelCase</code> or utilize the underscore <code>_</code> and not
-have a dot <code>.</code> (which indicates S3 dispatch).</li>
-<li>Use <code><a href="https://rdrr.io/r/grDevices/dev.html">dev.new()</a></code> to start a graphics drive if necessary. Avoid using <code><a href="https://rdrr.io/r/grDevices/x11.html">x11()</a></code>
-or <code><a href="https://rdrr.io/r/grDevices/x11.html">X11()</a></code>, for it can only be called on machines that have access to an X
-server.</li>
-<li>Use the functions <code><a href="https://rdrr.io/r/base/message.html">message()</a></code>, <code><a href="https://rdrr.io/r/base/warning.html">warning()</a></code> and <code>error()</code>, instead of the
-<code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> function (except for customized <code>show()</code> methods). <code><a href="https://rdrr.io/r/base/paste.html">paste0()</a></code> should
-generally not be used in these methods except for collapsing multiple values
-from a variable.</li>
-</ul>
-</div>
-<div id="re-use-of-functionality-classes-and-generics" class="section level3" number="15.2.2">
-<h3>
-<span class="header-section-number">15.2.2</span> Re-use of functionality, classes, and generics<a class="anchor" aria-label="anchor" href="#re-use-of-functionality-classes-and-generics"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.2.1</span> Re-use of functionality, classes, and generics<a class="anchor" aria-label="anchor" href="#re-use-of-functionality-classes-and-generics"><i class="fas fa-link"></i></a>
 </h3>
 <p>Avoid re-implementing functionality or classes (see also
 <a href="description.html#depends-imports-suggests-enhances">The DESCRIPTION file</a>).
@@ -161,8 +130,8 @@ Make use of appropriate existing packages (e.g.,
 <em><a href="https://bioconductor.org/packages/3.15/AnnotatedDataFrame">AnnotatedDataFrame</a></em>,
 <em><a href="https://bioconductor.org/packages/3.15/GRanges">GRanges</a></em>,
 <em><a href="https://bioconductor.org/packages/3.15/DNAStringSet">DNAStringSet</a></em>) to avoid duplication of functionality
-available in other <a href="https://bioconductor.org/"><em>Bioconductor</em></a> packages.
-See also <a href="https://bioconductor.org/developers/how-to/commonMethodsAndClasses/">Common Bioconductor Methods and Classes</a>.</p>
+available in other <a href="https://bioconductor.org/"><em>Bioconductor</em></a> packages. See
+also <a href="important-bioconductor-package-development-features.html#reusebioc">Common Bioconductor Methods and Classes</a>.</p>
 <p>This encourages interoperability and simplifies your own package development.
 If a new representation is needed, see the <a href="https://bioconductor.org/developers/how-to/efficient-code/#essential-s4-interface">Essential S4 interface</a> section of <a href="https://bioconductor.org/developers/how-to/efficient-code">Robust and Efficient Code</a>.
 In general, <a href="https://bioconductor.org/"><em>Bioconductor</em></a> will insist on interoperability with <a href="https://bioconductor.org/developers/how-to/commonMethodsAndClasses/">Common Classes</a> for acceptance.</p>
@@ -181,10 +150,16 @@ including the <code>DelayedMatrix</code> class. Re-using generics reduces the am
 new generics by consolidating existing operations and avoids the mistake of
 introducing a “new” generic with the same name. Generic name collisions may
 mask or be masked by previous definitions in ways that are hard to diagnose.</p>
+<p>If there are problems, e.g., in performance or parsing your particular
+file type, ask for input from other developers on the bioc-devel
+mailing list. Common disadvantages to ‘implementing your own’ are the
+introduction of non-standard data representations (e.g., neglecting to
+translate coordinate systems of file formats to Bioconductor objects)
+and user bewilderment.</p>
 </div>
-<div id="methods-development" class="section level3" number="15.2.3">
+<div id="methods-development" class="section level3" number="15.2.2">
 <h3>
-<span class="header-section-number">15.2.3</span> Methods development<a class="anchor" aria-label="anchor" href="#methods-development"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.2.2</span> Methods development<a class="anchor" aria-label="anchor" href="#methods-development"><i class="fas fa-link"></i></a>
 </h3>
 <p>We encourage maintainers to only create new methods for classes exported within
 their packages. We discourage the generation of methods for external classes,
@@ -195,123 +170,9 @@ for those external classes. New methods for established classes can also cause
 confusion among users given that the new method and class definition are in
 separate packages.</p>
 </div>
-<div id="functional-programming" class="section level3" number="15.2.4">
+<div id="file-names-1" class="section level3" number="15.2.3">
 <h3>
-<span class="header-section-number">15.2.4</span> Functional programming<a class="anchor" aria-label="anchor" href="#functional-programming"><i class="fas fa-link"></i></a>
-</h3>
-<p>Avoid large chunks of repeated code. If code is being repeated this is
-generally a good indication a helper function could be implemented.</p>
-</div>
-<div id="function-length" class="section level3" number="15.2.5">
-<h3>
-<span class="header-section-number">15.2.5</span> Function length<a class="anchor" aria-label="anchor" href="#function-length"><i class="fas fa-link"></i></a>
-</h3>
-<p>Excessively long functions should also be avoided. Write small functions.</p>
-<p>It is best if each function has only one job that it needs to do. And it is
-also best if that function does that job in as few lines of code as possible.
-If you find yourself writing great long functions that extend for more than a
-screen, then you should probably take a moment to split it up into smaller
-helper functions.</p>
-<p>Smaller functions are easier to read, debug and to reuse.</p>
-</div>
-<div id="function-arguments" class="section level3" number="15.2.6">
-<h3>
-<span class="header-section-number">15.2.6</span> Function arguments<a class="anchor" aria-label="anchor" href="#function-arguments"><i class="fas fa-link"></i></a>
-</h3>
-<p>Argument names to functions should be descriptive and well documented.
-Arguments should generally have default values. Check arguments against a
-validity check.</p>
-</div>
-<div id="vectorization" class="section level3" number="15.2.7">
-<h3>
-<span class="header-section-number">15.2.7</span> Vectorization<a class="anchor" aria-label="anchor" href="#vectorization"><i class="fas fa-link"></i></a>
-</h3>
-<p>Vectorize!</p>
-<p>Many R operations are performed on the whole object, not just the elements of
-the object (e.g., <code>sum(x)</code> instead of <code>x[1] + x[2] + x[2] + ...</code>). In
-particular, relatively few situations require an explicit <code>for</code> loop.
-See the <a href="https://bioconductor.org/developers/how-to/efficient-code/#vectorize">Vectorize</a>
-section of <a href="https://bioconductor.org/developers/how-to/efficient-code">Robust and Efficient Code for additional detail</a>.</p>
-</div>
-<div id="parallelisation" class="section level3" number="15.2.8">
-<h3>
-<span class="header-section-number">15.2.8</span> Parallelisation<a class="anchor" aria-label="anchor" href="#parallelisation"><i class="fas fa-link"></i></a>
-</h3>
-<p>For parallel implementation please use <em><a href="https://bioconductor.org/packages/3.15/BiocParallel">BiocParallel</a></em>.
-See also the <a href="https://bioconductor.org/developers/how-to/efficient-code/#parallel-recommendations">Parallel Recommendations</a> section of <a href="https://bioconductor.org/developers/how-to/efficient-code">Robust and Efficient Code</a>.</p>
-<p>A minimal number of cores (1 or 2) should be set as a default.</p>
-</div>
-<div id="web-querying-and-file-caching" class="section level3" number="15.2.9">
-<h3>
-<span class="header-section-number">15.2.9</span> Web Querying and File caching<a class="anchor" aria-label="anchor" href="#web-querying-and-file-caching"><i class="fas fa-link"></i></a>
-</h3>
-<p>Files downloaded should be cached.
-Please use <em><a href="https://bioconductor.org/packages/3.15/BiocFileCache">BiocFileCache</a></em>.
-If a maintainer creates their own caching directory, it should utilize standard
-caching directories <code>tools::R_user_dir(package, which="cache")</code>. It is not
-allowed to download or write any files to a users home directory or working
-directory. Files should be cached as stated above with <code>BiocFileCache</code> (preferred)
-or <code>R_user_dir</code> or <code>tempdir()/tempfile()</code> if files should not be persistent.</p>
-<p>Please also follow guiding principles on <a href="http://bioconductor.org/developers/how-to/web-query/">Querying Web
-Resources</a>, if applicable.</p>
-</div>
-<div id="additional-files-and-dependencies" class="section level3" number="15.2.10">
-<h3>
-<span class="header-section-number">15.2.10</span> Additional files and dependencies<a class="anchor" aria-label="anchor" href="#additional-files-and-dependencies"><i class="fas fa-link"></i></a>
-</h3>
-<p>Do NOT install anything on a users system.</p>
-<p>System dependencies, applications, and additionally needed packages should be
-assumed already present on the user’s system.</p>
-<p>If necessary, package maintainers should provide instructions for download and
-setup, but should not execute those instructions on behalf of a user.</p>
-</div>
-</div>
-<div id="coding-style" class="section level2" number="15.3">
-<h2>
-<span class="header-section-number">15.3</span> Coding Style<a class="anchor" aria-label="anchor" href="#coding-style"><i class="fas fa-link"></i></a>
-</h2>
-<p>Using similar coding style helps people understand code. These
-guidelines are preferences and strongly encouraged.</p>
-<div id="indentation" class="section level3" number="15.3.1">
-<h3>
-<span class="header-section-number">15.3.1</span> Indentation<a class="anchor" aria-label="anchor" href="#indentation"><i class="fas fa-link"></i></a>
-</h3>
-<ul>
-<li>Use 4 spaces for indenting. No tabs.</li>
-<li>No lines longer than 80 characters.</li>
-</ul>
-</div>
-<div id="variable-names" class="section level3" number="15.3.2">
-<h3>
-<span class="header-section-number">15.3.2</span> Variable names<a class="anchor" aria-label="anchor" href="#variable-names"><i class="fas fa-link"></i></a>
-</h3>
-<ul>
-<li>Use camelCase: initial lowercase, then alternate case between words.</li>
-</ul>
-</div>
-<div id="function-names-1" class="section level3" number="15.3.3">
-<h3>
-<span class="header-section-number">15.3.3</span> Function names<a class="anchor" aria-label="anchor" href="#function-names-1"><i class="fas fa-link"></i></a>
-</h3>
-<ul>
-<li>Use camelCase: initial lower case, then alternate case between words.</li>
-<li>Do not use ‘.’ (in the S3 class system, <code>some(x)</code> where <code>x</code> is class
-<code>A</code> will dispatch to <code>some.A</code>).</li>
-<li>Prefix non-exported functions with a ‘.’</li>
-</ul>
-</div>
-<div id="class-names" class="section level3" number="15.3.4">
-<h3>
-<span class="header-section-number">15.3.4</span> Class names<a class="anchor" aria-label="anchor" href="#class-names"><i class="fas fa-link"></i></a>
-</h3>
-<ul>
-<li>Use CamelCaps: initial upper case, then alternate case between
-words.</li>
-</ul>
-</div>
-<div id="file-names-1" class="section level3" number="15.3.5">
-<h3>
-<span class="header-section-number">15.3.5</span> File names<a class="anchor" aria-label="anchor" href="#file-names-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.2.3</span> File names<a class="anchor" aria-label="anchor" href="#file-names-1"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
 <li>Filename extension for R code should be ‘.R.’ Use the prefix
@@ -321,10 +182,167 @@ class definitions in ‘AllClasses.R.’</li>
 <li>Filename extension for man pages should be ‘.Rd.’</li>
 </ul>
 </div>
-<div id="use-of-space" class="section level3" number="15.3.6">
+<div id="class-development" class="section level3" number="15.2.4">
 <h3>
-<span class="header-section-number">15.3.6</span> Use of space<a class="anchor" aria-label="anchor" href="#use-of-space"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.2.4</span> Class development<a class="anchor" aria-label="anchor" href="#class-development"><i class="fas fa-link"></i></a>
 </h3>
+<p>Remember to <strong>re-use</strong> <a href="important-bioconductor-package-development-features.html#reusebioc">common <em>Bioconductor</em> methods and classes</a>
+before implementing new representations. This encourages
+interoperability and simplifies your own package development.</p>
+<div id="class-names" class="section level4" number="15.2.4.1">
+<h4>
+<span class="header-section-number">15.2.4.1</span> Class Names<a class="anchor" aria-label="anchor" href="#class-names"><i class="fas fa-link"></i></a>
+</h4>
+<p>Use CamelCaps: initial upper case, then alternate case between words.</p>
+</div>
+<div id="class-design" class="section level4" number="15.2.4.2">
+<h4>
+<span class="header-section-number">15.2.4.2</span> Class design<a class="anchor" aria-label="anchor" href="#class-design"><i class="fas fa-link"></i></a>
+</h4>
+<p><em>Bioconductor</em> prefers the use of S4 classes over S3 class. Please use the S4
+representation for designing new classes. Again, we can not emphasize enough to
+reuse existing class structure if at all possible. If an existing class
+structure is not sufficient, it is also encouraged to look at extending or
+containing an <a href="important-bioconductor-package-development-features.html#reusebioc">existing <em>Bioconductor</em> class</a>.</p>
+<p>If your data requires a new representation or function, carefully
+design an S4 class or generic so that other package developers with
+similar needs will be able to re-use your hard work, and so that users
+of related packages will be able to seamlessly use your data
+structures. Do not hesitate to ask on the Bioc-devel mailing list for
+advice.</p>
+<p>For any class you define, implement and use a ‘constructor’ for object
+creation. A constructor is usually plain-old-function (rather than,
+e.g., a generic with methods). It provides documented and
+user-friendly arguments, while allowing for developer-friendly
+implementation. Use the constructor throughout your own code,
+examples, and vignette.</p>
+<p>Implement a <code>show()</code> method to effectively convey information to your
+users without overwhelming them with detail.</p>
+<p>Accessors (simple functions that return components of your object)
+rather than direct slot access (using <code>@</code>) help to isolate the
+implementation of your class from its interface. Generally <code>@</code> should
+only be used in an accessor, all other code should use the
+accessor. The accessor does not need to be exported from the class if
+the user has no need or business accessing parts of your data
+object. Plain-old-functions (rather than generic + method) are often
+sufficient for accessors; it’s often useful to employ (consistently) a
+lightweight name mangling scheme (e.g., starting the accessor method
+name with a 2 or 3 letter acronym for your package) to avoid name
+collisions between similarly named functions in other packages.</p>
+<p>The following layout is sometimes used to organize classes and
+methods; other approaches are possible and acceptable.</p>
+<ul>
+<li>All class definitions in R/AllClasses.R</li>
+<li>All generic function definitions in R/AllGenerics.R</li>
+<li>Methods are defined in a file named by the generic function. For
+example, all <code>show</code> methods would go in R/show-methods.R.</li>
+</ul>
+<p>A Collates: field in the DESCRIPTION file may be necessary to order
+class and method definitions appropriately during package
+installation.</p>
+</div>
+</div>
+<div id="function-development" class="section level3" number="15.2.5">
+<h3>
+<span class="header-section-number">15.2.5</span> Function development<a class="anchor" aria-label="anchor" href="#function-development"><i class="fas fa-link"></i></a>
+</h3>
+<div id="functions-names" class="section level4" number="15.2.5.1">
+<h4>
+<span class="header-section-number">15.2.5.1</span> Functions Names<a class="anchor" aria-label="anchor" href="#functions-names"><i class="fas fa-link"></i></a>
+</h4>
+<p>Function names should follow the following conventions:</p>
+<ul>
+<li>Use camelCase: initial lower case, then alternate case between words.</li>
+<li>Do not use ‘.’ (in the S3 class system, <code>some(x)</code> where <code>x</code> is class <code>A</code> will dispatch to <code>some.A</code>).</li>
+<li>Prefix non-exported functions with a ‘.’</li>
+</ul>
+</div>
+<div id="functional-programming-and-length" class="section level4" number="15.2.5.2">
+<h4>
+<span class="header-section-number">15.2.5.2</span> Functional Programming and Length<a class="anchor" aria-label="anchor" href="#functional-programming-and-length"><i class="fas fa-link"></i></a>
+</h4>
+<p>Guiding principle: Smaller functions are easier to read, test, debug and reuse.</p>
+<ul>
+<li><p>Avoid large chunks of repeated code. If code is being repeated this is
+generally a good indication a helper function could be implemented.</p></li>
+<li><p>Excessively long functions should also be avoided. Write small functions.</p></li>
+<li><p>It is best if each function has only one job that it needs to do. And it is
+also best if that function does that job in as few lines of code as possible.
+If you find yourself writing great long functions that extend for more than a
+screen, then you should probably take a moment to split it up into smaller
+helper functions.</p></li>
+<li><p>Nesting functions should be avoiding. It unnecessarily increases the main
+function length and makes the main function harder to read. Helper functions
+and internal functions should avoid being nested and include at the end of the
+file or as a seperate file (e.g. internal.R, helpers.R, utils.R)</p></li>
+</ul>
+</div>
+<div id="function-arguments" class="section level4" number="15.2.5.3">
+<h4>
+<span class="header-section-number">15.2.5.3</span> Function arguments<a class="anchor" aria-label="anchor" href="#function-arguments"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li>Argument names to functions should be descriptive and well documented.</li>
+<li>Arguments should generally have default values.</li>
+<li>Check arguments against a validity check or <code>stopifnot</code>
+</li>
+</ul>
+</div>
+<div id="variable-names" class="section level4" number="15.2.5.4">
+<h4>
+<span class="header-section-number">15.2.5.4</span> Variable names<a class="anchor" aria-label="anchor" href="#variable-names"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li>Use camelCase: initial lowercase, then alternate case between words.</li>
+</ul>
+</div>
+<div id="additional-files-and-dependencies" class="section level4" number="15.2.5.5">
+<h4>
+<span class="header-section-number">15.2.5.5</span> Additional files and dependencies<a class="anchor" aria-label="anchor" href="#additional-files-and-dependencies"><i class="fas fa-link"></i></a>
+</h4>
+<p>Do NOT install anything on a users system.</p>
+<p>System dependencies, applications, and additionally needed packages should be
+assumed already present on the user’s system.</p>
+<p>If necessary, package maintainers should provide instructions for download and
+setup, but should not execute those instructions on behalf of a
+user. Complicated or additional system dependency instructions could be part of
+the (README file)[#readme] and/or (INSTALL file)[#sysdep]. All package
+dependencies must actively be on CRAN of <em>Bioconductor</em>.</p>
+<p>All system and package dependencies should be the latest publically available
+version.</p>
+</div>
+<div id="namespaces" class="section level4" number="15.2.5.6">
+<h4>
+<span class="header-section-number">15.2.5.6</span> Namespaces<a class="anchor" aria-label="anchor" href="#namespaces"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li>Import all symbols used from packages other than “base.” Except for
+default packages (base, graphics, stats, etc.) or when overly
+tedious, fully enumerate imports.</li>
+<li>Export all symbols useful to end users. Fully enumerate exports.</li>
+</ul>
+</div>
+</div>
+<div id="coding-style" class="section level3" number="15.2.6">
+<h3>
+<span class="header-section-number">15.2.6</span> Coding Style<a class="anchor" aria-label="anchor" href="#coding-style"><i class="fas fa-link"></i></a>
+</h3>
+<p>While it may seem arbitrary, being consistent with coding style helps other
+understand, evaluate, and debug code easier. While these are optional, it is
+highly encouraged.</p>
+<div id="indentation" class="section level4" number="15.2.6.1">
+<h4>
+<span class="header-section-number">15.2.6.1</span> Indentation<a class="anchor" aria-label="anchor" href="#indentation"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li>Use 4 spaces for indenting. No tabs.</li>
+<li>No lines longer than 80 characters.</li>
+</ul>
+</div>
+<div id="use-of-space" class="section level4" number="15.2.6.2">
+<h4>
+<span class="header-section-number">15.2.6.2</span> Use of space<a class="anchor" aria-label="anchor" href="#use-of-space"><i class="fas fa-link"></i></a>
+</h4>
 <ul>
 <li>Always use space after a comma. This: <code>a, b, c</code>.</li>
 <li>No space around “=” when using named arguments to functions. This:
@@ -333,30 +351,65 @@ class definitions in ‘AllClasses.R.’</li>
 <li>Space around all binary operators: <code>a == b</code>.</li>
 </ul>
 </div>
-<div id="comments" class="section level3" number="15.3.7">
-<h3>
-<span class="header-section-number">15.3.7</span> Comments<a class="anchor" aria-label="anchor" href="#comments"><i class="fas fa-link"></i></a>
-</h3>
+<div id="comments" class="section level4" number="15.2.6.3">
+<h4>
+<span class="header-section-number">15.2.6.3</span> Comments<a class="anchor" aria-label="anchor" href="#comments"><i class="fas fa-link"></i></a>
+</h4>
 <ul>
 <li>Use “##” to start full-line comments.</li>
 <li>Indent at the same level as surrounding code.</li>
+<li>Comments should be for clarification, notes, and documentation only.</li>
+<li>Do not leave in commented out code chunks that are not utilized</li>
+<li>Commenting TODO’s should be avoided in published package code</li>
 </ul>
 </div>
-<div id="namespaces" class="section level3" number="15.3.8">
+<div id="additonal-style-and-formatting-references" class="section level4" number="15.2.6.4">
+<h4>
+<span class="header-section-number">15.2.6.4</span> Additonal style and formatting references<a class="anchor" aria-label="anchor" href="#additonal-style-and-formatting-references"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li><p><a href="https://cran.r-project.org/web/packages/formatR/index.html">formatR</a> a
+package that assists with formatting.</p></li>
+<li><p><a href="https://style.tidyverse.org/">Hadley Wickhams’s R Style Guide</a>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="r-code-best-practices-and-guidelines" class="section level2" number="15.3">
+<h2>
+<span class="header-section-number">15.3</span> R Code Best Practices and Guidelines<a class="anchor" aria-label="anchor" href="#r-code-best-practices-and-guidelines"><i class="fas fa-link"></i></a>
+</h2>
+<p>Many common coding and sytax issues are flagged in <code>R CMD check</code> and
+<code>BiocCheck()</code> (see the <code>R CMD check</code>
+<a href="http://r-pkgs.had.co.nz/check.html">cheatsheet</a> and <em><a href="https://bioconductor.org/packages/3.15/BiocCheck/vignettes/BiocCheck.html">BiocCheck</a></em> vignette. Every
+effort should be made to clear up ERROR, WARNING, or Notes produced from these
+checks.</p>
+<div id="code-syntax-and-efficiency" class="section level3" number="15.3.1">
 <h3>
-<span class="header-section-number">15.3.8</span> Namespaces<a class="anchor" aria-label="anchor" href="#namespaces"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.3.1</span> Code syntax and efficiency<a class="anchor" aria-label="anchor" href="#code-syntax-and-efficiency"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
-<li>Import all symbols used from packages other than “base.” Except for
-default packages (base, graphics, stats, etc.) or when overly
-tedious, fully enumerate imports.</li>
-<li>Export all symbols useful to end users. Fully enumerate exports.</li>
+<li>Use <code><a href="https://rdrr.io/r/base/lapply.html">vapply()</a></code> instead of <code><a href="https://rdrr.io/r/base/lapply.html">sapply()</a></code>, and use the various <code>apply</code> functions instead of <code>for</code> loops. See below section on vectorize.</li>
+<li>Use <code><a href="https://rdrr.io/r/base/seq.html">seq_len()</a></code> or <code><a href="https://rdrr.io/r/base/seq.html">seq_along()</a></code> instead of <code>1:...</code>. See below section on avoid <code>1:n</code> style iterations</li>
+<li>Use <code>TRUE</code> and <code>FALSE</code> instead of <code>T</code> and <code>F</code>.</li>
+<li>Use of numeric indices (rather than robust named indices).</li>
+<li>Use <code>is()</code> instead of <code>class() ==</code> and <code>class() !=</code>.</li>
+<li>Use <code><a href="https://rdrr.io/r/base/system2.html">system2()</a></code> instead of <code><a href="https://rdrr.io/r/base/system.html">system()</a></code>.</li>
+<li>Do not use <code><a href="https://rdrr.io/r/base/Random.html">set.seed()</a></code> in any internal <i class="fab fa-r-project"></i> code.</li>
+<li>Do not use <code><a href="https://rdrr.io/r/base/browser.html">browser()</a></code> in any internal <i class="fab fa-r-project"></i> code.</li>
+<li>Avoid the use of <code>&lt;&lt;-</code>.</li>
+<li>Avoid use of direct slot access with <code>@</code> or <code>slot()</code>. Accessor methods should be created and utilized</li>
+<li>Use the packages <em><a href="https://bioconductor.org/packages/3.15/ExperimentHub">ExperimentHub</a></em> and <em><a href="https://bioconductor.org/packages/3.15/AnnotationHub">AnnotationHub</a></em> instead of downloading external data from unsanctioned providers such as <i class="fab fa-github"></i> GitHub, &lt;i * class=“fa fa-dropbox” aria-hidden=“true”&gt; Dropbox, etc. In general, data utlilzed in packages should be downloaded from trusted public databases. See also section on web querying and file caching.</li>
+<li>Use <code>&lt;-</code> instead of <code>=</code> for assigning variables except in function arguments.</li>
 </ul>
-</div>
-<div id="end-user-messages" class="section level3" number="15.3.9">
-<h3>
-<span class="header-section-number">15.3.9</span> End-User messages<a class="anchor" aria-label="anchor" href="#end-user-messages"><i class="fas fa-link"></i></a>
-</h3>
+<div id="end-user-messages" class="section level4" number="15.3.1.1">
+<h4>
+<span class="header-section-number">15.3.1.1</span> End-User messages<a class="anchor" aria-label="anchor" href="#end-user-messages"><i class="fas fa-link"></i></a>
+</h4>
+<p>Use the functions <code><a href="https://rdrr.io/r/base/message.html">message()</a></code>, <code><a href="https://rdrr.io/r/base/warning.html">warning()</a></code> and <code>error()</code>, instead of the
+<code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> function (except for customized <code>show()</code> methods). <code><a href="https://rdrr.io/r/base/paste.html">paste0()</a></code> should
+generally not be used in these methods except for collapsing multiple values
+from a variable.</p>
 <ul>
 <li>
 <code><a href="https://rdrr.io/r/base/message.html">message()</a></code> communicates diagnostic messages (e.g., progress during
@@ -366,64 +419,198 @@ lengthy computations) during code evaluation.</li>
 <li>
 <code><a href="https://rdrr.io/r/base/stop.html">stop()</a></code> indicates an error condition.</li>
 <li>
-<code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> or <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> are used only when displaying an object to the
-user, e.g., in a <code>show</code> method.</li>
+<code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> or <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> are used only when displaying an object to the user in a <code>show</code> method.</li>
 </ul>
 </div>
-<div id="misc" class="section level3" number="15.3.10">
-<h3>
-<span class="header-section-number">15.3.10</span> Misc<a class="anchor" aria-label="anchor" href="#misc"><i class="fas fa-link"></i></a>
-</h3>
-<ul>
-<li>Use <code>&lt;-</code> not <code>=</code> for assignment.</li>
-</ul>
-<div id="additonal-references" class="section level4" number="15.3.10.1">
+<div id="graphic-device" class="section level4" number="15.3.1.2">
 <h4>
-<span class="header-section-number">15.3.10.1</span> Additonal references<a class="anchor" aria-label="anchor" href="#additonal-references"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.3.1.2</span> Graphic Device<a class="anchor" aria-label="anchor" href="#graphic-device"><i class="fas fa-link"></i></a>
 </h4>
-<ul>
-<li><p><a href="https://style.tidyverse.org/">Hadley Wickhams’s R Style Guide</a>.</p></li>
-<li><p><a href="https://cran.r-project.org/web/packages/formatR/index.html">formatR</a> a
-package that assists with formatting.</p></li>
-</ul>
+<p>Use <code><a href="https://rdrr.io/r/grDevices/dev.html">dev.new()</a></code> to start a graphics drive if necessary. Avoid using <code><a href="https://rdrr.io/r/grDevices/x11.html">x11()</a></code>
+or <code><a href="https://rdrr.io/r/grDevices/x11.html">X11()</a></code>, for it can only be called on machines that have access to an X
+server.</p>
 </div>
+<div id="web-querying-and-file-caching" class="section level4" number="15.3.1.3">
+<h4>
+<span class="header-section-number">15.3.1.3</span> Web Querying and File caching<a class="anchor" aria-label="anchor" href="#web-querying-and-file-caching"><i class="fas fa-link"></i></a>
+</h4>
+<p>Files downloaded should be cached.
+Please use <em><a href="https://bioconductor.org/packages/3.15/BiocFileCache">BiocFileCache</a></em>.
+If a maintainer creates their own caching directory, it should utilize standard
+caching directories <code>tools::R_user_dir(package, which="cache")</code>. It is not
+allowed to download or write any files to a users home directory, working
+directory, or installed package directory. Files should be cached as stated
+above with <code>BiocFileCache</code> (preferred) or <code>R_user_dir</code> or <code>tempdir()/tempfile()</code>
+if files should not be persistent.</p>
+<p>Please also follow guiding principles in Appendix section <a href="querying-web-resources.html#querying-web-resources">Querying Web
+Resources</a>, if applicable.</p>
+</div>
+</div>
+</div>
+<div id="robust-and-efficient-r-code" class="section level2" number="15.4">
+<h2>
+<span class="header-section-number">15.4</span> Robust and Efficient R Code<a class="anchor" aria-label="anchor" href="#robust-and-efficient-r-code"><i class="fas fa-link"></i></a>
+</h2>
+<p><em>R</em> can be a robust, fast and efficient programming language, but some
+coding practices can be very unfortunate. Here are some suggestions.</p>
+<div id="guiding-principles" class="section level3" number="15.4.1">
+<h3>
+<span class="header-section-number">15.4.1</span> Guiding Principles<a class="anchor" aria-label="anchor" href="#guiding-principles"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li><p>The primary principle is to make sure your code is <strong>correct</strong>. Use
+<code><a href="https://rdrr.io/r/base/identical.html">identical()</a></code> or <code><a href="https://rdrr.io/r/base/all.equal.html">all.equal()</a></code> to ensure correctness, and
+<a href="tests.html#tests">unit tests</a> to ensure consistent results across code revisions.</p></li>
+<li><p>Write robust code. Avoid efficiencies that do not easily handle
+edge cases such as 0 length or <code>NA</code> values.</p></li>
+<li><p>Know when to stop trying to be efficient. If the code takes a
+fraction of a second to evaluate, there is no sense in trying for
+further improvement. Use <code><a href="https://rdrr.io/r/base/system.time.html">system.time()</a></code> or a package like
+<a href="https://cran.r-project.org/web/packages/microbenchmark">microbenchmark</a> to quantify performance gains.</p></li>
+</ol>
+</div>
+<div id="reuse-existing-functionality-and-classes" class="section level3" number="15.4.2">
+<h3>
+<span class="header-section-number">15.4.2</span> Reuse Existing Functionality and Classes<a class="anchor" aria-label="anchor" href="#reuse-existing-functionality-and-classes"><i class="fas fa-link"></i></a>
+</h3>
+<p>Emphasized again for good measure! Reuse existing import/export methods,
+functionality, and classes whenever possible.</p>
+</div>
+<div id="vectorize" class="section level3" number="15.4.3">
+<h3>
+<span class="header-section-number">15.4.3</span> Vectorize<a class="anchor" aria-label="anchor" href="#vectorize"><i class="fas fa-link"></i></a>
+</h3>
+<p>Many R operations are performed on the whole object, not just the elements of
+the object (e.g., <code>sum(x)</code> instead of <code>x[1] + x[2] + x[2] + ...</code>). In
+particular, relatively few situations require an explicit <code>for</code> loop.</p>
+<p>Vectorize, rather than iterate (<code>for</code> loops, <code><a href="https://rdrr.io/r/base/lapply.html">lapply()</a></code>, <code><a href="https://rdrr.io/r/base/apply.html">apply()</a></code> are
+common iteration idioms in <em>R</em>). A single call <code>y &lt;- sqrt(x)</code> with a
+vector <code>x</code> of length <code>n</code> is an example of a vectorized function. A
+call such as <code>y &lt;- sapply(x, sqrt)</code> or a <code>for</code> loop <code>for (i in seq_along(x)) y[i] &lt;- sqrt(x[i])</code> is an iterative version of the same
+call, and should be avoided. Often, iterative calculations that can be
+vectorized are “hidden” in the body of a <code>for</code> loop</p>
+<pre><code>for (i in seq_len(n)) {
+    ## ...
+    tmp &lt;- foo(x[i])
+    y &lt;- tmp + ## ...
+}</code></pre>
+<p>and can be ‘hoisted’ out of the loop</p>
+<pre><code>tmp &lt;- foo(x)
+for (i in seq_len(n)) {
+    ## ...
+    y &lt;- tmp[i] + ##
+}</code></pre>
+<p>Often this principle can be applied repeatedly, and an iterative
+<code>for</code> loop becomes a few lines of vectorized function calls.</p>
+</div>
+<div id="pre-allocate-and-fill-if-iterations-are-necessary" class="section level3" number="15.4.4">
+<h3>
+<span class="header-section-number">15.4.4</span> ‘Pre-allocate and fill’ if iterations are necessary<a class="anchor" aria-label="anchor" href="#pre-allocate-and-fill-if-iterations-are-necessary"><i class="fas fa-link"></i></a>
+</h3>
+<p>Preallocate-and-fill (usually via <code><a href="https://rdrr.io/r/base/lapply.html">lapply()</a></code> or <code><a href="https://rdrr.io/r/base/lapply.html">vapply()</a></code>) rather
+than copy-and-append. If creating a vector or list of results, use
+<code><a href="https://rdrr.io/r/base/lapply.html">lapply()</a></code> (to create a list) or <code><a href="https://rdrr.io/r/base/lapply.html">vapply()</a></code> (to create a vector)
+rather than a <code>for</code> loop. For instance,</p>
+<pre><code>n &lt;- 10000
+x &lt;- vapply(seq_len(n), function(i) {
+    ## ...
+}, integer(1))</code></pre>
+<p>manages the memory allocation of <code>x</code> and compactly represents the
+transformation being performed. A <code>for</code> loop might be appropriate if
+the iteration has side effects (e.g., displaying a plot) or where
+calculation of one value depends on a previous value. When creating a
+vector in a <code>for</code> loop, always pre-allocate the result</p>
+<pre><code>x &lt;- integer(n)
+if (n &gt; 0) x[1] &lt;- 0
+for (i in seq_len(n - 1)) {
+    ## x[i + 1] &lt;- ...
+}</code></pre>
+<p><strong>Never</strong> adopt a strategy of ‘copy-and-append’</p>
+<pre><code>not_this &lt;- function(n) {
+    x &lt;- integer()
+    for (i in seq_len(n))
+        x[i] = i
+    x
+}</code></pre>
+<p>This pattern copies the current value of <code>x</code> each time through the
+loop, making <code>n^2 / 2</code> total copies, and scale very poorly even for
+trivial computations:</p>
+<pre><code>&gt; system.time(not_this(1000)
+   user  system elapsed
+  0.004   0.000   0.004
+&gt; system.time(not_this(10000))
+   user  system elapsed
+  0.169   0.000   0.168
+&gt; system.time(not_this(100000))
+   user  system elapsed
+ 22.827   1.120  23.936</code></pre>
+</div>
+<div id="avoid-1n-style-iterations" class="section level3" number="15.4.5">
+<h3>
+<span class="header-section-number">15.4.5</span> Avoid <code>1:n</code> style iterations<a class="anchor" aria-label="anchor" href="#avoid-1n-style-iterations"><i class="fas fa-link"></i></a>
+</h3>
+<p>Write <code>seq_len(n)</code> or <code>seq_along(x)</code> rather than <code>1:n</code> or
+<code>1:length(x)</code>. This protects against the case when <code>n</code> or <code>length(x)</code>
+is 0 (which often occurs as an unexpected ‘edge case’ in real code) or
+negative.</p>
+</div>
+<div id="parallel-recommendations" class="section level3" number="15.4.6">
+<h3>
+<span class="header-section-number">15.4.6</span> Parallel Recommendations<a class="anchor" aria-label="anchor" href="#parallel-recommendations"><i class="fas fa-link"></i></a>
+</h3>
+<p>We recommend using <a href="https://bioconductor.org/packages/devel/BiocParallel">BiocParallel</a>. It provides a consistent
+interface to the user and supports the major parallel computing
+styles: forks and processes on a single computer, ad hoc clusters,
+batch schedulers and cloud computing. By default, <code>BiocParallel</code>
+chooses a parallel back-end appropriate for the OS and is supported
+across Unix, Mac and Windows. Coding requirements for <code>BiocParallel</code>
+are:</p>
+<ul>
+<li>Use <code><a href="https://rdrr.io/r/base/lapply.html">lapply()</a></code>-style iteration instead of explicit for loops.</li>
+<li>The <code>FUN</code> argument to <code>bplapply()</code> must be a self-contained
+function; all symbols used in the function are from default R
+packages, from packages <code><a href="https://rdrr.io/r/base/library.html">require()</a></code>’ed in the function, or passed in
+as arguments.</li>
+<li>Allow the user to specify the BiocParallel back-end. Do this by
+invoking <code>bplapply()</code> <em>without</em> specifying <code>BPPARAM</code>; the user can
+then override the default choice with <code><a href="https://rdrr.io/pkg/BiocParallel/man/register.html">BiocParallel::register()</a></code>.</li>
+</ul>
+<p>For more information see the <a href="https://bioconductor.org/packages/devel/bioc/vignettes/BiocParallel/inst/doc/Introduction_To_BiocParallel.pdf">BiocParallel vignette</a>.</p>
+<p>When implementing in package development, a minimal number of cores (1 or 2)
+should be set as a default.</p>
+
 </div>
 </div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="tests.html"><span class="header-section-number">14</span> Unit tests</a></div>
-<div class="next"><a href="robust-and-efficient-code.html"><span class="header-section-number">16</span> Robust and Efficient Code</a></div>
+<div class="next"><a href="other-than-Rcode.html"><span class="header-section-number">16</span> Fortran / C / C++ / Python / Third-Party Code</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#r-code"><span class="header-section-number">15</span> R code</a></li>
 <li><a class="nav-link" href="#license-1"><span class="header-section-number">15.1</span> License</a></li>
 <li>
-<a class="nav-link" href="#r-cmd-check-and-bioccheck"><span class="header-section-number">15.2</span> R CMD check and BiocCheck</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#formatting-and-syntax"><span class="header-section-number">15.2.1</span> Formatting and syntax</a></li>
-<li><a class="nav-link" href="#re-use-of-functionality-classes-and-generics"><span class="header-section-number">15.2.2</span> Re-use of functionality, classes, and generics</a></li>
-<li><a class="nav-link" href="#methods-development"><span class="header-section-number">15.2.3</span> Methods development</a></li>
-<li><a class="nav-link" href="#functional-programming"><span class="header-section-number">15.2.4</span> Functional programming</a></li>
-<li><a class="nav-link" href="#function-length"><span class="header-section-number">15.2.5</span> Function length</a></li>
-<li><a class="nav-link" href="#function-arguments"><span class="header-section-number">15.2.6</span> Function arguments</a></li>
-<li><a class="nav-link" href="#vectorization"><span class="header-section-number">15.2.7</span> Vectorization</a></li>
-<li><a class="nav-link" href="#parallelisation"><span class="header-section-number">15.2.8</span> Parallelisation</a></li>
-<li><a class="nav-link" href="#web-querying-and-file-caching"><span class="header-section-number">15.2.9</span> Web Querying and File caching</a></li>
-<li><a class="nav-link" href="#additional-files-and-dependencies"><span class="header-section-number">15.2.10</span> Additional files and dependencies</a></li>
+<a class="nav-link" href="#r-code-development"><span class="header-section-number">15.2</span> R Code Development</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#re-use-of-functionality-classes-and-generics"><span class="header-section-number">15.2.1</span> Re-use of functionality, classes, and generics</a></li>
+<li><a class="nav-link" href="#methods-development"><span class="header-section-number">15.2.2</span> Methods development</a></li>
+<li><a class="nav-link" href="#file-names-1"><span class="header-section-number">15.2.3</span> File names</a></li>
+<li><a class="nav-link" href="#class-development"><span class="header-section-number">15.2.4</span> Class development</a></li>
+<li><a class="nav-link" href="#function-development"><span class="header-section-number">15.2.5</span> Function development</a></li>
+<li><a class="nav-link" href="#coding-style"><span class="header-section-number">15.2.6</span> Coding Style</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#coding-style"><span class="header-section-number">15.3</span> Coding Style</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#indentation"><span class="header-section-number">15.3.1</span> Indentation</a></li>
-<li><a class="nav-link" href="#variable-names"><span class="header-section-number">15.3.2</span> Variable names</a></li>
-<li><a class="nav-link" href="#function-names-1"><span class="header-section-number">15.3.3</span> Function names</a></li>
-<li><a class="nav-link" href="#class-names"><span class="header-section-number">15.3.4</span> Class names</a></li>
-<li><a class="nav-link" href="#file-names-1"><span class="header-section-number">15.3.5</span> File names</a></li>
-<li><a class="nav-link" href="#use-of-space"><span class="header-section-number">15.3.6</span> Use of space</a></li>
-<li><a class="nav-link" href="#comments"><span class="header-section-number">15.3.7</span> Comments</a></li>
-<li><a class="nav-link" href="#namespaces"><span class="header-section-number">15.3.8</span> Namespaces</a></li>
-<li><a class="nav-link" href="#end-user-messages"><span class="header-section-number">15.3.9</span> End-User messages</a></li>
-<li><a class="nav-link" href="#misc"><span class="header-section-number">15.3.10</span> Misc</a></li>
+<a class="nav-link" href="#r-code-best-practices-and-guidelines"><span class="header-section-number">15.3</span> R Code Best Practices and Guidelines</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#code-syntax-and-efficiency"><span class="header-section-number">15.3.1</span> Code syntax and efficiency</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#robust-and-efficient-r-code"><span class="header-section-number">15.4</span> Robust and Efficient R Code</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#guiding-principles"><span class="header-section-number">15.4.1</span> Guiding Principles</a></li>
+<li><a class="nav-link" href="#reuse-existing-functionality-and-classes"><span class="header-section-number">15.4.2</span> Reuse Existing Functionality and Classes</a></li>
+<li><a class="nav-link" href="#vectorize"><span class="header-section-number">15.4.3</span> Vectorize</a></li>
+<li><a class="nav-link" href="#pre-allocate-and-fill-if-iterations-are-necessary"><span class="header-section-number">15.4.4</span> ‘Pre-allocate and fill’ if iterations are necessary</a></li>
+<li><a class="nav-link" href="#avoid-1n-style-iterations"><span class="header-section-number">15.4.5</span> Avoid 1:n style iterations</a></li>
+<li><a class="nav-link" href="#parallel-recommendations"><span class="header-section-number">15.4.6</span> Parallel Recommendations</a></li>
 </ul>
 </li>
 </ul>
@@ -443,7 +630,7 @@ package that assists with formatting.</p></li>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-08.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-17.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
