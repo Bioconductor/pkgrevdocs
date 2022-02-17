@@ -58,7 +58,7 @@ Another option is to add collaborators to the <i class="fab fa-github"></i>
 GitHub repository.  This approach enables development by many but restricts
 push access to `git.bioconductor.org`.
 
-## `License`
+## `License` {#descrption-license}
 
 The license field should preferably refer to a standard license (see
 [wikipedia](http://en.wikipedia.org/wiki/Comparison_of_free_software_licences))
