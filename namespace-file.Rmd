@@ -11,7 +11,11 @@ Exported functions should use camel case or underscoring and not include `.`, wh
 ## Imported functions
 
 Generally `importFrom()` is encouraged over importing an entire package.
-However, if there are many functions from a single package, `import()` can be acceptable.
+However, if there are many functions from a single package, `import()` can be
+acceptable. If a particular _Bioconductor_ class is used or extended it is
+highly recommended to `import()` the full package so that full class
+functionality is inherited automatically; there are exceptions depending on
+implementation and necessity.
 
 ## Exported functions
 
