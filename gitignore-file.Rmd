@@ -17,3 +17,5 @@ hidden_file_ext = c(
     ".settings", ".tm_properties"
 )
 ```
+There should only be one `.gitignore` file in the top level of a package
+directory. 

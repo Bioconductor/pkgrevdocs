@@ -86,7 +86,7 @@ Man pages describing new classes must be very detailed on the structure and the 
 
 [_Bioconductor_](https://bioconductor.org/) encourages having a package man page with an overview of the package and links to the main functions.
 
-### Data
+### Data {#data-man}
 
 Data man pages must include provenance information and data structure information.
 
