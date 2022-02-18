@@ -2,8 +2,8 @@
 
 Anyone from the Bioconductor community that has a package in Bioconductor can
 volunteer to become a community reviewer to assess incoming packages submitted
-through the [New Submission
-Tracker](https://github.com/Bioconductor/Contributions/issues). The following overviews what is expected of community reviewers.
+through the [New Submission Tracker][Packages Under Review]. The following
+overviews what is expected of community reviewers.
 
 ## Qualifications {.unnumbered #review-qualifications}
 
@@ -62,7 +62,7 @@ particularly busy period of time, etc), a reviewer should reach out to a
 package review committee administrator. The administrator will temporarily stop
 assignments and can discuss if currently assigned packages need re-assignment.
 
-There is a [slack channel][] for package reviewers to ask questions and if necessary
+There is a [reviewers slack channel][] for package reviewers to ask questions and if necessary
 ask to swap/switch/volunteer to review packages. Requests can also be made by
 directly contacting the package review administrator.
 
@@ -80,9 +80,6 @@ made for reassignement the reviewer will be notified and at risk for being
 removed from the active review process. If a reviewer is removed, they must
 reapply to become an active reviewer.
 
-[slack channel]: https://community-bioc.slack.com/archives/C02A1B8HUHZ
-[submission channel]: https://community-bioc.slack.com/archives/C0207H5QC3X
-
 ## On-boarding {.unnumbered #review-onboarding}
 
 New volunteers will undergo an on-boarding process before becoming fully active
@@ -98,7 +95,7 @@ solo reviews.
 ## Recognition {.unnumbered #review-recognition}
 
 Feel free to advertise on CV and resumes as being a Bioconductor reviewer.
-Reviewers will also be listed on the [Community Reviewers Webpage](http://bioconductor.org/about/package-reviewers/). Reviewers
+Reviewers will also be listed on the [Community Reviewers Webpage][reviewer-list]. Reviewers
 may optionally opt-out of being listed on the webpage by contacting a package
 review administrator. Ideally, we plan to have badges for notable achievements
 and milestones, and a sticker is in progress.

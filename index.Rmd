@@ -82,6 +82,7 @@ knitr::write_bib(c(
 [gitver]: #git-version-control
 [guidelines]: #develop-overview
 [long tests]: #long-tests
+[Packages Under Review]: https://github.com/Bioconductor/Contributions/issues
 [Rcpp Gallery]: http://gallery.rcpp.org/
 [R CMD check environment]: #r-cmd-check-environment
 [R Website]: http://cran.fhcrc.org/manuals.html
@@ -92,6 +93,7 @@ knitr::write_bib(c(
 [rmarkdown]: http://rmarkdown.rstudio.com/
 [rmarkdown documentation]: http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html#citations
 [Shiny apps]: https://shiny.rstudio.com/
+[reviewers slack channel]: https://community-bioc.slack.com/archives/C02A1B8HUHZ
 [software-pkgs]: https://bioconductor.org/packages/release/bioc/
 [support site]: https://support.bioconductor.org/
 [support-register]: https://support.bioconductor.org/accounts/signup/
