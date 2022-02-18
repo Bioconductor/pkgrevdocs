@@ -56,6 +56,7 @@ knitr::write_bib(c(
 
 [annotation-pkgs]: https://bioconductor.org/packages/release/data/annotation/
 [annotation-views]: https://bioconductor.org/packages/release/BiocViews.html#___AnnotationData
+[Azure Data Lakes]: https://azure.microsoft.com/en-us/services/data-lake-analytics
 [bioc-common]: #reusebioc
 [bioc-devel-mail]: https://stat.ethz.ch/mailman/listinfo/bioc-devel
 [BiocParallel vignette]: https://bioconductor.org/packages/devel/bioc/vignettes/BiocParallel/inst/doc/Introduction_To_BiocParallel.pdf
@@ -88,6 +89,8 @@ knitr::write_bib(c(
 [release-schedule]: https://bioconductor.org/developers/release-schedule/
 [release-biocviews]: http://bioconductor.org/packages/release/BiocViews.html
 [reviewer-list]: https://bioconductor.org/about/package-reviewers/
+[rmarkdown]: http://rmarkdown.rstudio.com/
+[rmarkdown documentation]: http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html#citations
 [Shiny apps]: https://shiny.rstudio.com/
 [software-pkgs]: https://bioconductor.org/packages/release/bioc/
 [support site]: https://support.bioconductor.org/
@@ -101,7 +104,7 @@ knitr::write_bib(c(
 [Workflows]: #workflow-packages
 [workflow-pkgs]: https://bioconductor.org/packages/release/workflows/
 [Writing R Extensions]: https://cran.r-project.org/doc/manuals/R-exts.html
-
+[workflow-views]: http://bioconductor.org/packages/devel/BiocViews.html#___Workflow
 
 [AnnotationHub]: https://bioconductor.org/packages/AnnotationHub
 [basilisk]: https://www.bioconductor.org/packages/basilisk
@@ -109,6 +112,8 @@ knitr::write_bib(c(
 [BiocGenerics]: https://bioconductor.org/packages/BiocGenerics
 [BiocParallel]: https://bioconductor.org/packages/BiocParallel
 [BiocSet]: https://bioconductor.org/packages/BiocSet
+[BiocStyle]: https://bioconductor.org/packages/BiocStyle
+[BiocWorkflowTools]: http://bioconductor.org/packages/BiocWorkflowTools
 [Biostrings]: https://bioconductor.org/packages/Biostrings
 [dotCall64]: https://CRAN.R-project.org/package=dotCall64
 [ExperimentHub]: https://bioconductor.org/packages/ExperimentHub
