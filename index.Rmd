@@ -58,6 +58,7 @@ knitr::write_bib(c(
 [annotation-views]: https://bioconductor.org/packages/release/BiocViews.html#___AnnotationData
 [bioc-common]: #reusebioc
 [bioc-devel-mail]: https://stat.ethz.ch/mailman/listinfo/bioc-devel
+[BiocParallel vignette]: https://bioconductor.org/packages/devel/bioc/vignettes/BiocParallel/inst/doc/Introduction_To_BiocParallel.pdf
 [biocViews]: https://bioconductor.org/packages/devel/BiocViews.html
 [build reports]: https://bioconductor.org/checkResults/
 [build timings]: #propagate
@@ -90,6 +91,7 @@ knitr::write_bib(c(
 [testthat: Get Started with Testing]: http://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf
 [Testing with testthat]: http://r-pkgs.had.co.nz/tests.html
 [tracker]: https://github.com/Bioconductor/Contributions
+[unit tests]: #tests
 [versioning]:#versionnum
 [wiki-license]: http://en.wikipedia.org/wiki/Comparison_of_free_software_licences
 [Workflows]: #workflow-packages
@@ -100,14 +102,17 @@ knitr::write_bib(c(
 [AnnotationHub]: https://bioconductor.org/packages/AnnotationHub/
 [BiocCheck]: https://bioconductor.org/packages/BiocCheck/
 [BiocGenerics]: https://bioconductor.org/packages/BiocGenerics
+[BiocParallel]: https://bioconductor.org/packages/BiocParallel
 [BiocSet]: https://bioconductor.org/packages/BiocSet
 [Biostrings]: https://bioconductor.org/packages/Biostrings
 [ExperimentHub]: https://bioconductor.org/packages/ExperimentHub/
+[formatR]: https://cran.r-project.org/web/packages/formatR/index.html
 [GenomicAlignments]: https://bioconductor.org/packages/GenomicAlignments
 [GenomicRanges]: https://bioconductor.org/packages/GenomicRanges
 [GSEABase]: https://bioconductor.org/packages/GSEABase
 [HubPub]: https://bioconductor.org/packages/HubPub/
 [RaggedExperiment]: https://bioconductor.org/packages/RaggedExperiment
+[microbenchmark]: https://cran.r-project.org/web/packages/microbenchmark
 [MsBackendMgf]: https://bioconductor.org/packages/MsBackendMgf
 [MSnbase]: https://bioconductor.org/packages/MSnbase
 [MultiAssayExperiment]: https://bioconductor.org/packages/MultiAssayExperiment

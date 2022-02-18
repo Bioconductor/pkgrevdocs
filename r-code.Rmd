@@ -1,10 +1,9 @@
 # R code {#r-code}
 
 Everyone has their own coding style and formats. There are however some best
-practice guidelines that [_Bioconductor_](https://bioconductor.org/) reviewers
-will look for. 
+practice guidelines that [_Bioconductor_ reviewers][reviewer-list] will look for. 
 
-_R_ can be a robust, fast and efficient programming language but often some
+<i class="fab fa-r-project"></i> can be a robust, fast and efficient programming language but often some
 coding practices result in less than ideal use of resources.
 
 
@@ -13,14 +12,14 @@ will aid in the package review process and assist in making code more
 robust and efficient.
 
 
-## License
+## License {#rcode-license}
 
-Only contain code that can be distributed under the license specified (see also [The DESCRIPTION file](#license)).
-
+Only contain code that can be distributed under the license specified (see also
+[The DESCRIPTION file](#description-license)).
 
 ## R Code Development
 
-### Re-use of functionality, classes, and generics
+### Re-use of functionality, classes, and generics {#rcode-reuse}
 
 Avoid re-implementing functionality or classes (see also
 [The DESCRIPTION file](description.html#depends-imports-suggests-enhances)).
@@ -33,12 +32,13 @@ Make use of appropriate existing packages (e.g.,
 `r BiocStyle::Biocpkg("AnnotatedDataFrame")`,
 `r BiocStyle::Biocpkg("GRanges")`,
 `r BiocStyle::Biocpkg("DNAStringSet")`) to avoid duplication of functionality
-available in other [_Bioconductor_](https://bioconductor.org/) packages. See
-also [Common Bioconductor Methods and Classes](#reusebioc).
+available in other [_Bioconductor_][] packages. See
+also [Common Bioconductor Methods and Classes][bioc-common].
 
 This encourages interoperability and simplifies your own package development.
-If a new representation is needed, see the [Essential S4 interface](https://bioconductor.org/developers/how-to/efficient-code/#essential-s4-interface) section of [Robust and Efficient Code](https://bioconductor.org/developers/how-to/efficient-code).
-In general, [_Bioconductor_](https://bioconductor.org/) will insist on interoperability with [Common Classes](https://bioconductor.org/developers/how-to/commonMethodsAndClasses/) for acceptance.
+If a new representation is needed, see [class development section](#class-development).
+In general, [_Bioconductor_][] will insist on interoperability with [Common
+Classes](#commonclass) for acceptance.
 
 Developers should make an effort to re-use generics that fit the generic
 contract for the proposed class-method pair i.e., the behavior of the method
@@ -63,7 +63,7 @@ introduction of non-standard data representations (e.g., neglecting to
 translate coordinate systems of file formats to Bioconductor objects)
 and user bewilderment.
 
-### Methods development
+### Methods development {#rcode-method-development}
 
 We encourage maintainers to only create new methods for classes exported within
 their packages. We discourage the generation of methods for external classes,
@@ -74,7 +74,7 @@ for those external classes. New methods for established classes can also cause
 confusion among users given that the new method and class definition are in
 separate packages.
 
-### File names
+### File names {#rcode-file-names}
 
 * Filename extension for R code should be '.R'. Use the prefix
   'methods-' for S4 class methods, e.g., 'methods-coverage.R'. Generic
@@ -83,23 +83,23 @@ separate packages.
 * Filename extension for man pages should be '.Rd'.
 
 
-### Class development
+### Class development {#class-development}
 
-Remember to **re-use** [common _Bioconductor_ methods and classes][]
+Remember to **re-use** [common _Bioconductor_ methods and classes][bioc-common]
 before implementing new representations. This encourages
 interoperability and simplifies your own package development. 
 
-#### Class Names
+#### Class Names {#class-names}
 
 Use CamelCaps: initial upper case, then alternate case between words.
 
-#### Class design
+#### Class design {#class-design}
 
 _Bioconductor_ prefers the use of S4 classes over S3 class. Please use the S4
 representation for designing new classes. Again, we can not emphasize enough to
 reuse existing class structure if at all possible. If an existing class
 structure is not sufficient, it is also encouraged to look at extending or
-containing an [existing _Bioconductor_ class](#reusebioc). 
+containing an [existing _Bioconductor_ class](#commonclass). 
 
 If your data requires a new representation or function, carefully
 design an S4 class or generic so that other package developers with
@@ -143,9 +143,9 @@ class and method definitions appropriately during package
 installation.
 
 
-### Function development
-
-#### Functions Names
+### Function development {#function-development}
+ 
+#### Functions Names {#rcode-function-names}
 
 Function names should follow the following conventions:
 
@@ -153,7 +153,7 @@ Function names should follow the following conventions:
 * Do not use '.' (in the S3 class system, `some(x)` where `x` is class `A` will dispatch to `some.A`).
 * Prefix non-exported functions with a '.'.
 
-#### Functional Programming and Length
+#### Functional Programming and Length {#functional-programming-and-length}
 
 Guiding principle: Smaller functions are easier to read, test, debug and reuse.
 
@@ -173,17 +173,17 @@ helper functions.
   and internal functions should avoid being nested and include at the end of the
   file or as a seperate file (e.g. internal.R, helpers.R, utils.R)  
 
-#### Function arguments
+#### Function arguments {#function-arguments}
 
 * Argument names to functions should be descriptive and well documented.
 * Arguments should generally have default values.
 * Check arguments against a validity check or `stopifnot`
 
-#### Variable names
+#### Variable names {#variable-names}
 
 * Use camelCase: initial lowercase, then alternate case between words.
 
-#### Additional files and dependencies
+#### Additional files and dependencies {#rcode-sysdep}
 
 Do NOT install anything on a users system.
 
@@ -193,14 +193,14 @@ assumed already present on the user's system.
 If necessary, package maintainers should provide instructions for download and
 setup, but should not execute those instructions on behalf of a
 user. Complicated or additional system dependency instructions could be part of
-the (README file)[#readme] and/or (INSTALL file)[#sysdep]. All package
-dependencies must actively be on CRAN of _Bioconductor_.  
+the [README file](#readme) and/or [INSTALL file](#sysdep). All package
+dependencies must actively be on CRAN or [_Bioconductor_][].  
 
 All system and package dependencies should be the latest publically available
 version.
 
 
-####  Namespaces
+####  Namespaces {#rcode-namespaces}
 
 * Import all symbols used from packages other than "base". Except for
   default packages (base, graphics, stats, etc.) or when overly
@@ -208,7 +208,7 @@ version.
 * Export all symbols useful to end users. Fully enumerate exports.
 
 
-### Coding Style
+### Coding Style {#coding-style}
 
 While it may seem arbitrary, being consistent with coding style helps other
 understand, evaluate, and debug code easier. While these are optional, it is
@@ -228,7 +228,7 @@ highly encouraged.
   `somefunc(a=1, b=2)`
 * Space around all binary operators: `a == b`.
 
-#### Comments
+#### Comments {#rcode-comments}
 
 * Use "##" to start full-line comments.
 * Indent at the same level as surrounding code.
@@ -238,8 +238,7 @@ highly encouraged.
 
 #### Additonal style and formatting references
 
-* [formatR](https://cran.r-project.org/web/packages/formatR/index.html) a
-  package that assists with formatting.
+* [formatR][] a package that assists with formatting.
 
 * [Hadley Wickhams's R Style Guide](https://style.tidyverse.org/).
 
@@ -435,10 +434,3 @@ For more information see the [BiocParallel vignette][].
 
 When implementing in package development, a minimal number of cores (1 or 2)
 should be set as a default.
-
-
-[BiocParallel]: https://bioconductor.org/packages/devel/BiocParallel
-[BiocParallel vignette]: https://bioconductor.org/packages/devel/bioc/vignettes/BiocParallel/inst/doc/Introduction_To_BiocParallel.pdf
-[microbenchmark]: https://cran.r-project.org/web/packages/microbenchmark
-[unit tests]: #tests
-[common _Bioconductor_ methods and classes]: #reusebioc
