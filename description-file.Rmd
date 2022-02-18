@@ -60,7 +60,7 @@ GitHub][Github collaborators] repository.  This approach enables development by 
 push access to `git.bioconductor.org`.
 
 
-## `License` {#descrption-license}
+## `License` {#description-license}
 
 The license field should preferably refer to a standard license (see
 [wikipedia][wiki-license]) using one of <i class="fab fa-r-project"></i>’s
