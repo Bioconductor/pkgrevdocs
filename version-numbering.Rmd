@@ -43,12 +43,9 @@ New packages submitted to _Bioconductor_ should set Version: 0.99.0 in the
 DESCRIPTION file. Specifying y=99 triggers a bump in x at the next release
 which in this case results in version 1.0.0.
 
-See additional details on
-the [Package Submission](#package-submission) page.
+See additional details on the [Package Submission](#subintro) page.
 
-See also the instructions for [Using Bioc Devel][].
-
-[Using Bioc Devel]: #use-devel
+See also the instructions for [Using Bioc Devel]['devel' version].
 
 ## Example Cases
 
