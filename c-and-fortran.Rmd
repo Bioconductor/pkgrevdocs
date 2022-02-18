@@ -1,6 +1,8 @@
 # C and Fortran code {#c-fortran}
 
-If the package contains C or Fortran code, it should adhere to the standards and methods described in the [System and foreign language interfaces](http://cran.r-project.org/doc/manuals/R-exts.html#System-and-foreign-language-interfaces) section of the "Writing R Extensions" manual.
+If the package contains C or Fortran code, it should adhere to the standards and
+methods described in the [System and foreign language interfaces][CRAN foreign]
+section of the [Writing R Extensions][] manual.
 
 We emphasie particular points in the following sections.
 
@@ -10,7 +12,9 @@ Use internal <i class="fab fa-r-project"></i> functions, e.g., `R_alloc` and ran
 
 ### C function registration
 
-Use C function registration (See the [Registering native routines](http://cran.fhcrc.org/doc/manuals/R-exts.html#Registering-native-routines) section of the "Writing R Extensions" manual).
+Use C function registration (See the [Registering native routines][] section of
+the [Writing R Extensions][] manual).
+
 
 ### Checks for user interruption
 
@@ -19,15 +23,16 @@ Use `R_CheckUserInterrupt()` in C level loops when there is a chance that they m
 ### Makevars
 
 Make judicious use of the `Makevars` and `Makefile` files within a package.
-These are often not required at all (See the [Configure and cleanup](http://cran.fhcrc.org/doc/manuals/R-exts.html#Configure-and-cleanup) section of the "Writing R Extensions" manual).
+These are often not required at all (See the [Configure and cleanup][CRAN config] section of the [Writing R Extensions][] manual).
 
 ### Warnings and optimizations
 
 During package development, enable all warnings and disable optimizations.
-If you plan to [use a debugger](https://bioconductor.org/developers/how-to/c-debugging/), tell the compiler to include debugging symbols.
+If you plan to [use a debugger](#debugging-cc-code), tell the compiler to
+include debugging symbols.
 
 The easiest way to enforce these is to create a user-level `Makevars` file user’s home directory in a sub-directory called ‘.R’). See examples below for flags for common toolchains.
-Consult the section about [Makevars files](http://cran.r-project.org/doc/manuals/R-exts.html#Using-Makevars) in the [Writing R Extensions Manual](http://cran.r-project.org/doc/manuals/R-exts.html#Using-Makevars) manual.
+Consult the section about [Makevars files][] in the [Writing R Extensions][] manual.
 
 Example for gcc/g++:
 
@@ -44,3 +49,5 @@ CFLAGS=-Weverything -O0 -g
 CXXFLAGS=-Weverything -O0 -g
 FFLAGS=-Wall -Wextra -pedantic -O0 -g
 ```
+
+

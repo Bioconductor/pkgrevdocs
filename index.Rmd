@@ -73,6 +73,8 @@ knitr::write_bib(c(
 [CRAN vigs]: http://cran.fhcrc.org/doc/manuals/R-exts.html#Writing-package-vignettes
 [CRAN Rd]: http://cran.fhcrc.org/doc/manuals/R-exts.html#Rd-format
 [Create A Hub Package]: https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html
+[devel-LongTests-report]: https://bioconductor.org/checkResults/devel/bioc-longtests-LATEST/
+[devel-software-build-report]: https://bioconductor.org/checkResults/devel/bioc-LATEST/
 ['devel' version]: #use-devel
 [end-of-life policy]: #package-end-of-life-policy
 [exptdata-pkgs]: https://bioconductor.org/packages/release/data/experiment/
@@ -82,6 +84,7 @@ knitr::write_bib(c(
 [gitver]: #git-version-control
 [guidelines]: #develop-overview
 [long tests]: #long-tests
+[Makevars files]: http://cran.r-project.org/doc/manuals/R-exts.html#Using-Makevars
 [Packages Under Review]: https://github.com/Bioconductor/Contributions/issues
 [Rcpp Gallery]: http://gallery.rcpp.org/
 [R CMD check environment]: #r-cmd-check-environment
@@ -89,11 +92,13 @@ knitr::write_bib(c(
 [R License]: https://www.r-project.org/Licenses/
 [release-schedule]: https://bioconductor.org/developers/release-schedule/
 [release-biocviews]: http://bioconductor.org/packages/release/BiocViews.html
+[release-LongTests-report]: https://bioconductor.org/checkResults/release/bioc-longtests-LATEST/
+[Registering native routines]: http://cran.fhcrc.org/doc/manuals/R-exts.html#Registering-native-routines
 [reviewer-list]: https://bioconductor.org/about/package-reviewers/
+[reviewers slack channel]: https://community-bioc.slack.com/archives/C02A1B8HUHZ
 [rmarkdown]: http://rmarkdown.rstudio.com/
 [rmarkdown documentation]: http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html#citations
 [Shiny apps]: https://shiny.rstudio.com/
-[reviewers slack channel]: https://community-bioc.slack.com/archives/C02A1B8HUHZ
 [software-pkgs]: https://bioconductor.org/packages/release/bioc/
 [support site]: https://support.bioconductor.org/
 [support-register]: https://support.bioconductor.org/accounts/signup/
@@ -144,9 +149,15 @@ knitr::write_bib(c(
 
 [agile]: http://en.wikipedia.org/wiki/Agile_software_development
 [bacon]: https://github.com/chneukirchen/bacon
+[clang]: http://clang.llvm.org/
 [cucumber]: https://cucumber.io
+[gdb]: http://www.gnu.org/software/gdb/
 [JUnit]: http://www.junit.org
+[libc++]: http://libcxx.llvm.org/
+[lldb]: http://lldb.llvm.org/
 [PyUnit]: http://pyunit.sourceforge.net
 [rspec]: https://rspec.info
 [tdd]: http://en.wikipedia.org/wiki/Test-driven_development
 [testy]: https://github.com/ahoward/testy
+[Valgrind]: http://valgrind.org/
+[Xcode]: https://developer.apple.com/xcode/

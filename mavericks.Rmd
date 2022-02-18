@@ -40,8 +40,7 @@ With the release of the Mavericks
 build of R, CRAN and Bioconductor have adopted Apple's preferred
 toolchain for building packages for the Mavericks
 platform. Bioconductor packages are built on the Mavericks platform
-using the OS X default combination of [clang](http://clang.llvm.org/)
-and [Xcode](https://developer.apple.com/xcode/).
+using the OS X default combination of [clang][] and [Xcode][].
 
 The introduction of the Mavericks environment has revealed a number of
 issues with building packages, most of which are due to C/C++ code
@@ -64,7 +63,7 @@ environment contrasts with GCC:
   Mavericks environment is more exacting.
 
 * [C++11](#CXX11) as the default language specification, and clang's
-  [libc++](http://libcxx.llvm.org/). libc++ is an implementation of the
+  [libc++][]. libc++ is an implementation of the
   C++11 standard library written from scratch. At the time of this
   writing the libc++ implementation is only available for Mac OS X.
 
@@ -80,7 +79,7 @@ environment contrasts with GCC:
 ### What is different about developing for the Mavericks environment?
 
 The biggest change is the introduction of clang's
-[libc++](http://libcxx.llvm.org/) implementation of the C++11 standard
+[libc++][] implementation of the C++11 standard
 library and the library headers associated with Xcode. clang is
 gaining market share for several reasons, helped by the fact that
 clang is intended only as a compiler for C-based languages. Advocates
@@ -111,19 +110,16 @@ restrictive about out-of-bounds memory addressing.
 
 #### How to find bugs {#find-bugs}
 
-With GCC the preferred debugger is
-[gdb](http://www.gnu.org/software/gdb/), but many prefer
-[lldb](http://lldb.llvm.org/) for debugging in the Mavericks
-environment. Support for [lldb on other
-platforms](http://lldb.llvm.org/status.html) is limited at this time.
+With GCC the preferred debugger is [gdb][], but many prefer
+[lldb][] for debugging in the Mavericks environment.
 
 Because a number of bugs in packages are related to memory addressing
 or layout errors, relying on a debugger alone might not be sufficient
-to track down memory errors. [Valgrind](http://valgrind.org/) is the
+to track down memory errors. [Valgrind][] is the
 premier tool for detecting memory errors.
 
 See the Bioconductor guide on [debugging C/C++
-code](/developers/how-to/c-debugging/) for examples of using a
+code](#debugging-cc-code) for examples of using a
 debugger and Valgrind.
 
 #### What if I cannot access a Mavericks machine?
@@ -136,9 +132,7 @@ But there are several options short of procuring a Mavericks machine:
 
 1. As an *exploratory measure*, install a more recent version of GCC
 and compile your package with `-std=c++11` or `-std=gnu++11` compiler
-arguments (see [Package
-Guidelines](/developers/package-guidelines#development-compiler-settings)
-for info about development compiler flags); as of [version
+arguments; as of [version
 4.8.1](https://gcc.gnu.org/gcc-4.8/cxx0x_status.html), GCC implements
 all major features of the 2011 ISO C++ standard. Diagnostics for
 errors and warnings have also greatly improved with recent GCC
@@ -153,9 +147,8 @@ on the Mavericks platform are related to memory addressing problems,
 many errors should be equally discoverable using Valgrind on Linux.
 
 4. If you are unable to diagnose your problem using the combination of
-[build system output](http://bioconductor.org/checkResults/) and
-Valgrind, feel free to contact the [bioc-devel mailing
-list](/help/mailing-list/).
+[build system output][build reports] and Valgrind, feel free to contact the
+[bioc-devel][bioc-devel-mail] mailing list.
 
 ## C++11 {#CXX11}
 
@@ -170,7 +163,7 @@ for Snow Leopard will be dropped.
 C++11 is *not* completely backward-compatible with older standards.
 
 It is possible to tell clang to use older versions of the standard
-library (the default is [libc++](http://libcxx.llvm.org/)), but
+library (the default is [libc++][]), but
 relying on OS version-specific compilation settings is not a workable
 long-term solution. This approach greatly increases the maintenance
 burden for package authors and limits the Bioconductor team's ability
@@ -249,9 +242,7 @@ gracefully if OpenMP support is not available:
 #endif
 ```
 
-See the
-[ShortRead](http://bioconductor.org/packages/release/bioc/html/ShortRead.html)
-package for an example of good practices around support for OpenMP.
+See the [ShortRead][] package for an example of good practices around support for OpenMP.
 
 ## C++ Best Practices {#best-practices}
 
@@ -261,15 +252,14 @@ in avoiding issues in the Mavericks environment.
 
 ### Use Rcpp
 
-The [Rcpp](http://cran.r-project.org/web/packages/Rcpp/index.html)
-CRAN package allows seamless integration of C++ with `R`, and is
+The [Rcpp][] CRAN package allows seamless integration of C++ with `R`, and is
 cross-platform. The package affords many of the same benefits for the
 `R` C interface that make C++ so appealing as a language, while
 eliminating many of the pitfalls of programming to the `R` interface.
 
 The package is well documented, and has an extensive repository of
 working examples for many tasks: the [Rcpp
-Gallery](http://gallery.rcpp.org/).
+Gallery][].
 
 ### Avoid name resolution errors {#name-resolution-errors}
 
@@ -537,10 +527,6 @@ environment:
 * Incrementing an iterator *beyond* the *past-the-end* value results
   in a segfault
 
-For a walkthrough example of incrementing beyond *past-the-end*, see
-the [diagnose-a-crash
-example](/developers/how-to/c-debugging/#diagnose-a-crash) on the
-debug C/C++ page.
 
 ### External code sources
 
@@ -604,7 +590,7 @@ Solutions in approximate order of preference:
 2. Re-generate SWIG code with the newest version of SWIG. At the time
    of this writing SWIG was recently updated to include partial
    support for C++11, which might alleviate problems with clang's
-   [libc++](http://libcxx.llvm.org/). See the [SWIG document about
+   [libc++][]. See the [SWIG document about
    C++11 support](http://www.swig.org/Doc3.0/CPlusPlus11.html). It is
    possible the new version will not produce the problematic
    code. Note code must be valid for all supported compilers.
