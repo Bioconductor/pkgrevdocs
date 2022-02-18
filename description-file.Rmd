@@ -16,7 +16,7 @@ This is a brief but descriptive title for the package.
 ## `Version` {#description-ver}
 
 All [_Bioconductor_][] packages use an `x.y.z` version scheme.
-See [Version Numbering](#versionnum) for specifics to how the release
+See [Version Numbering][versioning] for specifics to how the release
 and devel Bioconductor versioning proceeds.  When
 first submitted to Bioconductor, a package should have pre-release version
 `0.99.0`.
@@ -53,22 +53,19 @@ person("Lori", "Shepherd",
 Only one person should be listed as the `Maintainer` to ensure a single point
 of contact.  This person by default will have commit access to the git
 repository on `git.bioconductor.org`.  Commit access can be given to other
-developers by request on the
-[bioc-devel](https://bioconductor.org/help/support/) mailing list.
+developers by request on the [bioc-devel][bioc-devel-mail] mailing list.
 
 Another option is to add [collaborators to the <i class="fab fa-github"></i>
 GitHub][Github collaborators] repository.  This approach enables development by many but restricts
 push access to `git.bioconductor.org`.
 
-[Github collaborators]: https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository
 
 ## `License` {#descrption-license}
 
 The license field should preferably refer to a standard license (see
-[wikipedia](http://en.wikipedia.org/wiki/Comparison_of_free_software_licences))
-using one of <i class="fab fa-r-project"></i>’s standard specifications. <i
-class="fab fa-r-project"></i> ships with the following [standard
-licenses](https://www.r-project.org/Licenses/)
+[wikipedia][wiki-license]) using one of <i class="fab fa-r-project"></i>’s
+standard specifications. <i class="fab fa-r-project"></i> ships with the
+following [standard licenses][R License]
 
 Be specific about any version that applies (e.g., `GPL-2`).
 Licenses restricting use, e.g., to academic or non-profit researchers, are not
@@ -92,11 +89,8 @@ data. There are of course exceptions; please provide reasoning if included.
 
 ## `Depends`, `Imports`, `Suggests`, `Enhances` {#depends-imports-suggests-enhances}
 
-All packages must be available via
-[_Bioconductor_'s
-biocViews](https://bioconductor.org/packages/release/BiocViews.html) or
-[CRAN](https://cran.r-project.org/web/packages/available_packages_by_name.html);
-the use of the `Remotes:` field is not supported, hence dependencies only
+All packages must be available via [_Bioconductor_'s biocViews][biocViews] or
+[CRAN][CRAN pkgs]; the use of the `Remotes:` field is not supported, hence dependencies only
 available on other repositories (e.g. <i class="fab fa-github"></i> GitHub) are
 not allowed nor is specifiy an explicit version of a package.
 
@@ -110,8 +104,7 @@ other packages.  Make use of appropriate existing packages (e.g.,
 `r BiocStyle::Biocpkg("Rle")`,
 `r BiocStyle::Biocpkg("DNAStringSet")`), and
 avoid duplication of functionality available in other Bioconductor packages.
-See [Common Bioconductor Methods and
-Classes][bioc-common].
+See [Common Bioconductor Methods and Classes][bioc-common].
 Bioconductor reviewers are very strict on this point!  New packages should be
 interoperable with existing Bioconductor classes and should not reimplement
 functionality especially with regards to importing/reading data.
@@ -148,8 +141,6 @@ Bioconductor release, and may find it useful to fully specify versions to
 enforce constraints otherwise guaranteed by Bioconductor installation
 practices.
 
-[_Bioconductor_]: https://bioconductor.org
-
 ## `SystemRequirements` {#description-sysdep}
 
 This field is for listing any external software which is required, but not
@@ -165,8 +156,7 @@ vignette). You may show instructions only in unevaluated sections.
 
 This field is **required**!
 
-Specify at least two leaf node from
-[biocViews](https://bioconductor.org/packages/devel/BiocViews.html).
+Specify at least two leaf node from [biocViews][].
 Multiple leaf terms are encouraged but terms must come from the same trunk or
 package type (i.e., `Software`, `AnnotationData`, `ExperimentData`, or
 `Workflow`). `biocViews` terms are case-sensitive.
@@ -184,8 +174,7 @@ GitHub for reporting issues.
 ## `URL` {#description-url}
 
 This field directs users to source code repositories, additional help
-resources, etc; details are provided in the [Writing R
-Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html)
+resources, etc; details are provided in the [Writing R Extensions][]
 manual, `RShowDoc("R-exts")`.
 
 ## `Video` {#description-video}

@@ -6,4 +6,4 @@
 
 The following chapters will go over general package development guidelines and
 what is expected for the different parts of a
-[_Bioconductor_](https://bioconductor.org/) package.
+[_Bioconductor_][] package.

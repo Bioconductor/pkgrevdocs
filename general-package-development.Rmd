@@ -3,29 +3,33 @@
 ## Version of _Bioconductor_ and <i class="fab fa-r-project"></i>
 
 Package developers should always use the [devel version of _Bioconductor_]['devel' version] and
-[_Bioconductor_ packages](https://bioconductor.org/packages/devel/BiocViews.html#___Software) when developing and testing packages to be contributed.
+[_Bioconductor_ packages][biocViews] when developing and testing packages to be contributed.
 
-Depending on the <i class="fab fa-r-project"></i> release cycle, using [_Bioconductor_](https://bioconductor.org/) devel may or may not involve also using the devel version of <i class="fab fa-r-project"></i>.
-See the how-to on [using devel version of Bioconductor]['devel' version] for up-to-date information.
+Depending on the <i class="fab fa-r-project"></i> release cycle, using
+[_Bioconductor_][] devel may or may not involve also using the devel version of
+<i class="fab fa-r-project"></i>. See the how-to on [using devel version of
+Bioconductor]['devel' version] for up-to-date information.
 
 ## Correctness, Space and Time {#correctness-space-and-time}
 
 ### R CMD build {#r-cmd-build}
 
-[_Bioconductor_](https://bioconductor.org/) packages must minimally pass `R CMD build` (or `R CMD INSTALL --build`) and pass `R CMD check` with no errors and no warnings using a recent R-devel.
-Authors should also try to address all errors, warnings, and notes that arise during build or check.
+[_Bioconductor_][] packages must minimally pass `R CMD build` (or `R CMD INSTALL
+--build`) and pass `R CMD check` with no errors and no warnings using a recent
+R-devel. Authors should also try to address all errors, warnings, and notes that
+arise during build or check.
 
 ### BiocCheck {#bioccheck}
 
-Packages must also pass `BiocCheck::BiocCheckGitClone()` and `BiocCheck::BiocCheck('new-package'=TRUE)` with no errors and no warnings.
-The `r BiocStyle::Biocpkg("BiocCheck")` package is a set of tests that encompass [_Bioconductor_](https://bioconductor.org/) Best Practices.
-Every effort should be made to address any errors, warnings, and notes that
-arise during this build or check.
-
+Packages must also pass `BiocCheck::BiocCheckGitClone()` and
+`BiocCheck::BiocCheck('new-package'=TRUE)` with no errors and no warnings. The
+`r BiocStyle::Biocpkg("BiocCheck")` package is a set of tests that encompass
+[_Bioconductor_][] Best Practices. Every effort should be made to address any
+errors, warnings, and notes that arise during this build or check.
 
 ### ERROR, WARNGING, and NOTES {#error-warnging-and-notes}
 
-The [_Bioconductor_](https://bioconductor.org/) team member assigned to review
+The [_Bioconductor_][] team member assigned to review
 the package during the submission process will expect all ERROR, WARNINGS, and
 NOTES to be addressed from both R CMD build, R CMD check, and BiocCheck. If
 there are any remaining, a justification of why they are not corrected will be
@@ -55,7 +59,7 @@ Vignette and man page examples should not use more than 3 GB of memory since <i
 
 For software packages, individual files must be <= 5MB.
 This restriction exists even after the package is accepted and added to the
-[_Bioconductor_](https://bioconductor.org/) repository. See [data section](#data) for
+[_Bioconductor_][] repository. See [data section](#data) for
 advice on packages using large data files. 
 
 ### Undesirable files {#undesirable-files}
@@ -72,7 +76,7 @@ branch and not submitted to the _Bioconductor_ version of the package.
 It is possible to activate or deactivate a number of options in `R CMD build` and `R CMD check`.
 Options can be set as individual environment variables or they can be [listed in a file](https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Checking-and-building-packages).
 Descriptions of all the different options available can be found [here](https://cran.r-project.org/doc/manuals/r-devel/R-ints.html#Tools).
-[_Bioconductor_](https://bioconductor.org/) has chosen to customize some of these options for incoming submission during `R CMD check`.
+[_Bioconductor_][] has chosen to customize some of these options for incoming submission during `R CMD check`.
 The file of utilized flags can be downloaded from [<i class="fab fa-github"></i> GitHub](https://github.com/Bioconductor/packagebuilder/blob/master/check.Renviron).
 The file can either be placed in a default directory as directed [here](https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Checking-and-building-packages) or can be set through environment variable `R_CHECK_ENVIRON` with a command similar to:
 

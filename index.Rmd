@@ -23,14 +23,21 @@ knitr::include_graphics("https://raw.githubusercontent.com/Bioconductor/BiocStic
 ## Introduction {.unnumbered #intro}
 
 
-The [_Bioconductor_](https://bioconductor.org/) project promotes high-quality, well documented, and interoperable software.
-These guidelines help to achieve this objective; they are not meant to put undue burden on package authors, and authors having difficultly satisfying guidelines should seek advice on the [bioc-devel](https://bioconductor.org/help/support/) mailing list.
+The [_Bioconductor_][] project promotes high-quality, well documented, and interoperable software.
+These guidelines help to achieve this objective; they are not meant to put undue
+burden on package authors, and authors having difficultly satisfying guidelines
+should seek advice on the [bioc-devel][bioc-devel-mail] mailing list.
 
-Package maintainers are urged to follow these guidelines as closely as possible when developing [_Bioconductor_](https://bioconductor.org/) packages.
+Package maintainers are urged to follow these guidelines as closely as possible
+when developing [_Bioconductor_][] packages.
 
-General instructions for producing R packages can be found in the [Writing R Extensions](https://cran.r-project.org/doc/manuals/R-exts.html) manual, available from within <i class="fab fa-r-project"></i> (`RShowDoc("R-exts")`) or on the [R web site](http://cran.fhcrc.org/manuals.html).
+General instructions for producing R packages can be found in the [Writing R
+Extensions][] manual, available from within <i class="fab fa-r-project"></i>
+(`RShowDoc("R-exts")`) or on the [R website][].
 
-Remember these are the minimum requirements for package acceptance and the package will still be subject to other guidelines below and a formal technical review by trained [_Bioconductor_](https://bioconductor.org/) package reviewer.
+Remember these are the minimum requirements for package acceptance and the
+package will still be subject to other guidelines below and a formal technical
+review by trained [_Bioconductor_ package reviewer][reviewer-list] .
 
 
 ## Contribute {.unnumbered}
@@ -44,3 +51,62 @@ knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
 ```
+
+[_Bioconductor_]: https://bioconductor.org
+
+[annotation-pkgs]: https://bioconductor.org/packages/release/data/annotation/
+[bioc-common]: #reusebioc
+[bioc-devel-mail]: https://stat.ethz.ch/mailman/listinfo/bioc-devel
+[biocViews]: https://bioconductor.org/packages/devel/BiocViews.html
+[build reports]: https://bioconductor.org/checkResults/
+[build timings]: #propagate
+[cirdep]: https://github.com/Bioconductor/Contributions/blob/master/CONTRIBUTING.md#submitting-related-packages
+[Code Of Conduct]: https://bioconductor.github.io/bioc_coc_multilingual/
+[Contributions]: https://github.com/Bioconductor/Contributions/issues/new
+[CRAN's policy]: https://cran.r-project.org/web/packages/policies.html
+[CRAN pkgs]: https://cran.r-project.org/web/packages/available_packages_by_name.html
+[Create A Hub Package]: https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html
+['devel' version]: #use-devel
+[end-of-life policy]: #package-end-of-life-policy
+[exptdata-pkgs]: https://bioconductor.org/packages/release/data/experiment/
+[Github collaborators]: https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository
+[git-repo-create]: https://help.github.com/articles/create-a-repo/
+[gitver]: #git-version-control
+[guidelines]: #develop-overview
+[R CMD check environment]: #r-cmd-check-environment
+[R Website]: http://cran.fhcrc.org/manuals.html
+[R License]: https://www.r-project.org/Licenses/
+[release-schedule]: https://bioconductor.org/developers/release-schedule/
+[release-biocviews]: http://bioconductor.org/packages/release/BiocViews.html
+[reviewer-list]: https://bioconductor.org/about/package-reviewers/
+[software-pkgs]: https://bioconductor.org/packages/release/bioc/
+[support site]: https://support.bioconductor.org/
+[support-register]: https://support.bioconductor.org/accounts/signup/
+[tracker]: https://github.com/Bioconductor/Contributions
+[versioning]:#versionnum
+[wiki-license]: http://en.wikipedia.org/wiki/Comparison_of_free_software_licences
+[Workflows]: #workflow-packages
+[workflow-pkgs]: https://bioconductor.org/packages/release/workflows/
+[Writing R Extensions]: https://cran.r-project.org/doc/manuals/R-exts.html
+
+
+[AnnotationHub]: https://bioconductor.org/packages/AnnotationHub/
+[BiocCheck]: https://bioconductor.org/packages/BiocCheck/
+[BiocSet]: https://bioconductor.org/packages/BiocSet
+[Biostrings]: https://bioconductor.org/packages/Biostrings
+[ExperimentHub]: https://bioconductor.org/packages/ExperimentHub/
+[GenomicAlignments]: https://bioconductor.org/packages/GenomicAlignments
+[GenomicRanges]: https://bioconductor.org/packages/GenomicRanges
+[GSEABase]: https://bioconductor.org/packages/GSEABase
+[HubPub]: https://bioconductor.org/packages/HubPub/
+[RaggedExperiment]: https://bioconductor.org/packages/RaggedExperiment
+[MsBackendMgf]: https://bioconductor.org/packages/MsBackendMgf
+[MSnbase]: https://bioconductor.org/packages/MSnbase
+[MultiAssayExperiment]: https://bioconductor.org/packages/MultiAssayExperiment
+[Rsamtools]: https://bioconductor.org/packages/Rsamtools
+[rtracklayer]: https://bioconductor.org/packages/rtracklayer
+[ShortRead]: https://bioconductor.org/packages/ShortRead
+[SingleCellExperiment]: https://bioconductor.org/packages/SingleCellExperiment
+[Spectra]: https://bioconductor.org/packages/Spectra
+[SummarizedExperiment]: https://bioconductor.org/packages/SummarizedExperiment
+[VariantAnnotation]: https://bioconductor.org/packages/VariantAnnotation

@@ -35,7 +35,7 @@ To submit a package to _Bioconductor_ the package should:
 * Adopt software best practices that enable reproducible research and
   use, such as full documentation and vignettes (including fully
   evaluated code) as well as commitment to long-term user support
-  through the _Bioconductor_ [support site][support].
+  through the _Bioconductor_ [support site][].
 * Not exist on CRAN. A package can only be submitted to one or the other.
 * Comply with [Package Guidelines][guidelines].
 * Your package cannot depend on any package (or version of a package)
@@ -61,7 +61,7 @@ _Bioconductor_ packages are broadly defined by four main package types:
   storage and access to large raw data files and their conversion to
   standard R formats. Instructions for adding data to AnnotationHub and
   designing a annotation package to use AnnotationHub can be found here:
-  [Creating A Hub Packages][HubHowTo].
+  [Create A Hub Package][].
 
 * [Experiment data packages](#experPackage) provide data sets that are used,
   often by software packages, to illustrate particular analyses. These packages
@@ -71,7 +71,7 @@ _Bioconductor_ packages are broadly defined by four main package types:
   also particularly useful for hosting collections of related data sets.
   Instructions for adding data to ExperimentHub and designing an experiment data
   package to use ExperimentHub can be found here:
-  [Creating A Hub Packages][HubHowTo].
+  [Create A Hub Package][].
 
 * [Workflow packages](#workPackage) contain vignettes that describe a
   bioinformatics workflow that involves multiple Bioconductor packages. These
@@ -148,15 +148,14 @@ package maintenance responsibilities. Package authors are expected to:
   package starts to fail on linux from `BBS-noreply@bioconductor.org`;
   maintainers should check that emails from this email address can be delivered.
 
-* Subscribe to the [bioc-devel](https://bioconductor.org/help/mailing-list/)
-  mailing list
+* Subscribe to the [bioc-devel][bioc-devel-mail] mailing list
 
   The Bioconductor team communicates with developers through this list.
   It is also a good channel to communicate changes to other developers.
   Addressing Bioconductor team requests in a timely manner guarantees that
   your package remains available through Bioconductor.
 
-* [Register][support-register] on and use the [support site][support]
+* [Register][support-register] on and use the [support site][]
 
   The support site is the official support channel for users. Users and even
   developers may ask questions regarding your package on this platform.
@@ -164,7 +163,7 @@ package maintenance responsibilities. Package authors are expected to:
   section of your support site profile. This will notify you of any questions
   posted regarding your package(s).
   It is important to promptly respond to bug reports and questions either on
-  the [_Bioconductor_ support site][support] post or directly to developers.
+  the [_Bioconductor_ support site][support site] post or directly to developers.
   Some maintainers prefer to indicate a `BugReports:` field in their package's
   DESCRIPTION file. This field indicates a particular web page for submitting
   bug reports and questions.
@@ -327,7 +326,7 @@ Following acceptance of a package:
   number of the accepted package.
 * Packages are then built by the _Bioconductor_ nightly build
   process. On-demand builds of accepted packages do not occur. Please see the
-  [build report] for how often the different package types are build. The
+  [build reports][] for how often the different package types are built. The
   changes pushed to a 'devel' version of a package can take up to 24-28 hours to
   appear. See [build timings][]. If the build is successful, the package has its own
   'landing page' created, and the package is made available to users
@@ -355,34 +354,3 @@ package documentation and structure.  Use the
 * Support Email: <maintainer@bioconductor.org>
 
 
-[guidelines]: #develop-overview
-[tracker]: https://github.com/Bioconductor/Contributions
-[biocViews]: https://bioconductor.org/packages/devel/BiocViews.html
-[bioc-common]: #reusebioc
-[software-pkgs]: https://bioconductor.org/packages/release/bioc/
-[annotation-pkgs]: https://bioconductor.org/packages/release/data/annotation/
-[exptdata-pkgs]: https://bioconductor.org/packages/release/data/experiment/
-[workflow-pkgs]: https://bioconductor.org/packages/release/workflows/
-[HubHowTo]: https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html
-[Workflows]: #workflow-packages
-[CRAN's policy]: https://cran.r-project.org/web/packages/policies.html
-[end-of-life policy]: http://bioconductor.org/developers/package-end-of-life/
-[versioning]:#versionnum
-[release-schedule]: https://bioconductor.org/developers/release-schedule/
-[gitver]: #git-version-control
-[build reports]: https://bioconductor.org/checkResults/
-[support-register]: https://support.bioconductor.org/accounts/signup/
-[support]: https://support.bioconductor.org/
-[Contributions]: https://github.com/Bioconductor/Contributions/issues/new
-[git-repo-create]: https://help.github.com/articles/create-a-repo/
-[cirdep]: https://github.com/Bioconductor/Contributions/blob/master/CONTRIBUTING.md#submitting-related-packages
-[ExperimentHub]: https://bioconductor.org/packages/ExperimentHub/
-[AnnotationHub]: https://bioconductor.org/packages/AnnotationHub/
-[HubPub]: https://bioconductor.org/packages/HubPub/
-[Create A Hub Package]: https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html
-[Code Of Conduct]: https://bioconductor.github.io/bioc_coc_multilingual/
-[R CMD check environment]: #r-cmd-check-environment
-[BiocCheck]: https://bioconductor.org/packages/BiocCheck/
-[bioc-devel-mail]: https://stat.ethz.ch/mailman/listinfo/bioc-devel
-[build timings]: #propagate
-['devel' version]: #use-devel

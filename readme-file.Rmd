@@ -5,7 +5,7 @@ README files are not required of Bioconductor packages.
 If a `README` file is included in the package or the <i class="fab
 fa-github"></i> Github  repository and it provides installation instructions,
 those instruction should also include
-[_Bioconductor_](https://bioconductor.org/) installation instructions. See
+[_Bioconductor_][] installation instructions. See
 Bioconductor package installation instructions on any current Bioconductor
 package landing page.
 
