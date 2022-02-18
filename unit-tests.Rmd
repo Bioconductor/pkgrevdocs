@@ -9,17 +9,15 @@ and how they are woven into the standard Bioconductor build process.
 We hope that unit tests will become a standard part of your software
 development, and an integral part of your Bioconductor package.
 
-We recommend either the [RUnit] or [testthat] packages from CRAN to write unit
-tests. RUnit is an _R_ implementation of the [agile] software development
-'XUnit' tools (see also [JUnit], [PyUnit]) each of which tries to encourage, in
+We recommend either the [RUnit][] or [testthat][] packages from CRAN to write unit
+tests. RUnit is an _R_ implementation of the [agile][] software development
+'XUnit' tools (see also [JUnit][], [PyUnit][]) each of which tries to encourage, in
 their respective language, the rapid development of robust useful
 software.  Testthat also draws inspiration from the xUnit family of testing
 packages, as well as from many of the innovative ruby testing libraries, like
-[rspec](https://rspec.info/), [testy](https://github.com/ahoward/testy),
-[bacon](https://github.com/chneukirchen/bacon) and
-[cucumber](https://cucumber.io).
+[rspec][], [testy][], [bacon][] and [cucumber][].
 
-## Motivation
+## Motivation {#tests-motivation}
 
 Why bother with unit testing?
 
@@ -110,7 +108,7 @@ your wrote some months before.  Soon, unit testing will be part of
 your standard practice, and your package will have an increasingly
 complete set of tests.
 
-## Deciding Which Test Framework To Use
+## Deciding Which Test Framework To Use {#which-tests}
 
 RUnit and testthat are both robust testing solutions that are great tools for
 package development, which you choose to use for your package largely comes
@@ -150,7 +148,7 @@ weaknesses of each.
 - Test code is slightly more verbose than the equivalent RUnit tests.
 - Has been available for less time (only since 2009).
 
-## RUnit Usage
+## RUnit Usage {#runit-usage}
 
 ### Adding Tests For Your Code
 
@@ -160,7 +158,7 @@ Three things are required:
    for each function you want to test, using *RUnit*-provided check
    functions.
 2. Add a few small (and idiosyncratic) files in other directories.
-3. Make sure the *RUnit* and [BiocGenerics] packages are available.
+3. Make sure the *RUnit* and [BiocGenerics][] packages are available.
 
 Steps two and three are explained in [conventions for the build
 process](#conventions).
@@ -190,13 +188,13 @@ warning "unusual condition" is generated in the function `f <- function()
 
 use `error=...` to test for specific errors.
 
-### Conventions for the Build Process
+### Conventions for the Build Process {#conventions}
 
 Writing unit tests is easy, though your Bioconductor package must be
 set up properly so that `R CMD check MyPackage` finds and run your
 tests.  We take some pains to describe exactly how things should be
 set up, and what is going on behind the scenes.  (See the [next
-section](#RUnitDuringDeveloment) for the simple technique to use when you
+section](#r-unit-during-develoment) for the simple technique to use when you
 want to test only a small part of your code).
 
 The standard command `R CMD check MyPackage` sources and runs all R
@@ -232,7 +230,7 @@ There are two steps:
    `MyPackage/inst/unitTests/test_homeBrewArithmetic.R`
 
 
-### Using Tests During Development
+### Using Tests During Development {#r-unit-during-develoment}
 
     R CMD check MyPackage
 
@@ -278,7 +276,7 @@ and `MyPackage/inst/unitTests/test_divideBy.R`:
 Remember that your `unitTests/test_XXXX.R` file, or files, can have any
 name(s), as long as they start with `test_`.
 
-## Testthat Usage
+## Testthat Usage {#testthat-usage}
 
 Hadley Wickham, the primary author of testthat has a comprehensive chapter on
 [Testing with testthat] in his R packages book.  There is also an article
@@ -299,58 +297,32 @@ structure.
 1. `devtools::use_testthat()` can be used to setup the testthat testing structure.
 2. Test files are stored in `tests/testthat` rather than `inst/unitTests` and
    should start with `test`.  Richard Cotton's
-   [runittotesthat](https://github.com/richierocks/runittotestthat]) package
+   [runittotesthat](https://github.com/richierocks/runittotestthat) package
    can be used to programmatically convert RUnit tests to testthat format.
 3. You need to add `Suggests: testthat` to your `DESCRIPTION` file rather than
    `Suggests: RUnit, BiocGenerics`.
 
-## Test Coverage
+## Test Coverage {#test-coverage}
 
 [Test coverage](https://en.wikipedia.org/wiki/Code_coverage)
 refers to the percentage of your package code
 that is tested by your unit tests. Packages with higher coverage
 have a lower chance of containing bugs.
 
-Our build system calculates test coverage for every software
-package (using the [covr](https://github.com/jimhester/covr)
-package) and reports the results in a "test coverage" shield
-on the package landing page. The value shown in this shield is
-either a percentage (a number from 0 to 100) or 'unknown', which
-could mean:
-
-* The package has no unit tests, or the unit tests are not
-  properly configured. Read this page from
-  [the beginning](#top) to learn how to add them.
-* The unit tests in the package failed.
-* There was a problem calculating the test coverage.
-  Inquire on the [bioc-devel][] list if you have questions about this.
-
-
 If tests are taking too long to achieve full test coverage, see [long
 tests][]. Before implementing long tests we highly recommend reaching out to the
-bioconductor team on the mailing list bioc-devel@r-project.org to ensure proper
-use and justification.
+bioconductor team on the [bioc-devel][bioc-devel-mail] mailing list to ensure
+proper use and justification.
 
-[long tests]: #long-tests
 
 ## Additional Resources
 
 Some web resources worth reading:
 
-* [An Overview](http://en.wikipedia.org/wiki/Unit_testing)
+* [Unit Testing Wikipedia](http://en.wikipedia.org/wiki/Unit_testing)
 * [An informal account](http://www.daedtech.com/addicted-to-unit-testing)
 * [Test-driven development][tdd]
 * [Agile software development][agile]
-* [Testing with testthat]
-* [testthat: Get Started with Testing]
+* [Testing with testthat][]
+* [testthat: Get Started with Testing][]
 
-[BiocGenerics]: /packages/release/bioc/html/BiocGenerics.html
-[RUnit]: http://cran.r-project.org/web/packages/RUnit/index.html
-[agile]: http://en.wikipedia.org/wiki/Agile_software_development
-[JUnit]: http://www.junit.org
-[PyUnit]: http://pyunit.sourceforge.net
-[tdd]: http://en.wikipedia.org/wiki/Test-driven_development
-[bioc-devel]: https://bioconductor.org/help/mailing-list
-[testthat]: http://cran.r-project.org/web/packages/testthat/index.html
-[Testing with testthat]: http://r-pkgs.had.co.nz/tests.html
-[testthat: Get Started with Testing]: http://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf

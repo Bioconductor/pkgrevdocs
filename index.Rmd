@@ -77,6 +77,7 @@ knitr::write_bib(c(
 [git-repo-create]: https://help.github.com/articles/create-a-repo/
 [gitver]: #git-version-control
 [guidelines]: #develop-overview
+[long tests]: #long-tests
 [R CMD check environment]: #r-cmd-check-environment
 [R Website]: http://cran.fhcrc.org/manuals.html
 [R License]: https://www.r-project.org/Licenses/
@@ -86,6 +87,8 @@ knitr::write_bib(c(
 [software-pkgs]: https://bioconductor.org/packages/release/bioc/
 [support site]: https://support.bioconductor.org/
 [support-register]: https://support.bioconductor.org/accounts/signup/
+[testthat: Get Started with Testing]: http://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf
+[Testing with testthat]: http://r-pkgs.had.co.nz/tests.html
 [tracker]: https://github.com/Bioconductor/Contributions
 [versioning]:#versionnum
 [wiki-license]: http://en.wikipedia.org/wiki/Comparison_of_free_software_licences
@@ -96,6 +99,7 @@ knitr::write_bib(c(
 
 [AnnotationHub]: https://bioconductor.org/packages/AnnotationHub/
 [BiocCheck]: https://bioconductor.org/packages/BiocCheck/
+[BiocGenerics]: https://bioconductor.org/packages/BiocGenerics
 [BiocSet]: https://bioconductor.org/packages/BiocSet
 [Biostrings]: https://bioconductor.org/packages/Biostrings
 [ExperimentHub]: https://bioconductor.org/packages/ExperimentHub/
@@ -109,8 +113,19 @@ knitr::write_bib(c(
 [MultiAssayExperiment]: https://bioconductor.org/packages/MultiAssayExperiment
 [Rsamtools]: https://bioconductor.org/packages/Rsamtools
 [rtracklayer]: https://bioconductor.org/packages/rtracklayer
+[RUnit]: http://cran.r-project.org/web/packages/RUnit/index.html
 [ShortRead]: https://bioconductor.org/packages/ShortRead
 [SingleCellExperiment]: https://bioconductor.org/packages/SingleCellExperiment
 [Spectra]: https://bioconductor.org/packages/Spectra
 [SummarizedExperiment]: https://bioconductor.org/packages/SummarizedExperiment
+[testthat]: http://cran.r-project.org/web/packages/testthat/index.html
 [VariantAnnotation]: https://bioconductor.org/packages/VariantAnnotation
+
+[agile]: http://en.wikipedia.org/wiki/Agile_software_development
+[bacon]: https://github.com/chneukirchen/bacon
+[cucumber]: https://cucumber.io
+[JUnit]: http://www.junit.org
+[PyUnit]: http://pyunit.sourceforge.net
+[rspec]: https://rspec.info
+[tdd]: http://en.wikipedia.org/wiki/Test-driven_development
+[testy]: https://github.com/ahoward/testy
