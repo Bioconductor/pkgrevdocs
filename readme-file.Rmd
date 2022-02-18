@@ -2,10 +2,21 @@
 
 README files are not required of Bioconductor packages.
 
-If a `README` file is included in the package or the <i class="fab fa-github"></i> Github  repository and it provides installation instructions, those instruction should also include [_Bioconductor_](https://bioconductor.org/) installation instructions.
+If a `README` file is included in the package or the <i class="fab
+fa-github"></i> Github  repository and it provides installation instructions,
+those instruction should also include
+[_Bioconductor_](https://bioconductor.org/) installation instructions. See
+Bioconductor package installation instructions on any current Bioconductor
+package landing page.
 
-If a `README.Rmd` is provided (rather than `README.md`, or other) those installation instructions should be in an `eval=FALSE` code chunk.
+If a `README.Rmd` is provided (rather than `README.md`, or other) those
+installation instructions should be in an `eval=FALSE` code chunk.
 
-Nowhere in the code (<i class="fab fa-r-project"></i> code, man pages, vignettes, Rmd files) should someone try to install or download system dependencies, applications, packages, etc.
+Nowhere in the code (<i class="fab fa-r-project"></i> code, man pages,
+vignettes, Rmd files) should someone try to install or download system
+dependencies, applications, packages, etc.
 
-Developers can provide instructions to follow but not executed and should assume all necessary dependencies, applications, or packages are already set up on a user's system.
+Developers can provide instructions to follow but not executed and should assume
+all necessary dependencies, applications, or packages are already set up on a
+user's system. See also [the INSTALL file](#sysdep) for system dependencies
+requirements.
