@@ -27,7 +27,7 @@ knitr::kable(tab)
 ```
 
 Specifics on formatting can be found on the help page for `?news`.
-[_Bioconductor_](https://bioconductor.org/) uses the `NEWS` file to create the semi-annual release announcement.
+[_Bioconductor_][] uses the `NEWS` file to create the semi-annual release announcement.
 It must include list elements and **cannot** be a plain text file.
 
 An example format:
