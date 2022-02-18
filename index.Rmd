@@ -55,6 +55,7 @@ knitr::write_bib(c(
 [_Bioconductor_]: https://bioconductor.org
 
 [annotation-pkgs]: https://bioconductor.org/packages/release/data/annotation/
+[annotation-views]: https://bioconductor.org/packages/release/BiocViews.html#___AnnotationData
 [bioc-common]: #reusebioc
 [bioc-devel-mail]: https://stat.ethz.ch/mailman/listinfo/bioc-devel
 [biocViews]: https://bioconductor.org/packages/devel/BiocViews.html
@@ -71,6 +72,7 @@ knitr::write_bib(c(
 ['devel' version]: #use-devel
 [end-of-life policy]: #package-end-of-life-policy
 [exptdata-pkgs]: https://bioconductor.org/packages/release/data/experiment/
+[exptdata-views]: https://bioconductor.org/packages/release/BiocViews.html#___ExperimentData
 [Github collaborators]: https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository
 [git-repo-create]: https://help.github.com/articles/create-a-repo/
 [gitver]: #git-version-control
