@@ -153,7 +153,7 @@ If the installation process is non-trivial, a top-level `INSTALL` file should
 be included to document the process. If a user facing `README` is included it
 is also recommended to document the process there.
 
-## `biocViews`
+## `biocViews` {#description-biocviews}
 
 This field is **required**!
 
@@ -161,7 +161,12 @@ Specify at least two leaf node from
 [biocViews](https://bioconductor.org/packages/release/BiocViews.html).
 Multiple leaf terms are encouraged but terms must come from the same trunk or
 package type (i.e., `Software`, `AnnotationData`, `ExperimentData`, or
-`Workflow`).
+`Workflow`). `biocViews` terms are case-sensitive.
+
+The field name "biocViews" is case-sensitive and must begin with a lower-case
+'b'. Please use a single line with biocViews seperated by commas
+
+(i.e,`biocViews: GeneTarget, SingleCell`). 
 
 ## `BugReports`
 
