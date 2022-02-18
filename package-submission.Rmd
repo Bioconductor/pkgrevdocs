@@ -273,7 +273,7 @@ use of existing data in a Bioconductor package. See development section on
   build system will run `BiocCheckGitClone()` and `BiocCheck('new-package'=TRUE)` to ensure that
   the package conforms to _Bioconductor_ [BiocCheck][] standards. The system
   will perform these steps using the ['devel'
-  version](#use-devel) of _Bioconductor_, on three platforms
+  version][] of _Bioconductor_, on three platforms
   (Linux, Mac OS X, and Windows).  After these steps are complete, a link to a
   build report will be appended to the new package issue. Avoid surprises by
   running these checks on your own computer, under the 'devel' version
@@ -385,3 +385,4 @@ package documentation and structure.  Use the
 [BiocCheck]: https://bioconductor.org/packages/BiocCheck/
 [bioc-devel-mail]: https://stat.ethz.ch/mailman/listinfo/bioc-devel
 [build timings]: #propagate
+['devel' version]: #use-devel

@@ -12,4 +12,3 @@ package reviews are publicly accessible, therefore any feedback and interactions
 submitted packages must abide by the Bioconductor [Code of Conduct][].
 
 [Packages Under Review]: https://github.com/Bioconductor/Contributions/issues
-[Code of Conduct]: https://bioconductor.org/about/code-of-conduct/
