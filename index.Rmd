@@ -88,6 +88,7 @@ knitr::write_bib(c(
 [release-schedule]: https://bioconductor.org/developers/release-schedule/
 [release-biocviews]: http://bioconductor.org/packages/release/BiocViews.html
 [reviewer-list]: https://bioconductor.org/about/package-reviewers/
+[Shiny apps]: https://shiny.rstudio.com/
 [software-pkgs]: https://bioconductor.org/packages/release/bioc/
 [support site]: https://support.bioconductor.org/
 [support-register]: https://support.bioconductor.org/accounts/signup/
