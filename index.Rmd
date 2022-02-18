@@ -65,6 +65,8 @@ knitr::write_bib(c(
 [Contributions]: https://github.com/Bioconductor/Contributions/issues/new
 [CRAN's policy]: https://cran.r-project.org/web/packages/policies.html
 [CRAN pkgs]: https://cran.r-project.org/web/packages/available_packages_by_name.html
+[CRAN vigs]: http://cran.fhcrc.org/doc/manuals/R-exts.html#Writing-package-vignettes
+[CRAN Rd]: http://cran.fhcrc.org/doc/manuals/R-exts.html#Rd-format
 [Create A Hub Package]: https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html
 ['devel' version]: #use-devel
 [end-of-life policy]: #package-end-of-life-policy
