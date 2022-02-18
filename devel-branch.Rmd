@@ -18,7 +18,6 @@ from the R-x-y-branch) for _Bioconductor_ development.
 See the [BiocManager][] vignette for instructions on using multiple versions
 of _Bioconductor_.
 
-[BiocManager]: https://CRAN.R-project.org/package=BiocManager
 
 ## Using 'bioc-devel' during mid-April to mid-October {#mid-april}
 

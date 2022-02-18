@@ -112,6 +112,7 @@ knitr::write_bib(c(
 [basilisk]: https://www.bioconductor.org/packages/basilisk
 [BiocCheck]: https://bioconductor.org/packages/BiocCheck
 [BiocGenerics]: https://bioconductor.org/packages/BiocGenerics
+[BiocManager]: https://CRAN.R-project.org/package=BiocManager
 [BiocParallel]: https://bioconductor.org/packages/BiocParallel
 [BiocSet]: https://bioconductor.org/packages/BiocSet
 [BiocStyle]: https://bioconductor.org/packages/BiocStyle
