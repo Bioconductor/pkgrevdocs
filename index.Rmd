@@ -76,6 +76,7 @@ knitr::write_bib(c(
 [devel-LongTests-report]: https://bioconductor.org/checkResults/devel/bioc-longtests-LATEST/
 [devel-software-build-report]: https://bioconductor.org/checkResults/devel/bioc-LATEST/
 ['devel' version]: #use-devel
+[docker]: https://bioconductor.org/help/docker/
 [end-of-life policy]: #package-end-of-life-policy
 [exptdata-pkgs]: https://bioconductor.org/packages/release/data/experiment/
 [exptdata-views]: https://bioconductor.org/packages/release/BiocViews.html#___ExperimentData
@@ -93,6 +94,7 @@ knitr::write_bib(c(
 [release-schedule]: https://bioconductor.org/developers/release-schedule/
 [release-biocviews]: http://bioconductor.org/packages/release/BiocViews.html
 [release-LongTests-report]: https://bioconductor.org/checkResults/release/bioc-longtests-LATEST/
+[release-software-build-report]: https://bioconductor.org/checkResults/release/bioc-LATEST/
 [Registering native routines]: http://cran.fhcrc.org/doc/manuals/R-exts.html#Registering-native-routines
 [reviewer-list]: https://bioconductor.org/about/package-reviewers/
 [reviewers slack channel]: https://community-bioc.slack.com/archives/C02A1B8HUHZ
