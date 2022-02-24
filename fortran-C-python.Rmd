@@ -26,7 +26,7 @@ working examples for many tasks: the [Rcpp Gallery][].
 
 ## Python {#python}
 
-The [basilisk][] package is encouraged to integrate python into R packages. Alternatively
+The `r BiocStyle::Biocpkg("basilisk")` package is encouraged to integrate python into R packages. Alternatively
 [reticulate][] may be utilized but basilisk is preferred.  
 
 ## Other {#third-party-code}

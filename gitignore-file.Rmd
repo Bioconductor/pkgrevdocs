@@ -7,7 +7,7 @@ are unacceptable to include. These files can remain on a local system but should
 be excluded from the Git repository which is possible by including a
 `.gitignore` file.
 
-The following are files that are checked by [BiocCheck][] and flagged as unacceptable:
+The following are files that are checked by `r BiocStyle::Biocpkg("BiocCheck")` and flagged as unacceptable:
 
 ```{r, eval=FALSE}
 hidden_file_ext = c(

@@ -197,7 +197,7 @@ examples first check the AnnotationHub resource for available files
 (e.g., BAM, FASTA, BigWig, etc.) or ExperimentHub for available processed
 example data set already included in _Bioconductor_. If no current files or data
 sets are appropriate consider an associated Experiment Data Package that
-utilizes [ExperimentHub][].
+utilizes `r BiocStyle::Biocpkg("ExperimentHub")`.
 
 If you have an associated data package for your software package,
 please do *NOT* create a separate issue in the our tracker repository
@@ -205,8 +205,8 @@ for that. Instead, please add the data package repository to the same
 issue as the software package.  The process for doing this is
 documented [here][cirdep]. Generally the data package should be submitted first.
 
-The [HubPub][] package is helpful for creating a template for a hub package. The
-vignette [Create A Hub Package][] provides full details.
+The `r BiocStyle::Biocpkg("HubPub")` package is helpful for creating a template
+for a hub package. The vignette [Create A Hub Package][] provides full details.
 
 ## Annotation Packages {#annPackage}
 
@@ -221,10 +221,11 @@ Annotation packages should *NOT* be posted to the tracker repository.
 Instead send an email to <packages@bioconductor.org> with a
 description of the proposed annotation package and futher instructions
 of where to send the package will be provided. Whenever possible Annotation
-Packages should use the [AnnotationHub][] for managing files.
+Packages should use the `r BiocStyle::Biocpkg("AnnotationHub")` for managing
+files.
 
-The [HubPub][] package is helpful for creating a template for a hub package. The
-vignette [Create A Hub Package][] provides full details.
+The `r BiocStyle::Biocpkg("HubPub")` package is helpful for creating a template
+for a hub package. The vignette [Create A Hub Package][] provides full details.
 
 <a name="workPackage"></a>
 
@@ -270,8 +271,8 @@ use of existing data in a Bioconductor package. See development section on
   practices. _Bioconductor_ has chosen to utilize a custom `R CMD check`
   environment; See [R CMD check environment][] for more details. Finally, the
   build system will run `BiocCheckGitClone()` and `BiocCheck('new-package'=TRUE)` to ensure that
-  the package conforms to _Bioconductor_ [BiocCheck][] standards. The system
-  will perform these steps using the ['devel'
+  the package conforms to _Bioconductor_ `r BiocStyle::Biocpkg("BiocCheck")`
+  standards. The system will perform these steps using the ['devel'
   version][] of _Bioconductor_, on three platforms
   (Linux, Mac OS X, and Windows).  After these steps are complete, a link to a
   build report will be appended to the new package issue. Avoid surprises by

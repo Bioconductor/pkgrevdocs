@@ -113,39 +113,15 @@ knitr::write_bib(c(
 [Writing R Extensions]: https://cran.r-project.org/doc/manuals/R-exts.html
 [workflow-views]: http://bioconductor.org/packages/devel/BiocViews.html#___Workflow
 
-[AnnotationHub]: https://bioconductor.org/packages/AnnotationHub
-[basilisk]: https://www.bioconductor.org/packages/basilisk
-[BiocCheck]: https://bioconductor.org/packages/BiocCheck
-[BiocGenerics]: https://bioconductor.org/packages/BiocGenerics
 [BiocManager]: https://CRAN.R-project.org/package=BiocManager
-[BiocParallel]: https://bioconductor.org/packages/BiocParallel
-[BiocSet]: https://bioconductor.org/packages/BiocSet
-[BiocStyle]: https://bioconductor.org/packages/BiocStyle
-[BiocWorkflowTools]: http://bioconductor.org/packages/BiocWorkflowTools
-[Biostrings]: https://bioconductor.org/packages/Biostrings
 [dotCall64]: https://CRAN.R-project.org/package=dotCall64
-[ExperimentHub]: https://bioconductor.org/packages/ExperimentHub
 [formatR]: https://cran.r-project.org/web/packages/formatR/index.html
-[GenomicAlignments]: https://bioconductor.org/packages/GenomicAlignments
-[GenomicRanges]: https://bioconductor.org/packages/GenomicRanges
-[GSEABase]: https://bioconductor.org/packages/GSEABase
-[HubPub]: https://bioconductor.org/packages/HubPub/
-[RaggedExperiment]: https://bioconductor.org/packages/RaggedExperiment
 [microbenchmark]: https://cran.r-project.org/web/packages/microbenchmark
-[MsBackendMgf]: https://bioconductor.org/packages/MsBackendMgf
-[MSnbase]: https://bioconductor.org/packages/MSnbase
-[MultiAssayExperiment]: https://bioconductor.org/packages/MultiAssayExperiment
 [Rcpp]: http://cran.r-project.org/web/packages/Rcpp/index.html
 [reticulate]: https://rstudio.github.io/reticulate
-[Rsamtools]: https://bioconductor.org/packages/Rsamtools
-[rtracklayer]: https://bioconductor.org/packages/rtracklayer
 [RUnit]: http://cran.r-project.org/web/packages/RUnit/index.html
-[ShortRead]: https://bioconductor.org/packages/ShortRead
-[SingleCellExperiment]: https://bioconductor.org/packages/SingleCellExperiment
-[Spectra]: https://bioconductor.org/packages/Spectra
-[SummarizedExperiment]: https://bioconductor.org/packages/SummarizedExperiment
 [testthat]: http://cran.r-project.org/web/packages/testthat/index.html
-[VariantAnnotation]: https://bioconductor.org/packages/VariantAnnotation
+
 
 [agile]: http://en.wikipedia.org/wiki/Agile_software_development
 [bacon]: https://github.com/chneukirchen/bacon

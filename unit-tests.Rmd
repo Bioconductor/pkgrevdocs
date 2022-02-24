@@ -158,7 +158,8 @@ Three things are required:
    for each function you want to test, using *RUnit*-provided check
    functions.
 2. Add a few small (and idiosyncratic) files in other directories.
-3. Make sure the *RUnit* and [BiocGenerics][] packages are available.
+3. Make sure the *RUnit* and `r BiocStyle::Biocpkg("BiocGenerics")` packages are
+   available.   
 
 Steps two and three are explained in [conventions for the build
 process](#conventions).

@@ -22,18 +22,19 @@ ExperimentHub interfaces and packages are desirable.
 
 ## Annotation/Experiment Hub packages
 
-These light weight packages are related to resources added to [AnnotationHub][] or
-[ExperimentHub][]. The package should minimally contain the resource metadata, man
-pages describing the resources, and a vignette. It may also contain supporting
-R function the author wants to provide. These packages are similar to the
-above Annotation or Experiment data packages except the data is stored
-in a provided _Bioconductor_ Microsoft [Azure Data Lakes][]
+These light weight packages are related to resources added to
+`r BiocStyle::Biocpkg("AnnotationHub")` or
+`r BiocStyle::Biocpkg("ExperimentHub")`. The package should minimally contain
+the resource metadata, man pages describing the resources, and a vignette. It
+may also contain supporting R function the author wants to provide. These
+packages are similar to the above Annotation or Experiment data packages except
+the data is stored in a provided _Bioconductor_ Microsoft [Azure Data Lakes][]
 or publicly accessibly sites (ensembl, AWS S3 buckets, etc) instead of in the
 package itself.
 
 There is more information about creating a hub packages as well as the contents
-of on in the [Create A Hub Package][] vignette within the [HubPub][] Bioconductor
-package.
+of on in the [Create A Hub Package][] vignette within the
+`r BiocStyle::Biocpkg("HubPub")` Bioconductor package.
 
 ## Workflow packages
 
@@ -81,9 +82,9 @@ expected the majority of vignette code chunks are evaluated.
 ### Consistent formatting
 
 * In an effort to standardize the workflow vignette format, it is strongly
-  encouraged to use either [BiocStyle][] for formatting or utilize
-  [BiocWorkflowTools][]. The following header shows how to use [BiocStyle][] in
-  the vignette:  
+  encouraged to use either `r BiocStyle::Biocpkg("BiocStyle")` for formatting or
+  utilize `r BiocStyle::Biocpkg("BiocWorkflowTools")`. The following header
+  shows how to use `r BiocStyle::Biocpkg("BiocStyle")` in the vignette:
 
 	```
 	output:

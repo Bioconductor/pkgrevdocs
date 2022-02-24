@@ -413,8 +413,8 @@ negative.
 
 ### Parallel Recommendations
 
-We recommend using [BiocParallel][]. It provides a consistent
-interface to the user and supports the major parallel computing
+We recommend using `r BiocStyle::Biocpkg("BiocParallel")`. It provides a
+consistent interface to the user and supports the major parallel computing
 styles: forks and processes on a single computer, ad hoc clusters,
 batch schedulers and cloud computing. By default, `BiocParallel`
 chooses a parallel back-end appropriate for the OS and is supported

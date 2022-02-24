@@ -242,7 +242,7 @@ gracefully if OpenMP support is not available:
 #endif
 ```
 
-See the [ShortRead][] package for an example of good practices around support for OpenMP.
+See the `r BiocStyle::Biocpkg("ShortRead")` package for an example of good practices around support for OpenMP.
 
 ## C++ Best Practices {#best-practices}
 

@@ -82,35 +82,37 @@ searching in [biocViews][] for your data type.
 
 ### Importing {#commonimport}
 
-+ GTF, GFF, BED, BigWig, etc., -- [rtracklayer][]`::import()`
-+ VCF -- [VariantAnnotation][]`::readVcf()`
-+ SAM / BAM -- [Rsamtools][]`::scanBam()`,
-  [GenomicAlignments][]`::readGAlignment*()`
-+ FASTA -- [Biostrings][]`::readDNAStringSet()`
-+ FASTQ -- [ShortRead][]`::readFastq()`
-+ MS data (XML-based and mgf formats) -- [Spectra][]`::Spectra()`, 
-  [MSnbase][]`::readMSData()`, [Spectra][]`::Spectra(source = MsBackendMgf::MsBackendMgf())`, 
-  [MSnbase][]`::readMgfData()`
++ GTF, GFF, BED, BigWig, etc., -- `r BiocStyle::Biocpkg("rtracklayer")` `::import()`
++ VCF -- `r BiocStyle::Biocpkg("VariantAnnotation")` `::readVcf()`
++ SAM / BAM -- `r BiocStyle::Biocpkg("Rsamtools")` `::scanBam()`,
+  `r BiocStyle::Biocpkg("GenomicAlignments")` `::readGAlignment*()`
++ FASTA -- `r BiocStyle::Biocpkg("Biostrings")` `::readDNAStringSet()`
++ FASTQ -- `r BiocStyle::Biocpkg("ShortRead")` `::readFastq()`
++ MS data (XML-based and mgf formats) -- `r BiocStyle::Biocpkg("Spectra")` `::Spectra()`, 
+  `r BiocStyle::Biocpkg("MSnbase")` `::readMSData()`,
+  `r BiocStyle::Biocpkg("Spectra")` `::Spectra(source = MsBackendMgf::MsBackendMgf())`, 
+  `r BiocStyle::Biocpkg("MSnbase")` `::readMgfData()`
 
 ### Common Classes {#commonclass}
 
 + Rectangular feature x sample data --
-  [SummarizedExperiment][]`::SummarizedExperiment()` (RNAseq count
+  `r BiocStyle::Biocpkg("SummarizedExperiment")` `::SummarizedExperiment()` (RNAseq count
   matrix, microarray, ...)
-+ Genomic coordinates -- [GenomicRanges][]`::GRanges()` (1-based,
++ Genomic coordinates -- `r BiocStyle::Biocpkg("GenomicRanges")` `::GRanges()` (1-based,
   closed interval)
 + Genomic coordinates from multiple samples --
-  [GenomicRanges][]`::GRangesList()`
-+ Ragged genomic coordinates -- [RaggedExperiment][]`::RaggedExperiment()`
-+ DNA / RNA / AA sequences -- [Biostrings][]`::*StringSet()`
-+ Gene sets -- [BiocSet][]`::BiocSet()`,
-  [GSEABase][]`::GeneSet()`,
-  [GSEABase][]`::GeneSetCollection()`
+  `r BiocStyle::Biocpkg("GenomicRanges")` `::GRangesList()`
++ Ragged genomic coordinates -- `r BiocStyle::Biocpkg("RaggedExperiment")` `::RaggedExperiment()`
++ DNA / RNA / AA sequences -- `r BiocStyle::Biocpkg("Biostrings")` `::*StringSet()`
++ Gene sets -- `r BiocStyle::Biocpkg("BiocSet")` `::BiocSet()`,
+  `r BiocStyle::Biocpkg("GSEABase")` `::GeneSet()`,
+  `r BiocStyle::Biocpkg("GSEABase")` `::GeneSetCollection()`
 + Multi-omics data --
-  [MultiAssayExperiment][]`::MultiAssayExperiment()`
+  `r BiocStyle::Biocpkg("MultiAssayExperiment")` `::MultiAssayExperiment()`
 + Single cell data --
-  [SingleCellExperiment][]`::SingleCellExperiment()`
-+ Mass spec data -- [Spectra][]`::Spectra()`, [MSnbase][]`::MSnExp()`
+  `r BiocStyle::Biocpkg("SingleCellExperiment")` `::SingleCellExperiment()`
++ Mass spec data -- `r BiocStyle::Biocpkg("Spectra")` `::Spectra()`,
+  `r BiocStyle::Biocpkg("MSnbase")` `::MSnExp()`
 
 
 In general, a package will not be accepted if it does not show interoperability
