@@ -9,14 +9,14 @@
 <meta name="author" content="Daniela Cassol">
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
-<meta name="description" content="If the package contains C or Fortran code, it should adhere to the standards and methods described in the System and foreign language interfaces section of the “Writing R Extensions” manual. We...">
+<meta name="description" content="If the package contains C or Fortran code, it should adhere to the standards and methods described in the System and foreign language interfaces section of the Writing R Extensions manual. We...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="D C and Fortran code | Bioconductor Packages: Development, Maintenance, and Peer Review">
 <meta property="og:type" content="book">
-<meta property="og:description" content="If the package contains C or Fortran code, it should adhere to the standards and methods described in the System and foreign language interfaces section of the “Writing R Extensions” manual. We...">
+<meta property="og:description" content="If the package contains C or Fortran code, it should adhere to the standards and methods described in the System and foreign language interfaces section of the Writing R Extensions manual. We...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="D C and Fortran code | Bioconductor Packages: Development, Maintenance, and Peer Review">
-<meta name="twitter:description" content="If the package contains C or Fortran code, it should adhere to the standards and methods described in the System and foreign language interfaces section of the “Writing R Extensions” manual. We...">
+<meta name="twitter:description" content="If the package contains C or Fortran code, it should adhere to the standards and methods described in the System and foreign language interfaces section of the Writing R Extensions manual. We...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -45,7 +45,7 @@
 <li><a class="" href="index.html">Welcome</a></li>
 <li class="book-part">Package Submissions</li>
 <li><a class="" href="submission-overview.html">Overview</a></li>
-<li><a class="" href="software-package-submissions.html"><span class="header-section-number">1</span> Software Package Submissions</a></li>
+<li><a class="" href="bioconductor-package-submissions.html"><span class="header-section-number">1</span> Bioconductor Package Submissions</a></li>
 <li class="book-part">Package Development Guidelines</li>
 <li><a class="" href="develop-overview.html">Overview</a></li>
 <li><a class="" href="package-name.html"><span class="header-section-number">2</span> Package name</a></li>
@@ -97,7 +97,9 @@
 <h1>
 <span class="header-section-number">D</span> C and Fortran code<a class="anchor" aria-label="anchor" href="#c-fortran"><i class="fas fa-link"></i></a>
 </h1>
-<p>If the package contains C or Fortran code, it should adhere to the standards and methods described in the <a href="http://cran.r-project.org/doc/manuals/R-exts.html#System-and-foreign-language-interfaces">System and foreign language interfaces</a> section of the “Writing R Extensions” manual.</p>
+<p>If the package contains C or Fortran code, it should adhere to the standards and
+methods described in the <a href="http://cran.r-project.org/doc/manuals/R-exts.html#System-and-foreign-language-interfaces">System and foreign language interfaces</a>
+section of the <a href="https://cran.r-project.org/doc/manuals/R-exts.html">Writing R Extensions</a> manual.</p>
 <p>We emphasie particular points in the following sections.</p>
 <div id="internal-functions" class="section level3" number="32.0.1">
 <h3>
@@ -109,7 +111,8 @@
 <h3>
 <span class="header-section-number">D.0.2</span> C function registration<a class="anchor" aria-label="anchor" href="#c-function-registration"><i class="fas fa-link"></i></a>
 </h3>
-<p>Use C function registration (See the <a href="http://cran.fhcrc.org/doc/manuals/R-exts.html#Registering-native-routines">Registering native routines</a> section of the “Writing R Extensions” manual).</p>
+<p>Use C function registration (See the <a href="http://cran.fhcrc.org/doc/manuals/R-exts.html#Registering-native-routines">Registering native routines</a> section of
+the <a href="https://cran.r-project.org/doc/manuals/R-exts.html">Writing R Extensions</a> manual).</p>
 </div>
 <div id="checks-for-user-interruption" class="section level3" number="32.0.3">
 <h3>
@@ -122,16 +125,17 @@
 <span class="header-section-number">D.0.4</span> Makevars<a class="anchor" aria-label="anchor" href="#makevars-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>Make judicious use of the <code>Makevars</code> and <code>Makefile</code> files within a package.
-These are often not required at all (See the <a href="http://cran.fhcrc.org/doc/manuals/R-exts.html#Configure-and-cleanup">Configure and cleanup</a> section of the “Writing R Extensions” manual).</p>
+These are often not required at all (See the <a href="http://cran.fhcrc.org/doc/manuals/R-exts.html#Configure-and-cleanup">Configure and cleanup</a> section of the <a href="https://cran.r-project.org/doc/manuals/R-exts.html">Writing R Extensions</a> manual).</p>
 </div>
 <div id="warnings-and-optimizations" class="section level3" number="32.0.5">
 <h3>
 <span class="header-section-number">D.0.5</span> Warnings and optimizations<a class="anchor" aria-label="anchor" href="#warnings-and-optimizations"><i class="fas fa-link"></i></a>
 </h3>
 <p>During package development, enable all warnings and disable optimizations.
-If you plan to <a href="https://bioconductor.org/developers/how-to/c-debugging/">use a debugger</a>, tell the compiler to include debugging symbols.</p>
+If you plan to <a href="debugging-cc-code.html#debugging-cc-code">use a debugger</a>, tell the compiler to
+include debugging symbols.</p>
 <p>The easiest way to enforce these is to create a user-level <code>Makevars</code> file user’s home directory in a sub-directory called ‘.R’). See examples below for flags for common toolchains.
-Consult the section about <a href="http://cran.r-project.org/doc/manuals/R-exts.html#Using-Makevars">Makevars files</a> in the <a href="http://cran.r-project.org/doc/manuals/R-exts.html#Using-Makevars">Writing R Extensions Manual</a> manual.</p>
+Consult the section about <a href="http://cran.r-project.org/doc/manuals/R-exts.html#Using-Makevars">Makevars files</a> in the <a href="https://cran.r-project.org/doc/manuals/R-exts.html">Writing R Extensions</a> manual.</p>
 <p>Example for gcc/g++:</p>
 <pre><code>CFLAGS=-Wall -Wextra -pedantic -O0 -ggdb
 CXXFLAGS=-Wall -Wextra -pedantic -O0 -ggdb
@@ -173,7 +177,7 @@ FFLAGS=-Wall -Wextra -pedantic -O0 -g</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-17.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

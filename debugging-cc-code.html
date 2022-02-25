@@ -45,7 +45,7 @@
 <li><a class="" href="index.html">Welcome</a></li>
 <li class="book-part">Package Submissions</li>
 <li><a class="" href="submission-overview.html">Overview</a></li>
-<li><a class="" href="software-package-submissions.html"><span class="header-section-number">1</span> Software Package Submissions</a></li>
+<li><a class="" href="bioconductor-package-submissions.html"><span class="header-section-number">1</span> Bioconductor Package Submissions</a></li>
 <li class="book-part">Package Development Guidelines</li>
 <li><a class="" href="develop-overview.html">Overview</a></li>
 <li><a class="" href="package-name.html"><span class="header-section-number">2</span> Package name</a></li>
@@ -145,12 +145,9 @@ section.</p>
 </h2>
 <p>If you have never used a command-line debugger, there are many fine
 quick-start guides on the web; it is not as daunting as it seems.</p>
-<p>On Linux the preferred debugger is
-<a href="http://www.gnu.org/software/gdb/">gdb</a>, but
-<a href="http://lldb.llvm.org/">lldb</a> is default for the Mavericks
+<p>On Linux the preferred debugger is <a href="http://www.gnu.org/software/gdb/">gdb</a>, but <a href="http://lldb.llvm.org/">lldb</a> is default for the Mavericks
 platform. The interfaces are similar, but if you are accustomed to
-gdb, see the <a href="http://lldb.llvm.org/lldb-gdb.html">gdb to lldb command
-map</a>.</p>
+gdb, see the <a href="http://lldb.llvm.org/lldb-gdb.html">gdb to lldb command map</a>.</p>
 <p>Start <code>R</code> with a C-level debugger such as gdb.</p>
 <pre><code>R -d gdb -f buggy.R</code></pre>
 <p>You’ll end up at the gdb prompt</p>
@@ -296,7 +293,7 @@ incrementing iterator <code>it</code> at line #16 (<code>++it;</code>), the valu
 is the <a href="http://www.cplusplus.com/reference/map/map/end/">special
 <em>past-the-end</em></a>
 value. Incrementing an iterator beyond <em>past-the-end</em> (the third
-<code>++it;</code> at line #17) is <a href="/developers/how-to/mavericks-howto/#undefined-behavior">undefined
+<code>++it;</code> at line #17) is <a href="cmavericks-best-practices.html#undefined-behavior">undefined
 behavior</a>!</p></li>
 </ol>
 <p>If we revise <code>buggy.cpp</code> to not increment <code>it</code> beyond <em>past-the-end</em>
@@ -331,7 +328,7 @@ collection. We suspect RCurl rather than R or libcurl (other possible
 players) because it is the least tested of the code. We could be
 wrong, of course… After many iterations, my colleague arrived at
 buggy24.R:</p>
-<div class="sourceCode" id="cb169"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb175"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">RCurl</span><span class="op">)</span>
 
 <span class="va">foo</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span>
@@ -490,7 +487,7 @@ of the code.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-17.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

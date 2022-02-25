@@ -45,7 +45,7 @@
 <li><a class="" href="index.html">Welcome</a></li>
 <li class="book-part">Package Submissions</li>
 <li><a class="" href="submission-overview.html">Overview</a></li>
-<li><a class="" href="software-package-submissions.html"><span class="header-section-number">1</span> Software Package Submissions</a></li>
+<li><a class="" href="bioconductor-package-submissions.html"><span class="header-section-number">1</span> Bioconductor Package Submissions</a></li>
 <li class="book-part">Package Development Guidelines</li>
 <li><a class="" href="develop-overview.html">Overview</a></li>
 <li><a class="" href="package-name.html"><span class="header-section-number">2</span> Package name</a></li>
@@ -120,15 +120,18 @@ ExperimentHub interfaces and packages are desirable.</p>
 <h2>
 <span class="header-section-number">18.2</span> Annotation/Experiment Hub packages<a class="anchor" aria-label="anchor" href="#annotationexperiment-hub-packages"><i class="fas fa-link"></i></a>
 </h2>
-<p>These light weight packages are related to resources added to AnnotationHub or
-ExperimentHub. The package should minimally contain the resource metadata, man
-pages describing the resources, and a vignette. It may also contain supporting
-R function the author wants to provide. These packages are similar to the
-above Annotation or Experiment data packages except the data is stored in AWS S3
-buckets or publicly accessibly sites instead of in the package itself.</p>
+<p>These light weight packages are related to resources added to
+<em><a href="https://bioconductor.org/packages/3.15/AnnotationHub">AnnotationHub</a></em> or
+<em><a href="https://bioconductor.org/packages/3.15/ExperimentHub">ExperimentHub</a></em>. The package should minimally contain
+the resource metadata, man pages describing the resources, and a vignette. It
+may also contain supporting R function the author wants to provide. These
+packages are similar to the above Annotation or Experiment data packages except
+the data is stored in a provided <em>Bioconductor</em> Microsoft <a href="https://azure.microsoft.com/en-us/services/data-lake-analytics">Azure Data Lakes</a>
+or publicly accessibly sites (ensembl, AWS S3 buckets, etc) instead of in the
+package itself.</p>
 <p>There is more information about creating a hub packages as well as the contents
-of on in the <a href="https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html">Creating a Hub Package</a> vignette within the <code>HubPub</code> Bioconductor
-package.</p>
+of on in the <a href="https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html">Create A Hub Package</a> vignette within the
+<em><a href="https://bioconductor.org/packages/3.15/HubPub">HubPub</a></em> Bioconductor package.</p>
 </div>
 <div id="workflow-packages" class="section level2" number="18.3">
 <h2>
@@ -145,26 +148,24 @@ than typical Bioconductor package vignettes. For this reason, the automated buil
 produces these vignettes does not have a time limit (in contrast to the Bioconductor package
 building system which will time out if package building takes too long). It is
 expected the majority of vignette code chunks are evaluated.</p>
-<div id="how-do-i-write-and-submit-a-workflow-vignette" class="section level3" number="18.3.1">
+<div id="submit-workflow" class="section level3" number="18.3.1">
 <h3>
-<span class="header-section-number">18.3.1</span> How do I write and submit a workflow vignette?<a class="anchor" aria-label="anchor" href="#how-do-i-write-and-submit-a-workflow-vignette"><i class="fas fa-link"></i></a>
+<span class="header-section-number">18.3.1</span> How do I write and submit a workflow vignette?<a class="anchor" aria-label="anchor" href="#submit-workflow"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
 <li><p>Write a package with the same name as the workflow. The workflow vignette
-written in Markdown, using the <a href="http://rmarkdown.rstudio.com/">rmarkdown</a>
-package should be included in the vignette directory. You may include more than
-one vignette but please use useful identifying names.</p></li>
+written in Markdown, using the <a href="http://rmarkdown.rstudio.com/">rmarkdown</a> package should be included in the
+vignette directory. You may include more than one vignette but please use
+useful identifying names.</p></li>
 <li><p>The package does not need man/ or R/ directories nor a data/ directory as
 ideally workflows make use of existing data in a Bioconductor repository or on
 the web; the workflow package itself should not contain large data files.</p></li>
-<li><p>In the DESCRIPTION file, include the line “BiocType: Workflow.” Please also
+<li><p>In the DESCRIPTION file, include the line “BiocType: Workflow”. Please also
 include a detailed Description field in the DESCRIPTION file. The DESCRIPTION
 file should contain biocViews which should be from the <a href="http://bioconductor.org/packages/devel/BiocViews.html#___Workflow">Workflow
-branch</a>. If
-you think a new term is relevant please reach out to
+branch</a>. If you think a new term is relevant please reach out to
 <a href="mailto:lori.shepherd@roswellpark.org" class="email">lori.shepherd@roswellpark.org</a>.</p></li>
-<li><p>Submit the package to the <a href="https://github.com/Bioconductor/Contributions">GitHub submission
-tracker</a> for a formal
+<li><p>Submit the package to the <a href="https://github.com/Bioconductor/Contributions">GitHub submission tracker</a> for a formal
 review. Please also indicate in the tracker issue that this package is a
 workflow.</p></li>
 <li><p>Workflows are git version controlled. Once the package is accepted it will be
@@ -179,9 +180,9 @@ be sent for gaining access for maintainence.</p></li>
 <ul>
 <li>
 <p>In an effort to standardize the workflow vignette format, it is strongly
-encouraged to use either BiocStyle for formatting or utilize
-<a href="http://bioconductor.org/packages/BiocWorkflowTools/">BiocWorkflowTools</a>.
-The following header shows how to use BiocStyle in the vignette:</p>
+encouraged to use either <em><a href="https://bioconductor.org/packages/3.15/BiocStyle">BiocStyle</a></em> for formatting or
+utilize <em><a href="https://bioconductor.org/packages/3.15/BiocWorkflowTools">BiocWorkflowTools</a></em>. The following header
+shows how to use <em><a href="https://bioconductor.org/packages/3.15/BiocStyle">BiocStyle</a></em> in the vignette:</p>
 <pre><code>output:
     BiocStyle::html_document</code></pre>
 </li>
@@ -195,7 +196,7 @@ The following header shows how to use BiocStyle in the vignette:</p>
 Bioconductor version, and package version should be visible.
 The following is an example of how this could be achieved:</p>
 <pre><code>&lt;p&gt;
-**R version**: R Under development (unstable) (2022-02-14 r81736)
+**R version**: R Under development (unstable) (2022-02-17 r81757)
 &lt;br /&gt;
 **Bioconductor version**: 3.15
 &lt;br /&gt;
@@ -287,7 +288,7 @@ library(RNAseqData.HNRNPC.bam.chr14)
 <p>To manage citations in your workflow document,
 specify the bibliography file in the document metadata header.</p>
 <pre><code>bibliography: references.bib</code></pre>
-<p>You can then use citation keys in the form of <code>[@label]</code> to cite an entry with an identifier “label.”</p>
+<p>You can then use citation keys in the form of <code>[@label]</code> to cite an entry with an identifier “label”.</p>
 <p>Normally, you will want to end your document with a section header “References” or similar, after which the bibliography will be appended.</p>
 <p>For more details see the <a href="http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html#citations">rmarkdown documentation</a>.</p>
 
@@ -305,7 +306,7 @@ specify the bibliography file in the document metadata header.</p>
 <li><a class="nav-link" href="#annotationexperiment-hub-packages"><span class="header-section-number">18.2</span> Annotation/Experiment Hub packages</a></li>
 <li>
 <a class="nav-link" href="#workflow-packages"><span class="header-section-number">18.3</span> Workflow packages</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#how-do-i-write-and-submit-a-workflow-vignette"><span class="header-section-number">18.3.1</span> How do I write and submit a workflow vignette?</a></li>
+<li><a class="nav-link" href="#submit-workflow"><span class="header-section-number">18.3.1</span> How do I write and submit a workflow vignette?</a></li>
 <li><a class="nav-link" href="#consistent-formatting"><span class="header-section-number">18.3.2</span> Consistent formatting</a></li>
 <li><a class="nav-link" href="#tidying-package-loading-output"><span class="header-section-number">18.3.3</span> Tidying package loading output</a></li>
 <li><a class="nav-link" href="#citations"><span class="header-section-number">18.3.4</span> Citations</a></li>
@@ -328,7 +329,7 @@ specify the bibliography file in the document metadata header.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-17.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

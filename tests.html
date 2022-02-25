@@ -45,7 +45,7 @@
 <li><a class="" href="index.html">Welcome</a></li>
 <li class="book-part">Package Submissions</li>
 <li><a class="" href="submission-overview.html">Overview</a></li>
-<li><a class="" href="software-package-submissions.html"><span class="header-section-number">1</span> Software Package Submissions</a></li>
+<li><a class="" href="bioconductor-package-submissions.html"><span class="header-section-number">1</span> Bioconductor Package Submissions</a></li>
 <li class="book-part">Package Development Guidelines</li>
 <li><a class="" href="develop-overview.html">Overview</a></li>
 <li><a class="" href="package-name.html"><span class="header-section-number">2</span> Package name</a></li>
@@ -111,12 +111,10 @@ tests. RUnit is an <em>R</em> implementation of the <a href="http://en.wikipedia
 their respective language, the rapid development of robust useful
 software. Testthat also draws inspiration from the xUnit family of testing
 packages, as well as from many of the innovative ruby testing libraries, like
-<a href="https://rspec.info/">rspec</a>, <a href="https://github.com/ahoward/testy">testy</a>,
-<a href="https://github.com/chneukirchen/bacon">bacon</a> and
-<a href="https://cucumber.io">cucumber</a>.</p>
-<div id="motivation-1" class="section level2" number="14.1">
+<a href="https://rspec.info">rspec</a>, <a href="https://github.com/ahoward/testy">testy</a>, <a href="https://github.com/chneukirchen/bacon">bacon</a> and <a href="https://cucumber.io">cucumber</a>.</p>
+<div id="tests-motivation" class="section level2" number="14.1">
 <h2>
-<span class="header-section-number">14.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.1</span> Motivation<a class="anchor" aria-label="anchor" href="#tests-motivation"><i class="fas fa-link"></i></a>
 </h2>
 <p>Why bother with unit testing?</p>
 <p>Imagine that you need a function <code>divideBy</code> taking two arguments,
@@ -184,7 +182,7 @@ remains easily and automatically validated.</p>
 <p>Some proponents suggest that the benefits of unit testing extend
 further: that code design itself improves. They argue that the
 operational definition of a function through its tests encourages
-clean design, the ‘separation of concerns,’ and sensible handling of
+clean design, the ‘separation of concerns’, and sensible handling of
 edge cases.</p>
 <p>Finally, unit testing can be <strong>adopted piecemeal</strong>. Add a single test
 to your package, even if only a test for a minor feature, and both you
@@ -194,9 +192,9 @@ your wrote some months before. Soon, unit testing will be part of
 your standard practice, and your package will have an increasingly
 complete set of tests.</p>
 </div>
-<div id="deciding-which-test-framework-to-use" class="section level2" number="14.2">
+<div id="which-tests" class="section level2" number="14.2">
 <h2>
-<span class="header-section-number">14.2</span> Deciding Which Test Framework To Use<a class="anchor" aria-label="anchor" href="#deciding-which-test-framework-to-use"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.2</span> Deciding Which Test Framework To Use<a class="anchor" aria-label="anchor" href="#which-tests"><i class="fas fa-link"></i></a>
 </h2>
 <p>RUnit and testthat are both robust testing solutions that are great tools for
 package development, which you choose to use for your package largely comes
@@ -266,9 +264,10 @@ real-time test results.</li>
 for each function you want to test, using <em>RUnit</em>-provided check
 functions.</li>
 <li>Add a few small (and idiosyncratic) files in other directories.</li>
-<li>Make sure the <em>RUnit</em> and <a href="/packages/release/bioc/html/BiocGenerics.html">BiocGenerics</a> packages are available.</li>
+<li>Make sure the <em>RUnit</em> and <em><a href="https://bioconductor.org/packages/3.15/BiocGenerics">BiocGenerics</a></em> packages are
+available.</li>
 </ol>
-<p>Steps two and three are explained in <a href="#conventions">conventions for the build
+<p>Steps two and three are explained in <a href="tests.html#conventions">conventions for the build
 process</a>.</p>
 <p>These are the <em>RUnit</em> check methods:</p>
 <pre><code>checkEquals(expression-A, expression-B)
@@ -287,14 +286,14 @@ warning “unusual condition” is generated in the function <code>f &lt;- funct
 checkIdentical("unusual condition", obs)</code></pre>
 <p>use <code>error=...</code> to test for specific errors.</p>
 </div>
-<div id="conventions-for-the-build-process" class="section level3" number="14.3.2">
+<div id="conventions" class="section level3" number="14.3.2">
 <h3>
-<span class="header-section-number">14.3.2</span> Conventions for the Build Process<a class="anchor" aria-label="anchor" href="#conventions-for-the-build-process"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.3.2</span> Conventions for the Build Process<a class="anchor" aria-label="anchor" href="#conventions"><i class="fas fa-link"></i></a>
 </h3>
 <p>Writing unit tests is easy, though your Bioconductor package must be
 set up properly so that <code>R CMD check MyPackage</code> finds and run your
 tests. We take some pains to describe exactly how things should be
-set up, and what is going on behind the scenes. (See the <a href="#RUnitDuringDeveloment">next
+set up, and what is going on behind the scenes. (See the <a href="tests.html#r-unit-during-develoment">next
 section</a> for the simple technique to use when you
 want to test only a small part of your code).</p>
 <p>The standard command <code>R CMD check MyPackage</code> sources and runs all R
@@ -304,7 +303,7 @@ invention and style into one or more files in this <code>tests</code> directory.
 <p><em>RUnit</em> was added to this already-existing structure and practice
 about 2005, and the additions can be confusing, beginning with the
 indirect way in which your test functions are found and executed. (But
-follow these steps and all should be well. Post to <a href="https://bioconductor.org/help/mailing-list">bioc-devel</a> if
+follow these steps and all should be well. Post to [bioc-devel][] if
 you run into any difficulty.)</p>
 <p>There are two steps:</p>
 <ol style="list-style-type: decimal">
@@ -328,9 +327,9 @@ wrote, and for which you provide tests, a more descriptive filename
 </li>
 </ol>
 </div>
-<div id="using-tests-during-development" class="section level3" number="14.3.3">
+<div id="r-unit-during-develoment" class="section level3" number="14.3.3">
 <h3>
-<span class="header-section-number">14.3.3</span> Using Tests During Development<a class="anchor" aria-label="anchor" href="#using-tests-during-development"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.3.3</span> Using Tests During Development<a class="anchor" aria-label="anchor" href="#r-unit-during-develoment"><i class="fas fa-link"></i></a>
 </h3>
 <pre><code>R CMD check MyPackage</code></pre>
 <p>will run all of your tests. But when developing a class, or debugging
@@ -392,7 +391,7 @@ structure.</p>
 <code>devtools::use_testthat()</code> can be used to setup the testthat testing structure.</li>
 <li>Test files are stored in <code>tests/testthat</code> rather than <code>inst/unitTests</code> and
 should start with <code>test</code>. Richard Cotton’s
-<a href="https://github.com/richierocks/runittotestthat%5D">runittotesthat</a> package
+<a href="https://github.com/richierocks/runittotestthat">runittotesthat</a> package
 can be used to programmatically convert RUnit tests to testthat format.</li>
 <li>You need to add <code>Suggests: testthat</code> to your <code>DESCRIPTION</code> file rather than
 <code>Suggests: RUnit, BiocGenerics</code>.</li>
@@ -407,24 +406,10 @@ can be used to programmatically convert RUnit tests to testthat format.</li>
 refers to the percentage of your package code
 that is tested by your unit tests. Packages with higher coverage
 have a lower chance of containing bugs.</p>
-<p>Our build system calculates test coverage for every software
-package (using the <a href="https://github.com/jimhester/covr">covr</a>
-package) and reports the results in a “test coverage” shield
-on the package landing page. The value shown in this shield is
-either a percentage (a number from 0 to 100) or ‘unknown,’ which
-could mean:</p>
-<ul>
-<li>The package has no unit tests, or the unit tests are not
-properly configured. Read this page from
-<a href="#top">the beginning</a> to learn how to add them.</li>
-<li>The unit tests in the package failed.</li>
-<li>There was a problem calculating the test coverage.
-Inquire on the <a href="https://bioconductor.org/help/mailing-list">bioc-devel</a> list if you have questions about this.</li>
-</ul>
 <p>If tests are taking too long to achieve full test coverage, see <a href="long-tests.html#long-tests">long
 tests</a>. Before implementing long tests we highly recommend reaching out to the
-bioconductor team on the mailing list <a href="mailto:bioc-devel@r-project.org" class="email">bioc-devel@r-project.org</a> to ensure proper
-use and justification.</p>
+bioconductor team on the <a href="https://stat.ethz.ch/mailman/listinfo/bioc-devel">bioc-devel</a> mailing list to ensure
+proper use and justification.</p>
 </div>
 <div id="additional-resources" class="section level2" number="14.6">
 <h2>
@@ -432,7 +417,7 @@ use and justification.</p>
 </h2>
 <p>Some web resources worth reading:</p>
 <ul>
-<li><a href="http://en.wikipedia.org/wiki/Unit_testing">An Overview</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Unit_testing">Unit Testing Wikipedia</a></li>
 <li><a href="http://www.daedtech.com/addicted-to-unit-testing">An informal account</a></li>
 <li><a href="http://en.wikipedia.org/wiki/Test-driven_development">Test-driven development</a></li>
 <li><a href="http://en.wikipedia.org/wiki/Agile_software_development">Agile software development</a></li>
@@ -448,9 +433,9 @@ use and justification.</p>
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#tests"><span class="header-section-number">14</span> Unit tests</a></li>
-<li><a class="nav-link" href="#motivation-1"><span class="header-section-number">14.1</span> Motivation</a></li>
+<li><a class="nav-link" href="#tests-motivation"><span class="header-section-number">14.1</span> Motivation</a></li>
 <li>
-<a class="nav-link" href="#deciding-which-test-framework-to-use"><span class="header-section-number">14.2</span> Deciding Which Test Framework To Use</a><ul class="nav navbar-nav">
+<a class="nav-link" href="#which-tests"><span class="header-section-number">14.2</span> Deciding Which Test Framework To Use</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#runit-strengths"><span class="header-section-number">14.2.1</span> RUnit Strengths</a></li>
 <li><a class="nav-link" href="#runit-weaknesses"><span class="header-section-number">14.2.2</span> RUnit Weaknesses</a></li>
 <li><a class="nav-link" href="#testthat-strengths"><span class="header-section-number">14.2.3</span> Testthat Strengths</a></li>
@@ -460,8 +445,8 @@ use and justification.</p>
 <li>
 <a class="nav-link" href="#runit-usage"><span class="header-section-number">14.3</span> RUnit Usage</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#adding-tests-for-your-code"><span class="header-section-number">14.3.1</span> Adding Tests For Your Code</a></li>
-<li><a class="nav-link" href="#conventions-for-the-build-process"><span class="header-section-number">14.3.2</span> Conventions for the Build Process</a></li>
-<li><a class="nav-link" href="#using-tests-during-development"><span class="header-section-number">14.3.3</span> Using Tests During Development</a></li>
+<li><a class="nav-link" href="#conventions"><span class="header-section-number">14.3.2</span> Conventions for the Build Process</a></li>
+<li><a class="nav-link" href="#r-unit-during-develoment"><span class="header-section-number">14.3.3</span> Using Tests During Development</a></li>
 <li><a class="nav-link" href="#summary-the-minimal-setup"><span class="header-section-number">14.3.4</span> Summary: the minimal setup</a></li>
 </ul>
 </li>
@@ -487,7 +472,7 @@ use and justification.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-17.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

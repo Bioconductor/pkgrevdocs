@@ -45,7 +45,7 @@
 <li><a class="" href="index.html">Welcome</a></li>
 <li class="book-part">Package Submissions</li>
 <li><a class="" href="submission-overview.html">Overview</a></li>
-<li><a class="" href="software-package-submissions.html"><span class="header-section-number">1</span> Software Package Submissions</a></li>
+<li><a class="" href="bioconductor-package-submissions.html"><span class="header-section-number">1</span> Bioconductor Package Submissions</a></li>
 <li class="book-part">Package Development Guidelines</li>
 <li><a class="" href="develop-overview.html">Overview</a></li>
 <li><a class="" href="package-name.html"><span class="header-section-number">2</span> Package name</a></li>
@@ -97,32 +97,50 @@
 <h1>
 <span class="header-section-number">13</span> Package data<a class="anchor" aria-label="anchor" href="#data"><i class="fas fa-link"></i></a>
 </h1>
-<p>When developing a software package, an excellent practice is to give a comprehensive illustration of the methods in the package using an existing <a href="https://bioconductor.org/packages/release/BiocViews.html#___ExperimentData">experiment data package</a>, annotation data or data in the <em><a href="https://bioconductor.org/packages/3.15/ExperimentHub">ExperimentHub</a></em> or <em><a href="https://bioconductor.org/packages/3.15/AnnotationHub">AnnotationHub</a></em>, or submitting new data to those resources yourself.</p>
-<p>If existing data is not available or applicable, or a new smaller dataset is needed for examples in the package, data can be included either as a separate data package (for larger amounts of data) or within the package (for smaller datasets).</p>
+<p>When developing a software package, an excellent practice is to give a
+comprehensive illustration of the methods in the package using an existing
+<a href="https://bioconductor.org/packages/release/BiocViews.html#___ExperimentData">experiment data package</a>, <a href="https://bioconductor.org/packages/release/BiocViews.html#___AnnotationData">annotation data</a>
+or data in the <em><a href="https://bioconductor.org/packages/3.15/ExperimentHub">ExperimentHub</a></em> or <em><a href="https://bioconductor.org/packages/3.15/AnnotationHub">AnnotationHub</a></em>,
+or submitting new data to those resources yourself.</p>
+<p>If existing data is not available or applicable, or a new smaller dataset is
+needed for examples in the package, data can be included either as a separate
+data package (for larger amounts of data) or within the package (for smaller
+datasets).</p>
 <p>The Bioconductor Build system does not support git-lfs. This is not a current
-option for storing large data. Large data sets must be included through the <a href="https://bioconductor.org/packages/release/bioc/vignettes/ExperimentHub/inst/doc/CreateAnExperimentHubPackage.html">ExperimentHub</a>.</p>
+option for storing large data. Large data sets must be included through the
+<em><a href="https://bioconductor.org/packages/3.15/ExperimentHub">ExperimentHub</a></em>. See additional information at <a href="https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html">Create A
+Hub Package</a>.</p>
 <div id="experiment-data-package" class="section level2" number="13.1">
 <h2>
 <span class="header-section-number">13.1</span> Experiment Data Package<a class="anchor" aria-label="anchor" href="#experiment-data-package"><i class="fas fa-link"></i></a>
 </h2>
-<p>Experimental data packages contain data specific to a particular analysis or experiment.
-They often accompany a software package for use in the examples and vignettes and in general are not updated regularly. If you need a general subset of data for workflows or examples first check the <em><a href="https://bioconductor.org/packages/3.15/AnnotationHub">AnnotationHub</a></em> resource for available files (e.g., BAM, FASTA, BigWig, etc.).</p>
-<p><a href="https://bioconductor.org/"><em>Bioconductor</em></a> strongly encourages creating an
-experiment data package that utilizes <em><a href="https://bioconductor.org/packages/3.15/ExperimentHub">ExperimentHub</a></em> or
-<em><a href="https://bioconductor.org/packages/3.15/AnnotationHub">AnnotationHub</a></em> (See <a href="https://bioconductor.org/packages/release/bioc/vignettes/ExperimentHub/inst/doc/CreateAnExperimentHubPackage.html">Creating an Experiment Hub
-Package</a>
-or <a href="https://bioconductor.org/packages/release/bioc/vignettes/AnnotationHub/inst/doc/CreateAnAnnotationPackage.html">Creating an Annotation Hub
-Package</a>)
-but a traditional package that encapsulates the data is also acceptable.</p>
-<p>See the <a href="https://www.bioconductor.org/developers/package-submission/">Package Submission guidelines</a> for submitting related packages.</p>
+<p>Experimental data packages contain data specific to a particular analysis or
+experiment. They often accompany a software package for use in the examples and
+vignettes and in general are not updated regularly. If you need a general subset
+of data for workflows or examples first check the <em><a href="https://bioconductor.org/packages/3.15/AnnotationHub">AnnotationHub</a></em>
+resource for available files (e.g., BAM, FASTA, BigWig, etc.) or
+<em><a href="https://bioconductor.org/packages/3.15/ExperimentHub">ExperimentHub</a></em> for more processed and predefined
+<em>Bioconductor</em> class structures.</p>
+<p><a href="https://bioconductor.org"><em>Bioconductor</em></a> strongly encourages creating an experiment data package that
+utilizes <em><a href="https://bioconductor.org/packages/3.15/ExperimentHub">ExperimentHub</a></em> or <em><a href="https://bioconductor.org/packages/3.15/AnnotationHub">AnnotationHub</a></em>
+(See <a href="https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html">Create A Hub Package</a>) but a traditional package that encapsulates the
+data is also acceptable with pre-approval from the <a href="https://stat.ethz.ch/mailman/listinfo/bioc-devel">bioc-devel</a>
+mailing list.</p>
+<p>See the <a href="bioconductor-package-submissions.html#bioconductor-package-submissions">Package Submission guidelines</a> for
+further submission procedures and if submitting related or circular dependent
+packages please read <a href="https://github.com/Bioconductor/Contributions/blob/master/CONTRIBUTING.md#submitting-related-packages">releated package submission procedure</a></p>
 </div>
 <div id="adding-data-to-existing-package" class="section level2" number="13.2">
 <h2>
 <span class="header-section-number">13.2</span> Adding Data to Existing Package<a class="anchor" aria-label="anchor" href="#adding-data-to-existing-package"><i class="fas fa-link"></i></a>
 </h2>
-<p><a href="https://bioconductor.org/"><em>Bioconductor</em></a> strongly encourages the use of existing datasets, but if not available data can be included directly in the package for use in the examples found in man pages, vignettes, and tests of your package.
-This is a good reference by <a href="http://r-pkgs.had.co.nz/data.html">Hadley Wickham about data</a>.</p>
-<p>However, as mentioned in <a href="description.html#lazydata">The DESCRIPTION file</a> chapter, <a href="https://bioconductor.org/"><em>Bioconductor</em></a> does not encourage using <code>LazyData: True</code> despite its recommendataion in this article.</p>
+<p><a href="https://bioconductor.org"><em>Bioconductor</em></a> strongly encourages the use of existing datasets, but if not
+available data can be included directly in the package for use in the examples
+found in man pages, vignettes, and tests of your package. This is a good
+reference by Hadley Wickham about <a href="http://r-pkgs.had.co.nz/data.html">packge data</a>.</p>
+<p>However, as mentioned in <a href="description.html#description-lazydata">The DESCRIPTION file</a> chapter,
+<em>Bioconductor</em> does not encourage using <code>LazyData: True</code> despite its
+recommendataion in this article.</p>
 <p>Some key points are summarized in the following sections.</p>
 <div id="exported-data-and-the-data-directory" class="section level3" number="13.2.1">
 <h3>
@@ -139,17 +157,20 @@ It is most often a <code>.RData</code> file created with <code><a href="https://
 <span class="header-section-number">13.2.2</span> Raw Data and the <code>inst/extdata/</code> directory<a class="anchor" aria-label="anchor" href="#raw-data-and-the-instextdata-directory"><i class="fas fa-link"></i></a>
 </h3>
 <p>It is often desirable to show a workflow which involves the parsing or loading of raw files.
-<a href="https://bioconductor.org/"><em>Bioconductor</em></a> recommends finding existing raw data already provided in another package or the hubs.</p>
-<p>However, if this is not applicable, raw data files should be included in the <code>inst/extdata</code> directory.
-Files of these type are often accessed utilizing <code><a href="https://rdrr.io/r/base/system.file.html">system.file()</a></code>.
-<a href="https://bioconductor.org/"><em>Bioconductor</em></a> requires documentation on these files in an <code>inst/script/</code> directory.</p>
+<a href="https://bioconductor.org"><em>Bioconductor</em></a> recommends finding existing raw data already provided in
+another package or the hubs as previously stated.</p>
+<p>However, if this is not applicable, raw data files should be included in the
+<code>inst/extdata</code> directory. Files of these type are often accessed utilizing
+<code><a href="https://rdrr.io/r/base/system.file.html">system.file()</a></code>. <em>Bioconductor</em> requires documentation on these files in an
+<code>inst/script/</code> directory. See <a href="docs.html#doc-inst-script">data documentation</a>.</p>
 </div>
 <div id="internal-data" class="section level3" number="13.2.3">
 <h3>
 <span class="header-section-number">13.2.3</span> Internal data<a class="anchor" aria-label="anchor" href="#internal-data"><i class="fas fa-link"></i></a>
 </h3>
-<p>Rarely, a package may require parsed data that is used internal but should not be exported to the user.
-An <code>R/sysdata.rda</code> is often the best place to include this type of data.</p>
+<p>Rarely, a package may require parsed data that is used internal but should not
+be exported to the user. An <code>R/sysdata.rda</code> is often the best place to include
+this type of data. Proper documentation of the data will be required.</p>
 </div>
 <div id="other-data" class="section level3" number="13.2.4">
 <h3>
@@ -157,12 +178,14 @@ An <code>R/sysdata.rda</code> is often the best place to include this type of da
 </h3>
 <p>Downloads of files and external data from the web should be avoided.</p>
 <p>If it is necessary, at minimum the files should be cached.
-See <em><a href="https://bioconductor.org/packages/3.15/BiocFileCache">BiocFileCache</a></em> for Bioconductor recommended package for caching of files.
-If a maintainer creates their own caching directory, it should utilize standard
-caching directories <code>tools::R_user_dir(package, which="cache")</code>. It is not
-allowed to download or write any files to a users home directory or working
-directory. Files should be cached as stated above with <code>BiocFileCache</code> (preferred)
-or <code>R_user_dir</code> or <code>tempdir()/tempfile()</code> if files should not be persistent.</p>
+See <em><a href="https://bioconductor.org/packages/3.15/BiocFileCache">BiocFileCache</a></em> for Bioconductor recommended package
+for caching of files. If a maintainer creates their own caching directory, it
+should utilize standard caching directories <code>tools::R_user_dir(package, which="cache")</code>. It is not allowed to download or write any files to a users
+home directory, working directory, or installed package directory. Files should
+be cached as stated above with <code>BiocFileCache</code> (preferred) or <code>R_user_dir</code> or
+<code>tempdir()/tempfile()</code> if files should not be persistent. Please also see
+sections on <a href="querying-web-resources.html#querying-web-resources">querying web resources</a> and <a href="r-code.html#web-querying-and-file-caching">file
+downloads</a>.</p>
 
 </div>
 </div>
@@ -200,7 +223,7 @@ or <code>R_user_dir</code> or <code>tempdir()/tempfile()</code> if files should 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-17.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

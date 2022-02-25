@@ -45,7 +45,7 @@
 <li><a class="" href="index.html">Welcome</a></li>
 <li class="book-part">Package Submissions</li>
 <li><a class="" href="submission-overview.html">Overview</a></li>
-<li><a class="" href="software-package-submissions.html"><span class="header-section-number">1</span> Software Package Submissions</a></li>
+<li><a class="" href="bioconductor-package-submissions.html"><span class="header-section-number">1</span> Bioconductor Package Submissions</a></li>
 <li class="book-part">Package Development Guidelines</li>
 <li><a class="" href="develop-overview.html">Overview</a></li>
 <li><a class="active" href="package-name.html"><span class="header-section-number">2</span> Package name</a></li>
@@ -100,15 +100,14 @@
 <p>The package name should match the <i class="fab fa-github"></i> GitHub
 repository name and is case-sensitive. A package name should be descriptive and
 should not already exist as a current package (case-insensitive) in
-<a href="https://bioconductor.org/packages/release/BiocViews.html"><em>Bioconductor</em></a> nor
-<a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">CRAN</a>. Reusing
+<a href="https://bioconductor.org/packages/devel/BiocViews.html"><em>Bioconductor</em></a> nor <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">CRAN</a>. Reusing
 archived or deprecated package names is also strongly discouraged and often will
 not be allowed. Before submission please inquire about using a legacy package
 name on the <a href="mailto:bioc-devel@r-project.org" class="email">bioc-devel@r-project.org</a> mailing list.</p>
 <p>An easy way to check whether your name is already in use is to check that the
-following command fails:</p>
+following command fails using the <a href="use-devel.html#use-devel">‘devel’ version</a> of Bioconductor:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+<code class="sourceCode R"><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
   <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span>
 <span class="op">}</span>
 <span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span><span class="op">(</span><span class="st">"MyPackage"</span><span class="op">)</span></code></pre></div>
@@ -126,7 +125,8 @@ following command fails:</p>
 <p>Please consider the name of your package carefully. Bioconductor will discourage
 renaming your package after acceptance. The process for renaming a package is to
 deprecate the old named package and to re-submit the newly named package to the
-review tracker and be subject to a new review.</p>
+review tracker and be subject to a new review. This is timely process and should
+not be undertaken lightly.</p>
 
 </div>
   <div class="chapter-nav">
@@ -151,7 +151,7 @@ review tracker and be subject to a new review.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-17.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

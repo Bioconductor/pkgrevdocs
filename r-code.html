@@ -9,14 +9,14 @@
 <meta name="author" content="Daniela Cassol">
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
-<meta name="description" content="Everyone has their own coding style and formats. There are however some best practice guidelines that Bioconductor reviewers will look for. R can be a robust, fast and efficient programming...">
+<meta name="description" content="Everyone has their own coding style and formats. There are however some best practice guidelines that Bioconductor reviewers will look for. can be a robust, fast and efficient programming language...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 15 R code | Bioconductor Packages: Development, Maintenance, and Peer Review">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Everyone has their own coding style and formats. There are however some best practice guidelines that Bioconductor reviewers will look for. R can be a robust, fast and efficient programming...">
+<meta property="og:description" content="Everyone has their own coding style and formats. There are however some best practice guidelines that Bioconductor reviewers will look for. can be a robust, fast and efficient programming language...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 15 R code | Bioconductor Packages: Development, Maintenance, and Peer Review">
-<meta name="twitter:description" content="Everyone has their own coding style and formats. There are however some best practice guidelines that Bioconductor reviewers will look for. R can be a robust, fast and efficient programming...">
+<meta name="twitter:description" content="Everyone has their own coding style and formats. There are however some best practice guidelines that Bioconductor reviewers will look for. can be a robust, fast and efficient programming language...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -45,7 +45,7 @@
 <li><a class="" href="index.html">Welcome</a></li>
 <li class="book-part">Package Submissions</li>
 <li><a class="" href="submission-overview.html">Overview</a></li>
-<li><a class="" href="software-package-submissions.html"><span class="header-section-number">1</span> Software Package Submissions</a></li>
+<li><a class="" href="bioconductor-package-submissions.html"><span class="header-section-number">1</span> Bioconductor Package Submissions</a></li>
 <li class="book-part">Package Development Guidelines</li>
 <li><a class="" href="develop-overview.html">Overview</a></li>
 <li><a class="" href="package-name.html"><span class="header-section-number">2</span> Package name</a></li>
@@ -98,26 +98,26 @@
 <span class="header-section-number">15</span> R code<a class="anchor" aria-label="anchor" href="#r-code"><i class="fas fa-link"></i></a>
 </h1>
 <p>Everyone has their own coding style and formats. There are however some best
-practice guidelines that <a href="https://bioconductor.org/"><em>Bioconductor</em></a> reviewers
-will look for.</p>
-<p><em>R</em> can be a robust, fast and efficient programming language but often some
+practice guidelines that <a href="https://bioconductor.org/about/package-reviewers/"><em>Bioconductor</em> reviewers</a> will look for.</p>
+<p><i class="fab fa-r-project"></i> can be a robust, fast and efficient programming language but often some
 coding practices result in less than ideal use of resources.</p>
 <p>This section will review some key points, suggestions, and best practices that
 will aid in the package review process and assist in making code more
 robust and efficient.</p>
-<div id="license-1" class="section level2" number="15.1">
+<div id="rcode-license" class="section level2" number="15.1">
 <h2>
-<span class="header-section-number">15.1</span> License<a class="anchor" aria-label="anchor" href="#license-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.1</span> License<a class="anchor" aria-label="anchor" href="#rcode-license"><i class="fas fa-link"></i></a>
 </h2>
-<p>Only contain code that can be distributed under the license specified (see also <a href="license.html#license">The DESCRIPTION file</a>).</p>
+<p>Only contain code that can be distributed under the license specified (see also
+<a href="description.html#description-license">The DESCRIPTION file</a>).</p>
 </div>
 <div id="r-code-development" class="section level2" number="15.2">
 <h2>
 <span class="header-section-number">15.2</span> R Code Development<a class="anchor" aria-label="anchor" href="#r-code-development"><i class="fas fa-link"></i></a>
 </h2>
-<div id="re-use-of-functionality-classes-and-generics" class="section level3" number="15.2.1">
+<div id="rcode-reuse" class="section level3" number="15.2.1">
 <h3>
-<span class="header-section-number">15.2.1</span> Re-use of functionality, classes, and generics<a class="anchor" aria-label="anchor" href="#re-use-of-functionality-classes-and-generics"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.2.1</span> Re-use of functionality, classes, and generics<a class="anchor" aria-label="anchor" href="#rcode-reuse"><i class="fas fa-link"></i></a>
 </h3>
 <p>Avoid re-implementing functionality or classes (see also
 <a href="description.html#depends-imports-suggests-enhances">The DESCRIPTION file</a>).
@@ -127,14 +127,15 @@ Make use of appropriate existing packages (e.g.,
 <em><a href="https://bioconductor.org/packages/3.15/Biostrings">Biostrings</a></em>,
 <em><a href="https://bioconductor.org/packages/3.15/GenomicRanges">GenomicRanges</a></em>) and classes (e.g.,
 <em><a href="https://bioconductor.org/packages/3.15/SummarizedExperiment">SummarizedExperiment</a></em>,
-<em><a href="https://bioconductor.org/packages/3.15/AnnotatedDataFrame">AnnotatedDataFrame</a></em>,
-<em><a href="https://bioconductor.org/packages/3.15/GRanges">GRanges</a></em>,
-<em><a href="https://bioconductor.org/packages/3.15/DNAStringSet">DNAStringSet</a></em>) to avoid duplication of functionality
-available in other <a href="https://bioconductor.org/"><em>Bioconductor</em></a> packages. See
+<em><a href="https://bioconductor.org/packages/3.15/Biobase">Biobase</a></em>::AnnotatedDataFrame,
+<em><a href="https://bioconductor.org/packages/3.15/GenomicRanges">GenomicRanges</a></em>:;GRanges,
+<em><a href="https://bioconductor.org/packages/3.15/Biostrings">Biostrings</a></em>::DNAStringSet) to avoid duplication of functionality
+available in other <a href="https://bioconductor.org"><em>Bioconductor</em></a> packages. See
 also <a href="important-bioconductor-package-development-features.html#reusebioc">Common Bioconductor Methods and Classes</a>.</p>
 <p>This encourages interoperability and simplifies your own package development.
-If a new representation is needed, see the <a href="https://bioconductor.org/developers/how-to/efficient-code/#essential-s4-interface">Essential S4 interface</a> section of <a href="https://bioconductor.org/developers/how-to/efficient-code">Robust and Efficient Code</a>.
-In general, <a href="https://bioconductor.org/"><em>Bioconductor</em></a> will insist on interoperability with <a href="https://bioconductor.org/developers/how-to/commonMethodsAndClasses/">Common Classes</a> for acceptance.</p>
+If a new representation is needed, see <a href="r-code.html#class-development">class development section</a>.
+In general, <a href="https://bioconductor.org"><em>Bioconductor</em></a> will insist on interoperability with <a href="important-bioconductor-package-development-features.html#commonclass">Common
+Classes</a> for acceptance.</p>
 <p>Developers should make an effort to re-use generics that fit the generic
 contract for the proposed class-method pair i.e., the behavior of the method
 aligns with the originally proposed behavior of the generic. Specifically,
@@ -157,9 +158,9 @@ introduction of non-standard data representations (e.g., neglecting to
 translate coordinate systems of file formats to Bioconductor objects)
 and user bewilderment.</p>
 </div>
-<div id="methods-development" class="section level3" number="15.2.2">
+<div id="rcode-method-development" class="section level3" number="15.2.2">
 <h3>
-<span class="header-section-number">15.2.2</span> Methods development<a class="anchor" aria-label="anchor" href="#methods-development"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.2.2</span> Methods development<a class="anchor" aria-label="anchor" href="#rcode-method-development"><i class="fas fa-link"></i></a>
 </h3>
 <p>We encourage maintainers to only create new methods for classes exported within
 their packages. We discourage the generation of methods for external classes,
@@ -170,16 +171,16 @@ for those external classes. New methods for established classes can also cause
 confusion among users given that the new method and class definition are in
 separate packages.</p>
 </div>
-<div id="file-names-1" class="section level3" number="15.2.3">
+<div id="rcode-file-names" class="section level3" number="15.2.3">
 <h3>
-<span class="header-section-number">15.2.3</span> File names<a class="anchor" aria-label="anchor" href="#file-names-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.2.3</span> File names<a class="anchor" aria-label="anchor" href="#rcode-file-names"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
-<li>Filename extension for R code should be ‘.R.’ Use the prefix
-‘methods-’ for S4 class methods, e.g., ‘methods-coverage.R.’ Generic
-definitions can be listed in a single file, ‘AllGenerics.R,’ and
-class definitions in ‘AllClasses.R.’</li>
-<li>Filename extension for man pages should be ‘.Rd.’</li>
+<li>Filename extension for R code should be ‘.R’. Use the prefix
+‘methods-’ for S4 class methods, e.g., ‘methods-coverage.R’. Generic
+definitions can be listed in a single file, ‘AllGenerics.R’, and
+class definitions in ‘AllClasses.R’.</li>
+<li>Filename extension for man pages should be ‘.Rd’.</li>
 </ul>
 </div>
 <div id="class-development" class="section level3" number="15.2.4">
@@ -203,7 +204,7 @@ interoperability and simplifies your own package development.</p>
 representation for designing new classes. Again, we can not emphasize enough to
 reuse existing class structure if at all possible. If an existing class
 structure is not sufficient, it is also encouraged to look at extending or
-containing an <a href="important-bioconductor-package-development-features.html#reusebioc">existing <em>Bioconductor</em> class</a>.</p>
+containing an <a href="important-bioconductor-package-development-features.html#commonclass">existing <em>Bioconductor</em> class</a>.</p>
 <p>If your data requires a new representation or function, carefully
 design an S4 class or generic so that other package developers with
 similar needs will be able to re-use your hard work, and so that users
@@ -246,15 +247,15 @@ installation.</p>
 <h3>
 <span class="header-section-number">15.2.5</span> Function development<a class="anchor" aria-label="anchor" href="#function-development"><i class="fas fa-link"></i></a>
 </h3>
-<div id="functions-names" class="section level4" number="15.2.5.1">
+<div id="rcode-function-names" class="section level4" number="15.2.5.1">
 <h4>
-<span class="header-section-number">15.2.5.1</span> Functions Names<a class="anchor" aria-label="anchor" href="#functions-names"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.2.5.1</span> Functions Names<a class="anchor" aria-label="anchor" href="#rcode-function-names"><i class="fas fa-link"></i></a>
 </h4>
 <p>Function names should follow the following conventions:</p>
 <ul>
 <li>Use camelCase: initial lower case, then alternate case between words.</li>
 <li>Do not use ‘.’ (in the S3 class system, <code>some(x)</code> where <code>x</code> is class <code>A</code> will dispatch to <code>some.A</code>).</li>
-<li>Prefix non-exported functions with a ‘.’</li>
+<li>Prefix non-exported functions with a ‘.’.</li>
 </ul>
 </div>
 <div id="functional-programming-and-length" class="section level4" number="15.2.5.2">
@@ -296,9 +297,9 @@ file or as a seperate file (e.g. internal.R, helpers.R, utils.R)</p></li>
 <li>Use camelCase: initial lowercase, then alternate case between words.</li>
 </ul>
 </div>
-<div id="additional-files-and-dependencies" class="section level4" number="15.2.5.5">
+<div id="rcode-sysdep" class="section level4" number="15.2.5.5">
 <h4>
-<span class="header-section-number">15.2.5.5</span> Additional files and dependencies<a class="anchor" aria-label="anchor" href="#additional-files-and-dependencies"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.2.5.5</span> Additional files and dependencies<a class="anchor" aria-label="anchor" href="#rcode-sysdep"><i class="fas fa-link"></i></a>
 </h4>
 <p>Do NOT install anything on a users system.</p>
 <p>System dependencies, applications, and additionally needed packages should be
@@ -306,17 +307,17 @@ assumed already present on the user’s system.</p>
 <p>If necessary, package maintainers should provide instructions for download and
 setup, but should not execute those instructions on behalf of a
 user. Complicated or additional system dependency instructions could be part of
-the (README file)[#readme] and/or (INSTALL file)[#sysdep]. All package
-dependencies must actively be on CRAN of <em>Bioconductor</em>.</p>
+the <a href="readme.html#readme">README file</a> and/or <a href="sysdep.html#sysdep">INSTALL file</a>. All package
+dependencies must actively be on CRAN or <a href="https://bioconductor.org"><em>Bioconductor</em></a>.</p>
 <p>All system and package dependencies should be the latest publically available
 version.</p>
 </div>
-<div id="namespaces" class="section level4" number="15.2.5.6">
+<div id="rcode-namespaces" class="section level4" number="15.2.5.6">
 <h4>
-<span class="header-section-number">15.2.5.6</span> Namespaces<a class="anchor" aria-label="anchor" href="#namespaces"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.2.5.6</span> Namespaces<a class="anchor" aria-label="anchor" href="#rcode-namespaces"><i class="fas fa-link"></i></a>
 </h4>
 <ul>
-<li>Import all symbols used from packages other than “base.” Except for
+<li>Import all symbols used from packages other than “base”. Except for
 default packages (base, graphics, stats, etc.) or when overly
 tedious, fully enumerate imports.</li>
 <li>Export all symbols useful to end users. Fully enumerate exports.</li>
@@ -351,9 +352,9 @@ highly encouraged.</p>
 <li>Space around all binary operators: <code>a == b</code>.</li>
 </ul>
 </div>
-<div id="comments" class="section level4" number="15.2.6.3">
+<div id="rcode-comments" class="section level4" number="15.2.6.3">
 <h4>
-<span class="header-section-number">15.2.6.3</span> Comments<a class="anchor" aria-label="anchor" href="#comments"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.2.6.3</span> Comments<a class="anchor" aria-label="anchor" href="#rcode-comments"><i class="fas fa-link"></i></a>
 </h4>
 <ul>
 <li>Use “##” to start full-line comments.</li>
@@ -368,8 +369,7 @@ highly encouraged.</p>
 <span class="header-section-number">15.2.6.4</span> Additonal style and formatting references<a class="anchor" aria-label="anchor" href="#additonal-style-and-formatting-references"><i class="fas fa-link"></i></a>
 </h4>
 <ul>
-<li><p><a href="https://cran.r-project.org/web/packages/formatR/index.html">formatR</a> a
-package that assists with formatting.</p></li>
+<li><p><a href="https://cran.r-project.org/web/packages/formatR/index.html">formatR</a> a package that assists with formatting.</p></li>
 <li><p><a href="https://style.tidyverse.org/">Hadley Wickhams’s R Style Guide</a>.</p></li>
 </ul>
 </div>
@@ -558,8 +558,8 @@ negative.</p>
 <h3>
 <span class="header-section-number">15.4.6</span> Parallel Recommendations<a class="anchor" aria-label="anchor" href="#parallel-recommendations"><i class="fas fa-link"></i></a>
 </h3>
-<p>We recommend using <a href="https://bioconductor.org/packages/devel/BiocParallel">BiocParallel</a>. It provides a consistent
-interface to the user and supports the major parallel computing
+<p>We recommend using <em><a href="https://bioconductor.org/packages/3.15/BiocParallel">BiocParallel</a></em>. It provides a
+consistent interface to the user and supports the major parallel computing
 styles: forks and processes on a single computer, ad hoc clusters,
 batch schedulers and cloud computing. By default, <code>BiocParallel</code>
 chooses a parallel back-end appropriate for the OS and is supported
@@ -589,12 +589,12 @@ should be set as a default.</p>
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#r-code"><span class="header-section-number">15</span> R code</a></li>
-<li><a class="nav-link" href="#license-1"><span class="header-section-number">15.1</span> License</a></li>
+<li><a class="nav-link" href="#rcode-license"><span class="header-section-number">15.1</span> License</a></li>
 <li>
 <a class="nav-link" href="#r-code-development"><span class="header-section-number">15.2</span> R Code Development</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#re-use-of-functionality-classes-and-generics"><span class="header-section-number">15.2.1</span> Re-use of functionality, classes, and generics</a></li>
-<li><a class="nav-link" href="#methods-development"><span class="header-section-number">15.2.2</span> Methods development</a></li>
-<li><a class="nav-link" href="#file-names-1"><span class="header-section-number">15.2.3</span> File names</a></li>
+<li><a class="nav-link" href="#rcode-reuse"><span class="header-section-number">15.2.1</span> Re-use of functionality, classes, and generics</a></li>
+<li><a class="nav-link" href="#rcode-method-development"><span class="header-section-number">15.2.2</span> Methods development</a></li>
+<li><a class="nav-link" href="#rcode-file-names"><span class="header-section-number">15.2.3</span> File names</a></li>
 <li><a class="nav-link" href="#class-development"><span class="header-section-number">15.2.4</span> Class development</a></li>
 <li><a class="nav-link" href="#function-development"><span class="header-section-number">15.2.5</span> Function development</a></li>
 <li><a class="nav-link" href="#coding-style"><span class="header-section-number">15.2.6</span> Coding Style</a></li>
@@ -630,7 +630,7 @@ should be set as a default.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-17.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -9,14 +9,14 @@
 <meta name="author" content="Daniela Cassol">
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
-<meta name="description" content="3.1 Version of Bioconductor and  Package developers should always use the devel version of Bioconductor when developing and testing packages to be contributed. Depending on the release cycle,...">
+<meta name="description" content="3.1 Version of Bioconductor and  Package developers should always use the devel version of Bioconductor and Bioconductor packages when developing and testing packages to be contributed. Depending...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 3 General Bioconductor Package Development | Bioconductor Packages: Development, Maintenance, and Peer Review">
 <meta property="og:type" content="book">
-<meta property="og:description" content="3.1 Version of Bioconductor and  Package developers should always use the devel version of Bioconductor when developing and testing packages to be contributed. Depending on the release cycle,...">
+<meta property="og:description" content="3.1 Version of Bioconductor and  Package developers should always use the devel version of Bioconductor and Bioconductor packages when developing and testing packages to be contributed. Depending...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 3 General Bioconductor Package Development | Bioconductor Packages: Development, Maintenance, and Peer Review">
-<meta name="twitter:description" content="3.1 Version of Bioconductor and  Package developers should always use the devel version of Bioconductor when developing and testing packages to be contributed. Depending on the release cycle,...">
+<meta name="twitter:description" content="3.1 Version of Bioconductor and  Package developers should always use the devel version of Bioconductor and Bioconductor packages when developing and testing packages to be contributed. Depending...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -45,7 +45,7 @@
 <li><a class="" href="index.html">Welcome</a></li>
 <li class="book-part">Package Submissions</li>
 <li><a class="" href="submission-overview.html">Overview</a></li>
-<li><a class="" href="software-package-submissions.html"><span class="header-section-number">1</span> Software Package Submissions</a></li>
+<li><a class="" href="bioconductor-package-submissions.html"><span class="header-section-number">1</span> Bioconductor Package Submissions</a></li>
 <li class="book-part">Package Development Guidelines</li>
 <li><a class="" href="develop-overview.html">Overview</a></li>
 <li><a class="" href="package-name.html"><span class="header-section-number">2</span> Package name</a></li>
@@ -101,9 +101,12 @@
 <h2>
 <span class="header-section-number">3.1</span> Version of <em>Bioconductor</em> and <i class="fab fa-r-project"></i><a class="anchor" aria-label="anchor" href="#version-of-bioconductor-and"><i class="fas fa-link"></i></a>
 </h2>
-<p>Package developers should always use the <a href="https://bioconductor.org/packages/devel/BiocViews.html#___Software">devel version of <em>Bioconductor</em></a> when developing and testing packages to be contributed.</p>
-<p>Depending on the <i class="fab fa-r-project"></i> release cycle, using <a href="https://bioconductor.org/"><em>Bioconductor</em></a> devel may or may not involve also using the devel version of <i class="fab fa-r-project"></i>.
-See the how-to on <a href="https://bioconductor.org/developers/how-to/useDevel/">using devel version of Bioconductor</a> for up-to-date information.</p>
+<p>Package developers should always use the <a href="use-devel.html#use-devel">devel version of <em>Bioconductor</em></a> and
+<a href="https://bioconductor.org/packages/devel/BiocViews.html"><em>Bioconductor</em> packages</a> when developing and testing packages to be contributed.</p>
+<p>Depending on the <i class="fab fa-r-project"></i> release cycle, using
+<a href="https://bioconductor.org"><em>Bioconductor</em></a> devel may or may not involve also using the devel version of
+<i class="fab fa-r-project"></i>. See the how-to on <a href="use-devel.html#use-devel">using devel version of
+Bioconductor</a> for up-to-date information.</p>
 </div>
 <div id="correctness-space-and-time" class="section level2" number="3.2">
 <h2>
@@ -113,23 +116,25 @@ See the how-to on <a href="https://bioconductor.org/developers/how-to/useDevel/"
 <h3>
 <span class="header-section-number">3.2.1</span> R CMD build<a class="anchor" aria-label="anchor" href="#r-cmd-build"><i class="fas fa-link"></i></a>
 </h3>
-<p><a href="https://bioconductor.org/"><em>Bioconductor</em></a> packages must minimally pass <code>R CMD build</code> (or <code>R CMD INSTALL --build</code>) and pass <code>R CMD check</code> with no errors and no warnings using a recent R-devel.
-Authors should also try to address all errors, warnings, and notes that arise during build or check.</p>
+<p><a href="https://bioconductor.org"><em>Bioconductor</em></a> packages must minimally pass <code>R CMD build</code> (or <code>R CMD INSTALL --build</code>) and pass <code>R CMD check</code> with no errors and no warnings using a recent
+R-devel. Authors should also try to address all errors, warnings, and notes that
+arise during build or check.</p>
 </div>
 <div id="bioccheck" class="section level3" number="3.2.2">
 <h3>
 <span class="header-section-number">3.2.2</span> BiocCheck<a class="anchor" aria-label="anchor" href="#bioccheck"><i class="fas fa-link"></i></a>
 </h3>
-<p>Packages must also pass <code>BiocCheck::BiocCheckGitClone()</code> and <code>BiocCheck::BiocCheck('new-package'=TRUE)</code> with no errors and no warnings.
-The <em><a href="https://bioconductor.org/packages/3.15/BiocCheck">BiocCheck</a></em> package is a set of tests that encompass <a href="https://bioconductor.org/"><em>Bioconductor</em></a> Best Practices.
-Every effort should be made to address any errors, warnings, and notes that
-arise during this build or check.</p>
+<p>Packages must also pass <code>BiocCheck::BiocCheckGitClone()</code> and
+<code>BiocCheck::BiocCheck('new-package'=TRUE)</code> with no errors and no warnings. The
+<em><a href="https://bioconductor.org/packages/3.15/BiocCheck">BiocCheck</a></em> package is a set of tests that encompass
+<a href="https://bioconductor.org"><em>Bioconductor</em></a> Best Practices. Every effort should be made to address any
+errors, warnings, and notes that arise during this build or check.</p>
 </div>
 <div id="error-warnging-and-notes" class="section level3" number="3.2.3">
 <h3>
 <span class="header-section-number">3.2.3</span> ERROR, WARNGING, and NOTES<a class="anchor" aria-label="anchor" href="#error-warnging-and-notes"><i class="fas fa-link"></i></a>
 </h3>
-<p>The <a href="https://bioconductor.org/"><em>Bioconductor</em></a> team member assigned to review
+<p>The <a href="https://bioconductor.org"><em>Bioconductor</em></a> team member assigned to review
 the package during the submission process will expect all ERROR, WARNINGS, and
 NOTES to be addressed from both R CMD build, R CMD check, and BiocCheck. If
 there are any remaining, a justification of why they are not corrected will be
@@ -152,8 +157,8 @@ expected.</p>
 <span class="header-section-number">3.2.6</span> Check duration<a class="anchor" aria-label="anchor" href="#check-duration"><i class="fas fa-link"></i></a>
 </h3>
 <p>The package should require less than 10 minutes to run <code>R CMD check --no-build-vignettes</code>.
-Using the <code>--no-build-vignettes</code> option ensures that the vignette is built only once.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;This is true only for Software Packages.
-Experiment Data, Annotation, and Workflow packages are allowed additional space and check time.&lt;/p&gt;"><sup>1</sup></a></p>
+Using the <code>--no-build-vignettes</code> option ensures that the vignette is built only once.
+<a href="booknews.html#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 </div>
 <div id="memory" class="section level3" number="3.2.7">
 <h3>
@@ -167,15 +172,19 @@ Experiment Data, Annotation, and Workflow packages are allowed additional space 
 </h3>
 <p>For software packages, individual files must be &lt;= 5MB.
 This restriction exists even after the package is accepted and added to the
-<a href="https://bioconductor.org/"><em>Bioconductor</em></a> repository. See data section for
+<a href="https://bioconductor.org"><em>Bioconductor</em></a> repository. See <a href="data.html#data">data section</a> for
 advice on packages using large data files.</p>
 </div>
 <div id="undesirable-files" class="section level3" number="3.2.9">
 <h3>
 <span class="header-section-number">3.2.9</span> Undesirable files<a class="anchor" aria-label="anchor" href="#undesirable-files"><i class="fas fa-link"></i></a>
 </h3>
-<p>The raw package directory should not contain unnecessary files, system files, or hidden files such as <code>.DS_Store</code>, <code>.project</code>, <code>.git</code>, cache files, log files, <code>*.Rproj</code>, <code>*.so</code>, etc.
-These files may be present in your local directory but should not be commited to git (see <code>.gitignore</code>).</p>
+<p>The raw package directory should not contain unnecessary files, system files, or
+hidden files such as <code>.DS_Store</code>, <code>.project</code>, <code>.git</code>, cache files, log files,
+<code>*.Rproj</code>, <code>*.so</code>, etc. These files may be present in your local directory but should not be commited to
+git (see <span id="gitignore"><code>.gitignore</code></span>). Any files or directories for other
+applications (Github Actions, devtool, etc) should ideally be in a different
+branch and not submitted to the <em>Bioconductor</em> version of the package.</p>
 </div>
 </div>
 <div id="r-cmd-check-environment" class="section level2" number="3.3">
@@ -185,14 +194,13 @@ These files may be present in your local directory but should not be commited to
 <p>It is possible to activate or deactivate a number of options in <code>R CMD build</code> and <code>R CMD check</code>.
 Options can be set as individual environment variables or they can be <a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Checking-and-building-packages">listed in a file</a>.
 Descriptions of all the different options available can be found <a href="https://cran.r-project.org/doc/manuals/r-devel/R-ints.html#Tools">here</a>.
-<a href="https://bioconductor.org/"><em>Bioconductor</em></a> has chosen to customize some of these options for incoming submission during <code>R CMD check</code>.
+<a href="https://bioconductor.org"><em>Bioconductor</em></a> has chosen to customize some of these options for incoming submission during <code>R CMD check</code>.
 The file of utilized flags can be downloaded from <a href="https://github.com/Bioconductor/packagebuilder/blob/master/check.Renviron"><i class="fab fa-github"></i> GitHub</a>.
 The file can either be placed in a default directory as directed <a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Checking-and-building-packages">here</a> or can be set through environment variable <code>R_CHECK_ENVIRON</code> with a command similar to:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="general.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">R_CHECK_ENVIRON</span> <span class="op">=</span> <span class="op">&lt;</span>path to downloaded file<span class="op">&gt;</span></span></code></pre></div>
 
 </div>
 </div>
-
   <div class="chapter-nav">
 <div class="prev"><a href="package-name.html"><span class="header-section-number">2</span> Package name</a></div>
 <div class="next"><a href="important-bioconductor-package-development-features.html"><span class="header-section-number">4</span> Important Bioconductor Package Development Features</a></div>
@@ -232,7 +240,7 @@ The file can either be placed in a default directory as directed <a href="https:
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-17.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

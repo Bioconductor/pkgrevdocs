@@ -4,19 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 1 Software Package Submissions | Bioconductor Packages: Development, Maintenance, and Peer Review</title>
+<title>Chapter 1 Bioconductor Package Submissions | Bioconductor Packages: Development, Maintenance, and Peer Review</title>
 <meta name="author" content="Kevin Rue-Albrecht">
 <meta name="author" content="Daniela Cassol">
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
-<meta name="description" content="Introduction Types of Packages Package Naming Policy Author/Maintainer Expectations Submission Experiment data package Annotation package Review Process Following Acceptance Additional Support ...">
+<meta name="description" content="Introduction Types of Packages Package Naming Policy Author/Maintainer Expectations Submission Experiment data package Annotation package Workflow package Review Process Following Acceptance...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 1 Software Package Submissions | Bioconductor Packages: Development, Maintenance, and Peer Review">
+<meta property="og:title" content="Chapter 1 Bioconductor Package Submissions | Bioconductor Packages: Development, Maintenance, and Peer Review">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Introduction Types of Packages Package Naming Policy Author/Maintainer Expectations Submission Experiment data package Annotation package Review Process Following Acceptance Additional Support ...">
+<meta property="og:description" content="Introduction Types of Packages Package Naming Policy Author/Maintainer Expectations Submission Experiment data package Annotation package Workflow package Review Process Following Acceptance...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 1 Software Package Submissions | Bioconductor Packages: Development, Maintenance, and Peer Review">
-<meta name="twitter:description" content="Introduction Types of Packages Package Naming Policy Author/Maintainer Expectations Submission Experiment data package Annotation package Review Process Following Acceptance Additional Support ...">
+<meta name="twitter:title" content="Chapter 1 Bioconductor Package Submissions | Bioconductor Packages: Development, Maintenance, and Peer Review">
+<meta name="twitter:description" content="Introduction Types of Packages Package Naming Policy Author/Maintainer Expectations Submission Experiment data package Annotation package Workflow package Review Process Following Acceptance...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -45,7 +45,7 @@
 <li><a class="" href="index.html">Welcome</a></li>
 <li class="book-part">Package Submissions</li>
 <li><a class="" href="submission-overview.html">Overview</a></li>
-<li><a class="active" href="software-package-submissions.html"><span class="header-section-number">1</span> Software Package Submissions</a></li>
+<li><a class="active" href="bioconductor-package-submissions.html"><span class="header-section-number">1</span> Bioconductor Package Submissions</a></li>
 <li class="book-part">Package Development Guidelines</li>
 <li><a class="" href="develop-overview.html">Overview</a></li>
 <li><a class="" href="package-name.html"><span class="header-section-number">2</span> Package name</a></li>
@@ -93,21 +93,22 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="software-package-submissions" class="section level1" number="1">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="bioconductor-package-submissions" class="section level1" number="1">
 <h1>
-<span class="header-section-number">1</span> Software Package Submissions<a class="anchor" aria-label="anchor" href="#software-package-submissions"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1</span> Bioconductor Package Submissions<a class="anchor" aria-label="anchor" href="#bioconductor-package-submissions"><i class="fas fa-link"></i></a>
 </h1>
 <ul>
-<li><a href="software-package-submissions.html#subintro">Introduction</a></li>
-<li><a href="software-package-submissions.html#type">Types of Packages</a></li>
-<li><a href="software-package-submissions.html#naming">Package Naming Policy</a></li>
-<li><a href="software-package-submissions.html#author">Author/Maintainer Expectations</a></li>
-<li><a href="software-package-submissions.html#submission">Submission</a></li>
-<li><a href="software-package-submissions.html#experPackage">Experiment data package</a></li>
-<li><a href="software-package-submissions.html#annPackage">Annotation package</a></li>
-<li><a href="software-package-submissions.html#whattoexpect">Review Process</a></li>
-<li><a href="software-package-submissions.html#afteraccept">Following Acceptance</a></li>
-<li><a href="software-package-submissions.html#support">Additional Support</a></li>
+<li><a href="bioconductor-package-submissions.html#subintro">Introduction</a></li>
+<li><a href="bioconductor-package-submissions.html#type">Types of Packages</a></li>
+<li><a href="bioconductor-package-submissions.html#naming">Package Naming Policy</a></li>
+<li><a href="bioconductor-package-submissions.html#author">Author/Maintainer Expectations</a></li>
+<li><a href="bioconductor-package-submissions.html#submission">Submission</a></li>
+<li><a href="bioconductor-package-submissions.html#experPackage">Experiment data package</a></li>
+<li><a href="bioconductor-package-submissions.html#annPackage">Annotation package</a></li>
+<li><a href="bioconductor-package-submissions.html#workPackage">Workflow package</a></li>
+<li><a href="bioconductor-package-submissions.html#whattoexpect">Review Process</a></li>
+<li><a href="bioconductor-package-submissions.html#afteraccept">Following Acceptance</a></li>
+<li><a href="bioconductor-package-submissions.html#support">Additional Support</a></li>
 </ul>
 <div id="subintro" class="section level2" number="1.1">
 <h2>
@@ -119,40 +120,42 @@
 expression and other microarrays, flow cytometry, mass spectrometry,
 image analysis; see <a href="https://bioconductor.org/packages/devel/BiocViews.html">biocViews</a>.</li>
 <li>Interoperate with other <em>Bioconductor</em> packages by <em>re-using common data
-structures</em> (see <a href="#common-bioconductor-methods-and-classes">S4 classes and methods</a>) and existing infrastructure
-(e.g., <code>rtracklayer::import()</code> for input of common genomic files).</li>
+structures</em> (see <a href="important-bioconductor-package-development-features.html#reusebioc">Common Bioconductor Methods and Classes</a>) and
+existing infrastructure (e.g., <code>rtracklayer::import()</code> for input of common
+genomic files).</li>
 <li>Adopt software best practices that enable reproducible research and
 use, such as full documentation and vignettes (including fully
 evaluated code) as well as commitment to long-term user support
 through the <em>Bioconductor</em> <a href="https://support.bioconductor.org/">support site</a>.</li>
 <li>Not exist on CRAN. A package can only be submitted to one or the other.</li>
-<li>Comply with <a href="https://contributions.bioconductor.org/">Package Guidelines</a>.</li>
+<li>Comply with <a href="develop-overview.html#develop-overview">Package Guidelines</a>.</li>
 <li>Your package cannot depend on any package (or version of a package)
-that is not (yet) available on CRAN or <em>Bioconductor</em>.</li>
+that is not (yet) available on CRAN or <em>Bioconductor</em>. The package should work
+with whatever current version of the package is publically available.</li>
 </ul>
 </div>
 <div id="type" class="section level2" number="1.2">
 <h2>
 <span class="header-section-number">1.2</span> Types of Packages<a class="anchor" aria-label="anchor" href="#type"><i class="fas fa-link"></i></a>
 </h2>
-<p><em>Bioconductor</em> packages are broadly defined by three main package types:
-<a href="https://bioconductor.org/packages/release/bioc/"><strong>Software</strong></a>, <a href="https://bioconductor.org/packages/release/data/experiment/"><strong>Experiment Data</strong></a>, and
-<a href="https://bioconductor.org/packages/release/data/annotation/"><strong>Annotation</strong></a>.</p>
+<p><em>Bioconductor</em> packages are broadly defined by four main package types:
+<a href="https://bioconductor.org/packages/release/bioc/"><strong>Software</strong></a>, <a href="https://bioconductor.org/packages/release/data/experiment/"><strong>Experiment Data</strong></a>,
+<a href="https://bioconductor.org/packages/release/data/annotation/"><strong>Annotation</strong></a> and <a href="https://bioconductor.org/packages/release/workflows/"><strong>Workflow</strong></a>.</p>
 <ul>
-<li><p>Most packages contributed by users are software packages. Software packages
-provide implementation of algorithms (e.g. statistical analysis), access to
-resources (e.g. biomart, or NCBI) or visualizations (e.g. volcano plots,
-pathways plots). Instructions for creating Software packages can be found
-here: <a href="https://contributions.bioconductor.org/">Package guidelines</a>.</p></li>
-<li><p><a href="software-package-submissions.html#annPackage">Annotation packages</a> are database-like packages that provide
+<li><p>Software Packages. Most packages contributed by users are software
+packages. Software packages provide implementation of algorithms
+(e.g. statistical analysis), access to resources (e.g. biomart, or NCBI) or
+visualizations (e.g. volcano plots, pathways plots). Instructions for creating
+Software packages can be found here: <a href="develop-overview.html#develop-overview">Package guidelines</a>.</p></li>
+<li><p><a href="bioconductor-package-submissions.html#annPackage">Annotation packages</a> are database-like packages that provide
 information linking identifiers (e.g., Entrez gene names or Affymetrix
 probe ids) to other information (e.g., chromosomal location, Gene
 Ontology category). It is also encouraged to utilize AnnotationHub for
 storage and access to large raw data files and their conversion to
 standard R formats. Instructions for adding data to AnnotationHub and
 designing a annotation package to use AnnotationHub can be found here:
-<a href="https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html">Creating A Hub Packages</a>.</p></li>
-<li><p><a href="software-package-submissions.html#experPackage">Experiment data packages</a> provide data sets that are used,
+<a href="https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html">Create A Hub Package</a>.</p></li>
+<li><p><a href="bioconductor-package-submissions.html#experPackage">Experiment data packages</a> provide data sets that are used,
 often by software packages, to illustrate particular analyses. These packages
 contain curated data from an experiment, teaching course or publication and
 in most cases contain a single data set. It is also encouraged to utilize
@@ -160,16 +163,34 @@ ExperimentHub for storage and access to larger data files. ExperimentHub is
 also particularly useful for hosting collections of related data sets.
 Instructions for adding data to ExperimentHub and designing an experiment data
 package to use ExperimentHub can be found here:
-<a href="https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html">Creating A Hub Packages</a>.</p></li>
+<a href="https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html">Create A Hub Package</a>.</p></li>
+<li><p><a href="bioconductor-package-submissions.html#workPackage">Workflow packages</a> contain vignettes that describe a
+bioinformatics workflow that involves multiple Bioconductor packages. These
+vignettes are usually more extensive than the vignettes that accompany
+software packages. These packages do not need man/ or R/ directories nor a
+data/ directory as ideally workflows make use of existing data in a
+Bioconductor package. See development section on <a href="non-software.html#workflow-packages">Workflows</a> for more
+details.</p></li>
 </ul>
-<p>See <a href="https://contributions.bioconductor.org/">Package Guidelines</a> for details on package format and syntax.</p>
+<p>See <a href="develop-overview.html#develop-overview">Package Guidelines</a> for details on package format and syntax.</p>
 </div>
 <div id="naming" class="section level2" number="1.3">
 <h2>
 <span class="header-section-number">1.3</span> Package Naming Policy<a class="anchor" aria-label="anchor" href="#naming"><i class="fas fa-link"></i></a>
 </h2>
-<p>Package naming: i) Ownership of package name. Bioconductor follows <a href="https://cran.r-project.org/web/packages/policies.html">CRAN’s
-policy</a> in requiring that contributors give the right to use the package name to Bioconductor at time of submission, so that the Bioconductor team can orphan the package and allow another maintainer to take it over in the event that the package contributor discontinues package maintenance. See Bioconductor’s package <a href="http://bioconductor.org/developers/package-end-of-life/">end-of-life policy</a> for more details. ii) Uniqueness of package name. Packages should be named in a way that does not conflict (irrespective of case) with any current or past BIOCONDUCTOR package, nor any current CRAN package.</p>
+<p>Package naming:</p>
+<ol style="list-style-type: lower-roman">
+<li><p>Ownership of package name. Bioconductor follows <a href="https://cran.r-project.org/web/packages/policies.html">CRAN’s
+policy</a> in requiring that contributors give the right to use the package name
+to Bioconductor at time of submission, so that the Bioconductor team can orphan
+the package and allow another maintainer to take it over in the event that the
+package contributor discontinues package maintenance. See Bioconductor’s package
+<a href="package-end-of-life-policy.html#package-end-of-life-policy">end-of-life policy</a> for more details.</p></li>
+<li><p>Uniqueness of package name. Packages should be named in a way that does not
+conflict (irrespective of case) with any current or past BIOCONDUCTOR package,
+nor any current or past CRAN package.</p></li>
+</ol>
+<p>See <a href="package-name.html#package-name">Package naming guidelines</a> for more guidelines.</p>
 </div>
 <div id="author" class="section level2" number="1.4">
 <h2>
@@ -180,16 +201,18 @@ package maintenance responsibilities. Package authors are expected to:</p>
 <ul>
 <li>
 <p>Follow Bioconductor guidelines</p>
-<p>These include standard <a href="guidelines">guidelines</a>, <a href="/developers/how-to/version-numbering/">version numbering</a>,
-coding style, code performance requirements, memory usage, using existing
-data classes, and the other requirements described below.</p>
+<p>These include standard <a href="develop-overview.html#develop-overview">guidelines</a>, <a href="versionnum.html#versionnum">version numbering</a>,
+<a href="r-code.html#r-code">coding style</a>, <a href="general.html#correctness-space-and-time">code performance
+requirements</a>, <a href="general.html#memory">memory usage</a>, <a href="important-bioconductor-package-development-features.html#reusebioc">using
+existing data classes</a>, and the other requirements described
+below.</p>
 </li>
 <li>
 <p>Follow the release cycle of Bioconductor</p>
 <p>There are two releases each year, around April and October. The
-<a href="/developers/release-schedule/">release schedule</a> will indicate the timetables and
+<a href="https://bioconductor.org/developers/release-schedule/">release schedule</a> will indicate the timetables and
 deadlines for each release. A release cycle typically produces two
-versions of packages, ‘devel’ and ‘release.’ It is important to be familiar
+versions of packages, ‘devel’ and ‘release’. It is important to be familiar
 with these branch concepts. Once your package has been accepted, it will
 initially be in the ‘devel’ branch. The current devel branch becomes the
 next release. Most users are expected to use the release branch, so they will
@@ -203,14 +226,22 @@ be added to the ‘devel’ branch.</p>
 under git version control. This means that you make changes to your
 package using <a href="git-version-control.html#git-version-control">git</a>. If your package is accepted, you will receive
 instructions with typical git operations (see the after
-<a href="software-package-submissions.html#afteraccept">acceptance section</a>). Package maintenance through software
+<a href="bioconductor-package-submissions.html#afteraccept">acceptance section</a>). Package maintenance through software
 release cycles, including prompt updates to software and documentation,
 is needed due to possible underlying changes in R and/or other package
 dependencies.</p>
 </li>
 <li>
-<p>Subscribe to the <a href="https://bioconductor.org/help/mailing-list/">bioc-devel</a>
-mailing list</p>
+<p>Check Build Reports and Fix Issues Promptly</p>
+<p><em>Bioconductor</em> has weekly to daily <a href="https://bioconductor.org/checkResults/">build reports</a> for all package types. It is
+the maintainers responsibility to check the build reports and respond to any
+ERROR/Warning/Notes produced by the install, build, or check process of a
+package. The maintainer will receive automatic build notifications when the
+package starts to fail on linux from <code>BBS-noreply@bioconductor.org</code>;
+maintainers should check that emails from this email address can be delivered.</p>
+</li>
+<li>
+<p>Subscribe to the <a href="https://stat.ethz.ch/mailman/listinfo/bioc-devel">bioc-devel</a> mailing list</p>
 <p>The Bioconductor team communicates with developers through this list.
 It is also a good channel to communicate changes to other developers.
 Addressing Bioconductor team requests in a timely manner guarantees that
@@ -236,9 +267,7 @@ bug reports and questions.</p>
 <span class="header-section-number">1.5</span> Submission<a class="anchor" aria-label="anchor" href="#submission"><i class="fas fa-link"></i></a>
 </h2>
 <ul>
-<li><p>Read and follow the full <a href="https://contributions.bioconductor.org/">Contributor Guidelines</a> section and
-make yourself familiar with the
-<a href="/developers/">Bioconductor Developer</a> pages.</p></li>
+<li><p>Read and follow the full <a href="develop-overview.html#develop-overview">Contributor Guidelines</a> section.</p></li>
 <li><p>Submit by opening a new issue in the <em>Bioconductor</em>
 <a href="https://github.com/Bioconductor/Contributions/issues/new">Contributions</a> repository, following the <a href="https://github.com/Bioconductor/Contributions">guidelines</a> of
 the <code>README.md</code> file.
@@ -247,7 +276,11 @@ under the default branch, add the link to your repository to
 the issue you are opening. You cannot specify any alternative branches; the
 default branch is utilized. The default branch must contain only package
 code. Any files or directories for other applications (Github Actions,
-devtool, etc) should be in a different branch.</p></li>
+devtool, etc) should be in a different branch. If you are submitting two
+highly related packages or circular dependent packages please see
+<a href="https://github.com/Bioconductor/Contributions/blob/master/CONTRIBUTING.md#submitting-related-packages">here</a>. The lighter dependent or package that can be installed without
+a dependency should be submitted first; this is generally the associated data
+package to a software package.</p></li>
 </ul>
 </div>
 <div id="experPackage" class="section level2" number="1.6">
@@ -262,12 +295,14 @@ examples first check the AnnotationHub resource for available files
 (e.g., BAM, FASTA, BigWig, etc.) or ExperimentHub for available processed
 example data set already included in <em>Bioconductor</em>. If no current files or data
 sets are appropriate consider an associated Experiment Data Package that
-utilizes <a href="https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html">ExperimentHub</a>.</p>
+utilizes <em><a href="https://bioconductor.org/packages/3.15/ExperimentHub">ExperimentHub</a></em>.</p>
 <p>If you have an associated data package for your software package,
 please do <em>NOT</em> create a separate issue in the our tracker repository
 for that. Instead, please add the data package repository to the same
 issue as the software package. The process for doing this is
-documented <a href="https://github.com/Bioconductor/Contributions/blob/master/CONTRIBUTING.md#submitting-related-packages">here</a>.</p>
+documented <a href="https://github.com/Bioconductor/Contributions/blob/master/CONTRIBUTING.md#submitting-related-packages">here</a>. Generally the data package should be submitted first.</p>
+<p>The <em><a href="https://bioconductor.org/packages/3.15/HubPub">HubPub</a></em> package is helpful for creating a template
+for a hub package. The vignette <a href="https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html">Create A Hub Package</a> provides full details.</p>
 </div>
 <div id="annPackage" class="section level2" number="1.7">
 <h2>
@@ -283,40 +318,65 @@ AnnotationDbi.</p>
 Instead send an email to <a href="mailto:packages@bioconductor.org" class="email">packages@bioconductor.org</a> with a
 description of the proposed annotation package and futher instructions
 of where to send the package will be provided. Whenever possible Annotation
-Packages should use the <a href="/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html">AnnotationHub</a> for managing files.</p>
+Packages should use the <em><a href="https://bioconductor.org/packages/3.15/AnnotationHub">AnnotationHub</a></em> for managing
+files.</p>
+<p>The <em><a href="https://bioconductor.org/packages/3.15/HubPub">HubPub</a></em> package is helpful for creating a template
+for a hub package. The vignette <a href="https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html">Create A Hub Package</a> provides full details.</p>
+<p><a name="workPackage"></a></p>
+</div>
+<div id="workPackage" class="section level2" number="1.8">
+<h2>
+<span class="header-section-number">1.8</span> Worflow Packages<a class="anchor" aria-label="anchor" href="#workPackage"><i class="fas fa-link"></i></a>
+</h2>
+<p>Workflow packages contain vignettes that describe a bioinformatics workflow that
+involves multiple Bioconductor packages. These vignettes are usually more
+extensive than the vignettes that accompany software packages. These packages do
+not need man/ or R/ directories nor a data/ directory as ideally workflows make
+use of existing data in a Bioconductor package. See development section on
+<a href="non-software.html#workflow-packages">Workflows</a> for more details</p>
 <p><a name="whattoexpect"></a></p>
 </div>
-<div id="whattoexpect" class="section level2" number="1.8">
+<div id="whattoexpect" class="section level2" number="1.9">
 <h2>
-<span class="header-section-number">1.8</span> Review Process<a class="anchor" aria-label="anchor" href="#whattoexpect"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.9</span> Review Process<a class="anchor" aria-label="anchor" href="#whattoexpect"><i class="fas fa-link"></i></a>
 </h2>
 <ul>
-<li><p>A new package is initially labeled as ‘1. awaiting moderation.’
+<li><p>A new package is initially labeled as <code>1. awaiting moderation</code>.
 A <em>Bioconductor</em> team member will take a very brief look at your
 package, to ensure that it is intended for <em>Bioconductor</em>. Appropriate
-packages will be re-labelled ‘2. review in progress’ and a reviewer will be
+packages will be re-labelled <code>2. review in progress</code> and a reviewer will be
 automatically assigned. Your assigned reviewer will address your concerns and
 help you through the review process. The entire review process typically
-takes between 2 and 5 weeks. If there is no response after 3 to 4 weeks,
+takes between 2 and 6 weeks. If there is no response after 3 to 4 weeks,
 package reviewers may close the issue until further updates, changes, and/or
 commentary are received.</p></li>
+<li><p>If in the pre-review process there are identified larger issues with the
+package, a label <code>3e. pending pre-review changes</code> or a more specific flag of
+package issue will be assigned. Please address any pre-review identified
+issues and comment back for the package admininstrators to re-evaluate.</p></li>
+<li><p>Please be courteous with your package reviewers and always follow the
+<em>Bioconductor</em> <a href="https://bioconductor.github.io/bioc_coc_multilingual/">Code Of Conduct</a> with correspondence. Please allow 2-3 weeks
+for reviewers to assess your package.</p></li>
 <li><p>The package will be submitted to the <em>Bioconductor</em> build
-system (BBS). The system will check out your package from GitHub. It will
-then run <code>R CMD build</code> to create a ‘tarball’ of your source code,
+system (BBS). The system will check out your package from GitHub and move it
+to our git.bioconductor.org git server. Please familiarize yourself with
+<a href="git-version-control.html#git-version-control">git</a> as the git.bioconductor.org is the versions the (BBS) will
+always use. It will then run <code>R CMD build</code> to create a ‘tarball’ of your source code,
 vignettes, and man pages. It will run <code>R CMD check</code> on the tarball,
 to ensure that the package conforms to standard <em>R</em> programming best
 practices. <em>Bioconductor</em> has chosen to utilize a custom <code>R CMD check</code>
-environment; See <a href="https://bioconductor.org/developers/package-guidelines/#checkingenv">R CMD check environment</a> for more details. Finally, the
+environment; See <a href="general.html#r-cmd-check-environment">R CMD check environment</a> for more details. Finally, the
 build system will run <code>BiocCheckGitClone()</code> and <code>BiocCheck('new-package'=TRUE)</code> to ensure that
-the package conforms to <em>Bioconductor</em> <a href="https://bioconductor.org/packages/BiocCheck/">BiocCheck</a> standards. The system
-will perform these steps using the <a href="/developers/how-to/useDevel/">‘devel’
+the package conforms to <em>Bioconductor</em> <em><a href="https://bioconductor.org/packages/3.15/BiocCheck">BiocCheck</a></em>
+standards. The system will perform these steps using the <a href="use-devel.html#use-devel">‘devel’
 version</a> of <em>Bioconductor</em>, on three platforms
 (Linux, Mac OS X, and Windows). After these steps are complete, a link to a
 build report will be appended to the new package issue. Avoid surprises by
 running these checks on your own computer, under the ‘devel’ version
 of <em>Bioconductor</em>, before submitting your package.</p></li>
 <li><p>If the build report indicates problems, modify your package and
-commit changes to the default branch of your GitHub repository. If
+commit changes to the git.bioconductor.org version of your package as
+described in the <a href="git-version-control.html#new-package-workflow">new package git workflow</a>. If
 there are problems that you do not understand, seek help on the
 <a href="https://stat.ethz.ch/mailman/listinfo/bioc-devel">bioc-devel</a> mailing list.</p></li>
 <li><p>To trigger a new build, include a version bump in your commit, e.g.,
@@ -331,28 +391,26 @@ commentary. Reviewers will add comments to the issue you created.</p></li>
 <li><p>Respond to the issues raised by the reviewers. You <em>must</em> respond to
 the primary reviewer, and are strongly encouraged to consider
 community commentary. Typically your response will involve code
-modifications; commit these to the default branch of your GitHub
-repository to trigger subsequent builds. When you have addressed all
-concerns, add a comment to the issue created in step 2 to explain
-your response.</p></li>
+modifications; commit these to the default branch of git.bioconductororg. When
+you have addressed all concerns, add a comment to the issue created in step 2
+to explain your response.</p></li>
 <li><p>The reviewer will assess your responses, perhaps suggesting further
 modifications or clarification. The reviewer will then accept your
 package for inclusion in <em>Bioconductor</em>, or decline it. The label
-‘2. review in progress’ will be replaced by ‘3a. accepted’ or
-‘3b. declined.’</p></li>
+<code>2. review in progress</code> will be replaced by <code>3a. accepted</code> or
+<code>3b. declined</code>.</p></li>
 <li><p>If your package is accepted, it will be added to <em>Bioconductor</em>’s
-Git repository and to the nightly ‘devel’
-builds. All packages in the ‘devel’ branch of the repository are
-‘released’ to the user community once every six months, in
+nightly ‘devel’ builds. All packages in the ‘devel’ branch of the repository
+are ‘released’ to the user community once every six months, in
 approximately April and October.</p></li>
 <li><p>Once the review process is complete, the issue you created will be
 closed. All updates to your package will be through the
 <a href="git-version-control.html#git-version-control"><em>Bioconductor</em> Git Server</a>.</p></li>
 </ul>
 </div>
-<div id="afteraccept" class="section level2" number="1.9">
+<div id="afteraccept" class="section level2" number="1.10">
 <h2>
-<span class="header-section-number">1.9</span> Following Acceptance<a class="anchor" aria-label="anchor" href="#afteraccept"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.10</span> Following Acceptance<a class="anchor" aria-label="anchor" href="#afteraccept"><i class="fas fa-link"></i></a>
 </h2>
 <p>Following acceptance of a package:</p>
 <ul>
@@ -360,21 +418,24 @@ closed. All updates to your package will be through the
 branch of the <em>Bioconductor</em> GIT repository, with the current version
 number of the accepted package.</li>
 <li>Packages are then built by the <em>Bioconductor</em> nightly build
-process. If the build is successful, the package has its own
+process. On-demand builds of accepted packages do not occur. Please see the
+<a href="https://bioconductor.org/checkResults/">build reports</a> for how often the different package types are built. The
+changes pushed to a ‘devel’ version of a package can take up to 24-28 hours to
+appear. See <a href="troubleshooting-build-report.html#propagate">build timings</a>. If the build is successful, the package has its own
 ‘landing page’ created, and the package is made available to users
 of the ‘devel’ branch of <em>Bioconductor</em> via <code><a href="https://rdrr.io/pkg/BiocManager/man/install.html">BiocManager::install()</a></code>.</li>
 <li>Changes to their package (if any), should be done to version in the
 <a href="git-version-control.html#git-version-control"><em>Bioconductor</em> git server</a>.</li>
 <li>Developers should bump the <code>z</code> portion of their version number every
 time they commit changes to their package, following the
-<a href="/developers/how-to/version-numbering/">Version numbering</a> guidelines. If developers don’t
+<a href="versionnum.html#versionnum">Version numbering</a> guidelines. If developers don’t
 bump the version, the changes made to their package <em>do not propagate</em>
 to the <em>Bioconductor</em> web site and package repository.</li>
 </ul>
 </div>
-<div id="support" class="section level2" number="1.10">
+<div id="support" class="section level2" number="1.11">
 <h2>
-<span class="header-section-number">1.10</span> Additional Support<a class="anchor" aria-label="anchor" href="#support"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.11</span> Additional Support<a class="anchor" aria-label="anchor" href="#support"><i class="fas fa-link"></i></a>
 </h2>
 <p>We are eager to enhance the quality and interoperability of
 <em>Bioconductor</em> software and will provide additional support when
@@ -382,10 +443,10 @@ requested by package developers. Example areas of assistance include
 use of appropriate S4 structures, specific guidance on efficient
 implementation, guidance on code structure, and critical assessment of
 package documentation and structure. Use the
-<a href="/help/mailing-list/">bioc-devel</a> mailing list or email
-<a href="mailto:packages@bioconductor.org" class="email">packages@bioconductor.org</a> to obtain additional support.</p>
+<a href="https://stat.ethz.ch/mailman/listinfo/bioc-devel">bioc-devel</a> mailing list or email
+<a href="mailto:maintainer@bioconductor.org" class="email">maintainer@bioconductor.org</a> to obtain additional support.</p>
 <ul>
-<li>Support Email: <a href="mailto:packages@bioconductor.org" class="email">packages@bioconductor.org</a>
+<li>Support Email: <a href="mailto:maintainer@bioconductor.org" class="email">maintainer@bioconductor.org</a>
 </li>
 </ul>
 </div>
@@ -399,7 +460,7 @@ package documentation and structure. Use the
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#software-package-submissions"><span class="header-section-number">1</span> Software Package Submissions</a></li>
+<li><a class="nav-link" href="#bioconductor-package-submissions"><span class="header-section-number">1</span> Bioconductor Package Submissions</a></li>
 <li><a class="nav-link" href="#subintro"><span class="header-section-number">1.1</span> Introduction</a></li>
 <li><a class="nav-link" href="#type"><span class="header-section-number">1.2</span> Types of Packages</a></li>
 <li><a class="nav-link" href="#naming"><span class="header-section-number">1.3</span> Package Naming Policy</a></li>
@@ -407,9 +468,10 @@ package documentation and structure. Use the
 <li><a class="nav-link" href="#submission"><span class="header-section-number">1.5</span> Submission</a></li>
 <li><a class="nav-link" href="#experPackage"><span class="header-section-number">1.6</span> Experiment Data Packages</a></li>
 <li><a class="nav-link" href="#annPackage"><span class="header-section-number">1.7</span> Annotation Packages</a></li>
-<li><a class="nav-link" href="#whattoexpect"><span class="header-section-number">1.8</span> Review Process</a></li>
-<li><a class="nav-link" href="#afteraccept"><span class="header-section-number">1.9</span> Following Acceptance</a></li>
-<li><a class="nav-link" href="#support"><span class="header-section-number">1.10</span> Additional Support</a></li>
+<li><a class="nav-link" href="#workPackage"><span class="header-section-number">1.8</span> Worflow Packages</a></li>
+<li><a class="nav-link" href="#whattoexpect"><span class="header-section-number">1.9</span> Review Process</a></li>
+<li><a class="nav-link" href="#afteraccept"><span class="header-section-number">1.10</span> Following Acceptance</a></li>
+<li><a class="nav-link" href="#support"><span class="header-section-number">1.11</span> Additional Support</a></li>
 </ul>
 
       <div class="book-extra">
@@ -431,7 +493,7 @@ package documentation and structure. Use the
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-17.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

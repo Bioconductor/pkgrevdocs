@@ -9,14 +9,14 @@
 <meta name="author" content="Daniela Cassol">
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
-<meta name="description" content="4.1 biocViews Packages added to the Bioconductor Project require a biocViews: field in their DESCRIPTION file. The field name “biocViews” is case-sensitive and must begin with a lower-case ‘b.’...">
+<meta name="description" content="4.1 biocViews Packages added to the Bioconductor Project require a biocViews: field in their DESCRIPTION file. The field name “biocViews” is case-sensitive and must begin with a lower-case ‘b’....">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 4 Important Bioconductor Package Development Features | Bioconductor Packages: Development, Maintenance, and Peer Review">
 <meta property="og:type" content="book">
-<meta property="og:description" content="4.1 biocViews Packages added to the Bioconductor Project require a biocViews: field in their DESCRIPTION file. The field name “biocViews” is case-sensitive and must begin with a lower-case ‘b.’...">
+<meta property="og:description" content="4.1 biocViews Packages added to the Bioconductor Project require a biocViews: field in their DESCRIPTION file. The field name “biocViews” is case-sensitive and must begin with a lower-case ‘b’....">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 4 Important Bioconductor Package Development Features | Bioconductor Packages: Development, Maintenance, and Peer Review">
-<meta name="twitter:description" content="4.1 biocViews Packages added to the Bioconductor Project require a biocViews: field in their DESCRIPTION file. The field name “biocViews” is case-sensitive and must begin with a lower-case ‘b.’...">
+<meta name="twitter:description" content="4.1 biocViews Packages added to the Bioconductor Project require a biocViews: field in their DESCRIPTION file. The field name “biocViews” is case-sensitive and must begin with a lower-case ‘b’....">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -45,7 +45,7 @@
 <li><a class="" href="index.html">Welcome</a></li>
 <li class="book-part">Package Submissions</li>
 <li><a class="" href="submission-overview.html">Overview</a></li>
-<li><a class="" href="software-package-submissions.html"><span class="header-section-number">1</span> Software Package Submissions</a></li>
+<li><a class="" href="bioconductor-package-submissions.html"><span class="header-section-number">1</span> Bioconductor Package Submissions</a></li>
 <li class="book-part">Package Development Guidelines</li>
 <li><a class="" href="develop-overview.html">Overview</a></li>
 <li><a class="" href="package-name.html"><span class="header-section-number">2</span> Package name</a></li>
@@ -103,40 +103,41 @@
 </h2>
 <p>Packages added to the <em>Bioconductor</em> Project require a <code>biocViews:</code>
 field in their DESCRIPTION file. The field name “biocViews” is
-case-sensitive and must begin with a lower-case ‘b.’</p>
+case-sensitive and must begin with a lower-case ‘b’.</p>
 <p>biocViews terms are “keywords” used to describe a given package. They
 are broadly divided into four categories, representing the type of
-packages present in the <em>Bioconductor</em> Project -</p>
+packages present in the <em>Bioconductor</em> Project</p>
 <ol style="list-style-type: decimal">
 <li>Software</li>
 <li>Annotation Data</li>
 <li>Experiment Data</li>
 <li>Workflow</li>
 </ol>
-<p>biocViews are available for the <a href="http://bioconductor.org/packages/release/BiocViews.html">release</a> and <a href="http://bioconductor.org/packages/devel/BiocViews.html">devel</a> branches of
+<p>biocViews are available for the <a href="http://bioconductor.org/packages/release/BiocViews.html">release</a> and <a href="https://bioconductor.org/packages/devel/BiocViews.html">devel</a> branches of
 <em>Bioconductor</em>. The devel branch has a check box under the tree
 structure which, when checked, displays biocViews that are defined but
-not used by any package, in addition to biocViews that are in use.</p>
-<div id="motivation" class="section level3" number="4.1.1">
+not used by any package, in addition to biocViews that are in use. See also
+<a href="description.html#description-biocviews">description section</a></p>
+<div id="biocviews-motivation" class="section level3" number="4.1.1">
 <h3>
-<span class="header-section-number">4.1.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.1.1</span> Motivation<a class="anchor" aria-label="anchor" href="#biocviews-motivation"><i class="fas fa-link"></i></a>
 </h3>
 <p>One can use biocViews for two broad purposes.</p>
 <ol style="list-style-type: decimal">
 <li><p>A researcher might want to identify all packages in the
 <em>Bioconductor</em> Project which are related to a specific purpose.
 For example, one may want to look for all packages related to “Copy
-Number Variants.”</p></li>
+Number Variants”.</p></li>
 <li><p>During development, a package contributor can “tag” their package
 with biocViews so that when someone looking for packages (like in
 scenario 1) can easily find their package.</p></li>
 </ol>
 </div>
-<div id="biocviews-during-new-package-development" class="section level3" number="4.1.2">
+<div id="biocviews-pkg-devel" class="section level3" number="4.1.2">
 <h3>
-<span class="header-section-number">4.1.2</span> biocViews during new package development<a class="anchor" aria-label="anchor" href="#biocviews-during-new-package-development"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.1.2</span> biocViews during new package development<a class="anchor" aria-label="anchor" href="#biocviews-pkg-devel"><i class="fas fa-link"></i></a>
 </h3>
-<p>Visit the <a href="http://bioconductor.org/packages/devel/BiocViews.html">devel</a> branch of biocViews when you are in the process of
+<p>Visit the <a href="https://bioconductor.org/packages/devel/BiocViews.html">‘devel’ biocViews</a> when you are in the process of
 adding biocViews to your new package. Identify as many terms as
 appropriate from the hierarchy. Prefer ‘leaf’ terms at the end of the
 hierarchy, over more inclusive terms. Remember to check the box
@@ -175,26 +176,27 @@ term.</p>
 reusing established classes for representing data. Here are some
 suggestions for importing different file types and commonly used
 <em>Bioconductor</em> classes. For more classes and functionality also try
-searching in <a href="/packages">BiocViews</a> for your data type.</p>
+searching in <a href="https://bioconductor.org/packages/devel/BiocViews.html">biocViews</a> for your data type.</p>
 <div id="commonimport" class="section level3" number="4.2.1">
 <h3>
 <span class="header-section-number">4.2.1</span> Importing<a class="anchor" aria-label="anchor" href="#commonimport"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
-<li>GTF, GFF, BED, BigWig, etc., – <a href="https://bioconductor.org/packages/rtracklayer">rtracklayer</a><code>::import()</code>
+<li>GTF, GFF, BED, BigWig, etc., – <em><a href="https://bioconductor.org/packages/3.15/rtracklayer">rtracklayer</a></em> <code>::import()</code>
 </li>
-<li>VCF – <a href="https://bioconductor.org/packages/VariantAnnotation">VariantAnnotation</a><code>::readVcf()</code>
+<li>VCF – <em><a href="https://bioconductor.org/packages/3.15/VariantAnnotation">VariantAnnotation</a></em> <code>::readVcf()</code>
 </li>
-<li>SAM / BAM – <a href="https://bioconductor.org/packages/Rsamtools">Rsamtools</a><code>::scanBam()</code>,
-<a href="https://bioconductor.org/packages/GenomicAlignments">GenomicAlignments</a><code>::readGAlignment*()</code>
+<li>SAM / BAM – <em><a href="https://bioconductor.org/packages/3.15/Rsamtools">Rsamtools</a></em> <code>::scanBam()</code>,
+<em><a href="https://bioconductor.org/packages/3.15/GenomicAlignments">GenomicAlignments</a></em> <code>::readGAlignment*()</code>
 </li>
-<li>FASTA – <a href="https://bioconductor.org/packages/Biostrings">Biostrings</a><code>::readDNAStringSet()</code>
+<li>FASTA – <em><a href="https://bioconductor.org/packages/3.15/Biostrings">Biostrings</a></em> <code>::readDNAStringSet()</code>
 </li>
-<li>FASTQ – <a href="https://bioconductor.org/packages/ShortRead">ShortRead</a><code>::readFastq()</code>
+<li>FASTQ – <em><a href="https://bioconductor.org/packages/3.15/ShortRead">ShortRead</a></em> <code>::readFastq()</code>
 </li>
-<li>MS data (XML-based and mgf formats) – <a href="https://bioconductor.org/packages/Spectra">Spectra</a><code>::Spectra()</code>,
-<a href="https://bioconductor.org/packages/MSnbase">MSnbase</a><code>::readMSData()</code>, <a href="https://bioconductor.org/packages/Spectra">Spectra</a><code>::Spectra(source = MsBackendMgf::MsBackendMgf())</code>,
-<a href="https://bioconductor.org/packages/MSnbase">MSnbase</a><code>::readMgfData()</code>
+<li>MS data (XML-based and mgf formats) – <em><a href="https://bioconductor.org/packages/3.15/Spectra">Spectra</a></em> <code>::Spectra()</code>,
+<em><a href="https://bioconductor.org/packages/3.15/MSnbase">MSnbase</a></em> <code>::readMSData()</code>,
+<em><a href="https://bioconductor.org/packages/3.15/Spectra">Spectra</a></em> <code>::Spectra(source = MsBackendMgf::MsBackendMgf())</code>,
+<em><a href="https://bioconductor.org/packages/3.15/MSnbase">MSnbase</a></em> <code>::readMgfData()</code>
 </li>
 </ul>
 </div>
@@ -204,32 +206,33 @@ searching in <a href="/packages">BiocViews</a> for your data type.</p>
 </h3>
 <ul>
 <li>Rectangular feature x sample data –
-<a href="https://bioconductor.org/packages/SummarizedExperiment">SummarizedExperiment</a><code>::SummarizedExperiment()</code> (RNAseq count
+<em><a href="https://bioconductor.org/packages/3.15/SummarizedExperiment">SummarizedExperiment</a></em> <code>::SummarizedExperiment()</code> (RNAseq count
 matrix, microarray, …)</li>
-<li>Genomic coordinates – <a href="https://bioconductor.org/packages/GenomicRanges">GenomicRanges</a><code>::GRanges()</code> (1-based,
+<li>Genomic coordinates – <em><a href="https://bioconductor.org/packages/3.15/GenomicRanges">GenomicRanges</a></em> <code>::GRanges()</code> (1-based,
 closed interval)</li>
 <li>Genomic coordinates from multiple samples –
-<a href="https://bioconductor.org/packages/GenomicRanges">GenomicRanges</a><code>::GRangesList()</code>
+<em><a href="https://bioconductor.org/packages/3.15/GenomicRanges">GenomicRanges</a></em> <code>::GRangesList()</code>
 </li>
-<li>Ragged genomic coordinates – <a href="https://bioconductor.org/packages/RaggedExperiment">RaggedExperiment</a><code>::RaggedExperiment()</code>
+<li>Ragged genomic coordinates – <em><a href="https://bioconductor.org/packages/3.15/RaggedExperiment">RaggedExperiment</a></em> <code>::RaggedExperiment()</code>
 </li>
-<li>DNA / RNA / AA sequences – <a href="https://bioconductor.org/packages/Biostrings">Biostrings</a><code>::*StringSet()</code>
+<li>DNA / RNA / AA sequences – <em><a href="https://bioconductor.org/packages/3.15/Biostrings">Biostrings</a></em> <code>::*StringSet()</code>
 </li>
-<li>Gene sets – <a href="https://bioconductor.org/packages/BiocSet">BiocSet</a><code>::BiocSet()</code>,
-<a href="https://bioconductor.org/packages/GSEABase">GSEABase</a><code>::GeneSet()</code>,
-<a href="https://bioconductor.org/packages/GSEABase">GSEABase</a><code>::GeneSetCollection()</code>
+<li>Gene sets – <em><a href="https://bioconductor.org/packages/3.15/BiocSet">BiocSet</a></em> <code>::BiocSet()</code>,
+<em><a href="https://bioconductor.org/packages/3.15/GSEABase">GSEABase</a></em> <code>::GeneSet()</code>,
+<em><a href="https://bioconductor.org/packages/3.15/GSEABase">GSEABase</a></em> <code>::GeneSetCollection()</code>
 </li>
 <li>Multi-omics data –
-<a href="https://bioconductor.org/packages/MultiAssayExperiment">MultiAssayExperiment</a><code>::MultiAssayExperiment()</code>
+<em><a href="https://bioconductor.org/packages/3.15/MultiAssayExperiment">MultiAssayExperiment</a></em> <code>::MultiAssayExperiment()</code>
 </li>
 <li>Single cell data –
-<a href="https://bioconductor.org/packages/SingleCellExperiment">SingleCellExperiment</a><code>::SingleCellExperiment()</code>
+<em><a href="https://bioconductor.org/packages/3.15/SingleCellExperiment">SingleCellExperiment</a></em> <code>::SingleCellExperiment()</code>
 </li>
-<li>Mass spec data – <a href="https://bioconductor.org/packages/Spectra">Spectra</a><code>::Spectra()</code>, <a href="https://bioconductor.org/packages/MSnbase">MSnbase</a><code>::MSnExp()</code>
+<li>Mass spec data – <em><a href="https://bioconductor.org/packages/3.15/Spectra">Spectra</a></em> <code>::Spectra()</code>,
+<em><a href="https://bioconductor.org/packages/3.15/MSnbase">MSnbase</a></em> <code>::MSnExp()</code>
 </li>
 </ul>
 <p>In general, a package will not be accepted if it does not show interoperability
-with the current <em>Bioconductor</em> ecosystem.</p>
+with the current <a href="https://bioconductor.org"><em>Bioconductor</em></a> ecosystem.</p>
 
 </div>
 </div>
@@ -243,8 +246,8 @@ with the current <em>Bioconductor</em> ecosystem.</p>
 <li><a class="nav-link" href="#important-bioconductor-package-development-features"><span class="header-section-number">4</span> Important Bioconductor Package Development Features</a></li>
 <li>
 <a class="nav-link" href="#biocviews"><span class="header-section-number">4.1</span> biocViews</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#motivation"><span class="header-section-number">4.1.1</span> Motivation</a></li>
-<li><a class="nav-link" href="#biocviews-during-new-package-development"><span class="header-section-number">4.1.2</span> biocViews during new package development</a></li>
+<li><a class="nav-link" href="#biocviews-motivation"><span class="header-section-number">4.1.1</span> Motivation</a></li>
+<li><a class="nav-link" href="#biocviews-pkg-devel"><span class="header-section-number">4.1.2</span> biocViews during new package development</a></li>
 </ul>
 </li>
 <li>
@@ -270,7 +273,7 @@ with the current <em>Bioconductor</em> ecosystem.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-17.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -45,7 +45,7 @@
 <li><a class="" href="index.html">Welcome</a></li>
 <li class="book-part">Package Submissions</li>
 <li><a class="" href="submission-overview.html">Overview</a></li>
-<li><a class="" href="software-package-submissions.html"><span class="header-section-number">1</span> Software Package Submissions</a></li>
+<li><a class="" href="bioconductor-package-submissions.html"><span class="header-section-number">1</span> Bioconductor Package Submissions</a></li>
 <li class="book-part">Package Development Guidelines</li>
 <li><a class="" href="develop-overview.html">Overview</a></li>
 <li><a class="" href="package-name.html"><span class="header-section-number">2</span> Package name</a></li>
@@ -157,7 +157,7 @@ check without errors or warnings</p>
 R CMD build BiocGenerics
 R CMD check BiocGenerics_1.22.3.tar.gz</code></pre>
 <p>Each commit, in either release or devel, should include a bump in the
-<code>z</code> portion of the <code>x.y.z</code> package <a href="/developers/how-to/version-numbering/">versioning scheme</a>.</p>
+<code>z</code> portion of the <code>x.y.z</code> package <a href="versionnum.html#versionnum">versioning scheme</a>.</p>
 <p>Builds occur once per day, and take approximately 24 hours. See the
 <a href="https://bioconductor.org/checkResults/devel/bioc-LATEST/">build report</a> for git commits captured in the most recent build
 (upper left corner)</p>
@@ -171,11 +171,10 @@ annotation files. To update an existing Annotation package please send an email
 to <a href="mailto:maintainer@bioconductor.org" class="email">maintainer@bioconductor.org</a>. A member of the Bioconductor team will be in
 contact to receive the updated package.</p>
 <p>Newer annotation packages can be stored in GIT as it is a requirement to use the
-<a href="https://bioconductor.org/packages/AnnotationHub/">AnnotationHub</a> or similar
-server hosted data. The larger sized files are not included directly in the package.
-To contribute a new Annotation package please contact <a href="mailto:hubs@bioconductor.org" class="email">hubs@bioconductor.org</a>
-for guidance and read the documentation on <a href="https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html">How to Create A Hub
-package</a>.</p>
+<em><a href="https://bioconductor.org/packages/3.15/AnnotationHub">AnnotationHub</a></em> server hosted data. The larger sized
+files are not included directly in the package. To contribute a new Annotation
+package please contact <a href="mailto:hubs@bioconductor.org" class="email">hubs@bioconductor.org</a> for guidance and read the
+documentation on <a href="https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html">Create A Hub Package</a>.</p>
 <p>Currently direct updates to annotation packages, even those stored on git, are
 not supported. If you wish to updated an annotation package, make required
 changes and push to git.bioconductor.org. Then send an email to
@@ -203,7 +202,7 @@ package.</li>
 </h3>
 <p><strong>Goal</strong>: You developed a package in GitHub, following the
 <em>Bioconductor</em> new package <a href="https://github.com/Bioconductor/Contributions">Contributions README</a> guidelines,
-<a href="http://bioconductor.org/developers/package-submission/">submitted it to <em>Bioconductor</em></a>, and your package has been
+<a href="bioconductor-package-submissions.html#bioconductor-package-submissions">submitted it to <em>Bioconductor</em></a>, and your package has been
 moderated. As part of moderation process, the package to be reviewed
 has been added as a repository on the <a href="https://git.bioconductor.org"><em>Bioconductor</em> git server</a>.</p>
 <p>During and after the review process, package authors must push changes
@@ -266,7 +265,7 @@ local repository</p>
 </li>
 <li>
 <p><strong>‘Bump’ the package version</strong>. Your package version number is in
-the format ‘major.minor.patch.’ Initial package submissions should have
+the format ‘major.minor.patch’. Initial package submissions should have
 a version number of <code>0.99.0</code>, as indicated by the <code>Version</code> field in the
 <code>DESCRIPTION</code> file. Increment the <code>patch</code> version number by 1, e.g., to
 <code>0.99.1</code>, <code>0.99.2</code>, …, <code>0.99.9</code>, <code>0.99.10</code>, …</p>
@@ -310,7 +309,7 @@ the link to see whether further changes are necessary.</p>
 <li>
 <a href="git-version-control.html#bug-fix-in-release-and-devel">Fix bugs in devel and release</a>.</li>
 <li>
-<a href="#resolve-conflicts">Resolve merge conflicts</a>.</li>
+<a href="git-version-control.html#resolve-merge-conflicts">Resolve merge conflicts</a>.</li>
 </ul>
 </li>
 </ol>
@@ -491,7 +490,7 @@ available to the user community.</p>
 <p>A new commit message will show up after this step, with the
 message <code>Merge branch 'master' into &lt;RELEASE_X_Y&gt;</code>. It will be
 committed to <code>&lt;RELEASE_X_Y&gt;</code> branch when you save. Update the
-<a href="https://bioconductor.org/developers/how-to/version-numbering/">version number</a> so that it is correct for the release, and commit
+<a href="versionnum.html#versionnum">version number</a> so that it is correct for the release, and commit
 the modified DESCRIPTION file</p>
 <pre><code>git add DESCRIPTION
 git commit -m "Update version bump"</code></pre>
@@ -548,11 +547,11 @@ resolving conflicts, below.</p>
 refusing to merge unrelated histories”) and need to use</p>
 <pre><code> git merge --allow-unrelated-histories upstream/master</code></pre>
 </li>
-<li><p><a href="#resolve-conflicts">Resolve merge conflicts</a> if necessary.</p></li>
+<li><p><a href="git-version-control.html#resolve-merge-conflicts">Resolve merge conflicts</a> if necessary.</p></li>
 <li><p>After resolving conflicts and committing changes, look for duplicate
 commits (e.g., <code>git log --oneline | wc</code> returns twice as many
 commits as in SVN) and consider following the steps to
-<a href="#abandon-changes#force-bioconductor--to-github-">force Bioconductor <code>master</code> to GitHub <code>master</code></a>.</p></li>
+<a href="git-version-control.html#force-bioconductor-master-to-github-master">force Bioconductor <code>master</code> to GitHub <code>master</code></a>.</p></li>
 <li>
 <p>Push to both <em>Bioconductor</em> and GitHub repositories.</p>
 <pre><code> git push upstream master
@@ -628,11 +627,12 @@ installation.</p></li>
 <li>
 <a href="git-version-control.html#push-to-github-bioc">Push to GitHub and <em>Bioconductor</em></a> repositories.</li>
 <li>
-<a href="#resolve-conflicts">Resolve merge conflicts</a>.</li>
+<a href="git-version-control.html#resolve-merge-conflicts">Resolve merge conflicts</a>.</li>
 <li>
 <a href="git-version-control.html#abandon-changes">Abandon changes</a>.</li>
 <li>
 <a href="git-version-control.html#bug-fix-in-release-and-devel">Fix bugs in devel and release</a>.</li>
+<li><a href="git-version-control.html#resolve-duplicate-commits">Resolve duplicate commits</a></li>
 </ul>
 <div id="pull-upstream-changes" class="section level3" number="21.7.1">
 <h3>
@@ -657,7 +657,7 @@ merge conflicts.</p>
 <li>
 <p>Merge upstream with the appropriate local branch</p>
 <pre><code> git merge upstream/master</code></pre>
-<p>Get help on <a href="#resolve-conflicts">Resolve merge conflicts</a> if these occur.</p>
+<p>Get help on <a href="git-version-control.html#resolve-merge-conflicts">Resolve merge conflicts</a> if these occur.</p>
 </li>
 <li>
 <p>If you also maintain a GitHub repository, push changes to GitHub’s
@@ -684,7 +684,7 @@ committing local changes.</p>
 to push to <em>Bioconductor</em>’s git server
 (<a href="mailto:git@git.bioconductor.org" class="email">git@git.bioconductor.org</a>). If not please see FAQ’s on how to get
 access and follow instructions to
-<a href="git-version-control.html#maintain-github-bioc">maintain GitHub and <em>Bioconductor</em> repositories</a>. We use a clone
+<a href="git-version-control.html#maintain-github-bioc">Maintain GitHub and <em>Bioconductor</em> repositories</a>. We use a clone
 of the <code>BiocGenerics</code> package in the following example.</p></li>
 <li>
 <p>To check that remotes are set up properly, run the command inside
@@ -710,7 +710,7 @@ use a local branch for development.</p>
 <pre><code> git checkout master
  git checkout -b feature-my-feature
  ## multiple rounds of edit, add, commit</code></pre>
-<p>Merge the local branch to master when the feature is ‘complete.’</p>
+<p>Merge the local branch to master when the feature is ‘complete’.</p>
 <pre><code> git checkout master
 
  # Pull upstream changes before merging
@@ -747,7 +747,7 @@ this:</p>
 change, and also a collaborator or a <em>Bioconductor</em> core team
 member makes a change to the same file (in this case the
 <code>DESCRIPTION</code> file).</p>
-<p>How can you avoid this? <a href="git-version-control.html#pull-upstream-changes">pull upstream changes</a> before
+<p>How can you avoid this? <a href="git-version-control.html#pull-upstream-changes">Pull upstream changes</a> before
 committing any changes. In other words, <code>fetch</code> and <code>merge</code> remote
 branches before a <code>push</code>.</p>
 </li>
@@ -887,7 +887,7 @@ been warned.</strong></p>
 <li><p>Delete your local repository, e.g., <code>rm -rf BiocGenerics</code></p></li>
 <li><p>Delete (or rename) your GitHub repository.</p></li>
 <li><p><a href="git-version-control.html#maintain-github-bioc">Maintain GitHub and <em>Bioconductor</em> repositories</a> for an existing
-<em>Bioconductor</em> repository, then <a href="git-version-control.html#pull-upstream-changes">pull upstream changes</a>.</p></li>
+<em>Bioconductor</em> repository, then <a href="git-version-control.html#pull-upstream-changes">Pull upstream changes</a>.</p></li>
 </ol>
 <div id="disadvantages-of-going-nuclear" class="section level5" number="21.7.4.3.1">
 <h5>
@@ -928,7 +928,7 @@ to the commit. Remember to bump the version number in the <code>DESCRIPTION</cod
 commit.</p>
 <pre><code> git add &lt;files changed&gt;</code></pre>
 <p>Commit the modified files. It is helpful to tag the commit message with “bug
-fix.”</p>
+fix”.</p>
 <pre><code> git commit -m "bug fix: my bug fix"</code></pre>
 <p>Bump the version of the package by editing the <code>Version</code> field in the
 <code>DESCRIPTION</code> and commit the change.</p>
@@ -951,7 +951,7 @@ create a new branch where you can easily abandon any false starts.</p>
 hashes from the default branch that correspond to the bug fix (more examples
 in <code>git cherry-pick --help</code>). Remember to edit the <code>DESCRIPTION</code> file to
 update the release version of the package according to <em>Bioconductor</em>’s
-<a href="#version-numbering">version numbering scheme</a>.</p>
+<a href="versionnum.html#versionnum">version numbering scheme</a>.</p>
 <pre><code> git checkout &lt;RELEASE_X_Y&gt;
  ## example hash from git log: 2644710
  git cherry-pick &lt;hash&gt;
@@ -986,15 +986,85 @@ branch on your local machine.</p>
 <iframe width="568" height="315" src="https://www.loom.com/embed/37525f9ddf434c91b11e8112db46818b" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
 </iframe>
 </div>
+<div id="resolve-duplicate-commits" class="section level3" number="21.7.6">
+<h3>
+<span class="header-section-number">21.7.6</span> Resolve Duplicate Commits<a class="anchor" aria-label="anchor" href="#resolve-duplicate-commits"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Goal:</strong> You want to get rid of the duplicate (or triplicate) commits
+in your git commit history.</p>
+<p>Before you begin <a href="git-version-control.html#resolve-merge-conflicts">Update your package</a> to the existing version on
+Bioconductor.</p>
+<div id="steps" class="section level4" number="21.7.6.1">
+<h4>
+<span class="header-section-number">21.7.6.1</span> Steps:<a class="anchor" aria-label="anchor" href="#steps"><i class="fas fa-link"></i></a>
+</h4>
+<ol style="list-style-type: decimal">
+<li>
+<p><strong>IMPORTANT</strong> Make a backup of the branch with duplicate commits,
+call this <code>master_backup</code> (or <code>RELEASE_3_7_backup</code>). The name of
+the back up branch should be identifiable and specific to the
+branch you are trying to fix (i.e if you want to fix the <em>master</em>
+branch or some <code>&lt;RELEASE_X_Y&gt;</code> branch).</p>
+<p>On master, (make sure you are on master by <code>git checkout master</code>)</p>
+<pre><code> git branch master_backup</code></pre>
+</li>
+<li><p>Identify the commit from which the duplicates have
+originated. These commits are more often than not, <code>merge</code> commits.</p></li>
+<li>
+<p>Reset your branch to the commit <em>before</em> the merge commit.</p>
+<pre><code> git reset —hard &lt;commit_id&gt;</code></pre>
+</li>
+<li>
+<p>Now cherry pick your commits from the <code>master_backup</code> branch.</p>
+<pre><code> git cherry-pick &lt;commit_id&gt;</code></pre>
+<ol style="list-style-type: lower-alpha">
+<li><p>The commits you cherry-pick should be only 1 version of the
+duplicate commit, i.e don’t cherry-pick the same commit twice.</p></li>
+<li><p>Include the branching and version bump commits in your
+cherry-pick. Make the package history look as normal as possible.</p></li>
+</ol>
+</li>
+<li><p>(Optional) In some cases, there are conflicts you need to fix for
+the cherry-pick to succeed. Please read the documentation on how
+to <a href="git-version-control.html#resolve-merge-conflicts">resolve conflicts</a></p></li>
+<li><p>Finally, you would need to contact the bioc-devel mailing list to
+reach the Bioconductor core team to sync your repository with the
+version on Bioconductor. This is not possible as <code>--force</code> pushes
+which alter the git timeline are not possible for maintainers.</p></li>
+</ol>
+</div>
+<div id="how-to-check-if-your-package-has-duplicate-commits" class="section level4" number="21.7.6.2">
+<h4>
+<span class="header-section-number">21.7.6.2</span> How to check if your package has duplicate commits<a class="anchor" aria-label="anchor" href="#how-to-check-if-your-package-has-duplicate-commits"><i class="fas fa-link"></i></a>
+</h4>
+<p>One way is to check the log. You should see the same commit message
+with the same changes, but with a different commit ID, if you try</p>
+<pre><code>git log</code></pre>
+<p>or</p>
+<pre><code>git log --oneline</code></pre>
+</div>
+<div id="script-to-detect-duplicate-commits" class="section level4" number="21.7.6.3">
+<h4>
+<span class="header-section-number">21.7.6.3</span> Script to detect duplicate commits<a class="anchor" aria-label="anchor" href="#script-to-detect-duplicate-commits"><i class="fas fa-link"></i></a>
+</h4>
+<p>Run this script written in python to <a href="https://github.com/Bioconductor/bioc_git_transition/blob/master/misc/detect_duplicate_commits.py">detect duplicate commits</a>
+which are specific to Bioconductor repositories.</p>
+<p>Usage example:</p>
+<pre><code>python detect_duplicate_commits.py /BiocGenerics 1000
+
+python detect_duplicate_commits.py &lt;path_to_package&gt; &lt;number of commits to check&gt;'</code></pre>
+</div>
+</div>
 </div>
 <div id="github-scenarios" class="section level2" number="21.8">
 <h2>
 <span class="header-section-number">21.8</span> Github scenarios<a class="anchor" aria-label="anchor" href="#github-scenarios"><i class="fas fa-link"></i></a>
 </h2>
 <ul>
-<li>[Add collaborators][] and use Github social coding features.</li>
-<li>[Change Package Maintainer][]</li>
-<li>[Remove Large Data Files][] and clean git tree</li>
+<li>
+<a href="git-version-control.html#add-collaborators-and-leverage-github-features">Add collaborators and use Github social coding features</a>.</li>
+<li><a href="git-version-control.html#change-maintainer">Change Package Maintainer</a></li>
+<li><a href="git-version-control.html#remove-large-data-files-and-clean-git-tree">Remove Large Data Files and clean git tree</a></li>
 </ul>
 <div id="add-collaborators-and-leverage-github-features" class="section level3" number="21.8.1">
 <h3>
@@ -1036,7 +1106,7 @@ applied, for example <code>master</code>.</p>
 <p>Fetch and merge the GitHub changes to your local repository.</p>
 <pre><code> git fetch origin
  git merge</code></pre>
-<p><a href="#resolve-conflicts">Resolve merge conflicts</a> if necessary.</p>
+<p><a href="git-version-control.html#resolve-merge-conflicts">Resolve merge conflicts</a> if necessary.</p>
 </li>
 <li>
 <p>Push your local repository to the upstream <em>Bioconductor</em> repository.</p>
@@ -1060,7 +1130,7 @@ maintain the package and avoid deprecation and removal.</p>
 <li>
 <p>Find a new maintainer</p>
 <p>You may have a collaborator or colleague volunteer to take over. If not, ask
-on the <a href="/help/mailing-list/">bioc-devel</a> mailing list.</p>
+on the <a href="https://stat.ethz.ch/mailman/listinfo/bioc-devel">bioc-devel</a> mailing list.</p>
 </li>
 <li>
 <p>Email <a href="mailto:maintainer@bioconductor.org" class="email">maintainer@bioconductor.org</a> or <a href="mailto:bioc-devel@r-project.org" class="email">bioc-devel@r-project.org</a></p>
@@ -1125,7 +1195,7 @@ reset.</p>
 <ol style="list-style-type: decimal">
 <li>
 <p>I can’t access my package.</p>
-<p>You will need to log in to the <a href="https://git.bioconductor.org/BiocCredentials/">BiocCredentials</a> app. If you have
+<p>You will need to log in to the [BiocCredentials][] app. If you have
 not logged in before, you must first <strong>activate</strong> your account.</p>
 <p>There are two steps,</p>
 <ol style="list-style-type: decimal">
@@ -1167,7 +1237,7 @@ you will need to <a href="https://git.bioconductor.org/BiocCredentials/">submit 
 <a href="https://git.bioconductor.org/BiocCredentials/">BiocCredentials</a> app.</p>
 <p>You should also make sure to check that your public key is set up
 correctly on GitHub. Follow
-<a href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/">Adding an SSH key to your GitHub account</a>.</p>
+<a href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/">Adding a new SSH key to your GitHub account</a>.</p>
 </li>
 <li>
 <p>I’m not sure how to fetch the updates from <code>git.bioconductor.org</code>
@@ -1180,7 +1250,7 @@ the information needed.</p>
 <p>As a package user, you do not need any of these <strong>developer</strong>
 related documentation. Although, it is a good primer if you want
 to be a contributor to <em>Bioconductor</em>.</p>
-<p>You can also open <a href="https://help.github.com/articles/creating-a-pull-request/">pull requests</a> and <a href="https://help.github.com/articles/creating-an-issue/">issues</a> on the
+<p>You can also open <a href="https://help.github.com/articles/creating-a-pull-request/">Pull requests</a> and <a href="https://help.github.com/articles/creating-an-issue/">issues</a> on the
 <em>Bioconductor</em> packages you use, <strong>if</strong> they have a GitHub
 repository.</p>
 </li>
@@ -1353,7 +1423,7 @@ if they are maintaining one.</p>
 <li>
 <p>How can I fix my duplicate commits issue and find the required
 documentation?</p>
-<p>The detailed documentation to <a href="#resolve-duplicate-commits">resolve duplicate commits</a>
+<p>The detailed documentation to <a href="git-version-control.html#resolve-duplicate-commits">resolve duplicate commits</a>
 can be found at the link.</p>
 </li>
 </ol>
@@ -1374,6 +1444,15 @@ please send an email to <a href="mailto:bioc-devel@bioconductor.org" class="emai
 <p><a href="https://help.github.com/articles/git-and-github-learning-resources/">Git and GitHub learning resources</a></p>
 <p><a href="https://git-scm.com/">git-scm manual</a></p>
 <p><a href="https://guides.github.com/">GitHub Guides</a></p>
+<p><a href="git-version-control.html#new-package-workflow">New package workflow</a></p>
+<p><a href="git-version-control.html#maintain-github-bioc">Maintain GitHub and <em>Bioconductor</em> repositories</a></p>
+<p><a href="git-version-control.html#maintain-bioc-only">Maintain a <em>Bioconductor</em>-only repository</a></p>
+<p><a href="git-version-control.html#sync-existing-repositories">Sync existing repositories</a></p>
+<p><a href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/">Adding a SSH key to your GitHub account</a></p>
+<p><a href="https://git.bioconductor.org/BiocCredentials/">submit your SSH public key</a></p>
+<p><a href="git-version-control.html#resolve-duplicate-commits">resolve duplicate commits</a></p>
+<p><a href="https://help.github.com/articles/creating-a-pull-request/">Pull requests</a></p>
+<p><a href="https://help.github.com/articles/creating-an-issue/">Open github issues</a></p>
 
 </div>
 </div>
@@ -1409,6 +1488,7 @@ please send an email to <a href="mailto:bioc-devel@bioconductor.org" class="emai
 <li><a class="nav-link" href="#resolve-merge-conflicts"><span class="header-section-number">21.7.3</span> Resolve merge conflicts</a></li>
 <li><a class="nav-link" href="#abandon-changes"><span class="header-section-number">21.7.4</span> Abandon changes</a></li>
 <li><a class="nav-link" href="#bug-fix-in-release-and-devel"><span class="header-section-number">21.7.5</span> Fix bugs in devel and release</a></li>
+<li><a class="nav-link" href="#resolve-duplicate-commits"><span class="header-section-number">21.7.6</span> Resolve Duplicate Commits</a></li>
 </ul>
 </li>
 <li>
@@ -1438,7 +1518,7 @@ please send an email to <a href="mailto:bioc-devel@bioconductor.org" class="emai
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-17.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

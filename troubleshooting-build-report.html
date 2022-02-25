@@ -45,7 +45,7 @@
 <li><a class="" href="index.html">Welcome</a></li>
 <li class="book-part">Package Submissions</li>
 <li><a class="" href="submission-overview.html">Overview</a></li>
-<li><a class="" href="software-package-submissions.html"><span class="header-section-number">1</span> Software Package Submissions</a></li>
+<li><a class="" href="bioconductor-package-submissions.html"><span class="header-section-number">1</span> Bioconductor Package Submissions</a></li>
 <li class="book-part">Package Development Guidelines</li>
 <li><a class="" href="develop-overview.html">Overview</a></li>
 <li><a class="" href="package-name.html"><span class="header-section-number">2</span> Package name</a></li>
@@ -109,12 +109,10 @@ day’s build report that is posted around 11:30 AM EST. The build report has
 a time stamp at the top of the page when it was generated. Changes after
 2:30 PM EST will not be reflect until the day after tomorrow, therefore
 possibly taking up to 36-48 hours. The build reports for
-<a href="https://bioconductor.org/checkResults/devel/bioc-LATEST/">devel</a> and
-<a href="https://bioconductor.org/checkResults/release/bioc-LATEST/">release</a> show
+<a href="https://bioconductor.org/checkResults/devel/bioc-LATEST/">devel</a> and <a href="https://bioconductor.org/checkResults/release/bioc-LATEST/">release</a> show
 the package version and commit id that is being reflected for that build.
-The <a href="https://bioconductor.org/packages/release/BiocViews/">landing pages for
-packages</a> (e.g.,
-<a href="https://bioconductor.org/packages/release/bioc/html/Biobase.html">Biobase</a>])
+The <a href="http://bioconductor.org/packages/release/BiocViews.html">landing pages for packages</a> (e.g.,
+<em><a href="https://bioconductor.org/packages/3.15/Biobase">Biobase</a></em>)
 will not be updated until the package installs/build/checks without ERROR; We
 do not propagate broken packages. This could account for a different version on
 the landing page than was pushed to <em>Bioconductor</em>. Please also remember a
@@ -126,19 +124,19 @@ package ALWAYS needs a valid version bump to propagate to users.</p>
 </h2>
 <p>In order to reproduce the ERROR’s accuately locally, remember to be using the
 correct version of R and Bioconductor. The version of R used for the build
-report can be found at the top of the
-<a href="https://bioconductor.org/checkResults/release/bioc-LATEST/">release</a> and
-<a href="https://bioconductor.org/checkResults/devel/bioc-LATEST/">devel</a> build
-reports. Once you are using the correct version of R make sure all your packages
-are up-to-date with <code><a href="https://rdrr.io/pkg/BiocManager/man/valid.html">BiocManager::valid()</a></code> and <code><a href="https://rdrr.io/pkg/BiocManager/man/install.html">BiocManager::install()</a></code>. There
-are some additional environment variables the daily builder uses during <code>R CMD check</code>. Those are the following:</p>
+report can be found at the top of the <a href="https://bioconductor.org/checkResults/release/bioc-LATEST/">release</a> and
+<a href="https://bioconductor.org/checkResults/devel/bioc-LATEST/">devel</a> build reports. Once you are using the
+correct version of R make sure all your packages are up-to-date with
+<code><a href="https://rdrr.io/pkg/BiocManager/man/valid.html">BiocManager::valid()</a></code> and <code><a href="https://rdrr.io/pkg/BiocManager/man/install.html">BiocManager::install()</a></code>. There are some additional
+environment variables the daily builder uses during <code>R CMD check</code>. Those are the
+following:</p>
 <pre><code>export _R_CHECK_EXECUTABLES_=false
 export _R_CHECK_EXECUTABLES_EXCLUSIONS_=false
 export _R_CHECK_LENGTH_1_CONDITION_=package:_R_CHECK_PACKAGE_NAME_,abort,verbose
 export _R_CHECK_LENGTH_1_LOGIC2_=package:_R_CHECK_PACKAGE_NAME_,abort,verbose
 export _R_CHECK_S3_METHODS_NOT_REGISTERED_=true</code></pre>
 <p>The Single Package build has some extra
-<a href="https://github.com/Bioconductor/Contributions#r-cmd-check-environment">documentation</a>
+<a href="general.html#r-cmd-check-environment">documentation</a>
 about how to set up your local system to use optional environment
 variables. Please note that if you look at the file listed on this page, it has
 many additional variables; <em>Bioconductor</em> does a much more stringent check on
@@ -285,7 +283,7 @@ about the affects and consequences of this code structure. A better discussion
 and explanation can be found <a href="https://developer.r-project.org/Blog/public/2019/11/09/when-you-think-class.-think-again/index.html">When you think <code>class(.) == *</code>, think again!</a></p>
 <p>The sum up is <code>class( x ) == "foo"</code> should be avoided. It can be misleading if classes extend other classes. The
 better option is to use <code>is( x , "foo")</code> or <code>inherits(x, "foo")</code>.</p>
-<p>This is also advised in <a href="https://bioconductor.org/developers/package-guidelines/#rcode">Bioconductor best practices</a></p>
+<p>This is also advised in <a href="r-code.html#r-code-best-practices-and-guidelines">Bioconductor best practices</a></p>
 <p><a name="matarr"></a></p>
 <p>Starting in R 4.0, a matrix is considered an extension of array.</p>
 <pre><code>&gt; m = matrix()
@@ -453,7 +451,7 @@ packages time to adjust code before removal. This release the most
 notable maintainer requested deprecation from 3.10 (therefore removed in 3.11) are
 SNPchip and GenomeGraphs. A full list of deprecated packages can be found
 <a href="https://support.bioconductor.org/p/125352/">List of Deprecated Packages 3.10</a>.
-We also documented removed packages on our <a href="/about/removed-packages/">Removed Package Page</a></p>
+We also documented removed packages on our <a href="https://bioconductor.org/about/removed-packages/">Removed Package Page</a></p>
 </div>
 </div>
 <div id="depFun311" class="section level3" number="23.4.13">
@@ -536,7 +534,7 @@ Use 'perCellQCMetrics' instead.</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-17.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

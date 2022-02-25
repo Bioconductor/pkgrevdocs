@@ -45,7 +45,7 @@
 <li><a class="" href="index.html">Welcome</a></li>
 <li class="book-part">Package Submissions</li>
 <li><a class="" href="submission-overview.html">Overview</a></li>
-<li><a class="" href="software-package-submissions.html"><span class="header-section-number">1</span> Software Package Submissions</a></li>
+<li><a class="" href="bioconductor-package-submissions.html"><span class="header-section-number">1</span> Bioconductor Package Submissions</a></li>
 <li class="book-part">Package Development Guidelines</li>
 <li><a class="" href="develop-overview.html">Overview</a></li>
 <li><a class="" href="package-name.html"><span class="header-section-number">2</span> Package name</a></li>
@@ -139,14 +139,13 @@ check if your issue has already been explored.</p>
 <p>Note: For simplicity, this guide uses ‘GCC’ (GNU Compiler Collection)
 and ‘clang’ to refer to each respective collection of tools (including
 C++ compilers), rather than simply the ‘GCC C compiler’ or ‘clang C
-compiler.’ ‘Mavericks environment’ refers to the combination of clang
+compiler’. ‘Mavericks environment’ refers to the combination of clang
 and Xcode versions available by default for Mavericks.</p>
 <p>With the release of the Mavericks
 build of R, CRAN and Bioconductor have adopted Apple’s preferred
 toolchain for building packages for the Mavericks
 platform. Bioconductor packages are built on the Mavericks platform
-using the OS X default combination of <a href="http://clang.llvm.org/">clang</a>
-and <a href="https://developer.apple.com/xcode/">Xcode</a>.</p>
+using the OS X default combination of <a href="http://clang.llvm.org/">clang</a> and <a href="https://developer.apple.com/xcode/">Xcode</a>.</p>
 <p>The introduction of the Mavericks environment has revealed a number of
 issues with building packages, most of which are due to C/C++ code
 that relies too heavily on the GCC way of doing things. Most problems
@@ -214,16 +213,13 @@ restrictive about out-of-bounds memory addressing.</p>
 <h4>
 <span class="header-section-number">E.2.1.2</span> How to find bugs<a class="anchor" aria-label="anchor" href="#find-bugs"><i class="fas fa-link"></i></a>
 </h4>
-<p>With GCC the preferred debugger is
-<a href="http://www.gnu.org/software/gdb/">gdb</a>, but many prefer
-<a href="http://lldb.llvm.org/">lldb</a> for debugging in the Mavericks
-environment. Support for <a href="http://lldb.llvm.org/status.html">lldb on other
-platforms</a> is limited at this time.</p>
+<p>With GCC the preferred debugger is <a href="http://www.gnu.org/software/gdb/">gdb</a>, but many prefer
+<a href="http://lldb.llvm.org/">lldb</a> for debugging in the Mavericks environment.</p>
 <p>Because a number of bugs in packages are related to memory addressing
 or layout errors, relying on a debugger alone might not be sufficient
 to track down memory errors. <a href="http://valgrind.org/">Valgrind</a> is the
 premier tool for detecting memory errors.</p>
-<p>See the Bioconductor guide on <a href="/developers/how-to/c-debugging/">debugging C/C++
+<p>See the Bioconductor guide on <a href="debugging-cc-code.html#debugging-cc-code">debugging C/C++
 code</a> for examples of using a
 debugger and Valgrind.</p>
 </div>
@@ -238,9 +234,7 @@ reproducible with the combination of clang, Xcode, and OS X 10.9.</p>
 <ol style="list-style-type: decimal">
 <li><p>As an <em>exploratory measure</em>, install a more recent version of GCC
 and compile your package with <code>-std=c++11</code> or <code>-std=gnu++11</code> compiler
-arguments (see <a href="/developers/package-guidelines#development-compiler-settings">Package
-Guidelines</a>
-for info about development compiler flags); as of <a href="https://gcc.gnu.org/gcc-4.8/cxx0x_status.html">version
+arguments; as of <a href="https://gcc.gnu.org/gcc-4.8/cxx0x_status.html">version
 4.8.1</a>, GCC implements
 all major features of the 2011 ISO C++ standard. Diagnostics for
 errors and warnings have also greatly improved with recent GCC
@@ -252,9 +246,8 @@ unique to the Mavericks environment.</p></li>
 on the Mavericks platform are related to memory addressing problems,
 many errors should be equally discoverable using Valgrind on Linux.</p></li>
 <li><p>If you are unable to diagnose your problem using the combination of
-<a href="http://bioconductor.org/checkResults/">build system output</a> and
-Valgrind, feel free to contact the <a href="/help/mailing-list/">bioc-devel mailing
-list</a>.</p></li>
+<a href="https://bioconductor.org/checkResults/">build system output</a> and Valgrind, feel free to contact the
+<a href="https://stat.ethz.ch/mailman/listinfo/bioc-devel">bioc-devel</a> mailing list.</p></li>
 </ol>
 </div>
 </div>
@@ -346,9 +339,7 @@ gracefully if OpenMP support is not available:</p>
 #else
     // single-threaded version of code
 #endif</code></pre>
-<p>See the
-<a href="http://bioconductor.org/packages/release/bioc/html/ShortRead.html">ShortRead</a>
-package for an example of good practices around support for OpenMP.</p>
+<p>See the <em><a href="https://bioconductor.org/packages/3.15/ShortRead">ShortRead</a></em> package for an example of good practices around support for OpenMP.</p>
 </div>
 </div>
 <div id="best-practices" class="section level2" number="33.5">
@@ -362,8 +353,7 @@ in avoiding issues in the Mavericks environment.</p>
 <h3>
 <span class="header-section-number">E.5.1</span> Use Rcpp<a class="anchor" aria-label="anchor" href="#use-rcpp"><i class="fas fa-link"></i></a>
 </h3>
-<p>The <a href="http://cran.r-project.org/web/packages/Rcpp/index.html">Rcpp</a>
-CRAN package allows seamless integration of C++ with <code>R</code>, and is
+<p>The <a href="http://cran.r-project.org/web/packages/Rcpp/index.html">Rcpp</a> CRAN package allows seamless integration of C++ with <code>R</code>, and is
 cross-platform. The package affords many of the same benefits for the
 <code>R</code> C interface that make C++ so appealing as a language, while
 eliminating many of the pitfalls of programming to the <code>R</code> interface.</p>
@@ -451,7 +441,7 @@ readability.</p>
 <p>Many new C++ authors will use a using-directive to introduce the
 identifiers they need. <strong>Avoid</strong> if possible:</p>
 <pre><code>using namespace std; // introduces entire std namespace for resolution</code></pre>
-<p>One alternative is using-declarations (e.g., ‘<code>using std::map;</code>’
+<p>One alternative is using-declarations (e.g., ‘<code>using std::map;</code>’,
 which allow hand-picking of identifiers to introduce (as opposed to
 the entire std namespace); here we just want <code>std::map</code> and
 <code>std::make_pair</code>. Even if the list of identifiers we want is quite
@@ -470,7 +460,7 @@ hygiene:</p>
      ...
 }</code></pre>
 <p>A perfectly good alternative is to simply precede standard library
-identifiers with ‘<code>std::</code>’ which most C++ programmers are accustomed
+identifiers with ‘<code>std::</code>’, which most C++ programmers are accustomed
 to reading:</p>
 <pre><code>void foo() {
      std::map&lt;int, int&gt; m;
@@ -545,7 +535,7 @@ Mavericks environment.</p>
 <p>Solutions in approximate order of preference:</p>
 <ol style="list-style-type: decimal">
 <li><p>Check if an existing <a href="http://cran.r-project.org/">CRAN</a> or
-Bioconductor package provides the same functionality, while meeting
+<a href="https://bioconductor.org/packages/devel/BiocViews.html">Bioconductor</a> package provides the same functionality, while meeting
 the performance needs of your use case. Eliminating third-party
 code from your package greatly reduces the maintenance burden.</p></li>
 <li><p>Check if the library has been updated. Some libraries with an
@@ -575,7 +565,7 @@ the codebase is updated the changes can be easily reproduced.</p></li>
 gained about specific problems and their solutions. It is not expected
 to be comprehensive. Items will be added as the knowledge base
 grows. Bioconductor is eager for suggestions; please write the
-<a href="/help/mailing-list/">bioc-devel mailing list</a> if you have any!</p>
+<a href="https://stat.ethz.ch/mailman/listinfo/bioc-devel">bioc-devel mailing list</a> if you have any!</p>
 <p>If you have no idea where to start for diagnosing your broken package
 it might be worthwhile to skim over all of this section.</p>
 <p>Where relevant, the issue is marked as being discoverable at compile
@@ -616,10 +606,6 @@ segfault</li>
 <li>Incrementing an iterator <em>beyond</em> the <em>past-the-end</em> value results
 in a segfault</li>
 </ul>
-<p>For a walkthrough example of incrementing beyond <em>past-the-end</em>, see
-the <a href="/developers/how-to/c-debugging/#diagnose-a-crash">diagnose-a-crash
-example</a> on the
-debug C/C++ page.</p>
 </div>
 <div id="external-code-sources" class="section level3" number="33.7.3">
 <h3>
@@ -636,7 +622,7 @@ documentation to see if the Mavericks environment is supported.</p>
 </h4>
 <p><a href="http://www.boost.org/">Boost</a> is a source of free, peer-reviewed C++
 libraries that enhance the language. Many parts of Boost are
-“header-only,” which means they do not need to be separately compiled
+“header-only”, which means they do not need to be separately compiled
 and the headers merely need to appear in the search path in order for
 client code to use them.</p>
 <p>Many Boost libraries are platform-independent, but not all. Some Boost
@@ -711,7 +697,7 @@ packages use native fortran code without a problem.</p>
 <p>Solution: If at all possible, remove the need for f2c. The only
 recourse is to finesse makefiles to the point that each supported
 platform more or less has a targeted makefile. Please write the
-<a href="/help/mailing-list/">bioc-devel mailing list</a> if you have trouble.</p>
+<a href="https://stat.ethz.ch/mailman/listinfo/bioc-devel">bioc-devel mailing list</a> if you have trouble.</p>
 
 </div>
 </div>
@@ -772,7 +758,7 @@ platform more or less has a targeted makefile. Please write the
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-17.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

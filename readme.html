@@ -45,7 +45,7 @@
 <li><a class="" href="index.html">Welcome</a></li>
 <li class="book-part">Package Submissions</li>
 <li><a class="" href="submission-overview.html">Overview</a></li>
-<li><a class="" href="software-package-submissions.html"><span class="header-section-number">1</span> Software Package Submissions</a></li>
+<li><a class="" href="bioconductor-package-submissions.html"><span class="header-section-number">1</span> Bioconductor Package Submissions</a></li>
 <li class="book-part">Package Development Guidelines</li>
 <li><a class="" href="develop-overview.html">Overview</a></li>
 <li><a class="" href="package-name.html"><span class="header-section-number">2</span> Package name</a></li>
@@ -98,10 +98,21 @@
 <span class="header-section-number">5</span> The README file<a class="anchor" aria-label="anchor" href="#readme"><i class="fas fa-link"></i></a>
 </h1>
 <p>README files are not required of Bioconductor packages.</p>
-<p>If a <code>README</code> file is included in the package or the <i class="fab fa-github"></i> Github repository and it provides installation instructions, those instruction should also include <a href="https://bioconductor.org/"><em>Bioconductor</em></a> installation instructions.</p>
-<p>If a <code>README.Rmd</code> is provided (rather than <code>README.md</code>, or other) those installation instructions should be in an <code>eval=FALSE</code> code chunk.</p>
-<p>Nowhere in the code (<i class="fab fa-r-project"></i> code, man pages, vignettes, Rmd files) should someone try to install or download system dependencies, applications, packages, etc.</p>
-<p>Developers can provide instructions to follow but not executed and should assume all necessary dependencies, applications, or packages are already set up on a user’s system.</p>
+<p>If a <code>README</code> file is included in the package or the <i class="fab
+fa-github"></i> Github repository and it provides installation instructions,
+those instruction should also include
+<a href="https://bioconductor.org"><em>Bioconductor</em></a> installation instructions. See
+Bioconductor package installation instructions on any current Bioconductor
+package landing page (e.g. <em><a href="https://bioconductor.org/packages/3.15/GenomicRanges">GenomicRanges</a></em>).</p>
+<p>If a <code>README.Rmd</code> is provided (rather than <code>README.md</code>, or other) those
+installation instructions should be in an <code>eval=FALSE</code> code chunk.</p>
+<p>Nowhere in the code (<i class="fab fa-r-project"></i> code, man pages,
+vignettes, Rmd files) should someone try to install or download system
+dependencies, applications, packages, etc.</p>
+<p>Developers can provide instructions to follow but not executed and should assume
+all necessary dependencies, applications, or packages are already set up on a
+user’s system. See also <a href="sysdep.html#sysdep">the INSTALL file</a> for system dependencies
+requirements.</p>
 
 </div>
   <div class="chapter-nav">
@@ -126,7 +137,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-17.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-02-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
