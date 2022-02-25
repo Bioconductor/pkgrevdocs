@@ -8,6 +8,6 @@
 ## Version 1.0.0 (2021-06-02)
 
 - Initial definition of the package development guidelines based on
-  [Bioconductor package guidelines](https://bioconductor.org/developers/package-guidelines).
+  Bioconductor package guidelines listed on main Bioconductor.org website.
   
 

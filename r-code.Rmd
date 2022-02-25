@@ -29,9 +29,9 @@ Make use of appropriate existing packages (e.g.,
 `r BiocStyle::Biocpkg("Biostrings")`,
 `r BiocStyle::Biocpkg("GenomicRanges")`) and classes (e.g.,
 `r BiocStyle::Biocpkg("SummarizedExperiment")`,
-`r BiocStyle::Biocpkg("AnnotatedDataFrame")`,
-`r BiocStyle::Biocpkg("GRanges")`,
-`r BiocStyle::Biocpkg("DNAStringSet")`) to avoid duplication of functionality
+`r BiocStyle::Biocpkg("Biobase")`::AnnotatedDataFrame,
+`r BiocStyle::Biocpkg("GenomicRanges")`:;GRanges,
+`r BiocStyle::Biocpkg("Biostrings")`::DNAStringSet) to avoid duplication of functionality
 available in other [_Bioconductor_][] packages. See
 also [Common Bioconductor Methods and Classes][bioc-common].
 

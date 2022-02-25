@@ -989,9 +989,9 @@ Usage example:
 
 ## Github scenarios
 
-- [Add collaborators][] and use Github social coding features.
-- [Change Package Maintainer][]
-- [Remove Large Data Files][] and clean git tree
+- [Add collaborators and use Github social coding features](#add-collaborators-and-leverage-github-features).
+- [Change Package Maintainer](#change-maintainer)
+- [Remove Large Data Files and clean git tree](#remove-large-data-files-and-clean-git-tree)
 
 ### Add collaborators and leverage GitHub features
 
@@ -1045,7 +1045,7 @@ maintain the package and avoid deprecation and removal.
 1. Find a new maintainer
 
    You may have a collaborator or colleague volunteer to take over.  If not, ask
-   on the [bioc-devel](/help/mailing-list/) mailing list.
+   on the [bioc-devel][bioc-devel-mail] mailing list.
 
 2. Email <maintainer@bioconductor.org> or <bioc-devel@r-project.org>
 
@@ -1157,7 +1157,7 @@ repository.
 
     You should also make sure to check that your public key is set up
     correctly on GitHub. Follow
-    [Adding an SSH key to your GitHub account][].
+    [Adding a new SSH key to your GitHub account][].
 
 1. I'm not sure how to fetch the updates from `git.bioconductor.org`
    with regards to my package, how do I do this?
@@ -1402,11 +1402,4 @@ please send an email to bioc-devel@bioconductor.org.
 
 [Pull requests][] 
 
-[issues][Open github issue] 
-
-[git-and-github-learning-resources][]
-
-[git-scm][]
-
-[Guides][gitguides]
-
+[Open github issues][Open github issue] 

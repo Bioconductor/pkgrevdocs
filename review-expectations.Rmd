@@ -5,6 +5,15 @@ volunteer to become a community reviewer to assess incoming packages submitted
 through the [New Submission Tracker][Packages Under Review]. The following
 overviews what is expected of community reviewers.
 
+- [Qualifications](#review-qualifications)
+- [Time Commitment](#review-time-commitment)
+- [Assignments](#review-assignments)
+- [Expectations and deadlines](#review-expectations-and-deadlines)
+- [Requesting reassignment and temporary leave of assignment](#review-reassignment-and-temporary-leave)
+- [On-boarding](#review-onboarding)
+- [Recognition](#review-recognition)
+- [Volunteer](#review-volunteer)
+
 ## Qualifications {.unnumbered #review-qualifications}
 
 Actively maintaining a Bioconductor package 

@@ -16,9 +16,9 @@ Package documentation is important for users to understand how to work with your
 References to the methods used as well as to other similar or related projects
 and packages is also expected.
 
-If data structures differ from similar packages, [_Bioconductor_][] reviewers
-will expect some justification as to why. Keep in mind it is always possible to
-extend existing classes.
+If data structures differ from similar packages, [_Bioconductor_
+reviewers][reviewer-list] will expect some justification as to why. Keep in mind
+it is always possible to extend existing classes.
 
 
 ## Vignettes {#vignettes}

@@ -456,7 +456,7 @@ Mavericks environment.
 Solutions in approximate order of preference:
 
 1. Check if an existing [CRAN](http://cran.r-project.org/) or
-   Bioconductor package provides the same functionality, while meeting
+   [Bioconductor][biocViews] package provides the same functionality, while meeting
    the performance needs of your use case. Eliminating third-party
    code from your package greatly reduces the maintenance burden.
 
@@ -486,7 +486,7 @@ This section serves as a loosely organized repository for knowledge
 gained about specific problems and their solutions. It is not expected
 to be comprehensive. Items will be added as the knowledge base
 grows. Bioconductor is eager for suggestions; please write the
-[bioc-devel mailing list](/help/mailing-list/) if you have any!
+[bioc-devel mailing list][bioc-devel-mail] if you have any!
 
 If you have no idea where to start for diagnosing your broken package
 it might be worthwhile to skim over all of this section.
@@ -617,4 +617,4 @@ packages use native fortran code without a problem.
 Solution: If at all possible, remove the need for f2c. The only
 recourse is to finesse makefiles to the point that each supported
 platform more or less has a targeted makefile. Please write the
-[bioc-devel mailing list](/help/mailing-list/) if you have trouble.
+[bioc-devel mailing list][bioc-devel-mail] if you have trouble.

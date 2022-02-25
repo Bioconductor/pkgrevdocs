@@ -98,11 +98,11 @@ Reuse, rather than re-implement or duplicate, well-tested functionality from
 other packages.  Make use of appropriate existing packages (e.g.,
 `r BiocStyle::Biocpkg("biomaRt")`,
 `r BiocStyle::Biocpkg("AnnotationDbi")`,
-`r BiocStyle::Biocpkg("Biostrings")`) and classes (e.g.,
+`r BiocStyle::Biocpkg("Biostrings")`, etc.) and classes (e.g.,
 `r BiocStyle::Biocpkg("SummarizedExperiment")`,
-`r BiocStyle::Biocpkg("GRanges")`,
-`r BiocStyle::Biocpkg("Rle")`,
-`r BiocStyle::Biocpkg("DNAStringSet")`), and
+`r BiocStyle::Biocpkg("GenomicRanges")`::GRanges,
+`r BiocStyle::Biocpkg("S4Vectors")`::Rle,
+`r BiocStyle::Biocpkg("Biostrings")`::DNAStringSet, etc.), and
 avoid duplication of functionality available in other Bioconductor packages.
 See [Common Bioconductor Methods and Classes][bioc-common].
 Bioconductor reviewers are very strict on this point!  New packages should be

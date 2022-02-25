@@ -71,7 +71,7 @@ git (see [`.gitignore`]{#gitignore}). Any files or directories for other
 applications (Github Actions, devtool, etc) should ideally be in a different
 branch and not submitted to the _Bioconductor_ version of the package. 
 
-## R CMD check environment {r-cmd-check-environment}
+## R CMD check environment {#r-cmd-check-environment}
 
 It is possible to activate or deactivate a number of options in `R CMD build` and `R CMD check`.
 Options can be set as individual environment variables or they can be [listed in a file](https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Checking-and-building-packages).
