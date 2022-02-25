@@ -1,33 +1,52 @@
 # Package data {#data}
 
-When developing a software package, an excellent practice is to give a comprehensive illustration of the methods in the package using an existing [experiment data package](https://bioconductor.org/packages/release/BiocViews.html#___ExperimentData), annotation data or data in the `r BiocStyle::Biocpkg("ExperimentHub")` or `r BiocStyle::Biocpkg("AnnotationHub")`, or submitting new data to those resources yourself.
+When developing a software package, an excellent practice is to give a
+comprehensive illustration of the methods in the package using an existing
+[experiment data package][exptdata-views], [annotation data][annotation-views]
+or data in the `r BiocStyle::Biocpkg("ExperimentHub")` or `r BiocStyle::Biocpkg("AnnotationHub")`,
+or submitting new data to those resources yourself.
 
-If existing data is not available or applicable, or a new smaller dataset is needed for examples in the package, data can be included either as a separate data package (for larger amounts of data) or within the package (for smaller datasets).
+If existing data is not available or applicable, or a new smaller dataset is
+needed for examples in the package, data can be included either as a separate
+data package (for larger amounts of data) or within the package (for smaller
+datasets).
 
 The Bioconductor Build system does not support git-lfs.  This is not a current
-option for storing large data. Large data sets must be included through the [ExperimentHub](https://bioconductor.org/packages/release/bioc/vignettes/ExperimentHub/inst/doc/CreateAnExperimentHubPackage.html).
+option for storing large data. Large data sets must be included through the
+`r BiocStyle::Biocpkg("ExperimentHub")`. See additional information at [Create A
+Hub Package][].
 
-## Experiment Data Package
+## Experiment Data Package {#experiment-data-package}
 
-Experimental data packages contain data specific to a particular analysis or experiment.
-They often accompany a software package for use in the examples and vignettes and in general are not updated regularly. If you need a general subset of data for workflows or examples first check the `r BiocStyle::Biocpkg("AnnotationHub")` resource for available files (e.g., BAM, FASTA, BigWig, etc.).
+Experimental data packages contain data specific to a particular analysis or
+experiment. They often accompany a software package for use in the examples and
+vignettes and in general are not updated regularly. If you need a general subset
+of data for workflows or examples first check the `r BiocStyle::Biocpkg("AnnotationHub")`
+resource for available files (e.g., BAM, FASTA, BigWig, etc.) or
+`r BiocStyle::Biocpkg("ExperimentHub")` for more processed and predefined
+_Bioconductor_ class structures.
 
-[_Bioconductor_](https://bioconductor.org/) strongly encourages creating an
-experiment data package that utilizes `r BiocStyle::Biocpkg("ExperimentHub")` or
-`r BiocStyle::Biocpkg("AnnotationHub")` (See [Creating an Experiment Hub
-Package](https://bioconductor.org/packages/release/bioc/vignettes/ExperimentHub/inst/doc/CreateAnExperimentHubPackage.html)
-or [Creating an Annotation Hub
-Package](https://bioconductor.org/packages/release/bioc/vignettes/AnnotationHub/inst/doc/CreateAnAnnotationPackage.html))
-but a traditional package that encapsulates the data is also acceptable.
 
-See the [Package Submission guidelines](https://www.bioconductor.org/developers/package-submission/) for submitting related packages.
+[_Bioconductor_][] strongly encourages creating an experiment data package that
+utilizes `r BiocStyle::Biocpkg("ExperimentHub")` or `r BiocStyle::Biocpkg("AnnotationHub")`
+(See [Create A Hub Package][]) but a traditional package that encapsulates the
+data is also acceptable with pre-approval from the [bioc-devel][bioc-devel-mail]
+mailing list.
 
-## Adding Data to Existing Package
+See the [Package Submission guidelines](#bioconductor-package-submissions) for
+further submission procedures and if submitting related or circular dependent
+packages please read [releated package submission procedure][cirdep] 
 
-[_Bioconductor_](https://bioconductor.org/) strongly encourages the use of existing datasets, but if not available data can be included directly in the package for use in the examples found in man pages, vignettes, and tests of your package.
-This is a good reference by [Hadley Wickham about data](http://r-pkgs.had.co.nz/data.html).
+## Adding Data to Existing Package {#adding-data-to-existing-package}
 
-However, as mentioned in [The DESCRIPTION file](description.html#lazydata) chapter, [_Bioconductor_](https://bioconductor.org/) does not encourage using `LazyData: True` despite its recommendataion in this article.
+[_Bioconductor_][] strongly encourages the use of existing datasets, but if not
+available data can be included directly in the package for use in the examples
+found in man pages, vignettes, and tests of your package. This is a good
+reference by Hadley Wickham about [packge data](http://r-pkgs.had.co.nz/data.html).
+
+However, as mentioned in [The DESCRIPTION file](#description-lazydata) chapter,
+_Bioconductor_ does not encourage using `LazyData: True` despite its
+recommendataion in this article.
 
 Some key points are summarized in the following sections.
 
@@ -43,25 +62,33 @@ Please remember to compress the data.
 ### Raw Data and the `inst/extdata/` directory
 
 It is often desirable to show a workflow which involves the parsing or loading of raw files.
-[_Bioconductor_](https://bioconductor.org/) recommends finding existing raw data already provided in another package or the hubs.
+[_Bioconductor_][] recommends finding existing raw data already provided in
+another package or the hubs as previously stated.
 
-However, if this is not applicable, raw data files should be included in the `inst/extdata` directory.
-Files of these type are often accessed utilizing `system.file()`.
-[_Bioconductor_](https://bioconductor.org/) requires documentation on these files in an `inst/script/` directory.
+However, if this is not applicable, raw data files should be included in the
+`inst/extdata` directory. Files of these type are often accessed utilizing
+`system.file()`. _Bioconductor_ requires documentation on these files in an
+`inst/script/` directory. See [data documentation](#doc-inst-script).
 
 ### Internal data
 
-Rarely, a package may require parsed data that is used internal but should not be exported to the user.
-An `R/sysdata.rda` is often the best place to include this type of data.
+Rarely, a package may require parsed data that is used internal but should not
+be exported to the user. An `R/sysdata.rda` is often the best place to include
+this type of data. Proper documentation of the data will be required.
 
 ### Other data
 
 Downloads of files and external data from the web should be avoided.
 
 If it is necessary, at minimum the files should be cached.
-See `r BiocStyle::Biocpkg("BiocFileCache")` for Bioconductor recommended package for caching of files.
-If a maintainer creates their own caching directory, it should utilize standard
-caching directories `tools::R_user_dir(package, which="cache")`. It is not
-allowed to download or write any files to a users home directory or working
-directory. Files should be cached as stated above with `BiocFileCache` (preferred)
-or `R_user_dir` or `tempdir()/tempfile()` if files should not be persistent.
+See `r BiocStyle::Biocpkg("BiocFileCache")` for Bioconductor recommended package
+for caching of files. If a maintainer creates their own caching directory, it
+should utilize standard caching directories `tools::R_user_dir(package,
+which="cache")`. It is not allowed to download or write any files to a users
+home directory, working directory, or installed package directory. Files should
+be cached as stated above with `BiocFileCache` (preferred) or `R_user_dir` or
+`tempdir()/tempfile()` if files should not be persistent. Please also see
+sections on [querying web resources](#querying-web-resources) and [file
+downloads](#web-querying-and-file-caching).
+
+

@@ -3,8 +3,8 @@
 An INSTALL file does not have to be included with the package. An INSTALL file
 is utilized for specifying external system requirements needed. It should be
 used in combination with the `SystemRequirements` field of the [Description
-file](#description). This file should contain installation instructions for the
-required system dependency.
+file](#description-sysdep). This file should contain installation instructions
+for the required system dependency.
 
 Specifying this requirement does not guarantee that _Bioconductor_ will agree to
 install the external system requirement. It is encourage to discuss any

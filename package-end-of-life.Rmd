@@ -6,8 +6,7 @@ software packages are added to the repository; as of Spring 2021 over 2000
 packages are hosted. The Bioconductor Build System (BBS) installs, builds, and
 checks each software package every 24 hours. Regular execution of example,
 vignette, and unit test code ensures the package is operating as expected and
-all required dependencies are available. The
-[build system](http://www.bioconductor.org/checkResults/devel/bioc-LATEST/)
+all required dependencies are available. The [build system][build reports]
 provides a detailed report for each package across three platforms: Linux,
 Windows, and Mac.
 
@@ -55,8 +54,8 @@ common reasons:
 package.
 
 We ask that maintainers wishing to deprecate their package send an email
-notification to bioc-devel@r-project.org.  The core team will ensure all
-necessary steps and notifications can occur.
+notification to [bioc-devel][bioc-devel-mail] mailing list.  The core team will
+ensure all necessary steps and notifications can occur.
 
 
 ## End of Life process
@@ -151,6 +150,4 @@ maintainer@bioconductor.org, to formally request permission to take over. Unless
 there is an explicit request for a package to be retired, Bioconductor will
 grant access to the interested replacement maintainer in accordance with open
 source software licenses that Bioconductor packages require and [package naming
-policy][] that maintainers agree to upon submission.
-
-[package naming policy]: https://bioconductor.org/developers/package-submission/#naming
+policy](#naming) that maintainers agree to upon submission.

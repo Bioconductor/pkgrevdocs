@@ -1,4 +1,4 @@
-# Important _Bioconductor_ Package Development Features
+# Important _Bioconductor_ Package Development Features {#important-bioconductor-package-development-features}
 
 ## biocViews {#biocviews}
 
@@ -8,19 +8,20 @@ case-sensitive and must begin with a lower-case 'b'.
 
 biocViews terms are "keywords" used to describe a given package. They
 are broadly divided into four categories, representing the type of
-packages present in the _Bioconductor_ Project -
+packages present in the _Bioconductor_ Project 
 
 1. Software
 2. Annotation Data
 3. Experiment Data
 4. Workflow
 
-biocViews are available for the [release][] and [devel][] branches of
+biocViews are available for the [release][release-biocviews] and [devel][biocViews] branches of
 _Bioconductor_. The devel branch has a check box under the tree
 structure which, when checked, displays biocViews that are defined but
-not used by any package, in addition to biocViews that are in use.
+not used by any package, in addition to biocViews that are in use. See also
+[description section](#description-biocviews)
 
-### Motivation
+### Motivation {#biocviews-motivation}
 
 One can use biocViews for two broad purposes.
 
@@ -33,9 +34,9 @@ One can use biocViews for two broad purposes.
    with biocViews so that when someone looking for packages (like in
    scenario 1) can easily find their package.
 
-### biocViews during new package development
+### biocViews during new package development {#biocviews-pkg-devel}
 
-Visit the [devel][] branch of biocViews when you are in the process of
+Visit the ['devel' biocViews][biocViews] when you are in the process of
 adding biocViews to your new package. Identify as many terms as
 appropriate from the hierarchy. Prefer 'leaf' terms at the end of the
 hierarchy, over more inclusive terms. Remember to check the box
@@ -70,9 +71,6 @@ list, please email bioc-devel@r-project.org requesting the new biocView, under
 which hierarchy the term should be placed, and the justification for the new
 term.
 
-[release]: http://bioconductor.org/packages/release/BiocViews.html
-[devel]: http://bioconductor.org/packages/devel/BiocViews.html
-
 
 ## Common Bioconductor Methods and Classes {#reusebioc}
 
@@ -80,58 +78,43 @@ We strongly recommend reusing existing methods for importing data, and
 reusing established classes for representing data. Here are some
 suggestions for importing different file types and commonly used
 _Bioconductor_ classes. For more classes and functionality also try
-searching in [BiocViews](/packages) for your data type.
+searching in [biocViews][] for your data type.
 
 ### Importing {#commonimport}
 
-+ GTF, GFF, BED, BigWig, etc., -- [rtracklayer][]`::import()`
-+ VCF -- [VariantAnnotation][]`::readVcf()`
-+ SAM / BAM -- [Rsamtools][]`::scanBam()`,
-  [GenomicAlignments][]`::readGAlignment*()`
-+ FASTA -- [Biostrings][]`::readDNAStringSet()`
-+ FASTQ -- [ShortRead][]`::readFastq()`
-+ MS data (XML-based and mgf formats) -- [Spectra][]`::Spectra()`, 
-  [MSnbase][]`::readMSData()`, [Spectra][]`::Spectra(source = MsBackendMgf::MsBackendMgf())`, 
-  [MSnbase][]`::readMgfData()`
++ GTF, GFF, BED, BigWig, etc., -- `r BiocStyle::Biocpkg("rtracklayer")` `::import()`
++ VCF -- `r BiocStyle::Biocpkg("VariantAnnotation")` `::readVcf()`
++ SAM / BAM -- `r BiocStyle::Biocpkg("Rsamtools")` `::scanBam()`,
+  `r BiocStyle::Biocpkg("GenomicAlignments")` `::readGAlignment*()`
++ FASTA -- `r BiocStyle::Biocpkg("Biostrings")` `::readDNAStringSet()`
++ FASTQ -- `r BiocStyle::Biocpkg("ShortRead")` `::readFastq()`
++ MS data (XML-based and mgf formats) -- `r BiocStyle::Biocpkg("Spectra")` `::Spectra()`, 
+  `r BiocStyle::Biocpkg("MSnbase")` `::readMSData()`,
+  `r BiocStyle::Biocpkg("Spectra")` `::Spectra(source = MsBackendMgf::MsBackendMgf())`, 
+  `r BiocStyle::Biocpkg("MSnbase")` `::readMgfData()`
 
 ### Common Classes {#commonclass}
 
 + Rectangular feature x sample data --
-  [SummarizedExperiment][]`::SummarizedExperiment()` (RNAseq count
+  `r BiocStyle::Biocpkg("SummarizedExperiment")` `::SummarizedExperiment()` (RNAseq count
   matrix, microarray, ...)
-+ Genomic coordinates -- [GenomicRanges][]`::GRanges()` (1-based,
++ Genomic coordinates -- `r BiocStyle::Biocpkg("GenomicRanges")` `::GRanges()` (1-based,
   closed interval)
 + Genomic coordinates from multiple samples --
-  [GenomicRanges][]`::GRangesList()`
-+ Ragged genomic coordinates -- [RaggedExperiment][]`::RaggedExperiment()`
-+ DNA / RNA / AA sequences -- [Biostrings][]`::*StringSet()`
-+ Gene sets -- [BiocSet][]`::BiocSet()`,
-  [GSEABase][]`::GeneSet()`,
-  [GSEABase][]`::GeneSetCollection()`
+  `r BiocStyle::Biocpkg("GenomicRanges")` `::GRangesList()`
++ Ragged genomic coordinates -- `r BiocStyle::Biocpkg("RaggedExperiment")` `::RaggedExperiment()`
++ DNA / RNA / AA sequences -- `r BiocStyle::Biocpkg("Biostrings")` `::*StringSet()`
++ Gene sets -- `r BiocStyle::Biocpkg("BiocSet")` `::BiocSet()`,
+  `r BiocStyle::Biocpkg("GSEABase")` `::GeneSet()`,
+  `r BiocStyle::Biocpkg("GSEABase")` `::GeneSetCollection()`
 + Multi-omics data --
-  [MultiAssayExperiment][]`::MultiAssayExperiment()`
+  `r BiocStyle::Biocpkg("MultiAssayExperiment")` `::MultiAssayExperiment()`
 + Single cell data --
-  [SingleCellExperiment][]`::SingleCellExperiment()`
-+ Mass spec data -- [Spectra][]`::Spectra()`, [MSnbase][]`::MSnExp()`
+  `r BiocStyle::Biocpkg("SingleCellExperiment")` `::SingleCellExperiment()`
++ Mass spec data -- `r BiocStyle::Biocpkg("Spectra")` `::Spectra()`,
+  `r BiocStyle::Biocpkg("MSnbase")` `::MSnExp()`
 
 
 In general, a package will not be accepted if it does not show interoperability
-with the current _Bioconductor_ ecosystem.
-
-[rtracklayer]: https://bioconductor.org/packages/rtracklayer
-[Biostrings]: https://bioconductor.org/packages/Biostrings
-[Rsamtools]: https://bioconductor.org/packages/Rsamtools
-[GenomicAlignments]: https://bioconductor.org/packages/GenomicAlignments
-[VariantAnnotation]: https://bioconductor.org/packages/VariantAnnotation
-[ShortRead]: https://bioconductor.org/packages/ShortRead
-[MSnbase]: https://bioconductor.org/packages/MSnbase
-[SummarizedExperiment]: https://bioconductor.org/packages/SummarizedExperiment
-[GenomicRanges]: https://bioconductor.org/packages/GenomicRanges
-[RaggedExperiment]: https://bioconductor.org/packages/RaggedExperiment
-[BiocSet]: https://bioconductor.org/packages/BiocSet
-[GSEABase]: https://bioconductor.org/packages/GSEABase
-[MultiAssayExperiment]: https://bioconductor.org/packages/MultiAssayExperiment
-[SingleCellExperiment]: https://bioconductor.org/packages/SingleCellExperiment
-[Spectra]: https://bioconductor.org/packages/Spectra
-[MsBackendMgf]: https://bioconductor.org/packages/MsBackendMgf
+with the current [_Bioconductor_][] ecosystem.
 

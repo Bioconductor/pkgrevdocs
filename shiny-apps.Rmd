@@ -1,6 +1,6 @@
 # Shiny apps {#shiny}
 
-[Shiny apps](https://shiny.rstudio.com/) are allowable.
+[Shiny apps][] are allowable.
 
 Please have all relevant <i class="fab fa-r-project"></i> code in the main `R/` directory of the package.
 
