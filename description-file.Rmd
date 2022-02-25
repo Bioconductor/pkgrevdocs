@@ -141,6 +141,13 @@ Bioconductor release, and may find it useful to fully specify versions to
 enforce constraints otherwise guaranteed by Bioconductor installation
 practices.
 
+For additional information regarding Depends, Imports, Suggest and where a
+package should be placed see [Connecting to other
+packages](https://kbroman.org/pkg_primer/pages/depends.html) and the [package
+dependency](https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Package-Dependencies)
+section of [Writing R Extensions][].
+
+
 ## `SystemRequirements` {#description-sysdep}
 
 This field is for listing any external software which is required, but not
