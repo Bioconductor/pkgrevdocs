@@ -22,16 +22,19 @@ ExperimentHub interfaces and packages are desirable.
 
 ## Annotation/Experiment Hub packages
 
-These light weight packages are related to resources added to AnnotationHub or
-ExperimentHub. The package should minimally contain the resource metadata, man
-pages describing the resources, and a vignette. It may also contain supporting
-R function the author wants to provide. These packages are similar to the
-above Annotation or Experiment data packages except the data is stored in AWS S3
-buckets or publicly accessibly sites instead of in the package itself.
+These light weight packages are related to resources added to
+`r BiocStyle::Biocpkg("AnnotationHub")` or
+`r BiocStyle::Biocpkg("ExperimentHub")`. The package should minimally contain
+the resource metadata, man pages describing the resources, and a vignette. It
+may also contain supporting R function the author wants to provide. These
+packages are similar to the above Annotation or Experiment data packages except
+the data is stored in a provided _Bioconductor_ Microsoft [Azure Data Lakes][]
+or publicly accessibly sites (ensembl, AWS S3 buckets, etc) instead of in the
+package itself.
 
 There is more information about creating a hub packages as well as the contents
-of on in the [Creating a Hub Package](https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html) vignette within the `HubPub` Bioconductor
-package.
+of on in the [Create A Hub Package][] vignette within the
+`r BiocStyle::Biocpkg("HubPub")` Bioconductor package.
 
 ## Workflow packages
 
@@ -42,7 +45,7 @@ not need `man/` or `R/` directories nor a `data/` directory as ideally
 workflows make use of existing data in a Bioconductor package.
 
 
-[Existing Workflows](http://bioconductor.org/packages/devel/BiocViews.html#___Workflow)
+[Existing Workflows][workflow-views]
 
 Workflow vignettes may deal with larger data sets and/or be more computationally intensive
 than typical Bioconductor package vignettes. For this reason, the automated builder that
@@ -50,12 +53,12 @@ produces these vignettes does not have a time limit (in contrast to the Biocondu
 building system which will time out if package building takes too long). It is
 expected the majority of vignette code chunks are evaluated.
 
-### How do I write and submit a workflow vignette?
+### How do I write and submit a workflow vignette? {#submit-workflow}
 
 * Write a package with the same name as the workflow. The workflow vignette
- written in Markdown, using the [rmarkdown](http://rmarkdown.rstudio.com/)
- package should be included in the vignette directory. You may include more than
- one vignette but please use useful identifying names.
+ written in Markdown, using the [rmarkdown][] package should be included in the
+ vignette directory. You may include more than one vignette but please use
+ useful identifying names. 
 
 * The package does not need man/ or R/ directories nor a data/ directory as
  ideally workflows make use of existing data in a Bioconductor repository or on
@@ -64,14 +67,12 @@ expected the majority of vignette code chunks are evaluated.
 * In the DESCRIPTION file, include the line "BiocType: Workflow". Please also
   include a detailed Description field in the DESCRIPTION file. The DESCRIPTION
   file should contain biocViews which should be from the [Workflow
-  branch](http://bioconductor.org/packages/devel/BiocViews.html#___Workflow). If
-  you think a new term is relevant please reach out to
+  branch][workflow-views]. If you think a new term is relevant please reach out to
   <lori.shepherd@roswellpark.org>.
 
-* Submit the package to the [GitHub submission
-  tracker](https://github.com/Bioconductor/Contributions) for a formal
+* Submit the package to the [GitHub submission tracker][tracker] for a formal
   review. Please also indicate in the tracker issue that this package is a
-  workflow.
+  workflow.  
 
 * Workflows are git version controlled. Once the package is accepted it will be
   added to our git repository at git@git.bioconductor.org and instructions will
@@ -81,9 +82,9 @@ expected the majority of vignette code chunks are evaluated.
 ### Consistent formatting
 
 * In an effort to standardize the workflow vignette format, it is strongly
-  encouraged to use either BiocStyle for formatting or utilize
-  [BiocWorkflowTools](http://bioconductor.org/packages/BiocWorkflowTools/). 
-  The following header shows how to use BiocStyle in the vignette:
+  encouraged to use either `r BiocStyle::Biocpkg("BiocStyle")` for formatting or
+  utilize `r BiocStyle::Biocpkg("BiocWorkflowTools")`. The following header
+  shows how to use `r BiocStyle::Biocpkg("BiocStyle")` in the vignette:
 
 	```
 	output:
@@ -201,4 +202,4 @@ You can then use citation keys in the form of `[@label]` to cite an entry with a
 
 Normally, you will want to end your document with a section header "References" or similar, after which the bibliography will be appended.
 
-For more details see the [rmarkdown documentation](http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html#citations).
+For more details see the [rmarkdown documentation][].

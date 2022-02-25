@@ -30,7 +30,7 @@ section for more examples and information.
 
 ## Detecting memory errors (Valgrind)
 
-[Valgrind](http://valgrind.org/) is a mature suite of tools for
+[Valgrind][] is a mature suite of tools for
 low-level program analysis. Valgrind's [memory error checker
 (Memcheck)](http://valgrind.org/docs/manual/mc-manual.html) is the
 premier tool for diagnosing C/C++ memory errors.
@@ -54,12 +54,9 @@ section.
 If you have never used a command-line debugger, there are many fine
 quick-start guides on the web; it is not as daunting as it seems.
 
-On Linux the preferred debugger is
-[gdb](http://www.gnu.org/software/gdb/), but
-[lldb](http://lldb.llvm.org/) is default for the Mavericks
+On Linux the preferred debugger is [gdb][], but [lldb][] is default for the Mavericks
 platform. The interfaces are similar, but if you are accustomed to
-gdb, see the [gdb to lldb command
-map](http://lldb.llvm.org/lldb-gdb.html).
+gdb, see the [gdb to lldb command map](http://lldb.llvm.org/lldb-gdb.html).
 
 Start `R` with a C-level debugger such as gdb.
 
@@ -239,7 +236,7 @@ Here is a possible chain of thought that leads to the right conclusion:
    *past-the-end*](http://www.cplusplus.com/reference/map/map/end/)
    value.  Incrementing an iterator beyond *past-the-end* (the third
    `++it;` at line #17) is [undefined
-   behavior](/developers/how-to/mavericks-howto/#undefined-behavior)!
+   behavior](#undefined-behavior)!
 
 If we revise `buggy.cpp` to not increment `it` beyond *past-the-end*
 by removing the third `++it;` the program runs without

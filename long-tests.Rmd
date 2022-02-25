@@ -18,7 +18,7 @@ their package and add the package to the Bioconductor _Long Tests builds_.
 
 - Put the code for the "long tests" in the `longtests` subdirectory of
   your package. Like for the code in the `tests` directory, this code
-  will typically (but not necessarily) run [unit tests][unitTesting-guidelines].
+  will typically (but not necessarily) run [unit tests][].
 
 - Add your package to the _Long Tests builds_ by adding a `.BBSoptions`
   file to its top-level directory with the following line in it:
@@ -56,11 +56,6 @@ is still determined by the results of the nightly builds.
 
 ## Need help?
 
-Ask on the [bioc-devel][] mailing list if you have questions or
+Ask on the [bioc-devel][bioc-devel-mail] mailing list if you have questions or
 need help with the _Long Tests builds_.
 
-
-[devel-software-build-report]: https://bioconductor.org/checkResults/devel/bioc-LATEST/
-[unitTesting-guidelines]: #tests
-[devel-LongTests-report]: https://bioconductor.org/checkResults/devel/bioc-longtests-LATEST/
-[release-LongTests-report]: https://bioconductor.org/checkResults/release/bioc-longtests-LATEST/

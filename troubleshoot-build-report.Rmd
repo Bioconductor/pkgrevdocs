@@ -10,12 +10,10 @@ day's build report that is posted around 11:30 AM EST.  The build report has
 a time stamp at the top of the page when it was generated.  Changes after
 2:30 PM EST will not be reflect until the day after tomorrow, therefore
 possibly taking up to 36-48 hours.  The build reports for
-[devel](https://bioconductor.org/checkResults/devel/bioc-LATEST/) and
-[release](https://bioconductor.org/checkResults/release/bioc-LATEST/) show
+[devel][devel-software-build-report] and [release][release-software-build-report] show
 the package version and commit id that is being reflected for that build.
-The [landing pages for
-packages](https://bioconductor.org/packages/release/BiocViews/) (e.g.,
-[Biobase](https://bioconductor.org/packages/release/bioc/html/Biobase.html)])
+The [landing pages for packages][release-biocviews] (e.g.,
+`r BiocStyle::Biocpkg("Biobase")`)
 will not be updated until the package installs/build/checks without ERROR; We
 do not propagate broken packages. This could account for a different version on
 the landing page than was pushed to _Bioconductor_.  Please also remember a
@@ -26,13 +24,13 @@ package ALWAYS needs a valid version bump to propagate to users.
 
 In order to reproduce the ERROR's accuately locally, remember to be using the
 correct version of R and Bioconductor.  The version of R used for the build
-report can be found at the top of the
-[release](https://bioconductor.org/checkResults/release/bioc-LATEST/) and
-[devel](https://bioconductor.org/checkResults/devel/bioc-LATEST/) build
-reports. Once you are using the correct version of R make sure all your packages
-are up-to-date with `BiocManager::valid()` and `BiocManager::install()`. There
-are some additional environment variables the daily builder uses during `R CMD
-check`. Those are the following:
+report can be found at the top of the [release][release-software-build-report] and
+[devel][devel-software-build-report] build reports. Once you are using the
+correct version of R make sure all your packages are up-to-date with
+`BiocManager::valid()` and `BiocManager::install()`. There are some additional
+environment variables the daily builder uses during `R CMD check`. Those are the
+following:
+
 ```
 export _R_CHECK_EXECUTABLES_=false
 export _R_CHECK_EXECUTABLES_EXCLUSIONS_=false
@@ -42,7 +40,7 @@ export _R_CHECK_S3_METHODS_NOT_REGISTERED_=true
 ```
 
 The Single Package build has some extra
-[documentation](https://github.com/Bioconductor/Contributions#r-cmd-check-environment)
+[documentation][R CMD check environment]
 about how to set up your local system to use optional environment
 variables. Please note that if you look at the file listed on this page, it has
 many additional variables; _Bioconductor_ does a much more stringent check on
@@ -52,7 +50,7 @@ environment variables should be included minimally.
 
 Another option to debug and test is to utilize the _Bioconductor_ docker
 image. The documentation for using docker images can be found
-[here](https://bioconductor.org/help/docker/). The docker image does contain the
+[here][docker]. The docker image does contain the
 environment variable setting found on the daily builder.
 
 ## Common Build Report Errors
@@ -184,7 +182,7 @@ and explanation can be found [When you think `class(.) == *`, think again!](http
 The sum up is `class( x ) == "foo"` should be avoided. It can be misleading if classes extend other classes. The
 better option is to use `is( x , "foo")` or `inherits(x, "foo")`.
 
-This is also advised in [Bioconductor best practices](https://bioconductor.org/developers/package-guidelines/#rcode)
+This is also advised in [Bioconductor best practices](#r-code-best-practices-and-guidelines)
 
 <a name="matarr"></a>
 
@@ -366,7 +364,7 @@ packages time to adjust code before removal. This release the most
 notable maintainer requested deprecation from 3.10 (therefore removed in 3.11) are
 SNPchip and GenomeGraphs. A full list of deprecated packages can be found
 [List of Deprecated Packages 3.10](https://support.bioconductor.org/p/125352/).
-We also documented removed packages on our [Removed Package Page](/about/removed-packages/)
+We also documented removed packages on our [Removed Package Page](https://bioconductor.org/about/removed-packages/)
 
 ### Deprecated Functions {#depFun311}
 

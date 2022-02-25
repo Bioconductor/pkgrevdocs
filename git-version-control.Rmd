@@ -68,14 +68,12 @@ check without errors or warnings
     R CMD check BiocGenerics_1.22.3.tar.gz
 
 Each commit, in either release or devel, should include a bump in the
-`z` portion of the `x.y.z` package [versioning scheme][].
+`z` portion of the `x.y.z` package [versioning scheme][versioning].
 
 Builds occur once per day, and take approximately 24 hours. See the
-[build report][] for git commits captured in the most recent build
+[build report][devel-software-build-report] for git commits captured in the most recent build
 (upper left corner)
 
-[versioning scheme]: /developers/how-to/version-numbering/
-[build report]: https://bioconductor.org/checkResults/devel/bioc-LATEST/
 
 ## Annotation packages
 
@@ -85,11 +83,10 @@ to maintainer@bioconductor.org. A member of the Bioconductor team will be in
 contact to receive the updated package.
 
 Newer annotation packages can be stored in GIT as it is a requirement to use the
-[AnnotationHub](https://bioconductor.org/packages/AnnotationHub/) or similar
-server hosted data. The larger sized files are not included directly in the package.
-To contribute a new Annotation package please contact hubs@bioconductor.org
-for guidance and read the documentation on [How to Create A Hub
-package](https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html).
+`r BiocStyle::Biocpkg("AnnotationHub")` server hosted data. The larger sized
+files are not included directly in the package. To contribute a new Annotation
+package please contact hubs@bioconductor.org for guidance and read the
+documentation on [Create A Hub Package][].
 
 Currently direct updates to annotation packages, even those stored on git, are
 not supported. If you wish to updated an annotation package, make required
@@ -107,17 +104,14 @@ in
 - [Maintain a _Bioconductor_-only repository][] for an existing
   package.
 
-[New package workflow]: #new-package-workflow
-[Create a new GitHub repository]: #maintain-github-bioc
-[Maintain a _Bioconductor_-only repository]: #maintain-bioc-only
 
 ### New package workflow
 
 __Goal__: You developed a package in GitHub, following the
-_Bioconductor_ new package [Contributions README][] guidelines,
-[submitted it to _Bioconductor_][], and your package has been
+_Bioconductor_ new package [Contributions README][tracker] guidelines,
+[submitted it to _Bioconductor_](#bioconductor-package-submissions), and your package has been
 moderated. As part of moderation process, the package to be reviewed
-has been added as a repository on the [_Bioconductor_ git server][].
+has been added as a repository on the [_Bioconductor_ git server][git].
 
 During and after the review process, package authors must push changes
 that include a **version number 'bump'** to the _Bioconductor_ git
@@ -231,17 +225,7 @@ pushing to the _Bioconductor_ git repository.
 
     - [Maintain GitHub and _Bioconductor_ repositories][].
     - [Fix bugs in  devel and release][].
-    - [Resolve merge conflicts][].
-
-[submit-keys]: https://git.bioconductor.org/BiocCredentials/
-[Maintain GitHub and _Bioconductor_ repositories]: #maintain-github-bioc
-[Pull upstream changes]: #pull-upstream-changes
-[Fix bugs in devel and release]: #bug-fix-in-release-and-devel
-[Resolve merge conflicts]: #resolve-conflicts
-[Contributions README]: https://github.com/Bioconductor/Contributions
-[_Bioconductor_ git server]: https://git.bioconductor.org
-[submitted it to _Bioconductor_]: http://bioconductor.org/developers/package-submission/
-[BiocCredentials application]: https://git.bioconductor.org/BiocCredentials/
+    - [Resolve merge conflicts][mergeconflict].
 
 ### Create a new GitHub repository for an existing _Bioconductor_ package {#maintain-github-bioc}
 
@@ -256,7 +240,7 @@ user community can engage in the development of your package.
     [add your public key to your GitHub account][].
 
 1.  Once you have submitted your keys, you can login to the
-    [BiocCredentials application][BiocCredentials] to check if the correct
+    [BiocCredentials application][] to check if the correct
     keys are on file with _Bioconductor_.
 
 1.  [Create a new GitHub repo][] on your account, with the name
@@ -330,15 +314,6 @@ user community can engage in the development of your package.
    [Push to GitHub and _Bioconductor_][] to maintain your repository
    on both GitHub and Bioconductor.
 
-[submit-keys]: https://git.bioconductor.org/BiocCredentials/
-[BiocCredentials]: https://git.bioconductor.org/BiocCredentials/
-[Create a new GitHub account]: https://help.github.com/articles/signing-up-for-a-new-github-account/
-[Create a new GitHub repo]: https://help.github.com/articles/create-a-repo/
-[Sync existing repositories]: #sync-existing-repositories
-[which-remote-url-should-i-use]: https://help.github.com/articles/which-remote-url-should-i-use/
-[add your public key to your GitHub account]: https://help.github.com/articles/connecting-to-github-with-ssh/
-[Push to GitHub and _Bioconductor_]: #push-to-github-bioc
-
 ### Maintain a _Bioconductor_-only repository for an existing package {#maintain-bioc-only}
 
 __Goal:__ Developer wishes to maintain their _Bioconductor_ repository
@@ -347,7 +322,7 @@ without using GitHub.
 #### Clone and setup the package on your local machine.
 
 1. Make sure that you have `SSH` access to the _Bioconductor_
-   repository; be sure to [submit your SSH public key][submit-keys] or
+   repository; be sure to [submit your SSH public key][BiocCredentials application] or
    github id to _Bioconductor_.
 
 1. Clone the package to your local machine,
@@ -431,7 +406,7 @@ without using GitHub.
 A new commit message will show up after this step, with the
 message `Merge branch 'master' into <RELEASE_X_Y>`. It will be
 committed to `<RELEASE_X_Y>` branch when you save. Update the
-[version number][] so that it is correct for the release, and commit
+[version number][versioning] so that it is correct for the release, and commit
 the modified DESCRIPTION file
 
 	git add DESCRIPTION
@@ -441,15 +416,12 @@ the modified DESCRIPTION file
 
 		git push upstream <RELEASE_X_Y>
 
-[version number]: https://bioconductor.org/developers/how-to/version-numbering/
 
 ## More scenarios for repository creation
 
-- [Sync an existing GitHub repository][] with _Bioconductor_.
+- [Sync an existing GitHub repository][Sync existing repositories] with _Bioconductor_.
 - [Create a local repository][] for private use.
 
-[Sync an existing GitHub repository]: #sync-existing-repositories
-[Create a local repository]: #create-local-repository
 
 ### Sync an existing GitHub repository with _Bioconductor_ {#sync-existing-repositories}
 
@@ -486,7 +458,7 @@ repositories are all in sync.
 
         git merge --allow-unrelated-histories upstream/master
 
-1. [Resolve merge conflicts][] if necessary.
+1. [Resolve merge conflicts][mergeconflict] if necessary.
 
 1. After resolving conflicts and committing changes, look for duplicate
    commits (e.g., `git log --oneline | wc` returns twice as many
@@ -524,8 +496,6 @@ repositories are all in sync.
    Remember that only `master` and the current release branch of
    _Bioconductor_ repositories can be updated.
 
-[Resolve merge conflicts]: #resolve-conflicts
-[force-bioc-to-github]: #abandon-changes#force-bioconductor--to-github-
 
 ### Create a local repository for private use {#create-local-repository}
 
@@ -567,15 +537,11 @@ repository for the package.
 
 - [Pull upstream changes][], e.g., introduced by the core team.
 - [Push to GitHub and _Bioconductor_][] repositories.
-- [Resolve merge conflicts][].
+- [Resolve merge conflicts][mergeconflict].
 - [Abandon changes][].
 - [Fix bugs in  devel and release][].
+- [Resolve duplicate commits][]
 
-[Pull upstream changes]: #pull-upstream-changes
-[Push to GitHub and _Bioconductor_]: #push-to-github-bioc
-[Resolve merge conflicts]: #resolve-conflicts
-[Abandon changes]: #abandon-changes
-[Fix bugs in devel and release]: #bug-fix-in-release-and-devel
 
 ### Pull upstream changes
 
@@ -601,7 +567,7 @@ These steps update the `master` branch.
 
         git merge upstream/master
 
-    Get help on [Resolve merge conflicts][] if these occur.
+    Get help on [Resolve merge conflicts][mergeconflict] if these occur.
 
 1. If you also maintain a GitHub repository, push changes to GitHub's
    (`origin`) `master` branch
@@ -614,8 +580,6 @@ with `RELEASE_X_Y` in the lines above.
 See instructions to [Sync existing repositories][] with
 changes to both the _Bioconductor_ and GitHub repositories.
 
-[Resolve merge conflicts]: #resolve-conflicts
-[Sync existing repositories]: #sync-existing-repositories
 
 ### Push to GitHub and _Bioconductor_ repositories {#push-to-github-bioc}
 
@@ -630,7 +594,7 @@ committing local changes.
    to push to _Bioconductor_'s git server
    (git@git.bioconductor.org). If not please see FAQ's on how to get
    access and follow instructions to
-   [maintain GitHub and _Bioconductor_ repositories][]. We use a clone
+   [Maintain GitHub and _Bioconductor_ repositories][]. We use a clone
    of the `BiocGenerics` package in the following example.
 
 1.  To check that remotes are set up properly, run the command inside
@@ -679,10 +643,8 @@ committing local changes.
 
 1. Confirm changes, e.g., by visiting the GitHub web page for the repository.
 
-[Pull upstream changes]: #pull-upstream-changes
-[maintain GitHub and _Bioconductor_ repositories]: #maintain-github-bioc
 
-### Resolve merge conflicts
+### Resolve merge conflicts {#resolve-merge-conflicts}
 
 __Goal:__ Resolve merge conflicts in branch and push to GitHub and
 _Bioconductor_ repositories.
@@ -700,7 +662,7 @@ _Bioconductor_ repositories.
     member makes a change to the same file (in this case the
     `DESCRIPTION` file).
 
-    How can you avoid this? [pull upstream changes][] before
+    How can you avoid this? [Pull upstream changes][] before
     committing any changes. In other words, `fetch` and `merge` remote
     branches before a `push`.
 
@@ -760,9 +722,6 @@ _Bioconductor_ repositories.
 
 <iframe width="560" height="315" src="https://www.loom.com/embed/03e20ac00992408aadae33a7b7b3384d" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
-[Resolving a merge conflict using command line]: https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/
-[Based on: Resolving a merge conflict]: https://www.atlassian.com/git/tutorials/using-branches/merge-conflicts
-[pull upstream changes]: #pull-upstream-changes
 
 ### Abandon changes
 
@@ -849,7 +808,7 @@ been warned.__
 1. Delete (or rename) your GitHub repository.
 
 1. [Maintain GitHub and _Bioconductor_ repositories][] for an existing
-   _Bioconductor_ repository, then [pull upstream changes][].
+   _Bioconductor_ repository, then [Pull upstream changes][].
 
 ##### Disadvantages of going "nuclear"
 
@@ -859,8 +818,6 @@ been warned.__
 
 1. You will lose any GitHub-specific changes.
 
-[Maintain GitHub and _Bioconductor_ repositories]: #maintain-github-bioc
-[pull upstream changes]: #pull-upstream-changes
 
 ### Fix bugs in `devel` and  `release` {#bug-fix-in-release-and-devel}
 
@@ -917,7 +874,7 @@ git branch and in the current release branch (e.g., `RELEASE_3_14`).
    hashes from the default branch that correspond to the bug fix (more examples
    in `git cherry-pick --help`). Remember to edit the `DESCRIPTION` file to
    update the release version of the package according to _Bioconductor_'s
-   [version numbering scheme][].
+   [version numbering scheme][versioning].
 
         git checkout <RELEASE_X_Y>
         ## example hash from git log: 2644710
@@ -953,18 +910,88 @@ git branch and in the current release branch (e.g., `RELEASE_3_14`).
         git push upstream <RELEASE_X_Y>
         git push origin <RELEASE_X_Y>
 
-[version numbering scheme]: #version-numbering
-[Sync existing repositories]: #sync-existing-repositories
 
 * See the video tutorial here:
 
 <iframe width="568" height="315" src="https://www.loom.com/embed/37525f9ddf434c91b11e8112db46818b" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
+### Resolve Duplicate Commits
+
+__Goal:__ You want to get rid of the duplicate (or triplicate) commits
+in your git commit history.
+
+Before you begin [Update your package][mergeconflict] to the existing version on
+Bioconductor.
+
+
+#### Steps:
+
+1. **IMPORTANT** Make a backup of the branch with duplicate commits,
+   call this `master_backup` (or `RELEASE_3_7_backup`). The name of
+   the back up branch should be identifiable and specific to the
+   branch you are trying to fix (i.e if you want to fix the *master*
+   branch or some `<RELEASE_X_Y>` branch).
+
+   On master, (make sure you are on master by `git checkout master`)
+
+		git branch master_backup
+
+
+2. Identify the commit from which the duplicates have
+   originated. These commits are more often than not, `merge` commits.
+
+3. Reset your branch to the commit *before* the merge commit.
+
+		git reset —hard <commit_id>
+
+4. Now cherry pick your commits from the `master_backup` branch.
+
+		git cherry-pick <commit_id>
+
+	a. The commits you cherry-pick should be only 1 version of the
+    duplicate commit, i.e don’t cherry-pick the same commit twice.
+
+	b. Include the branching and version bump commits in your
+    cherry-pick. Make the package history look as normal as possible.
+
+5. (Optional) In some cases, there are conflicts you need to fix for
+   the cherry-pick to succeed. Please read the documentation on how
+   to [resolve conflicts][mergeconflict]
+
+6. Finally, you would need to contact the bioc-devel mailing list to
+   reach the Bioconductor core team to sync your repository with the
+   version on Bioconductor.  This is not possible as `--force` pushes
+   which alter the git timeline are not possible for maintainers.
+
+
+#### How to check if your package has duplicate commits
+
+One way is to check the log. You should see the same commit message
+with the same changes, but with a different commit ID, if you try
+
+	git log
+
+or
+
+	git log --oneline
+
+#### Script to detect duplicate commits
+
+Run this script written in python to [detect duplicate commits][]
+which are specific to Bioconductor repositories.
+
+Usage example:
+
+	python detect_duplicate_commits.py /BiocGenerics 1000
+
+	python detect_duplicate_commits.py <path_to_package> <number of commits to check>'
+
+
 ## Github scenarios
 
-- [Add collaborators][] and use Github social coding features.
-- [Change Package Maintainer][]
-- [Remove Large Data Files][] and clean git tree
+- [Add collaborators and use Github social coding features](#add-collaborators-and-leverage-github-features).
+- [Change Package Maintainer](#change-maintainer)
+- [Remove Large Data Files and clean git tree](#remove-large-data-files-and-clean-git-tree)
 
 ### Add collaborators and leverage GitHub features
 
@@ -997,7 +1024,7 @@ GitHub, you can push these changes to _Bioconductor_.
         git fetch origin
         git merge
 
-    [Resolve merge conflicts][] if necessary.
+    [Resolve merge conflicts][mergeconflict] if necessary.
 
 1. Push your local repository to the upstream _Bioconductor_ repository.
 
@@ -1007,10 +1034,6 @@ GitHub, you can push these changes to _Bioconductor_.
     release branch, replace `master` with name of the release branch,
     e.g.: `RELEASE_3_6`.
 
-[Adding a new collaborator]: https://help.github.com/articles/inviting-collaborators-to-a-personal-repository/
-[Removing collaborator]: https://help.github.com/articles/removing-a-collaborator-from-a-personal-repository/
-[Merging a pull request]: https://help.github.com/articles/merging-a-pull-request/
-[Resolve merge conflicts]: #resolve-conflicts
 
 ### Add or Transfer Maintainership of a Package {#change-maintainer}
 
@@ -1022,7 +1045,7 @@ maintain the package and avoid deprecation and removal.
 1. Find a new maintainer
 
    You may have a collaborator or colleague volunteer to take over.  If not, ask
-   on the [bioc-devel](/help/mailing-list/) mailing list.
+   on the [bioc-devel][bioc-devel-mail] mailing list.
 
 2. Email <maintainer@bioconductor.org> or <bioc-devel@r-project.org>
 
@@ -1129,12 +1152,12 @@ repository.
     If you are unable to `push` or `merge` to either your GitHub
     account or _Bioconductor_ repository, it means you do not have the
     correct access rights. If you are a developer for _Bioconductor_,
-    you will need to [submit your SSH public key][] to the
-    [BiocCredentials][] app.
+    you will need to [submit your SSH public key][BiocCredentials application] to the
+    [BiocCredentials][BiocCredentials application] app.
 
     You should also make sure to check that your public key is set up
     correctly on GitHub. Follow
-    [Adding an SSH key to your GitHub account][].
+    [Adding a new SSH key to your GitHub account][].
 
 1. I'm not sure how to fetch the updates from `git.bioconductor.org`
    with regards to my package, how do I do this?
@@ -1148,7 +1171,7 @@ repository.
     related documentation. Although, it is a good primer if you want
     to be a contributor to _Bioconductor_.
 
-    You can also open [pull requests][] and [issues][] on the
+    You can also open [Pull requests][] and [issues][Open github issue] on the
     _Bioconductor_ packages you use, __if__ they have a GitHub
     repository.
 
@@ -1158,13 +1181,13 @@ repository.
 
     * [git-and-github-learning-resources][]
     * [git-scm][]
-    * [Guides][]
+    * [Guides][gitguides]
 
 1. I'm a _Bioconductor_ package maintainer, but I don't have access to
    the _Bioconductor_ server where my packages are being maintained. How
    do I gain access?
 
-    Please submit your SSH public key using the [BiocCredentials][]
+    Please submit your SSH public key using the [BiocCredentials][BiocCredentials application]
     app. Your key will be added to your our server and you will get
     read+ write access to your package.
 
@@ -1306,7 +1329,7 @@ repository.
     In this example, my private key is called `id_rsa_bioconductor`
     instead of `id_rsa`.
 
-	You may find it useful to check the [BiocCredentials][] app to see
+	You may find it useful to check the [BiocCredentials][BiocCredentials application] app to see
     what SSH key you have registered.
 
 1. SSH key asking for a password and I don't know it? How do I
@@ -1316,7 +1339,7 @@ repository.
 
     * You have set a password. The bioc-devel mailing list cannot help
     you with this.  You have to submit a new key on the
-    [BiocCredentials][] app.
+    [BiocCredentials][BiocCredentials application] app.
 
     * The permissions on your SSH key are wrong. Verify that the
     permissions on SSH IdentityFile are `400`. SSH will reject, in a
@@ -1351,39 +1374,32 @@ please send an email to bioc-devel@bioconductor.org.
 
 ### Helpful resources:
 
-[Adding a new SSH key to your GitHub account](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/)
+[Adding a new SSH key to your GitHub account][]
 
-[Create a pull request on GitHub](https://help.github.com/articles/creating-a-pull-request/)
+[Create a pull request on GitHub][Pull Requests]
 
-[Create an issue on GitHub](https://help.github.com/articles/creating-an-issue/)
+[Create an issue on GitHub][Open github issue]
 
-[Git and GitHub learning resources](https://help.github.com/articles/git-and-github-learning-resources/)
+[Git and GitHub learning resources][git-and-github-learning-resources]
 
-[git-scm manual](https://git-scm.com/)
+[git-scm manual][git-scm]
 
-[GitHub Guides](https://guides.github.com/)
+[GitHub Guides][gitguides]
 
-[New package workflow]: #new-package-workflow
+[New package workflow][]
 
-[Maintain GitHub and _Bioconductor_ repositories]: #maintain-github-bioc
+[Maintain GitHub and _Bioconductor_ repositories][]
 
-[Maintain a _Bioconductor_-only repository]: #maintain-bioc-only
+[Maintain a _Bioconductor_-only repository][]
 
-[Sync existing repositories]: #sync-existing-repositories
+[Sync existing repositories][]
 
-[Adding an SSH key to your GitHub account]: https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
+[Adding a SSH key to your GitHub account][Adding a new SSH key to your GitHub account]
 
-[submit your SSH public key]: https://git.bioconductor.org/BiocCredentials/
+[submit your SSH public key][BiocCredentials application]
 
-[resolve duplicate commits]: #resolve-duplicate-commits
+[resolve duplicate commits][]
 
-[Pull requests]: https://help.github.com/articles/creating-a-pull-request/
+[Pull requests][] 
 
-[issues]: https://help.github.com/articles/creating-an-issue/
-
-[git-and-github-learning-resources]: https://help.github.com/articles/git-and-github-learning-resources/
-
-[git-scm]: https://git-scm.com/
-
-[Guides]: https://guides.github.com/
-
+[Open github issues][Open github issue] 
