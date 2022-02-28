@@ -30,12 +30,6 @@ To preview the book locally - preferably before opening a pull request and while
 bookdown::render_book()
 ```
 
-We recommend using [renv](https://rstudio.github.io/renv/articles/renv.html) to restore the package environment for this project from the `renv.lock` file in this repository, using the the following command:
-
-```r
-renv::restore()
-```
-
 ## Original sources
 
 This book is based on contents from the following original sources:
