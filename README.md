@@ -12,15 +12,15 @@ Bioconductor Packages: Guidelines for Developers and Reviewers
 ### Suggestions and updates
 
 This book contains our guidelines for packages contributed to the [_Bioconductor_](https://bioconductor.org/) suite of packages.
-These guidelines are always a work in progress - corrections, suggestions and general improvements are welcome as [issue submissions in this repository](https://github.com/kevinrue/bioc_package_guide/issues/new).
+These guidelines are always a work in progress - corrections, suggestions and general improvements are welcome as [issue submissions in this repository](https://github.com/Bioconductor/pkgrevdocs/issues/new).
 Open discussions are welcome in our [Slack](https://bioc-community.herokuapp.com/).
-You can also suggest changes by editing the `.Rmd` files that are at the root of this repository and submitting a [pull request](https://github.com/kevinrue/bioc_package_guide/pulls).
+You can also suggest changes by editing the `.Rmd` files that are at the root of this repository and submitting a [pull request](https://github.com/Bioconductor/pkgrevdocs/pulls).
 An "Edit this page" link in the side bar on the right of each book chapter will take you directly to the relevant page on the GitHub repository to make such changes.
 Please target your pull requests to the `master` branch.
 
 ### Technical details
 
-Deployment is done via [GitHub Actions](https://github.com/kevinrue/bioc_package_guide/actions):
+Deployment is done via [GitHub Actions](https://github.com/Bioconductor/pkgrevdocs/actions):
 
 * whenever there's a push to `master`, the book is built and its content is then pushed to the `gh-pages` branch.
 
