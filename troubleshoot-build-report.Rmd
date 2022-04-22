@@ -19,6 +19,11 @@ do not propagate broken packages. This could account for a different version on
 the landing page than was pushed to _Bioconductor_.  Please also remember a
 package ALWAYS needs a valid version bump to propagate to users.
 
+The schedule for software, data experiment, annotation, books, workflows can be
+found on the [check results page](http://bioconductor.org/checkResults/). In
+order for changes to be included in the report, changes should be committed to
+the Bioconductor git.bioconductor.org location the morning before the listed day
+with a valid version bump. 
 
 ## How do I reproduce the build system ERROR?
 
