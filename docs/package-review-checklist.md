@@ -77,9 +77,10 @@ Refer to the [DESCRIPTION](https://contributions.bioconductor.org/description.ht
 - [ ] Vignette present and does describe the core functionality of the package.
 - [ ] No disabled code blocks present in vignette.
 - [ ] Vignette uses `BiocStyle` package for formatting.
-- [ ] Vignette has an *Introduction* section.
+- [ ] Vignette has an *Introduction* section. This should include motivation for inclusion to Bioconductor
 - [ ] Vignette has an *Installation* section.
 - [ ] Vignette has a table of contents.
+- [ ] When relevant, vignette provides review/comparison to other packages with similar functionality or scope
 - [ ] Vignette includes `sessionInfo()`.
 - [ ] The `vignettes/` directory contains only vignette file(s) and necessary static images.
 - [ ] All exported functions and classes have a man page.

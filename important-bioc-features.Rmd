@@ -118,3 +118,12 @@ searching in [biocViews][] for your data type.
 In general, a package will not be accepted if it does not show interoperability
 with the current [_Bioconductor_][] ecosystem.
 
+## Vignette {#bioc-vignette}
+
+Every submitted Bioconductor package should have at least one Rmd (preferred) or
+Rnw vignette, ideally utilizing `BiocStyle::html_document` as output
+rendering. This should include evaluated R package code and a detailed
+introduction/abstract section that provides motivation for inclusion in
+Bioconductor and when appropriate a review and comparison to existing
+Bioconductor packages with similar functionality or scope. See [vignette
+documentation section](#vignettes) for more details.
