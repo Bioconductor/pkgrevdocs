@@ -63,6 +63,21 @@ introduction of non-standard data representations (e.g., neglecting to
 translate coordinate systems of file formats to Bioconductor objects)
 and user bewilderment.
 
+### Naming of packages, functions, and classes {#naming-functions}
+
+See section on [package naming](#package-name). The concepts there should also
+apply to function names, class names, etc. 
+
+Avoid names that:
+
+- Are easily confused with existing package names, function names, class names.
+- Imply a temporal (e.g. `ExistingPackage2`) or qualitative
+  (e.g. `ExistingPackagePlus`) relationship.
+- Suggest hate speech, slurs or profanity, either implicitly or explicitly.
+- Invoke or refer to any historical, ethical, or political contexts.
+- Reference well known people, characters, brands, places or icons.
+
+
 ### Methods development {#rcode-method-development}
 
 We encourage maintainers to only create new methods for classes exported within

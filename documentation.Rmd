@@ -54,16 +54,32 @@ in the `vignettes/` directory of the package. Vignettes are often used as
 standalone documents, so best practices are to include an informative title, the
 primary author of the vignette, the last modification date of the vignette, and
 a link to the package landing page. We encourage the use of `r
-BiocStyle::Biocpkg("BiocStyle")` for formatting.
+BiocStyle::Biocpkg("BiocStyle")` for formatting with `html_document` as
+rendering target. Something like the following in the vignette will accomplish
+the above suggestion:
 
-Some best practices for writing _Bioconductor_ vignettes are detailed in the
-following sections.
+```
+output:
+  BiocStyle::html_document:
+    toc: true
+    toc_depth: 2
 
-### Introduction
+```
+
+
+Some best practices and requirements for writing _Bioconductor_ vignettes are
+detailed in the following sections.
+
+### Introduction {#vignette-introduction}
 
 Add an "Introduction" section that serves as an abstract to introduce the
 objective, models, unique functions, key points, etc that distinguish the
-package from other packages in the same area.
+package from other packages in the same area. This is a requirement of
+Bioconductor package vignettes. It should include a short motivation for the
+package in general as well as motivation for inclusion of the package in
+Biconductor. When relevant, a brief review and comparison of packages with
+similar functionality or scope should be provided either in the Introduction or
+in a separate dedicated vignette section.
 
 ### Installation
 

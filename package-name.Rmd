@@ -18,9 +18,13 @@ if (!require("BiocManager")) {
 BiocManager::install("MyPackage")
 ```
 
+One could also search the Bioconductor [browsable code
+base](https://code.bioconductor.org) to search for similar or existing names of
+packages, functions, or classes.
+
 In addition, avoid package names that:
 
-- Are easily confused with existing package names.
+- Are easily confused with existing package names, function names, class names.
 - Imply a temporal (e.g. `ExistingPackage2`) or qualitative
   (e.g. `ExistingPackagePlus`) relationship.
 - Suggest hate speech, slurs or profanity, either implicitly or explicitly.
