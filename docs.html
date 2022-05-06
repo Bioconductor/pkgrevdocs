@@ -76,12 +76,13 @@
 <li><a class="" href="versionnum.html"><span class="header-section-number">22</span> Version Numbering</a></li>
 <li><a class="" href="troubleshooting-build-report.html"><span class="header-section-number">23</span> Troubleshooting Build Report</a></li>
 <li><a class="" href="debugging-cc-code.html"><span class="header-section-number">24</span> Debugging C/C++ code</a></li>
-<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">25</span> Package End of Life Policy</a></li>
+<li><a class="" href="deprecation.html"><span class="header-section-number">25</span> Deprecation Guidelines</a></li>
+<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">26</span> Package End of Life Policy</a></li>
 <li class="book-part">Package Reviewer Resources</li>
 <li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
-<li><a class="" href="review-expectation.html"><span class="header-section-number">26</span> Review Expectations</a></li>
-<li><a class="" href="reviewtools.html"><span class="header-section-number">27</span> Reviewer Resources and Tools</a></li>
-<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">28</span> Volunteer to Review</a></li>
+<li><a class="" href="review-expectation.html"><span class="header-section-number">27</span> Review Expectations</a></li>
+<li><a class="" href="reviewtools.html"><span class="header-section-number">28</span> Reviewer Resources and Tools</a></li>
+<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">29</span> Volunteer to Review</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="use-devel.html"><span class="header-section-number">A</span> Using the ‘Devel’ Version of Bioconductor</a></li>
 <li><a class="" href="long-tests.html"><span class="header-section-number">B</span> Long Tests</a></li>
@@ -147,16 +148,28 @@ exceptions can be made with proper justification and are at the discretion of
 in the <code>vignettes/</code> directory of the package. Vignettes are often used as
 standalone documents, so best practices are to include an informative title, the
 primary author of the vignette, the last modification date of the vignette, and
-a link to the package landing page. We encourage the use of <code>r BiocStyle::Biocpkg("BiocStyle")</code> for formatting.</p>
-<p>Some best practices for writing <em>Bioconductor</em> vignettes are detailed in the
-following sections.</p>
-<div id="introduction" class="section level3" number="12.2.1">
+a link to the package landing page. We encourage the use of <code>r BiocStyle::Biocpkg("BiocStyle")</code> for formatting with <code>html_document</code> as
+rendering target. Something like the following in the vignette will accomplish
+the above suggestion:</p>
+<pre><code>output:
+  BiocStyle::html_document:
+    toc: true
+    toc_depth: 2
+</code></pre>
+<p>Some best practices and requirements for writing <em>Bioconductor</em> vignettes are
+detailed in the following sections.</p>
+<div id="vignette-introduction" class="section level3" number="12.2.1">
 <h3>
-<span class="header-section-number">12.2.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.2.1</span> Introduction<a class="anchor" aria-label="anchor" href="#vignette-introduction"><i class="fas fa-link"></i></a>
 </h3>
 <p>Add an “Introduction” section that serves as an abstract to introduce the
 objective, models, unique functions, key points, etc that distinguish the
-package from other packages in the same area.</p>
+package from other packages in the same area. This is a requirement of
+Bioconductor package vignettes. It should include a short motivation for the
+package in general as well as motivation for inclusion of the package in
+Biconductor. When relevant, a brief review and comparison of packages with
+similar functionality or scope should be provided either in the Introduction or
+in a separate dedicated vignette section.</p>
 </div>
 <div id="installation" class="section level3" number="12.2.2">
 <h3>
@@ -285,7 +298,7 @@ provided through <code>inst</code> subdirectories but do not substitute for the
 <li><a class="nav-link" href="#doc-require"><span class="header-section-number">12.1</span> Bioconductor documentation minimal requirements:</a></li>
 <li>
 <a class="nav-link" href="#vignettes"><span class="header-section-number">12.2</span> Vignettes</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#introduction"><span class="header-section-number">12.2.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#vignette-introduction"><span class="header-section-number">12.2.1</span> Introduction</a></li>
 <li><a class="nav-link" href="#installation"><span class="header-section-number">12.2.2</span> Installation</a></li>
 <li><a class="nav-link" href="#table-of-contents"><span class="header-section-number">12.2.3</span> Table of contents</a></li>
 <li><a class="nav-link" href="#evaluated-code-chunks"><span class="header-section-number">12.2.4</span> Evaluated code chunks</a></li>
@@ -321,7 +334,7 @@ provided through <code>inst</code> subdirectories but do not substitute for the
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-04-22.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-05-06.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

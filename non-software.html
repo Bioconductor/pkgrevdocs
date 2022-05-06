@@ -76,12 +76,13 @@
 <li><a class="" href="versionnum.html"><span class="header-section-number">22</span> Version Numbering</a></li>
 <li><a class="" href="troubleshooting-build-report.html"><span class="header-section-number">23</span> Troubleshooting Build Report</a></li>
 <li><a class="" href="debugging-cc-code.html"><span class="header-section-number">24</span> Debugging C/C++ code</a></li>
-<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">25</span> Package End of Life Policy</a></li>
+<li><a class="" href="deprecation.html"><span class="header-section-number">25</span> Deprecation Guidelines</a></li>
+<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">26</span> Package End of Life Policy</a></li>
 <li class="book-part">Package Reviewer Resources</li>
 <li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
-<li><a class="" href="review-expectation.html"><span class="header-section-number">26</span> Review Expectations</a></li>
-<li><a class="" href="reviewtools.html"><span class="header-section-number">27</span> Reviewer Resources and Tools</a></li>
-<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">28</span> Volunteer to Review</a></li>
+<li><a class="" href="review-expectation.html"><span class="header-section-number">27</span> Review Expectations</a></li>
+<li><a class="" href="reviewtools.html"><span class="header-section-number">28</span> Reviewer Resources and Tools</a></li>
+<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">29</span> Volunteer to Review</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="use-devel.html"><span class="header-section-number">A</span> Using the ‘Devel’ Version of Bioconductor</a></li>
 <li><a class="" href="long-tests.html"><span class="header-section-number">B</span> Long Tests</a></li>
@@ -124,8 +125,8 @@ ExperimentHub interfaces and packages are desirable.</p>
 <span class="header-section-number">18.2</span> Annotation/Experiment Hub packages<a class="anchor" aria-label="anchor" href="#annotationexperiment-hub-packages"><i class="fas fa-link"></i></a>
 </h2>
 <p>These light weight packages are related to resources added to
-<em><a href="https://bioconductor.org/packages/3.15/AnnotationHub">AnnotationHub</a></em> or
-<em><a href="https://bioconductor.org/packages/3.15/ExperimentHub">ExperimentHub</a></em>. The package should minimally contain
+<em><a href="https://bioconductor.org/packages/3.16/AnnotationHub">AnnotationHub</a></em> or
+<em><a href="https://bioconductor.org/packages/3.16/ExperimentHub">ExperimentHub</a></em>. The package should minimally contain
 the resource metadata, man pages describing the resources, and a vignette. It
 may also contain supporting R function the author wants to provide. These
 packages are similar to the above Annotation or Experiment data packages except
@@ -134,7 +135,7 @@ or publicly accessibly sites (ensembl, AWS S3 buckets, etc) instead of in the
 package itself.</p>
 <p>There is more information about creating a hub packages as well as the contents
 of on in the <a href="https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html">Create A Hub Package</a> vignette within the
-<em><a href="https://bioconductor.org/packages/3.15/HubPub">HubPub</a></em> Bioconductor package.</p>
+<em><a href="https://bioconductor.org/packages/3.16/HubPub">HubPub</a></em> Bioconductor package.</p>
 </div>
 <div id="workflow-packages" class="section level2" number="18.3">
 <h2>
@@ -183,9 +184,9 @@ be sent for gaining access for maintainence.</p></li>
 <ul>
 <li>
 <p>In an effort to standardize the workflow vignette format, it is strongly
-encouraged to use either <em><a href="https://bioconductor.org/packages/3.15/BiocStyle">BiocStyle</a></em> for formatting or
-utilize <em><a href="https://bioconductor.org/packages/3.15/BiocWorkflowTools">BiocWorkflowTools</a></em>. The following header
-shows how to use <em><a href="https://bioconductor.org/packages/3.15/BiocStyle">BiocStyle</a></em> in the vignette:</p>
+encouraged to use either <em><a href="https://bioconductor.org/packages/3.16/BiocStyle">BiocStyle</a></em> for formatting or
+utilize <em><a href="https://bioconductor.org/packages/3.16/BiocWorkflowTools">BiocWorkflowTools</a></em>. The following header
+shows how to use <em><a href="https://bioconductor.org/packages/3.16/BiocStyle">BiocStyle</a></em> in the vignette:</p>
 <pre><code>output:
     BiocStyle::html_document</code></pre>
 </li>
@@ -199,9 +200,9 @@ shows how to use <em><a href="https://bioconductor.org/packages/3.15/BiocStyle">
 Bioconductor version, and package version should be visible.
 The following is an example of how this could be achieved:</p>
 <pre><code>&lt;p&gt;
-**R version**: R Under development (unstable) (2022-03-14 r81896)
+**R version**: R version 4.2.0 (2022-04-22)
 &lt;br /&gt;
-**Bioconductor version**: 3.15
+**Bioconductor version**: 3.16
 &lt;br /&gt;
 **Package**: 1.19.1
 &lt;\p&gt;</code></pre>
@@ -332,7 +333,7 @@ specify the bibliography file in the document metadata header.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-04-22.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-05-06.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

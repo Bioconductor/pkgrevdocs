@@ -31,6 +31,7 @@ biocviews-pkg-devel
 reusebioc
 commonimport
 commonclass
+bioc-vignette
 readme
 description
 description-pkg
@@ -59,7 +60,7 @@ sysdep
 docs
 doc-require
 vignettes
-introduction
+vignette-introduction
 installation
 table-of-contents
 evaluated-code-chunks
@@ -100,6 +101,7 @@ r-code
 rcode-license
 r-code-development
 rcode-reuse
+naming-functions
 rcode-method-development
 rcode-file-names
 class-development
@@ -222,6 +224,18 @@ detecting-memory-errors-valgrind
 interactive-debugging-gdb-or-lldb
 diagnose-a-crash
 case-study
+deprecation
+what-to-deprecate
+when-to-follow-these-guidelines
+deprecate-function
+step-1-deprecate-the-function
+step-2-mark-the-function-as-defunct
+step-3-remove-the-function
+deprecate-dataset
+step-1---save-a-promise-object
+step-2---update-documentation
+step-3---defunct-the-dataset
+deprecate-package
 package-end-of-life-policy
 criteria-for-package-deprecation-by-core-team
 user-requested-deprecation

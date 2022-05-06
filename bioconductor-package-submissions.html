@@ -76,12 +76,13 @@
 <li><a class="" href="versionnum.html"><span class="header-section-number">22</span> Version Numbering</a></li>
 <li><a class="" href="troubleshooting-build-report.html"><span class="header-section-number">23</span> Troubleshooting Build Report</a></li>
 <li><a class="" href="debugging-cc-code.html"><span class="header-section-number">24</span> Debugging C/C++ code</a></li>
-<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">25</span> Package End of Life Policy</a></li>
+<li><a class="" href="deprecation.html"><span class="header-section-number">25</span> Deprecation Guidelines</a></li>
+<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">26</span> Package End of Life Policy</a></li>
 <li class="book-part">Package Reviewer Resources</li>
 <li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
-<li><a class="" href="review-expectation.html"><span class="header-section-number">26</span> Review Expectations</a></li>
-<li><a class="" href="reviewtools.html"><span class="header-section-number">27</span> Reviewer Resources and Tools</a></li>
-<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">28</span> Volunteer to Review</a></li>
+<li><a class="" href="review-expectation.html"><span class="header-section-number">27</span> Review Expectations</a></li>
+<li><a class="" href="reviewtools.html"><span class="header-section-number">28</span> Reviewer Resources and Tools</a></li>
+<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">29</span> Volunteer to Review</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="use-devel.html"><span class="header-section-number">A</span> Using the ‘Devel’ Version of Bioconductor</a></li>
 <li><a class="" href="long-tests.html"><span class="header-section-number">B</span> Long Tests</a></li>
@@ -298,13 +299,13 @@ examples first check the AnnotationHub resource for available files
 (e.g., BAM, FASTA, BigWig, etc.) or ExperimentHub for available processed
 example data set already included in <em>Bioconductor</em>. If no current files or data
 sets are appropriate consider an associated Experiment Data Package that
-utilizes <em><a href="https://bioconductor.org/packages/3.15/ExperimentHub">ExperimentHub</a></em>.</p>
+utilizes <em><a href="https://bioconductor.org/packages/3.16/ExperimentHub">ExperimentHub</a></em>.</p>
 <p>If you have an associated data package for your software package,
 please do <em>NOT</em> create a separate issue in the our tracker repository
 for that. Instead, please add the data package repository to the same
 issue as the software package. The process for doing this is
 documented <a href="https://github.com/Bioconductor/Contributions/blob/master/CONTRIBUTING.md#submitting-related-packages">here</a>. Generally the data package should be submitted first.</p>
-<p>The <em><a href="https://bioconductor.org/packages/3.15/HubPub">HubPub</a></em> package is helpful for creating a template
+<p>The <em><a href="https://bioconductor.org/packages/3.16/HubPub">HubPub</a></em> package is helpful for creating a template
 for a hub package. The vignette <a href="https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html">Create A Hub Package</a> provides full details.</p>
 </div>
 <div id="annPackage" class="section level2" number="1.7">
@@ -321,9 +322,9 @@ AnnotationDbi.</p>
 Instead send an email to <a href="mailto:packages@bioconductor.org" class="email">packages@bioconductor.org</a> with a
 description of the proposed annotation package and futher instructions
 of where to send the package will be provided. Whenever possible Annotation
-Packages should use the <em><a href="https://bioconductor.org/packages/3.15/AnnotationHub">AnnotationHub</a></em> for managing
+Packages should use the <em><a href="https://bioconductor.org/packages/3.16/AnnotationHub">AnnotationHub</a></em> for managing
 files.</p>
-<p>The <em><a href="https://bioconductor.org/packages/3.15/HubPub">HubPub</a></em> package is helpful for creating a template
+<p>The <em><a href="https://bioconductor.org/packages/3.16/HubPub">HubPub</a></em> package is helpful for creating a template
 for a hub package. The vignette <a href="https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html">Create A Hub Package</a> provides full details.</p>
 <p><a name="workPackage"></a></p>
 </div>
@@ -370,7 +371,7 @@ to ensure that the package conforms to standard <em>R</em> programming best
 practices. <em>Bioconductor</em> has chosen to utilize a custom <code>R CMD check</code>
 environment; See <a href="general.html#r-cmd-check-environment">R CMD check environment</a> for more details. Finally, the
 build system will run <code>BiocCheckGitClone()</code> and <code>BiocCheck('new-package'=TRUE)</code> to ensure that
-the package conforms to <em>Bioconductor</em> <em><a href="https://bioconductor.org/packages/3.15/BiocCheck">BiocCheck</a></em>
+the package conforms to <em>Bioconductor</em> <em><a href="https://bioconductor.org/packages/3.16/BiocCheck">BiocCheck</a></em>
 standards. The system will perform these steps using the <a href="use-devel.html#use-devel">‘devel’
 version</a> of <em>Bioconductor</em>, on three platforms
 (Linux, Mac OS X, and Windows). After these steps are complete, a link to a
@@ -496,7 +497,7 @@ package documentation and structure. Use the
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-04-22.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-05-06.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

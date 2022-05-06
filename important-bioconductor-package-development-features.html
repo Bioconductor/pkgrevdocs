@@ -76,12 +76,13 @@
 <li><a class="" href="versionnum.html"><span class="header-section-number">22</span> Version Numbering</a></li>
 <li><a class="" href="troubleshooting-build-report.html"><span class="header-section-number">23</span> Troubleshooting Build Report</a></li>
 <li><a class="" href="debugging-cc-code.html"><span class="header-section-number">24</span> Debugging C/C++ code</a></li>
-<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">25</span> Package End of Life Policy</a></li>
+<li><a class="" href="deprecation.html"><span class="header-section-number">25</span> Deprecation Guidelines</a></li>
+<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">26</span> Package End of Life Policy</a></li>
 <li class="book-part">Package Reviewer Resources</li>
 <li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
-<li><a class="" href="review-expectation.html"><span class="header-section-number">26</span> Review Expectations</a></li>
-<li><a class="" href="reviewtools.html"><span class="header-section-number">27</span> Reviewer Resources and Tools</a></li>
-<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">28</span> Volunteer to Review</a></li>
+<li><a class="" href="review-expectation.html"><span class="header-section-number">27</span> Review Expectations</a></li>
+<li><a class="" href="reviewtools.html"><span class="header-section-number">28</span> Reviewer Resources and Tools</a></li>
+<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">29</span> Volunteer to Review</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="use-devel.html"><span class="header-section-number">A</span> Using the ‘Devel’ Version of Bioconductor</a></li>
 <li><a class="" href="long-tests.html"><span class="header-section-number">B</span> Long Tests</a></li>
@@ -185,21 +186,21 @@ searching in <a href="https://bioconductor.org/packages/devel/BiocViews.html">bi
 <span class="header-section-number">4.2.1</span> Importing<a class="anchor" aria-label="anchor" href="#commonimport"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
-<li>GTF, GFF, BED, BigWig, etc., – <em><a href="https://bioconductor.org/packages/3.15/rtracklayer">rtracklayer</a></em> <code>::import()</code>
+<li>GTF, GFF, BED, BigWig, etc., – <em><a href="https://bioconductor.org/packages/3.16/rtracklayer">rtracklayer</a></em> <code>::import()</code>
 </li>
-<li>VCF – <em><a href="https://bioconductor.org/packages/3.15/VariantAnnotation">VariantAnnotation</a></em> <code>::readVcf()</code>
+<li>VCF – <em><a href="https://bioconductor.org/packages/3.16/VariantAnnotation">VariantAnnotation</a></em> <code>::readVcf()</code>
 </li>
-<li>SAM / BAM – <em><a href="https://bioconductor.org/packages/3.15/Rsamtools">Rsamtools</a></em> <code>::scanBam()</code>,
-<em><a href="https://bioconductor.org/packages/3.15/GenomicAlignments">GenomicAlignments</a></em> <code>::readGAlignment*()</code>
+<li>SAM / BAM – <em><a href="https://bioconductor.org/packages/3.16/Rsamtools">Rsamtools</a></em> <code>::scanBam()</code>,
+<em><a href="https://bioconductor.org/packages/3.16/GenomicAlignments">GenomicAlignments</a></em> <code>::readGAlignment*()</code>
 </li>
-<li>FASTA – <em><a href="https://bioconductor.org/packages/3.15/Biostrings">Biostrings</a></em> <code>::readDNAStringSet()</code>
+<li>FASTA – <em><a href="https://bioconductor.org/packages/3.16/Biostrings">Biostrings</a></em> <code>::readDNAStringSet()</code>
 </li>
-<li>FASTQ – <em><a href="https://bioconductor.org/packages/3.15/ShortRead">ShortRead</a></em> <code>::readFastq()</code>
+<li>FASTQ – <em><a href="https://bioconductor.org/packages/3.16/ShortRead">ShortRead</a></em> <code>::readFastq()</code>
 </li>
-<li>MS data (XML-based and mgf formats) – <em><a href="https://bioconductor.org/packages/3.15/Spectra">Spectra</a></em> <code>::Spectra()</code>,
-<em><a href="https://bioconductor.org/packages/3.15/MSnbase">MSnbase</a></em> <code>::readMSData()</code>,
-<em><a href="https://bioconductor.org/packages/3.15/Spectra">Spectra</a></em> <code>::Spectra(source = MsBackendMgf::MsBackendMgf())</code>,
-<em><a href="https://bioconductor.org/packages/3.15/MSnbase">MSnbase</a></em> <code>::readMgfData()</code>
+<li>MS data (XML-based and mgf formats) – <em><a href="https://bioconductor.org/packages/3.16/Spectra">Spectra</a></em> <code>::Spectra()</code>,
+<em><a href="https://bioconductor.org/packages/3.16/MSnbase">MSnbase</a></em> <code>::readMSData()</code>,
+<em><a href="https://bioconductor.org/packages/3.16/Spectra">Spectra</a></em> <code>::Spectra(source = MsBackendMgf::MsBackendMgf())</code>,
+<em><a href="https://bioconductor.org/packages/3.16/MSnbase">MSnbase</a></em> <code>::readMgfData()</code>
 </li>
 </ul>
 </div>
@@ -209,35 +210,47 @@ searching in <a href="https://bioconductor.org/packages/devel/BiocViews.html">bi
 </h3>
 <ul>
 <li>Rectangular feature x sample data –
-<em><a href="https://bioconductor.org/packages/3.15/SummarizedExperiment">SummarizedExperiment</a></em> <code>::SummarizedExperiment()</code> (RNAseq count
+<em><a href="https://bioconductor.org/packages/3.16/SummarizedExperiment">SummarizedExperiment</a></em> <code>::SummarizedExperiment()</code> (RNAseq count
 matrix, microarray, …)</li>
-<li>Genomic coordinates – <em><a href="https://bioconductor.org/packages/3.15/GenomicRanges">GenomicRanges</a></em> <code>::GRanges()</code> (1-based,
+<li>Genomic coordinates – <em><a href="https://bioconductor.org/packages/3.16/GenomicRanges">GenomicRanges</a></em> <code>::GRanges()</code> (1-based,
 closed interval)</li>
 <li>Genomic coordinates from multiple samples –
-<em><a href="https://bioconductor.org/packages/3.15/GenomicRanges">GenomicRanges</a></em> <code>::GRangesList()</code>
+<em><a href="https://bioconductor.org/packages/3.16/GenomicRanges">GenomicRanges</a></em> <code>::GRangesList()</code>
 </li>
-<li>Ragged genomic coordinates – <em><a href="https://bioconductor.org/packages/3.15/RaggedExperiment">RaggedExperiment</a></em> <code>::RaggedExperiment()</code>
+<li>Ragged genomic coordinates – <em><a href="https://bioconductor.org/packages/3.16/RaggedExperiment">RaggedExperiment</a></em> <code>::RaggedExperiment()</code>
 </li>
-<li>DNA / RNA / AA sequences – <em><a href="https://bioconductor.org/packages/3.15/Biostrings">Biostrings</a></em> <code>::*StringSet()</code>
+<li>DNA / RNA / AA sequences – <em><a href="https://bioconductor.org/packages/3.16/Biostrings">Biostrings</a></em> <code>::*StringSet()</code>
 </li>
-<li>Gene sets – <em><a href="https://bioconductor.org/packages/3.15/BiocSet">BiocSet</a></em> <code>::BiocSet()</code>,
-<em><a href="https://bioconductor.org/packages/3.15/GSEABase">GSEABase</a></em> <code>::GeneSet()</code>,
-<em><a href="https://bioconductor.org/packages/3.15/GSEABase">GSEABase</a></em> <code>::GeneSetCollection()</code>
+<li>Gene sets – <em><a href="https://bioconductor.org/packages/3.16/BiocSet">BiocSet</a></em> <code>::BiocSet()</code>,
+<em><a href="https://bioconductor.org/packages/3.16/GSEABase">GSEABase</a></em> <code>::GeneSet()</code>,
+<em><a href="https://bioconductor.org/packages/3.16/GSEABase">GSEABase</a></em> <code>::GeneSetCollection()</code>
 </li>
 <li>Multi-omics data –
-<em><a href="https://bioconductor.org/packages/3.15/MultiAssayExperiment">MultiAssayExperiment</a></em> <code>::MultiAssayExperiment()</code>
+<em><a href="https://bioconductor.org/packages/3.16/MultiAssayExperiment">MultiAssayExperiment</a></em> <code>::MultiAssayExperiment()</code>
 </li>
 <li>Single cell data –
-<em><a href="https://bioconductor.org/packages/3.15/SingleCellExperiment">SingleCellExperiment</a></em> <code>::SingleCellExperiment()</code>
+<em><a href="https://bioconductor.org/packages/3.16/SingleCellExperiment">SingleCellExperiment</a></em> <code>::SingleCellExperiment()</code>
 </li>
-<li>Mass spec data – <em><a href="https://bioconductor.org/packages/3.15/Spectra">Spectra</a></em> <code>::Spectra()</code>,
-<em><a href="https://bioconductor.org/packages/3.15/MSnbase">MSnbase</a></em> <code>::MSnExp()</code>
+<li>Mass spec data – <em><a href="https://bioconductor.org/packages/3.16/Spectra">Spectra</a></em> <code>::Spectra()</code>,
+<em><a href="https://bioconductor.org/packages/3.16/MSnbase">MSnbase</a></em> <code>::MSnExp()</code>
 </li>
 </ul>
 <p>In general, a package will not be accepted if it does not show interoperability
 with the current <a href="https://bioconductor.org"><em>Bioconductor</em></a> ecosystem.</p>
-
 </div>
+</div>
+<div id="bioc-vignette" class="section level2" number="4.3">
+<h2>
+<span class="header-section-number">4.3</span> Vignette<a class="anchor" aria-label="anchor" href="#bioc-vignette"><i class="fas fa-link"></i></a>
+</h2>
+<p>Every submitted Bioconductor package should have at least one Rmd (preferred) or
+Rnw vignette, ideally utilizing <code><a href="https://rdrr.io/pkg/BiocStyle/man/html_document.html">BiocStyle::html_document</a></code> as output
+rendering. This should include evaluated R package code and a detailed
+introduction/abstract section that provides motivation for inclusion in
+Bioconductor and when appropriate a review and comparison to existing
+Bioconductor packages with similar functionality or scope. See <a href="docs.html#vignettes">vignette
+documentation section</a> for more details.</p>
+
 </div>
 </div>
   <div class="chapter-nav">
@@ -259,6 +272,7 @@ with the current <a href="https://bioconductor.org"><em>Bioconductor</em></a> ec
 <li><a class="nav-link" href="#commonclass"><span class="header-section-number">4.2.2</span> Common Classes</a></li>
 </ul>
 </li>
+<li><a class="nav-link" href="#bioc-vignette"><span class="header-section-number">4.3</span> Vignette</a></li>
 </ul>
 
       <div class="book-extra">
@@ -276,7 +290,7 @@ with the current <a href="https://bioconductor.org"><em>Bioconductor</em></a> ec
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-04-22.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-05-06.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

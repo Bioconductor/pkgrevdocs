@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 25 Deprecation Guidelines | Bioconductor Packages: Development, Maintenance, and Peer Review</title>
+<meta name="author" content="Kevin Rue-Albrecht">
+<meta name="author" content="Daniela Cassol">
+<meta name="author" content="Johannes Rainer">
+<meta name="author" content="Lori Shepherd">
+<meta name="description" content="In the normal course of software development, functions, classes, methods, or data objects may need to be removed. Here are some guidelines for ensuring that this process is minimally disruptive...">
+<meta name="generator" content="bookdown 0.26 with bs4_book()">
+<meta property="og:title" content="Chapter 25 Deprecation Guidelines | Bioconductor Packages: Development, Maintenance, and Peer Review">
+<meta property="og:type" content="book">
+<meta property="og:description" content="In the normal course of software development, functions, classes, methods, or data objects may need to be removed. Here are some guidelines for ensuring that this process is minimally disruptive...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 25 Deprecation Guidelines | Bioconductor Packages: Development, Maintenance, and Peer Review">
+<meta name="twitter:description" content="In the normal course of software development, functions, classes, methods, or data objects may need to be removed. Here are some guidelines for ensuring that this process is minimally disruptive...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Bioconductor Packages: Development, Maintenance, and Peer Review</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li class="book-part">Package Submissions</li>
+<li><a class="" href="submission-overview.html">Overview</a></li>
+<li><a class="" href="bioconductor-package-submissions.html"><span class="header-section-number">1</span> Bioconductor Package Submissions</a></li>
+<li class="book-part">Package Development Guidelines</li>
+<li><a class="" href="develop-overview.html">Overview</a></li>
+<li><a class="" href="package-name.html"><span class="header-section-number">2</span> Package name</a></li>
+<li><a class="" href="general.html"><span class="header-section-number">3</span> General Bioconductor Package Development</a></li>
+<li><a class="" href="important-bioconductor-package-development-features.html"><span class="header-section-number">4</span> Important Bioconductor Package Development Features</a></li>
+<li><a class="" href="readme.html"><span class="header-section-number">5</span> The README file</a></li>
+<li><a class="" href="description.html"><span class="header-section-number">6</span> The DESCRIPTION file</a></li>
+<li><a class="" href="namespace.html"><span class="header-section-number">7</span> The NAMESPACE file</a></li>
+<li><a class="" href="news.html"><span class="header-section-number">8</span> The NEWS file</a></li>
+<li><a class="" href="license.html"><span class="header-section-number">9</span> The LICENSE file</a></li>
+<li><a class="" href="citation.html"><span class="header-section-number">10</span> The CITATION file</a></li>
+<li><a class="" href="sysdep.html"><span class="header-section-number">11</span> The INSTALL file</a></li>
+<li><a class="" href="docs.html"><span class="header-section-number">12</span> Documentation</a></li>
+<li><a class="" href="data.html"><span class="header-section-number">13</span> Package data</a></li>
+<li><a class="" href="tests.html"><span class="header-section-number">14</span> Unit tests</a></li>
+<li><a class="" href="r-code.html"><span class="header-section-number">15</span> R code</a></li>
+<li><a class="" href="other-than-Rcode.html"><span class="header-section-number">16</span> Fortran / C / C++ / Python / Third-Party Code</a></li>
+<li><a class="" href="shiny.html"><span class="header-section-number">17</span> Shiny apps</a></li>
+<li><a class="" href="non-software.html"><span class="header-section-number">18</span> Non-Software Packages</a></li>
+<li><a class="" href="gitignore.html"><span class="header-section-number">19</span> The .gitignore file</a></li>
+<li><a class="" href="conclusion.html"><span class="header-section-number">20</span> Conclusion</a></li>
+<li class="book-part">Bioconductor Package Maintenance</li>
+<li><a class="" href="package-maintenance.html">Overview</a></li>
+<li><a class="" href="git-version-control.html"><span class="header-section-number">21</span> Git Version Control</a></li>
+<li><a class="" href="versionnum.html"><span class="header-section-number">22</span> Version Numbering</a></li>
+<li><a class="" href="troubleshooting-build-report.html"><span class="header-section-number">23</span> Troubleshooting Build Report</a></li>
+<li><a class="" href="debugging-cc-code.html"><span class="header-section-number">24</span> Debugging C/C++ code</a></li>
+<li><a class="active" href="deprecation.html"><span class="header-section-number">25</span> Deprecation Guidelines</a></li>
+<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">26</span> Package End of Life Policy</a></li>
+<li class="book-part">Package Reviewer Resources</li>
+<li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
+<li><a class="" href="review-expectation.html"><span class="header-section-number">27</span> Review Expectations</a></li>
+<li><a class="" href="reviewtools.html"><span class="header-section-number">28</span> Reviewer Resources and Tools</a></li>
+<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">29</span> Volunteer to Review</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="use-devel.html"><span class="header-section-number">A</span> Using the ‘Devel’ Version of Bioconductor</a></li>
+<li><a class="" href="long-tests.html"><span class="header-section-number">B</span> Long Tests</a></li>
+<li><a class="" href="querying-web-resources.html"><span class="header-section-number">C</span> Querying Web Resources</a></li>
+<li><a class="" href="c-fortran.html"><span class="header-section-number">D</span> C and Fortran code</a></li>
+<li><a class="" href="cmavericks-best-practices.html"><span class="header-section-number">E</span> C++/Mavericks Best Practices</a></li>
+<li><a class="" href="booknews.html"><span class="header-section-number">F</span> NEWS</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/Bioconductor/pkgrevdocs">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="deprecation" class="section level1" number="25">
+<h1>
+<span class="header-section-number">25</span> Deprecation Guidelines<a class="anchor" aria-label="anchor" href="#deprecation"><i class="fas fa-link"></i></a>
+</h1>
+<p>In the normal course of software development, functions, classes, methods, or
+data objects may need to be removed. Here are some guidelines for ensuring
+that this process is minimally disruptive to your users.</p>
+<div id="what-to-deprecate" class="section level2" number="25.1">
+<h2>
+<span class="header-section-number">25.1</span> What to Deprecate?<a class="anchor" aria-label="anchor" href="#what-to-deprecate"><i class="fas fa-link"></i></a>
+</h2>
+<p>Any function, class, method, or data that is no longer used or needed.</p>
+</div>
+<div id="when-to-follow-these-guidelines" class="section level2" number="25.2">
+<h2>
+<span class="header-section-number">25.2</span> When to Follow These Guidelines?<a class="anchor" aria-label="anchor" href="#when-to-follow-these-guidelines"><i class="fas fa-link"></i></a>
+</h2>
+<p>If you introduce a function into the devel branch of your package,
+then soon after decide not to use it, you may simply remove the function
+without following these guidelines. It is expected that the devel
+branch is unstable and subject to API changes without notice (though
+you may decide to communicate these changes to your users via the
+Bioconductor <a href="https://support.bioconductor.org/">support site</a>).</p>
+<p>However, if a function has existed in at least one released version
+of Bioconductor, these guidelines <em>must</em> be followed. The process of removing
+a funciton, class, method, or any exported package object takes approximately
+three release cycles (about 18 months).</p>
+</div>
+<div id="deprecate-function" class="section level2" number="25.3">
+<h2>
+<span class="header-section-number">25.3</span> How To Deprecate A Function<a class="anchor" aria-label="anchor" href="#deprecate-function"><i class="fas fa-link"></i></a>
+</h2>
+<div id="step-1-deprecate-the-function" class="section level3" number="25.3.1">
+<h3>
+<span class="header-section-number">25.3.1</span> Step 1: Deprecate the function<a class="anchor" aria-label="anchor" href="#step-1-deprecate-the-function"><i class="fas fa-link"></i></a>
+</h3>
+<p>When you first decide to eliminate a function, you should mark it as
+deprecated in the devel branch. Do this by calling <code><a href="https://rdrr.io/r/base/Deprecated.html">.Deprecated()</a></code>
+inside the function. To do this, you must provide a replacement function
+which should be used in place of the old function. Example:</p>
+<pre><code>myOldFunc &lt;- function()
+{
+    .Deprecated("myNewFunc")
+    ## use new function, or remainder of myOldFunc
+}</code></pre>
+<p>This causes a warning to be emitted whenever a user calls
+<code>myOldFunc()</code>. See <code><a href="https://rdrr.io/r/base/Deprecated.html">?.Deprecated</a></code> for more information.</p>
+<p>Indicate in the man page of the old function that it has been
+deprecated, and suggest a replacement function. Be sure the old
+function is not called in man page examples or vignette code chunks; R
+CMD check should report this.</p>
+<pre><code>\name{MyPkg-deprecated}
+\alias{MyPkg-deprecated}
+\title{Deprecated functions in package \sQuote{MyPkg}}
+
+\description{
+  These functions are provided for compatibility with older versions
+  of \sQuote{MyPkg} only, and will be defunct at the next release.
+}
+
+\details{
+
+  The following functions are deprecated and will be made defunct; use
+  the replacement indicated below:
+  \itemize{
+
+    \item{myOldFunc: \code{\link{newFunc}}}
+
+  }
+}</code></pre>
+</div>
+<div id="step-2-mark-the-function-as-defunct" class="section level3" number="25.3.2">
+<h3>
+<span class="header-section-number">25.3.2</span> Step 2: Mark the function as defunct<a class="anchor" aria-label="anchor" href="#step-2-mark-the-function-as-defunct"><i class="fas fa-link"></i></a>
+</h3>
+<p>In the next release cycle, after your function has been deprecated, it
+must be made defunct in the devel branch. This means a call to the
+old function will return an informative error but not run any
+additional code. Example:</p>
+<pre><code>myOldFunc &lt;- function()
+{
+    .Defunct("myNewFunc")
+}</code></pre>
+<p>See <code><a href="https://rdrr.io/r/base/Defunct.html">?Defunct</a></code> for more information.</p>
+<p>Remove the documentation of the defunct function, and add to a man
+page such as the following:</p>
+<pre><code>\name{MyPkg-defunct}
+\alias{myOldFunc}
+\title{Defunct functions in package \sQuote{pkg}}
+\description{These functions are defunct and no longer available.}
+
+\details{
+  Defunct functions are: \code{myOldFunc}
+}</code></pre>
+</div>
+<div id="step-3-remove-the-function" class="section level3" number="25.3.3">
+<h3>
+<span class="header-section-number">25.3.3</span> Step 3: Remove the function<a class="anchor" aria-label="anchor" href="#step-3-remove-the-function"><i class="fas fa-link"></i></a>
+</h3>
+<p>In the next release cycle, after your function has been marked as defunct,
+remove it entirely from your package R code and NAMESPACE in the devel
+branch. Also remove any man page content that documents the function.</p>
+<p>Leave the man page from the previous step in place so that</p>
+<pre><code>help("MyPkg-defunct")</code></pre>
+<p>still shows the list of defunct functions and their appropriate replacements.</p>
+</div>
+</div>
+<div id="deprecate-dataset" class="section level2" number="25.4">
+<h2>
+<span class="header-section-number">25.4</span> How To Deprecate A Package Dataset<a class="anchor" aria-label="anchor" href="#deprecate-dataset"><i class="fas fa-link"></i></a>
+</h2>
+<div id="step-1---save-a-promise-object" class="section level3" number="25.4.1">
+<h3>
+<span class="header-section-number">25.4.1</span> Step 1 - Save a promise object<a class="anchor" aria-label="anchor" href="#step-1---save-a-promise-object"><i class="fas fa-link"></i></a>
+</h3>
+<p>The initial step of deprecating a dataset is to signal to any users on
+the devel branch of Bioconductor that the dataset will no longer be used.
+This can be done using a <code>warning</code> message when the devel user loads
+the dataset. In order to do this, we first create a promise object with
+the same name as the dataset name using the <code>delayedAssign</code> function:</p>
+<pre><code>delayedAssign(
+    x = "pkgDataset",
+    value = {
+        warning("'pkgDataset' dataset is deprecated; see '?newData'")
+        pkgDataset
+    }
+)</code></pre>
+<p>You can also include the dataset as an output after the warning.
+We then replace the original <code>.Rda</code> dataset file in the package with the
+promise object and dataset using the <code>save</code> function:</p>
+<pre><code>save("pkgDataset", eval.promises = FALSE, file = "data/pkgDataset.Rda")</code></pre>
+<p>With the <code>eval.promises</code> argument set to <code>FALSE</code>, we can delay the evaluation
+of the promise object until the user loads the data with
+<code>data("pkgDataset", package = "yourPkg")</code>. The user will then get a warning
+along with the dataset. The warning should include instructions that will point
+the user to a new dataset or functionality that will replace the data, if
+necessary.</p>
+</div>
+<div id="step-2---update-documentation" class="section level3" number="25.4.2">
+<h3>
+<span class="header-section-number">25.4.2</span> Step 2 - Update documentation<a class="anchor" aria-label="anchor" href="#step-2---update-documentation"><i class="fas fa-link"></i></a>
+</h3>
+<p>After the promise object has been saved, we update the documentation to
+reflect the changes and provide additional details and resources for
+users as necessary. It is recommended to include a “[Deprecated]” label in the
+data documentation title.</p>
+</div>
+<div id="step-3---defunct-the-dataset" class="section level3" number="25.4.3">
+<h3>
+<span class="header-section-number">25.4.3</span> Step 3 - Defunct the dataset<a class="anchor" aria-label="anchor" href="#step-3---defunct-the-dataset"><i class="fas fa-link"></i></a>
+</h3>
+<p>In the following release cycle, you can update the warning message to indicate
+that the dataset is defunct and remove it entirely from the promise object
+i.e., from the expression in the <code>delayedAssign</code> function. We can also update
+the “[Deprecated]” label in the documentation title to “[Defunct]”.</p>
+</div>
+</div>
+<div id="deprecate-package" class="section level2" number="25.5">
+<h2>
+<span class="header-section-number">25.5</span> How to Deprecate a Package<a class="anchor" aria-label="anchor" href="#deprecate-package"><i class="fas fa-link"></i></a>
+</h2>
+<p>Please see section on <a href="package-end-of-life-policy.html#package-end-of-life-policy">Package End of Life Policy</a></p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="debugging-cc-code.html"><span class="header-section-number">24</span> Debugging C/C++ code</a></div>
+<div class="next"><a href="package-end-of-life-policy.html"><span class="header-section-number">26</span> Package End of Life Policy</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#deprecation"><span class="header-section-number">25</span> Deprecation Guidelines</a></li>
+<li><a class="nav-link" href="#what-to-deprecate"><span class="header-section-number">25.1</span> What to Deprecate?</a></li>
+<li><a class="nav-link" href="#when-to-follow-these-guidelines"><span class="header-section-number">25.2</span> When to Follow These Guidelines?</a></li>
+<li>
+<a class="nav-link" href="#deprecate-function"><span class="header-section-number">25.3</span> How To Deprecate A Function</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#step-1-deprecate-the-function"><span class="header-section-number">25.3.1</span> Step 1: Deprecate the function</a></li>
+<li><a class="nav-link" href="#step-2-mark-the-function-as-defunct"><span class="header-section-number">25.3.2</span> Step 2: Mark the function as defunct</a></li>
+<li><a class="nav-link" href="#step-3-remove-the-function"><span class="header-section-number">25.3.3</span> Step 3: Remove the function</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#deprecate-dataset"><span class="header-section-number">25.4</span> How To Deprecate A Package Dataset</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#step-1---save-a-promise-object"><span class="header-section-number">25.4.1</span> Step 1 - Save a promise object</a></li>
+<li><a class="nav-link" href="#step-2---update-documentation"><span class="header-section-number">25.4.2</span> Step 2 - Update documentation</a></li>
+<li><a class="nav-link" href="#step-3---defunct-the-dataset"><span class="header-section-number">25.4.3</span> Step 3 - Defunct the dataset</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#deprecate-package"><span class="header-section-number">25.5</span> How to Deprecate a Package</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/Bioconductor/pkgrevdocs/blob/master/deprecation.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/Bioconductor/pkgrevdocs/edit/master/deprecation.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-05-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

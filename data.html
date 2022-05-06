@@ -76,12 +76,13 @@
 <li><a class="" href="versionnum.html"><span class="header-section-number">22</span> Version Numbering</a></li>
 <li><a class="" href="troubleshooting-build-report.html"><span class="header-section-number">23</span> Troubleshooting Build Report</a></li>
 <li><a class="" href="debugging-cc-code.html"><span class="header-section-number">24</span> Debugging C/C++ code</a></li>
-<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">25</span> Package End of Life Policy</a></li>
+<li><a class="" href="deprecation.html"><span class="header-section-number">25</span> Deprecation Guidelines</a></li>
+<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">26</span> Package End of Life Policy</a></li>
 <li class="book-part">Package Reviewer Resources</li>
 <li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
-<li><a class="" href="review-expectation.html"><span class="header-section-number">26</span> Review Expectations</a></li>
-<li><a class="" href="reviewtools.html"><span class="header-section-number">27</span> Reviewer Resources and Tools</a></li>
-<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">28</span> Volunteer to Review</a></li>
+<li><a class="" href="review-expectation.html"><span class="header-section-number">27</span> Review Expectations</a></li>
+<li><a class="" href="reviewtools.html"><span class="header-section-number">28</span> Reviewer Resources and Tools</a></li>
+<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">29</span> Volunteer to Review</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="use-devel.html"><span class="header-section-number">A</span> Using the ‘Devel’ Version of Bioconductor</a></li>
 <li><a class="" href="long-tests.html"><span class="header-section-number">B</span> Long Tests</a></li>
@@ -103,7 +104,7 @@
 <p>When developing a software package, an excellent practice is to give a
 comprehensive illustration of the methods in the package using an existing
 <a href="https://bioconductor.org/packages/release/BiocViews.html#___ExperimentData">experiment data package</a>, <a href="https://bioconductor.org/packages/release/BiocViews.html#___AnnotationData">annotation data</a>
-or data in the <em><a href="https://bioconductor.org/packages/3.15/ExperimentHub">ExperimentHub</a></em> or <em><a href="https://bioconductor.org/packages/3.15/AnnotationHub">AnnotationHub</a></em>,
+or data in the <em><a href="https://bioconductor.org/packages/3.16/ExperimentHub">ExperimentHub</a></em> or <em><a href="https://bioconductor.org/packages/3.16/AnnotationHub">AnnotationHub</a></em>,
 or submitting new data to those resources yourself.</p>
 <p>If existing data is not available or applicable, or a new smaller dataset is
 needed for examples in the package, data can be included either as a separate
@@ -111,7 +112,7 @@ data package (for larger amounts of data) or within the package (for smaller
 datasets).</p>
 <p>The Bioconductor Build system does not support git-lfs. This is not a current
 option for storing large data. Large data sets must be included through the
-<em><a href="https://bioconductor.org/packages/3.15/ExperimentHub">ExperimentHub</a></em>. See additional information at <a href="https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html">Create A
+<em><a href="https://bioconductor.org/packages/3.16/ExperimentHub">ExperimentHub</a></em>. See additional information at <a href="https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html">Create A
 Hub Package</a>.</p>
 <div id="experiment-data-package" class="section level2" number="13.1">
 <h2>
@@ -120,12 +121,12 @@ Hub Package</a>.</p>
 <p>Experimental data packages contain data specific to a particular analysis or
 experiment. They often accompany a software package for use in the examples and
 vignettes and in general are not updated regularly. If you need a general subset
-of data for workflows or examples first check the <em><a href="https://bioconductor.org/packages/3.15/AnnotationHub">AnnotationHub</a></em>
+of data for workflows or examples first check the <em><a href="https://bioconductor.org/packages/3.16/AnnotationHub">AnnotationHub</a></em>
 resource for available files (e.g., BAM, FASTA, BigWig, etc.) or
-<em><a href="https://bioconductor.org/packages/3.15/ExperimentHub">ExperimentHub</a></em> for more processed and predefined
+<em><a href="https://bioconductor.org/packages/3.16/ExperimentHub">ExperimentHub</a></em> for more processed and predefined
 <em>Bioconductor</em> class structures.</p>
 <p><a href="https://bioconductor.org"><em>Bioconductor</em></a> strongly encourages creating an experiment data package that
-utilizes <em><a href="https://bioconductor.org/packages/3.15/ExperimentHub">ExperimentHub</a></em> or <em><a href="https://bioconductor.org/packages/3.15/AnnotationHub">AnnotationHub</a></em>
+utilizes <em><a href="https://bioconductor.org/packages/3.16/ExperimentHub">ExperimentHub</a></em> or <em><a href="https://bioconductor.org/packages/3.16/AnnotationHub">AnnotationHub</a></em>
 (See <a href="https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html">Create A Hub Package</a>) but a traditional package that encapsulates the
 data is also acceptable with pre-approval from the <a href="https://stat.ethz.ch/mailman/listinfo/bioc-devel">bioc-devel</a>
 mailing list.</p>
@@ -181,7 +182,7 @@ this type of data. Proper documentation of the data will be required.</p>
 </h3>
 <p>Downloads of files and external data from the web should be avoided.</p>
 <p>If it is necessary, at minimum the files should be cached.
-See <em><a href="https://bioconductor.org/packages/3.15/BiocFileCache">BiocFileCache</a></em> for Bioconductor recommended package
+See <em><a href="https://bioconductor.org/packages/3.16/BiocFileCache">BiocFileCache</a></em> for Bioconductor recommended package
 for caching of files. If a maintainer creates their own caching directory, it
 should utilize standard caching directories <code>tools::R_user_dir(package, which="cache")</code>. It is not allowed to download or write any files to a users
 home directory, working directory, or installed package directory. Files should
@@ -226,7 +227,7 @@ downloads</a>.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-04-22.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-05-06.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
