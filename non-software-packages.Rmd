@@ -100,15 +100,21 @@ expected the majority of vignette code chunks are evaluated.
   Bioconductor version, and package version should be visible. 
   The following is an example of how this could be achieved:
 
-	```
-	<p>
-	**R version**: `r R.version.string`
-	<br />
-	**Bioconductor version**: `r BiocManager::version()`
-	<br />
-	**Package**: `r packageVersion("annotation")`
-	<\p>
-	```
+<pre>
+    <code>
+&#60;p>
+&#42;&#42;R version&#42;&#42;&#58; &#96;r R.version.string&#96;
+&#60;br &#47;&#62;
+&#42;&#42;Bioconductor version&#42;&#42;&#58; &#96;r BiocManager::version&#40;&#41;&#96;
+&#60;br &#47;&#62;
+&#42;&#42;Package version&#42;&#42;&#58; &#96;r packageVersion&#40;&#34;annotation&#34;&#41;&#96;
+&#60;&#47;p&#62;
+    </code>
+</pre>
+
+
+
+
 * An example start to a workflow vignette:
 
 The following is taken as an example header from the variants workflow package:
@@ -136,7 +142,7 @@ suppressPackageStartupMessages&#40;&#123;library&#40;&#39;variants&#39;&#41;&#12
 &#60;p>
 &#42;&#42;R version&#42;&#42;&#58; &#96;r R.version.string&#96;
 &#60;br &#47;&#62;
-&#42;&#42;Bioconductor version&#42;&#42;&#58; &#96;r BiocInstaller::biocVersion&#40;&#41;&#96;
+&#42;&#42;Bioconductor version&#42;&#42;&#58; &#96;r BiocManager::version&#40;&#41;&#96;
 &#60;br &#47;&#62;
 &#42;&#42;Package version&#42;&#42;&#58; &#96;r packageVersion&#40;&#34;variants&#34;&#41;&#96;
 &#60;&#47;p&#62;
