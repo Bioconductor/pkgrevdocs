@@ -11,5 +11,4 @@ Suggests:
   BiocManager,
   BiocStyle,
   r-lib/downlit,
-  withr,
-  annotation
+  withr
