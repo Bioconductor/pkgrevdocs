@@ -332,15 +332,15 @@ collection. We suspect RCurl rather than R or libcurl (other possible
 players) because it is the least tested of the code. We could be
 wrong, of course… After many iterations, my colleague arrived at
 buggy24.R:</p>
-<div class="sourceCode" id="cb176"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb170"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">RCurl</span><span class="op">)</span>
 
 <span class="va">foo</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span>
     <span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"https://google.com"</span>
-    <span class="va">curl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/RCurl/man/getCurlHandle.html">getCurlHandle</a></span><span class="op">(</span><span class="op">)</span>
+    <span class="va">curl</span> <span class="op">&lt;-</span> <span class="fu">getCurlHandle</span><span class="op">(</span><span class="op">)</span>
     <span class="va">opts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>followlocation<span class="op">=</span><span class="cn">NULL</span>, ssl.verifypeer<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
-    <span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/RCurl/man/basicTextGatherer.html">debugGatherer</a></span><span class="op">(</span><span class="op">)</span>
-    <span class="fu"><a href="https://rdrr.io/pkg/RCurl/man/getURL.html">getURL</a></span><span class="op">(</span><span class="va">url</span>,customrequest<span class="op">=</span><span class="st">"GET"</span>,curl<span class="op">=</span><span class="va">curl</span>,debugfunction<span class="op">=</span><span class="va">d</span><span class="op">$</span><span class="va">update</span>,.opts<span class="op">=</span><span class="va">opts</span><span class="op">)</span>
+    <span class="va">d</span> <span class="op">&lt;-</span> <span class="fu">debugGatherer</span><span class="op">(</span><span class="op">)</span>
+    <span class="fu">getURL</span><span class="op">(</span><span class="va">url</span>,customrequest<span class="op">=</span><span class="st">"GET"</span>,curl<span class="op">=</span><span class="va">curl</span>,debugfunction<span class="op">=</span><span class="va">d</span><span class="op">$</span><span class="va">update</span>,.opts<span class="op">=</span><span class="va">opts</span><span class="op">)</span>
 <span class="op">}</span>
 
 <span class="va">execute</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span>
@@ -491,7 +491,7 @@ of the code.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-05-06.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-05-12.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -195,19 +195,23 @@ shows how to use <em><a href="https://bioconductor.org/packages/3.16/BiocStyle">
 <pre><code>- author affiliations
 - a date representing when the workflow vignette has been modified</code></pre>
 </li>
-<li>
-<p>The first section should have some versioning information. The R version,
+<li><p>The first section should have some versioning information. The R version,
 Bioconductor version, and package version should be visible.
-The following is an example of how this could be achieved:</p>
-<pre><code>&lt;p&gt;
-**R version**: R version 4.2.0 (2022-04-22)
+The following is an example of how this could be achieved:</p></li>
+</ul>
+<pre>
+    <code>
+&lt;p&gt;
+**R version**: `r R.version.string`
 &lt;br /&gt;
-**Bioconductor version**: 3.16
+**Bioconductor version**: `r BiocManager::version()`
 &lt;br /&gt;
-**Package**: 1.19.1
-&lt;\p&gt;</code></pre>
-</li>
-<li><p>An example start to a workflow vignette:</p></li>
+**Package version**: `r packageVersion("annotation")`
+&lt;/p&gt;
+    </code>
+</pre>
+<ul>
+<li>An example start to a workflow vignette:</li>
 </ul>
 <p>The following is taken as an example header from the variants workflow package:</p>
 <pre>
@@ -233,7 +237,7 @@ suppressPackageStartupMessages({library('variants')})
 &lt;p&gt;
 **R version**: `r R.version.string`
 &lt;br /&gt;
-**Bioconductor version**: `r BiocInstaller::biocVersion()`
+**Bioconductor version**: `r BiocManager::version()`
 &lt;br /&gt;
 **Package version**: `r packageVersion("variants")`
 &lt;/p&gt;
@@ -333,7 +337,7 @@ specify the bibliography file in the document metadata header.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-05-06.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-05-12.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

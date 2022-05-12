@@ -337,7 +337,9 @@ keys are on file with <em>Bioconductor</em>.</p></li>
 <p><a href="https://help.github.com/articles/create-a-repo/">Create a new GitHub repo</a> on your account, with the name
 of the existing <em>Bioconductor</em> package.</p>
 <p>We use “BiocGenerics” as an example for this scenario.</p>
-<div class="inline-figure"><img src="images/create_repo.png" width="398"></div>
+<div class="inline-figure">
+<img src="images/create_repo.png"><!-- -->
+</div>
 <p>After pressing the ‘Create repository’ button, <strong>ignore</strong> the
 instructions that GitHub provides, and follow the rest of this
 document.</p>
@@ -471,39 +473,14 @@ available to the user community.</p>
  git push upstream master</code></pre>
 </li>
 </ol>
+<p>Make sure there is a valid version bump for the changes to propagate to users.</p>
 </div>
 <div id="optional-merge-changes-to-the-current-release-branch" class="section level4" number="21.5.3.4">
 <h4>
 <span class="header-section-number">21.5.3.4</span> (Optional) Merge changes to the current release branch<a class="anchor" aria-label="anchor" href="#optional-merge-changes-to-the-current-release-branch"><i class="fas fa-link"></i></a>
 </h4>
-<ol style="list-style-type: decimal">
-<li>
-<p>If the changes (bug fixes) need to be available on the
-<code>&lt;RELEASE_X_Y&gt;</code> branch. Checkout the branch <code>&lt;RELEASE_X_Y&gt;</code> using:</p>
-<pre><code> git checkout -b &lt;RELEASE_X_Y&gt; upstream/&lt;RELEASE_X_Y&gt;</code></pre>
-</li>
-<li>
-<p>Pull any changes from the <em>Bioconductor</em> repository to this branch</p>
-<pre><code> git pull</code></pre>
-</li>
-<li>
-<p>Then, merge <code>master</code> into the <code>&lt;RELEASE_X_Y&gt;</code> branch</p>
-<pre><code>git merge master</code></pre>
-</li>
-</ol>
-<p>A new commit message will show up after this step, with the
-message <code>Merge branch 'master' into &lt;RELEASE_X_Y&gt;</code>. It will be
-committed to <code>&lt;RELEASE_X_Y&gt;</code> branch when you save. Update the
-<a href="versionnum.html#versionnum">version number</a> so that it is correct for the release, and commit
-the modified DESCRIPTION file</p>
-<pre><code>git add DESCRIPTION
-git commit -m "Update version bump"</code></pre>
-<ol style="list-style-type: decimal">
-<li>
-<p>Push changes to the <code>&lt;RELEASE_X_Y&gt;</code> branch using:</p>
-<pre><code> git push upstream &lt;RELEASE_X_Y&gt;</code></pre>
-</li>
-</ol>
+<p>Merging master into release branch should be avoided. Select bug fixes should be
+cherry-picked from master to release. See section <a href="git-version-control.html#bug-fix-in-release-and-devel">Bug Fixes in Release and Devel</a></p>
 </div>
 </div>
 </div>
@@ -935,7 +912,9 @@ commit.</p>
 fix”.</p>
 <pre><code> git commit -m "bug fix: my bug fix"</code></pre>
 <p>Bump the version of the package by editing the <code>Version</code> field in the
-<code>DESCRIPTION</code> and commit the change.</p>
+<code>DESCRIPTION</code> and commit the change <strong>in a separate commit</strong>. This allows to
+only <code>cherry-pick</code> the bug correction and avoid version number conflicts with
+the Bioconductor branches when/if the bug fixes are ported to release.</p>
 <pre><code> ## after version bump
  git add DESCRIPTION
  git commit -m "version bump in devel"</code></pre>
@@ -1293,7 +1272,9 @@ these two remotes to be in sync.</p>
 achieve this.</p>
 <p>Image explaining GitHub and <em>Bioconductor</em> relationship for a
 developer</p>
-<div class="inline-figure"><img src="images/github-bioc-relationship.png" width="534"></div>
+<div class="inline-figure">
+<img src="images/github-bioc-relationship.png"><!-- -->
+</div>
 </li>
 <li>
 <p>Can I have more than one upstream remote, if yes, is this recommended?</p>
@@ -1522,7 +1503,7 @@ please send an email to <a href="mailto:bioc-devel@bioconductor.org" class="emai
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-05-06.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-05-12.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
