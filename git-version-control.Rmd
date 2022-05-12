@@ -386,35 +386,12 @@ without using GitHub.
         git checkout master
         git push upstream master
 
+Make sure there is a valid version bump for the changes to propagate to users.
 
 #### (Optional) Merge changes to the current release branch
 
-
-1. If the changes (bug fixes) need to be available on the
-`<RELEASE_X_Y>` branch. Checkout the branch `<RELEASE_X_Y>` using:
-
-		git checkout -b <RELEASE_X_Y> upstream/<RELEASE_X_Y>
-
-1. Pull any changes from the _Bioconductor_ repository to this branch
-
-		git pull
-
-1.  Then, merge `master` into the `<RELEASE_X_Y>` branch
-
-		git merge master
-
-A new commit message will show up after this step, with the
-message `Merge branch 'master' into <RELEASE_X_Y>`. It will be
-committed to `<RELEASE_X_Y>` branch when you save. Update the
-[version number][versioning] so that it is correct for the release, and commit
-the modified DESCRIPTION file
-
-	git add DESCRIPTION
-	git commit -m "Update version bump"
-
-1. Push changes to the `<RELEASE_X_Y>` branch using:
-
-		git push upstream <RELEASE_X_Y>
+Merging master into release branch should be avoided. Select bug fixes should be
+cherry-picked from master to release. See section [Bug Fixes in Release and Devel](#bug-fix-in-release-and-devel)
 
 
 ## More scenarios for repository creation
@@ -852,7 +829,9 @@ git branch and in the current release branch (e.g., `RELEASE_3_14`).
         git commit -m "bug fix: my bug fix"
 
    Bump the version of the package by editing the `Version` field in the
-   `DESCRIPTION` and commit the change.
+   `DESCRIPTION` and commit the change __in a separate commit__. This allows to
+   only `cherry-pick` the bug correction and avoid version number conflicts with
+   the Bioconductor branches when/if the bug fixes are ported to release. 
 
         ## after version bump
         git add DESCRIPTION
