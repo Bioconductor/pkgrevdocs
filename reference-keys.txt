@@ -292,6 +292,11 @@ external-code-sources
 boost
 swig
 f2c
+man-links
+context
+what-worked
+what-did-not-work
+additional-resources-1
 booknews
 version-1.0.1-2021-08-19
 version-1.0.0-2021-06-02
