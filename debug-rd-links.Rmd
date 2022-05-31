@@ -1,0 +1,71 @@
+# Debug: Links in Rd files {#man-links}
+
+## Context
+
+This chapter describes an issue resolved on 31-May-2022.
+
+The objective was to include a link from the man page of one package
+to the man page of the `SummarizedExperiment` class in the `r BiocStyle::Biocpkg("SummarizedExperiment")` package.
+
+Using `r BiocStyle::CRANpkg("roxygen2")`, the link was written as
+follows in the R file:
+
+```
+#' ... \linkS4class{SummarizedExperiment} ...
+```
+
+The issue was that `rcmdcheck::rcmdcheck()` reported the following WARNING:
+
+```
+W  checking Rd cross-references (<...>ms)
+   Missing link or links in documentation object '<...>.Rd':
+     ‘SummarizedExperiment-class’
+   
+   See section 'Cross-references' in the 'Writing R Extensions' manual.
+```
+
+## What worked
+
+First, the `SummarizedExperiment` package was added to the `Depends:` section
+of the DESCRIPTION file.
+
+```
+Depends:
+    SummarizedExperiment
+```
+
+At that point, `rcmdcheck::rcmdcheck()` dropped the previous WARNING and instead
+displayed the following NOTE.
+
+```
+N  checking dependencies in R code (7.9s)
+   Package in Depends field not imported from: ‘SummarizedExperiment’
+     These packages need to be imported from (in the NAMESPACE file)
+     for when this namespace is loaded but not attached.
+```
+
+Then, the following line was added to the R script.
+
+```
+#' @import SummarizedExperiment
+```
+
+Next, `devtools::document()` was run, adding the following line to the
+NAMESPACE file.
+
+```
+import(SummarizedExperiment)
+```
+
+At which point `rcmdcheck::rcmdcheck()` did not return any more issue.
+
+## What did not work
+
+Adding the `SummarizedExperiment` package to the `Imports:` section of the
+DESCRIPTION file, adding an `@import` statement in the documentation, and
+running `devtools::document()`.
+At that point, `rcmdcheck::rcmdcheck()` continued to display the initial WARNING.
+
+## Additional resources
+
+- [Rd formatting](https://cran.r-project.org/web/packages/roxygen2/vignettes/rd-formatting.html)
