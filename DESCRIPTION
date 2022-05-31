@@ -3,6 +3,9 @@ Type: Book
 Title: Does not matter.
 Version: 1.0.1
 Date: 2021-08-19
+Imports:
+  BiocStyle,
+  knitr
 Suggests:
   bookdown,
   downlit,
