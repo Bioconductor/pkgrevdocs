@@ -1,7 +1,15 @@
 # Shiny apps {#shiny}
 
-[Shiny apps][] are allowable.
+[Shiny apps][shiny-rstudio] can be submitted to _Bioconductor_ as software packages.
 
-Please have all relevant <i class="fab fa-r-project"></i> code in the main `R/` directory of the package.
+## Code organisation
+
+Shiny apps are divided into two parts:
+
+- User interface (UI)
+- Server
+
+Shiny apps submitted to _Bioconductor_ must store the <i class="fab fa-r-project"></i> code
+for the UI and server code under the `R/` directory of the package.
 
 The bulk of the package code should **not** be implemented within the Shiny app directly.
