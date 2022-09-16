@@ -14,6 +14,30 @@ Shiny apps submitted to _Bioconductor_ must store the <i class="fab fa-r-project
 The bulk of the package code should **not** be implemented directly within the `shinyApp()` function call.
 Instead, components
 
+## Running app
+
+Functions in the package should return Shiny apps, but not **not** launch them.
+
+In other words, the function `shiny::runApp()` should not be found anywhere in the package source code.
+Instead, users should be left to call that function, using Shiny app objects returned by the package functions.
+
+For instance, the package source code should look as follows:
+
+```{r, eval=FALSE}
+build_app <- function(...) {
+  ui <- .build_ui(...)
+  server <- .build_server(...)
+  app <- shinyApp(ui = ui, server = server)
+}
+```
+
+While the user's code should look as follows:
+
+```{r, eval=FALSE}
+app <- build_app(...)
+shiny::runApp(app, ...)
+```
+
 ## Building the package
 
 _Coming soon: comments on build issues for packages that contain Shiny apps._
