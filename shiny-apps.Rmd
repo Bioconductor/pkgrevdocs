@@ -74,6 +74,22 @@ if (interactive()) {
 }
 ```
 
+Although optional, we highly recommend documenting internal functions of packages that contain Shiny apps.
+We recommend doing so in a way that is visible to developers but not users:
+
+- Create man pages named `man/INTERNAL_*.Rd`
+  + If using `r BiocStyle::CRANpkg("roxygen2")`, use the tag-value `@rdname INTERNAL_name_of_function`.
+- In the file `man/.gitignore` (create it if it does not exist), add the line `INTERNAL_*`
+
+For instance:
+
+```{r, eval=FALSE}
+#' @rdname INTERNAL_build_app
+.build_app <- function(...) {
+  ...
+}
+```
+
 ## Review
 
 _Coming soon: comments on reviewing packages that contain Shiny apps (e.g., points raised during the review process)._
