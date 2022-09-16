@@ -11,20 +11,20 @@ Shiny apps are divided into two parts:
 
 Shiny apps submitted to _Bioconductor_ must store the <i class="fab fa-r-project"></i> code for both the UI and server code under the `R/` directory of the package.
 
-The bulk of the package code should **not** be implemented directly within the `shinyApp()` function call.
+The bulk of the package code should _not_ be implemented directly within the `shinyApp()` function call.
 Instead, internal package functions should be developed to produce and return individual components of the UI and server sides of the Shiny app.
 
 We recommend the following file naming scheme for source files:
 
-- Place internal functions that create observers (e.g., `shiny::observeEvent()`) in files named `observers_*.R`,
-  both for observers reacting to the Shiny server `input` object and reactive values stored in lists of reactive values (e.g., `shiny::reactiveValues()`).
-- Place internal functions that create UI elements (e.g., `shiny::checkboxInput()`) in files named `interface_*.R`.
+- Place internal functions that create observers -- e.g., `shiny::observeEvent()` -- in files named `observers_*.R`.
+  Do this both for observers reacting to the Shiny server `input` object, and reactive values stored in lists of reactive values (e.g., `shiny::reactiveValues()`).
+- Place internal functions that create UI elements -- e.g., `shiny::checkboxInput()` -- in files named `interface_*.R`.
 - Place internal functions that update the Shiny server `output` object in files named `outputs_*.R`.
 - Place internal functions that perform miscellaneous processing steps in files named `utils_*.R`.
 
 ## Running app
 
-Functions in the package should return Shiny apps, but not **not** launch them.
+Functions in the package should _return_ Shiny apps, but _not_ launch them.
 
 In other words, the function `shiny::runApp()` should not be found anywhere in the package source code.
 Instead, users should be left to call that function, using Shiny app objects returned by the package functions and options that control how the app is run (e.g., `launch.browser = TRUE`).
@@ -52,7 +52,7 @@ _Coming soon: comments on build issues for packages that contain Shiny apps._
 
 ## Testing
 
-The use of `# nocov start` and `# nocov end` is allowed to ignore part of the code that cannot be tested using traditional unit tests (e.g., observers).
+The use of `# nocov start` and `# nocov end` is allowed to ignore part of the code that cannot be tested using traditional unit tests (e.g., `observeEvent`).
 
 For instance:
 
