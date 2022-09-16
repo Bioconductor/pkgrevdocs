@@ -19,7 +19,7 @@ Instead, components
 Functions in the package should return Shiny apps, but not **not** launch them.
 
 In other words, the function `shiny::runApp()` should not be found anywhere in the package source code.
-Instead, users should be left to call that function, using Shiny app objects returned by the package functions.
+Instead, users should be left to call that function, using Shiny app objects returned by the package functions and options that control how the app is run (e.g., `launch.browser = TRUE`).
 
 For instance, the package source code should look as follows:
 
