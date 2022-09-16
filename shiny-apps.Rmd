@@ -58,6 +58,22 @@ observeEvent(input$example_input, {
 
 Use files `setup-*.R` in the subdirectory `tests/testthat/` to generate only once objects that are used repeatedly as input for the unit tests.
 
+## Documentation
+
+Man pages documenting functions that return Shiny apps should use the `interactive()` function to demonstrate usage of the app.
+
+For instance, a typical 'Example' section for such a man page should look as follows:
+
+```{r, eval=FALSE}
+library(MyShinyPackage)
+
+app <- build_app(...)
+
+if (interactive()) {
+  shiny::runApp(app, ...)
+}
+```
+
 ## Review
 
 _Coming soon: comments on reviewing packages that contain Shiny apps (e.g., points raised during the review process)._
