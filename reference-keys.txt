@@ -138,6 +138,12 @@ ccode
 python
 third-party-code
 shiny
+code-organisation
+running-app
+building-the-package
+testing
+documentation
+review
 non-software
 annotation-and-experiment-data-packages
 annotationexperiment-hub-packages
