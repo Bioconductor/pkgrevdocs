@@ -26,9 +26,8 @@ For instance:
 
 ```{r, eval=FALSE}
 # nocov start
-observeEvent(input[[.ui_dataset_columns]], {
-    pObjects[[.ui_dataset_columns]] <- input[[.ui_dataset_columns]]
-    rObjects$rerender_datasets <- iSEE:::.increment_counter(isolate(rObjects$rerender_datasets))
+observeEvent(input$example_input, {
+    # <do something>
 })
 # nocov end
 ```
