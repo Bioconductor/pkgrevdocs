@@ -52,6 +52,8 @@ _Coming soon: comments on build issues for packages that contain Shiny apps._
 
 ## Testing
 
+All functions in the package should be testable using standard unit testing tools (e.g., `r BiocStyle::CRANpkg("testthat")`).
+
 The use of `# nocov start` and `# nocov end` is allowed to ignore part of the code that cannot be tested using traditional unit tests (e.g., `observeEvent`).
 
 For instance:
