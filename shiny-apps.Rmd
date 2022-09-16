@@ -1,7 +1,105 @@
 # Shiny apps {#shiny}
 
-[Shiny apps][] are allowable.
+[Shiny apps][shiny-rstudio] can be submitted to _Bioconductor_ as software packages.
 
-Please have all relevant <i class="fab fa-r-project"></i> code in the main `R/` directory of the package.
+## Code organisation
 
-The bulk of the package code should **not** be implemented within the Shiny app directly.
+Shiny apps are divided into two parts:
+
+- User interface (UI)
+- Server
+
+Shiny apps submitted to _Bioconductor_ must store the <i class="fab fa-r-project"></i> code for both the UI and server code under the `R/` directory of the package.
+
+The bulk of the package code should _not_ be implemented directly within the `shinyApp()` function call.
+Instead, internal package functions should be developed to produce and return individual components of the UI and server sides of the Shiny app.
+
+We recommend the following file naming scheme for source files:
+
+- Place internal functions that create observers -- e.g., `shiny::observeEvent()` -- in files named `observers_*.R`.
+  Do this both for observers reacting to the Shiny server `input` object, and reactive values stored in lists of reactive values (e.g., `shiny::reactiveValues()`).
+- Place internal functions that create UI elements -- e.g., `shiny::checkboxInput()` -- in files named `interface_*.R`.
+- Place internal functions that update the Shiny server `output` object in files named `outputs_*.R`.
+- Place internal functions that perform miscellaneous processing steps in files named `utils_*.R`.
+
+## Running app
+
+Functions in the package should _return_ Shiny apps, but _not_ launch them.
+
+In other words, the function `shiny::runApp()` should not be found anywhere in the package source code.
+Instead, users should be left to call that function, using Shiny app objects returned by the package functions and options that control how the app is run (e.g., `launch.browser = TRUE`).
+
+For instance, the package source code should look as follows:
+
+```{r, eval=FALSE}
+build_app <- function(...) {
+  ui <- .build_ui(...)
+  server <- .build_server(...)
+  app <- shinyApp(ui = ui, server = server)
+}
+```
+
+While the user's code should look as follows:
+
+```{r, eval=FALSE}
+app <- build_app(...)
+shiny::runApp(app, ...)
+```
+
+## Building the package
+
+_Coming soon: comments on build issues for packages that contain Shiny apps._
+
+## Testing
+
+All functions in the package should be testable using standard unit testing tools (e.g., `r BiocStyle::CRANpkg("testthat")`).
+
+The use of `# nocov start` and `# nocov end` is allowed to ignore part of the code that cannot be tested using traditional unit tests (e.g., `observeEvent`).
+
+For instance:
+
+```{r, eval=FALSE}
+# nocov start
+observeEvent(input$example_input, {
+    # <do something>
+})
+# nocov end
+```
+
+Use files `setup-*.R` in the subdirectory `tests/testthat/` to generate only once objects that are used repeatedly as input for the unit tests.
+
+## Documentation
+
+Man pages documenting functions that return Shiny apps should use the `interactive()` function to demonstrate usage of the app.
+
+For instance, a typical 'Example' section for such a man page should look as follows:
+
+```{r, eval=FALSE}
+library(MyShinyPackage)
+
+app <- build_app(...)
+
+if (interactive()) {
+  shiny::runApp(app, ...)
+}
+```
+
+Although optional, we highly recommend documenting internal functions of packages that contain Shiny apps.
+We recommend doing so in a way that is visible to developers but not users:
+
+- Create man pages named `man/INTERNAL_*.Rd`
+  + If using `r BiocStyle::CRANpkg("roxygen2")`, use the tag-value `@rdname INTERNAL_name_of_function`.
+- In the file `man/.gitignore` (create it if it does not exist), add the line `INTERNAL_*`
+
+For instance:
+
+```{r, eval=FALSE}
+#' @rdname INTERNAL_build_app
+.build_app <- function(...) {
+  ...
+}
+```
+
+## Review
+
+_Coming soon: comments on reviewing packages that contain Shiny apps (e.g., points raised during the review process)._
