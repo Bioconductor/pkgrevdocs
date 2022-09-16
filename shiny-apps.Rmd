@@ -14,6 +14,14 @@ Shiny apps submitted to _Bioconductor_ must store the <i class="fab fa-r-project
 The bulk of the package code should **not** be implemented directly within the `shinyApp()` function call.
 Instead, internal package functions should be developed to produce and return individual components of the UI and server sides of the Shiny app.
 
+We recommend the following file naming scheme for source files:
+
+- Place internal functions that create observers (e.g., `shiny::observeEvent()`) in files named `observers_*.R`,
+  both for observers reacting to the Shiny server `input` object and reactive values stored in lists of reactive values (e.g., `shiny::reactiveValues()`).
+- Place internal functions that create UI elements (e.g., `shiny::checkboxInput()`) in files named `interface_*.R`.
+- Place internal functions that update the Shiny server `output` object in files named `outputs_*.R`.
+- Place internal functions that perform miscellaneous processing steps in files named `utils_*.R`.
+
 ## Running app
 
 Functions in the package should return Shiny apps, but not **not** launch them.
