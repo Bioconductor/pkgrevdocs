@@ -12,7 +12,7 @@ Shiny apps are divided into two parts:
 Shiny apps submitted to _Bioconductor_ must store the <i class="fab fa-r-project"></i> code for both the UI and server code under the `R/` directory of the package.
 
 The bulk of the package code should **not** be implemented directly within the `shinyApp()` function call.
-Instead, components
+Instead, internal package functions should be developped to produce and return individual components of the UI and server sides of the Shiny app.
 
 ## Running app
 
