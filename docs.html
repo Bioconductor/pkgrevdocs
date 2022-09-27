@@ -128,15 +128,15 @@ it is always possible to extend existing classes.</p>
 <p>A vignette demonstrates how to accomplish non-trivial tasks embodying the core
 functionality of your package. There are two common types of vignettes.</p>
 <ul>
-<li><p>A <em>Sweave</em> vignette is an <code>.Rnw</code> file that contains <span class="math inline">\(\LaTeX\)</span> and chunks of <i class="fab fa-r-project"></i> code. The code chunk starts with a line
-<code>&lt;&lt;&gt;&gt;=</code>, and ends with <code>@</code>. Each chunk is evaluated during <code>R CMD build</code>,
-prior to <span class="math inline">\(\LaTeX\)</span> compilation to a PDF document.</p></li>
-<li><p>An <em>R markdown</em> vignette is similar to a <em>Sweave</em> vignette, but uses
+<li><p>(Recommended) An <em>R markdown</em> vignette is similar to a <em>Sweave</em> vignette, but uses
 <a href="http://daringfireball.net/projects/markdown/">markdown</a> instead of <span class="math inline">\(\LaTeX\)</span>
 for structuring text sections and resulting in HTML output. The <code>r   BiocStyle::CRANpkg("knitr")</code> package can process most <em>Sweave</em> and all <em>R
 markdown</em> vignettes, producing pleasing output. Refer to <a href="http://cran.fhcrc.org/doc/manuals/R-exts.html#Writing-package-vignettes">Writing package
 vignettes</a> for technical details. See the <code>r   BiocStyle::Biocpkg("BiocStyle")</code> package for a convenient way to use common
 macros and a standard <em>Bioconductor</em> style vignette.</p></li>
+<li><p>A <em>Sweave</em> vignette is an <code>.Rnw</code> file that contains <span class="math inline">\(\LaTeX\)</span> and chunks of <i class="fab fa-r-project"></i> code. The code chunk starts with a line
+<code>&lt;&lt;&gt;&gt;=</code>, and ends with <code>@</code>. Each chunk is evaluated during <code>R CMD build</code>,
+prior to <span class="math inline">\(\LaTeX\)</span> compilation to a PDF document.</p></li>
 </ul>
 <p>A vignette provides reproducibility: the vignette produces the same results as
 copying the corresponding commands into an <i class="fab fa-r-project"></i>
@@ -335,7 +335,7 @@ provided through <code>inst</code> subdirectories but do not substitute for the
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-09-16.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-09-27.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
