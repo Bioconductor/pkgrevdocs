@@ -25,13 +25,8 @@ it is always possible to extend existing classes.
 
 A vignette demonstrates how to accomplish non-trivial tasks embodying the core
 functionality of your package. There are two common types of vignettes.
-
-* A *Sweave* vignette is an `.Rnw` file that contains $\LaTeX$ and chunks of <i
-  class="fab fa-r-project"></i> code. The  code chunk starts with a line
-  `<<>>=`, and ends with `@`. Each chunk is evaluated during `R CMD build`,
-  prior to $\LaTeX$ compilation to a PDF document.
   
-* An *R markdown* vignette is similar to a *Sweave* vignette, but uses
+* (Recommended) An *R markdown* vignette is similar to a *Sweave* vignette, but uses
   [markdown](http://daringfireball.net/projects/markdown/) instead of $\LaTeX$
   for structuring text sections and resulting in HTML output. The `r
   BiocStyle::CRANpkg("knitr")` package can process most *Sweave* and all *R
@@ -39,6 +34,11 @@ functionality of your package. There are two common types of vignettes.
   vignettes][CRAN vigs] for technical details. See the `r
   BiocStyle::Biocpkg("BiocStyle")` package for a convenient way to use common
   macros and a standard _Bioconductor_ style vignette.
+
+* A *Sweave* vignette is an `.Rnw` file that contains $\LaTeX$ and chunks of <i
+  class="fab fa-r-project"></i> code. The  code chunk starts with a line
+  `<<>>=`, and ends with `@`. Each chunk is evaluated during `R CMD build`,
+  prior to $\LaTeX$ compilation to a PDF document.
   
 A vignette provides reproducibility: the vignette produces the same results as
 copying the corresponding commands into an <i class="fab fa-r-project"></i>
