@@ -153,7 +153,7 @@ methods; other approaches are possible and acceptable.
 * Methods are defined in a file named by the generic function. For
   example, all `show` methods would go in R/show-methods.R.
 
-A Collates: field in the DESCRIPTION file may be necessary to order
+A Collate: field in the DESCRIPTION file may be necessary to order
 class and method definitions appropriately during package
 installation.
 

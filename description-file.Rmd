@@ -188,7 +188,7 @@ manual, `RShowDoc("R-exts")`.
 
 This field displays links to instructional videos.
 
-## `Collates` {#description-collate}
+## `Collate` {#description-collate}
 
 This may be necessary to order class and method definitions appropriately
 during package installation.
