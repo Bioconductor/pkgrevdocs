@@ -142,10 +142,11 @@ packages please read <a href="https://github.com/Bioconductor/Contributions/blob
 <p><a href="https://bioconductor.org"><em>Bioconductor</em></a> strongly encourages the use of existing datasets, but if not
 available data can be included directly in the package for use in the examples
 found in man pages, vignettes, and tests of your package. This is a good
-reference by Hadley Wickham about <a href="http://r-pkgs.had.co.nz/data.html">packge data</a>.</p>
+reference by Hadley Wickham about <a href="http://r-pkgs.had.co.nz/data.html">package data</a>.</p>
 <p>However, as mentioned in <a href="description.html#description-lazydata">The DESCRIPTION file</a> chapter,
 <em>Bioconductor</em> does not encourage using <code>LazyData: True</code> despite its
-recommendataion in this article.</p>
+recommendation in this article.</p>
+<p>Note. You might have to modify the usage section with <code>@usage data("mydata")</code></p>
 <p>Some key points are summarized in the following sections.</p>
 <div id="exported-data-and-the-data-directory" class="section level3" number="13.2.1">
 <h3>
@@ -156,6 +157,16 @@ It is made available in an <i class="fab fa-r-project"></i> session through the 
 It will require documentation concerning its creation and source information.
 It is most often a <code>.RData</code> file created with <code><a href="https://rdrr.io/r/base/save.html">save()</a></code> but other types are acceptable as well, see <code>?data()</code>.</p>
 <p>Please remember to compress the data.</p>
+<p>For packages that need to use documented data within a function, we recommend
+creating an environment for holding the data to avoid polluting the
+global environment when using <code><a href="https://rdrr.io/r/utils/data.html">data()</a></code>.</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data_env</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/environment.html">new.env</a></span><span class="op">(</span>parent <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/environment.html">emptyenv</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"mydata"</span>, envir <span class="op">=</span> <span class="va">data_env</span>, package <span class="op">=</span> <span class="st">"mypackage"</span><span class="op">)</span></span>
+<span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="va">data_env</span><span class="op">[[</span><span class="st">"mydata"</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
+<p>Here we create a new and empty environment. Extract the data within the
+environment and finally extract the data object from the environment using
+double brackets.</p>
 </div>
 <div id="raw-data-and-the-instextdata-directory" class="section level3" number="13.2.2">
 <h3>
