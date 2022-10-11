@@ -47,7 +47,7 @@ Refer to the [DESCRIPTION](https://contributions.bioconductor.org/description.ht
 - [ ] `BugReports` field.
 - [ ] `URL` field.
 - [ ] `Video` field.
-- [ ] `Collates` field.
+- [ ] `Collate` field.
 - [ ] `BiocType` field.
 
 ## The NAMESPACE file
