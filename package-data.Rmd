@@ -35,18 +35,20 @@ mailing list.
 
 See the [Package Submission guidelines](#bioconductor-package-submissions) for
 further submission procedures and if submitting related or circular dependent
-packages please read [releated package submission procedure][cirdep] 
+packages please read [releated package submission procedure][cirdep]
 
 ## Adding Data to Existing Package {#adding-data-to-existing-package}
 
 [_Bioconductor_][] strongly encourages the use of existing datasets, but if not
 available data can be included directly in the package for use in the examples
 found in man pages, vignettes, and tests of your package. This is a good
-reference by Hadley Wickham about [packge data](http://r-pkgs.had.co.nz/data.html).
+reference by Hadley Wickham about [package data](http://r-pkgs.had.co.nz/data.html).
 
 However, as mentioned in [The DESCRIPTION file](#description-lazydata) chapter,
 _Bioconductor_ does not encourage using `LazyData: True` despite its
-recommendataion in this article.
+recommendation in this article.
+
+Note. You might have to modify the usage section with `@usage data("mydata")`
 
 Some key points are summarized in the following sections.
 
@@ -58,6 +60,20 @@ It will require documentation concerning its creation and source information.
 It is most often a `.RData` file created with `save()` but other types are acceptable as well, see `?data()`.
 
 Please remember to compress the data.
+
+For packages that need to use documented data within a function, we recommend
+creating an environment for holding the data to avoid polluting the
+global environment when using `data()`.
+
+```r
+data_env <- new.env(parent = emptyenv())
+data("mydata", envir = data_env, package = "mypackage")
+mydata <- data_env[["mydata"]]
+```
+
+Here we create a new and empty environment. Extract the data within the
+environment and finally extract the data object from the environment using
+double brackets.
 
 ### Raw Data and the `inst/extdata/` directory
 
