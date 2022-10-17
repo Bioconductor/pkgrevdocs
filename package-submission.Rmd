@@ -229,7 +229,7 @@ for a hub package. The vignette [Create A Hub Package][] provides full details.
 
 <a name="workPackage"></a>
 
-## Worflow Packages {#workPackage}
+## Workflow Packages {#workPackage}
 
 Workflow packages contain vignettes that describe a bioinformatics workflow that
 involves multiple Bioconductor packages. These vignettes are usually more
