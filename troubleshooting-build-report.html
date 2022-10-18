@@ -463,6 +463,27 @@ SNPchip and GenomeGraphs. A full list of deprecated packages can be found
 <a href="https://support.bioconductor.org/p/125352/">List of Deprecated Packages 3.10</a>.
 We also documented removed packages on our <a href="https://bioconductor.org/about/removed-packages/">Removed Package Page</a></p>
 </div>
+<div id="system-requirement-missing-in-the-bioconductor-build-system" class="section level4" number="23.4.12.4">
+<h4>
+<span class="header-section-number">23.4.12.4</span> System Requirement missing in the Bioconductor Build System<a class="anchor" aria-label="anchor" href="#system-requirement-missing-in-the-bioconductor-build-system"><i class="fas fa-link"></i></a>
+</h4>
+<p>Your package may fail to build or check in the Bioconductor Build System (BBS)
+because your package or some of its dependencies have a <em>System Requirement</em> not
+available in the BBS.</p>
+<p>For instance, the first Bioconductor package that suggested the installation of
+the <a href="https://cran.r-project.org/web/packages/archive/index.html"><code>archive</code></a>
+CRAN package, could not pass the checks at the BBS. The build report stated that
+“the archive package could not be found”, however the package had been present
+in CRAN for months. The <code>archive</code> package reports among its system requirements
+the <code>libarchive</code> library, and the BBS did not have that library installed.</p>
+<p>If you happen to miss a system dependency in the BBS, please open an issue similar
+to <a href="https://github.com/Bioconductor/BBS/issues/220">BBS issue #220</a>, where you
+mention which is the Bioconductor package that either directly or indirectly
+has a system requirement, and if possible provide information on the missing
+package that would need to be installed. If you follow the pull requests related
+to that issue, you will see that the solution was the installation of the
+<code>libarchive-dev</code> package, both in the BBS and in the Bioconductor docker images.</p>
+</div>
 </div>
 <div id="depFun311" class="section level3" number="23.4.13">
 <h3>
@@ -544,7 +565,7 @@ Use 'perCellQCMetrics' instead.</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-10-17.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-10-18.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
