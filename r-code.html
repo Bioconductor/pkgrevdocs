@@ -10,7 +10,7 @@
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
 <meta name="description" content="Everyone has their own coding style and formats. There are however some best practice guidelines that Bioconductor reviewers will look for. can be a robust, fast and efficient programming language...">
-<meta name="generator" content="bookdown 0.29 with bs4_book()">
+<meta name="generator" content="bookdown 0.30 with bs4_book()">
 <meta property="og:title" content="Chapter 15 R code | Bioconductor Packages: Development, Maintenance, and Peer Review">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Everyone has their own coding style and formats. There are however some best practice guidelines that Bioconductor reviewers will look for. can be a robust, fast and efficient programming language...">
@@ -19,7 +19,7 @@
 <meta name="twitter:description" content="Everyone has their own coding style and formats. There are however some best practice guidelines that Bioconductor reviewers will look for. can be a robust, fast and efficient programming language...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.1/transition.js"></script><script src="libs/bs3compat-0.4.1/tabs.js"></script><script src="libs/bs3compat-0.4.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -127,14 +127,14 @@ robust and efficient.</p>
 <p>Avoid re-implementing functionality or classes (see also
 <a href="description.html#depends-imports-suggests-enhances">The DESCRIPTION file</a>).
 Make use of appropriate existing packages (e.g.,
-<em><a href="https://bioconductor.org/packages/3.16/biomaRt">biomaRt</a></em>,
-<em><a href="https://bioconductor.org/packages/3.16/AnnotationDbi">AnnotationDbi</a></em>,
-<em><a href="https://bioconductor.org/packages/3.16/Biostrings">Biostrings</a></em>,
-<em><a href="https://bioconductor.org/packages/3.16/GenomicRanges">GenomicRanges</a></em>) and classes (e.g.,
-<em><a href="https://bioconductor.org/packages/3.16/SummarizedExperiment">SummarizedExperiment</a></em>,
-<em><a href="https://bioconductor.org/packages/3.16/Biobase">Biobase</a></em>::AnnotatedDataFrame,
-<em><a href="https://bioconductor.org/packages/3.16/GenomicRanges">GenomicRanges</a></em>:;GRanges,
-<em><a href="https://bioconductor.org/packages/3.16/Biostrings">Biostrings</a></em>::DNAStringSet) to avoid duplication of functionality
+<em><a href="https://bioconductor.org/packages/3.17/biomaRt">biomaRt</a></em>,
+<em><a href="https://bioconductor.org/packages/3.17/AnnotationDbi">AnnotationDbi</a></em>,
+<em><a href="https://bioconductor.org/packages/3.17/Biostrings">Biostrings</a></em>,
+<em><a href="https://bioconductor.org/packages/3.17/GenomicRanges">GenomicRanges</a></em>) and classes (e.g.,
+<em><a href="https://bioconductor.org/packages/3.17/SummarizedExperiment">SummarizedExperiment</a></em>,
+<em><a href="https://bioconductor.org/packages/3.17/Biobase">Biobase</a></em>::AnnotatedDataFrame,
+<em><a href="https://bioconductor.org/packages/3.17/GenomicRanges">GenomicRanges</a></em>:;GRanges,
+<em><a href="https://bioconductor.org/packages/3.17/Biostrings">Biostrings</a></em>::DNAStringSet) to avoid duplication of functionality
 available in other <a href="https://bioconductor.org"><em>Bioconductor</em></a> packages. See
 also <a href="important-bioconductor-package-development-features.html#reusebioc">Common Bioconductor Methods and Classes</a>.</p>
 <p>This encourages interoperability and simplifies your own package development.
@@ -147,10 +147,10 @@ aligns with the originally proposed behavior of the generic. Specifically,
 the behavior can be one where the return value is of the same class across
 methods. The method behavior can also be a performant conceptual transformation
 or procedure across classes as described by the generic.
-<em><a href="https://bioconductor.org/packages/3.16/BiocGenerics">BiocGenerics</a></em> lists commonly used generics in
+<em><a href="https://bioconductor.org/packages/3.17/BiocGenerics">BiocGenerics</a></em> lists commonly used generics in
 Bioconductor. One example of a generic and method implementation is that of the
 <code>rowSums</code> generic and the corresponding method within the
-<em><a href="https://bioconductor.org/packages/3.16/DelayedArray">DelayedArray</a></em> package. This generic contract returns a
+<em><a href="https://bioconductor.org/packages/3.17/DelayedArray">DelayedArray</a></em> package. This generic contract returns a
 numeric vector of the same length as the rows and is adhered to across classes
 including the <code>DelayedMatrix</code> class. Re-using generics reduces the amount of
 new generics by consolidating existing operations and avoids the mistake of
@@ -402,7 +402,7 @@ highly encouraged.</p>
 </h2>
 <p>Many common coding and sytax issues are flagged in <code>R CMD check</code> and
 <code>BiocCheck()</code> (see the <code>R CMD check</code>
-<a href="http://r-pkgs.had.co.nz/check.html">cheatsheet</a> and <em><a href="https://bioconductor.org/packages/3.16/BiocCheck/vignettes/BiocCheck.html">BiocCheck</a></em> vignette. Every
+<a href="http://r-pkgs.had.co.nz/check.html">cheatsheet</a> and <em><a href="https://bioconductor.org/packages/3.17/BiocCheck/vignettes/BiocCheck.html">BiocCheck</a></em> vignette. Every
 effort should be made to clear up ERROR, WARNING, or Notes produced from these
 checks.</p>
 <div id="code-syntax-and-efficiency" class="section level3" number="15.3.1">
@@ -420,7 +420,7 @@ checks.</p>
 <li>Do not use <code><a href="https://rdrr.io/r/base/browser.html">browser()</a></code> in any internal <i class="fab fa-r-project"></i> code.</li>
 <li>Avoid the use of <code>&lt;&lt;-</code>.</li>
 <li>Avoid use of direct slot access with <code>@</code> or <code>slot()</code>. Accessor methods should be created and utilized</li>
-<li>Use the packages <em><a href="https://bioconductor.org/packages/3.16/ExperimentHub">ExperimentHub</a></em> and <em><a href="https://bioconductor.org/packages/3.16/AnnotationHub">AnnotationHub</a></em> instead of downloading external data from unsanctioned providers such as <i class="fab fa-github"></i> GitHub, &lt;i * class=“fa fa-dropbox” aria-hidden=“true”&gt; Dropbox, etc. In general, data utlilzed in packages should be downloaded from trusted public databases. See also section on web querying and file caching.</li>
+<li>Use the packages <em><a href="https://bioconductor.org/packages/3.17/ExperimentHub">ExperimentHub</a></em> and <em><a href="https://bioconductor.org/packages/3.17/AnnotationHub">AnnotationHub</a></em> instead of downloading external data from unsanctioned providers such as <i class="fab fa-github"></i> GitHub, &lt;i * class=“fa fa-dropbox” aria-hidden=“true”&gt; Dropbox, etc. In general, data utlilzed in packages should be downloaded from trusted public databases. See also section on web querying and file caching.</li>
 <li>Use <code>&lt;-</code> instead of <code>=</code> for assigning variables except in function arguments.</li>
 </ul>
 <div id="end-user-messages" class="section level4" number="15.3.1.1">
@@ -456,7 +456,7 @@ server.</p>
 <span class="header-section-number">15.3.1.3</span> Web Querying and File caching<a class="anchor" aria-label="anchor" href="#web-querying-and-file-caching"><i class="fas fa-link"></i></a>
 </h4>
 <p>Files downloaded should be cached.
-Please use <em><a href="https://bioconductor.org/packages/3.16/BiocFileCache">BiocFileCache</a></em>.
+Please use <em><a href="https://bioconductor.org/packages/3.17/BiocFileCache">BiocFileCache</a></em>.
 If a maintainer creates their own caching directory, it should utilize standard
 caching directories <code>tools::R_user_dir(package, which="cache")</code>. It is not
 allowed to download or write any files to a users home directory, working
@@ -579,7 +579,7 @@ negative.</p>
 <h3>
 <span class="header-section-number">15.4.6</span> Parallel Recommendations<a class="anchor" aria-label="anchor" href="#parallel-recommendations"><i class="fas fa-link"></i></a>
 </h3>
-<p>We recommend using <em><a href="https://bioconductor.org/packages/3.16/BiocParallel">BiocParallel</a></em>. It provides a
+<p>We recommend using <em><a href="https://bioconductor.org/packages/3.17/BiocParallel">BiocParallel</a></em>. It provides a
 consistent interface to the user and supports the major parallel computing
 styles: forks and processes on a single computer, ad hoc clusters,
 batch schedulers and cloud computing. By default, <code>BiocParallel</code>
@@ -652,7 +652,7 @@ should be set as a default.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-10-18.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-11-17.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
