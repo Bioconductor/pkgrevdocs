@@ -1,8 +1,13 @@
 # The NEWS file {#news}
 
-A `NEWS` file should be included to keep track of changes to the code from one version to the next.
-It can be a top level file or in the `inst/` directory.
-Only one `NEWS` file should exist in the repository.
+A `NEWS` file informs the user of changes in the software that may impact user
+expectations. It is highly recommended that the developer use plain and
+concise language to communicate these changes.
+
+A `NEWS` file should keep track of changes, in non-technical language, in the
+code from one release version to the next. The file can reside in either
+the package's top level directory or in the `inst/` directory. There should be
+only one `NEWS` file per package.
 
 The following are acceptable locations and formats:
 
@@ -27,57 +32,66 @@ knitr::kable(tab)
 ```
 
 Specifics on formatting can be found on the help page for `?news`.
-[_Bioconductor_][] uses the `NEWS` file to create the semi-annual release announcement.
-It must include list elements and **cannot** be a plain text file.
+[_Bioconductor_][] compiles `NEWS` files from all updated packages to create
+the semi-annual release announcement.
+`NEWS` files _must_ include list elements and **cannot** be plain text files.
 
-An example format:
+Here is the version `1.24.0` `NEWS` file from `SummarizedExperiment`:
 
 ```
-Changes in version 0.99.0 (2018-05-15)
-+ Submitted to Bioconductor
+CHANGES IN VERSION 1.24.0
+-------------------------
 
-Changes in version 1.1.1 (2018-06-15)
-+ Fixed bug. Begin indexing from 1 instead of 2
-+ Made the following significant changes
-  o added a subsetting method
-  o added a new field to database
+NEW FEATURES
+
+    o Add 'checkDimnames' argument to SummarizedExperiment() constructor
+      function
+
+    o Add showAsCell() method for SummarizedExperiment objects.
+
+SIGNIFICANT USER-VISIBLE CHANGES
+
+    o Check the assay dimnames at SummarizedExperiment construction time:
+      The SummarizedExperiment() constructor function now raises an error
+      if one of the supplied assays has rownames and/or colnames that don't
+      match those of the SummarizedExperiment object to construct.
+
 ```
 
-After you install your package, the following can be run to see if the `NEWS` is properly formatted:
+**Note** that the version documented is the _forthcoming_ release version of
+the package. For the developer, the `NEWS` file is a running log of all the
+changes that lead up to the next release of the package.
+
+The user can read the release notes of `SummarizedExperiment` version
+`1.24.0` by running the following:
+
+```{r, eval=FALSE}
+utils::news(package = "SummarizedExperiment", Version == "1.24.0")
+```
+
+During development and after package re-installation, the `NEWS` file's
+formatting can be checked with:
 
 ```{r, eval=FALSE}
 utils::news(package="<name of your package>")
 ```
 
-The output should look similar to the following:
+The function does not fail directly but it will show an output similar to the
+one below if there are formatting errors that need to be corrected.
+Note that there are bullet points embedded within the first `Text` field:
 
 ```
-Changes in version 1.1.1 (2018-06-15):
+Version: 1.2.0
+Date: 2018-07-15
+Text: Made the following significant changes o added a subsetting
+	method o added a new field to database
 
-    o   Fixed bug. Begin indexing from 1 instead of 2
-
-    o   Made the following significant changes
-	o added a subsetting method
-	o added a new field to database
-
-Changes in version 0.99.0 (2018-05-15):
-
-    o   Submitted to Bioconductor
-```
-
-If you get something like the following there are formatting errors that need to be corrected:
-
-```
-Version: 0.99.0
-Date: 2018-05-15
-Text: Submitted to Bioconductor
-
-Version: 1.1.1
+Version: 1.0.0
 Date: 2018-06-15
 Text: Fixed bug. Begin indexing from 1 instead of 2
 
-Version: 1.1.1
-Date: 2018-06-15
-Text: Made the following significant changes o added a subsetting
-	method o added a new field to database
+Version: 0.99.0
+Date: 2018-05-15
+Text: Submitted to Bioconductor
 ```
+
