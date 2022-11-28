@@ -9,14 +9,14 @@
 <meta name="author" content="Daniela Cassol">
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
-<meta name="description" content="A NEWS file should be included to keep track of changes to the code from one version to the next. It can be a top level file or in the inst/ directory. Only one NEWS file should exist in the...">
+<meta name="description" content="A NEWS file informs the user of changes in the software that may impact user expectations. It is highly recommended that the developer use plain and concise language to communicate these changes....">
 <meta name="generator" content="bookdown 0.30 with bs4_book()">
 <meta property="og:title" content="Chapter 8 The NEWS file | Bioconductor Packages: Development, Maintenance, and Peer Review">
 <meta property="og:type" content="book">
-<meta property="og:description" content="A NEWS file should be included to keep track of changes to the code from one version to the next. It can be a top level file or in the inst/ directory. Only one NEWS file should exist in the...">
+<meta property="og:description" content="A NEWS file informs the user of changes in the software that may impact user expectations. It is highly recommended that the developer use plain and concise language to communicate these changes....">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 8 The NEWS file | Bioconductor Packages: Development, Maintenance, and Peer Review">
-<meta name="twitter:description" content="A NEWS file should be included to keep track of changes to the code from one version to the next. It can be a top level file or in the inst/ directory. Only one NEWS file should exist in the...">
+<meta name="twitter:description" content="A NEWS file informs the user of changes in the software that may impact user expectations. It is highly recommended that the developer use plain and concise language to communicate these changes....">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.1/transition.js"></script><script src="libs/bs3compat-0.4.1/tabs.js"></script><script src="libs/bs3compat-0.4.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -102,9 +102,13 @@
 <h1>
 <span class="header-section-number">8</span> The NEWS file<a class="anchor" aria-label="anchor" href="#news"><i class="fas fa-link"></i></a>
 </h1>
-<p>A <code>NEWS</code> file should be included to keep track of changes to the code from one version to the next.
-It can be a top level file or in the <code>inst/</code> directory.
-Only one <code>NEWS</code> file should exist in the repository.</p>
+<p>A <code>NEWS</code> file informs the user of changes in the software that may impact user
+expectations. It is highly recommended that the developer use plain and
+concise language to communicate these changes.</p>
+<p>A <code>NEWS</code> file should keep track of changes, in non-technical language, in the
+code from one release version to the next. The file can reside in either
+the package’s top level directory or in the <code>inst/</code> directory. There should be
+only one <code>NEWS</code> file per package.</p>
 <p>The following are acceptable locations and formats:</p>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
@@ -137,45 +141,53 @@ Only one <code>NEWS</code> file should exist in the repository.</p>
 </tbody>
 </table></div>
 <p>Specifics on formatting can be found on the help page for <code><a href="https://rdrr.io/r/utils/news.html">?news</a></code>.
-<a href="https://bioconductor.org"><em>Bioconductor</em></a> uses the <code>NEWS</code> file to create the semi-annual release announcement.
-It must include list elements and <strong>cannot</strong> be a plain text file.</p>
-<p>An example format:</p>
-<pre><code>Changes in version 0.99.0 (2018-05-15)
-+ Submitted to Bioconductor
+<a href="https://bioconductor.org"><em>Bioconductor</em></a> compiles <code>NEWS</code> files from all updated packages to create
+the semi-annual release announcement.
+<code>NEWS</code> files <em>must</em> include list elements and <strong>cannot</strong> be plain text files.</p>
+<p>Here is the version <code>1.24.0</code> <code>NEWS</code> file from <code>SummarizedExperiment</code>:</p>
+<pre><code>CHANGES IN VERSION 1.24.0
+-------------------------
 
-Changes in version 1.1.1 (2018-06-15)
-+ Fixed bug. Begin indexing from 1 instead of 2
-+ Made the following significant changes
-  o added a subsetting method
-  o added a new field to database</code></pre>
-<p>After you install your package, the following can be run to see if the <code>NEWS</code> is properly formatted:</p>
+NEW FEATURES
+
+    o Add 'checkDimnames' argument to SummarizedExperiment() constructor
+      function
+
+    o Add showAsCell() method for SummarizedExperiment objects.
+
+SIGNIFICANT USER-VISIBLE CHANGES
+
+    o Check the assay dimnames at SummarizedExperiment construction time:
+      The SummarizedExperiment() constructor function now raises an error
+      if one of the supplied assays has rownames and/or colnames that don't
+      match those of the SummarizedExperiment object to construct.
+</code></pre>
+<p><strong>Note</strong> that the version documented is the <em>forthcoming</em> release version of
+the package. For the developer, the <code>NEWS</code> file is a running log of all the
+changes that lead up to the next release of the package.</p>
+<p>The user can read the release notes of <code>SummarizedExperiment</code> version
+<code>1.24.0</code> by running the following:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">utils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/utils/news.html">news</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"SummarizedExperiment"</span>, <span class="va">Version</span> <span class="op">==</span> <span class="st">"1.24.0"</span><span class="op">)</span></span></code></pre></div>
+<p>During development and after package re-installation, the <code>NEWS</code> file’s
+formatting can be checked with:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">utils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/utils/news.html">news</a></span><span class="op">(</span>package<span class="op">=</span><span class="st">"&lt;name of your package&gt;"</span><span class="op">)</span></span></code></pre></div>
-<p>The output should look similar to the following:</p>
-<pre><code>Changes in version 1.1.1 (2018-06-15):
+<p>The function does not fail directly but it will show an output similar to the
+one below if there are formatting errors that need to be corrected.
+Note that there are bullet points embedded within the first <code>Text</code> field:</p>
+<pre><code>Version: 1.2.0
+Date: 2018-07-15
+Text: Made the following significant changes o added a subsetting
+    method o added a new field to database
 
-    o   Fixed bug. Begin indexing from 1 instead of 2
-
-    o   Made the following significant changes
-    o added a subsetting method
-    o added a new field to database
-
-Changes in version 0.99.0 (2018-05-15):
-
-    o   Submitted to Bioconductor</code></pre>
-<p>If you get something like the following there are formatting errors that need to be corrected:</p>
-<pre><code>Version: 0.99.0
-Date: 2018-05-15
-Text: Submitted to Bioconductor
-
-Version: 1.1.1
+Version: 1.0.0
 Date: 2018-06-15
 Text: Fixed bug. Begin indexing from 1 instead of 2
 
-Version: 1.1.1
-Date: 2018-06-15
-Text: Made the following significant changes o added a subsetting
-    method o added a new field to database</code></pre>
+Version: 0.99.0
+Date: 2018-05-15
+Text: Submitted to Bioconductor</code></pre>
 
 </div>
   <div class="chapter-nav">
@@ -200,7 +212,7 @@ Text: Made the following significant changes o added a subsetting
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-11-17.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-11-28.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
