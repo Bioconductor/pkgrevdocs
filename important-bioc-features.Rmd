@@ -89,9 +89,8 @@ searching in [biocViews][] for your data type.
 + FASTA -- `r BiocStyle::Biocpkg("Biostrings")` `::readDNAStringSet()`
 + FASTQ -- `r BiocStyle::Biocpkg("ShortRead")` `::readFastq()`
 + MS data (XML-based and mgf formats) -- `r BiocStyle::Biocpkg("Spectra")` `::Spectra()`, 
-  `r BiocStyle::Biocpkg("MSnbase")` `::readMSData()`,
-  `r BiocStyle::Biocpkg("Spectra")` `::Spectra(source = MsBackendMgf::MsBackendMgf())`, 
-  `r BiocStyle::Biocpkg("MSnbase")` `::readMgfData()`
+  `r BiocStyle::Biocpkg("Spectra")` `::Spectra(source = MsBackendMgf::MsBackendMgf())`
+ 
 
 ### Common Classes {#commonclass}
 
@@ -111,8 +110,7 @@ searching in [biocViews][] for your data type.
   `r BiocStyle::Biocpkg("MultiAssayExperiment")` `::MultiAssayExperiment()`
 + Single cell data --
   `r BiocStyle::Biocpkg("SingleCellExperiment")` `::SingleCellExperiment()`
-+ Mass spec data -- `r BiocStyle::Biocpkg("Spectra")` `::Spectra()`,
-  `r BiocStyle::Biocpkg("MSnbase")` `::MSnExp()`
++ Mass spec data -- `r BiocStyle::Biocpkg("Spectra")` `::Spectra()`
 
 
 In general, a package will not be accepted if it does not show interoperability
