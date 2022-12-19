@@ -19,7 +19,7 @@ Bioconductor [support site][]).
 
 However, if a function has existed in at least one released version
 of Bioconductor, these guidelines _must_ be followed. The process of removing
-a funciton, class, method, or any exported package object takes approximately
+a function, class, method, or any exported package object takes approximately
 three release cycles (about 18 months).
 
 ## How To Deprecate A Function {#deprecate-function}
