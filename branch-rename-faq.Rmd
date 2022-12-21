@@ -35,15 +35,17 @@ Bioconductor users will not need to do anything.
 
 ## What should my remotes look like?
 
-A proper `git remote` set up should have `origin` set to the GitHub location
-and `upstream` set to the Bioconductor git repository. For example, this would
-be the set up for `BiocGenerics`:
+A recommended `git remote` set up should have `origin` set to the GitHub
+location and `upstream` to the Bioconductor git repository. For example,
+this would be the set up for `BiocGenerics`:
 
     git remote -v
     # origin	git@github.com:Bioconductor/BiocGenerics (fetch)
     # origin	git@github.com:Bioconductor/BiocGenerics (push)
     # upstream	git@git.bioconductor.org:packages/BiocGenerics (fetch)
     # upstream	git@git.bioconductor.org:packages/BiocGenerics (push)
+    
+Note that we are using the SSH protocol for both remotes.
 
 ## How do I sync my remotes? {.tabset .tabset-face .tabset-pills}
 
