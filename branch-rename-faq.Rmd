@@ -7,7 +7,7 @@ list of Frequently Asked Questions (FAQs) below.
 ## What is changing?
 
 The Bioconductor core team will rename the default branch to 'devel' on the
-Bioconductor git repository located at <git.bioconductor.org>. All other
+Bioconductor git repository located at `git.bioconductor.org`. All other
 repositories including those on repository hosting platforms such as GitHub,
 GitLabs, etc. will not be affected by our change. Maintainers and developers
 will be responsible for updating their local and cloud git repositories.
@@ -20,7 +20,7 @@ Bioconductor users are not affected.
 ## What repositories are affected by this change?
 
 Note that there may exist several clones of a single Bioconductor repository.
-The Bioconductor copy of the repository resides at <git.bioconductor.org>.
+The Bioconductor copy of the repository resides at `git.bioconductor.org`.
 Bioconductor will only change the default branch on the main copy of the
 repository. Maintainers will be responsible for updating the local and cloud
 copies of their repositories.
@@ -49,7 +49,7 @@ Note that we are using the SSH protocol for both remotes.
 
 ## How do I sync my remotes? {.tabset .tabset-face .tabset-pills}
 
-### before 
+### before rename
 
 Before making updates to branches, make sure that both remotes `origin` and
 `upstream` are in sync:
@@ -58,7 +58,7 @@ Before making updates to branches, make sure that both remotes `origin` and
     git pull origin master
     git pull upstream master
 
-### after
+### after rename
 
 Before making updates to branches, make sure that both remotes `origin` and
 `upstream` are in sync:
@@ -69,44 +69,23 @@ Before making updates to branches, make sure that both remotes `origin` and
 
 ## How do I set 'devel' as the default local branch? {.tabset .tabset-face .tabset-pills}
 
-### before
-
 **Scenario**: Synchronize the local repository **before** the Bioconductor
 branch rename transition. Note, make sure that both `origin` and `upstream` are
-sync'ed to each other.
+sync'ed to each other (see question above).
 
-    ## IMPORTANT!
-    git checkout master
-    git pull origin master
-    git pull upstream master
-    ## Make sure local devel branch does not already exist
-    git branch -d devel
-    ## Create and push the devel branch
-    git checkout -b devel
+    ## rename the branch to devel
+    git branch -m master devel
 
 _Note_. If your GitHub default branch is `main`, replace `master` with `main`:
 
-    ## IMPORTANT!
-    git checkout main
-    git pull origin main
-    git pull upstream master:main
-    ## Make sure local devel branch does not already exist
-    git branch -d devel
-    ## Create and push the devel branch
-    git checkout -b devel
+    ## rename the branch to devel
+    git branch -m main devel
 
-**Caveat**: The changes need to be sync'ed with GitHub.
+**Caveat**: From here, the changes need to be 'pushed' to GitHub and the
+default branch on GitHub needs to be set manually and the old branch deleted
+from GitHub.
 
-### after
-
-**Scenario**: Synchronize the local repository **after** the Bioconductor
-branch rename transition. Note, make sure that both `origin` and `upstream` are
-sync'ed to each other.
-
-    git branch -m master devel
-    git fetch upstream
-    git branch -u upstream/devel devel
-    git remote set-head upstream -a
+    git push origin devel
 
 ## How do I set 'devel' as the default branch on GitHub?
 
@@ -122,7 +101,7 @@ knitr::include_graphics("images/rename_branch_github_screen.png")
 ```
 
 Once the branch is renamed, use the GitHub commands to update the local
-repository:
+repository (if you haven't already):
 
     git branch -m master devel
     git fetch origin
@@ -130,12 +109,12 @@ repository:
     git remote set-head origin -a
 
 Note. The above reflects adjustments after a 'master' to 'devel' rename.
-If you are cloning a repository from <git.bioconductor.org> after the
+If you are cloning a repository from `git.bioconductor.org` _after_ the
 transition, nothing additional needs to be done (except the sync with GitHub).
 
 ## How do I push to Bioconductor? {.tabset .tabset-face .tabset-pills}
 
-### before
+### before rename
 
 To push `upstream` to Bioconductor **before** the transition, the developer can
 map branches ad hoc in the `git push` command. The workflow would look similar
@@ -146,7 +125,7 @@ to:
     #### <make changes to repository>
     git push upstream devel:master
     
-### after
+### after rename
 
 To push `upstream` to Bioconductor **after** the transition, the developer
 will not need to map any branches as `devel` will correspond to `devel`, i.e.,:
