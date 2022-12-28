@@ -96,6 +96,13 @@ To push `upstream` to Bioconductor, the developer will simply push to the
     git checkout devel
     #### <commit changes and bump version etc.>
     git push upstream devel
+    
+## What if I have a GitLab repository?
+
+Although the Bioconductor issue tracker does not support GitLab repositories,
+you can still change the default branch on GitLab. See the
+[change default branch instructions](https://docs.gitlab.com/ee/user/project/repository/branches/default.html#change-the-default-branch-name-for-a-project).
+Updating the local repository can be done similarly as the instructions above.
 
 ### Early Branch Rename Adopters
 
