@@ -33,7 +33,7 @@ repositories.
 
 Bioconductor users will not need to do anything.
 
-## What should my remotes look like?
+## What should my Git remotes look like?
 
 A recommended `git remote` set up should have `origin` set to the GitHub
 location and `upstream` to the Bioconductor git repository. For example,
@@ -47,16 +47,16 @@ this would be the set up for `BiocGenerics`:
     
 Note that we are using the SSH protocol for both remotes.
 
-## How do I sync my remotes? {.tabset .tabset-face .tabset-pills}
+## How do I sync my Git remotes?
 
 Before making updates to branches, make sure that both remotes `origin` and
-`upstream` are in sync:
+`upstream` are in sync with:
 
     git checkout master
     git pull origin master
     git pull upstream devel:master
 
-## How do I set 'devel' as the default local branch? {.tabset .tabset-face .tabset-pills}
+## How do I set 'devel' as the default local branch?
 
 The recommended way to use `devel` as the default branch is to carry out the
 rename operation on GitHub _first_ then perform an adjustment of the local
@@ -87,7 +87,7 @@ repository:
 Note. This applies only to local repositories that have 'master' as the default
 branch.
 
-## How do I push to Bioconductor? {.tabset .tabset-face .tabset-pills}
+## How do I push to Bioconductor?
 
 To push `upstream` to Bioconductor, the developer will simply push to the
 `devel` branch: 
