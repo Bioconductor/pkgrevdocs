@@ -4,7 +4,7 @@ If the package contains C or Fortran code, it should adhere to the standards and
 methods described in the [System and foreign language interfaces][CRAN foreign]
 section of the [Writing R Extensions][] manual.
 
-We emphasie particular points in the following sections.
+We emphasize particular points in the following sections.
 
 ### Internal functions
 
