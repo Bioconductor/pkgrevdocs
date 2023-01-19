@@ -10,7 +10,7 @@
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
 <meta name="description" content="If the package contains C or Fortran code, it should adhere to the standards and methods described in the System and foreign language interfaces section of the Writing R Extensions manual. We...">
-<meta name="generator" content="bookdown 0.31 with bs4_book()">
+<meta name="generator" content="bookdown 0.32 with bs4_book()">
 <meta property="og:title" content="D C and Fortran code | Bioconductor Packages: Development, Maintenance, and Peer Review">
 <meta property="og:type" content="book">
 <meta property="og:description" content="If the package contains C or Fortran code, it should adhere to the standards and methods described in the System and foreign language interfaces section of the Writing R Extensions manual. We...">
@@ -78,11 +78,12 @@
 <li><a class="" href="debugging-cc-code.html"><span class="header-section-number">24</span> Debugging C/C++ code</a></li>
 <li><a class="" href="deprecation.html"><span class="header-section-number">25</span> Deprecation Guidelines</a></li>
 <li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">26</span> Package End of Life Policy</a></li>
+<li><a class="" href="branch-rename-faqs.html"><span class="header-section-number">27</span> Branch Rename FAQs</a></li>
 <li class="book-part">Package Reviewer Resources</li>
 <li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
-<li><a class="" href="review-expectation.html"><span class="header-section-number">27</span> Review Expectations</a></li>
-<li><a class="" href="reviewtools.html"><span class="header-section-number">28</span> Reviewer Resources and Tools</a></li>
-<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">29</span> Volunteer to Review</a></li>
+<li><a class="" href="review-expectation.html"><span class="header-section-number">28</span> Review Expectations</a></li>
+<li><a class="" href="reviewtools.html"><span class="header-section-number">29</span> Reviewer Resources and Tools</a></li>
+<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">30</span> Volunteer to Review</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="use-devel.html"><span class="header-section-number">A</span> Using the ‘Devel’ Version of Bioconductor</a></li>
 <li><a class="" href="long-tests.html"><span class="header-section-number">B</span> Long Tests</a></li>
@@ -98,7 +99,7 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="c-fortran" class="section level1" number="33">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="c-fortran" class="section level1" number="34">
 <h1>
 <span class="header-section-number">D</span> C and Fortran code<a class="anchor" aria-label="anchor" href="#c-fortran"><i class="fas fa-link"></i></a>
 </h1>
@@ -106,33 +107,33 @@
 methods described in the <a href="http://cran.r-project.org/doc/manuals/R-exts.html#System-and-foreign-language-interfaces">System and foreign language interfaces</a>
 section of the <a href="https://cran.r-project.org/doc/manuals/R-exts.html">Writing R Extensions</a> manual.</p>
 <p>We emphasie particular points in the following sections.</p>
-<div id="internal-functions" class="section level3" number="33.0.1">
+<div id="internal-functions" class="section level3" number="34.0.1">
 <h3>
 <span class="header-section-number">D.0.1</span> Internal functions<a class="anchor" aria-label="anchor" href="#internal-functions"><i class="fas fa-link"></i></a>
 </h3>
 <p>Use internal <i class="fab fa-r-project"></i> functions, e.g., <code>R_alloc</code> and random number generators (RNGs), over system-supplied ones.</p>
 </div>
-<div id="c-function-registration" class="section level3" number="33.0.2">
+<div id="c-function-registration" class="section level3" number="34.0.2">
 <h3>
 <span class="header-section-number">D.0.2</span> C function registration<a class="anchor" aria-label="anchor" href="#c-function-registration"><i class="fas fa-link"></i></a>
 </h3>
 <p>Use C function registration (See the <a href="http://cran.fhcrc.org/doc/manuals/R-exts.html#Registering-native-routines">Registering native routines</a> section of
 the <a href="https://cran.r-project.org/doc/manuals/R-exts.html">Writing R Extensions</a> manual).</p>
 </div>
-<div id="checks-for-user-interruption" class="section level3" number="33.0.3">
+<div id="checks-for-user-interruption" class="section level3" number="34.0.3">
 <h3>
 <span class="header-section-number">D.0.3</span> Checks for user interruption<a class="anchor" aria-label="anchor" href="#checks-for-user-interruption"><i class="fas fa-link"></i></a>
 </h3>
 <p>Use <code>R_CheckUserInterrupt()</code> in C level loops when there is a chance that they may not terminate for certain parameter settings or when their run time exceeds 10 seconds with typical parameter settings, and the method is intended for interactive use.</p>
 </div>
-<div id="makevars-1" class="section level3" number="33.0.4">
+<div id="makevars-1" class="section level3" number="34.0.4">
 <h3>
 <span class="header-section-number">D.0.4</span> Makevars<a class="anchor" aria-label="anchor" href="#makevars-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>Make judicious use of the <code>Makevars</code> and <code>Makefile</code> files within a package.
 These are often not required at all (See the <a href="http://cran.fhcrc.org/doc/manuals/R-exts.html#Configure-and-cleanup">Configure and cleanup</a> section of the <a href="https://cran.r-project.org/doc/manuals/R-exts.html">Writing R Extensions</a> manual).</p>
 </div>
-<div id="warnings-and-optimizations" class="section level3" number="33.0.5">
+<div id="warnings-and-optimizations" class="section level3" number="34.0.5">
 <h3>
 <span class="header-section-number">D.0.5</span> Warnings and optimizations<a class="anchor" aria-label="anchor" href="#warnings-and-optimizations"><i class="fas fa-link"></i></a>
 </h3>
@@ -182,7 +183,7 @@ FFLAGS=-Wall -Wextra -pedantic -O0 -g</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-12-19.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2023-01-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 27 Branch Rename FAQs | Bioconductor Packages: Development, Maintenance, and Peer Review</title>
+<meta name="author" content="Kevin Rue-Albrecht">
+<meta name="author" content="Daniela Cassol">
+<meta name="author" content="Johannes Rainer">
+<meta name="author" content="Lori Shepherd">
+<meta name="description" content="The Bioconductor project has chosen ‘devel’ to be the default branch for GitHub and git repositories. To prepare for this transition, we have compiled a list of Frequently Asked Questions (FAQs)...">
+<meta name="generator" content="bookdown 0.32 with bs4_book()">
+<meta property="og:title" content="Chapter 27 Branch Rename FAQs | Bioconductor Packages: Development, Maintenance, and Peer Review">
+<meta property="og:type" content="book">
+<meta property="og:description" content="The Bioconductor project has chosen ‘devel’ to be the default branch for GitHub and git repositories. To prepare for this transition, we have compiled a list of Frequently Asked Questions (FAQs)...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 27 Branch Rename FAQs | Bioconductor Packages: Development, Maintenance, and Peer Review">
+<meta name="twitter:description" content="The Bioconductor project has chosen ‘devel’ to be the default branch for GitHub and git repositories. To prepare for this transition, we have compiled a list of Frequently Asked Questions (FAQs)...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Bioconductor Packages: Development, Maintenance, and Peer Review</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li class="book-part">Package Submissions</li>
+<li><a class="" href="submission-overview.html">Overview</a></li>
+<li><a class="" href="bioconductor-package-submissions.html"><span class="header-section-number">1</span> Bioconductor Package Submissions</a></li>
+<li class="book-part">Package Development Guidelines</li>
+<li><a class="" href="develop-overview.html">Overview</a></li>
+<li><a class="" href="package-name.html"><span class="header-section-number">2</span> Package name</a></li>
+<li><a class="" href="general.html"><span class="header-section-number">3</span> General Bioconductor Package Development</a></li>
+<li><a class="" href="important-bioconductor-package-development-features.html"><span class="header-section-number">4</span> Important Bioconductor Package Development Features</a></li>
+<li><a class="" href="readme.html"><span class="header-section-number">5</span> The README file</a></li>
+<li><a class="" href="description.html"><span class="header-section-number">6</span> The DESCRIPTION file</a></li>
+<li><a class="" href="namespace.html"><span class="header-section-number">7</span> The NAMESPACE file</a></li>
+<li><a class="" href="news.html"><span class="header-section-number">8</span> The NEWS file</a></li>
+<li><a class="" href="license.html"><span class="header-section-number">9</span> The LICENSE file</a></li>
+<li><a class="" href="citation.html"><span class="header-section-number">10</span> The CITATION file</a></li>
+<li><a class="" href="sysdep.html"><span class="header-section-number">11</span> The INSTALL file</a></li>
+<li><a class="" href="docs.html"><span class="header-section-number">12</span> Documentation</a></li>
+<li><a class="" href="data.html"><span class="header-section-number">13</span> Package data</a></li>
+<li><a class="" href="tests.html"><span class="header-section-number">14</span> Unit tests</a></li>
+<li><a class="" href="r-code.html"><span class="header-section-number">15</span> R code</a></li>
+<li><a class="" href="other-than-Rcode.html"><span class="header-section-number">16</span> Fortran / C / C++ / Python / Third-Party Code</a></li>
+<li><a class="" href="shiny.html"><span class="header-section-number">17</span> Shiny apps</a></li>
+<li><a class="" href="non-software.html"><span class="header-section-number">18</span> Non-Software Packages</a></li>
+<li><a class="" href="gitignore.html"><span class="header-section-number">19</span> The .gitignore file</a></li>
+<li><a class="" href="conclusion.html"><span class="header-section-number">20</span> Conclusion</a></li>
+<li class="book-part">Bioconductor Package Maintenance</li>
+<li><a class="" href="package-maintenance.html">Overview</a></li>
+<li><a class="" href="git-version-control.html"><span class="header-section-number">21</span> Git Version Control</a></li>
+<li><a class="" href="versionnum.html"><span class="header-section-number">22</span> Version Numbering</a></li>
+<li><a class="" href="troubleshooting-build-report.html"><span class="header-section-number">23</span> Troubleshooting Build Report</a></li>
+<li><a class="" href="debugging-cc-code.html"><span class="header-section-number">24</span> Debugging C/C++ code</a></li>
+<li><a class="" href="deprecation.html"><span class="header-section-number">25</span> Deprecation Guidelines</a></li>
+<li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">26</span> Package End of Life Policy</a></li>
+<li><a class="active" href="branch-rename-faqs.html"><span class="header-section-number">27</span> Branch Rename FAQs</a></li>
+<li class="book-part">Package Reviewer Resources</li>
+<li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
+<li><a class="" href="review-expectation.html"><span class="header-section-number">28</span> Review Expectations</a></li>
+<li><a class="" href="reviewtools.html"><span class="header-section-number">29</span> Reviewer Resources and Tools</a></li>
+<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">30</span> Volunteer to Review</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="use-devel.html"><span class="header-section-number">A</span> Using the ‘Devel’ Version of Bioconductor</a></li>
+<li><a class="" href="long-tests.html"><span class="header-section-number">B</span> Long Tests</a></li>
+<li><a class="" href="querying-web-resources.html"><span class="header-section-number">C</span> Querying Web Resources</a></li>
+<li><a class="" href="c-fortran.html"><span class="header-section-number">D</span> C and Fortran code</a></li>
+<li><a class="" href="cmavericks-best-practices.html"><span class="header-section-number">E</span> C++/Mavericks Best Practices</a></li>
+<li><a class="" href="man-links.html"><span class="header-section-number">F</span> Debug: Links in Rd files</a></li>
+<li><a class="" href="booknews.html"><span class="header-section-number">G</span> NEWS</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/Bioconductor/pkgrevdocs">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="branch-rename-faqs" class="section level1" number="27">
+<h1>
+<span class="header-section-number">27</span> Branch Rename FAQs<a class="anchor" aria-label="anchor" href="#branch-rename-faqs"><i class="fas fa-link"></i></a>
+</h1>
+<p>The <em>Bioconductor</em> project has chosen ‘devel’ to be the default branch for
+GitHub and git repositories. To prepare for this transition, we have compiled a
+list of Frequently Asked Questions (FAQs) below.</p>
+<div id="what-is-changing" class="section level2" number="27.1">
+<h2>
+<span class="header-section-number">27.1</span> What is changing?<a class="anchor" aria-label="anchor" href="#what-is-changing"><i class="fas fa-link"></i></a>
+</h2>
+<p>The Bioconductor core team will rename the default branch to ‘devel’ on the
+Bioconductor git repository located at <code>git.bioconductor.org</code>. All other
+repositories including those on repository hosting platforms such as GitHub,
+GitLabs, etc. will not be affected by our change. Maintainers and developers
+will be responsible for updating their local and cloud git repositories.</p>
+</div>
+<div id="who-is-affected-by-this-change" class="section level2" number="27.2">
+<h2>
+<span class="header-section-number">27.2</span> Who is affected by this change?<a class="anchor" aria-label="anchor" href="#who-is-affected-by-this-change"><i class="fas fa-link"></i></a>
+</h2>
+<p>Bioconductor developers and maintainers are affected by this change.
+Bioconductor users are not affected.</p>
+</div>
+<div id="what-repositories-are-affected-by-this-change" class="section level2" number="27.3">
+<h2>
+<span class="header-section-number">27.3</span> What repositories are affected by this change?<a class="anchor" aria-label="anchor" href="#what-repositories-are-affected-by-this-change"><i class="fas fa-link"></i></a>
+</h2>
+<p>Note that there may exist several clones of a single Bioconductor repository.
+<strong>Only</strong> the Bioconductor repository that resides at <code>git.bioconductor.org</code> will
+be affected. The default branch for all packages in the Bioconductor git server
+will be set to <code>devel</code>. Maintainers and collaborators will be responsible for
+updating the local and cloud copies of their repositories.</p>
+</div>
+<div id="what-do-i-need-to-change" class="section level2" number="27.4">
+<h2>
+<span class="header-section-number">27.4</span> What do I need to change?<a class="anchor" aria-label="anchor" href="#what-do-i-need-to-change"><i class="fas fa-link"></i></a>
+</h2>
+<p>Bioconductor developers will have to rename default branches on their
+repositories to ‘devel’. This includes GitHub and other local copies of their
+repositories including those from collaborators.</p>
+<p>Bioconductor users will not need to do anything.</p>
+</div>
+<div id="what-should-my-git-remotes-look-like" class="section level2" number="27.5">
+<h2>
+<span class="header-section-number">27.5</span> What should my Git remotes look like?<a class="anchor" aria-label="anchor" href="#what-should-my-git-remotes-look-like"><i class="fas fa-link"></i></a>
+</h2>
+<p>A recommended <code>git remote</code> set up should have <code>origin</code> set to the GitHub
+location and <code>upstream</code> to the Bioconductor git repository. For example,
+this would be the set up for <code>BiocGenerics</code>:</p>
+<pre><code>git remote -v
+# origin    git@github.com:Bioconductor/BiocGenerics (fetch)
+# origin    git@github.com:Bioconductor/BiocGenerics (push)
+# upstream  git@git.bioconductor.org:packages/BiocGenerics (fetch)
+# upstream  git@git.bioconductor.org:packages/BiocGenerics (push)</code></pre>
+<p>Note that we are using the SSH protocol for both remotes.</p>
+</div>
+<div id="how-do-i-sync-my-git-remotes" class="section level2" number="27.6">
+<h2>
+<span class="header-section-number">27.6</span> How do I sync my Git remotes?<a class="anchor" aria-label="anchor" href="#how-do-i-sync-my-git-remotes"><i class="fas fa-link"></i></a>
+</h2>
+<p>Before making updates to branches, make sure that both remotes <code>origin</code> and
+<code>upstream</code> are in sync with:</p>
+<pre><code>git checkout master
+git pull origin master
+git pull upstream devel:master</code></pre>
+</div>
+<div id="how-do-i-set-devel-as-the-default-local-branch" class="section level2" number="27.7">
+<h2>
+<span class="header-section-number">27.7</span> How do I set ‘devel’ as the default local branch?<a class="anchor" aria-label="anchor" href="#how-do-i-set-devel-as-the-default-local-branch"><i class="fas fa-link"></i></a>
+</h2>
+<p>The recommended way to use <code>devel</code> as the default branch is to carry out the
+rename operation on GitHub <em>first</em> then perform an adjustment of the local
+branch(es).</p>
+<p>Once the branch is renamed, use the GitHub commands to update the local copy of
+the repository:</p>
+<pre><code>git branch -m master devel
+git fetch origin
+git branch -u origin/devel devel
+git remote set-head origin -a</code></pre>
+<p>Note. Change ‘master’ to ‘main’ in the code above if the repository has ‘main’
+as the default branch.</p>
+</div>
+<div id="how-do-i-set-devel-as-the-default-branch-on-github" class="section level2" number="27.8">
+<h2>
+<span class="header-section-number">27.8</span> How do I set ‘devel’ as the default branch on GitHub?<a class="anchor" aria-label="anchor" href="#how-do-i-set-devel-as-the-default-branch-on-github"><i class="fas fa-link"></i></a>
+</h2>
+<p>GitHub has provided a convenient way to rename the default branch for any
+repository. Go to <code>https://github.com/{username}/{repo}/branches</code> where
+<code>username</code> and <code>repo</code> correspond to your GitHub username and repository,
+respectively.</p>
+<p>Click on the ‘edit’ pencil to rename the branch (seen here at the bottom right
+corner) and rename the branch to ‘devel’:</p>
+<div class="inline-figure">
+<img src="images/rename_branch_github_screen.png"><!-- -->
+</div>
+</div>
+<div id="how-do-i-push-to-bioconductor-after-renaming" class="section level2" number="27.9">
+<h2>
+<span class="header-section-number">27.9</span> How do I push to Bioconductor after renaming?<a class="anchor" aria-label="anchor" href="#how-do-i-push-to-bioconductor-after-renaming"><i class="fas fa-link"></i></a>
+</h2>
+<p>To push <code>upstream</code> to Bioconductor, the developer will simply push to the
+<code>devel</code> branch:</p>
+<pre><code>## branch should already exist
+git checkout devel
+#### &lt;commit changes and bump version etc.&gt;
+git push upstream devel</code></pre>
+</div>
+<div id="what-if-i-have-a-gitlab-repository" class="section level2" number="27.10">
+<h2>
+<span class="header-section-number">27.10</span> What if I have a GitLab repository?<a class="anchor" aria-label="anchor" href="#what-if-i-have-a-gitlab-repository"><i class="fas fa-link"></i></a>
+</h2>
+<p>Although the Bioconductor issue tracker does not support GitLab repositories,
+you can still change the default branch on GitLab. See the
+<a href="https://docs.gitlab.com/ee/user/project/repository/branches/default.html#change-the-default-branch-name-for-a-project">change default branch instructions</a>.
+Updating the local repository can be done similarly as the instructions above.</p>
+<div id="early-branch-rename-adopters" class="section level3" number="27.10.1">
+<h3>
+<span class="header-section-number">27.10.1</span> Early Branch Rename Adopters<a class="anchor" aria-label="anchor" href="#early-branch-rename-adopters"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>NOTE</strong>: This section is for eager developers who would like to make changes
+to their local repositories <em>before</em> the Bioconductor git branch rename.</p>
+<div id="sync-repositories" class="section level4" number="27.10.1.1">
+<h4>
+<span class="header-section-number">27.10.1.1</span> Sync repositories<a class="anchor" aria-label="anchor" href="#sync-repositories"><i class="fas fa-link"></i></a>
+</h4>
+<p>Before making updates to branches, make sure that both remotes <code>origin</code> and
+<code>upstream</code> are in sync:</p>
+<pre><code>git checkout master
+git pull origin master
+git pull upstream master</code></pre>
+</div>
+<div id="rename-devel-branch-on-github" class="section level4" number="27.10.1.2">
+<h4>
+<span class="header-section-number">27.10.1.2</span> Rename devel branch on GitHub<a class="anchor" aria-label="anchor" href="#rename-devel-branch-on-github"><i class="fas fa-link"></i></a>
+</h4>
+<p>The rename operation should be done via GitHub. Go to
+<code>https://github.com/{username}/{repo}/branches</code> where <code>username</code> and <code>repo</code>
+correspond to your GitHub username and repository, respectively.</p>
+<p>Click on the ‘edit’ pencil to rename the branch (seen here at the bottom right
+corner) and rename the branch to ‘devel’:</p>
+<div class="inline-figure">
+<img src="images/rename_branch_github_screen.png"><!-- -->
+</div>
+<p>Once the branch is renamed, use the GitHub commands to update the local
+repository:</p>
+<pre><code>git branch -m master devel
+git fetch origin
+git branch -u origin/devel devel
+git remote set-head origin -a</code></pre>
+<p><strong>Note</strong>. <code>origin</code> here is set to the GitHub remote and tracking is set to
+<code>origin/devel</code>.</p>
+</div>
+<div id="pushing-to-bioconductor" class="section level4" number="27.10.1.3">
+<h4>
+<span class="header-section-number">27.10.1.3</span> Pushing to Bioconductor<a class="anchor" aria-label="anchor" href="#pushing-to-bioconductor"><i class="fas fa-link"></i></a>
+</h4>
+<p>Mapping of branches is required to push upstream for early adopters, until the
+branch is renamed on the Bioconductor git server. The <code>git push</code> operation is as
+follows:</p>
+<pre><code>## branch should already exist
+git checkout devel
+#### &lt;make changes to repository&gt;
+git push upstream devel:master</code></pre>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="package-end-of-life-policy.html"><span class="header-section-number">26</span> Package End of Life Policy</a></div>
+<div class="next"><a href="reviewer-resources-overview.html">Overview</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#branch-rename-faqs"><span class="header-section-number">27</span> Branch Rename FAQs</a></li>
+<li><a class="nav-link" href="#what-is-changing"><span class="header-section-number">27.1</span> What is changing?</a></li>
+<li><a class="nav-link" href="#who-is-affected-by-this-change"><span class="header-section-number">27.2</span> Who is affected by this change?</a></li>
+<li><a class="nav-link" href="#what-repositories-are-affected-by-this-change"><span class="header-section-number">27.3</span> What repositories are affected by this change?</a></li>
+<li><a class="nav-link" href="#what-do-i-need-to-change"><span class="header-section-number">27.4</span> What do I need to change?</a></li>
+<li><a class="nav-link" href="#what-should-my-git-remotes-look-like"><span class="header-section-number">27.5</span> What should my Git remotes look like?</a></li>
+<li><a class="nav-link" href="#how-do-i-sync-my-git-remotes"><span class="header-section-number">27.6</span> How do I sync my Git remotes?</a></li>
+<li><a class="nav-link" href="#how-do-i-set-devel-as-the-default-local-branch"><span class="header-section-number">27.7</span> How do I set ‘devel’ as the default local branch?</a></li>
+<li><a class="nav-link" href="#how-do-i-set-devel-as-the-default-branch-on-github"><span class="header-section-number">27.8</span> How do I set ‘devel’ as the default branch on GitHub?</a></li>
+<li><a class="nav-link" href="#how-do-i-push-to-bioconductor-after-renaming"><span class="header-section-number">27.9</span> How do I push to Bioconductor after renaming?</a></li>
+<li>
+<a class="nav-link" href="#what-if-i-have-a-gitlab-repository"><span class="header-section-number">27.10</span> What if I have a GitLab repository?</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#early-branch-rename-adopters"><span class="header-section-number">27.10.1</span> Early Branch Rename Adopters</a></li></ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/Bioconductor/pkgrevdocs/blob/master/branch-rename-faq.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/Bioconductor/pkgrevdocs/edit/master/branch-rename-faq.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2023-01-19.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

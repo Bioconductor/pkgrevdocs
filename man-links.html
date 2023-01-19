@@ -10,7 +10,7 @@
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
 <meta name="description" content="F.1 Context This chapter describes an issue resolved on 31-May-2022. The objective was to include a link from the man page of one package to the man page of the SummarizedExperiment class in the...">
-<meta name="generator" content="bookdown 0.31 with bs4_book()">
+<meta name="generator" content="bookdown 0.32 with bs4_book()">
 <meta property="og:title" content="F Debug: Links in Rd files | Bioconductor Packages: Development, Maintenance, and Peer Review">
 <meta property="og:type" content="book">
 <meta property="og:description" content="F.1 Context This chapter describes an issue resolved on 31-May-2022. The objective was to include a link from the man page of one package to the man page of the SummarizedExperiment class in the...">
@@ -78,11 +78,12 @@
 <li><a class="" href="debugging-cc-code.html"><span class="header-section-number">24</span> Debugging C/C++ code</a></li>
 <li><a class="" href="deprecation.html"><span class="header-section-number">25</span> Deprecation Guidelines</a></li>
 <li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">26</span> Package End of Life Policy</a></li>
+<li><a class="" href="branch-rename-faqs.html"><span class="header-section-number">27</span> Branch Rename FAQs</a></li>
 <li class="book-part">Package Reviewer Resources</li>
 <li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
-<li><a class="" href="review-expectation.html"><span class="header-section-number">27</span> Review Expectations</a></li>
-<li><a class="" href="reviewtools.html"><span class="header-section-number">28</span> Reviewer Resources and Tools</a></li>
-<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">29</span> Volunteer to Review</a></li>
+<li><a class="" href="review-expectation.html"><span class="header-section-number">28</span> Review Expectations</a></li>
+<li><a class="" href="reviewtools.html"><span class="header-section-number">29</span> Reviewer Resources and Tools</a></li>
+<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">30</span> Volunteer to Review</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="use-devel.html"><span class="header-section-number">A</span> Using the ‘Devel’ Version of Bioconductor</a></li>
 <li><a class="" href="long-tests.html"><span class="header-section-number">B</span> Long Tests</a></li>
@@ -98,11 +99,11 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="man-links" class="section level1" number="35">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="man-links" class="section level1" number="36">
 <h1>
 <span class="header-section-number">F</span> Debug: Links in Rd files<a class="anchor" aria-label="anchor" href="#man-links"><i class="fas fa-link"></i></a>
 </h1>
-<div id="context" class="section level2" number="35.1">
+<div id="context" class="section level2" number="36.1">
 <h2>
 <span class="header-section-number">F.1</span> Context<a class="anchor" aria-label="anchor" href="#context"><i class="fas fa-link"></i></a>
 </h2>
@@ -119,7 +120,7 @@ follows in the R file:</p>
    
    See section 'Cross-references' in the 'Writing R Extensions' manual.</code></pre>
 </div>
-<div id="what-worked" class="section level2" number="35.2">
+<div id="what-worked" class="section level2" number="36.2">
 <h2>
 <span class="header-section-number">F.2</span> What worked<a class="anchor" aria-label="anchor" href="#what-worked"><i class="fas fa-link"></i></a>
 </h2>
@@ -140,7 +141,7 @@ NAMESPACE file.</p>
 <pre><code>import(SummarizedExperiment)</code></pre>
 <p>At which point <code><a href="http://r-lib.github.io/rcmdcheck/reference/rcmdcheck.html">rcmdcheck::rcmdcheck()</a></code> did not return any more issue.</p>
 </div>
-<div id="what-did-not-work" class="section level2" number="35.3">
+<div id="what-did-not-work" class="section level2" number="36.3">
 <h2>
 <span class="header-section-number">F.3</span> What did not work<a class="anchor" aria-label="anchor" href="#what-did-not-work"><i class="fas fa-link"></i></a>
 </h2>
@@ -149,7 +150,7 @@ DESCRIPTION file, adding an <code>@import</code> statement in the documentation,
 running <code><a href="https://devtools.r-lib.org/reference/document.html">devtools::document()</a></code>.
 At that point, <code><a href="http://r-lib.github.io/rcmdcheck/reference/rcmdcheck.html">rcmdcheck::rcmdcheck()</a></code> continued to display the initial WARNING.</p>
 </div>
-<div id="additional-resources-1" class="section level2" number="35.4">
+<div id="additional-resources-1" class="section level2" number="36.4">
 <h2>
 <span class="header-section-number">F.4</span> Additional resources<a class="anchor" aria-label="anchor" href="#additional-resources-1"><i class="fas fa-link"></i></a>
 </h2>
@@ -186,7 +187,7 @@ At that point, <code><a href="http://r-lib.github.io/rcmdcheck/reference/rcmdche
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-12-19.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2023-01-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

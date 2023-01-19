@@ -10,7 +10,7 @@
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
 <meta name="description" content="This guide mostly addresses how to adapt C/C++ code in Bioconductor packages to build on Mac OS X 10.9 (Mavericks). If your package does not use C or C++ code, you can assume this document is not...">
-<meta name="generator" content="bookdown 0.31 with bs4_book()">
+<meta name="generator" content="bookdown 0.32 with bs4_book()">
 <meta property="og:title" content="E C++/Mavericks Best Practices | Bioconductor Packages: Development, Maintenance, and Peer Review">
 <meta property="og:type" content="book">
 <meta property="og:description" content="This guide mostly addresses how to adapt C/C++ code in Bioconductor packages to build on Mac OS X 10.9 (Mavericks). If your package does not use C or C++ code, you can assume this document is not...">
@@ -78,11 +78,12 @@
 <li><a class="" href="debugging-cc-code.html"><span class="header-section-number">24</span> Debugging C/C++ code</a></li>
 <li><a class="" href="deprecation.html"><span class="header-section-number">25</span> Deprecation Guidelines</a></li>
 <li><a class="" href="package-end-of-life-policy.html"><span class="header-section-number">26</span> Package End of Life Policy</a></li>
+<li><a class="" href="branch-rename-faqs.html"><span class="header-section-number">27</span> Branch Rename FAQs</a></li>
 <li class="book-part">Package Reviewer Resources</li>
 <li><a class="" href="reviewer-resources-overview.html">Overview</a></li>
-<li><a class="" href="review-expectation.html"><span class="header-section-number">27</span> Review Expectations</a></li>
-<li><a class="" href="reviewtools.html"><span class="header-section-number">28</span> Reviewer Resources and Tools</a></li>
-<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">29</span> Volunteer to Review</a></li>
+<li><a class="" href="review-expectation.html"><span class="header-section-number">28</span> Review Expectations</a></li>
+<li><a class="" href="reviewtools.html"><span class="header-section-number">29</span> Reviewer Resources and Tools</a></li>
+<li><a class="" href="review-volunteer-chapter.html"><span class="header-section-number">30</span> Volunteer to Review</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="use-devel.html"><span class="header-section-number">A</span> Using the ‘Devel’ Version of Bioconductor</a></li>
 <li><a class="" href="long-tests.html"><span class="header-section-number">B</span> Long Tests</a></li>
@@ -98,7 +99,7 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="cmavericks-best-practices" class="section level1" number="34">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="cmavericks-best-practices" class="section level1" number="35">
 <h1>
 <span class="header-section-number">E</span> C++/Mavericks Best Practices<a class="anchor" aria-label="anchor" href="#cmavericks-best-practices"><i class="fas fa-link"></i></a>
 </h1>
@@ -106,7 +107,7 @@
 packages to build on Mac OS X 10.9 (Mavericks). If your package does
 not use C or C++ code, you can assume this document is not relevant to
 you.</p>
-<div id="table-of-contents-1" class="section level2" number="34.1">
+<div id="table-of-contents-1" class="section level2" number="35.1">
 <h2>
 <span class="header-section-number">E.1</span> Table of Contents<a class="anchor" aria-label="anchor" href="#table-of-contents-1"><i class="fas fa-link"></i></a>
 </h2>
@@ -137,7 +138,7 @@ repository of knowledge about specific problems.</li>
 <p>You might skip to the <a href="cmavericks-best-practices.html#lessons-learned">lessons-learned</a> section to
 check if your issue has already been explored.</p>
 </div>
-<div id="orientation" class="section level2" number="34.2">
+<div id="orientation" class="section level2" number="35.2">
 <h2>
 <span class="header-section-number">E.2</span> Orientation<a class="anchor" aria-label="anchor" href="#orientation"><i class="fas fa-link"></i></a>
 </h2>
@@ -181,7 +182,7 @@ for the Mavericks environment. The compounded difficulty of
 diagnosing problems in code not written by the package author limits
 the Bioconductor team’s ability to help with your package.</p></li>
 </ul>
-<div id="what-is-different-about-developing-for-the-mavericks-environment" class="section level3" number="34.2.1">
+<div id="what-is-different-about-developing-for-the-mavericks-environment" class="section level3" number="35.2.1">
 <h3>
 <span class="header-section-number">E.2.1</span> What is different about developing for the Mavericks environment?<a class="anchor" aria-label="anchor" href="#what-is-different-about-developing-for-the-mavericks-environment"><i class="fas fa-link"></i></a>
 </h3>
@@ -199,7 +200,7 @@ of clang hold that clang:</p>
 </ul>
 <p>For guidance on compiler flags to use while developing, see the
 <a href="c-fortran.html#c-fortran">relevant section of the Package Guidelines page</a>.</p>
-<div id="differences-in-unspecified-behavior-memory-addressing-policies" class="section level4" number="34.2.1.1">
+<div id="differences-in-unspecified-behavior-memory-addressing-policies" class="section level4" number="35.2.1.1">
 <h4>
 <span class="header-section-number">E.2.1.1</span> Differences in unspecified behavior, memory addressing policies<a class="anchor" aria-label="anchor" href="#differences-in-unspecified-behavior-memory-addressing-policies"><i class="fas fa-link"></i></a>
 </h4>
@@ -214,7 +215,7 @@ to compiler writers to decide.</p>
 <p>The foremost difference regarding memory is clang seems to be more
 restrictive about out-of-bounds memory addressing.</p>
 </div>
-<div id="find-bugs" class="section level4" number="34.2.1.2">
+<div id="find-bugs" class="section level4" number="35.2.1.2">
 <h4>
 <span class="header-section-number">E.2.1.2</span> How to find bugs<a class="anchor" aria-label="anchor" href="#find-bugs"><i class="fas fa-link"></i></a>
 </h4>
@@ -228,7 +229,7 @@ premier tool for detecting memory errors.</p>
 code</a> for examples of using a
 debugger and Valgrind.</p>
 </div>
-<div id="what-if-i-cannot-access-a-mavericks-machine" class="section level4" number="34.2.1.3">
+<div id="what-if-i-cannot-access-a-mavericks-machine" class="section level4" number="35.2.1.3">
 <h4>
 <span class="header-section-number">E.2.1.3</span> What if I cannot access a Mavericks machine?<a class="anchor" aria-label="anchor" href="#what-if-i-cannot-access-a-mavericks-machine"><i class="fas fa-link"></i></a>
 </h4>
@@ -257,7 +258,7 @@ many errors should be equally discoverable using Valgrind on Linux.</p></li>
 </div>
 </div>
 </div>
-<div id="CXX11" class="section level2" number="34.3">
+<div id="CXX11" class="section level2" number="35.3">
 <h2>
 <span class="header-section-number">E.3</span> C++11<a class="anchor" aria-label="anchor" href="#CXX11"><i class="fas fa-link"></i></a>
 </h2>
@@ -289,11 +290,11 @@ programs compiled and linked against libc++.</li>
 forward-incompatible. See the <a href="cmavericks-best-practices.html#forward-incompatible">forward-incompatibility
 problems</a> section for examples.</p>
 </div>
-<div id="issues-with-Mavericks-env" class="section level2" number="34.4">
+<div id="issues-with-Mavericks-env" class="section level2" number="35.4">
 <h2>
 <span class="header-section-number">E.4</span> Issues specific to Mavericks environment<a class="anchor" aria-label="anchor" href="#issues-with-Mavericks-env"><i class="fas fa-link"></i></a>
 </h2>
-<div id="c-linkage" class="section level3" number="34.4.1">
+<div id="c-linkage" class="section level3" number="35.4.1">
 <h3>
 <span class="header-section-number">E.4.1</span> C Linkage<a class="anchor" aria-label="anchor" href="#c-linkage"><i class="fas fa-link"></i></a>
 </h3>
@@ -324,7 +325,7 @@ extern "C" {
 }
 extern "C" void bar(); // function 'bar' has C linkage</code></pre>
 </div>
-<div id="openmp" class="section level3" number="34.4.2">
+<div id="openmp" class="section level3" number="35.4.2">
 <h3>
 <span class="header-section-number">E.4.2</span> OpenMP<a class="anchor" aria-label="anchor" href="#openmp"><i class="fas fa-link"></i></a>
 </h3>
@@ -347,14 +348,14 @@ gracefully if OpenMP support is not available:</p>
 <p>See the <em><a href="https://bioconductor.org/packages/3.17/ShortRead">ShortRead</a></em> package for an example of good practices around support for OpenMP.</p>
 </div>
 </div>
-<div id="best-practices" class="section level2" number="34.5">
+<div id="best-practices" class="section level2" number="35.5">
 <h2>
 <span class="header-section-number">E.5</span> C++ Best Practices<a class="anchor" aria-label="anchor" href="#best-practices"><i class="fas fa-link"></i></a>
 </h2>
 <p>These C++ practices are applicable for most C++ projects, but have
 been identified by the Bioconductor community as particularly helpful
 in avoiding issues in the Mavericks environment.</p>
-<div id="use-rcpp" class="section level3" number="34.5.1">
+<div id="use-rcpp" class="section level3" number="35.5.1">
 <h3>
 <span class="header-section-number">E.5.1</span> Use Rcpp<a class="anchor" aria-label="anchor" href="#use-rcpp"><i class="fas fa-link"></i></a>
 </h3>
@@ -366,7 +367,7 @@ eliminating many of the pitfalls of programming to the <code>R</code> interface.
 working examples for many tasks: the <a href="http://gallery.rcpp.org/">Rcpp
 Gallery</a>.</p>
 </div>
-<div id="name-resolution-errors" class="section level3" number="34.5.2">
+<div id="name-resolution-errors" class="section level3" number="35.5.2">
 <h3>
 <span class="header-section-number">E.5.2</span> Avoid name resolution errors<a class="anchor" aria-label="anchor" href="#name-resolution-errors"><i class="fas fa-link"></i></a>
 </h3>
@@ -381,7 +382,7 @@ what it expects, and the compiler points to a C++ header file in the
 standard library.</p>
 <p>There are two primary issues with name resolution when writing R
 packages:</p>
-<div id="re-mapping-of-identifiers-from-r-headers" class="section level4" number="34.5.2.1">
+<div id="re-mapping-of-identifiers-from-r-headers" class="section level4" number="35.5.2.1">
 <h4>
 <span class="header-section-number">E.5.2.1</span> Re-mapping of identifiers from R headers<a class="anchor" aria-label="anchor" href="#re-mapping-of-identifiers-from-r-headers"><i class="fas fa-link"></i></a>
 </h4>
@@ -417,7 +418,7 @@ void foo(SEXP s) {
 <p>Note <code>Rf_length</code> is just one example of the many <code>R</code> identifiers that
 might conflict with names in C++ standard library headers.</p>
 </div>
-<div id="namespace-hygiene" class="section level4" number="34.5.2.2">
+<div id="namespace-hygiene" class="section level4" number="35.5.2.2">
 <h4>
 <span class="header-section-number">E.5.2.2</span> Namespace hygiene<a class="anchor" aria-label="anchor" href="#namespace-hygiene"><i class="fas fa-link"></i></a>
 </h4>
@@ -473,7 +474,7 @@ to reading:</p>
 }</code></pre>
 </div>
 </div>
-<div id="undefined-behavior" class="section level3" number="34.5.3">
+<div id="undefined-behavior" class="section level3" number="35.5.3">
 <h3>
 <span class="header-section-number">E.5.3</span> Avoid undefined behavior and non-portable unspecified behavior<a class="anchor" aria-label="anchor" href="#undefined-behavior"><i class="fas fa-link"></i></a>
 </h3>
@@ -500,7 +501,7 @@ allows the code to execute instead of crashing the program.</p>
 debuggers</a> to find the code that leads to errors.</p>
 </div>
 </div>
-<div id="issues-external-code-sources" class="section level2" number="34.6">
+<div id="issues-external-code-sources" class="section level2" number="35.6">
 <h2>
 <span class="header-section-number">E.6</span> Issues with code from external sources<a class="anchor" aria-label="anchor" href="#issues-external-code-sources"><i class="fas fa-link"></i></a>
 </h2>
@@ -513,7 +514,7 @@ section][third-party-libraries] for
 guidance on code from external sources.</p>
 <p>See the <a href="cmavericks-best-practices.html#lessons-learned">lessons learned</a> section of this guide for
 suggestions about specific code sources.</p>
-<div id="generated-code" class="section level3" number="34.6.1">
+<div id="generated-code" class="section level3" number="35.6.1">
 <h3>
 <span class="header-section-number">E.6.1</span> Generated Code<a class="anchor" aria-label="anchor" href="#generated-code"><i class="fas fa-link"></i></a>
 </h3>
@@ -530,7 +531,7 @@ it is very difficult to isolate the errors.</p>
 <p>Solution: re-generate problem code if possible, otherwise fix by
 hand. Fixing by hand is <strong>strongly discouraged</strong>.</p>
 </div>
-<div id="third-party-libraries" class="section level3" number="34.6.2">
+<div id="third-party-libraries" class="section level3" number="35.6.2">
 <h3>
 <span class="header-section-number">E.6.2</span> Third-party libraries<a class="anchor" aria-label="anchor" href="#third-party-libraries"><i class="fas fa-link"></i></a>
 </h3>
@@ -562,7 +563,7 @@ the codebase is updated the changes can be easily reproduced.</p></li>
 </ol>
 </div>
 </div>
-<div id="lessons-learned" class="section level2" number="34.7">
+<div id="lessons-learned" class="section level2" number="35.7">
 <h2>
 <span class="header-section-number">E.7</span> Lessons learned from specific issues<a class="anchor" aria-label="anchor" href="#lessons-learned"><i class="fas fa-link"></i></a>
 </h2>
@@ -576,14 +577,14 @@ it might be worthwhile to skim over all of this section.</p>
 <p>Where relevant, the issue is marked as being discoverable at compile
 time or runtime.</p>
 <p>Where applicable, a link to a live code demo is provided.</p>
-<div id="forward-incompatible" class="section level3" number="34.7.1">
+<div id="forward-incompatible" class="section level3" number="35.7.1">
 <h3>
 <span class="header-section-number">E.7.1</span> Forward-incompatibility problems with C++11<a class="anchor" aria-label="anchor" href="#forward-incompatible"><i class="fas fa-link"></i></a>
 </h3>
 <p>C++11 is not completely backward-compatible. In particular, the API
 for some parts of the standard library has changed slightly, in
 perhaps subtle ways. Most issues require minimal tweaking to fix.</p>
-<div id="container-iterator-const-ness" class="section level4" number="34.7.1.1">
+<div id="container-iterator-const-ness" class="section level4" number="35.7.1.1">
 <h4>
 <span class="header-section-number">E.7.1.1</span> Container iterator const-ness<a class="anchor" aria-label="anchor" href="#container-iterator-const-ness"><i class="fas fa-link"></i></a>
 </h4>
@@ -595,7 +596,7 @@ and <a href="http://www.cplusplus.com/reference/vector/vector/erase/"><code>eras
 methods that take iterator parameters.</p>
 </div>
 </div>
-<div id="iterating-standard-library-containers" class="section level3" number="34.7.2">
+<div id="iterating-standard-library-containers" class="section level3" number="35.7.2">
 <h3>
 <span class="header-section-number">E.7.2</span> Iterating standard library containers<a class="anchor" aria-label="anchor" href="#iterating-standard-library-containers"><i class="fas fa-link"></i></a>
 </h3>
@@ -612,7 +613,7 @@ segfault</li>
 in a segfault</li>
 </ul>
 </div>
-<div id="external-code-sources" class="section level3" number="34.7.3">
+<div id="external-code-sources" class="section level3" number="35.7.3">
 <h3>
 <span class="header-section-number">E.7.3</span> External code sources<a class="anchor" aria-label="anchor" href="#external-code-sources"><i class="fas fa-link"></i></a>
 </h3>
@@ -621,7 +622,7 @@ in a segfault</li>
 numerous file format libraries. Code from external sources is
 sometimes written in non-compiler-independent way. Check the
 documentation to see if the Mavericks environment is supported.</p>
-<div id="boost" class="section level4" number="34.7.3.1">
+<div id="boost" class="section level4" number="35.7.3.1">
 <h4>
 <span class="header-section-number">E.7.3.1</span> Boost<a class="anchor" aria-label="anchor" href="#boost"><i class="fas fa-link"></i></a>
 </h4>
@@ -651,7 +652,7 @@ environment, it might be worth contacting the library authors to
 inquire.</p></li>
 </ol>
 </div>
-<div id="swig" class="section level4" number="34.7.3.2">
+<div id="swig" class="section level4" number="35.7.3.2">
 <h4>
 <span class="header-section-number">E.7.3.2</span> SWIG<a class="anchor" aria-label="anchor" href="#swig"><i class="fas fa-link"></i></a>
 </h4>
@@ -690,7 +691,7 @@ package.</p>
 </li>
 </ol>
 </div>
-<div id="f2c" class="section level4" number="34.7.3.3">
+<div id="f2c" class="section level4" number="35.7.3.3">
 <h4>
 <span class="header-section-number">E.7.3.3</span> f2c<a class="anchor" aria-label="anchor" href="#f2c"><i class="fas fa-link"></i></a>
 </h4>
@@ -763,7 +764,7 @@ platform more or less has a targeted makefile. Please write the
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2022-12-19.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2023-01-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
