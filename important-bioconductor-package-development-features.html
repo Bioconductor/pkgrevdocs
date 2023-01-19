@@ -185,7 +185,7 @@ suggestions for importing different file types and commonly used
 searching in <a href="https://bioconductor.org/packages/devel/BiocViews.html">biocViews</a> for your data type.</p>
 <div id="commonimport" class="section level3" number="4.2.1">
 <h3>
-<span class="header-section-number">4.2.1</span> Importing<a class="anchor" aria-label="anchor" href="#commonimport"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.2.1</span> Importing data<a class="anchor" aria-label="anchor" href="#commonimport"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
 <li>GTF, GFF, BED, BigWig, etc., – <em><a href="https://bioconductor.org/packages/3.17/rtracklayer">rtracklayer</a></em> <code>::import()</code>
@@ -210,16 +210,18 @@ searching in <a href="https://bioconductor.org/packages/devel/BiocViews.html">bi
 </h3>
 <ul>
 <li>Rectangular feature x sample data –
-<em><a href="https://bioconductor.org/packages/3.17/SummarizedExperiment">SummarizedExperiment</a></em> <code>::SummarizedExperiment()</code> (RNAseq count
-matrix, microarray, …)</li>
-<li>Genomic coordinates – <em><a href="https://bioconductor.org/packages/3.17/GenomicRanges">GenomicRanges</a></em> <code>::GRanges()</code> (1-based,
-closed interval)</li>
+<em><a href="https://bioconductor.org/packages/3.17/SummarizedExperiment">SummarizedExperiment</a></em> <code>::SummarizedExperiment()</code>
+(RNAseq count matrix, microarray, …)</li>
+<li>Genomic coordinates – <em><a href="https://bioconductor.org/packages/3.17/GenomicRanges">GenomicRanges</a></em> <code>::GRanges()</code>
+(1-based, closed interval)</li>
 <li>Genomic coordinates from multiple samples –
 <em><a href="https://bioconductor.org/packages/3.17/GenomicRanges">GenomicRanges</a></em> <code>::GRangesList()</code>
 </li>
-<li>Ragged genomic coordinates – <em><a href="https://bioconductor.org/packages/3.17/RaggedExperiment">RaggedExperiment</a></em> <code>::RaggedExperiment()</code>
+<li>Ragged genomic coordinates – <em><a href="https://bioconductor.org/packages/3.17/RaggedExperiment">RaggedExperiment</a></em>
+<code>::RaggedExperiment()</code>
 </li>
-<li>DNA / RNA / AA sequences – <em><a href="https://bioconductor.org/packages/3.17/Biostrings">Biostrings</a></em> <code>::*StringSet()</code>
+<li>DNA / RNA / AA sequences – <em><a href="https://bioconductor.org/packages/3.17/Biostrings">Biostrings</a></em>
+<code>::*StringSet()</code>
 </li>
 <li>Gene sets – <em><a href="https://bioconductor.org/packages/3.17/BiocSet">BiocSet</a></em> <code>::BiocSet()</code>,
 <em><a href="https://bioconductor.org/packages/3.17/GSEABase">GSEABase</a></em> <code>::GeneSet()</code>,
@@ -232,6 +234,8 @@ closed interval)</li>
 <em><a href="https://bioconductor.org/packages/3.17/SingleCellExperiment">SingleCellExperiment</a></em> <code>::SingleCellExperiment()</code>
 </li>
 <li>Mass spec data – <em><a href="https://bioconductor.org/packages/3.17/Spectra">Spectra</a></em> <code>::Spectra()</code>
+</li>
+<li>File formats – <em><a href="https://bioconductor.org/packages/3.17/BiocIO">BiocIO</a></em> <code>::`BiocFile-class`</code>
 </li>
 </ul>
 <p>In general, a package will not be accepted if it does not show interoperability
@@ -267,7 +271,7 @@ documentation section</a> for more details.</p>
 </li>
 <li>
 <a class="nav-link" href="#reusebioc"><span class="header-section-number">4.2</span> Common Bioconductor Methods and Classes</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#commonimport"><span class="header-section-number">4.2.1</span> Importing</a></li>
+<li><a class="nav-link" href="#commonimport"><span class="header-section-number">4.2.1</span> Importing data</a></li>
 <li><a class="nav-link" href="#commonclass"><span class="header-section-number">4.2.2</span> Common Classes</a></li>
 </ul>
 </li>

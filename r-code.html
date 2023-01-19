@@ -156,13 +156,18 @@ numeric vector of the same length as the rows and is adhered to across classes
 including the <code>DelayedMatrix</code> class. Re-using generics reduces the amount of
 new generics by consolidating existing operations and avoids the mistake of
 introducing a “new” generic with the same name. Generic name collisions may
-mask or be masked by previous definitions in ways that are hard to diagnose.</p>
+mask or be masked by previous definitions in ways that are hard to diagnose.
+More recently, we recommend the use of <em><a href="https://CRAN.R-project.org/package=conflicted">conflicted</a></em> to
+identify namespace collisions.</p>
 <p>If there are problems, e.g., in performance or parsing your particular
-file type, ask for input from other developers on the bioc-devel
-mailing list. Common disadvantages to ‘implementing your own’ are the
-introduction of non-standard data representations (e.g., neglecting to
-translate coordinate systems of file formats to Bioconductor objects)
-and user bewilderment.</p>
+file type, ask for input from other developers on the
+<a href="https://stat.ethz.ch/mailman/listinfo/bioc-devel">bioc-devel</a> mailing list. Common disadvantages to
+‘implementing your own’ are the introduction of non-standard data
+representations (e.g., neglecting to translate coordinate systems of file
+formats to Bioconductor objects) and user bewilderment. Therefore, in such case,
+we recommend to use standard file format classes inheriting from
+<em><a href="https://bioconductor.org/packages/3.17/BiocIO">BiocIO</a></em>’s <code>BiocFile</code> class in packages such as
+<em><a href="https://bioconductor.org/packages/3.17/rtracklayer">rtracklayer</a></em> and <em><a href="https://bioconductor.org/packages/3.17/BiocIO">BiocIO</a></em>.</p>
 </div>
 <div id="naming-functions" class="section level3" number="15.2.2">
 <h3>
