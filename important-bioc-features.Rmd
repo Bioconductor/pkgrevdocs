@@ -80,7 +80,7 @@ suggestions for importing different file types and commonly used
 _Bioconductor_ classes. For more classes and functionality also try
 searching in [biocViews][] for your data type.
 
-### Importing {#commonimport}
+### Importing data {#commonimport}
 
 + GTF, GFF, BED, BigWig, etc., -- `r BiocStyle::Biocpkg("rtracklayer")` `::import()`
 + VCF -- `r BiocStyle::Biocpkg("VariantAnnotation")` `::readVcf()`
@@ -95,14 +95,16 @@ searching in [biocViews][] for your data type.
 ### Common Classes {#commonclass}
 
 + Rectangular feature x sample data --
-  `r BiocStyle::Biocpkg("SummarizedExperiment")` `::SummarizedExperiment()` (RNAseq count
-  matrix, microarray, ...)
-+ Genomic coordinates -- `r BiocStyle::Biocpkg("GenomicRanges")` `::GRanges()` (1-based,
-  closed interval)
+  `r BiocStyle::Biocpkg("SummarizedExperiment")` `::SummarizedExperiment()`
+  (RNAseq count matrix, microarray, ...)
++ Genomic coordinates -- `r BiocStyle::Biocpkg("GenomicRanges")` `::GRanges()`
+  (1-based, closed interval)
 + Genomic coordinates from multiple samples --
   `r BiocStyle::Biocpkg("GenomicRanges")` `::GRangesList()`
-+ Ragged genomic coordinates -- `r BiocStyle::Biocpkg("RaggedExperiment")` `::RaggedExperiment()`
-+ DNA / RNA / AA sequences -- `r BiocStyle::Biocpkg("Biostrings")` `::*StringSet()`
++ Ragged genomic coordinates -- `r BiocStyle::Biocpkg("RaggedExperiment")`
+  `::RaggedExperiment()`
++ DNA / RNA / AA sequences -- `r BiocStyle::Biocpkg("Biostrings")`
+  `::*StringSet()`
 + Gene sets -- `r BiocStyle::Biocpkg("BiocSet")` `::BiocSet()`,
   `r BiocStyle::Biocpkg("GSEABase")` `::GeneSet()`,
   `r BiocStyle::Biocpkg("GSEABase")` `::GeneSetCollection()`
@@ -111,6 +113,7 @@ searching in [biocViews][] for your data type.
 + Single cell data --
   `r BiocStyle::Biocpkg("SingleCellExperiment")` `::SingleCellExperiment()`
 + Mass spec data -- `r BiocStyle::Biocpkg("Spectra")` `::Spectra()`
++ File formats -- `r BiocStyle::Biocpkg("BiocIO")` `` ::`BiocFile-class` ``
 
 
 In general, a package will not be accepted if it does not show interoperability

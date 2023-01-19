@@ -55,13 +55,18 @@ including the `DelayedMatrix` class. Re-using generics reduces the amount of
 new generics by consolidating existing operations and avoids the mistake of
 introducing a "new" generic with the same name. Generic name collisions may
 mask or be masked by previous definitions in ways that are hard to diagnose.
+More recently, we recommend the use of `r BiocStyle::CRANpkg("conflicted")` to
+identify namespace collisions.
 
 If there are problems, e.g., in performance or parsing your particular
-file type, ask for input from other developers on the bioc-devel
-mailing list. Common disadvantages to 'implementing your own' are the
-introduction of non-standard data representations (e.g., neglecting to
-translate coordinate systems of file formats to Bioconductor objects)
-and user bewilderment.
+file type, ask for input from other developers on the
+[bioc-devel][bioc-devel-mail] mailing list. Common disadvantages to
+'implementing your own' are the introduction of non-standard data
+representations (e.g., neglecting to translate coordinate systems of file
+formats to Bioconductor objects) and user bewilderment. Therefore, in such case,
+we recommend to use standard file format classes inheriting from
+`r BiocStyle::Biocpkg("BiocIO")`'s `BiocFile` class in packages such as
+`r BiocStyle::Biocpkg("rtracklayer")` and `r BiocStyle::Biocpkg("BiocIO")`.
 
 ### Naming of packages, functions, and classes {#naming-functions}
 
