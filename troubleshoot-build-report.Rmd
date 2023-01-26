@@ -64,7 +64,40 @@ Often common Error's will arise as R develops and matures or as Bioconductor
 packages are modified and advance. This document provides some guidance on Error's
 and potential solutions.
 
+- [Bioconductor 3.17 with R 4.3](#bioc-317)
 - [Bioconductor 3.11 with R 4.0](#bioc-311)
+
+
+## Bioconductor 3.17 with R 4.3 {#bioc-317}
+
+- [Length = coercion to logical(1)](#lenCoerc)
+
+
+### Length = coercion to logical(1) {#lenCoerc}
+
+In R 4.3, a warning for a vector used in an if statement has increased to an
+ERROR. So this:
+
+     x = c(TRUE,TRUE, FALSE)
+     > if (x) 1
+     [1] 1
+     Warning message:
+     In if (x) 1 :
+       the condition has length > 1 and only the first element will be used
+
+Will now be:
+
+     > x = c(TRUE, TRUE, FALSE)
+     > if (x) 1
+     Error in if (x) 1 : the condition has length > 1
+
+<b>Solution:</b>
+In most cases this is a misjudgment in the length of the argument rather than
+intentional use of checking if the value was assigned.  The code should be reviewed
+to see if argument is being assigned correctly.  In most cases the simple
+solution might be to use an `any( )` or `all( )` surrounding the vector.
+
+
 
 ## Bioconductor 3.11 with R 4.0 {#bioc-311}
 
