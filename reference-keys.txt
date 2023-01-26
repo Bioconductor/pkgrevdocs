@@ -204,6 +204,8 @@ troubleshooting-build-report
 propagate
 how-do-i-reproduce-the-build-system-error
 common-build-report-errors
+bioc-317
+lenCoerc
 bioc-311
 s3method
 rcmdconfig
