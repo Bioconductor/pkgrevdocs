@@ -192,6 +192,8 @@ pull-requests-on-github
 push-github-changes-to-the-bioconductor-repository
 change-maintainer
 remove-large-data-files-and-clean-git-tree
+removing-large-files-from-history-with-filter-repo
+removing-large-files-from-history-with-bfg-repo-cleaner
 faq
 more-questions
 helpful-resources
