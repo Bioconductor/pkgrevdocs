@@ -9,6 +9,7 @@ overviews what is expected of community reviewers.
 - [Time Commitment](#review-time-commitment)
 - [Assignments](#review-assignments)
 - [Expectations and deadlines](#review-expectations-and-deadlines)
+- [Accept and Decline Packages](#acceptdecline)
 - [Requesting reassignment and temporary leave of assignment](#review-reassignment-and-temporary-leave)
 - [On-boarding](#review-onboarding)
 - [Recognition](#review-recognition)
@@ -62,6 +63,19 @@ will remove the reviewer and the person must reapply to be
 reactivated. Active reviewers are expected to review at least 1 package per
 Bioconductor release cycle. Otherwise they will be removed from being an active
 reviewer.
+
+## Accept and Decline Packages {.unnumbered #acceptdecline}
+
+In general we try to work with submitters to get their package in a
+state that would be acceptable for inclusion in Bioconductor regardless of how
+long that takes. If they are willing to take critiques and be open minded about
+Bioconductor requirements; we work with them. If a reviewer truly feels that a
+package does not qualify for Bioconductor (because of applicability, coding
+style, etc) or encounters a difficult submitter (unwilling to make changes,
+aggressive, etc) , please reach out to the package review administrators. The
+administrators will make a final determination before an official rejection or
+take over if the review becomes uncomfortable.  
+
 
 
 ## Requesting reassignment and temporary leave of assignment {.unnumbered #review-reassignment-and-temporary-leave}
