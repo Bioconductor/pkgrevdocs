@@ -1041,16 +1041,76 @@ maintain the package and avoid deprecation and removal.
 
 __Goal:__ Git remembers. Sometimes large data files are added to git
 repository (intentionally or unintentionally) causing the size of the repository
-to become large. It is necessary to remove the files and clean the git tree from
-tracking in order to reduce the size.
+to become large. When this happens, it's not enough to just remove the files.
+You also must remove them from the git tree (the repository history), or else
+your repository will remain large.
 
+There are a few ways to remove large files from a git history. Here, we'll
+outline two options: 1) `git filter-repo`, and 2) the BFG repo cleaner. 
 These steps should be run on your local copy and (if necessary) pushed to your
-own github repository. The steps below assume origin is a user maintained github
+own github repository.
+
+#### Removing Large Files from History with filter-repo
+
+As of 2023, the recommended way is to first locate any large files, and 
+then remove them with `git filter-repo`.
+
+1. Identify large files using [this git rev-list script](
+https://stackoverflow.com/a/42544963):
+
+```
+git rev-list --objects --all \
+| git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' \
+| sed -n 's/^blob //p' \
+| sort --numeric-sort --key=2 \
+| cut -c 1-12,41- \
+| $(command -v gnumfmt || echo numfmt) --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest
+```
+
+This will list all the objects in your repository, including objects in your
+history, in order of file size. Use this to identify the names of files to remove.
+
+2. Remove them with [filter-repo](https://github.com/newren/git-filter-repo).
+
+This is a separate tool that you'll have to install 
+(with *e.g.* `pip3 install git-filter-repo`). Then, you can rewrite your repository
+history to remove files like this, where `<file-glob>` identifies your files:
+
+```
+git filter-repo --path-glob '<file-glob>' --invert-paths
+```
+
+For example, to remove all `.RData` files, you could use:
+
+```
+git filter-repo --path-glob '*.RData' --invert-paths
+```
+
+This command may reset your remotes. Check with `git remote` and
+if needed, you can add remotes back in using something like this:
+
+```
+git remote add origin git@github.com:<username>/<repo_name>
+git push --set-upstream origin master --force
+```
+
+Finally, we have to push with `--mirror` to reset the remote.
+
+```
+git push --force --mirror
+```
+
+Now, just notify everyone that they'll have to re-clone the new repository, since 
+history has been rewritten, so existing clones will no longer be compatible
+with this repo.
+
+#### Removing Large Files from History with BFG repo cleaner
+
+Another option is to use BFG. The steps below assume `origin` is a user-maintained github
 repository.
 
 **NOTE:** Anyone that is maintaining the package repository (with a local copy)
   should run steps 1-3.
-
 
 1. Download [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/)
 
