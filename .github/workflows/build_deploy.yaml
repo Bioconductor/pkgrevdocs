@@ -2,7 +2,7 @@ on:
   push:
   pull_request:
     branches:
-      - master
+      - devel
 
 name: build_deploy
 
@@ -75,12 +75,12 @@ jobs:
 
       # deploy needs rsync? Seems so.
       - name: Install deploy dependencies
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/devel'
         run: |
           apt-get update && apt-get -y install rsync
           
       - name: Deploy 🚀
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/devel'
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
