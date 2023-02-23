@@ -2,15 +2,17 @@
 
 The _Bioconductor_ project has chosen 'devel' to be the default branch for
 GitHub and git repositories. To prepare for this transition, we have compiled a
-list of Frequently Asked Questions (FAQs) below.
+list of Frequently Asked Questions (FAQs) below with instructions on how
+to rename the default branch both on local clones and on GitHub.
 
 ## What is changing?
 
-The Bioconductor core team will rename the default branch to 'devel' on the
-Bioconductor git repository located at `git.bioconductor.org`. All other
-repositories including those on repository hosting platforms such as GitHub,
-GitLabs, etc. will not be affected by our change. Maintainers and developers
-will be responsible for updating their local and cloud git repositories.
+The Bioconductor core team will __only__ rename the default branch to 'devel' on
+the Bioconductor git repository at `git.bioconductor.org`. All other
+repository clones including those on hosting platforms such as GitHub, GitLabs,
+etc. will not be _directly_ affected by the core team's change; however, we
+highly recommend that maintainers and developers update their local and cloud
+repository clones to match the default branch name.
 
 ## Who is affected by this change?
 
@@ -19,25 +21,42 @@ Bioconductor users are not affected.
 
 ## What repositories are affected by this change?
 
-Note that there may exist several clones of a single Bioconductor repository.
-**Only** the Bioconductor repository that resides at `git.bioconductor.org` will
-be affected. The default branch for all packages in the Bioconductor git server
+Note that there may exist several clones of a single repository, e.g., on
+different servers and workstations. **Only** the repository that resides in the
+Bioconductor server hosted at `git.bioconductor.org` will be affected. The
+default branch for all packages in the Bioconductor git server
 will be set to `devel`. Maintainers and collaborators will be responsible for
-updating the local and cloud copies of their repositories.
+updating local and cloud repository clones.
+
+We recommend synchronizing the default branch changes to the GitHub-hosted
+repository to simplify workflows.
+
+For typical setup scenarios, see the [tidyverse blog
+post](https://www.tidyverse.org/blog/2021/10/renaming-default-branch/).
 
 ## What do I need to change?
 
-Bioconductor developers will have to rename default branches on their
-repositories to 'devel'. This includes GitHub and other local copies of their
-repositories including those from collaborators.
+Bioconductor developers will have to rename default branches on their __local__
+repositories to 'devel'. Optionally (and highly encouraged), GitHub and other
+local copies of affected repositories, including those from collaborators,
+should have their branches renamed.
 
 Bioconductor users will not need to do anything.
 
+## What if I create a fresh clone of my repository?
+
+It is possible to create a fresh clone of the repository but you may lose
+any working changes in the old local repository. This should only be done if
+you are comfortable with `git` and would like to start afresh. You will also
+need to set up the git remotes as
+[below](#what-should-my-git-remotes-look-like).
+
 ## What should my Git remotes look like?
 
-A recommended `git remote` set up should have `origin` set to the GitHub
-location and `upstream` to the Bioconductor git repository. For example,
-this would be the set up for `BiocGenerics`:
+As a reminder, maintainers who use GitHub should have the following recommended
+setup. The command `git remote -v` should display an `origin` remote that points
+to the GitHub location and an `upstream` remote that points to the Bioconductor
+git repository. For example, this is the set up for `BiocGenerics`:
 
     git remote -v
     # origin	git@github.com:Bioconductor/BiocGenerics (fetch)
@@ -45,47 +64,86 @@ this would be the set up for `BiocGenerics`:
     # upstream	git@git.bioconductor.org:packages/BiocGenerics (fetch)
     # upstream	git@git.bioconductor.org:packages/BiocGenerics (push)
     
-Note that we are using the SSH protocol for both remotes.
+__Note__. As maintainers, we use the SSH protocol for both remotes.
 
 ## How do I sync my Git remotes?
 
-Before making updates to branches, make sure that both remotes `origin` and
-`upstream` are in sync with:
+Before making updates to local branches, make sure that both remotes `origin`
+and `upstream` are in sync with:
 
     git checkout master
     git pull origin master
     git pull upstream devel:master
+    
+__Note__. These commands are to be run on the old local repository and do not
+apply to freshly cloned repositories.
+
+## What if I am an RStudio user?
+
+Maintainers that use RStudio should be familiar with running `git` commands
+via the `Terminal` tab in RStudio. The commands shown in this documentation
+can be entered in the `Terminal` tab, e.g., `git fetch --all` to obtain all
+updates from available remotes.
+
+## How do I set 'devel' as the default branch on GitHub?
+
+For maintainers who manage GitHub repositories and would like to use streamlined
+commands, we recommend synchronizing the default branch changes to their GitHub
+repositories. To this end, GitHub has provided a convenient way to rename the
+default branch of any repository. First, go to
+`https://github.com/{username}/{repo}/branches` where
+`username` and `repo` correspond to your GitHub username and repository,
+respectively.
+
+Then, click on the 'edit' pencil `r emo::ji("pen")` to rename the branch (seen
+here at the bottom right corner) and rename the branch to 'devel':
+
+```{r,echo=FALSE,out.width = "100%"}
+knitr::include_graphics("images/rename_branch_github_screen.png")
+```
+
+That's it! The default branch on GitHub is now set to `devel`.
+
+## What if I already have a 'devel' branch on GitHub?
+
+Simply select the "switch default branch" button (which looks like exchange
+arrows `r emo::ji("arrows_counterclockwise")`) at the top right of the "Default
+branch" box when navigating to `https://github.com/{username}/{repo}/branches`
+where `username` and `repo` correspond to your GitHub username and repository,
+respectively.
 
 ## How do I set 'devel' as the default local branch?
 
-The recommended way to use `devel` as the default branch is to carry out the
-rename operation on GitHub _first_ then perform an adjustment of the local
-branch(es).
+In order to keep commands simple and avoid confusion, we recommend making the
+same default branch changes to the GitHub repository. This allows minimal
+commands such as
 
-Once the branch is renamed, use the GitHub commands to update the local copy of
-the repository:
+    git push origin
+    git push upstream
+
+to simply work without specifying additional parameters when pushing to GitHub
+and Bioconductor.
+
+For maintainers who wish to make changes on GitHub as well, we recommend
+performing the rename operation on
+[GitHub _first_](#how-do-i-set-devel-as-the-default-branch-on-github), then
+performing an adjustment (rename) of the local branch(es).
+
+__Note__. This step is not necessary if you cloned a fresh copy from the
+Bioconductor git server though you will have to re-specify the `origin` and
+`upstream` remotes (as described [above](#what-should-my-git-remotes-look-like))
+with a fresh copy.
+
+Once the branch is renamed on GitHub, use the GitHub-provided commands to update
+the local copy of the repository:
 
     git branch -m master devel
     git fetch origin
     git branch -u origin/devel devel
     git remote set-head origin -a
 
-Note. Change 'master' to 'main' in the code above if the repository has 'main'
-as the default branch.
-
-## How do I set 'devel' as the default branch on GitHub?
-
-GitHub has provided a convenient way to rename the default branch for any
-repository. Go to `https://github.com/{username}/{repo}/branches` where
-`username` and `repo` correspond to your GitHub username and repository,
-respectively.
-
-Click on the 'edit' pencil to rename the branch (seen here at the bottom right
-corner) and rename the branch to 'devel':
-
-```{r,echo=FALSE}
-knitr::include_graphics("images/rename_branch_github_screen.png")
-```
+__Note__. Change 'master' to 'main' in the code above if the repository has
+'main' as the default branch.
 
 ## How do I push to Bioconductor after renaming?
 
@@ -99,17 +157,18 @@ To push `upstream` to Bioconductor, the developer will simply push to the
     
 ## What if I have a GitLab repository?
 
-Although the Bioconductor issue tracker does not support GitLab repositories,
-you can still change the default branch on GitLab. See the
+It is possible to also change the default branch on GitLab. See the
 [change default branch instructions](https://docs.gitlab.com/ee/user/project/repository/branches/default.html#change-the-default-branch-name-for-a-project).
-Updating the local repository can be done similarly as the instructions above.
+Once complete, you can update the local repository similarly to the [above
+instructions](#how-do-i-set-devel-as-the-default-local-branch).
 
 ### Early Branch Rename Adopters
 
-**NOTE**: This section is for eager developers who would like to make changes
-to their local repositories _before_ the Bioconductor git branch rename.
+**NOTE**: The following sections are for eager developers who would like to
+make changes to their local repositories _before_ the Bioconductor git branch
+rename (now).
 
-#### Sync repositories
+#### Sync repositories for early adopters
 
 Before making updates to branches, make sure that both remotes `origin` and
 `upstream` are in sync:
@@ -118,7 +177,7 @@ Before making updates to branches, make sure that both remotes `origin` and
     git pull origin master
     git pull upstream master
 
-#### Rename devel branch on GitHub
+#### Rename devel branch on GitHub for early adopters
 
 The rename operation should be done via GitHub. Go to
 `https://github.com/{username}/{repo}/branches` where `username` and `repo`
@@ -127,7 +186,7 @@ correspond to your GitHub username and repository, respectively.
 Click on the 'edit' pencil to rename the branch (seen here at the bottom right
 corner) and rename the branch to 'devel':
 
-```{r,echo=FALSE}
+```{r,echo=FALSE,out.width="100%"}
 knitr::include_graphics("images/rename_branch_github_screen.png")
 ```
 
@@ -142,7 +201,7 @@ repository:
 **Note**. `origin` here is set to the GitHub remote and tracking is set to
 `origin/devel`.
 
-#### Pushing to Bioconductor
+#### Pushing to Bioconductor for early adopters
 
 Mapping of branches is required to push upstream for early adopters, until the
 branch is renamed on the Bioconductor git server. The `git push` operation is as
