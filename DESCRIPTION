@@ -1,10 +1,13 @@
-Package: placeholder
+Package: contributions
 Type: Book
-Title: Does not matter.
+Title: The Bioconductor Contributions Guidelines
+Description: This book contains development, maintenance, and peer review
+  guidelines for the Bioconductor project.
 Version: 1.0.1
 Date: 2021-08-19
 Imports:
   BiocStyle,
+  emo,
   knitr
 Suggests:
   bookdown,
