@@ -13,6 +13,5 @@ Suggests:
   bslib,
   BiocManager,
   BiocStyle,
-  r-lib/downlit,
   withr
-Remotes: hadley/emo
+Remotes: hadley/emo, r-lib/downlit
