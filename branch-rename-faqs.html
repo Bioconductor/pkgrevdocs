@@ -105,16 +105,18 @@
 </h1>
 <p>The <em>Bioconductor</em> project has chosen ‘devel’ to be the default branch for
 GitHub and git repositories. To prepare for this transition, we have compiled a
-list of Frequently Asked Questions (FAQs) below.</p>
+list of Frequently Asked Questions (FAQs) below with instructions on how
+to rename the default branch both on local clones and on GitHub.</p>
 <div id="what-is-changing" class="section level2" number="27.1">
 <h2>
 <span class="header-section-number">27.1</span> What is changing?<a class="anchor" aria-label="anchor" href="#what-is-changing"><i class="fas fa-link"></i></a>
 </h2>
-<p>The Bioconductor core team will rename the default branch to ‘devel’ on the
-Bioconductor git repository located at <code>git.bioconductor.org</code>. All other
-repositories including those on repository hosting platforms such as GitHub,
-GitLabs, etc. will not be affected by our change. Maintainers and developers
-will be responsible for updating their local and cloud git repositories.</p>
+<p>The Bioconductor core team will <strong>only</strong> rename the default branch to ‘devel’ on
+the Bioconductor git repository at <code>git.bioconductor.org</code>. All other
+repository clones including those on hosting platforms such as GitHub, GitLabs,
+etc. will not be <em>directly</em> affected by the core team’s change; however, we
+highly recommend that maintainers and developers update their local and cloud
+repository clones to match the default branch name.</p>
 </div>
 <div id="who-is-affected-by-this-change" class="section level2" number="27.2">
 <h2>
@@ -127,78 +129,148 @@ Bioconductor users are not affected.</p>
 <h2>
 <span class="header-section-number">27.3</span> What repositories are affected by this change?<a class="anchor" aria-label="anchor" href="#what-repositories-are-affected-by-this-change"><i class="fas fa-link"></i></a>
 </h2>
-<p>Note that there may exist several clones of a single Bioconductor repository.
-<strong>Only</strong> the Bioconductor repository that resides at <code>git.bioconductor.org</code> will
-be affected. The default branch for all packages in the Bioconductor git server
+<p>Note that there may exist several clones of a single repository, e.g., on
+different servers and workstations. <strong>Only</strong> the repository that resides in the
+Bioconductor server hosted at <code>git.bioconductor.org</code> will be affected. The
+default branch for all packages in the Bioconductor git server
 will be set to <code>devel</code>. Maintainers and collaborators will be responsible for
-updating the local and cloud copies of their repositories.</p>
+updating local and cloud repository clones.</p>
+<p>We recommend synchronizing the default branch changes to the GitHub-hosted
+repository to simplify workflows.</p>
+<p>For typical setup scenarios, see the <a href="https://www.tidyverse.org/blog/2021/10/renaming-default-branch/">tidyverse blog
+post</a>.</p>
 </div>
 <div id="what-do-i-need-to-change" class="section level2" number="27.4">
 <h2>
 <span class="header-section-number">27.4</span> What do I need to change?<a class="anchor" aria-label="anchor" href="#what-do-i-need-to-change"><i class="fas fa-link"></i></a>
 </h2>
-<p>Bioconductor developers will have to rename default branches on their
-repositories to ‘devel’. This includes GitHub and other local copies of their
-repositories including those from collaborators.</p>
+<p>We recommend Bioconductor developers to rename default branches on their
+<strong>local</strong> repositories to ‘devel’. Optionally (and highly encouraged), GitHub
+and other local copies of affected repositories, including those from
+collaborators, should have their branches renamed.</p>
 <p>Bioconductor users will not need to do anything.</p>
+<p><strong>Note</strong>. The minority of maintainers <em>without</em> a GitHub repository should
+rename and set the ‘HEAD’ as follows:</p>
+<pre><code>git branch -m master devel
+git fetch origin
+git branch -u origin/devel devel
+git remote set-head origin -a</code></pre>
+<p>All other maintainers with GitHub repositories should see the sections <a href="branch-rename-faqs.html#how-do-i-set-devel-as-the-default-branch-on-github">How do
+I set ‘devel’ as the default branch on
+GitHub?</a> and <a href="branch-rename-faqs.html#how-do-i-set-devel-as-the-default-local-branch">How do I set
+‘devel’ as the default local
+’branch?</a>, respectively.</p>
 </div>
-<div id="what-should-my-git-remotes-look-like" class="section level2" number="27.5">
+<div id="what-if-i-am-an-rstudio-user" class="section level2" number="27.5">
 <h2>
-<span class="header-section-number">27.5</span> What should my Git remotes look like?<a class="anchor" aria-label="anchor" href="#what-should-my-git-remotes-look-like"><i class="fas fa-link"></i></a>
+<span class="header-section-number">27.5</span> What if I am an RStudio user?<a class="anchor" aria-label="anchor" href="#what-if-i-am-an-rstudio-user"><i class="fas fa-link"></i></a>
 </h2>
-<p>A recommended <code>git remote</code> set up should have <code>origin</code> set to the GitHub
-location and <code>upstream</code> to the Bioconductor git repository. For example,
-this would be the set up for <code>BiocGenerics</code>:</p>
+<p>Maintainers that use RStudio should be familiar with running <code>git</code> commands
+via the <code>Terminal</code> tab in RStudio. The commands shown in this documentation
+can be entered in the <code>Terminal</code> tab, e.g., <code>git fetch --all</code> to obtain all
+updates from available remotes.</p>
+</div>
+<div id="what-if-i-create-a-fresh-clone-of-my-repository" class="section level2" number="27.6">
+<h2>
+<span class="header-section-number">27.6</span> What if I create a fresh clone of my repository?<a class="anchor" aria-label="anchor" href="#what-if-i-create-a-fresh-clone-of-my-repository"><i class="fas fa-link"></i></a>
+</h2>
+<p>It is possible to create a fresh clone of the repository but you may lose
+any working changes in the old local repository. This should only be done if
+you are comfortable with <code>git</code> and would like to start afresh. You will also
+need to set up the git remotes as
+<a href="branch-rename-faqs.html#what-should-my-git-remotes-look-like">below</a>.</p>
+</div>
+<div id="what-should-my-git-remotes-look-like" class="section level2" number="27.7">
+<h2>
+<span class="header-section-number">27.7</span> What should my Git remotes look like?<a class="anchor" aria-label="anchor" href="#what-should-my-git-remotes-look-like"><i class="fas fa-link"></i></a>
+</h2>
+<p>As a reminder, maintainers who use GitHub should have the following recommended
+setup. The command <code>git remote -v</code> should display an <code>origin</code> remote that points
+to the GitHub location and an <code>upstream</code> remote that points to the Bioconductor
+git repository. For example, this is the set up for <code>BiocGenerics</code>:</p>
 <pre><code>git remote -v
 # origin    git@github.com:Bioconductor/BiocGenerics (fetch)
 # origin    git@github.com:Bioconductor/BiocGenerics (push)
 # upstream  git@git.bioconductor.org:packages/BiocGenerics (fetch)
 # upstream  git@git.bioconductor.org:packages/BiocGenerics (push)</code></pre>
-<p>Note that we are using the SSH protocol for both remotes.</p>
+<p><strong>Note</strong>. As maintainers, we use the SSH protocol for both remotes.</p>
 </div>
-<div id="how-do-i-sync-my-git-remotes" class="section level2" number="27.6">
+<div id="how-do-i-sync-my-git-remotes" class="section level2" number="27.8">
 <h2>
-<span class="header-section-number">27.6</span> How do I sync my Git remotes?<a class="anchor" aria-label="anchor" href="#how-do-i-sync-my-git-remotes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">27.8</span> How do I sync my Git remotes?<a class="anchor" aria-label="anchor" href="#how-do-i-sync-my-git-remotes"><i class="fas fa-link"></i></a>
 </h2>
-<p>Before making updates to branches, make sure that both remotes <code>origin</code> and
-<code>upstream</code> are in sync with:</p>
+<p>Before making updates to local branches, make sure that both remotes <code>origin</code>
+and <code>upstream</code> are in sync with:</p>
 <pre><code>git checkout master
 git pull origin master
 git pull upstream devel:master</code></pre>
+<p><strong>Note</strong>. These commands are to be run on the old local repository and do not
+apply to freshly cloned repositories.</p>
 </div>
-<div id="how-do-i-set-devel-as-the-default-local-branch" class="section level2" number="27.7">
+<div id="how-do-i-set-devel-as-the-default-branch-on-github" class="section level2" number="27.9">
 <h2>
-<span class="header-section-number">27.7</span> How do I set ‘devel’ as the default local branch?<a class="anchor" aria-label="anchor" href="#how-do-i-set-devel-as-the-default-local-branch"><i class="fas fa-link"></i></a>
+<span class="header-section-number">27.9</span> How do I set ‘devel’ as the default branch on GitHub?<a class="anchor" aria-label="anchor" href="#how-do-i-set-devel-as-the-default-branch-on-github"><i class="fas fa-link"></i></a>
 </h2>
-<p>The recommended way to use <code>devel</code> as the default branch is to carry out the
-rename operation on GitHub <em>first</em> then perform an adjustment of the local
-branch(es).</p>
-<p>Once the branch is renamed, use the GitHub commands to update the local copy of
-the repository:</p>
+<p>For maintainers who manage GitHub repositories and would like to use streamlined
+commands, we recommend synchronizing the default branch changes to their GitHub
+repositories. To this end, GitHub has provided a convenient way to rename the
+default branch of any repository. First, go to
+<code>https://github.com/{username}/{repo}/branches</code> where
+<code>username</code> and <code>repo</code> correspond to your GitHub username and repository,
+respectively.</p>
+<p>Then, click on the ‘edit’ pencil 🖊 to rename the branch (seen
+here at the bottom right corner) and rename the branch to ‘devel’:</p>
+<div class="inline-figure"><img src="images/rename_branch_github_screen.png" width="100%"></div>
+<p>That’s it! The default branch on GitHub is now set to <code>devel</code>.</p>
+<p>Follow the instructions in the <a href="branch-rename-faqs.html#how-do-i-set-devel-as-the-default-local-branch">How do I set ‘devel’ as the default local
+branch?</a> to sync local
+repository clones.</p>
+</div>
+<div id="what-if-i-already-have-a-devel-branch-on-github" class="section level2" number="27.10">
+<h2>
+<span class="header-section-number">27.10</span> What if I already have a ‘devel’ branch on GitHub?<a class="anchor" aria-label="anchor" href="#what-if-i-already-have-a-devel-branch-on-github"><i class="fas fa-link"></i></a>
+</h2>
+<p>Simply select the “switch default branch” button (which looks like exchange
+arrows 🔄) at the top right of the “Default
+branch” box when navigating to <code>https://github.com/{username}/{repo}/branches</code>
+where <code>username</code> and <code>repo</code> correspond to your GitHub username and repository,
+respectively.</p>
+</div>
+<div id="how-do-i-set-devel-as-the-default-local-branch" class="section level2" number="27.11">
+<h2>
+<span class="header-section-number">27.11</span> How do I set ‘devel’ as the default local branch?<a class="anchor" aria-label="anchor" href="#how-do-i-set-devel-as-the-default-local-branch"><i class="fas fa-link"></i></a>
+</h2>
+<p>In order to keep commands simple and avoid confusion, we recommend making the
+same default branch changes to the GitHub repository. This allows minimal
+commands such as</p>
+<pre><code>git push origin
+git push upstream</code></pre>
+<p>to simply work without specifying additional parameters, (e.g., <code>main:devel</code>)
+when pushing to GitHub and Bioconductor.</p>
+<p>For maintainers who wish to make changes on GitHub as well, we recommend
+performing the rename operation on
+<a href="branch-rename-faqs.html#how-do-i-set-devel-as-the-default-branch-on-github">GitHub <em>first</em></a>, then
+performing an adjustment (rename) of the local branch(es).</p>
+<p><strong>Note</strong>. This step is not necessary if you cloned a fresh copy from the
+Bioconductor git server though you will have to re-specify the <code>origin</code> and
+<code>upstream</code> remotes (as described <a href="branch-rename-faqs.html#what-should-my-git-remotes-look-like">above</a>)
+with a fresh copy.</p>
+<p>Once the branch is renamed on GitHub, use the GitHub-provided commands to update
+the local copy of the repository:</p>
 <pre><code>git branch -m master devel
 git fetch origin
 git branch -u origin/devel devel
 git remote set-head origin -a</code></pre>
-<p>Note. Change ‘master’ to ‘main’ in the code above if the repository has ‘main’
-as the default branch.</p>
+<p><strong>Note</strong>. Change ‘master’ to ‘main’ if the repository has ‘main’ as the default
+branch:</p>
+<pre><code>git branch -m main devel
+git fetch origin
+git branch -u origin/devel devel
+git remote set-head origin -a</code></pre>
 </div>
-<div id="how-do-i-set-devel-as-the-default-branch-on-github" class="section level2" number="27.8">
+<div id="how-do-i-push-to-bioconductor-after-renaming" class="section level2" number="27.12">
 <h2>
-<span class="header-section-number">27.8</span> How do I set ‘devel’ as the default branch on GitHub?<a class="anchor" aria-label="anchor" href="#how-do-i-set-devel-as-the-default-branch-on-github"><i class="fas fa-link"></i></a>
-</h2>
-<p>GitHub has provided a convenient way to rename the default branch for any
-repository. Go to <code>https://github.com/{username}/{repo}/branches</code> where
-<code>username</code> and <code>repo</code> correspond to your GitHub username and repository,
-respectively.</p>
-<p>Click on the ‘edit’ pencil to rename the branch (seen here at the bottom right
-corner) and rename the branch to ‘devel’:</p>
-<div class="inline-figure">
-<img src="images/rename_branch_github_screen.png"><!-- -->
-</div>
-</div>
-<div id="how-do-i-push-to-bioconductor-after-renaming" class="section level2" number="27.9">
-<h2>
-<span class="header-section-number">27.9</span> How do I push to Bioconductor after renaming?<a class="anchor" aria-label="anchor" href="#how-do-i-push-to-bioconductor-after-renaming"><i class="fas fa-link"></i></a>
+<span class="header-section-number">27.12</span> How do I push to Bioconductor after renaming?<a class="anchor" aria-label="anchor" href="#how-do-i-push-to-bioconductor-after-renaming"><i class="fas fa-link"></i></a>
 </h2>
 <p>To push <code>upstream</code> to Bioconductor, the developer will simply push to the
 <code>devel</code> branch:</p>
@@ -207,23 +279,24 @@ git checkout devel
 #### &lt;commit changes and bump version etc.&gt;
 git push upstream devel</code></pre>
 </div>
-<div id="what-if-i-have-a-gitlab-repository" class="section level2" number="27.10">
+<div id="what-if-i-have-a-gitlab-repository" class="section level2" number="27.13">
 <h2>
-<span class="header-section-number">27.10</span> What if I have a GitLab repository?<a class="anchor" aria-label="anchor" href="#what-if-i-have-a-gitlab-repository"><i class="fas fa-link"></i></a>
+<span class="header-section-number">27.13</span> What if I have a GitLab repository?<a class="anchor" aria-label="anchor" href="#what-if-i-have-a-gitlab-repository"><i class="fas fa-link"></i></a>
 </h2>
-<p>Although the Bioconductor issue tracker does not support GitLab repositories,
-you can still change the default branch on GitLab. See the
+<p>It is possible to also change the default branch on GitLab. See the
 <a href="https://docs.gitlab.com/ee/user/project/repository/branches/default.html#change-the-default-branch-name-for-a-project">change default branch instructions</a>.
-Updating the local repository can be done similarly as the instructions above.</p>
-<div id="early-branch-rename-adopters" class="section level3" number="27.10.1">
+Once complete, you can update the local repository similarly to the <a href="branch-rename-faqs.html#how-do-i-set-devel-as-the-default-local-branch">above
+instructions</a>.</p>
+<div id="early-branch-rename-adopters" class="section level3" number="27.13.1">
 <h3>
-<span class="header-section-number">27.10.1</span> Early Branch Rename Adopters<a class="anchor" aria-label="anchor" href="#early-branch-rename-adopters"><i class="fas fa-link"></i></a>
+<span class="header-section-number">27.13.1</span> Early Branch Rename Adopters<a class="anchor" aria-label="anchor" href="#early-branch-rename-adopters"><i class="fas fa-link"></i></a>
 </h3>
-<p><strong>NOTE</strong>: This section is for eager developers who would like to make changes
-to their local repositories <em>before</em> the Bioconductor git branch rename.</p>
-<div id="sync-repositories" class="section level4" number="27.10.1.1">
+<p><strong>NOTE</strong>: The following sections are for eager developers who would like to
+make changes to their local repositories <em>before</em> the Bioconductor git branch
+rename (now).</p>
+<div id="sync-repositories-for-early-adopters" class="section level4" number="27.13.1.1">
 <h4>
-<span class="header-section-number">27.10.1.1</span> Sync repositories<a class="anchor" aria-label="anchor" href="#sync-repositories"><i class="fas fa-link"></i></a>
+<span class="header-section-number">27.13.1.1</span> Sync repositories for early adopters<a class="anchor" aria-label="anchor" href="#sync-repositories-for-early-adopters"><i class="fas fa-link"></i></a>
 </h4>
 <p>Before making updates to branches, make sure that both remotes <code>origin</code> and
 <code>upstream</code> are in sync:</p>
@@ -231,18 +304,16 @@ to their local repositories <em>before</em> the Bioconductor git branch rename.<
 git pull origin master
 git pull upstream master</code></pre>
 </div>
-<div id="rename-devel-branch-on-github" class="section level4" number="27.10.1.2">
+<div id="rename-devel-branch-on-github-for-early-adopters" class="section level4" number="27.13.1.2">
 <h4>
-<span class="header-section-number">27.10.1.2</span> Rename devel branch on GitHub<a class="anchor" aria-label="anchor" href="#rename-devel-branch-on-github"><i class="fas fa-link"></i></a>
+<span class="header-section-number">27.13.1.2</span> Rename devel branch on GitHub for early adopters<a class="anchor" aria-label="anchor" href="#rename-devel-branch-on-github-for-early-adopters"><i class="fas fa-link"></i></a>
 </h4>
 <p>The rename operation should be done via GitHub. Go to
 <code>https://github.com/{username}/{repo}/branches</code> where <code>username</code> and <code>repo</code>
 correspond to your GitHub username and repository, respectively.</p>
 <p>Click on the ‘edit’ pencil to rename the branch (seen here at the bottom right
 corner) and rename the branch to ‘devel’:</p>
-<div class="inline-figure">
-<img src="images/rename_branch_github_screen.png"><!-- -->
-</div>
+<div class="inline-figure"><img src="images/rename_branch_github_screen.png" width="100%"></div>
 <p>Once the branch is renamed, use the GitHub commands to update the local
 repository:</p>
 <pre><code>git branch -m master devel
@@ -252,9 +323,9 @@ git remote set-head origin -a</code></pre>
 <p><strong>Note</strong>. <code>origin</code> here is set to the GitHub remote and tracking is set to
 <code>origin/devel</code>.</p>
 </div>
-<div id="pushing-to-bioconductor" class="section level4" number="27.10.1.3">
+<div id="pushing-to-bioconductor-for-early-adopters" class="section level4" number="27.13.1.3">
 <h4>
-<span class="header-section-number">27.10.1.3</span> Pushing to Bioconductor<a class="anchor" aria-label="anchor" href="#pushing-to-bioconductor"><i class="fas fa-link"></i></a>
+<span class="header-section-number">27.13.1.3</span> Pushing to Bioconductor for early adopters<a class="anchor" aria-label="anchor" href="#pushing-to-bioconductor-for-early-adopters"><i class="fas fa-link"></i></a>
 </h4>
 <p>Mapping of branches is required to push upstream for early adopters, until the
 branch is renamed on the Bioconductor git server. The <code>git push</code> operation is as
@@ -282,13 +353,16 @@ git push upstream devel:master</code></pre>
 <li><a class="nav-link" href="#who-is-affected-by-this-change"><span class="header-section-number">27.2</span> Who is affected by this change?</a></li>
 <li><a class="nav-link" href="#what-repositories-are-affected-by-this-change"><span class="header-section-number">27.3</span> What repositories are affected by this change?</a></li>
 <li><a class="nav-link" href="#what-do-i-need-to-change"><span class="header-section-number">27.4</span> What do I need to change?</a></li>
-<li><a class="nav-link" href="#what-should-my-git-remotes-look-like"><span class="header-section-number">27.5</span> What should my Git remotes look like?</a></li>
-<li><a class="nav-link" href="#how-do-i-sync-my-git-remotes"><span class="header-section-number">27.6</span> How do I sync my Git remotes?</a></li>
-<li><a class="nav-link" href="#how-do-i-set-devel-as-the-default-local-branch"><span class="header-section-number">27.7</span> How do I set ‘devel’ as the default local branch?</a></li>
-<li><a class="nav-link" href="#how-do-i-set-devel-as-the-default-branch-on-github"><span class="header-section-number">27.8</span> How do I set ‘devel’ as the default branch on GitHub?</a></li>
-<li><a class="nav-link" href="#how-do-i-push-to-bioconductor-after-renaming"><span class="header-section-number">27.9</span> How do I push to Bioconductor after renaming?</a></li>
+<li><a class="nav-link" href="#what-if-i-am-an-rstudio-user"><span class="header-section-number">27.5</span> What if I am an RStudio user?</a></li>
+<li><a class="nav-link" href="#what-if-i-create-a-fresh-clone-of-my-repository"><span class="header-section-number">27.6</span> What if I create a fresh clone of my repository?</a></li>
+<li><a class="nav-link" href="#what-should-my-git-remotes-look-like"><span class="header-section-number">27.7</span> What should my Git remotes look like?</a></li>
+<li><a class="nav-link" href="#how-do-i-sync-my-git-remotes"><span class="header-section-number">27.8</span> How do I sync my Git remotes?</a></li>
+<li><a class="nav-link" href="#how-do-i-set-devel-as-the-default-branch-on-github"><span class="header-section-number">27.9</span> How do I set ‘devel’ as the default branch on GitHub?</a></li>
+<li><a class="nav-link" href="#what-if-i-already-have-a-devel-branch-on-github"><span class="header-section-number">27.10</span> What if I already have a ‘devel’ branch on GitHub?</a></li>
+<li><a class="nav-link" href="#how-do-i-set-devel-as-the-default-local-branch"><span class="header-section-number">27.11</span> How do I set ‘devel’ as the default local branch?</a></li>
+<li><a class="nav-link" href="#how-do-i-push-to-bioconductor-after-renaming"><span class="header-section-number">27.12</span> How do I push to Bioconductor after renaming?</a></li>
 <li>
-<a class="nav-link" href="#what-if-i-have-a-gitlab-repository"><span class="header-section-number">27.10</span> What if I have a GitLab repository?</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#early-branch-rename-adopters"><span class="header-section-number">27.10.1</span> Early Branch Rename Adopters</a></li></ul>
+<a class="nav-link" href="#what-if-i-have-a-gitlab-repository"><span class="header-section-number">27.13</span> What if I have a GitLab repository?</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#early-branch-rename-adopters"><span class="header-section-number">27.13.1</span> Early Branch Rename Adopters</a></li></ul>
 </li>
 </ul>
 
@@ -307,7 +381,7 @@ git push upstream devel:master</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2023-01-27.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2023-02-24.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
