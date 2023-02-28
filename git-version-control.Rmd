@@ -1148,7 +1148,7 @@ repository.
 
 1. I can't access my package.
 
-   You will need to log in to the [BiocCredentials][] app. If you have
+   You will need to log in to the [BiocCredentials application][]. If you have
    not logged in before, you must first **activate** your account.
 
    There are two steps,
