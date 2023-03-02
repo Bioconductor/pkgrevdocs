@@ -3,8 +3,9 @@
 Everyone has their own coding style and formats. There are however some best
 practice guidelines that [_Bioconductor_ reviewers][reviewer-list] will look for. 
 
-<i class="fab fa-r-project"></i> can be a robust, fast and efficient programming language but often some
-coding practices result in less than ideal use of resources.
+<i class="fab fa-r-project"></i> can be a robust, fast and efficient programming
+language but often some coding practices result in less than ideal use of
+resources.
 
 
 This section will review some key points, suggestions, and best practices that
@@ -275,7 +276,7 @@ checks.
 * Use `vapply()` instead of `sapply()`, and use the various `apply` functions instead of `for` loops. See below section on vectorize.
 * Use `seq_len()` or `seq_along()` instead of `1:...`. See below section on avoid `1:n` style iterations
 * Use `TRUE` and `FALSE` instead of `T` and `F`.
-* Use of numeric indices (rather than robust named indices).
+* Use numeric indices (over named indices) at _lower_ level interfaces for computational efficiency.
 * Use `is()` instead of `class() ==` and `class() !=`.
 * Use `system2()` instead of `system()`.
 * Do not use `set.seed()` in any internal <i class="fab fa-r-project"></i> code.
