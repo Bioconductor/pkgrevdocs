@@ -176,7 +176,7 @@ push-to-github-bioc
 resolve-merge-conflicts
 extra-resources
 abandon-changes
-force-bioconductor-master-to-github-master
+force-bioconductor-devel-to-github-devel
 reset-to-a-previous-commit
 delete-your-local-copy-and-github-repo-because-nothing-is-working
 disadvantages-of-going-nuclear

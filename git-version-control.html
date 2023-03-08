@@ -10,7 +10,7 @@
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
 <meta name="description" content="The Bioconductor project is maintained in a Git source control system. Package maintainers update their packages by pushing changes to their git repositories. This chapter contains several...">
-<meta name="generator" content="bookdown 0.32 with bs4_book()">
+<meta name="generator" content="bookdown 0.33 with bs4_book()">
 <meta property="og:title" content="Chapter 21 Git Version Control | Bioconductor Packages: Development, Maintenance, and Peer Review">
 <meta property="og:type" content="book">
 <meta property="og:description" content="The Bioconductor project is maintained in a Git source control system. Package maintainers update their packages by pushing changes to their git repositories. This chapter contains several...">
@@ -126,9 +126,9 @@ establish your identity.</p>
 <pre><code>BiocGenerics$ git diff     # review changes prior to commit
 BiocGenerics$ git log      # review recent commits</code></pre>
 <p>If the repository is already cloned, the work flow is to make sure
-that you are on the ‘master’ branch, pull any changes, then introduce
+that you are on the ‘devel’ branch, pull any changes, then introduce
 your edits.</p>
-<pre><code>BiocGenerics$ git checkout master
+<pre><code>BiocGenerics$ git checkout devel
 BiocGenerics$ git pull
 ## add, edit, commit, and push as above</code></pre>
 </div>
@@ -136,21 +136,21 @@ BiocGenerics$ git pull
 <h2>
 <span class="header-section-number">21.2</span> Where to Commit Changes<a class="anchor" aria-label="anchor" href="#where-to-commit-changes"><i class="fas fa-link"></i></a>
 </h2>
-<p>New features and bug fixes are introduced on the master (‘devel’)
-branch of the GIT repository.</p>
-<pre><code>BiocGenerics$ git checkout master
+<p>New features and bug fixes are introduced on the devel branch of the GIT
+repository.</p>
+<pre><code>BiocGenerics$ git checkout devel
 BiocGenerics$ git pull
-## edit 'R/foo.R' and commit on master
+## edit 'R/foo.R' and commit on devel
 BiocGenerics$ git commit R/foo.R  #
-[master c955179] your commit message
+[devel c955179] your commit message
 1 file changed, 10 insertions(+), 3 deletions(-)
 BiocGenerics$ git push</code></pre>
 <p>To make more extensive changes see <a href="git-version-control.html#bug-fix-in-release-and-devel">Fix bugs in devel and release</a>.</p>
 <p>Bug fixes can be ported to the current release branch. Use
 <code>cherry-pick</code> to identify the commmit(s) you would like to port. E.g.,
-for release 3.6, porting the most recent commit to master</p>
+for release 3.6, porting the most recent commit to devel</p>
 <pre><code>BiocGenerics$ git checkout RELEASE_3_6
-BiocGenerics$ git cherry-pick master
+BiocGenerics$ git cherry-pick devel
 BiocGenerics$ git push</code></pre>
 </div>
 <div id="checks-and-version-bumps" class="section level2" number="21.3">
@@ -256,15 +256,15 @@ repositories.</p>
 <pre><code> git fetch --all
 
  ## merge changes from Bioc (upstream remote at git@git.bioconductor.org)
- git merge upstream/master
+ git merge upstream/devel
 
  ## merge changes from GitHub (origin remote)
- git merge origin/master</code></pre>
-<p><strong>Note</strong>. If your GitHub default branch is <code>main</code>, replace <code>master</code> with
+ git merge origin/devel</code></pre>
+<p><strong>Note</strong>. If your GitHub default branch is <code>main</code>, replace <code>devel</code> with
 <code>main</code>:</p>
 <pre><code> ## merge changes from GitHub (origin remote)
  git merge origin/main</code></pre>
-<p>Make changes to your package master branch and commit them to your
+<p>Make changes to your package devel branch and commit them to your
 local repository</p>
 <pre><code> git add &lt;files changed&gt;
  git commit -m "&lt;informative commit message&gt;"</code></pre>
@@ -284,14 +284,14 @@ that the package is built across platforms.</p>
 the changes in your local repository to the <em>Bioconductor</em> and
 GitHub repositories.</p>
 <pre><code> ## push to BioC (upstream remote at git@git.bioconductor.org)
- git push upstream master
+ git push upstream devel
 
  ## push to GitHub (origin remote)
- git push origin master</code></pre>
-<p><strong>Note</strong>. If your GitHub default branch is <code>main</code>, replace <code>master</code> with
+ git push origin devel</code></pre>
+<p><strong>Note</strong>. If your GitHub default branch is <code>main</code>, replace <code>devel</code> with
 <code>main</code>:</p>
 <pre><code> ## push to Bioc (upstream remote at git@git.bioconductor.org)
- git push upstream main:master
+ git push upstream main:devel
 
  ## push to GitHub (origin remote)
  git push origin main</code></pre>
@@ -365,17 +365,17 @@ git remote add upstream git@git.bioconductor.org:packages/BiocGenerics.git</code
 <pre><code>git fetch upstream</code></pre>
 </li>
 <li>
-<p>Merge upstream with origin’s master branch,</p>
-<pre><code>git merge upstream/master</code></pre>
+<p>Merge upstream with origin’s devel branch,</p>
+<pre><code>git merge upstream/devel</code></pre>
 <p><strong>NOTE:</strong> If you have the error <code>fatal: refusing to merge unrelated histories</code>, then the repository cloned in step 4 was not
 empty. Either clone an empty repository, or see
 <a href="git-version-control.html#sync-existing-repositories">Sync existing repositories</a>.</p>
 </li>
 <li>
-<p>Push changes to your origin master,</p>
-<pre><code> git push origin master</code></pre>
+<p>Push changes to your origin devel,</p>
+<pre><code> git push origin devel</code></pre>
 <p><strong>NOTE:</strong> Run the command <code>git config --global push.default  matching</code> to always push local branches to the remote branch of
-the same name, allowing use of <code>git push origin</code> rather than <code>git  push origin master</code>.</p>
+the same name, allowing use of <code>git push origin</code> rather than <code>git  push origin devel</code>.</p>
 </li>
 <li>
 <p>(Optional) Add a branch to GitHub,</p>
@@ -388,7 +388,7 @@ git checkout -b RELEASE_3_6 upstream/RELEASE_3_6
 ## Push updates to remote origin's new branch RELEASE_3_6
 git push -u origin RELEASE_3_6</code></pre>
 </li>
-<li><p>Check your GitHub repository to confirm that the <code>master</code> (and
+<li><p>Check your GitHub repository to confirm that the <code>devel</code> (and
 optionally <code>RELEASE_3_6</code>) branches are present.</p></li>
 <li><p>Once the GitHub repository is established follow
 <a href="git-version-control.html#push-to-github-bioc">Push to GitHub and <em>Bioconductor</em></a> to maintain your repository
@@ -447,17 +447,17 @@ needed to avoid conflicts.</p>
 </li>
 <li>
 <p>Make the required changes, then <code>add</code> and <code>commit</code> your changes to
-your <code>master</code> branch.</p>
+your <code>devel</code> branch.</p>
 <pre><code> git add &lt;files changed&gt;
  git commit -m "My informative commit message"</code></pre>
 </li>
 <li>
 <p>(Alternative) If the changes are non-trivial, create a new branch
 where you can easily abandon any false starts. Merge the final
-version onto <code>master</code></p>
+version onto <code>devel</code></p>
 <pre><code> git checkout -b feature-my-feature
  ## add and commit to this branch. When the change is complete...
- git checkout master
+ git checkout devel
  git merge feature-my-feature</code></pre>
 </li>
 </ol>
@@ -470,9 +470,9 @@ version onto <code>master</code></p>
 <li>
 <p>Push your commits to the <em>Bioconductor</em> repository to make them
 available to the user community.</p>
-<p>Push changes to the <code>master</code> branch using:</p>
-<pre><code> git checkout master
- git push upstream master</code></pre>
+<p>Push changes to the <code>devel</code> branch using:</p>
+<pre><code> git checkout devel
+ git push upstream devel</code></pre>
 </li>
 </ol>
 <p>Make sure there is a valid version bump for the changes to propagate to users.</p>
@@ -481,8 +481,8 @@ available to the user community.</p>
 <h4>
 <span class="header-section-number">21.5.3.4</span> (Optional) Merge changes to the current release branch<a class="anchor" aria-label="anchor" href="#optional-merge-changes-to-the-current-release-branch"><i class="fas fa-link"></i></a>
 </h4>
-<p>Merging master into release branch should be avoided. Select bug fixes should be
-cherry-picked from master to release. See section <a href="git-version-control.html#bug-fix-in-release-and-devel">Bug Fixes in Release and Devel</a></p>
+<p>Merging devel into release branch should be avoided. Select bug fixes should be
+cherry-picked from devel to release. See section <a href="git-version-control.html#bug-fix-in-release-and-devel">Bug Fixes in Release and Devel</a></p>
 </div>
 </div>
 </div>
@@ -516,32 +516,32 @@ resolving conflicts, below.</p>
 <pre><code> git fetch --all</code></pre>
 </li>
 <li>
-<p>Make sure you are on the master branch.</p>
-<pre><code> git checkout master</code></pre>
+<p>Make sure you are on the devel branch.</p>
+<pre><code> git checkout devel</code></pre>
 </li>
 <li>
 <p>Merge updates from the GitHub (<code>origin</code>) remote</p>
-<pre><code> git merge origin/master</code></pre>
+<pre><code> git merge origin/devel</code></pre>
 </li>
 <li>
 <p>Merge updates from the <em>Bioconductor</em> (<code>upstream</code>) remote</p>
-<pre><code> git merge upstream/master</code></pre>
+<pre><code> git merge upstream/devel</code></pre>
 <p>Users of git version &gt;= 2.9 will see an error message (“fatal:
 refusing to merge unrelated histories”) and need to use</p>
-<pre><code> git merge --allow-unrelated-histories upstream/master</code></pre>
+<pre><code> git merge --allow-unrelated-histories upstream/devel</code></pre>
 </li>
 <li><p><a href="git-version-control.html#resolve-merge-conflicts">Resolve merge conflicts</a> if necessary.</p></li>
 <li><p>After resolving conflicts and committing changes, look for duplicate
 commits (e.g., <code>git log --oneline | wc</code> returns twice as many
 commits as in SVN) and consider following the steps to
-<a href="git-version-control.html#force-bioconductor-master-to-github-master">force Bioconductor <code>master</code> to GitHub <code>master</code></a>.</p></li>
+<a href="git-version-control.html#force-bioconductor-devel-to-github-devel">force Bioconductor <code>devel</code> to GitHub <code>devel</code></a>.</p></li>
 <li>
 <p>Push to both <em>Bioconductor</em> and GitHub repositories.</p>
-<pre><code> git push upstream master
- git push origin master</code></pre>
+<pre><code> git push upstream devel
+ git push origin devel</code></pre>
 </li>
 <li>
-<p>Repeat for the release branch, replacing <code>master</code> with the name of
+<p>Repeat for the release branch, replacing <code>devel</code> with the name of
 the release branch, e.g., <code>RELEASE_3_6</code>. It may be necessary to
 create the release branch in the local repository.</p>
 <pre><code> git checkout RELEASE_3_6
@@ -553,11 +553,11 @@ create the release branch in the local repository.</p>
 you have to make a local copy of the <code>RELEASE_X_Y</code> branch, by</p>
 <pre><code> git checkout -b &lt;RELEASE_X_Y&gt; upstream/&lt;RELEASE_X_Y&gt;</code></pre>
 <p>Following this one time local checkout, you may switch between
-<code>RELEASE_X_Y</code> and <code>master</code> with <code>git checkout &lt;RELEASE_X_Y&gt;</code>. If you do
+<code>RELEASE_X_Y</code> and <code>devel</code> with <code>git checkout &lt;RELEASE_X_Y&gt;</code>. If you do
 not use the command to get a local copy of the release branch, you
 will get the message,</p>
 <pre><code>(HEAD detached from origin/RELEASE_X_Y)</code></pre>
-<p>Remember that only <code>master</code> and the current release branch of
+<p>Remember that only <code>devel</code> and the current release branch of
 <em>Bioconductor</em> repositories can be updated.</p>
 </li>
 </ol>
@@ -627,11 +627,11 @@ into your local repository, and push them to GitHub.</p>
 <p><strong>NOTE:</strong> It is always a good idea to fetch updates from
 <em>Bioconductor</em> before making more changes. This will help prevent
 merge conflicts.</p>
-<p>These steps update the <code>master</code> branch.</p>
+<p>These steps update the <code>devel</code> branch.</p>
 <ol style="list-style-type: decimal">
 <li>
 <p>Make sure you are on the appropriate branch.</p>
-<pre><code> git checkout master</code></pre>
+<pre><code> git checkout devel</code></pre>
 </li>
 <li>
 <p>Fetch content from <em>Bioconductor</em></p>
@@ -639,16 +639,16 @@ merge conflicts.</p>
 </li>
 <li>
 <p>Merge upstream with the appropriate local branch</p>
-<pre><code> git merge upstream/master</code></pre>
+<pre><code> git merge upstream/devel</code></pre>
 <p>Get help on <a href="git-version-control.html#resolve-merge-conflicts">Resolve merge conflicts</a> if these occur.</p>
 </li>
 <li>
 <p>If you also maintain a GitHub repository, push changes to GitHub’s
-(<code>origin</code>) <code>master</code> branch</p>
-<pre><code> git push origin master</code></pre>
+(<code>origin</code>) <code>devel</code> branch</p>
+<pre><code> git push origin devel</code></pre>
 </li>
 </ol>
-<p>To pull updates to the current <code>RELEASE_X_Y</code> branch, replace <code>master</code>
+<p>To pull updates to the current <code>RELEASE_X_Y</code> branch, replace <code>devel</code>
 with <code>RELEASE_X_Y</code> in the lines above.</p>
 <p>See instructions to <a href="git-version-control.html#sync-existing-repositories">Sync existing repositories</a> with
 changes to both the <em>Bioconductor</em> and GitHub repositories.</p>
@@ -658,7 +658,7 @@ changes to both the <em>Bioconductor</em> and GitHub repositories.</p>
 <span class="header-section-number">21.7.2</span> Push to GitHub and <em>Bioconductor</em> repositories<a class="anchor" aria-label="anchor" href="#push-to-github-bioc"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>Goal:</strong> During everyday development, you commit changes to your
-local repository <code>master</code> branch, and wish to push these commits to
+local repository <code>devel</code> branch, and wish to push these commits to
 both GitHub and <em>Bioconductor</em> repositories.</p>
 <p><strong>NOTE:</strong> See <a href="git-version-control.html#pull-upstream-changes">Pull upstream changes</a> for best practices before
 committing local changes.</p>
@@ -681,8 +681,8 @@ upstream    git@git.bioconductor.org:packages/BiocGenerics.git (fetch)
 upstream    git@git.bioconductor.org:packages/BiocGenerics.git (push)</code></pre>
 </li>
 <li>
-<p>Make and commit changes to the <code>master</code> branch</p>
-<pre><code> git checkout master
+<p>Make and commit changes to the <code>devel</code> branch</p>
+<pre><code> git checkout devel
  ## edit files, etc.
  git add &lt;name of file changed&gt;
  git commit -m "My informative commit message describing the change"</code></pre>
@@ -690,11 +690,11 @@ upstream    git@git.bioconductor.org:packages/BiocGenerics.git (push)</code></pr
 <li>
 <p>(Alternative) When changes are more elaborate, best practice is to
 use a local branch for development.</p>
-<pre><code> git checkout master
+<pre><code> git checkout devel
  git checkout -b feature-my-feature
  ## multiple rounds of edit, add, commit</code></pre>
-<p>Merge the local branch to master when the feature is ‘complete’.</p>
-<pre><code> git checkout master
+<p>Merge the local branch to devel when the feature is ‘complete’.</p>
+<pre><code> git checkout devel
 
  # Pull upstream changes before merging
  # http://bioconductor.org/developers/how-to/git/pull-upstream-changes/
@@ -702,12 +702,12 @@ use a local branch for development.</p>
  git merge feature-my-feature</code></pre>
 </li>
 <li>
-<p>Push updates to GitHub’s (<code>origin</code>) <code>master</code> branch</p>
-<pre><code> git push origin master</code></pre>
+<p>Push updates to GitHub’s (<code>origin</code>) <code>devel</code> branch</p>
+<pre><code> git push origin devel</code></pre>
 </li>
 <li>
-<p>Next, push updates to <em>Bioconductor</em>’s (<code>upstream</code>) <code>master</code> branch</p>
-<pre><code>git push upstream master</code></pre>
+<p>Next, push updates to <em>Bioconductor</em>’s (<code>upstream</code>) <code>devel</code> branch</p>
+<pre><code>git push upstream devel</code></pre>
 </li>
 <li><p>Confirm changes, e.g., by visiting the GitHub web page for the repository.</p></li>
 </ol>
@@ -722,7 +722,7 @@ use a local branch for development.</p>
 <li>
 <p>You will know you have a merge conflict when you see something like
 this:</p>
-<pre><code> git merge upstream/master
+<pre><code> git merge upstream/devel
  Auto-merging DESCRIPTION
  CONFLICT (content): Merge conflict in DESCRIPTION
  Automatic merge failed; fix conflicts and then commit the result</code></pre>
@@ -739,8 +739,8 @@ branches before a <code>push</code>.</p>
 which file has the conflict,</p>
 <pre><code> git status</code></pre>
 <p>This will show you something like this:</p>
-<pre><code> On branch master
- Your branch is ahead of 'origin/master' by 1 commit.
+<pre><code> On branch devel
+ Your branch is ahead of 'origin/devel' by 1 commit.
    (use "git push" to publish your local commits)
  You have un-merged paths.
    (fix conflicts and run "git commit")
@@ -759,10 +759,10 @@ which file has the conflict,</p>
  Version: 0.23.2
  =======
  Version: 0.23.3
- &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/master</code></pre>
+ &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/devel</code></pre>
 <p>Everything between <code>&lt;&lt;&lt;&lt;</code> and <code>=====</code> refers to HEAD, i.e your
 current change. And everything between <code>=====</code> and <code>&gt;&gt;&gt;&gt;&gt;</code> refers
-to the <code>remote/branch</code> shown there, i.e <code>upstream/master</code>.</p>
+to the <code>remote/branch</code> shown there, i.e <code>upstream/devel</code>.</p>
 <p>You want to keep the most accurate change, by deleting what is
 necessary. In this case, keep the latest version:</p>
 <pre><code> Version: 0.23.3</code></pre>
@@ -774,8 +774,8 @@ necessary. In this case, keep the latest version:</p>
 </li>
 <li>
 <p>Push to both your GitHub and <em>Bioconductor</em> repositories,</p>
-<pre><code>git push origin master
-git push upstream master</code></pre>
+<pre><code>git push origin devel
+git push upstream devel</code></pre>
 </li>
 </ol>
 <div id="extra-resources" class="section level4" number="21.7.3.1">
@@ -795,42 +795,42 @@ git push upstream master</code></pre>
 <p><strong>Goal:</strong> You want to start fresh after failing to resolve conflicts
 or some other issue. If you intend to go nuclear, please contact the
 <a href="mailto:bioc-devel@bioconductor.org" class="email">bioc-devel@bioconductor.org</a> mailing list.</p>
-<div id="force-bioconductor-master-to-github-master" class="section level4" number="21.7.4.1">
+<div id="force-bioconductor-devel-to-github-devel" class="section level4" number="21.7.4.1">
 <h4>
-<span class="header-section-number">21.7.4.1</span> Force <em>Bioconductor</em> <code>master</code> to GitHub <code>master</code><a class="anchor" aria-label="anchor" href="#force-bioconductor-master-to-github-master"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.7.4.1</span> Force <em>Bioconductor</em> <code>devel</code> to GitHub <code>devel</code><a class="anchor" aria-label="anchor" href="#force-bioconductor-devel-to-github-devel"><i class="fas fa-link"></i></a>
 </h4>
 <p>One way you can ignore your work and make a new branch is by replacing
-your local and GitHub repository <code>master</code> branch with the
-<em>Bioconductor</em> <code>master</code> branch.</p>
+your local and GitHub repository <code>devel</code> branch with the
+<em>Bioconductor</em> <code>devel</code> branch.</p>
 <p><strong>Note</strong>: This works only if you haven’t pushed the change causing the
 issue to the <em>Bioconductor</em> repository.</p>
-<p><strong>Note</strong>: Any references to commits on current master (e.g., in GitHub
+<p><strong>Note</strong>: Any references to commits on current devel (e.g., in GitHub
 issues) will be invalidated.</p>
 <ol style="list-style-type: decimal">
 <li>
-<p>Checkout a new branch, e.g., <code>master_backup</code>, with tracking set to
-track the <em>Bioconductor</em> <code>master</code> branch <code>upstream/master</code>.</p>
-<pre><code> git checkout -b master_backup upstream/master</code></pre>
+<p>Checkout a new branch, e.g., <code>devel_backup</code>, with tracking set to
+track the <em>Bioconductor</em> <code>devel</code> branch <code>upstream/devel</code>.</p>
+<pre><code> git checkout -b devel_backup upstream/devel</code></pre>
 </li>
 <li>
 <p>Rename the branches you currently have on your local
-machine. First, rename <code>master</code> to <code>master_deprecated</code>. Second,
-rename <code>master_backup</code> to <code>master</code>. This process is called the
+machine. First, rename <code>devel</code> to <code>devel_deprecated</code>. Second,
+rename <code>devel_backup</code> to <code>devel</code>. This process is called the
 classic <strong>Switcheroo</strong>.</p>
-<pre><code> git branch -m master master_deprecated
- git branch -m master_backup master</code></pre>
+<pre><code> git branch -m devel devel_deprecated
+ git branch -m devel_backup devel</code></pre>
 </li>
 <li>
 <p>You will now have to “force push” the changes to your GitHub
-(<code>origin</code>) <code>master</code> branch.</p>
-<pre><code> git push -f origin master</code></pre>
+(<code>origin</code>) <code>devel</code> branch.</p>
+<pre><code> git push -f origin devel</code></pre>
 </li>
 <li>
-<p><strong>(Optional)</strong> If you have commits on your <code>master_deprecated</code>
-branch that you would like ported on to your new <code>master</code>
+<p><strong>(Optional)</strong> If you have commits on your <code>devel_deprecated</code>
+branch that you would like ported on to your new <code>devel</code>
 branch. Git has a special feature called <code>cherry-pick</code></p>
 <p>Take a look at which commit you want to cherry-pick on to the new
-master branch, using <code>git log master_deprecated</code>, copy the correct
+devel branch, using <code>git log devel_deprecated</code>, copy the correct
 commit id, and use:</p>
 <pre><code> git cherry-pick &lt;commit id&gt;</code></pre>
 <p>Push these cherry-picked changes to GitHub and <em>Bioconductor</em>
@@ -895,16 +895,16 @@ git branch and in the current release branch (e.g., <code>RELEASE_3_14</code>).<
 <li>
 <p>First <a href="git-version-control.html#sync-existing-repositories">Sync existing repositories</a>.</p>
 <pre><code> git fetch --all
- git checkout master
- git merge upstream/master
- git merge origin/master
+ git checkout devel
+ git merge upstream/devel
+ git merge origin/devel
  git checkout &lt;RELEASE_X_Y&gt;
  git merge upstream/&lt;RELEASE_X_Y&gt;
  git merge origin/&lt;RELEASE_X_Y&gt;</code></pre>
 </li>
 <li>
-<p>On your local machine, be sure that you are on the <code>master</code> branch.</p>
-<pre><code> git checkout master</code></pre>
+<p>On your local machine, be sure that you are on the <code>devel</code> branch.</p>
+<pre><code> git checkout devel</code></pre>
 <p>Make the changes needed to fix the bug and add the modified files
 to the commit. Remember to bump the version number in the <code>DESCRIPTION</code> file
 <strong>in a separate commit</strong>. Only bug-fix changes should be introduced in this
@@ -924,11 +924,11 @@ the Bioconductor branches when/if the bug fixes are ported to release.</p>
 <li>
 <p>(Alternative) If the changes are non-trivial i.e., with multiple commits,
 create a new branch where you can easily abandon any false starts.</p>
-<pre><code> git checkout master
+<pre><code> git checkout devel
  git checkout -b bugfix-my-bug
  ## add and commit to this branch to fix the bug</code></pre>
 <p>Merge the final version of the branch into the default branch.</p>
-<pre><code> git checkout master
+<pre><code> git checkout devel
  git merge bugfix-my-bug</code></pre>
 </li>
 <li>
@@ -947,18 +947,18 @@ update the release version of the package according to <em>Bioconductor</em>’s
 make a local copy of the RELEASE_X_Y branch with</p>
 <pre><code> git checkout -b &lt;RELEASE_X_Y&gt; upstream/&lt;RELEASE_X_Y&gt;</code></pre>
 <p>Following this one time local checkout, you may switch between RELEASE_X_Y
-and master with <code>git checkout &lt;RELEASE_X_Y&gt;</code>. If you do not use the command
+and devel with <code>git checkout &lt;RELEASE_X_Y&gt;</code>. If you do not use the command
 to get a local checkout of the release branch, you will get the message:</p>
 <pre><code> (HEAD detached from origin/RELEASE_X_Y)</code></pre>
 </li>
 <li>
-<p>Push your changes to both the GitHub and <em>Bioconductor</em> <code>master</code>
+<p>Push your changes to both the GitHub and <em>Bioconductor</em> <code>devel</code>
 and <code>&lt;RELEASE_X_Y&gt;</code> branches. Make sure you are on the correct
 branch on your local machine.</p>
-<p>For the <code>master</code> branch,</p>
-<pre><code> git checkout master
- git push upstream master
- git push origin master</code></pre>
+<p>For the <code>devel</code> branch,</p>
+<pre><code> git checkout devel
+ git push upstream devel
+ git push origin devel</code></pre>
 <p>For the <code>release</code> branch,</p>
 <pre><code> git checkout &lt;RELEASE_X_Y&gt;
  git push upstream &lt;RELEASE_X_Y&gt;
@@ -986,12 +986,12 @@ Bioconductor.</p>
 <ol style="list-style-type: decimal">
 <li>
 <p><strong>IMPORTANT</strong> Make a backup of the branch with duplicate commits,
-call this <code>master_backup</code> (or <code>RELEASE_3_7_backup</code>). The name of
+call this <code>devel_backup</code> (or <code>RELEASE_3_7_backup</code>). The name of
 the back up branch should be identifiable and specific to the
-branch you are trying to fix (i.e if you want to fix the <em>master</em>
+branch you are trying to fix (i.e if you want to fix the <em>devel</em>
 branch or some <code>&lt;RELEASE_X_Y&gt;</code> branch).</p>
-<p>On master, (make sure you are on master by <code>git checkout master</code>)</p>
-<pre><code> git branch master_backup</code></pre>
+<p>On devel, (make sure you are on devel by <code>git checkout devel</code>)</p>
+<pre><code> git branch devel_backup</code></pre>
 </li>
 <li><p>Identify the commit from which the duplicates have
 originated. These commits are more often than not, <code>merge</code> commits.</p></li>
@@ -1000,7 +1000,7 @@ originated. These commits are more often than not, <code>merge</code> commits.</
 <pre><code> git reset —hard &lt;commit_id&gt;</code></pre>
 </li>
 <li>
-<p>Now cherry pick your commits from the <code>master_backup</code> branch.</p>
+<p>Now cherry pick your commits from the <code>devel_backup</code> branch.</p>
 <pre><code> git cherry-pick &lt;commit_id&gt;</code></pre>
 <ol style="list-style-type: lower-alpha">
 <li><p>The commits you cherry-pick should be only 1 version of the
@@ -1084,8 +1084,8 @@ GitHub, you can push these changes to <em>Bioconductor</em>.</p>
 <ol style="list-style-type: decimal">
 <li>
 <p>Make sure that you are on the branch to which the changes were
-applied, for example <code>master</code>.</p>
-<pre><code> git checkout master</code></pre>
+applied, for example <code>devel</code>.</p>
+<pre><code> git checkout devel</code></pre>
 </li>
 <li>
 <p>Fetch and merge the GitHub changes to your local repository.</p>
@@ -1095,9 +1095,9 @@ applied, for example <code>master</code>.</p>
 </li>
 <li>
 <p>Push your local repository to the upstream <em>Bioconductor</em> repository.</p>
-<pre><code> git push upstream master</code></pre>
+<pre><code> git push upstream devel</code></pre>
 <p>To push GitHub release branch updates to the <em>Bioconductor</em>
-release branch, replace <code>master</code> with name of the release branch,
+release branch, replace <code>devel</code> with name of the release branch,
 e.g.: <code>RELEASE_3_6</code>.</p>
 </li>
 </ol>
@@ -1172,7 +1172,7 @@ history to remove files like this, where <code>&lt;file-glob&gt;</code> identifi
 <p>This command may reset your remotes. Check with <code>git remote</code> and
 if needed, you can add remotes back in using something like this:</p>
 <pre><code>git remote add origin git@github.com:&lt;username&gt;/&lt;repo_name&gt;
-git push --set-upstream origin master --force</code></pre>
+git push --set-upstream origin devel --force</code></pre>
 <p>Finally, we have to push with <code>--mirror</code> to reset the remote.</p>
 <pre><code>git push --force --mirror</code></pre>
 <p>Now, just notify everyone that they’ll have to re-clone the new repository, since
@@ -1338,7 +1338,7 @@ remote <code>origin</code> set to GitHub, and <code>upstream</code> set to the
 git commands.</p>
 <p><code>ExamplePackage</code>: This is being used a place holder for a package
 name.</p>
-<p>SVN <code>trunk</code> and git <code>master</code> branch are now the development
+<p>SVN <code>trunk</code> and git <code>devel</code> branch are now the development
 branches.</p>
 </li>
 <li>
@@ -1352,7 +1352,7 @@ features available in Github.</p>
 </li>
 <li>
 <p>I cannot push to my package. I get the error,</p>
-<pre><code> $ git push origin master
+<pre><code> $ git push origin devel
  fatal: remote error: FATAL: W any packages/myPackage nobody DENIED by fallthru
  (or you mis-spelled the reponame)</code></pre>
 <p>(you might have renamed the <code>origin</code> remote as <code>upstream</code>;
@@ -1447,7 +1447,7 @@ server remote, should be
 </li>
 <li>
 <p>Can I create and push new branches to my repository on git.bioconductor.org?</p>
-<p>No. Maintainers only have access to <code>master</code> and the current <code>RELEASE_X_Y</code>.
+<p>No. Maintainers only have access to <code>devel</code> and the current <code>RELEASE_X_Y</code>.
 New branches cannot be created and pushed to the bioconductor server. We
 recommend maintainers have additional branches on their Github repository
 if they are maintaining one.</p>
@@ -1550,7 +1550,7 @@ please send an email to <a href="mailto:bioc-devel@bioconductor.org" class="emai
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2023-03-06.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2023-03-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
