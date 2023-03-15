@@ -287,56 +287,7 @@ git push upstream devel</code></pre>
 <a href="https://docs.gitlab.com/ee/user/project/repository/branches/default.html#change-the-default-branch-name-for-a-project">change default branch instructions</a>.
 Once complete, you can update the local repository similarly to the <a href="branch-rename-faqs.html#how-do-i-set-devel-as-the-default-local-branch">above
 instructions</a>.</p>
-<div id="early-branch-rename-adopters" class="section level3" number="27.13.1">
-<h3>
-<span class="header-section-number">27.13.1</span> Early Branch Rename Adopters<a class="anchor" aria-label="anchor" href="#early-branch-rename-adopters"><i class="fas fa-link"></i></a>
-</h3>
-<p><strong>NOTE</strong>: The following sections are for eager developers who would like to
-make changes to their local repositories <em>before</em> the Bioconductor git branch
-rename (now).</p>
-<div id="sync-repositories-for-early-adopters" class="section level4" number="27.13.1.1">
-<h4>
-<span class="header-section-number">27.13.1.1</span> Sync repositories for early adopters<a class="anchor" aria-label="anchor" href="#sync-repositories-for-early-adopters"><i class="fas fa-link"></i></a>
-</h4>
-<p>Before making updates to branches, make sure that both remotes <code>origin</code> and
-<code>upstream</code> are in sync:</p>
-<pre><code>git checkout master
-git pull origin master
-git pull upstream master</code></pre>
-</div>
-<div id="rename-devel-branch-on-github-for-early-adopters" class="section level4" number="27.13.1.2">
-<h4>
-<span class="header-section-number">27.13.1.2</span> Rename devel branch on GitHub for early adopters<a class="anchor" aria-label="anchor" href="#rename-devel-branch-on-github-for-early-adopters"><i class="fas fa-link"></i></a>
-</h4>
-<p>The rename operation should be done via GitHub. Go to
-<code>https://github.com/{username}/{repo}/branches</code> where <code>username</code> and <code>repo</code>
-correspond to your GitHub username and repository, respectively.</p>
-<p>Click on the ‘edit’ pencil to rename the branch (seen here at the bottom right
-corner) and rename the branch to ‘devel’:</p>
-<div class="inline-figure"><img src="images/rename_branch_github_screen.png" width="100%"></div>
-<p>Once the branch is renamed, use the GitHub commands to update the local
-repository:</p>
-<pre><code>git branch -m master devel
-git fetch origin
-git branch -u origin/devel devel
-git remote set-head origin -a</code></pre>
-<p><strong>Note</strong>. <code>origin</code> here is set to the GitHub remote and tracking is set to
-<code>origin/devel</code>.</p>
-</div>
-<div id="pushing-to-bioconductor-for-early-adopters" class="section level4" number="27.13.1.3">
-<h4>
-<span class="header-section-number">27.13.1.3</span> Pushing to Bioconductor for early adopters<a class="anchor" aria-label="anchor" href="#pushing-to-bioconductor-for-early-adopters"><i class="fas fa-link"></i></a>
-</h4>
-<p>Mapping of branches is required to push upstream for early adopters, until the
-branch is renamed on the Bioconductor git server. The <code>git push</code> operation is as
-follows:</p>
-<pre><code>## branch should already exist
-git checkout devel
-#### &lt;make changes to repository&gt;
-git push upstream devel:master</code></pre>
 
-</div>
-</div>
 </div>
 </div>
 
@@ -361,9 +312,7 @@ git push upstream devel:master</code></pre>
 <li><a class="nav-link" href="#what-if-i-already-have-a-devel-branch-on-github"><span class="header-section-number">27.10</span> What if I already have a ‘devel’ branch on GitHub?</a></li>
 <li><a class="nav-link" href="#how-do-i-set-devel-as-the-default-local-branch"><span class="header-section-number">27.11</span> How do I set ‘devel’ as the default local branch?</a></li>
 <li><a class="nav-link" href="#how-do-i-push-to-bioconductor-after-renaming"><span class="header-section-number">27.12</span> How do I push to Bioconductor after renaming?</a></li>
-<li>
-<a class="nav-link" href="#what-if-i-have-a-gitlab-repository"><span class="header-section-number">27.13</span> What if I have a GitLab repository?</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#early-branch-rename-adopters"><span class="header-section-number">27.13.1</span> Early Branch Rename Adopters</a></li></ul>
-</li>
+<li><a class="nav-link" href="#what-if-i-have-a-gitlab-repository"><span class="header-section-number">27.13</span> What if I have a GitLab repository?</a></li>
 </ul>
 
       <div class="book-extra">
@@ -381,7 +330,7 @@ git push upstream devel:master</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2023-03-08.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2023-03-15.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

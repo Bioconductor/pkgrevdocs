@@ -268,10 +268,6 @@ what-if-i-already-have-a-devel-branch-on-github
 how-do-i-set-devel-as-the-default-local-branch
 how-do-i-push-to-bioconductor-after-renaming
 what-if-i-have-a-gitlab-repository
-early-branch-rename-adopters
-sync-repositories-for-early-adopters
-rename-devel-branch-on-github-for-early-adopters
-pushing-to-bioconductor-for-early-adopters
 review-expectation
 reviewtools
 review-volunteer-chapter
