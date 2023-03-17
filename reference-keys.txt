@@ -267,6 +267,7 @@ how-do-i-set-devel-as-the-default-branch-on-github
 what-if-i-already-have-a-devel-branch-on-github
 how-do-i-set-devel-as-the-default-local-branch
 how-do-i-push-to-bioconductor-after-renaming
+clean-up-how-do-i-get-rid-of-stale-remote-tracking-branches
 what-if-i-have-a-gitlab-repository
 review-expectation
 reviewtools

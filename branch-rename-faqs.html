@@ -279,9 +279,26 @@ git checkout devel
 #### &lt;commit changes and bump version etc.&gt;
 git push upstream devel</code></pre>
 </div>
-<div id="what-if-i-have-a-gitlab-repository" class="section level2" number="27.13">
+<div id="clean-up-how-do-i-get-rid-of-stale-remote-tracking-branches" class="section level2" number="27.13">
 <h2>
-<span class="header-section-number">27.13</span> What if I have a GitLab repository?<a class="anchor" aria-label="anchor" href="#what-if-i-have-a-gitlab-repository"><i class="fas fa-link"></i></a>
+<span class="header-section-number">27.13</span> Clean up: How do I get rid of stale remote-tracking branches?<a class="anchor" aria-label="anchor" href="#clean-up-how-do-i-get-rid-of-stale-remote-tracking-branches"><i class="fas fa-link"></i></a>
+</h2>
+<p>After the rename, there will remain stale references in the <code>origin</code> remote.
+See all the local and remote branches with <code>git branch -a</code>:</p>
+<pre><code>git branch -a
+# * devel
+# remotes/origin/HEAD -&gt; origin/devel
+# [...]
+# remotes/origin/master</code></pre>
+<p>Run the following to get rid of the stale reference to “master” in the <code>origin</code>
+remote:</p>
+<pre><code>git remote prune origin --dry-run</code></pre>
+<p><strong>Note</strong>. Remove the <code>--dry-run</code> option after making sure that the correct
+remote reference is listed.</p>
+</div>
+<div id="what-if-i-have-a-gitlab-repository" class="section level2" number="27.14">
+<h2>
+<span class="header-section-number">27.14</span> What if I have a GitLab repository?<a class="anchor" aria-label="anchor" href="#what-if-i-have-a-gitlab-repository"><i class="fas fa-link"></i></a>
 </h2>
 <p>It is possible to also change the default branch on GitLab. See the
 <a href="https://docs.gitlab.com/ee/user/project/repository/branches/default.html#change-the-default-branch-name-for-a-project">change default branch instructions</a>.
@@ -312,7 +329,8 @@ instructions</a>.</p>
 <li><a class="nav-link" href="#what-if-i-already-have-a-devel-branch-on-github"><span class="header-section-number">27.10</span> What if I already have a ‘devel’ branch on GitHub?</a></li>
 <li><a class="nav-link" href="#how-do-i-set-devel-as-the-default-local-branch"><span class="header-section-number">27.11</span> How do I set ‘devel’ as the default local branch?</a></li>
 <li><a class="nav-link" href="#how-do-i-push-to-bioconductor-after-renaming"><span class="header-section-number">27.12</span> How do I push to Bioconductor after renaming?</a></li>
-<li><a class="nav-link" href="#what-if-i-have-a-gitlab-repository"><span class="header-section-number">27.13</span> What if I have a GitLab repository?</a></li>
+<li><a class="nav-link" href="#clean-up-how-do-i-get-rid-of-stale-remote-tracking-branches"><span class="header-section-number">27.13</span> Clean up: How do I get rid of stale remote-tracking branches?</a></li>
+<li><a class="nav-link" href="#what-if-i-have-a-gitlab-repository"><span class="header-section-number">27.14</span> What if I have a GitLab repository?</a></li>
 </ul>
 
       <div class="book-extra">
