@@ -16,13 +16,13 @@ These guidelines are always a work in progress - corrections, suggestions and ge
 Open discussions are welcome in our [Slack](https://bioc-community.herokuapp.com/).
 You can also suggest changes by editing the `.Rmd` files that are at the root of this repository and submitting a [pull request](https://github.com/Bioconductor/pkgrevdocs/pulls).
 An "Edit this page" link in the side bar on the right of each book chapter will take you directly to the relevant page on the GitHub repository to make such changes.
-Please target your pull requests to the `master` branch.
+Please target your pull requests to the `devel` branch.
 
 ### Technical details
 
 Deployment is done via [GitHub Actions](https://github.com/Bioconductor/pkgrevdocs/actions):
 
-* whenever there's a push to `master`, the book is built and its content is then pushed to the `gh-pages` branch.
+* whenever there's a push to `devel`, the book is built and its content is then pushed to the `gh-pages` branch.
 
 To preview the book locally - preferably before opening a pull request and while reviewing it - use the following code in an R console with the working directory set to the root of this repository, making sure that all the dependencies of the book are available (see file `DESCRIPTION`).
 
