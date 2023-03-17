@@ -177,7 +177,26 @@ To push `upstream` to Bioconductor, the developer will simply push to the
     git checkout devel
     #### <commit changes and bump version etc.>
     git push upstream devel
-    
+
+## Clean up: How do I get rid of stale remote-tracking branches?
+
+After the rename, there will remain stale references in the `origin` remote.
+See all the local and remote branches with `git branch -a`:
+
+    git branch -a
+    # * devel
+    # remotes/origin/HEAD -> origin/devel
+    # [...]
+    # remotes/origin/master
+
+Run the following to get rid of the stale reference to "master" in the `origin`
+remote:
+
+    git remote prune origin --dry-run
+
+**Note**. Remove the `--dry-run` option after making sure that the correct
+remote reference is listed.
+
 ## What if I have a GitLab repository?
 
 It is possible to also change the default branch on GitLab. See the
