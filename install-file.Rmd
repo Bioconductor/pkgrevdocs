@@ -7,7 +7,7 @@ file](#description-sysdep). This file should contain installation instructions
 for the required system dependency.
 
 Specifying this requirement does not guarantee that _Bioconductor_ will agree to
-install the external system requirement. It is encourage to discuss any
+install the external system requirement. It is encouraged to discuss any
 additional system requirements on the bioc-devel@r-project.org before
 development.
 
