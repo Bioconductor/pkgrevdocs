@@ -105,8 +105,9 @@
 </h1>
 <p>Everyone has their own coding style and formats. There are however some best
 practice guidelines that <a href="https://bioconductor.org/about/package-reviewers/"><em>Bioconductor</em> reviewers</a> will look for.</p>
-<p><i class="fab fa-r-project"></i> can be a robust, fast and efficient programming language but often some
-coding practices result in less than ideal use of resources.</p>
+<p><i class="fab fa-r-project"></i> can be a robust, fast and efficient programming
+language but often some coding practices result in less than ideal use of
+resources.</p>
 <p>This section will review some key points, suggestions, and best practices that
 will aid in the package review process and assist in making code more
 robust and efficient.</p>
@@ -419,7 +420,8 @@ checks.</p>
 <li>Use <code><a href="https://rdrr.io/r/base/lapply.html">vapply()</a></code> instead of <code><a href="https://rdrr.io/r/base/lapply.html">sapply()</a></code>, and use the various <code>apply</code> functions instead of <code>for</code> loops. See below section on vectorize.</li>
 <li>Use <code><a href="https://rdrr.io/r/base/seq.html">seq_len()</a></code> or <code><a href="https://rdrr.io/r/base/seq.html">seq_along()</a></code> instead of <code>1:...</code>. See below section on avoid <code>1:n</code> style iterations</li>
 <li>Use <code>TRUE</code> and <code>FALSE</code> instead of <code>T</code> and <code>F</code>.</li>
-<li>Use of numeric indices (rather than robust named indices).</li>
+<li>Use numeric indices at <em>lower</em> level interfaces (e.g., internal subset ops) for computational efficiency.</li>
+<li>Use named indices at <em>higher</em> level interfaces (e.g., function arguments) for robustness.</li>
 <li>Use <code>is()</code> instead of <code>class() ==</code> and <code>class() !=</code>.</li>
 <li>Use <code><a href="https://rdrr.io/r/base/system2.html">system2()</a></code> instead of <code><a href="https://rdrr.io/r/base/system.html">system()</a></code>.</li>
 <li>Do not use <code><a href="https://rdrr.io/r/base/Random.html">set.seed()</a></code> in any internal <i class="fab fa-r-project"></i> code.</li>
@@ -658,7 +660,7 @@ should be set as a default.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2023-03-15.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2023-03-17.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
