@@ -45,6 +45,10 @@ export _R_CHECK_S3_METHODS_NOT_REGISTERED_=true
 export _R_CHECK_SUGGESTS_ONLY_=true
 ```
 
+Note: `_R_CHECK_SUGGESTS_ONLY_` is only set on the Linux builders and in order
+to identify missing dependencies. In order to use this setting, you must have
+a `site-library` subfolder in your R home directory.
+
 The Single Package build has some extra
 [documentation][R CMD check environment]
 about how to set up your local system to use optional environment
