@@ -33,21 +33,10 @@ report can be found at the top of the [release][release-software-build-report] a
 [devel][devel-software-build-report] build reports. Once you are using the
 correct version of R make sure all your packages are up-to-date with
 `BiocManager::valid()` and `BiocManager::install()`. There are some additional
-environment variables the daily builder uses during `R CMD check`. Those are the
-following:
+environment variables the daily builder uses during `R CMD check`.
 
-```
-export _R_CHECK_EXECUTABLES_=false
-export _R_CHECK_EXECUTABLES_EXCLUSIONS_=false
-export _R_CHECK_LENGTH_1_CONDITION_=package:_R_CHECK_PACKAGE_NAME_,abort,verbose
-export _R_CHECK_LENGTH_1_LOGIC2_=package:_R_CHECK_PACKAGE_NAME_,abort,verbose
-export _R_CHECK_S3_METHODS_NOT_REGISTERED_=true
-export _R_CHECK_SUGGESTS_ONLY_=true
-```
-
-Note: `_R_CHECK_SUGGESTS_ONLY_` is only set on the Linux builders and in order
-to identify missing dependencies. In order to use this setting, you must have
-a `site-library` subfolder in your R home directory.
+* Devel [Renviron.bioc](https://bioconductor.org/checkResults/devel/bioc-LATEST/Renviron.bioc)
+* Release [Renviron.bioc](https://bioconductor.org/checkResults/release/bioc-LATEST/Renviron.bioc)
 
 The Single Package build has some extra
 [documentation][R CMD check environment]
