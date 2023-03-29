@@ -139,14 +139,13 @@ report can be found at the top of the <a href="https://bioconductor.org/checkRes
 <a href="https://bioconductor.org/checkResults/devel/bioc-LATEST/">devel</a> build reports. Once you are using the
 correct version of R make sure all your packages are up-to-date with
 <code><a href="https://rdrr.io/pkg/BiocManager/man/valid.html">BiocManager::valid()</a></code> and <code><a href="https://rdrr.io/pkg/BiocManager/man/install.html">BiocManager::install()</a></code>. There are some additional
-environment variables the daily builder uses during <code>R CMD check</code>. Those are the
-following:</p>
-<pre><code>export _R_CHECK_EXECUTABLES_=false
-export _R_CHECK_EXECUTABLES_EXCLUSIONS_=false
-export _R_CHECK_LENGTH_1_CONDITION_=package:_R_CHECK_PACKAGE_NAME_,abort,verbose
-export _R_CHECK_LENGTH_1_LOGIC2_=package:_R_CHECK_PACKAGE_NAME_,abort,verbose
-export _R_CHECK_S3_METHODS_NOT_REGISTERED_=true
-export _R_CHECK_SUGGESTS_ONLY_=true</code></pre>
+environment variables the daily builder uses during <code>R CMD check</code>.</p>
+<ul>
+<li>Devel <a href="https://bioconductor.org/checkResults/devel/bioc-LATEST/Renviron.bioc">Renviron.bioc</a>
+</li>
+<li>Release <a href="https://bioconductor.org/checkResults/release/bioc-LATEST/Renviron.bioc">Renviron.bioc</a>
+</li>
+</ul>
 <p>The Single Package build has some extra
 <a href="general.html#r-cmd-check-environment">documentation</a>
 about how to set up your local system to use optional environment
@@ -601,7 +600,7 @@ Use 'perCellQCMetrics' instead.</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2023-03-23.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2023-03-29.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
