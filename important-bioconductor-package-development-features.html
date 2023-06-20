@@ -10,7 +10,7 @@
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
 <meta name="description" content="4.1 biocViews Packages added to the Bioconductor Project require a biocViews: field in their DESCRIPTION file. The field name “biocViews” is case-sensitive and must begin with a lower-case ‘b’....">
-<meta name="generator" content="bookdown 0.33 with bs4_book()">
+<meta name="generator" content="bookdown 0.34 with bs4_book()">
 <meta property="og:title" content="Chapter 4 Important Bioconductor Package Development Features | Bioconductor Packages: Development, Maintenance, and Peer Review">
 <meta property="og:type" content="book">
 <meta property="og:description" content="4.1 biocViews Packages added to the Bioconductor Project require a biocViews: field in their DESCRIPTION file. The field name “biocViews” is case-sensitive and must begin with a lower-case ‘b’....">
@@ -19,7 +19,7 @@
 <meta name="twitter:description" content="4.1 biocViews Packages added to the Bioconductor Project require a biocViews: field in their DESCRIPTION file. The field name “biocViews” is case-sensitive and must begin with a lower-case ‘b’....">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -188,19 +188,19 @@ searching in <a href="https://bioconductor.org/packages/devel/BiocViews.html">bi
 <span class="header-section-number">4.2.1</span> Importing data<a class="anchor" aria-label="anchor" href="#commonimport"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
-<li>GTF, GFF, BED, BigWig, etc., – <em><a href="https://bioconductor.org/packages/3.17/rtracklayer">rtracklayer</a></em> <code>::import()</code>
+<li>GTF, GFF, BED, BigWig, etc., – <em><a href="https://bioconductor.org/packages/3.18/rtracklayer">rtracklayer</a></em> <code>::import()</code>
 </li>
-<li>VCF – <em><a href="https://bioconductor.org/packages/3.17/VariantAnnotation">VariantAnnotation</a></em> <code>::readVcf()</code>
+<li>VCF – <em><a href="https://bioconductor.org/packages/3.18/VariantAnnotation">VariantAnnotation</a></em> <code>::readVcf()</code>
 </li>
-<li>SAM / BAM – <em><a href="https://bioconductor.org/packages/3.17/Rsamtools">Rsamtools</a></em> <code>::scanBam()</code>,
-<em><a href="https://bioconductor.org/packages/3.17/GenomicAlignments">GenomicAlignments</a></em> <code>::readGAlignment*()</code>
+<li>SAM / BAM – <em><a href="https://bioconductor.org/packages/3.18/Rsamtools">Rsamtools</a></em> <code>::scanBam()</code>,
+<em><a href="https://bioconductor.org/packages/3.18/GenomicAlignments">GenomicAlignments</a></em> <code>::readGAlignment*()</code>
 </li>
-<li>FASTA – <em><a href="https://bioconductor.org/packages/3.17/Biostrings">Biostrings</a></em> <code>::readDNAStringSet()</code>
+<li>FASTA – <em><a href="https://bioconductor.org/packages/3.18/Biostrings">Biostrings</a></em> <code>::readDNAStringSet()</code>
 </li>
-<li>FASTQ – <em><a href="https://bioconductor.org/packages/3.17/ShortRead">ShortRead</a></em> <code>::readFastq()</code>
+<li>FASTQ – <em><a href="https://bioconductor.org/packages/3.18/ShortRead">ShortRead</a></em> <code>::readFastq()</code>
 </li>
-<li>MS data (XML-based and mgf formats) – <em><a href="https://bioconductor.org/packages/3.17/Spectra">Spectra</a></em> <code>::Spectra()</code>,
-<em><a href="https://bioconductor.org/packages/3.17/Spectra">Spectra</a></em> <code>::Spectra(source = MsBackendMgf::MsBackendMgf())</code>
+<li>MS data (XML-based and mgf formats) – <em><a href="https://bioconductor.org/packages/3.18/Spectra">Spectra</a></em> <code>::Spectra()</code>,
+<em><a href="https://bioconductor.org/packages/3.18/Spectra">Spectra</a></em> <code>::Spectra(source = MsBackendMgf::MsBackendMgf())</code>
 </li>
 </ul>
 </div>
@@ -210,32 +210,32 @@ searching in <a href="https://bioconductor.org/packages/devel/BiocViews.html">bi
 </h3>
 <ul>
 <li>Rectangular feature x sample data –
-<em><a href="https://bioconductor.org/packages/3.17/SummarizedExperiment">SummarizedExperiment</a></em> <code>::SummarizedExperiment()</code>
+<em><a href="https://bioconductor.org/packages/3.18/SummarizedExperiment">SummarizedExperiment</a></em> <code>::SummarizedExperiment()</code>
 (RNAseq count matrix, microarray, …)</li>
-<li>Genomic coordinates – <em><a href="https://bioconductor.org/packages/3.17/GenomicRanges">GenomicRanges</a></em> <code>::GRanges()</code>
+<li>Genomic coordinates – <em><a href="https://bioconductor.org/packages/3.18/GenomicRanges">GenomicRanges</a></em> <code>::GRanges()</code>
 (1-based, closed interval)</li>
 <li>Genomic coordinates from multiple samples –
-<em><a href="https://bioconductor.org/packages/3.17/GenomicRanges">GenomicRanges</a></em> <code>::GRangesList()</code>
+<em><a href="https://bioconductor.org/packages/3.18/GenomicRanges">GenomicRanges</a></em> <code>::GRangesList()</code>
 </li>
-<li>Ragged genomic coordinates – <em><a href="https://bioconductor.org/packages/3.17/RaggedExperiment">RaggedExperiment</a></em>
+<li>Ragged genomic coordinates – <em><a href="https://bioconductor.org/packages/3.18/RaggedExperiment">RaggedExperiment</a></em>
 <code>::RaggedExperiment()</code>
 </li>
-<li>DNA / RNA / AA sequences – <em><a href="https://bioconductor.org/packages/3.17/Biostrings">Biostrings</a></em>
+<li>DNA / RNA / AA sequences – <em><a href="https://bioconductor.org/packages/3.18/Biostrings">Biostrings</a></em>
 <code>::*StringSet()</code>
 </li>
-<li>Gene sets – <em><a href="https://bioconductor.org/packages/3.17/BiocSet">BiocSet</a></em> <code>::BiocSet()</code>,
-<em><a href="https://bioconductor.org/packages/3.17/GSEABase">GSEABase</a></em> <code>::GeneSet()</code>,
-<em><a href="https://bioconductor.org/packages/3.17/GSEABase">GSEABase</a></em> <code>::GeneSetCollection()</code>
+<li>Gene sets – <em><a href="https://bioconductor.org/packages/3.18/BiocSet">BiocSet</a></em> <code>::BiocSet()</code>,
+<em><a href="https://bioconductor.org/packages/3.18/GSEABase">GSEABase</a></em> <code>::GeneSet()</code>,
+<em><a href="https://bioconductor.org/packages/3.18/GSEABase">GSEABase</a></em> <code>::GeneSetCollection()</code>
 </li>
 <li>Multi-omics data –
-<em><a href="https://bioconductor.org/packages/3.17/MultiAssayExperiment">MultiAssayExperiment</a></em> <code>::MultiAssayExperiment()</code>
+<em><a href="https://bioconductor.org/packages/3.18/MultiAssayExperiment">MultiAssayExperiment</a></em> <code>::MultiAssayExperiment()</code>
 </li>
 <li>Single cell data –
-<em><a href="https://bioconductor.org/packages/3.17/SingleCellExperiment">SingleCellExperiment</a></em> <code>::SingleCellExperiment()</code>
+<em><a href="https://bioconductor.org/packages/3.18/SingleCellExperiment">SingleCellExperiment</a></em> <code>::SingleCellExperiment()</code>
 </li>
-<li>Mass spec data – <em><a href="https://bioconductor.org/packages/3.17/Spectra">Spectra</a></em> <code>::Spectra()</code>
+<li>Mass spec data – <em><a href="https://bioconductor.org/packages/3.18/Spectra">Spectra</a></em> <code>::Spectra()</code>
 </li>
-<li>File formats – <em><a href="https://bioconductor.org/packages/3.17/BiocIO">BiocIO</a></em> <code>::`BiocFile-class`</code>
+<li>File formats – <em><a href="https://bioconductor.org/packages/3.18/BiocIO">BiocIO</a></em> <code>::`BiocFile-class`</code>
 </li>
 </ul>
 <p>In general, a package will not be accepted if it does not show interoperability
@@ -293,7 +293,7 @@ documentation section</a> for more details.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2023-03-29.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2023-06-20.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

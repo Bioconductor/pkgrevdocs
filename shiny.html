@@ -10,7 +10,7 @@
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
 <meta name="description" content="Shiny apps can be submitted to Bioconductor as software packages or as documented and tested functions within packages.  17.1 Code organisation Shiny apps are divided into two parts: User...">
-<meta name="generator" content="bookdown 0.33 with bs4_book()">
+<meta name="generator" content="bookdown 0.34 with bs4_book()">
 <meta property="og:title" content="Chapter 17 Shiny apps | Bioconductor Packages: Development, Maintenance, and Peer Review">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Shiny apps can be submitted to Bioconductor as software packages or as documented and tested functions within packages.  17.1 Code organisation Shiny apps are divided into two parts: User...">
@@ -19,7 +19,7 @@
 <meta name="twitter:description" content="Shiny apps can be submitted to Bioconductor as software packages or as documented and tested functions within packages.  17.1 Code organisation Shiny apps are divided into two parts: User...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -118,9 +118,9 @@
 Instead, internal package functions should be developed to produce and return individual components of the UI and server sides of the Shiny app.</p>
 <p>We recommend the following file naming scheme for source files:</p>
 <ul>
-<li>Place internal functions that create observers – e.g., <code><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">shiny::observeEvent()</a></code> – in files named <code>observers_*.R</code>.
-Do this both for observers reacting to the Shiny server <code>input</code> object, and reactive values stored in lists of reactive values (e.g., <code><a href="https://shiny.rstudio.com/reference/shiny/latest/reactiveValues.html">shiny::reactiveValues()</a></code>).</li>
-<li>Place internal functions that create UI elements – e.g., <code><a href="https://shiny.rstudio.com/reference/shiny/latest/checkboxInput.html">shiny::checkboxInput()</a></code> – in files named <code>interface_*.R</code>.</li>
+<li>Place internal functions that create observers – e.g., <code><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">shiny::observeEvent()</a></code> – in files named <code>observers_*.R</code>.
+Do this both for observers reacting to the Shiny server <code>input</code> object, and reactive values stored in lists of reactive values (e.g., <code><a href="https://rdrr.io/pkg/shiny/man/reactiveValues.html">shiny::reactiveValues()</a></code>).</li>
+<li>Place internal functions that create UI elements – e.g., <code><a href="https://rdrr.io/pkg/shiny/man/checkboxInput.html">shiny::checkboxInput()</a></code> – in files named <code>interface_*.R</code>.</li>
 <li>Place internal functions that update the Shiny server <code>output</code> object in files named <code>outputs_*.R</code>.</li>
 <li>Place internal functions that perform miscellaneous processing steps in files named <code>utils_*.R</code>.</li>
 </ul>
@@ -130,7 +130,7 @@ Do this both for observers reacting to the Shiny server <code>input</code> objec
 <span class="header-section-number">17.2</span> Running app<a class="anchor" aria-label="anchor" href="#running-app"><i class="fas fa-link"></i></a>
 </h2>
 <p>Functions in the package should <em>return</em> Shiny apps, but <em>not</em> launch them.</p>
-<p>In other words, the function <code><a href="https://shiny.rstudio.com/reference/shiny/latest/runApp.html">shiny::runApp()</a></code> should not be found anywhere in the package source code.
+<p>In other words, the function <code><a href="https://rdrr.io/pkg/shiny/man/runApp.html">shiny::runApp()</a></code> should not be found anywhere in the package source code.
 Instead, users should be left to call that function, using Shiny app objects returned by the package functions and options that control how the app is run (e.g., <code>launch.browser = TRUE</code>).</p>
 <p>For instance, the package source code should look as follows:</p>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
@@ -142,7 +142,7 @@ Instead, users should be left to call that function, using Shiny app objects ret
 <p>While the user’s code should look as follows:</p>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">app</span> <span class="op">&lt;-</span> <span class="fu">build_app</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
-<span><span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/runApp.html">runApp</a></span><span class="op">(</span><span class="va">app</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/runApp.html">runApp</a></span><span class="op">(</span><span class="va">app</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="building-the-package" class="section level2" number="17.3">
 <h2>
@@ -177,7 +177,7 @@ Instead, users should be left to call that function, using Shiny app objects ret
 <span><span class="va">app</span> <span class="op">&lt;-</span> <span class="fu">build_app</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/runApp.html">runApp</a></span><span class="op">(</span><span class="va">app</span>, <span class="va">...</span><span class="op">)</span></span>
+<span>  <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/runApp.html">runApp</a></span><span class="op">(</span><span class="va">app</span>, <span class="va">...</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <p>Although optional, we highly recommend documenting internal functions of packages that contain Shiny apps.
 We recommend doing so in a way that is visible to developers but not users:</p>
@@ -235,7 +235,7 @@ We recommend doing so in a way that is visible to developers but not users:</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2023-03-29.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2023-06-20.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

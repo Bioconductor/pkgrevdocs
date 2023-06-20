@@ -10,7 +10,7 @@
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
 <meta name="description" content="3.1 Version of Bioconductor and  Package developers should always use the devel version of Bioconductor and Bioconductor packages when developing and testing packages to be contributed. Depending...">
-<meta name="generator" content="bookdown 0.33 with bs4_book()">
+<meta name="generator" content="bookdown 0.34 with bs4_book()">
 <meta property="og:title" content="Chapter 3 General Bioconductor Package Development | Bioconductor Packages: Development, Maintenance, and Peer Review">
 <meta property="og:type" content="book">
 <meta property="og:description" content="3.1 Version of Bioconductor and  Package developers should always use the devel version of Bioconductor and Bioconductor packages when developing and testing packages to be contributed. Depending...">
@@ -19,7 +19,7 @@
 <meta name="twitter:description" content="3.1 Version of Bioconductor and  Package developers should always use the devel version of Bioconductor and Bioconductor packages when developing and testing packages to be contributed. Depending...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -132,13 +132,13 @@ arise during build or check.</p>
 </h3>
 <p>Packages must also pass <code>BiocCheck::BiocCheckGitClone()</code> and
 <code>BiocCheck::BiocCheck('new-package'=TRUE)</code> with no errors and no warnings. The
-<em><a href="https://bioconductor.org/packages/3.17/BiocCheck">BiocCheck</a></em> package is a set of tests that encompass
+<em><a href="https://bioconductor.org/packages/3.18/BiocCheck">BiocCheck</a></em> package is a set of tests that encompass
 <a href="https://bioconductor.org"><em>Bioconductor</em></a> Best Practices. Every effort should be made to address any
 errors, warnings, and notes that arise during this build or check.</p>
 </div>
-<div id="error-warnging-and-notes" class="section level3" number="3.2.3">
+<div id="error-warning-and-notes" class="section level3" number="3.2.3">
 <h3>
-<span class="header-section-number">3.2.3</span> ERROR, WARNGING, and NOTES<a class="anchor" aria-label="anchor" href="#error-warnging-and-notes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.2.3</span> ERROR, WARNING, and NOTES<a class="anchor" aria-label="anchor" href="#error-warning-and-notes"><i class="fas fa-link"></i></a>
 </h3>
 <p>The <a href="https://bioconductor.org"><em>Bioconductor</em></a> team member assigned to review
 the package during the submission process will expect all ERROR, WARNINGS, and
@@ -204,7 +204,7 @@ Descriptions of all the different options available can be found <a href="https:
 <a href="https://bioconductor.org"><em>Bioconductor</em></a> has chosen to customize some of these options for incoming submission during <code>R CMD check</code>.
 The file of utilized flags can be downloaded from <a href="https://github.com/Bioconductor/packagebuilder/blob/master/check.Renviron"><i class="fab fa-github"></i> GitHub</a>.
 The file can either be placed in a default directory as directed <a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Checking-and-building-packages">here</a> or can be set through environment variable <code>R_CHECK_ENVIRON</code> with a command similar to:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="general.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">R_CHECK_ENVIRON</span> <span class="op">=</span> <span class="op">&lt;</span>path to downloaded file<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="general.html#cb2-1" tabindex="-1"></a><span class="bu">export</span> <span class="va">R_CHECK_ENVIRON</span> <span class="op">=</span> <span class="op">&lt;</span>path to downloaded file<span class="op">&gt;</span></span></code></pre></div>
 
 </div>
 </div>
@@ -221,7 +221,7 @@ The file can either be placed in a default directory as directed <a href="https:
 <a class="nav-link" href="#correctness-space-and-time"><span class="header-section-number">3.2</span> Correctness, Space and Time</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#r-cmd-build"><span class="header-section-number">3.2.1</span> R CMD build</a></li>
 <li><a class="nav-link" href="#bioccheck"><span class="header-section-number">3.2.2</span> BiocCheck</a></li>
-<li><a class="nav-link" href="#error-warnging-and-notes"><span class="header-section-number">3.2.3</span> ERROR, WARNGING, and NOTES</a></li>
+<li><a class="nav-link" href="#error-warning-and-notes"><span class="header-section-number">3.2.3</span> ERROR, WARNING, and NOTES</a></li>
 <li><a class="nav-link" href="#file-names"><span class="header-section-number">3.2.4</span> File names</a></li>
 <li><a class="nav-link" href="#package-size"><span class="header-section-number">3.2.5</span> Package size</a></li>
 <li><a class="nav-link" href="#check-duration"><span class="header-section-number">3.2.6</span> Check duration</a></li>
@@ -248,7 +248,7 @@ The file can either be placed in a default directory as directed <a href="https:
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2023-03-29.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2023-06-20.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

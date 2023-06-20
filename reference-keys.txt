@@ -16,7 +16,7 @@ version-of-bioconductor-and
 correctness-space-and-time
 r-cmd-build
 bioccheck
-error-warnging-and-notes
+error-warning-and-notes
 file-names
 package-size
 check-duration
