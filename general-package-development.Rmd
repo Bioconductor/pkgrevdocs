@@ -27,7 +27,7 @@ Packages must also pass `BiocCheck::BiocCheckGitClone()` and
 [_Bioconductor_][] Best Practices. Every effort should be made to address any
 errors, warnings, and notes that arise during this build or check.
 
-### ERROR, WARNGING, and NOTES {#error-warnging-and-notes}
+### ERROR, WARNING, and NOTES {#error-warning-and-notes}
 
 The [_Bioconductor_][] team member assigned to review
 the package during the submission process will expect all ERROR, WARNINGS, and
