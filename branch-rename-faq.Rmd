@@ -177,60 +177,29 @@ To push `upstream` to Bioconductor, the developer will simply push to the
     git checkout devel
     #### <commit changes and bump version etc.>
     git push upstream devel
-    
+
+## Clean up: How do I get rid of stale remote-tracking branches?
+
+After the rename, there will remain stale references in the `origin` remote.
+See all the local and remote branches with `git branch -a`:
+
+    git branch -a
+    # * devel
+    # remotes/origin/HEAD -> origin/devel
+    # [...]
+    # remotes/origin/master
+
+Run the following to get rid of the stale reference to "master" in the `origin`
+remote:
+
+    git remote prune origin --dry-run
+
+**Note**. Remove the `--dry-run` option after making sure that the correct
+remote reference is listed.
+
 ## What if I have a GitLab repository?
 
 It is possible to also change the default branch on GitLab. See the
 [change default branch instructions](https://docs.gitlab.com/ee/user/project/repository/branches/default.html#change-the-default-branch-name-for-a-project).
 Once complete, you can update the local repository similarly to the [above
 instructions](#how-do-i-set-devel-as-the-default-local-branch).
-
-### Early Branch Rename Adopters
-
-**NOTE**: The following sections are for eager developers who would like to
-make changes to their local repositories _before_ the Bioconductor git branch
-rename (now).
-
-#### Sync repositories for early adopters
-
-Before making updates to branches, make sure that both remotes `origin` and
-`upstream` are in sync:
-
-    git checkout master
-    git pull origin master
-    git pull upstream master
-
-#### Rename devel branch on GitHub for early adopters
-
-The rename operation should be done via GitHub. Go to
-`https://github.com/{username}/{repo}/branches` where `username` and `repo`
-correspond to your GitHub username and repository, respectively.
-
-Click on the 'edit' pencil to rename the branch (seen here at the bottom right
-corner) and rename the branch to 'devel':
-
-```{r,echo=FALSE,out.width="100%"}
-knitr::include_graphics("images/rename_branch_github_screen.png")
-```
-
-Once the branch is renamed, use the GitHub commands to update the local
-repository:
-
-    git branch -m master devel
-    git fetch origin
-    git branch -u origin/devel devel
-    git remote set-head origin -a
-    
-**Note**. `origin` here is set to the GitHub remote and tracking is set to
-`origin/devel`.
-
-#### Pushing to Bioconductor for early adopters
-
-Mapping of branches is required to push upstream for early adopters, until the
-branch is renamed on the Bioconductor git server. The `git push` operation is as
-follows:
-
-    ## branch should already exist
-    git checkout devel
-    #### <make changes to repository>
-    git push upstream devel:master
