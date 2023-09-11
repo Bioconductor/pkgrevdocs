@@ -287,6 +287,79 @@ checks.
 * Use the packages `r BiocStyle::Biocpkg("ExperimentHub")` and `r BiocStyle::Biocpkg("AnnotationHub")` instead of downloading external data from unsanctioned providers such as <i class="fab fa-github"></i> GitHub, <i * class="fa fa-dropbox" aria-hidden="true"></i> Dropbox, etc. In general, data utlilzed in packages should be downloaded from trusted public databases. See also section on web querying and file caching.
 * Use `<-` instead of `=` for assigning variables except in function arguments.
 
+### Cyclomatic Complexity
+
+A metric developed by Thomas J. McCabe, cyclomatic complexity describes the
+control-flow of a program. The higher the value, the more complex the code is
+said to be.
+
+In the `BiocCheck` example below, we have a series of control-flow statements
+that check for multiple conditions and return a value if some of those
+conditions are true. The function `hasValueSection` is checking that the
+documentation contains a 'value' Rd tag i.e., a return section in the
+documentation.
+
+```r
+hasValueSection <- function(manpage) {
+    rd <- tools::parse_Rd(manpage)
+    type <- BiocCheck:::docType(rd)
+    if (identical(type, "data"))
+        return(TRUE)
+    tags <- tools:::RdTags(rd)
+    if ("\\usage" %in% tags && (!"\\value" %in% tags))
+        return(FALSE)
+    value <- NULL
+    if ("\\value" %in% tags)
+        value <- rd[grep("\\value", tags)]
+    if ("\\usage" %in% tags && (!"\\value" %in% tags)) {
+        values <- paste(unlist(value), collapse='')
+        test <- (is.list(value[[1]]) && length(value[[1]]) == 0) ||
+            nchar(gsub(" ", "", values)) == 0
+        if (test)
+            return(FALSE)
+    }
+    TRUE
+}
+```
+
+As you can see, the code here is quite complex, creating `if` statements for
+specific conditions. The measured cyclomatic complexity as given by the
+`cyclocomp` package is a value of 16.
+
+```r
+library(cyclocomp)
+cyclocomp(hasValueSection)
+#> [1] 16
+```
+
+Let's re-write the function to reduce the complexity and use a base character
+vector representation.
+
+```r
+hasValueSection2 <- function(manpage) {
+    rd <- tools::parse_Rd(manpage)
+    tags <- tools:::RdTags(rd)
+    value <- rd[grepl("\\value", tags)]
+    value <- unlist(value, recursive = FALSE)
+    value <- Filter(function(x) attr(x, "Rd_tag") != "COMMENT", value)
+    values <- paste(value, collapse='')
+    nzchar(trimws(values)) && length(value)
+}
+```
+
+By internalizing a base character vector representation in the code, the
+successive functions will operate on that representation. This gives us code
+that is less complex and easier to understand and maintain with a complexity
+metric value of 2.
+
+```r
+cyclocomp(hasValueSection2)
+#> [1] 2
+```
+
+Note. Switches based on `docType` should be outside of the function as a filter
+for the `manpage` input instead.
+
 #### End-User messages
 
 Use the functions `message()`, `warning()` and `error()`, instead of the
