@@ -168,6 +168,12 @@ package maintenance responsibilities. Package authors are expected to:
   DESCRIPTION file. This field indicates a particular web page for submitting
   bug reports and questions.
 
+* Ensure the maintainer email in the DESCRIPTIONS stays accurate and
+  reachable. The maintainer email in the DESCRIPTION is the definitive contact
+  _Bioconductor_ will use. It is important to keep this email up-to-date to
+  ensure we can contact you if your package is failing or to notify you of any
+  important upcoming impactful events. If the email is not reachable your
+  package would be in jeopardy of removal.
 
 ## Submission
 
@@ -244,22 +250,19 @@ use of existing data in a Bioconductor package. See development section on
 
 * A new package is initially labeled as `1. awaiting moderation`.
   A _Bioconductor_ team member will take a very brief look at your
-  package, to ensure that it is intended for _Bioconductor_. Appropriate
-  packages will be re-labelled `2. review in progress` and a reviewer will be
-  automatically assigned. Your assigned reviewer will address your concerns and
-  help you through the review process. The entire review process typically
-  takes between 2 and 6 weeks. If there is no response after 3 to 4 weeks,
-  package reviewers may close the issue until further updates, changes, and/or
-  commentary are received.
+  package,  to ensure that it is not doing anything malicious or
+  inappropriate. Packages that pass this stage will be labelled
+  `pre-check passed`.
 
-* If in the pre-review process there are identified larger issues with the
-  package, a label `3e. pending pre-review changes` or a more specific flag of
-  package issue will be assigned. Please address any pre-review identified
-  issues and comment back for the package admininstrators to re-evaluate.
+* The moderator will add your package as a repository to the
+  git.bioconductor.org git server, copy the SSH keys from your github
+  account to the [BiocCredentials application][] application and the issue labelled
+  `pre-review`.  
 
-* Please be courteous with your package reviewers and always follow the
-  _Bioconductor_ [Code Of Conduct][] with correspondence. Please allow 2-3 weeks
-  for reviewers to assess your package.
+  ALL CHANGES TO YOUR PACKAGE must be pushed to the
+  git.bioconductor.org repository created in this step. See the [New package
+  workflow][] for instructions on pushing changes to your git.bioconductor.org
+  repository.
 
 * The package will be submitted to the _Bioconductor_ build
   system (BBS). The system will check out your package from GitHub and move it
@@ -290,11 +293,23 @@ use of existing data in a Bioconductor package. See development section on
   `0.99.z` format. When accepted and released, your package's version number
   will be automatically incremented to 1.0.0.
 
+* If in the pre-review process there are identified larger issues with the
+  package, a label `3e. pending pre-review changes` or a more specific flag of
+  package issue will be assigned. Please address any pre-review identified
+  issues and comment back for the package admininstrators to re-evaluate.
+
 * Once your package builds and checks without errors or (avoidable)
-  warnings, a _Bioconductor_ team member will provide a technical
-  review of your package.  Other _Bioconductor_ developers and users
-  with domain expertise are encouraged to provide additional community
-  commentary.  Reviewers will add comments to the issue you created.
+  warnings, the package is assigned a reviewer. The package will be
+  labelled `2. Review in progress`.
+
+* The reviewr will provide a technical review of your package.  Other
+  _Bioconductor_ developers and users with domain expertise are encouraged to
+  provide additional community commentary.  Reviewers will add comments to the
+  issue you created.
+
+* Please be courteous with your package reviewers and always follow the
+  _Bioconductor_ [Code Of Conduct][] with correspondence. Please allow 2-3 weeks
+  for reviewers to assess your package.
 
 * Respond to the issues raised by the reviewers. You _must_ respond to
   the primary reviewer, and are strongly encouraged to consider
@@ -318,6 +333,15 @@ use of existing data in a Bioconductor package. See development section on
   closed. All updates to your package will be through the
   [_Bioconductor_ Git Server][gitver].
 
+
+Please be mindful that reviewers are volunteers and package reviews are not
+the only responsibility of _Bioconductor_ team members. We like to see the
+review process progress by updates from the submitter or by comments from the
+reviewer within 2-3 weeks. The entire review process typically takes between 2
+and 6 weeks. If there is no response after 3 to 4 weeks, package reviewers may
+close the issue until further updates, changes, and/or commentary are received.
+
+
 ## Following Acceptance {#afteraccept}
 
 Following acceptance of a package:
@@ -339,7 +363,8 @@ Following acceptance of a package:
   [Version numbering][versioning] guidelines. If developers don't
   bump the version, the changes made to their package *do not propagate*
   to the _Bioconductor_ web site and package repository.
-
+* Devlopers should make sure the maintainer email in the DESCRIPTION stays
+  accurate and reachable.
 
 ## Additional Support {#support}
 
