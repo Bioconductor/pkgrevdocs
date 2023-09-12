@@ -121,6 +121,7 @@ rcode-comments
 additonal-style-and-formatting-references
 r-code-best-practices-and-guidelines
 code-syntax-and-efficiency
+cyclomatic-complexity
 end-user-messages
 graphic-device
 web-querying-and-file-caching
