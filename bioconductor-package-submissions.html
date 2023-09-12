@@ -266,6 +266,12 @@ Some maintainers prefer to indicate a <code>BugReports:</code> field in their pa
 DESCRIPTION file. This field indicates a particular web page for submitting
 bug reports and questions.</p>
 </li>
+<li><p>Ensure the maintainer email in the DESCRIPTIONS stays accurate and
+reachable. The maintainer email in the DESCRIPTION is the definitive contact
+<em>Bioconductor</em> will use. It is important to keep this email up-to-date to
+ensure we can contact you if your package is failing or to notify you of any
+important upcoming impactful events. If the email is not reachable your
+package would be in jeopardy of removal.</p></li>
 </ul>
 </div>
 <div id="submission" class="section level2" number="1.5">
@@ -349,20 +355,19 @@ use of existing data in a Bioconductor package. See development section on
 <ul>
 <li><p>A new package is initially labeled as <code>1. awaiting moderation</code>.
 A <em>Bioconductor</em> team member will take a very brief look at your
-package, to ensure that it is intended for <em>Bioconductor</em>. Appropriate
-packages will be re-labelled <code>2. review in progress</code> and a reviewer will be
-automatically assigned. Your assigned reviewer will address your concerns and
-help you through the review process. The entire review process typically
-takes between 2 and 6 weeks. If there is no response after 3 to 4 weeks,
-package reviewers may close the issue until further updates, changes, and/or
-commentary are received.</p></li>
-<li><p>If in the pre-review process there are identified larger issues with the
-package, a label <code>3e. pending pre-review changes</code> or a more specific flag of
-package issue will be assigned. Please address any pre-review identified
-issues and comment back for the package admininstrators to re-evaluate.</p></li>
-<li><p>Please be courteous with your package reviewers and always follow the
-<em>Bioconductor</em> <a href="https://bioconductor.github.io/bioc_coc_multilingual/">Code Of Conduct</a> with correspondence. Please allow 2-3 weeks
-for reviewers to assess your package.</p></li>
+package, to ensure that it is not doing anything malicious or
+inappropriate. Packages that pass this stage will be labelled
+<code>pre-check passed</code>.</p></li>
+<li>
+<p>The moderator will add your package as a repository to the
+git.bioconductor.org git server, copy the SSH keys from your github
+account to the <a href="https://git.bioconductor.org/BiocCredentials/">BiocCredentials application</a> application and the issue labelled
+<code>pre-review</code>.</p>
+<p>ALL CHANGES TO YOUR PACKAGE must be pushed to the
+git.bioconductor.org repository created in this step. See the <a href="git-version-control.html#new-package-workflow">New package
+workflow</a> for instructions on pushing changes to your git.bioconductor.org
+repository.</p>
+</li>
 <li><p>The package will be submitted to the <em>Bioconductor</em> build
 system (BBS). The system will check out your package from GitHub and move it
 to our git.bioconductor.org git server. Please familiarize yourself with
@@ -389,11 +394,20 @@ there are problems that you do not understand, seek help on the
 from <code>Version: 0.99.0</code> to <code>Version: 0.99.1</code>. Pre-release versions utilize the
 <code>0.99.z</code> format. When accepted and released, your package’s version number
 will be automatically incremented to 1.0.0.</p></li>
+<li><p>If in the pre-review process there are identified larger issues with the
+package, a label <code>3e. pending pre-review changes</code> or a more specific flag of
+package issue will be assigned. Please address any pre-review identified
+issues and comment back for the package admininstrators to re-evaluate.</p></li>
 <li><p>Once your package builds and checks without errors or (avoidable)
-warnings, a <em>Bioconductor</em> team member will provide a technical
-review of your package. Other <em>Bioconductor</em> developers and users
-with domain expertise are encouraged to provide additional community
-commentary. Reviewers will add comments to the issue you created.</p></li>
+warnings, the package is assigned a reviewer. The package will be
+labelled <code>2. Review in progress</code>.</p></li>
+<li><p>The reviewr will provide a technical review of your package. Other
+<em>Bioconductor</em> developers and users with domain expertise are encouraged to
+provide additional community commentary. Reviewers will add comments to the
+issue you created.</p></li>
+<li><p>Please be courteous with your package reviewers and always follow the
+<em>Bioconductor</em> <a href="https://bioconductor.github.io/bioc_coc_multilingual/">Code Of Conduct</a> with correspondence. Please allow 2-3 weeks
+for reviewers to assess your package.</p></li>
 <li><p>Respond to the issues raised by the reviewers. You <em>must</em> respond to
 the primary reviewer, and are strongly encouraged to consider
 community commentary. Typically your response will involve code
@@ -413,6 +427,12 @@ approximately April and October.</p></li>
 closed. All updates to your package will be through the
 <a href="git-version-control.html#git-version-control"><em>Bioconductor</em> Git Server</a>.</p></li>
 </ul>
+<p>Please be mindful that reviewers are volunteers and package reviews are not
+the only responsibility of <em>Bioconductor</em> team members. We like to see the
+review process progress by updates from the submitter or by comments from the
+reviewer within 2-3 weeks. The entire review process typically takes between 2
+and 6 weeks. If there is no response after 3 to 4 weeks, package reviewers may
+close the issue until further updates, changes, and/or commentary are received.</p>
 </div>
 <div id="afteraccept" class="section level2" number="1.10">
 <h2>
@@ -437,6 +457,8 @@ time they commit changes to their package, following the
 <a href="versionnum.html#versionnum">Version numbering</a> guidelines. If developers don’t
 bump the version, the changes made to their package <em>do not propagate</em>
 to the <em>Bioconductor</em> web site and package repository.</li>
+<li>Devlopers should make sure the maintainer email in the DESCRIPTION stays
+accurate and reachable.</li>
 </ul>
 </div>
 <div id="support" class="section level2" number="1.11">
