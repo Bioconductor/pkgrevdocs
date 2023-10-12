@@ -1,0 +1,21 @@
+# Frequently asked questions regarding package development {contrib-faq}
+
+## How can I use software external to R and R packages in my Bioconductor contribution?
+
+Direct calls to external commands via
+system() or system2() are not ideal so should only be used when there is no
+other alternative. For example, if a CRAN or Bioconductor package already
+provides the functionality that you are after, you should use that instead.
+
+Now if your package **absolutely** must rely on external software then you
+need to make sure that those requirements are listed in
+the SystemRequirements field of the DESCRIPTION file of the package. These
+requirements should be "reasonable" requirements, that is, trusted software
+only, open source, and relatively easy to install.
+
+Additionally we ask that the package contains an INSTALL file (in the
+top-level folder) that provides instructions for installing the external
+software on the 3 major OS that we support: Linux, Windows, and Mac. This
+will not only help your users get the external software on their machines,
+but it will also help us install it on the build machines if it's not
+already there.

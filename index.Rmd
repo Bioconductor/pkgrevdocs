@@ -26,7 +26,8 @@ knitr::include_graphics("https://raw.githubusercontent.com/Bioconductor/BiocStic
 The [_Bioconductor_][] project promotes high-quality, well documented, and interoperable software.
 These guidelines help to achieve this objective; they are not meant to put undue
 burden on package authors, and authors having difficultly satisfying guidelines
-should seek advice on the [bioc-devel][bioc-devel-mail] mailing list.
+should seek advice on the [bioc-devel][bioc-devel-mail] mailing list, after checking through
+the [Frequently Asked Questions][contrib-faq] section.
 
 Package maintainers are urged to follow these guidelines as closely as possible
 when developing [_Bioconductor_][] packages.
@@ -54,6 +55,7 @@ knitr::write_bib(c(
 
 [_Bioconductor_]: https://bioconductor.org
 
+[contrib-faq]: #contrib-faq
 [Abandon changes]: #abandon-changes
 [add your public key to your GitHub account]: https://help.github.com/articles/connecting-to-github-with-ssh/
 [Adding a new collaborator]: https://help.github.com/articles/inviting-collaborators-to-a-personal-repository/
