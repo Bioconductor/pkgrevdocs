@@ -280,6 +280,7 @@ user community can engage in the development of your package.
 
 1.  Merge upstream with origin's devel branch,
 
+        git checkout -b devel
         git merge upstream/devel
 
     __NOTE:__ If you have the error `fatal: refusing to merge
