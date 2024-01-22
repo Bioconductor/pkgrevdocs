@@ -265,10 +265,10 @@ highly encouraged.
 
 ## R Code Best Practices and Guidelines
 
-Many common coding and sytax issues are flagged in `R CMD check` and
+Many common coding and syntax issues are flagged in `R CMD check` and
 `BiocCheck()` (see the `R CMD check`
 [cheatsheet](http://r-pkgs.had.co.nz/check.html) and `r BiocStyle::Biocpkg("BiocCheck", vignette = "BiocCheck.html")` vignette. Every
-effort should be made to clear up ERROR, WARNING, or Notes produced from these
+effort should be made to clear up ERROR, WARNING, or NOTEs produced from these
 checks.
 
 ### Code syntax and efficiency
