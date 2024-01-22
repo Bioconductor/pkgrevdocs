@@ -6,27 +6,34 @@ that this process is minimally disruptive to your users.
 
 ## What to Deprecate?
 
-Any function, class, method, or data that is no longer used or needed.
+Any function, class, method, data, or even package that is no longer used or
+needed.
 
 ## When to Follow These Guidelines?
 
-If you introduce a function into the devel branch of your package,
-then soon after decide not to use it, you may simply remove the function
-without following these guidelines. It is expected that the devel
-branch is unstable and subject to API changes without notice (though
-you may decide to communicate these changes to your users via the
+    >|--- Bioconductor development cycle ---------------|>
+    >|--- o feature introduced --- o feature removed ---|>
+    
+Note that if you decide against using a function that you had introduced
+**within the same development cycle**, you may simply remove the function
+without following the standard function deprecation guidelines. It is expected
+that the devel branch be unstable and be subject to API changes without notice
+(though you may decide to communicate these changes to your users via the
 Bioconductor [support site][]).
 
-However, if a function has existed in at least one released version
+    >| Bioconductor RELEASE_X_Y | Bioconductor development cycle |>
+    >|-- o feature introduced --|----- o feature removed --------|>
+
+However, if a function was published in at least one release version
 of Bioconductor, these guidelines _must_ be followed. The process of removing
-a function, class, method, or any exported package object takes approximately
-three release cycles (about 18 months).
+a feature such as a function, class, method, or exported package object
+takes approximately three release cycles (about 18 months).
 
 ## How To Deprecate A Function {#deprecate-function}
 
 ### Step 1: Deprecate the function
 
-When you first decide to eliminate a function, you should mark it as
+When you first decide to deprecate a function, you should mark it as
 deprecated in the devel branch. Do this by calling <code>.Deprecated()</code>
 inside the function. To do this, you must provide a replacement function
 which should be used in place of the old function. Example:
