@@ -10,7 +10,7 @@
 <meta name="author" content="Johannes Rainer">
 <meta name="author" content="Lori Shepherd">
 <meta name="description" content="Most packages contributed by users are software packages. However, there are instances where other package types are submitted. The following sections will go into specifics we look for in each of...">
-<meta name="generator" content="bookdown 0.35 with bs4_book()">
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
 <meta property="og:title" content="Chapter 18 Non-Software Packages | Bioconductor Packages: Development, Maintenance, and Peer Review">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Most packages contributed by users are software packages. However, there are instances where other package types are submitted. The following sections will go into specifics we look for in each of...">
@@ -19,7 +19,7 @@
 <meta name="twitter:description" content="Most packages contributed by users are software packages. However, there are instances where other package types are submitted. The following sections will go into specifics we look for in each of...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -127,8 +127,8 @@ ExperimentHub interfaces and packages are desirable.</p>
 <span class="header-section-number">18.2</span> Annotation/Experiment Hub packages<a class="anchor" aria-label="anchor" href="#annotationexperiment-hub-packages"><i class="fas fa-link"></i></a>
 </h2>
 <p>These light weight packages are related to resources added to
-<em><a href="https://bioconductor.org/packages/3.18/AnnotationHub">AnnotationHub</a></em> or
-<em><a href="https://bioconductor.org/packages/3.18/ExperimentHub">ExperimentHub</a></em>. The package should minimally contain
+<em><a href="https://bioconductor.org/packages/3.19/AnnotationHub">AnnotationHub</a></em> or
+<em><a href="https://bioconductor.org/packages/3.19/ExperimentHub">ExperimentHub</a></em>. The package should minimally contain
 the resource metadata, man pages describing the resources, and a vignette. It
 may also contain supporting R function the author wants to provide. These
 packages are similar to the above Annotation or Experiment data packages except
@@ -137,7 +137,7 @@ or publicly accessibly sites (ensembl, AWS S3 buckets, etc) instead of in the
 package itself.</p>
 <p>There is more information about creating a hub packages as well as the contents
 of on in the <a href="https://bioconductor.org/packages/devel/bioc/vignettes/HubPub/inst/doc/CreateAHubPackage.html">Create A Hub Package</a> vignette within the
-<em><a href="https://bioconductor.org/packages/3.18/HubPub">HubPub</a></em> Bioconductor package.</p>
+<em><a href="https://bioconductor.org/packages/3.19/HubPub">HubPub</a></em> Bioconductor package.</p>
 </div>
 <div id="workflow-packages" class="section level2" number="18.3">
 <h2>
@@ -186,9 +186,9 @@ be sent for gaining access for maintainence.</p></li>
 <ul>
 <li>
 <p>In an effort to standardize the workflow vignette format, it is strongly
-encouraged to use either <em><a href="https://bioconductor.org/packages/3.18/BiocStyle">BiocStyle</a></em> for formatting or
-utilize <em><a href="https://bioconductor.org/packages/3.18/BiocWorkflowTools">BiocWorkflowTools</a></em>. The following header
-shows how to use <em><a href="https://bioconductor.org/packages/3.18/BiocStyle">BiocStyle</a></em> in the vignette:</p>
+encouraged to use either <em><a href="https://bioconductor.org/packages/3.19/BiocStyle">BiocStyle</a></em> for formatting or
+utilize <em><a href="https://bioconductor.org/packages/3.19/BiocWorkflowTools">BiocWorkflowTools</a></em>. The following header
+shows how to use <em><a href="https://bioconductor.org/packages/3.19/BiocStyle">BiocStyle</a></em> in the vignette:</p>
 <pre><code>output:
     BiocStyle::html_document</code></pre>
 </li>
@@ -339,7 +339,7 @@ specify the bibliography file in the document metadata header.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2023-09-12.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2024-01-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
