@@ -110,22 +110,27 @@ that this process is minimally disruptive to your users.</p>
 <h2>
 <span class="header-section-number">25.1</span> What to Deprecate?<a class="anchor" aria-label="anchor" href="#what-to-deprecate"><i class="fas fa-link"></i></a>
 </h2>
-<p>Any function, class, method, or data that is no longer used or needed.</p>
+<p>Any function, class, method, data, or even package that is no longer used or
+needed.</p>
 </div>
 <div id="when-to-follow-these-guidelines" class="section level2" number="25.2">
 <h2>
 <span class="header-section-number">25.2</span> When to Follow These Guidelines?<a class="anchor" aria-label="anchor" href="#when-to-follow-these-guidelines"><i class="fas fa-link"></i></a>
 </h2>
-<p>If you introduce a function into the devel branch of your package,
-then soon after decide not to use it, you may simply remove the function
-without following these guidelines. It is expected that the devel
-branch is unstable and subject to API changes without notice (though
-you may decide to communicate these changes to your users via the
+<pre><code>&gt;|--- Bioconductor development cycle ---------------|&gt;
+&gt;|--- o feature introduced --- o feature removed ---|&gt;</code></pre>
+<p>Note that if you decide against using a function that you had introduced
+<strong>within the same development cycle</strong>, you may simply remove the function
+without following the standard function deprecation guidelines. It is expected
+that the devel branch be unstable and be subject to API changes without notice
+(though you may decide to communicate these changes to your users via the
 Bioconductor <a href="https://support.bioconductor.org/">support site</a>).</p>
-<p>However, if a function has existed in at least one released version
+<pre><code>&gt;| Bioconductor RELEASE_X_Y | Bioconductor development cycle |&gt;
+&gt;|-- o feature introduced --|----- o feature removed --------|&gt;</code></pre>
+<p>However, if a function was published in at least one release version
 of Bioconductor, these guidelines <em>must</em> be followed. The process of removing
-a function, class, method, or any exported package object takes approximately
-three release cycles (about 18 months).</p>
+a feature such as a function, class, method, or exported package object
+takes approximately three release cycles (about 18 months).</p>
 </div>
 <div id="deprecate-function" class="section level2" number="25.3">
 <h2>
@@ -135,7 +140,7 @@ three release cycles (about 18 months).</p>
 <h3>
 <span class="header-section-number">25.3.1</span> Step 1: Deprecate the function<a class="anchor" aria-label="anchor" href="#step-1-deprecate-the-function"><i class="fas fa-link"></i></a>
 </h3>
-<p>When you first decide to eliminate a function, you should mark it as
+<p>When you first decide to deprecate a function, you should mark it as
 deprecated in the devel branch. Do this by calling <code><a href="https://rdrr.io/r/base/Deprecated.html">.Deprecated()</a></code>
 inside the function. To do this, you must provide a replacement function
 which should be used in place of the old function. Example:</p>
