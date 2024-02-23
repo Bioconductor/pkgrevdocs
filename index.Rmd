@@ -129,7 +129,8 @@ knitr::write_bib(c(
 [reviewers slack channel]: https://community-bioc.slack.com/archives/C02A1B8HUHZ
 [rmarkdown]: http://rmarkdown.rstudio.com/
 [rmarkdown documentation]: http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html#citations
-[shiny-rstudio]: https://shiny.rstudio.com/
+[shiny-posit]: https://shiny.posit.co/
+[shiny-modules]: https://shiny.posit.co/r/articles/improve/modules/
 [software-pkgs]: https://bioconductor.org/packages/release/bioc/
 [support site]: https://support.bioconductor.org/
 [support-register]: https://support.bioconductor.org/accounts/signup/

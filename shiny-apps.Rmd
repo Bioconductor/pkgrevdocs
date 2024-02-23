@@ -1,6 +1,6 @@
 # Shiny apps {#shiny}
 
-[Shiny apps][shiny-rstudio] can be submitted to _Bioconductor_ as software packages or as documented and tested functions within packages.
+[Shiny apps][shiny-posit] can be submitted to _Bioconductor_ as software packages or as documented and tested functions within packages.
 
 ## Code organisation
 
@@ -13,6 +13,9 @@ Shiny apps submitted to _Bioconductor_ must store the <i class="fab fa-r-project
 
 The bulk of the package code should _not_ be implemented directly within the `shinyApp()` function call.
 Instead, internal package functions should be developed to produce and return individual components of the UI and server sides of the Shiny app.
+
+Shiny apps can also be written using [shiny modules][shiny-modules] to allow for
+better code organisation and re-usability.
 
 We recommend the following file naming scheme for source files:
 
@@ -48,11 +51,36 @@ shiny::runApp(app, ...)
 
 ## Building the package
 
-_Coming soon: comments on build issues for packages that contain Shiny apps._
+Packages with `shiny` apps should be built using the standard `R CMD build`
+command. The package structure should follow a standard R package structure,
+with the Shiny app code stored under the `R/` directory.:
+
+```
+MyShinyPackage/
+|-- app.R
+|-- DESCRIPTION
+|-- NAMESPACE
+|-- R/
+|   |-- interface_*.R
+|   |-- observers_*.R
+|   |-- outputs_*.R
+|   |- server_*.R
+|   └- utils.R
+|-- tests/
+|-- vignettes/
+|-- man/
+|-- inst/
+[...]
+```
+
+An optional `app.R` file can be added to the base directory of the package to
+launch the Shiny app using the `shiny::runApp()` or a main shiny app deployment
+function.
 
 ## Testing
 
-All functions in the package should be testable using standard unit testing tools (e.g., `r BiocStyle::CRANpkg("testthat")`).
+All plain non-reactive functions in the package should be testable using
+standard unit testing tools (e.g., `r BiocStyle::CRANpkg("testthat")`).
 
 The use of `# nocov start` and `# nocov end` is allowed to ignore part of the code that cannot be tested using traditional unit tests (e.g., `observeEvent`).
 
@@ -67,6 +95,9 @@ observeEvent(input$example_input, {
 ```
 
 Use files `setup-*.R` in the subdirectory `tests/testthat/` to generate only once objects that are used repeatedly as input for the unit tests.
+
+It is recommended to use the `r BiocStyle::CRANpkg("shinytest2")` package to
+test visual and computational aspects of Shiny apps.
 
 ## Documentation
 
@@ -84,17 +115,32 @@ if (interactive()) {
 }
 ```
 
-Although optional, we highly recommend documenting internal functions of packages that contain Shiny apps.
-We recommend doing so in a way that is visible to developers but not users:
+Although optional, we highly recommend documenting internal functions of
+packages that contain Shiny apps. We recommend doing so in a way that is visible
+to developers but not users:
 
-- Create man pages named `man/INTERNAL_*.Rd`
-  + If using `r BiocStyle::CRANpkg("roxygen2")`, use the tag-value `@rdname INTERNAL_name_of_function`.
-- In the file `man/.gitignore` (create it if it does not exist), add the line `INTERNAL_*`
+- If using `r BiocStyle::CRANpkg("roxygen2")`, use the tag `@keywords internal`
+  in the Roxygen block. This will keep the documentation in the package but
+  remove it from the help page index. You may want to increase the visibility of
+  internal documentation by linking to it in other help pages within the package
+  (e.g., within a "for developers" section).
 
-For instance:
+For example:
 
 ```{r, eval=FALSE}
-#' @rdname INTERNAL_build_app
+#' @keywords internal
+.build_app <- function(...) {
+  ...
+}
+```
+
+- Alternatively (though less common), prefix the manual pages with `INTERNAL_*`
+  and add them to `man/.gitignore`.
+
+To set the name of an Rd document, use the `@name` tag in the Roxygen block:
+
+```{r, eval=FALSE}
+#' @name INTERNAL_build_app
 .build_app <- function(...) {
   ...
 }
@@ -102,4 +148,22 @@ For instance:
 
 ## Review
 
-_Coming soon: comments on reviewing packages that contain Shiny apps (e.g., points raised during the review process)._
+When reviewing a shiny app package, the reviewer should check that the package
+follows the guidelines outlined in this document.
+
+We highly recommend that reviewers use the `r BiocStyle::CRANpkg("shinytest2")`
+package to test the visual and computational aspects of the Shiny app in
+addition to standard unit tests for plain functions.
+
+Reviewers should also check that the package documentation is complete and
+accurate, and that the package passes `r BiocStyle::CRANpkg("BiocCheck")` in
+addition to `R CMD build` and `check`.
+
+The user experience is very important. Reviewers should ensure that the app is
+responsive and that the user interface is intuitive and easy-to-use. The app
+should not crash or hang when the user interacts with it.
+
+Errors and warnings should be handled gracefully and should be visible and
+intelligible to the user. We recommend using
+`r BiocStyle::CRANpkg("shinytoastr")` to display error, warning, and info
+messages to the user.
