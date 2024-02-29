@@ -103,7 +103,7 @@
 <h1>
 <span class="header-section-number">17</span> Shiny apps<a class="anchor" aria-label="anchor" href="#shiny"><i class="fas fa-link"></i></a>
 </h1>
-<p><a href="https://shiny.rstudio.com/">Shiny apps</a> can be submitted to <em>Bioconductor</em> as software packages or as documented and tested functions within packages.</p>
+<p><a href="https://shiny.posit.co/">Shiny apps</a> can be submitted to <em>Bioconductor</em> as software packages or as documented and tested functions within packages.</p>
 <div id="code-organisation" class="section level2" number="17.1">
 <h2>
 <span class="header-section-number">17.1</span> Code organisation<a class="anchor" aria-label="anchor" href="#code-organisation"><i class="fas fa-link"></i></a>
@@ -116,6 +116,8 @@
 <p>Shiny apps submitted to <em>Bioconductor</em> must store the <i class="fab fa-r-project"></i> code for both the UI and server code under the <code>R/</code> directory of the package.</p>
 <p>The bulk of the package code should <em>not</em> be implemented directly within the <code>shinyApp()</code> function call.
 Instead, internal package functions should be developed to produce and return individual components of the UI and server sides of the Shiny app.</p>
+<p>Shiny apps can also be written using <a href="https://shiny.posit.co/r/articles/improve/modules/">shiny modules</a> to allow for
+better code organisation and re-usability.</p>
 <p>We recommend the following file naming scheme for source files:</p>
 <ul>
 <li>Place internal functions that create observers – e.g., <code><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">shiny::observeEvent()</a></code> – in files named <code>observers_*.R</code>.
@@ -148,22 +150,45 @@ Instead, users should be left to call that function, using Shiny app objects ret
 <h2>
 <span class="header-section-number">17.3</span> Building the package<a class="anchor" aria-label="anchor" href="#building-the-package"><i class="fas fa-link"></i></a>
 </h2>
-<p><em>Coming soon: comments on build issues for packages that contain Shiny apps.</em></p>
+<p>Packages with <code>shiny</code> apps should be built using the standard <code>R CMD build</code>
+command. The package structure should follow a standard R package structure,
+with the Shiny app code stored under the <code>R/</code> directory.:</p>
+<pre><code>MyShinyPackage/
+|-- app.R
+|-- DESCRIPTION
+|-- NAMESPACE
+|-- R/
+|   |-- interface_*.R
+|   |-- observers_*.R
+|   |-- outputs_*.R
+|   |- server_*.R
+|   └- utils.R
+|-- tests/
+|-- vignettes/
+|-- man/
+|-- inst/
+[...]</code></pre>
+<p>An optional <code>app.R</code> file can be added to the base directory of the package to
+launch the Shiny app using the <code><a href="https://rdrr.io/pkg/shiny/man/runApp.html">shiny::runApp()</a></code> or a main shiny app deployment
+function.</p>
 </div>
 <div id="testing" class="section level2" number="17.4">
 <h2>
 <span class="header-section-number">17.4</span> Testing<a class="anchor" aria-label="anchor" href="#testing"><i class="fas fa-link"></i></a>
 </h2>
-<p>All functions in the package should be testable using standard unit testing tools (e.g., <em><a href="https://CRAN.R-project.org/package=testthat">testthat</a></em>).</p>
+<p>All plain non-reactive functions in the package should be testable using
+standard unit testing tools (e.g., <em><a href="https://CRAN.R-project.org/package=testthat">testthat</a></em>).</p>
 <p>The use of <code># nocov start</code> and <code># nocov end</code> is allowed to ignore part of the code that cannot be tested using traditional unit tests (e.g., <code>observeEvent</code>).</p>
 <p>For instance:</p>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># nocov start</span></span>
 <span><span class="fu">observeEvent</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">example_input</span>, <span class="op">{</span></span>
 <span>    <span class="co"># &lt;do something&gt;</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span><span class="co"># nocov end</span></span></code></pre></div>
 <p>Use files <code>setup-*.R</code> in the subdirectory <code>tests/testthat/</code> to generate only once objects that are used repeatedly as input for the unit tests.</p>
+<p>It is recommended to use the <em><a href="https://CRAN.R-project.org/package=shinytest2">shinytest2</a></em> package to
+test visual and computational aspects of Shiny apps.</p>
 </div>
 <div id="documentation" class="section level2" number="17.5">
 <h2>
@@ -171,7 +196,7 @@ Instead, users should be left to call that function, using Shiny app objects ret
 </h2>
 <p>Man pages documenting functions that return Shiny apps should use the <code><a href="https://rdrr.io/r/base/interactive.html">interactive()</a></code> function to demonstrate usage of the app.</p>
 <p>For instance, a typical ‘Example’ section for such a man page should look as follows:</p>
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">MyShinyPackage</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">app</span> <span class="op">&lt;-</span> <span class="fu">build_app</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
@@ -179,20 +204,29 @@ Instead, users should be left to call that function, using Shiny app objects ret
 <span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/runApp.html">runApp</a></span><span class="op">(</span><span class="va">app</span>, <span class="va">...</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
-<p>Although optional, we highly recommend documenting internal functions of packages that contain Shiny apps.
-We recommend doing so in a way that is visible to developers but not users:</p>
+<p>Although optional, we highly recommend documenting internal functions of
+packages that contain Shiny apps. We recommend doing so in a way that is visible
+to developers but not users:</p>
 <ul>
-<li>Create man pages named <code>man/INTERNAL_*.Rd</code>
+<li>If using <em><a href="https://CRAN.R-project.org/package=roxygen2">roxygen2</a></em>, use the tag <code>@keywords internal</code>
+in the Roxygen block. This will keep the documentation in the package but
+remove it from the help page index. You may want to increase the visibility of
+internal documentation by linking to it in other help pages within the package
+(e.g., within a “for developers” section).</li>
+</ul>
+<p>For example:</p>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#' @keywords internal</span></span>
+<span><span class="va">.build_app</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 <ul>
-<li>If using <em><a href="https://CRAN.R-project.org/package=roxygen2">roxygen2</a></em>, use the tag-value <code>@rdname INTERNAL_name_of_function</code>.</li>
+<li>Alternatively (though less common), prefix the manual pages with <code>INTERNAL_*</code>
+and add them to <code>man/.gitignore</code>.</li>
 </ul>
-</li>
-<li>In the file <code>man/.gitignore</code> (create it if it does not exist), add the line <code>INTERNAL_*</code>
-</li>
-</ul>
-<p>For instance:</p>
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">#' @rdname INTERNAL_build_app</span></span>
+<p>To set the name of an Rd document, use the <code>@name</code> tag in the Roxygen block:</p>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#' @name INTERNAL_build_app</span></span>
 <span><span class="va">.build_app</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">}</span></span></code></pre></div>
@@ -201,7 +235,21 @@ We recommend doing so in a way that is visible to developers but not users:</p>
 <h2>
 <span class="header-section-number">17.6</span> Review<a class="anchor" aria-label="anchor" href="#review"><i class="fas fa-link"></i></a>
 </h2>
-<p><em>Coming soon: comments on reviewing packages that contain Shiny apps (e.g., points raised during the review process).</em></p>
+<p>When reviewing a shiny app package, the reviewer should check that the package
+follows the guidelines outlined in this document.</p>
+<p>We highly recommend that reviewers use the <em><a href="https://CRAN.R-project.org/package=shinytest2">shinytest2</a></em>
+package to test the visual and computational aspects of the Shiny app in
+addition to standard unit tests for plain functions.</p>
+<p>Reviewers should also check that the package documentation is complete and
+accurate, and that the package passes <em><a href="https://CRAN.R-project.org/package=BiocCheck">BiocCheck</a></em> in
+addition to <code>R CMD build</code> and <code>check</code>.</p>
+<p>The user experience is very important. Reviewers should ensure that the app is
+responsive and that the user interface is intuitive and easy-to-use. The app
+should not crash or hang when the user interacts with it.</p>
+<p>Errors and warnings should be handled gracefully and should be visible and
+intelligible to the user. We recommend using
+<em><a href="https://CRAN.R-project.org/package=shinytoastr">shinytoastr</a></em> to display error, warning, and info
+messages to the user.</p>
 
 </div>
 </div>
@@ -235,7 +283,7 @@ We recommend doing so in a way that is visible to developers but not users:</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2024-01-23.</p>
+    <p>"<strong>Bioconductor Packages: Development, Maintenance, and Peer Review</strong>" was written by Kevin Rue-Albrecht, Daniela Cassol, Johannes Rainer, Lori Shepherd. It was last built on 2024-02-29.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
