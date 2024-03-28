@@ -43,6 +43,7 @@ Do not use filenames that differ only in case, as not all file systems are case-
 ### Package size {#package-size}
 
 The source package resulting from running `R CMD build` should occupy less than 5 MB on disk.
+If your package includes (e.g. in the vignettes) some screenshots, this limit can be reached quite quickly. Their size can be reduced (often as much as 70%) in a lossy but quality-preserving manner by using tools such as [pngquant](https://pngquant.org/) (available as a command line utility and as a GUI on most systems).
 
 ### Check duration {#check-duration}
 
