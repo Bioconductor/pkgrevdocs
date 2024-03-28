@@ -146,6 +146,10 @@ To set the name of an Rd document, use the `@name` tag in the Roxygen block:
 }
 ```
 
+Additionally, the vignette of a shiny app package might include some screenshots, either generated manually or programmatically.
+If generated manually, developers can use tools such as [pngquant](https://pngquant.org/) (available as a command line utility and as a GUI on most systems) to reduce their size (about 70%) without too much loss of quality.
+Programmatically generated screenshots can be realized by means of the [Webshot2](https://cran.r-project.org/package=webshot2) package, using the `webshot2::appshot()` function.
+
 ## Review
 
 When reviewing a shiny app package, the reviewer should check that the package
