@@ -9,13 +9,16 @@ and how they are woven into the standard Bioconductor build process.
 We hope that unit tests will become a standard part of your software
 development, and an integral part of your Bioconductor package.
 
-We recommend either the [RUnit][] or [testthat][] packages from CRAN to write unit
-tests. RUnit is an _R_ implementation of the [agile][] software development
-'XUnit' tools (see also [JUnit][], [PyUnit][]) each of which tries to encourage, in
-their respective language, the rapid development of robust useful
-software.  Testthat also draws inspiration from the xUnit family of testing
-packages, as well as from many of the innovative ruby testing libraries, like
-[rspec][], [testy][], [bacon][] and [cucumber][].
+We recommend either the [RUnit][], [tinytest][], or [testthat][] packages from
+CRAN to write unit tests. `RUnit` is an _R_ implementation of the [agile][]
+software development 'XUnit' tools (see also [JUnit][], [PyUnit][]) each of
+which tries to encourage, in their respective language, the rapid development of
+robust useful software. `tinytest` is a lightweight (zero-dependency) and
+easy-to-use unit testing framework. `testthat` also draws inspiration from the
+'XUnit' family of testing packages, as well as from many of the innovative ruby
+testing libraries, like [rspec][], [testy][], [bacon][] and [cucumber][].
+
+[tinytest]: https://cran.r-project.org/package=tinytest
 
 ## Motivation {#tests-motivation}
 
@@ -44,18 +47,25 @@ formalized** unit testing.  This requires only a very few conventions
 and practices:
 
 * Store the test functions in a standard directory.
-* Use simple functions from the *RUnit* or *testthat* packages to check your results.
+* Use simple functions from the *RUnit*, *tinytest*, or *testthat* packages to
+  check your results.
 * Run the tests as a routine part of your development process.
 
-Here is a RUnit test for `divideBy`:
+Here is a `RUnit` test for `divideBy`:
 
     test_divideBy <- function() {
         checkEquals(divideBy(4, 2), 2)
         checkTrue(is.na(divideBy(4, 0)))
         checkEqualsNumeric(divideBy(4, 1.2345), 3.24, tolerance=1.0e-4)
     }
+    
+the equivalent test using `tinytest`:
 
-And the equivalent test suing testthat:
+    expect_equal(divideBy(4, 2), 2)
+    expect_true(is.na(divideBy(4, 0)))
+    expect_equal(divideBy(4, 1.2345), 3.24, tolerance=1.0e-4)
+
+and the equivalent test using `testthat`:
 
     test_that("divideBy works properly", {
       expect_equal(divideBy(4, 2), 2)
@@ -110,9 +120,9 @@ complete set of tests.
 
 ## Deciding Which Test Framework To Use {#which-tests}
 
-RUnit and testthat are both robust testing solutions that are great tools for
-package development, which you choose to use for your package largely comes
-down to personal preference.  However here is a brief list of strengths and
+RUnit, tinytest, and testthat are robust testing solutions that are great tools
+for package development, which you choose to use for your package largely comes
+down to personal preference. However here is a brief list of strengths and
 weaknesses of each.
 
 ### RUnit Strengths ###
@@ -129,6 +139,16 @@ weaknesses of each.
 - Need to manually source package and test code to run interactively.
 - More difficult to setup and run natively (although see
   `BiocGenerics:::testPackage()` below which handles some of this).
+
+### tinytest Strengths ###
+
+- Easy to setup and use; tests written as scripts
+- Tests can be run interactively as well as via `R CMD check`
+- Test results can be treated as data
+
+### tinytest Weaknesses ###
+
+- Minimally necessary functionality available
 
 ### Testthat Strengths ###
 
@@ -303,6 +323,19 @@ structure.
 3. You need to add `Suggests: testthat` to your `DESCRIPTION` file rather than
    `Suggests: RUnit, BiocGenerics`.
 
+### Conversion from RUnit to tinytest
+
+1. Test files are placed in the `inst/tinytest` directory with names such as
+`test_FILE.R`.
+2. Remove `RUnit` function shells and extract the function bodies into a single
+script. 
+3. Include a `tinytest.R` file in the `tests` folder that runs: 
+```
+if (requireNamespace("tinytest", quietly = TRUE))
+    tinytest::test_package("PACKAGE")
+```
+3. Add `Suggests: testthat` to your `DESCRIPTION` file.
+
 ## Test Coverage {#test-coverage}
 
 [Test coverage](https://en.wikipedia.org/wiki/Code_coverage)
@@ -310,11 +343,10 @@ refers to the percentage of your package code
 that is tested by your unit tests. Packages with higher coverage
 have a lower chance of containing bugs.
 
-If tests are taking too long to achieve full test coverage, see [long
-tests][]. Before implementing long tests we highly recommend reaching out to the
+If tests are taking too long to achieve full test coverage, see [long tests][].
+Before implementing long tests we highly recommend reaching out to the
 bioconductor team on the [bioc-devel][bioc-devel-mail] mailing list to ensure
 proper use and justification.
-
 
 ## Additional Resources
 
