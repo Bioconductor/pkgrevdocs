@@ -510,15 +510,15 @@ repository for the package.
 1. The package with the changes should be available in your local _R_
    installation.
 
-## Scenarios for code update:
+## Scenarios for code update
 
-- [Pull upstream changes][], e.g., introduced by the core team.
-- [Push to GitHub and _Bioconductor_][] repositories.
-- [Resolve merge conflicts][mergeconflict].
-- [Abandon changes][].
-- [Fix bugs in  devel and release][].
+- [Pull upstream changes][] (e.g., introduced by the core team)
+- [Push to GitHub and _Bioconductor_][] repositories
+- [Resolve merge conflicts][mergeconflict]
+- [Abandon changes][]
+- [Fix bugs in  devel and release][]
+- [Bug fixes due to API changes][]
 - [Resolve duplicate commits][]
-
 
 ### Pull upstream changes
 
@@ -893,6 +893,32 @@ git branch and in the current release branch (e.g., `RELEASE_3_14`).
 * See the video tutorial here:
 
 <iframe width="568" height="315" src="https://www.loom.com/embed/37525f9ddf434c91b11e8112db46818b" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+### Bug fixes due to API changes {#bug-fixes-due-to-api-changes}
+
+Packages that make use of web APIs will need to be updated when there are
+significant API changes. This is a common occurrence with Bioconductor packages
+that use REST APIs, e.g., `UniProt.ws`, `AnVIL`, etc. To provide a smooth
+experience for users, it is important to update the package as soon as possible.
+
+#### Minor API changes
+
+The steps to apply bug fixes due to API changes are similar to the steps for
+fixing bugs in the `devel` and `release` branches. The main difference is that
+the bug may be due to minor API issues, certificate issues, API version issues,
+etc. The maintainer can readily update the R package to adapt to the new API.
+Note that the functionality of the package largely remains the same.
+
+#### Major API changes
+
+It may be possible that an organization's API changes are not backwards
+compatible and that they do not provide the same functionality for the existing
+Bioconductor package to remain functional. In such case, it is recommended to
+contact the organization that maintains the API to get more information about
+the changes and to request a backward compatible API, if possible. When API
+changes do not provide a similar functionality to that of the R package, the
+package maintainer may need to submit a new package that works with the new API
+and to deprecate the old package.
 
 ### Resolve Duplicate Commits
 
