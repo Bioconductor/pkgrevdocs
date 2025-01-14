@@ -173,7 +173,7 @@ If this option is used it will also be preferable to use `donttest` instead of
 `dontrun`; `donttest` requires valid <i class="fab fa-r-project"></i> code while
 `dontrun` does not.
 
-## The `inst/script/` directory {#doc-inst-script}
+## The `inst/scripts/` directory {#doc-inst-scripts}
 
 The scripts in this directory can vary.
 

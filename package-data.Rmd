@@ -84,7 +84,7 @@ another package or the hubs as previously stated.
 However, if this is not applicable, raw data files should be included in the
 `inst/extdata` directory. Files of these type are often accessed utilizing
 `system.file()`. _Bioconductor_ requires documentation on these files in an
-`inst/script/` directory. See [data documentation](#doc-inst-script).
+`inst/scripts/` directory. See [data documentation](#doc-inst-scripts).
 
 ### Internal data
 
