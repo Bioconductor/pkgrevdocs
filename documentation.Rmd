@@ -178,15 +178,26 @@ If this option is used it will also be preferable to use `donttest` instead of
 The scripts in this directory can vary.
 
 Most importantly if data was included in the `inst/extdata/` directory, a
-related script must be present in this directory documenting very clearly how
-the data was generated and source information.
+related script must be present in this directory clearly documenting how the
+data was obtained and prepared.
 
-It should include source URLs and any key information regarding filtering or processing.
+It should include any source URLs and information regarding filtering or
+pre-processing.
 
-It can be executable code, sudo code, or a text description.
+It can be executable code, sudo code, or even a text description.
 
-Users should be able to download and be able to roughly reproduce the file or
-object that is present as data.
+Users should be able to download and roughly reproduce the data file or object
+in `inst/extdata/`.
+
+## The `data-raw` directory {#doc-data-raw}
+
+The `data-raw` directory can also be used to store scripts that were used to
+generate data files or objects. Note that one potential disadvantage of using
+the `data-raw` directory is that the scripts are not included in the package
+installation (for users to inspect). For more details, see the `Data` chapter in
+Hadley Wickham's [R Packages][r-pkgs].
+
+[r-pkgs]: https://r-pkgs.org/data.html
 
 ## Other {#other-doc}
 
