@@ -25,7 +25,7 @@ it is always possible to extend existing classes.
 
 A vignette demonstrates how to accomplish non-trivial tasks embodying the core
 functionality of your package. There are two common types of vignettes.
-  
+
 * (Recommended) An *R markdown* vignette is similar to a *Sweave* vignette, but uses
   [markdown](http://daringfireball.net/projects/markdown/) instead of $\LaTeX$
   for structuring text sections and resulting in HTML output. The `r
@@ -39,7 +39,7 @@ functionality of your package. There are two common types of vignettes.
   class="fab fa-r-project"></i> code. The  code chunk starts with a line
   `<<>>=`, and ends with `@`. Each chunk is evaluated during `R CMD build`,
   prior to $\LaTeX$ compilation to a PDF document.
-  
+
 A vignette provides reproducibility: the vignette produces the same results as
 copying the corresponding commands into an <i class="fab fa-r-project"></i>
 session. It is therefore **essential** that the vignette embed executed <i
@@ -191,11 +191,14 @@ in `inst/extdata/`.
 
 ## The `data-raw` directory {#doc-data-raw}
 
-The `data-raw` directory can also be used to store scripts that were used to
-generate data files or objects. Note that one potential disadvantage of using
-the `data-raw` directory is that the scripts are not included in the package
-installation (for users to inspect). For more details, see the `Data` chapter in
-Hadley Wickham's [R Packages][r-pkgs].
+Although the preferred location is `inst/scripts`, the `data-raw` directory may
+be used instead to store scripts that generated data files or objects. Note
+that one potential disadvantage of using the `data-raw` directory is that the
+scripts are not included in the package installation folder (for users to
+inspect).
+
+For more details, see the `Data` chapter in Hadley Wickham's
+[R Packages][r-pkgs].
 
 [r-pkgs]: https://r-pkgs.org/data.html
 
