@@ -26,9 +26,20 @@ working examples for many tasks: the [Rcpp Gallery][].
 
 ## Python {#python}
 
-The `r BiocStyle::Biocpkg("basilisk")` package is required to integrate python into R packages. While
-[reticulate][] is an alternative, the developer must make a strong argument why
-basilisk is not used.  
+The `r BiocStyle::Biocpkg("basilisk")` package uses `conda` to configure an
+appropriate Python environment on the user's machine. It is strongly
+recommended if the routine operation of a Bioconductor package relies on
+Python, as users should not be asked to manually install Python packages.
+
+The use of [reticulate][] for the R/Python interaction is left to the
+discretion of the developer.
+
+## CMake {#cmake}
+
+The `r BiocStyle::Biocpkg("biocmake")` package guarantees that a certain
+minimal version of CMake is available on the user machine, either by using an
+existing CMake installation or by installing its own from the official website.
+This should be used whenever a package relies on CMake during its build.
 
 ## Other {#third-party-code}
 
