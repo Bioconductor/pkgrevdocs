@@ -67,10 +67,32 @@ The license field should preferably refer to a standard license (see
 standard specifications. <i class="fab fa-r-project"></i> ships with the
 following [standard licenses][R License]
 
-Be specific about any version that applies (e.g., `GPL-2`).
-Licenses restricting use, e.g., to academic or non-profit researchers, are not
-suitable for [_Bioconductor_][]. Core Bioconductor packages are typically
-licensed under `Artistic-2.0`.
+Be specific about any version that applies (e.g., `GPL-2`). Licenses restricting
+use, e.g., to academic or non-profit researchers, are not suitable for
+[_Bioconductor_][] as they limit accessibility, hinder integration with other
+open-source projects, and create barriers to collaboration and reproducibility.
+Examples of such restrictive licenses include (but are not limited to):
+
+* `CC BY-NC 4.0` (Attribution-NonCommercial 4.0 International)
+* `CC BY-NC-SA 4.0` (Attribution-NonCommercial-ShareAlike 4.0 International)
+* `CC BY-NC-ND 4.0` (Attribution-NonCommercial-NoDerivatives 4.0 International)
+* `ACM` (Association for Computing Machinery)
+
+These licenses restrict commercial use, modifications, or redistribution, making
+them incompatible with Bioconductor's goals of open and broad accessibility.
+
+<p><details>
+<summary> Click to see a list of licenses that restrict use </summary>
+
+```{r}
+license_db_path <- file.path(R.home("share"), "licenses", "license.db")
+license_db <- as.data.frame(read.dcf(license_db_path))
+subset(license_db, Restricts_use == "yes")
+```
+
+</details></p>
+
+Core Bioconductor packages are typically licensed under `Artistic-2.0`.
 
 To specify a non-standard license, include a file named `LICENSE` in your
 package (containing the full terms of your license) and use the string `file
