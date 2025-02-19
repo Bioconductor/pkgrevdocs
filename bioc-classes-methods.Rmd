@@ -1,0 +1,97 @@
+# Common Bioconductor Methods and Classes {#reusebioc}
+
+## Motivation {#bioc-common-motivation}
+
+Bioconductor is a large and diverse project with many packages that
+provide functionality for a wide range of biological data types and statistical
+methods. It is, therefore, important to reuse existing data classes and methods
+to ensure that packages are inter-operable with the rest of the _Bioconductor_
+ecosystem. Central data representations allow users to readily integrate
+analysis workflows across multiple Bioconductor packages providing a more
+seamless user experience.
+
+Of course, there are data that have no established representation in
+Bioconductor, and in such cases, new classes can be developed ideally with open
+discussion and consideration of the Bioconductor community.
+
+### Use Case: Importing data {#commonimport}
+
+For developers who import data into their package, it is important to know which
+packages and methods are available for reuse. The following list provides
+commonly used packages and their methods to import various data types:
+
++ GTF, GFF, BED, BigWig, etc., -- `r BiocStyle::Biocpkg("rtracklayer")` `::import()`
++ VCF -- `r BiocStyle::Biocpkg("VariantAnnotation")` `::readVcf()`
++ SAM / BAM -- `r BiocStyle::Biocpkg("Rsamtools")` `::scanBam()`,
+  `r BiocStyle::Biocpkg("GenomicAlignments")` `::readGAlignment*()`
++ FASTA -- `r BiocStyle::Biocpkg("Biostrings")` `::readDNAStringSet()`
++ FASTQ -- `r BiocStyle::Biocpkg("ShortRead")` `::readFastq()`
++ MS data (XML-based and mgf formats) -- `r BiocStyle::Biocpkg("Spectra")` `::Spectra()`, 
+  `r BiocStyle::Biocpkg("Spectra")` `::Spectra(source = MsBackendMgf::MsBackendMgf())`
+
+This list is not exhaustive, and developers are encouraged to initiate dialogue
+with other community members to identify additional packages and methods that
+may be useful for their specific use case. We acknowledge that class and method
+discover-ability can be a challenge and we are working to improve this aspect of
+the Bioconductor project.
+
+### Common Classes {#commonclass}
+
+The following list, though not exhaustive, provides select classes and
+constructor functions to represent genomic data:
+
++ Rectangular feature x sample data --
+  `r BiocStyle::Biocpkg("SummarizedExperiment")` `::SummarizedExperiment()`
+  (RNAseq count matrix, microarray, ...)
++ Genomic coordinates -- `r BiocStyle::Biocpkg("GenomicRanges")` `::GRanges()`
+  (1-based, closed interval)
++ Genomic coordinates from multiple samples --
+  `r BiocStyle::Biocpkg("GenomicRanges")` `::GRangesList()`
++ Ragged genomic coordinates -- `r BiocStyle::Biocpkg("RaggedExperiment")`
+  `::RaggedExperiment()`
++ DNA / RNA / AA sequences -- `r BiocStyle::Biocpkg("Biostrings")`
+  `::*StringSet()`
++ Gene sets -- `r BiocStyle::Biocpkg("BiocSet")` `::BiocSet()`,
+  `r BiocStyle::Biocpkg("GSEABase")` `::GeneSet()`,
+  `r BiocStyle::Biocpkg("GSEABase")` `::GeneSetCollection()`
++ Multi-omics data --
+  `r BiocStyle::Biocpkg("MultiAssayExperiment")` `::MultiAssayExperiment()`
++ Single cell data --
+  `r BiocStyle::Biocpkg("SingleCellExperiment")` `::SingleCellExperiment()`
++ Mass spec data -- `r BiocStyle::Biocpkg("Spectra")` `::Spectra()`
++ File formats -- `r BiocStyle::Biocpkg("BiocIO")` `` ::`BiocFile-class` ``
+
+Search [biocViews][] for other classes and methods that may be useful for your
+package.
+
+## Package Submission Considerations
+
+Bioconductor strives for interoperability across packages. To ensure this, we
+strongly encourage that package submissions reuse existing Bioconductor classes
+and methods. Packages that do not follow this guideline may be asked to revise
+their code to use existing classes and methods.
+
+In the case where the data does not conform to an existing data class,
+we recommend discussing the design of a new class with the Bioconductor
+community. The open discussion can take place on main Bioconductor communication
+channels such as the [bioc-devel][bioc-devel-mail] mailing list, or the
+Bioconductor slack.
+
+## Package Implementations
+
+The following packages are examples of packages that have reused Bioconductor
+classes and methods:
+
++ `r BiocStyle::Biocpkg("DESeq2")` --
+  Uses `r BiocStyle::Biocpkg("SummarizedExperiment")` and
+  `r BiocStyle::Biocpkg("GenomicRanges")`
++ `r BiocStyle::Biocpkg("GenomicAlignments")` --
+  Uses `r BiocStyle::Biocpkg("GenomicRanges")` and
+  `r BiocStyle::Biocpkg("Rsamtools")`
++ `r BiocStyle::Biocpkg("VariantAnnotation")` --
+  Uses `r BiocStyle::Biocpkg("GenomicRanges")`,
+  `r BiocStyle::Biocpkg("SummarizedExperiment")`, and
+  `r BiocStyle::Biocpkg("Rsamtools")` classes.
+  
+  
+  
