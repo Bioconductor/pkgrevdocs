@@ -112,6 +112,8 @@ searching in [biocViews][] for your data type.
   `r BiocStyle::Biocpkg("MultiAssayExperiment")` `::MultiAssayExperiment()`
 + Single cell data --
   `r BiocStyle::Biocpkg("SingleCellExperiment")` `::SingleCellExperiment()`
++ Spatial transcriptomics data --
+  `r BiocStyle::Biocpkg("SpatialExperiment")` `::SpatialExperiment()`
 + Mass spec data -- `r BiocStyle::Biocpkg("Spectra")` `::Spectra()`
 + File formats -- `r BiocStyle::Biocpkg("BiocIO")` `` ::`BiocFile-class` ``
 
