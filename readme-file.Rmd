@@ -1,22 +1,53 @@
 # The README file {#readme}
 
-README files are not required of Bioconductor packages.
+Bioconductor does not require `README` files in packages but they
+are often useful for newcomers, especially when a package is developed
+on <i class="fab fa-github"></i> GitHub or similar online platforms. 
 
-If a `README` file is included in the package or the <i class="fab
-fa-github"></i> Github  repository and it provides installation instructions,
-those instruction should also include
-[_Bioconductor_][] installation instructions. See
-Bioconductor package installation instructions on any current Bioconductor
-package landing page (e.g. `r BiocStyle::Biocpkg("GenomicRanges")`).
+Bioconductor packages with a `README` file should clearly indicate
+[_Bioconductor_][] installation instructions. See the example installation
+instructions for `GenomicRanges`:
 
-If a `README.Rmd` is provided (rather than `README.md`, or other) those
-installation instructions should be in an `eval=FALSE` code chunk.
+```r
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
 
-Nowhere in the code (<i class="fab fa-r-project"></i> code, man pages,
-vignettes, Rmd files) should someone try to install or download system
-dependencies, applications, packages, etc.
+BiocManager::install("GenomicRanges")
+```
 
-Developers can provide instructions to follow but not executed and should assume
-all necessary dependencies, applications, or packages are already set up on a
-user's system. See also [the INSTALL file](#sysdep) for system dependencies
-requirements.
+As a general rule, files that run <i class="fab fa-r-project"></i> code
+(including `README.Rmd`) should not install packages, download system
+dependencies, or applications. Installation instructions should be in
+an `eval = FALSE` code chunk.
+
+Developers should assume that all necessary dependencies, applications, and
+packages are already installed on the user's system.
+
+**Note**. Packages with external software dependencies should use the
+`SystemRequirements` field in the `DESCRIPTION` file. See also
+[the INSTALL file](#sysdep) for system dependencies requirements.
+
+## Generating the README.md from the main vignette
+
+Optionally, the `README.md` file can be generated from a package's vignette
+via the `README.Rmd`. Using the child document feature in R Markdown, the
+`README.Rmd` can render a vignette and output a `README.md` file.
+Below is an example `README.Rmd` file that renders a vignette (named
+`mainVignette.Rmd`).
+
+```r
+## ---
+## output: github_document
+## ---
+## 
+## ```{r, child="../../vignettes/mainVignette.Rmd"}
+## ```
+```
+
+The developer can then generate the `README.md` file by running
+`rmarkdown::render` as:
+
+```r
+rmarkdown::render("inst/scripts/README.Rmd", output_dir = ".")
+```
+
