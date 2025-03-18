@@ -2,17 +2,26 @@
 
 ## Motivation {#bioc-common-motivation}
 
-Bioconductor is a large and diverse project with many packages that
-provide functionality for a wide range of biological data types and statistical
-methods. It is, therefore, important to reuse existing data classes and methods
-to ensure that packages are inter-operable with the rest of the _Bioconductor_
-ecosystem. Central data representations allow users to readily integrate
-analysis workflows across multiple Bioconductor packages providing a more
-seamless user experience.
+Bioconductor is a large and diverse project with many packages that provide
+functionality for a wide range of biological data types and statistical methods.
+It has a rich set of classes and methods that are widely used across
+many packages. It, therefore, is important to reuse existing data classes and
+methods to ensure that packages are inter-operable with the rest of the
+_Bioconductor_ ecosystem. Central data representations allow users to readily
+integrate analysis workflows across multiple Bioconductor packages providing a
+more seamless user experience.
 
-Of course, there are data that have no established representation in
-Bioconductor, and in such cases, new classes can be developed ideally with open
-discussion and consideration of the Bioconductor community.
+Many classes in Bioconductor are implemented using the S4 object-oriented
+system in R. The S4 system is particularly well-suited for the representation
+of complex genomic data structures and the initial motivations to use S4 in
+Bioconductor were centered around its benefits over other systems such as S3.
+These benefits include, but are not limited to, formal class definitions,
+multiple inheritance, and validity checking.
+
+Although Bioconductor promotes the re-use of existing S4 classes to represent
+genomic data, there are cases where new classes are needed for cutting-edge
+technologies. In such cases, new classes should be developed, ideally, with
+open discussion and consideration of the Bioconductor community.
 
 ### Use Case: Importing data {#commonimport}
 
