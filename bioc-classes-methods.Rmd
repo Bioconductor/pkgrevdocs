@@ -46,29 +46,21 @@ the Bioconductor project.
 
 ### Common Classes {#commonclass}
 
-The following list, though certainly not exhaustive, provides select classes and
-constructor functions to represent genomic data:
+The following table, though certainly not exhaustive, provides select classes
+and constructor functions to represent genomic data:
 
-+ Rectangular feature x sample data --
-  `r BiocStyle::Biocpkg("SummarizedExperiment")` `::SummarizedExperiment()`
-  (RNAseq count matrix, microarray, ...)
-+ Genomic coordinates -- `r BiocStyle::Biocpkg("GenomicRanges")` `::GRanges()`
-  (1-based, closed interval)
-+ Genomic coordinates from multiple samples --
-  `r BiocStyle::Biocpkg("GenomicRanges")` `::GRangesList()`
-+ Ragged genomic coordinates -- `r BiocStyle::Biocpkg("RaggedExperiment")`
-  `::RaggedExperiment()`
-+ DNA / RNA / AA sequences -- `r BiocStyle::Biocpkg("Biostrings")`
-  `::*StringSet()`
-+ Gene sets -- `r BiocStyle::Biocpkg("BiocSet")` `::BiocSet()`,
-  `r BiocStyle::Biocpkg("GSEABase")` `::GeneSet()`,
-  `r BiocStyle::Biocpkg("GSEABase")` `::GeneSetCollection()`
-+ Multi-omics data --
-  `r BiocStyle::Biocpkg("MultiAssayExperiment")` `::MultiAssayExperiment()`
-+ Single cell data --
-  `r BiocStyle::Biocpkg("SingleCellExperiment")` `::SingleCellExperiment()`
-+ Mass spec data -- `r BiocStyle::Biocpkg("Spectra")` `::Spectra()`
-+ File formats -- `r BiocStyle::Biocpkg("BiocIO")` `` ::`BiocFile-class` ``
+| Data Type                     | Package and Function                                     | Description                                            |
+|-------------------------------|----------------------------------------------------------|--------------------------------------------------------|
+| Rectangular feature by sample | `r BiocStyle::Biocpkg("SummarizedExperiment")` `::SummarizedExperiment()` | RNAseq count matrix, microarray, etc. |
+| Genomic coordinates           | `r BiocStyle::Biocpkg("GenomicRanges")` `::GRanges()` | 1-based, closed interval genomic coordinates |
+| Genomic coordinates (multiple)| `r BiocStyle::Biocpkg("GenomicRanges")` `::GRangesList()` | Genomic coordinates from multiple samples |
+| Ragged genomic coordinates    | `r BiocStyle::Biocpkg("RaggedExperiment")` `::RaggedExperiment()` | Ragged (variable length) genomic coordinates |
+| DNA/RNA/AA sequences          | `r BiocStyle::Biocpkg("Biostrings")` `::*StringSet()` | DNA, RNA, or amino acid sequences |
+| Gene sets | `r BiocStyle::Biocpkg("BiocSet")` `::BiocSet()`, <br>`r BiocStyle::Biocpkg("GSEABase")` `::GeneSet()`, <br>`r BiocStyle::Biocpkg("GSEABase")` `::GeneSetCollection()` | Collections of gene sets |
+| Multi-omics data              | `r BiocStyle::Biocpkg("MultiAssayExperiment")` `::MultiAssayExperiment()` | Data integrating multiple omics assays |
+| Single cell data              | `r BiocStyle::Biocpkg("SingleCellExperiment")` `::SingleCellExperiment()` | Single-cell expression and related data |
+| Mass spec data                | `r BiocStyle::Biocpkg("Spectra")` `::Spectra()` | Mass spectrometry data                               |
+| File formats                  | `r BiocStyle::Biocpkg("BiocIO")` `::BiocFile-class` | Classes for interacting with various biological data file formats |
 
 Search [biocViews][] for other classes and methods that may be useful for your
 package.
