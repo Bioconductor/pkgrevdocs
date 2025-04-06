@@ -168,7 +168,7 @@ package maintenance responsibilities. Package authors are expected to:
   DESCRIPTION file. This field indicates a particular web page for submitting
   bug reports and questions.
 
-* Ensure the maintainer email in the DESCRIPTIONS stays accurate and
+* Ensure the maintainer email in the DESCRIPTION stays accurate and
   reachable. The maintainer email in the DESCRIPTION is the definitive contact
   _Bioconductor_ will use. It is important to keep this email up-to-date to
   ensure we can contact you if your package is failing or to notify you of any
@@ -257,7 +257,7 @@ use of existing data in a Bioconductor package. See development section on
 * The moderator will add your package as a repository to the
   git.bioconductor.org git server, copy the SSH keys from your github
   account to the [BiocCredentials application][] application and the issue labelled
-  `pre-review`.  
+  `pre-review`.
 
   ALL CHANGES TO YOUR PACKAGE must be pushed to the
   git.bioconductor.org repository created in this step. See the [New package

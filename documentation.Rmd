@@ -103,7 +103,7 @@ Add an "Installation" section that show to users how to download and load the
 package from Bioconductor.
 
 These instructions and any installations instructions should be in an
-`eval=FALSE` code chunk. No where in the code (<i class="fab fa-r-project"></i>
+`eval=FALSE` code chunk. Nowhere in the code (<i class="fab fa-r-project"></i>
 code, man pages, vignettes, Rmd files) should someone try to install or download
 system dependencies, applications, packages, etc. Developers can provide
 instructions to follow in unevaluated code chunks, and should assume all
