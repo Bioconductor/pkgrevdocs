@@ -236,7 +236,7 @@ version. All package dependencies must actively be on CRAN or
 Bioconductor. Bioconductor will not recognize Remotes in DESCRIPTION and will
 not install a lower version of a package or dependency.
 
-####  Namespaces {#rcode-namespaces}i
+####  Namespaces {#rcode-namespaces}
 
 * Import all symbols used from packages other than "base". Except for
   default packages (base, graphics, stats, etc.) or when overly
