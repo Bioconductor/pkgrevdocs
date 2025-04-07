@@ -1,7 +1,7 @@
 # R code {#r-code}
 
 Everyone has their own coding style and formats. There are however some best
-practice guidelines that [_Bioconductor_ reviewers][reviewer-list] will look for. 
+practice guidelines that [_Bioconductor_ reviewers][reviewer-list] will look for.
 
 <i class="fab fa-r-project"></i> can be a robust, fast and efficient programming
 language but often some coding practices result in less than ideal use of
@@ -31,7 +31,7 @@ Make use of appropriate existing packages (e.g.,
 `r BiocStyle::Biocpkg("GenomicRanges")`) and classes (e.g.,
 `r BiocStyle::Biocpkg("SummarizedExperiment")`,
 `r BiocStyle::Biocpkg("Biobase")`::AnnotatedDataFrame,
-`r BiocStyle::Biocpkg("GenomicRanges")`:;GRanges,
+`r BiocStyle::Biocpkg("GenomicRanges")`::GRanges,
 `r BiocStyle::Biocpkg("Biostrings")`::DNAStringSet) to avoid duplication of functionality
 available in other [_Bioconductor_][] packages. See
 also [Common Bioconductor Methods and Classes][bioc-common].
@@ -75,7 +75,7 @@ we recommend to use standard file format classes inheriting from
 ### Naming of packages, functions, and classes {#naming-functions}
 
 See section on [package naming](#package-name). The concepts there should also
-apply to function names, class names, etc. 
+apply to function names, class names, etc.
 
 Avoid names that:
 
@@ -111,7 +111,7 @@ separate packages.
 
 Remember to **re-use** [common _Bioconductor_ methods and classes][bioc-common]
 before implementing new representations. This encourages
-interoperability and simplifies your own package development. 
+interoperability and simplifies your own package development.
 
 #### Class Names {#class-names}
 
@@ -123,7 +123,7 @@ _Bioconductor_ prefers the use of S4 classes over S3 class. Please use the S4
 representation for designing new classes. Again, we can not emphasize enough to
 reuse existing class structure if at all possible. If an existing class
 structure is not sufficient, it is also encouraged to look at extending or
-containing an [existing _Bioconductor_ class](#commonclass). 
+containing an [existing _Bioconductor_ class](#commonclass).
 
 If your data requires a new representation or function, carefully
 design an S4 class or generic so that other package developers with
@@ -168,7 +168,7 @@ installation.
 
 
 ### Function development {#function-development}
- 
+
 #### Functions Names {#rcode-function-names}
 
 Function names should follow the following conventions:
@@ -195,7 +195,7 @@ helper functions.
 * Nesting functions should be avoiding. It unnecessarily increases the main
   function length and makes the main function harder to read. Helper functions
   and internal functions should avoid being nested and include at the end of the
-  file or as a seperate file (e.g. internal.R, helpers.R, utils.R)  
+  file or as a seperate file (e.g. internal.R, helpers.R, utils.R)
 
 #### Function arguments {#function-arguments}
 
@@ -233,8 +233,8 @@ already there.
 
 All system and package dependencies should be the latest publically available
 version. All package dependencies must actively be on CRAN or
-Bioconductor. Bioconductor will not recognize Remotes in Description and will
-not install a lower version of a package or dependency.  
+Bioconductor. Bioconductor will not recognize Remotes in DESCRIPTION and will
+not install a lower version of a package or dependency.
 
 ####  Namespaces {#rcode-namespaces}
 
@@ -387,7 +387,7 @@ from a variable.
 * `warning()` communicates unusual situations handled by your code.
 * `stop()` indicates an error condition.
 * `cat()` or `print()` are used only when displaying an object to the user in a `show` method.
-  
+
 #### Graphic Device
 
 Use `dev.new()` to start a graphics drive if necessary. Avoid using `x11()`
@@ -433,7 +433,7 @@ coding practices can be very unfortunate. Here are some suggestions.
 ### Reuse Existing Functionality and Classes
 
 Emphasized again for good measure!  Reuse existing import/export methods,
-functionality, and classes whenever possible. 
+functionality, and classes whenever possible.
 
 ### Vectorize
 

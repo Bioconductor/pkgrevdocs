@@ -26,13 +26,13 @@ it is always possible to extend existing classes.
 A vignette demonstrates how to accomplish non-trivial tasks embodying the core
 functionality of your package. There are two common types of vignettes.
 
-* (Recommended) An *R markdown* vignette is similar to a *Sweave* vignette, but uses
-  [markdown](http://daringfireball.net/projects/markdown/) instead of $\LaTeX$
-  for structuring text sections and resulting in HTML output. The `r
-  BiocStyle::CRANpkg("knitr")` package can process most *Sweave* and all *R
+* (Recommended) An *R markdown* vignette is similar to a *Sweave* vignette, but
+  uses [markdown](http://daringfireball.net/projects/markdown/) instead of
+  $\LaTeX$ for structuring text sections and resulting in HTML output. The
+  `r BiocStyle::CRANpkg("knitr")` package can process most *Sweave* and all *R
   markdown* vignettes, producing pleasing output. Refer to [Writing package
-  vignettes][CRAN vigs] for technical details. See the `r
-  BiocStyle::Biocpkg("BiocStyle")` package for a convenient way to use common
+  vignettes][CRAN vigs] for technical details. See the
+  `r BiocStyle::Biocpkg("BiocStyle")` package for a convenient way to use common
   macros and a standard _Bioconductor_ style vignette.
 
 * A *Sweave* vignette is an `.Rnw` file that contains $\LaTeX$ and chunks of <i
@@ -103,7 +103,7 @@ Add an "Installation" section that show to users how to download and load the
 package from Bioconductor.
 
 These instructions and any installations instructions should be in an
-`eval=FALSE` code chunk. No where in the code (<i class="fab fa-r-project"></i>
+`eval=FALSE` code chunk. Nowhere in the code (<i class="fab fa-r-project"></i>
 code, man pages, vignettes, Rmd files) should someone try to install or download
 system dependencies, applications, packages, etc. Developers can provide
 instructions to follow in unevaluated code chunks, and should assume all

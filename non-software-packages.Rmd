@@ -58,7 +58,7 @@ expected the majority of vignette code chunks are evaluated.
 * Write a package with the same name as the workflow. The workflow vignette
  written in Markdown, using the [rmarkdown][] package should be included in the
  vignette directory. You may include more than one vignette but please use
- useful identifying names. 
+ useful identifying names.
 
 * The package does not need man/ or R/ directories nor a data/ directory as
  ideally workflows make use of existing data in a Bioconductor repository or on
@@ -72,7 +72,7 @@ expected the majority of vignette code chunks are evaluated.
 
 * Submit the package to the [GitHub submission tracker][tracker] for a formal
   review. Please also indicate in the tracker issue that this package is a
-  workflow.  
+  workflow.
 
 * Workflows are git version controlled. Once the package is accepted it will be
   added to our git repository at git@git.bioconductor.org and instructions will
@@ -91,13 +91,13 @@ expected the majority of vignette code chunks are evaluated.
 		BiocStyle::html_document
 	```
 
-* The following should also be include
+* The following should also be included
 
       - author affiliations
       - a date representing when the workflow vignette has been modified
 
 * The first section should have some versioning information. The  R version,
-  Bioconductor version, and package version should be visible. 
+  Bioconductor version, and package version should be visible.
   The following is an example of how this could be achieved:
 
 <pre>
@@ -123,14 +123,14 @@ The following is taken as an example header from the variants workflow package:
     <code>
 &ndash; &ndash; &ndash;
 title&#58; Annotating Genomic Variants
-author&#58; 
+author&#58;
 &ndash;name&#58; Valerie Obenchain
   affiliation&#58; Fred Hutchinson Cancer Research Center, 1100 Fairview Ave. N., P.O. Box 19024, Seattle, WA, USA 98109&ndash;1024
 date&#58; 11 April 2018
 vignette&#58; &#62;
   &#37;&#92;VignetteIndexEntry&#123;Annotating Genomic Variants&#125;
   &#37;&#92;VignetteEngine&#123;knitr&#58;&#58;rmarkdown&#125;
-output&#58; 
+output&#58;
     BiocStyle&#58;&#58;html&#95;document
 &ndash; &ndash; &ndash;
 

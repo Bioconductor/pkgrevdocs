@@ -142,7 +142,7 @@ guidelines:
   field of `GenomicAlignments`.
   It is unusual for more than three packages to be listed as `Depends:`.
 - `Suggests:` is for packages used in vignettes, examples, and in conditional
-  code.Commonly, annotation and experiment packages (e.g., `TxDb*`) used in
+  code. Commonly, annotation and experiment packages (e.g., `TxDb*`) used in
   vignette and example code are included in this field thus avoiding a costly
   download.  In the case where an external one-off function is required for
   package code, the package availability and usage can be done via:
@@ -194,7 +194,7 @@ package type (i.e., `Software`, `AnnotationData`, `ExperimentData`, or
 The field name "biocViews" is case-sensitive and must begin with a lower-case
 'b'. Please use a single line with biocViews seperated by commas
 
-(i.e,`biocViews: GeneTarget, SingleCell`). 
+(i.e,`biocViews: GeneTarget, SingleCell`).
 
 ## `BugReports` {#description-bugreport}
 
