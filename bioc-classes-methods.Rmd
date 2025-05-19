@@ -1,90 +1,110 @@
-# Common Bioconductor Methods and Classes {#reusebioc}
+# Why Use S4 Instead of S3 or R6 in R?
 
-## Motivation {#bioc-common-motivation}
+If you have just learned about object-oriented programming (OOP) in R, you might be wondering why you would choose **S4** instead of the more common **S3** system, which is widely used in popular R projects such as the **tidyverse**. Yet, despite being overall less popular then **S3**, the **S4** system has several key advantages:
 
-Bioconductor is a large and diverse project with many packages that provide
-functionality for a wide range of biological data types and statistical methods.
-It has a rich set of classes and methods that are widely used across
-many packages. It is, therefore, important to reuse existing data classes and
-methods to ensure that packages are inter-operable with the rest of the
-_Bioconductor_ software ecosystem. Central data representations allow users to
-readily integrate analysis workflows across multiple Bioconductor packages
-providing a more seamless user experience.
+- **Clear and Enforced Structure:** In S4, you must explicitly define your classes and the types of each slot (like variables inside your object). This makes your code easier to understand and helps prevent mistakes. If you specify that a slot should be a number, R enforces that constraint, ensuring consistency.
 
-Many classes in Bioconductor are implemented using the S4 object-oriented
-system in R. The S4 system is particularly well-suited for the representation
-of complex genomic data structures. The initial motivations to use S4 in
-Bioconductor were centered around its benefits over other systems such as S3.
-These benefits include, but are not limited to, formal class definitions,
-multiple inheritance, and validity checking.
+- **Better Error Checking:** Because S4 is strict about object definitions, it catches mistakes early. If you try to assign the wrong type of data to a slot, it throws an error right away instead of surprising you later during execution.
 
-Although Bioconductor promotes the re-use of existing S4 classes to represent
-genomic data, there are cases where new classes are needed for cutting-edge
-technologies. In such cases, new classes should be developed, ideally, with
-open discussion and consideration of the Bioconductor community.
+- **Multiple Inheritance:** S4 supports multiple inheritance, allowing a class to inherit from multiple parent classes. This enables you to easily combine features from different objects without additional complexity. S3, on the other hand, does not properly support this.
 
-### Use Case: Importing data {#commonimport}
+- **Multiple Dispatch:** S4 enables multiple dispatch, meaning you can write methods that behave differently based on the types of **multiple arguments**—not just one. This level of method customization is not possible in S3.
 
-For developers who import data into their package, it is important to know which
-packages and methods are available for reuse. The following list provides
-commonly used packages and their methods to import various data types:
+- **Cross-Package Projects:** In collaborative projects, well-defined classes and methods in S4 help prevent conflicts and unexpected bugs. Clear class definitions make it easier for new team members to understand the codebase without guessing what types are allowed in each slot. If a developer tries to extend a class or method incorrectly, S4 catches the mistake immediately, saving valuable debugging time.
 
-+ GTF, GFF, BED, BigWig, etc., -- `r BiocStyle::Biocpkg("rtracklayer")` `::import()`
-+ VCF -- `r BiocStyle::Biocpkg("VariantAnnotation")` `::readVcf()`
-+ SAM / BAM -- `r BiocStyle::Biocpkg("Rsamtools")` `::scanBam()`,
-  `r BiocStyle::Biocpkg("GenomicAlignments")` `::readGAlignment*()`
-+ FASTA -- `r BiocStyle::Biocpkg("Biostrings")` `::readDNAStringSet()`
-+ FASTQ -- `r BiocStyle::Biocpkg("ShortRead")` `::readFastq()`
-+ MS data (XML-based and mgf formats) -- `r BiocStyle::Biocpkg("Spectra")` `::Spectra()`, 
-  `r BiocStyle::Biocpkg("Spectra")` `::Spectra(source = MsBackendMgf::MsBackendMgf())`
+# Leveraging the S4 Infrastructure of Bioconductor
 
-This list is not exhaustive, and developers are encouraged to initiate dialogue
-with other community members to identify additional packages and methods that
-may be useful for their specific use case. We acknowledge that class and method
-discoverability can be a challenge and we are working to improve this aspect of
-the Bioconductor project.
+**Bioconductor** is a large and diverse project that provides functionality for a wide range of biological data types and statistical methods.
 
-### Common Classes {#commonclass}
+A key foundation of Bioconductor is its reliance on **S4 classes** rather than the more commonly used **S3 classes**. S4 is more structured, rigorous, and verbose compared to S3, giving it an initially steeper learning curve. However, this rigor makes it much easier to share and reuse code across hundreds of R/Bioconductor packages.
 
-The following table, though certainly not exhaustive, provides select classes
-and constructor functions to represent genomic data:
+ Advantages of Using S4 in Your Bioconductor Packages:
 
-| Data Type                     | Package and Function                                     | Description                                            |
-|-------------------------------|----------------------------------------------------------|--------------------------------------------------------|
-| Rectangular feature by sample | `r BiocStyle::Biocpkg("SummarizedExperiment")` `::SummarizedExperiment()` | RNAseq count matrix, microarray, etc. |
-| Genomic coordinates           | `r BiocStyle::Biocpkg("GenomicRanges")` `::GRanges()` | 1-based, closed interval genomic coordinates |
-| Genomic coordinates (multiple)| `r BiocStyle::Biocpkg("GenomicRanges")` `::GRangesList()` | Genomic coordinates from multiple samples |
-| Ragged genomic coordinates    | `r BiocStyle::Biocpkg("RaggedExperiment")` `::RaggedExperiment()` | Ragged (variable length) genomic coordinates |
-| DNA/RNA/AA sequences          | `r BiocStyle::Biocpkg("Biostrings")` `::*StringSet()` | DNA, RNA, or amino acid sequences |
-| Gene sets | `r BiocStyle::Biocpkg("BiocSet")` `::BiocSet()`, <br>`r BiocStyle::Biocpkg("GSEABase")` `::GeneSet()`, <br>`r BiocStyle::Biocpkg("GSEABase")` `::GeneSetCollection()` | Collections of gene sets |
-| Multi-omics data              | `r BiocStyle::Biocpkg("MultiAssayExperiment")` `::MultiAssayExperiment()` | Data integrating multiple omics assays |
-| Single cell data              | `r BiocStyle::Biocpkg("SingleCellExperiment")` `::SingleCellExperiment()` | Single-cell expression and related data |
-| Mass spec data                | `r BiocStyle::Biocpkg("Spectra")` `::Spectra()` | Mass spectrometry data                               |
-| File formats                  | `r BiocStyle::Biocpkg("BiocIO")` `::BiocFile-class` | Classes for interacting with various biological data file formats |
+- **Reuse Optimized Code:** You can easily reuse highly optimized and stable code from hundreds of other Bioconductor packages.
+- **Central Data Representations:** S4 classes serve as central data representations, allowing users to seamlessly integrate analysis workflows across multiple Bioconductor packages.
+- **Familiar Interfaces:** Leveraging familiar interfaces makes it easier for new users to start using your package effectively.
 
-Search [biocViews][] for other classes and methods that may be useful for your
-package.
+# Finding Existing S4 Classes
 
-## Package Submission Considerations
+The easiest way to find out if there is already an existing S4 class for your data type is to search the **Bioconductor package index**. If you are unsure, you can always ask on the main Bioconductor communication channels, such as the [bioc-devel mailing list][bioc-devel-mail], or the **Bioconductor Slack**.
 
-Bioconductor strives for interoperability across packages and strongly
-encourages that package submissions reuse existing Bioconductor classes and
-methods. Packages that do not follow this guideline may be asked to revise
-their code to use existing classes and methods.
+Below are some pointers to the most central S4 classes in the Bioconductor project.
 
-In the case where the data does not conform to an existing data class,
-we recommend discussing the design of a new class with the Bioconductor
-community. The open discussion can take place on main Bioconductor communication
-channels such as the [bioc-devel][bioc-devel-mail] mailing list, or the
-Bioconductor community slack.
+## Bioconductor core packages and S4-classes
 
-## Package Implementations
+Bioconductor core packages are maintained centrally by the Bioconductor team itself. As they are some of the most optimized and stable parts of Bioconductor (some packages are more than a decade old!), they are the best starting point for reusing classes.
 
-The following packages are examples of packages that reuse Bioconductor classes
-and methods:
+The `r BiocStyle::Biocpkg("S4Vectors")` and `r BiocStyle::Biocpkg("IRanges")` package contain low-level S4-classes for simple types of data:
 
-| package | inherits classes and methods from: |
-|---|---|
-| `r BiocStyle::Biocpkg("DESeq2")` | `r BiocStyle::Biocpkg("SummarizedExperiment")`, `r BiocStyle::Biocpkg("GenomicRanges")` |
-| `r BiocStyle::Biocpkg("GenomicAlignments")` | `r BiocStyle::Biocpkg("GenomicRanges")`, `r BiocStyle::Biocpkg("Rsamtools")` |
-| `r BiocStyle::Biocpkg("VariantAnnotation")` | `r BiocStyle::Biocpkg("GenomicRanges")`, `r BiocStyle::Biocpkg("SummarizedExperiment")`, `r BiocStyle::Biocpkg("Rsamtools")` |
+- `DFrame`: Improved version of the base R `data.frame`, where columns can be any type and can have meta data attached.
+- `List` and friends: Improved version of the base R `list`, where each element has to be the same type (`CharacterList`, `IntegerList`, `NumericList`, etc.)
+- `Factor`: Improved version of the base R factor, where levels can be any type.
+- `Rle`: Efficient Long vectors with many repeated values (e.g. coverage calculated across a whole genome)
+- `Hits`: Storing "hits" or "overlaps" between two sets, e.g. overlap between two sets of genomic intervals
+- `Views`: Accessing smaller parts of a large object, like a genome, without copying the large object itself. Many specialized classes for different use cases (`RleViews`, `XStringViews`, etc.)
+
+The `r BiocStyle::Biocpkg("GenomicRanges")`, `r BiocStyle::Biocpkg("GenomeInfoDb")`, `r BiocStyle::Biocpkg("rtracklayer")` package contains S4-Classes for genomic intervals (as seen in BED, GTF or BigWig files):
+
+- `GRanges`: Genomic ranges with start and end coordinates. Also keeps information
+- `GRangesList`: Sets of `GRanges`.
+- `Seqinfo`: Chromosome names and lengths for a genome/assembly.
+- `GPos`: Single base pair genomic intervals.
+- Import with `rtracklayer::import()`
+
+`r BiocStyle::Biocpkg("SummarizedExperiment")` contains S4-Classes for count/expression matrices and associated meta data.
+
+- `SummarizedExperiment`: Store on or more expression matrix with meta data for both columns and rows.
+- `RangedSummarizedExp`eriment`: `SummarizedExperiment` with an attached `GRanges`.
+- Many packages reuse `SummarizedExperiment` for more specialized cases, see for example `r BiocStyle::Biocpkg("RaggedExperiment")`.
+
+The `r BiocStyle::Biocpkg("Biostrings")` package contains S4-classes for biological strings (e.g. from FASTQ files):
+
+- `DNAString`: DNA sequences
+- `AAString`: Amino acid sequences
+- `DNAStringSet`/`AAStringSet` and `DNAStringSetList`/`AAStringSetList`: Sets of sequences
+- Import with `readDNAStringSet()` and `readAAStringSet()`
+
+The `r BiocStyle::Biocpkg("GenomicAlignment")` and `r BiocStyle::Biocpkg("Rsamtools")` packages contains S4-classes for aligned reads (e.g. BAM-files)
+
+- `GAlignments`: Alignments of shorts reads to a reference genome.
+- Large BAM-files can be imported with `scanBam()` or `readGAlignments`
+
+`r BiocStyle::Biocpkg("VariantAnnotation")` package contains S4-classes for genetic variants:
+
+- `VCF`: Genotypes across individuals and associated meta data.
+- `VRanges`: Location of genetic variants
+- Import with `readVcf()`
+
+`r BiocStyle::Biocpkg("BiocSets")` and `r BiocStyle::Biocpkg("GSEABase")` contains S4-classes for gene sets, e.g. Gene Ontology (GO)-terms and similar:
+
+- `GeneSet`: Gene set identifiers and metadata.
+- `GeneSetCollection`: Sets of `GeneSet`
+
+`r BiocStyle::Biocpkg("DelayedArray")` contains S4-classes for analyzing matrices that are too large to fit into memory:
+
+- `DelayedArray`: Wrapper around data stored either in a highly efficent format (e.g. sparse) or on disk.
+- Several specialized subclasses, including `RleMatrix` , `ConstantArray`, `r BiocStyle::Biocpkg("SparseArray")`, `r BiocStyle::Biocpkg("HDF5Array")`, `r BiocStyle::Biocpkg("ConstantArray")` and `r BiocStyle::Biocpkg("ScaledMatrix")`
+
+## Widely used Bioconductor S4-classes.
+
+Some Bioconductor package have implemented S4-Classes that have been widely adopted:
+
+`r BiocStyle::Biocpkg("SingleCellExperiment")` for single cell datasets (e.g. scRNA-Seq), including single cell multi-omics (e.g. CITE-Seq).
+
+`r BiocStyle::Biocpkg("SpatialExperiment")` for spatial -omics.
+
+`r BiocStyle::Biocpkg("MultiAssayExperiment")` for complex multi-omics datasets with arbitrary patterns of mixing data.
+
+`r BiocStyle::Biocpkg("Spectral")` for mass spec data
+
+`r BiocStyle::Biocpkg("TBFSTools")` for analyzing transcription factor binding sites with Position Frequency Matrices (PFMs) and similar.
+
+`r BiocStyle::Biocpkg("limma")`, `r BiocStyle::Biocpkg("edgeR")` and `r BiocStyle::Biocpkg("DESeq2")` for differential expression (DE) analysis
+
+# Extending Bioconductor S4-classes
+
+We are generally recommending that developers simply reuse existing classes: This saves time on the developers part and makes it easier for end-users to switch between packages.
+
+Some advanced developers might find the need to formally extend existing S4-classes with new subclasses. This requires more knowledge of how S4 inheritance works and how the different Bioconductor packages build on each other.
+
+We are currently developing new documentation on this topic. For now, we refer to some general background on S4 from the Advanced R book (https://adv-r.hadley.nz/s4.html) and the vignettes from the `S4Vectors`, `SummarizedExperiment`, `SingleCellExperiment` and `DelayedArray` packages which contains concrete examples of extending existing S4-Classes
