@@ -1,5 +1,7 @@
 on:
   push:
+    branches:
+      - devel
   pull_request:
     branches:
       - devel
@@ -7,7 +9,7 @@ on:
 name: build_deploy
 
 jobs:
-  build_deploy:
+  build:
     runs-on: ubuntu-latest
     container: bioconductor/bioconductor_docker:devel
 
@@ -72,16 +74,22 @@ jobs:
         run: |
           cp -R docs _book/
 
-      # deploy needs rsync? Seems so.
-      - name: Install deploy dependencies
-        if: github.event_name == 'push' && github.ref == 'refs/heads/devel'
-        run: |
-          apt-get update && apt-get -y install rsync
-          
-      - name: Deploy 🚀
-        if: github.event_name == 'push' && github.ref == 'refs/heads/devel'
-        uses: JamesIves/github-pages-deploy-action@v4.3.3
+      - name: Upload bookdown artifacts
+        uses: actions/upload-pages-artifact@v3
         with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: _book
+          path: _book
+
+  deploy:
+    needs: build
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to GitHub Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/devel'
+        id: deployment
+        uses: actions/deploy-pages@v4
+
