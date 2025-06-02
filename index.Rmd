@@ -5,6 +5,8 @@ author:
   - Daniela Cassol
   - Johannes Rainer
   - Lori Shepherd
+  - Marcel Ramos Pérez
+  - Martin Morgan
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
