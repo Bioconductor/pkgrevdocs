@@ -45,6 +45,12 @@ review by trained [_Bioconductor_ package reviewer][reviewer-list] .
 This book is open-source and hosted at <https://github.com/Bioconductor/pkgrevdocs>.
 Contributions are welcome and encouraged in the form of forks and pull requests.
 
+## Cite {.unnumbered}
+
+Consider reading and citing our community guidelines article, "Eleven quick tips
+for writing a Biconductor package" authored by @Soneson2025-zr. It provides a
+concise overview for newcomers to [_Bioconductor_][] package development.
+
 ```{r include=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
