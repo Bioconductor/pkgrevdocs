@@ -28,7 +28,7 @@ To submit a package to _Bioconductor_ the package should:
 * Comply with [Package Guidelines][guidelines].
 * Your package cannot depend on any package (or version of a package)
   that is not (yet) available on CRAN or _Bioconductor_. The package should work
-  with whatever current version of the package is publically available.
+  with whatever current version of the package is publicly available.
 
 ## Types of Packages {#type}
 
