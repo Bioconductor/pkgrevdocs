@@ -9,18 +9,6 @@ package specific guidelines and requirement and the
 
 # Bioconductor Package Submissions
 
-- [Introduction](#subintro)
-- [Types of Packages](#type)
-- [Package Naming Policy](#naming)
-- [Author/Maintainer Expectations](#author)
-- [Submission](#submission)
-- [Experiment data package](#experPackage)
-- [Annotation package](#annPackage)
-- [Workflow package](#workPackage)
-- [Review Process](#whattoexpect)
-- [Following Acceptance](#afteraccept)
-- [Additional Support](#support)
-
 ## Introduction {#subintro}
 
 To submit a package to _Bioconductor_ the package should:
