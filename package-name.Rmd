@@ -6,7 +6,7 @@ should not already exist as a current package (case-insensitive) in
 [_Bioconductor_][biocViews] nor [CRAN][CRAN pkgs]. Reusing
 archived or deprecated package names is also strongly discouraged and often will
 not be allowed. Before submission please inquire about using a legacy package
-name on the bioc-devel@r-project.org mailing list.
+name on the <bioc-devel@r-project.org> mailing list.
 
 An easy way to check whether your name is already in use is to check that the
 following command fails using the ['devel' version][] of Bioconductor:
