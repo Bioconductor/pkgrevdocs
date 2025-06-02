@@ -3,7 +3,7 @@
 ## biocViews {#biocviews}
 
 Packages added to the _Bioconductor_ Project require a `biocViews:`
-field in their DESCRIPTION file.  The field name "biocViews" is
+field in their `DESCRIPTION` file.  The field name "biocViews" is
 case-sensitive and must begin with a lower-case 'b'.
 
 biocViews terms are "keywords" used to describe a given package. They

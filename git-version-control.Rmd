@@ -1058,9 +1058,9 @@ maintain the package and avoid deprecation and removal.
    package be updated.  Include the package name and the contact information for
    the new maintainer.
 
-3. Update Package DESCRIPTION file
+3. Update Package `DESCRIPTION` file
 
-   The DESCRIPTION file of the package should be updated to the new maintainer
+   The `DESCRIPTION` file of the package should be updated to the new maintainer
    information and pushed to the Bioconductor git.bioconductor.org repository.
 
 ### Remove Large Data Files and Clean Git Tree

@@ -27,7 +27,7 @@ W  checking Rd cross-references (<...>ms)
 ## What worked
 
 First, the `SummarizedExperiment` package was added to the `Depends:` section
-of the DESCRIPTION file.
+of the `DESCRIPTION` file.
 
 ```
 Depends:

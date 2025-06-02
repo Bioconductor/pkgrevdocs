@@ -153,11 +153,11 @@ package maintenance responsibilities. Package authors are expected to:
   It is important to promptly respond to bug reports and questions either on
   the [_Bioconductor_ support site][support site] post or directly to developers.
   Some maintainers prefer to indicate a `BugReports:` field in their package's
-  DESCRIPTION file. This field indicates a particular web page for submitting
+  `DESCRIPTION` file. This field indicates a particular web page for submitting
   bug reports and questions.
 
-* Ensure the maintainer email in the DESCRIPTION stays accurate and
-  reachable. The maintainer email in the DESCRIPTION is the definitive contact
+* Ensure the maintainer email in the `DESCRIPTION` stays accurate and
+  reachable. The maintainer email in the `DESCRIPTION` is the definitive contact
   _Bioconductor_ will use. It is important to keep this email up-to-date to
   ensure we can contact you if your package is failing or to notify you of any
   important upcoming impactful events. If the email is not reachable your
@@ -355,7 +355,7 @@ Following acceptance of a package:
   [Version numbering][versioning] guidelines. If developers don't
   bump the version, the changes made to their package *do not propagate*
   to the _Bioconductor_ web site and package repository.
-* Devlopers should make sure the maintainer email in the DESCRIPTION stays
+* Developers should make sure the maintainer email in the `DESCRIPTION` stays
   accurate and reachable.
 
 ## Additional Support {#support}
