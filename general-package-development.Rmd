@@ -55,8 +55,8 @@ Experiment Data, Annotation, and Workflow packages are allowed additional space 
 ### Memory {#memory}
 
 Due to hardware limitations on the Bioconductor Build System (BBS), it is
-recommend that a package's vignette and man page examples do not require more
-than 8 GB of memory to run. 
+recommended that the vignettes, man page examples, and unit tests do not require
+more than 8 GB of memory to run. 
 
 ### Individual file size {#individual-file-size}
 
