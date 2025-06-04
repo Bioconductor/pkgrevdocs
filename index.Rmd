@@ -132,7 +132,7 @@ knitr::write_bib(c(
 [Removing collaborator]: https://help.github.com/articles/removing-a-collaborator-from-a-personal-repository/
 [Resolving a merge conflict using command line]: https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/
 [reviewer-list]: https://bioconductor.org/about/package-reviewers/
-[reviewers slack channel]: https://community-bioc.slack.com/archives/C02A1B8HUHZ
+[reviewers zulip channel]: https://community-bioc.zulipchat.com/#narrow/channel/507978-reviewers
 [rmarkdown]: http://rmarkdown.rstudio.com/
 [rmarkdown documentation]: http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html#citations
 [shiny-posit]: https://shiny.posit.co/
