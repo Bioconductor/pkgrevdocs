@@ -85,7 +85,7 @@ particularly busy period of time, etc), a reviewer should reach out to a
 package review committee administrator. The administrator will temporarily stop
 assignments and can discuss if currently assigned packages need re-assignment.
 
-There is a [reviewers slack channel][] for package reviewers to ask questions and if necessary
+There is a [reviewers zulip channel][] for package reviewers to ask questions and if necessary
 ask to swap/switch/volunteer to review packages. Requests can also be made by
 directly contacting the package review administrator.
 

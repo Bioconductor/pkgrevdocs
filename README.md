@@ -13,7 +13,7 @@ Bioconductor Packages: Guidelines for Developers and Reviewers
 
 This book contains our guidelines for packages contributed to the [_Bioconductor_](https://bioconductor.org/) suite of packages.
 These guidelines are always a work in progress - corrections, suggestions and general improvements are welcome as [issue submissions in this repository](https://github.com/Bioconductor/pkgrevdocs/issues/new).
-Open discussions are welcome in our [Slack](https://bioc-community.herokuapp.com/).
+Open discussions are welcome in our [Zulip](https://community-bioc.zulipchat.com/).
 You can also suggest changes by editing the `.Rmd` files that are at the root of this repository and submitting a [pull request](https://github.com/Bioconductor/pkgrevdocs/pulls).
 An "Edit this page" link in the side bar on the right of each book chapter will take you directly to the relevant page on the GitHub repository to make such changes.
 Please target your pull requests to the `devel` branch.

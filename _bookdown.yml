@@ -44,5 +44,6 @@ rmd_files: ["index.Rmd",
            "c-and-fortran.Rmd",
            "mavericks.Rmd",
            "debug-rd-links.Rmd",
-           "news-for-bookdown.Rmd"]
+           "news-for-bookdown.Rmd",
+           "references.Rmd"]
 clean: [packages.bib]

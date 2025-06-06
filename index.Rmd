@@ -5,6 +5,8 @@ author:
   - Daniela Cassol
   - Johannes Rainer
   - Lori Shepherd
+  - Marcel Ramos Pérez
+  - Martin Morgan
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
@@ -17,7 +19,7 @@ description: "This is a minimal example of using the bookdown package to write a
 # Welcome {-}
 
 ```{r, fig.align='center', echo=FALSE, out.height="200px"}
-knitr::include_graphics("https://raw.githubusercontent.com/Bioconductor/BiocStickers/master/Bioconductor/Bioconductor.png")
+knitr::include_graphics("https://raw.githubusercontent.com/Bioconductor/BiocStickers/devel/Bioconductor/Bioconductor.png")
 ```
 
 ## Introduction {.unnumbered #intro}
@@ -132,7 +134,7 @@ knitr::write_bib(c(
 [Removing collaborator]: https://help.github.com/articles/removing-a-collaborator-from-a-personal-repository/
 [Resolving a merge conflict using command line]: https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/
 [reviewer-list]: https://bioconductor.org/about/package-reviewers/
-[reviewers slack channel]: https://community-bioc.slack.com/archives/C02A1B8HUHZ
+[reviewers zulip channel]: https://community-bioc.zulipchat.com/#narrow/channel/507978-reviewers
 [rmarkdown]: http://rmarkdown.rstudio.com/
 [rmarkdown documentation]: http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html#citations
 [shiny-posit]: https://shiny.posit.co/

@@ -192,7 +192,7 @@ package type (i.e., `Software`, `AnnotationData`, `ExperimentData`, or
 `Workflow`). `biocViews` terms are case-sensitive.
 
 The field name "biocViews" is case-sensitive and must begin with a lower-case
-'b'. Please use a single line with biocViews seperated by commas
+'b'. Please use a single line with `biocViews` separated by commas
 
 (i.e,`biocViews: GeneTarget, SingleCell`).
 
