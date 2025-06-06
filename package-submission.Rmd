@@ -9,18 +9,6 @@ package specific guidelines and requirement and the
 
 # Bioconductor Package Submissions
 
-- [Introduction](#subintro)
-- [Types of Packages](#type)
-- [Package Naming Policy](#naming)
-- [Author/Maintainer Expectations](#author)
-- [Submission](#submission)
-- [Experiment data package](#experPackage)
-- [Annotation package](#annPackage)
-- [Workflow package](#workPackage)
-- [Review Process](#whattoexpect)
-- [Following Acceptance](#afteraccept)
-- [Additional Support](#support)
-
 ## Introduction {#subintro}
 
 To submit a package to _Bioconductor_ the package should:
@@ -40,7 +28,7 @@ To submit a package to _Bioconductor_ the package should:
 * Comply with [Package Guidelines][guidelines].
 * Your package cannot depend on any package (or version of a package)
   that is not (yet) available on CRAN or _Bioconductor_. The package should work
-  with whatever current version of the package is publically available.
+  with whatever current version of the package is publicly available.
 
 ## Types of Packages {#type}
 
@@ -50,7 +38,7 @@ _Bioconductor_ packages are broadly defined by four main package types:
 
 * Software Packages. Most packages contributed by users are software
   packages. Software packages provide implementation of algorithms
-  (e.g. statistical analysis), access to resources (e.g. biomart, or NCBI) or
+  (e.g. statistical analysis), access to resources (e.g. `biomaRt`, or NCBI) or
   visualizations (e.g. volcano plots, pathways plots). Instructions for creating
   Software packages can be found here: [Package guidelines][guidelines].
 
@@ -97,7 +85,7 @@ package contributor discontinues package maintenance. See Bioconductor's package
 [end-of-life policy][] for more details.
 
 ii) Uniqueness of package name. Packages should be named in a way that does not
-conflict (irrespective of case) with any current or past BIOCONDUCTOR package,
+conflict (irrespective of case) with any current or past Bioconductor package,
 nor any current or past CRAN package.
 
 See [Package naming guidelines](#package-name) for more guidelines.
@@ -109,24 +97,24 @@ package maintenance responsibilities. Package authors are expected to:
 
 * Follow Bioconductor guidelines
 
-  These include standard [guidelines][guidelines], [version numbering][versioning],
-  [coding style](#r-code), [code performance
-  requirements](#correctness-space-and-time), [memory usage](#memory), [using
-  existing data classes][bioc-common], and the other requirements described
-  below.
+  These include standard [guidelines][guidelines],
+  [version numbering][versioning], [coding style](#r-code),
+  [code performance requirements](#correctness-space-and-time),
+  [memory usage](#memory), [using existing data classes][bioc-common],
+  and the other requirements described below.
 
 * Follow the release cycle of Bioconductor
 
   There are two releases each year, around April and October. The
   [release schedule][release-schedule] will indicate the timetables and
   deadlines for each release. A release cycle typically produces two
-  versions of packages, ‘devel’ and ‘release’. It is important to be familiar
+  versions of packages, 'devel' and 'release'. It is important to be familiar
   with these branch concepts. Once your package has been accepted, it will
-  initially be in the ‘devel’ branch.  The current devel branch becomes the
+  initially be in the 'devel' branch.  The current devel branch becomes the
   next release. Most users are expected to use the release branch, so they will
   not immediately have access to your package until the next release.
   Bug fixes can be fixed in both branches, while new features should only
-  be added to the ‘devel’ branch.
+  be added to the 'devel' branch.
 
 * Maintain the package using version control
 
@@ -165,11 +153,11 @@ package maintenance responsibilities. Package authors are expected to:
   It is important to promptly respond to bug reports and questions either on
   the [_Bioconductor_ support site][support site] post or directly to developers.
   Some maintainers prefer to indicate a `BugReports:` field in their package's
-  DESCRIPTION file. This field indicates a particular web page for submitting
+  `DESCRIPTION` file. This field indicates a particular web page for submitting
   bug reports and questions.
 
-* Ensure the maintainer email in the DESCRIPTION stays accurate and
-  reachable. The maintainer email in the DESCRIPTION is the definitive contact
+* Ensure the maintainer email in the `DESCRIPTION` stays accurate and
+  reachable. The maintainer email in the `DESCRIPTION` is the definitive contact
   _Bioconductor_ will use. It is important to keep this email up-to-date to
   ensure we can contact you if your package is failing or to notify you of any
   important upcoming impactful events. If the email is not reachable your
@@ -187,7 +175,7 @@ package maintenance responsibilities. Package authors are expected to:
   the issue you are opening.  You cannot specify any alternative branches; the
   default branch is utilized. The default branch must contain only package
   code. Any files or directories for other applications (Github Actions,
-  devtool, etc) should be in a different branch. If you are submitting two
+  devtools, etc) should be in a different branch. If you are submitting two
   highly related packages or circular dependent packages please see
   [here][cirdep]. The lighter dependent or package that can be installed without
   a dependency should be submitted first; this is generally the associated data
@@ -367,7 +355,7 @@ Following acceptance of a package:
   [Version numbering][versioning] guidelines. If developers don't
   bump the version, the changes made to their package *do not propagate*
   to the _Bioconductor_ web site and package repository.
-* Devlopers should make sure the maintainer email in the DESCRIPTION stays
+* Developers should make sure the maintainer email in the `DESCRIPTION` stays
   accurate and reachable.
 
 ## Additional Support {#support}
@@ -382,5 +370,3 @@ package documentation and structure.  Use the
 <maintainer@bioconductor.org> to obtain additional support.
 
 * Support Email: <maintainer@bioconductor.org>
-
-

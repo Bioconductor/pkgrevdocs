@@ -5,6 +5,8 @@ author:
   - Daniela Cassol
   - Johannes Rainer
   - Lori Shepherd
+  - Marcel Ramos Pérez
+  - Martin Morgan
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
@@ -17,7 +19,7 @@ description: "This is a minimal example of using the bookdown package to write a
 # Welcome {-}
 
 ```{r, fig.align='center', echo=FALSE, out.height="200px"}
-knitr::include_graphics("https://raw.githubusercontent.com/Bioconductor/BiocStickers/master/Bioconductor/Bioconductor.png")
+knitr::include_graphics("https://raw.githubusercontent.com/Bioconductor/BiocStickers/devel/Bioconductor/Bioconductor.png")
 ```
 
 ## Introduction {.unnumbered #intro}

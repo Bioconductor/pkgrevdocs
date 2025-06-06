@@ -162,7 +162,7 @@ methods; other approaches are possible and acceptable.
 * Methods are defined in a file named by the generic function. For
   example, all `show` methods would go in R/show-methods.R.
 
-A Collate: field in the DESCRIPTION file may be necessary to order
+A Collate: field in the `DESCRIPTION` file may be necessary to order
 class and method definitions appropriately during package
 installation.
 
@@ -220,7 +220,7 @@ provides the functionality that you are after, you should use that instead.
 
 Now if your package **absolutely** must rely on external software then you
 need to make sure that those requirements are listed in
-the SystemRequirements field of the DESCRIPTION file of the package. These
+the `SystemRequirements` field of the `DESCRIPTION` file of the package. These
 requirements should be "reasonable" requirements, that is, trusted software
 only, open source, and relatively easy to install.
 
@@ -231,10 +231,10 @@ will not only help your users get the external software on their machines,
 but it will also help us install it on the build machines if it's not
 already there.
 
-All system and package dependencies should be the latest publically available
-version. All package dependencies must actively be on CRAN or
-Bioconductor. Bioconductor will not recognize Remotes in DESCRIPTION and will
-not install a lower version of a package or dependency.
+All system and package dependencies should be the latest publicly available
+version. All package dependencies must actively be on `CRAN` or
+Bioconductor. Bioconductor will not recognize the `Remotes:` field in the
+`DESCRIPTION` and will not install a lower version of a package or dependency.
 
 ####  Namespaces {#rcode-namespaces}
 

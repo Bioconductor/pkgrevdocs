@@ -79,19 +79,20 @@ Builds occur once per day, and take approximately 24 hours. See the
 
 Traditional Annotation packages are not stored in GIT due to the size of
 annotation files. To update an existing Annotation package please send an email
-to maintainer@bioconductor.org. A member of the Bioconductor team will be in
+to <maintainer@bioconductor.org>. A member of the Bioconductor team will be in
 contact to receive the updated package.
 
 Newer annotation packages can be stored in GIT as it is a requirement to use the
 `r BiocStyle::Biocpkg("AnnotationHub")` server hosted data. The larger sized
 files are not included directly in the package. To contribute a new Annotation
-package please contact hubs@bioconductor.org for guidance and read the
+package please contact <hubs@bioconductor.org> for guidance and read the
 documentation on [Create A Hub Package][].
 
 Currently direct updates to annotation packages, even those stored on git, are
 not supported. If you wish to updated an annotation package, make required
 changes and push to git.bioconductor.org. Then send an email to
-hubs@bioconductor.org or maintainer@bioconductor.org requesting the package be propagated.
+<hubs@bioconductor.org> or <maintainer@bioconductor.org> requesting the package
+be propagated.
 
 ## Subversion to Git Transition
 
@@ -704,7 +705,7 @@ _Bioconductor_ repositories.
 
 __Goal:__ You want to start fresh after failing to resolve conflicts
 or some other issue. If you intend to go nuclear, please contact the
-bioc-devel@bioconductor.org mailing list.
+<bioc-devel@bioconductor.org> mailing list.
 
 #### Force _Bioconductor_ `devel` to GitHub `devel`
 
@@ -1058,9 +1059,9 @@ maintain the package and avoid deprecation and removal.
    package be updated.  Include the package name and the contact information for
    the new maintainer.
 
-3. Update Package DESCRIPTION file
+3. Update Package `DESCRIPTION` file
 
-   The DESCRIPTION file of the package should be updated to the new maintainer
+   The `DESCRIPTION` file of the package should be updated to the new maintainer
    information and pushed to the Bioconductor git.bioconductor.org repository.
 
 ### Remove Large Data Files and Clean Git Tree
@@ -1435,7 +1436,7 @@ repository.
 #### More questions?
 
 If you have additional questions which are not answered here already,
-please send an email to bioc-devel@bioconductor.org.
+please send an email to <bioc-devel@bioconductor.org>.
 
 ### Helpful resources:
 
