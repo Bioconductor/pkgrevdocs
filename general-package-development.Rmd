@@ -58,7 +58,9 @@ Experiment Data, Annotation, and Workflow packages are allowed additional space 
 
 ### Memory {#memory}
 
-Vignette and man page examples should not use more than 3 GB of memory since <i class="fab fa-r-project"></i> cannot allocate more than this on 32-bit Windows.
+Due to hardware limitations on the Bioconductor Build System (BBS), it is
+recommended that the vignettes, man page examples, and unit tests do not require
+more than 8 GB of memory to run. 
 
 ### Individual file size {#individual-file-size}
 
