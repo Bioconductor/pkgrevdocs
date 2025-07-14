@@ -62,10 +62,13 @@ All packages are required to have at least one Rmd, qmd, or Rnw vignette.
 Vignettes go in the `vignettes/` directory of the package. Vignettes are often
 used as standalone documents, so best practices are to include an informative
 title, the primary author of the vignette, the last modification date of the
-vignette, and a link to the package landing page. We encourage the use of
-`r BiocStyle::Biocpkg("BiocStyle")` with `html_document` as the rendering
-function. For example, in an R Markdown vignette one can use the following
-specification in the yaml front matter:
+vignette, and a link to the package landing page.
+
+### RMarkdown vignettes
+
+We encourage the use of `r BiocStyle::Biocpkg("BiocStyle")` with the
+`html_document` rendering function. For example, in an R Markdown vignette one
+can use the following specification in the yaml front matter:
 
 ```yaml
 output:
@@ -89,6 +92,31 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteIndexEntry{1. Quick Start: An Introduction}
   %\VignetteEncoding{UTF-8}
+```
+
+### Quarto vignettes
+
+More recently, `quarto` vignettes have been introduced as a new format for
+vignettes. Quarto vignettes are similar to R Markdown but offer more advanced
+features, flexibility, and multi-language support. The yaml front matter for a
+Quarto vignette is similar to R Markdown, but it uses `quarto::html` as the
+rendering function. For example, in a Quarto vignette one can use the following
+specification in the yaml front matter:
+
+```yaml
+vignette: >
+  %\VignetteEngine{quarto::html}
+  %\VignetteIndexEntry{1. Quick Start: An Introduction}
+  %\VignetteEncoding{UTF-8}
+```
+
+In addition to the yaml front matter, vignette authors must ensure that the
+`quarto` command line tool is listed as a `SystemRequirements` in the
+`DESCRIPTION` file, as well as, indicate that the `VignetteBuilder` is set to
+`quarto` in the `DESCRIPTION` file:
+
+```r
+VignetteBuilder: quarto
 ```
 
 Some best practices and requirements for writing _Bioconductor_ vignettes are
