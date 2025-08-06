@@ -832,7 +832,7 @@ git branch and in the current release branch (e.g., `RELEASE_3_14`).
    Bump the version of the package by editing the `Version` field in the
    `DESCRIPTION` and commit the change __in a separate commit__. This allows to
    only `cherry-pick` the bug correction and avoid version number conflicts with
-   the Bioconductor branches when/if the bug fixes are ported to release. 
+   the Bioconductor branches when/if the bug fixes are ported to release.
 
         ## after version bump
         git add DESCRIPTION
@@ -1073,13 +1073,13 @@ You also must remove them from the git tree (the repository history), or else
 your repository will remain large.
 
 There are a few ways to remove large files from a git history. Here, we'll
-outline two options: 1) `git filter-repo`, and 2) the BFG repo cleaner. 
+outline two options: 1) `git filter-repo`, and 2) the BFG repo cleaner.
 These steps should be run on your local copy and (if necessary) pushed to your
 own github repository.
 
 #### Removing Large Files from History with filter-repo
 
-As of 2023, the recommended way is to first locate any large files, and 
+As of 2023, the recommended way is to first locate any large files, and
 then remove them with `git filter-repo`.
 
 1. Identify large files using [this git rev-list script](
@@ -1099,21 +1099,37 @@ history, in order of file size. Use this to identify the names of files to remov
 
 2. Remove them with [filter-repo](https://github.com/newren/git-filter-repo).
 
-This is a separate tool that you'll have to install 
+This is a separate tool that you'll have to install
 (with *e.g.* `pip3 install git-filter-repo`). Then, you can rewrite your repository
-history to remove files like this, where `<file-glob>` identifies your files:
+history to remove files. Here are a few examples:
+
+*   To remove a specific file:
 
 ```
-git filter-repo --path-glob '<file-glob>' --invert-paths
+git filter-repo --path path/to/your/large_file --invert-paths
 ```
 
-For example, to remove all `.RData` files, you could use:
+*   To remove a folder:
+
+```
+git filter-repo --path path/to/your/folder/ --invert-paths
+```
+
+*   To remove all files of a certain type (e.g. `.RData`):
 
 ```
 git filter-repo --path-glob '*.RData' --invert-paths
 ```
 
-This command may reset your remotes. Check with `git remote` and
+*   To remove all files larger than a certain size (e.g. 50MB):
+
+```
+git filter-repo --strip-blobs-bigger-than 50M
+```
+
+3. Final steps.
+
+This command may reset your remotes. Check with `git remote -v` and
 if needed, you can add remotes back in using something like this:
 
 ```
@@ -1121,15 +1137,21 @@ git remote add origin git@github.com:<username>/<repo_name>
 git push --set-upstream origin devel --force
 ```
 
-Finally, we have to push with `--mirror` to reset the remote.
+Finally, we have to push with `--mirror` to reset the remote. This will update
+your remote repository on GitHub.
 
 ```
 git push --force --mirror
 ```
 
-Now, just notify everyone that they'll have to re-clone the new repository, since 
+Now, just notify everyone that they'll have to re-clone the new repository, since
 history has been rewritten, so existing clones will no longer be compatible
 with this repo.
+
+If you need to update the Bioconductor repository, you will need to contact the
+Bioconductor Core Team to sync your repository with the version on Bioconductor,
+as force pushes which alter the git timeline are not possible for maintainers on
+the Bioconductor git server.
 
 #### Removing Large Files from History with BFG repo cleaner
 
@@ -1466,6 +1488,6 @@ please send an email to <bioc-devel@bioconductor.org>.
 
 [resolve duplicate commits][]
 
-[Pull requests][] 
+[Pull requests][]
 
-[Open github issues][Open github issue] 
+[Open github issues][Open github issue]
