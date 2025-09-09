@@ -1,6 +1,25 @@
-# Long Tests
+# Advanced Build Options
 
-## What are they
+An optional `.BBSoptions` file at the package root can alter the default
+build behavior, such as excluding a package from unsupported platform or
+including a package in an optional build.
+
+## Skipping builds on unsupported platforms
+
+In the `.BBSoptions` file, add the line `UnsupportedPlatforms:` with the
+platform--`win`, `win64`, or `mac`--or the name of a build node. For example
+
+    UnsupportedPlatforms: win64, kjohnson3
+
+## Optional builds: long tests and GPU builds
+
+Two optional builds are available to software packages: long tests and GPU
+builds. Maintainers can opt their packages in to these builds using the
+`.BBSoptions` file.
+
+### Long tests
+
+#### What are they
 
 Code in the `tests` subdirectory of all Bioconductor software
 packages is run by `R CMD check` on a daily basis as part of
@@ -12,7 +31,7 @@ Package developers who wish to implement `tests` that will be too long
 to run in the context of the nightly builds can set up "long tests" in
 their package and add the package to the Bioconductor _Long Tests builds_.
 
-## Setup
+#### Setup
 
 4 steps:
 
@@ -39,7 +58,7 @@ Note that we also run the _Long Tests builds_ for the current release
 branch once a week (every Saturday). The latest report for these builds
 is [here][release-LongTests-report].
 
-## "Short tests" vs "long tests"
+#### "Short tests" vs "long tests"
 
 The _Long Tests_ setup forces developers to split the testing code
 in their package between "short tests" and "long tests". The former go in
@@ -54,8 +73,25 @@ prevent a package from propagating after a version bump. In other words,
 even if a package is included in the _Long Tests builds_, propagation
 is still determined by the results of the nightly builds.
 
+### GPU builds
+
+If a package needs a GPU to properly build it should be added to the
+[GPU builds][devel-GPU-report], which build and check packages on GPU machines.
+In the `.BBSoptions` file, maintainers should set `GPU_reliance` term to
+`required`:
+
+    ```
+    GPU_reliance: required
+    ```
+
+If a package supports GPUs if available, maintainers may opt in to the build
+by setting the `GPU_reliance` term set to `optional:
+
+    ```
+    GPU_reliance: optional
+    ```
+
 ## Need help?
 
 Ask on the [bioc-devel][bioc-devel-mail] mailing list if you have questions or
-need help with the _Long Tests builds_.
-
+need help.
