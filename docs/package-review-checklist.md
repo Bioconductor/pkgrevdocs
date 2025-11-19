@@ -74,6 +74,7 @@ Refer to the [DESCRIPTION](https://contributions.bioconductor.org/description.ht
 - [ ] Included data not too large. Need for separate data package?
 - [ ] Exported data and the `data/` directory has correct format, is compressed and documented.
 - [ ] Raw data in `inst/extdata/` directory. Small enough to justify inclusion in package?
+- [ ] For data in `inst/extdata/`, is any manipulation required documented in (e.g.) R scripts?
 - [ ] If data downloaded from web: really necessary? `BiocFileCache` used?
 
 ## Documentation
