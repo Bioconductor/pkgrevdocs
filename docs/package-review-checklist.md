@@ -1,6 +1,6 @@
 # Package Review Checklist {#review-checklist}
 
-**Version 1.0.1**
+**Version 1.1**
 
 This checklist is intended to aid and guide the reviewer through the review
 process.
@@ -65,6 +65,9 @@ Refer to the [DESCRIPTION](https://contributions.bioconductor.org/description.ht
 
 - [ ] Citation file (if present) in correct format
       (`readCitationFile("inst/CITATION")` without error).
+
+
+# Subjective criteria / human reviewer specific
 	  
 ## Package data
 
