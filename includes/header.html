@@ -5,4 +5,164 @@
   crossorigin="anonymous"
   referrerpolicy="no-referrer"
   />
+  
+  <style>
+    /* Dark mode toggle button */
+    .dark-mode-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: #6faef5;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+    }
+    
+    .dark-mode-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    
+    /* Dark mode styles */
+    body.dark-mode {
+      background-color: #1a1a1a;
+      color: #e0e0e0;
+    }
+    
+    body.dark-mode .book .book-body .page-wrapper .page-inner section.normal {
+      background-color: #1a1a1a;
+      color: #e0e0e0;
+    }
+    
+    body.dark-mode .book .book-summary {
+      background-color: #2d2d2d;
+      color: #e0e0e0;
+    }
+    
+    body.dark-mode .book .book-summary ul.summary li a {
+      color: #b0b0b0;
+    }
+    
+    body.dark-mode .book .book-summary ul.summary li.active > a {
+      color: #6faef5;
+    }
+    
+    body.dark-mode .book .book-summary ul.summary li > a:hover {
+      color: #6faef5;
+    }
+    
+    body.dark-mode .book .book-body .page-wrapper .page-inner section.normal a {
+      color: #6faef5;
+    }
+    
+    body.dark-mode h1, 
+    body.dark-mode h2, 
+    body.dark-mode h3, 
+    body.dark-mode h4, 
+    body.dark-mode h5, 
+    body.dark-mode h6 {
+      color: #87b13f;
+    }
+    
+    body.dark-mode .book .book-body .page-wrapper .page-inner section.normal code {
+      background: #2d2d2d;
+      color: #e0e0e0;
+    }
+    
+    body.dark-mode .book .book-body .page-wrapper .page-inner section.normal pre {
+      background: #2d2d2d;
+      border: 1px solid #404040;
+    }
+    
+    body.dark-mode div.book-header.fixed[style] {
+      background-color: #2d2d2d !important;
+    }
+    
+    body.dark-mode .book .book-header h1 a, 
+    body.dark-mode .book .book-header h1 a:hover {
+      color: #e0e0e0;
+    }
+    
+    body.dark-mode .book .book-header .btn {
+      color: #b0b0b0;
+    }
+    
+    body.dark-mode .book .book-header .btn:hover {
+      color: #e0e0e0;
+    }
+    
+    body.dark-mode .summaryblock {
+      background-color: #2d2d2d;
+      color: #e0e0e0;
+      border-color: #6faef5;
+    }
+    
+    body.dark-mode .part > span {
+      color: #b0b0b0;
+    }
+    
+    body.dark-mode p.caption {
+      color: #b0b0b0;
+    }
+    
+    body.dark-mode table {
+      background-color: #2d2d2d;
+      color: #e0e0e0;
+    }
+    
+    body.dark-mode table thead {
+      background-color: #404040;
+    }
+    
+    body.dark-mode table tr:nth-child(even) {
+      background-color: #252525;
+    }
+    
+    body.dark-mode .dark-mode-toggle {
+      background: #404040;
+    }
+  </style>
+  
+  <script>
+    // Dark mode toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      // Create toggle button
+      const toggleButton = document.createElement('button');
+      toggleButton.className = 'dark-mode-toggle';
+      toggleButton.setAttribute('aria-label', 'Toggle dark mode');
+      toggleButton.innerHTML = '<i class="fas fa-moon"></i>';
+      document.body.appendChild(toggleButton);
+      
+      // Check for saved theme preference or default to light mode
+      const currentTheme = localStorage.getItem('theme') || 'light';
+      if (currentTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        toggleButton.innerHTML = '<i class="fas fa-sun"></i>';
+      }
+      
+      // Toggle theme on button click
+      toggleButton.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        
+        // Update icon and save preference
+        if (document.body.classList.contains('dark-mode')) {
+          toggleButton.innerHTML = '<i class="fas fa-sun"></i>';
+          localStorage.setItem('theme', 'dark');
+        } else {
+          toggleButton.innerHTML = '<i class="fas fa-moon"></i>';
+          localStorage.setItem('theme', 'light');
+        }
+      });
+    });
+  </script>
 </head>
