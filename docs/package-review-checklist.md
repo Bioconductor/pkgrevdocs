@@ -126,7 +126,7 @@ Refer to the [DESCRIPTION](https://contributions.bioconductor.org/description.ht
 ## C and Fortran code
 
 - [ ] Internal functions from R's C library used (e.g. `R_alloc`).
-- [ ] C function registration used (See [Registering native routines](http://cran.fhcrc.org/doc/manuals/R-exts.html#Registering-native-routines).
+- [ ] C function registration used (See [Registering native routines](https://cran.r-project.org/doc/manuals/R-exts.html#Registering-native-routines)).
 - [ ] Checks for user interruption.
 - [ ] `Makevars` and `Makefile` within a package.
 
