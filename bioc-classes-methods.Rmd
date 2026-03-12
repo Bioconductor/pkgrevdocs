@@ -76,7 +76,7 @@ In the case where the data does not conform to an existing data class,
 we recommend discussing the design of a new class with the Bioconductor
 community. The open discussion can take place on main Bioconductor communication
 channels such as the [bioc-devel][bioc-devel-mail] mailing list, or the
-Bioconductor community slack.
+Bioconductor community Slack.
 
 ## Package Implementations
 
