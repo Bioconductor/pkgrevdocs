@@ -67,10 +67,12 @@ package.
 
 ## Package Submission Considerations
 
-Bioconductor strives for interoperability across packages and strongly
-encourages that package submissions reuse existing Bioconductor classes and
-methods. Packages that do not follow this guideline may be asked to revise
-their code to use existing classes and methods.
+Bioconductor strives for interoperability across packages, and package
+submissions are generally not accepted unless they demonstrate such
+interoperability, typically by reusing existing Bioconductor classes and
+methods where appropriate. Submissions that introduce new classes or data
+structures must provide strong justification and clearly describe how they
+interoperate with existing Bioconductor infrastructure.
 
 In the case where the data does not conform to an existing data class,
 we recommend discussing the design of a new class with the Bioconductor
