@@ -6,7 +6,7 @@ Bioconductor is a large and diverse project with many packages that provide
 functionality for a wide range of biological data types and statistical methods.
 It has a rich set of classes and methods that are widely used across
 many packages. It is, therefore, important to reuse existing data classes and
-methods to ensure that packages are inter-operable with the rest of the
+methods to ensure that packages are interoperable with the rest of the
 _Bioconductor_ software ecosystem. Central data representations allow users to
 readily integrate analysis workflows across multiple Bioconductor packages
 providing a more seamless user experience.
