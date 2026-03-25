@@ -11,6 +11,10 @@ platform--`win`, `win64`, or `mac`--or the name of a build node. For example
 
     UnsupportedPlatforms: win64, kjohnson3
 
+**Note**: Newer packages should use `Config/Bioconductor/UnsupportedPlatforms`
+as described in [the DESCRIPTION file][description-file] for the transition to
+R Universe.
+
 ## Optional builds: long tests and GPU builds
 
 Two optional builds are available to software packages: long tests and GPU

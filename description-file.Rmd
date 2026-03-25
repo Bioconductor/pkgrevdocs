@@ -221,3 +221,10 @@ during package installation.
 This is required if submitting a `Docker` or `Workflow`.
 Otherwise this field could optionally define the type of Bioconductor package
 `Software`, `ExperimentData`, `Annotation`.
+
+## `Config/Bioconductor/UnsupportedPlatforms` {#description-unsupportedplatforms}
+
+Add this field to exclude a package binary being propagated for unsupported
+platforms. Possible values are `windows`, `windows-x64`, `macosx`,
+`macosx-x86_64`, `macosx-arm64`. Multiple os-arch types should be separated by
+commas. The option `macosx` excludes the package from all macosx builds.
