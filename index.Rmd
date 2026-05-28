@@ -181,3 +181,7 @@ knitr::write_bib(c(
 [testy]: https://github.com/ahoward/testy
 [Valgrind]: http://valgrind.org/
 [Xcode]: https://developer.apple.com/xcode/
+
+[devools]: https://devtools.r-lib.org/reference/check.html
+[BiocCheck]: https://www.bioconductor.org/packages/BiocCheck/
+[R-Universe]: https://r-universe.dev/search

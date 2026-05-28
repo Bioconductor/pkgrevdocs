@@ -1,0 +1,22 @@
+# Build / Check / BiocCheck
+
+All new packages submitted are checked against the current Bioconductor devel
+version. Bioconductor versions are closely associated with a specific R version. The
+submitter should ensure the package is built and checked against the appropriate
+version.
+
+
+The package should `R CMD build`, `R CMD check`, and `BiocCheck` without ERROR.
+See useful tools like [devools][] and [BiocCheck][] for more information.
+
+
+As Bioconductor moves towards integration with
+[R-universe][], it is also possible to set up a
+GitHub Action to mimic the submission process environment. You will need to
+ensure your [repository
+settings](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)
+have GitHub actions enabled. The process for setting up the workflow to run
+build, check and BiocCheck in github actions is documented on the R-Universe help page section for [Bioconductor and R-universe](https://docs.r-universe.dev/bioconductor/#debugging-the-ci)
+
+
+
