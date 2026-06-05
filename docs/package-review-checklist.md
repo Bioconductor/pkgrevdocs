@@ -150,7 +150,7 @@ strongly recommended.
 
 ## Unit tests
 
-- [ ] Unit tests present and covering large part of core functionality.
+- [ ] Unit tests present and covering large part of core functionality. (recommend testing with `covr::package_coverage()`)
 
 ## R code
 
