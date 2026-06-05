@@ -168,7 +168,7 @@ package maintenance responsibilities. Package authors are expected to:
 * Read and follow the full [Contributor Guidelines][guidelines] section.
 
 * Submit by opening a new issue in the _Bioconductor_
-  [Contributions][] repository, following the [guidelines][tracker] of
+  [BiocContributions][] repository, following the [guidelines][tracker] of
   the `README.md` file.
   Assuming that your package is in a [GitHub Repository][git-repo-create] and
   under the default branch, add the link to your repository to
