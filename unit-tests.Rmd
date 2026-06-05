@@ -123,7 +123,7 @@ complete set of tests.
 RUnit, tinytest, and testthat are robust testing solutions that are great tools
 for package development, which you choose to use for your package largely comes
 down to personal preference. However here is a brief list of strengths and
-weaknesses of each.
+weaknesses of each. Bioconductor slighlty prefers testthat
 
 ### RUnit Strengths ###
 
@@ -343,10 +343,14 @@ refers to the percentage of your package code
 that is tested by your unit tests. Packages with higher coverage
 have a lower chance of containing bugs.
 
+We highly recommend using the [covr package](https://cran.r-project.org/web/packages/covr/index.html) function
+`package_coverage()` for evaluation.  
+
 If tests are taking too long to achieve full test coverage, see [long tests][].
 Before implementing long tests we highly recommend reaching out to the
 bioconductor team on the [bioc-devel][bioc-devel-mail] mailing list to ensure
 proper use and justification.
+
 
 ## Additional Resources
 
