@@ -71,13 +71,14 @@ knitr::write_bib(c(
 [Azure Data Lakes]: https://azure.microsoft.com/en-us/services/data-lake-analytics
 [Based on: Resolving a merge conflict]: https://www.atlassian.com/git/tutorials/using-branches/merge-conflicts
 [bioc-common]: #reusebioc
+[BiocContributions]: https://github.com/Bioconductor/BiocContributions/issues/new
 [bioc-devel-mail]: https://stat.ethz.ch/mailman/listinfo/bioc-devel
 [BiocParallel vignette]: https://bioconductor.org/packages/devel/bioc/vignettes/BiocParallel/inst/doc/Introduction_To_BiocParallel.pdf
 [biocViews]: https://bioconductor.org/packages/devel/BiocViews.html
 [BiocCredentials application]: https://git.bioconductor.org/BiocCredentials/
 [build reports]: https://bioconductor.org/checkResults/
 [build timings]: #propagate
-[cirdep]: https://github.com/Bioconductor/Contributions/blob/master/CONTRIBUTING.md#submitting-related-packages
+[cirdep]: https://github.com/Bioconductor/BiocContributions/blob/devel/docs/FAQs.md#related-packages-and-circular-dependencies
 [Code Of Conduct]: https://bioconductor.github.io/bioc_coc_multilingual/
 [Contributions]: https://github.com/Bioconductor/Contributions/issues/new
 [CRAN foreign]: http://cran.r-project.org/doc/manuals/R-exts.html#System-and-foreign-language-interfaces
@@ -118,7 +119,7 @@ knitr::write_bib(c(
 [Merging a pull request]: https://help.github.com/articles/merging-a-pull-request/
 [New package workflow]: #new-package-workflow
 [Open github issue]: https://help.github.com/articles/creating-an-issue/
-[Packages Under Review]: https://github.com/Bioconductor/Contributions/issues
+[Packages Under Review]: https://github.com/Bioconductor/BiocContributions/issues
 [resolve duplicate commits]: #resolve-duplicate-commits
 [Pull upstream changes]: #pull-upstream-changes
 [Pull Requests]: https://help.github.com/articles/creating-a-pull-request/
@@ -147,7 +148,7 @@ knitr::write_bib(c(
 [Sync existing repositories]: #sync-existing-repositories
 [testthat: Get Started with Testing]: http://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf
 [Testing with testthat]: http://r-pkgs.had.co.nz/tests.html
-[tracker]: https://github.com/Bioconductor/Contributions
+[tracker]: https://github.com/Bioconductor/BiocContributions
 [unit tests]: #tests
 [versioning]:#versionnum
 [which-remote-url-should-i-use]: https://help.github.com/articles/which-remote-url-should-i-use/
