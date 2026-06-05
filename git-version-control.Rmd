@@ -211,17 +211,6 @@ pushing to the _Bioconductor_ git repository.
         ## push to GitHub (origin remote)
         git push origin main
 
-1. **Check the updated build report**. If your push to
-   git.bioconductor.org included a version bump, you'll receive an
-   email directing you to visit your issue on github.com,
-   `https://github.com/Bioconductor/Contributions/issues/`; a comment
-   is also posted on the issue indicating that a build has started.
-
-   After several minutes a second email and comment will indicate that
-   the build has completed, and that the build report is
-   available. The comment includes a link to the build report. Follow
-   the link to see whether further changes are necessary.
-
 1. See other scenarios for working with _Bioconductor_ and GitHub repositories, in particular:
 
     - [Maintain GitHub and _Bioconductor_ repositories][].
@@ -319,6 +308,10 @@ user community can engage in the development of your package.
 
 __Goal:__ Developer wishes to maintain their _Bioconductor_ repository
 without using GitHub.
+<br>
+<br>
+__NOTE:__ This is not recommended. We highly recommend maintaining both a
+personal repository for development and Bioconductor repository for deployment.
 
 #### Clone and setup the package on your local machine.
 
