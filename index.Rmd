@@ -92,6 +92,7 @@ knitr::write_bib(c(
 [Create a new GitHub repository]: #maintain-github-bioc
 [Create a new GitHub account]: https://help.github.com/articles/signing-up-for-a-new-github-account/
 [Create a new GitHub repo]: https://help.github.com/articles/create-a-repo/
+[description-unsupportedplatforms]: #description-unsupportedplatforms
 [detect duplicate commits]: https://github.com/Bioconductor/bioc_git_transition/blob/master/misc/detect_duplicate_commits.py
 [devel-LongTests-report]: https://bioconductor.org/checkResults/devel/bioc-longtests-LATEST/
 [devel-GPU-report]: https://bioconductor.org/checkResults/devel/bioc-gpu-LATEST/
