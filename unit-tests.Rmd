@@ -215,7 +215,7 @@ Writing unit tests is easy, though your Bioconductor package must be
 set up properly so that `R CMD check MyPackage` finds and run your
 tests.  We take some pains to describe exactly how things should be
 set up, and what is going on behind the scenes.  (See the [next
-section](#r-unit-during-develoment) for the simple technique to use when you
+section](#r-unit-during-development) for the simple technique to use when you
 want to test only a small part of your code).
 
 The standard command `R CMD check MyPackage` sources and runs all R
@@ -251,7 +251,7 @@ There are two steps:
    `MyPackage/inst/unitTests/test_homeBrewArithmetic.R`
 
 
-### Using Tests During Development {#r-unit-during-develoment}
+### Using Tests During Development {#r-unit-during-development}
 
     R CMD check MyPackage
 
