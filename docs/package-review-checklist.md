@@ -44,7 +44,7 @@ Example: Seurat and data.frames are not Bioconductor classes. Packages certainly
 may keep this interoperability and generality but they should also be able to work
 _directly_ with the equivalent Bioconductor class in this case likely a SummarizedExperiment or
 SingleCellExperiment (maybe with a designed wrapper function, e.g). The majority
-of documentation and runnable code should emphasize/demonstarte the interaction
+of documentation and runnable code should emphasize/demonstrate the interaction
 with Bioconductor objects (it may be in addition to the others capabilities).
 
 
@@ -73,7 +73,7 @@ Refer to the [DESCRIPTION](https://contributions.bioconductor.org/description.ht
 - [ ] `URL` field.
 - [ ] `Video` field. Optional.
 - [ ] `Collate` field. Optional.
-- [ ] `BiocType` field. (one of: Softare, ExperimentData, Annotation, Workflow, Book)
+- [ ] `BiocType` field. (one of: Software, ExperimentData, Annotation, Workflow, Book)
 - [ ] `Config/Bioconductor/UnsupportedPlatforms`. Optional. If package designed NOT to work on a specific OS
 - [ ] Use of Remotes is NOT allowed. All packages must be on CRAN/Bioconductor
 
@@ -92,7 +92,7 @@ strongly encouraged. Using both Authors@R and Maintainer/Author is not allowed!
 - [ ] Selective imports using `importFrom` instead of *import all* with `import`. Except where appropriate (like class structures and extensions or heavily utilized packages)
 - [ ] Individual functions/methods are exported instead of regular expression matching all.
 - [ ] NAMESPACE and DESCRIPTION Depends/Imports/Suggests/Enhances consistency.
-- [ ] Avoid names of packages, functions, and classes that already exist in Bioconductor infrastrure or could be easily confused
+- [ ] Avoid names of packages, functions, and classes that already exist in Bioconductor infrastructure or could be easily confused
 
 ## The NEWS file
 

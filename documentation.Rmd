@@ -82,7 +82,7 @@ the order that they are displayed on the package homepage and when the
 `browseVignettes()` function is called. Vignettes will show up in
 alphabetical order, which may not be a logical ordering without
 further specification. One approach to controlling the order of the
-vignettes is to use a number in the `VignettteIndexEntry` setting,
+vignettes is to use a number in the `VignetteIndexEntry` setting,
 e.g. using numbers `1-9`, if you have a single digit number of
 vignettes, or `01-99` if you have ten or more vignettes. For example,
 the first vignette could specify in the header:
@@ -129,7 +129,7 @@ objective, models, unique functions, key points, etc that distinguish the
 package from other packages in the same area. This is a requirement of
 Bioconductor package vignettes. It should include a short motivation for the
 package in general as well as motivation for inclusion of the package in
-Biconductor. When relevant, a brief review and comparison of packages with
+Bioconductor. When relevant, a brief review and comparison of packages with
 similar functionality or scope should be provided either in the Introduction or
 in a separate dedicated vignette section.
 

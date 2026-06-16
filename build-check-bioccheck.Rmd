@@ -7,7 +7,7 @@ version.
 
 
 The package should `R CMD build`, `R CMD check`, and `BiocCheck` without ERROR.
-See useful tools like [devools][] and [BiocCheck][] for more information.
+See useful tools like [devtools][] and [BiocCheck][] for more information.
 
 
 As Bioconductor moves towards integration with
