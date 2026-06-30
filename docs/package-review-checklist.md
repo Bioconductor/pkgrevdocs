@@ -21,7 +21,7 @@ The functionality should be sufficiently documented in man pages with runnable e
 ## General package development
 
 - [ ] `R CMD build` without errors, warnings and notes. Any not fixed should be justified. 
-- [ ] Package passes `BiocCheck::BiocCheck()`, `BiocCheck::BiocCheckGitClone()`. Any not fixed should be justified.
+- [ ] Package passes `BiocCheck::BiocCheck()` when run on the source directory.
 - [ ] File names. Do not use filenames that differ only in case, as not all file systems are case-sensitive.
 - [ ] Package size. Size of tarball <= 10MB.
 - [ ] `R CMD check --no-build-vignettes` within 10 minutes.
@@ -79,9 +79,9 @@ Refer to the [DESCRIPTION](https://contributions.bioconductor.org/description.ht
 
 N.B. Authors@R:
 
-- [ ] Use of Authors@R should be used instead of individual Maintainer and Author
-fields. While its not wrong to use Maintainer/Author, Authors@R should be
-strongly encouraged. Using both Authors@R and Maintainer/Author is not allowed!
+- [ ] Use of Authors@R is preferred over Maintainer and Author fields. While
+  its not wrong to use Maintainer/Author, Authors@R should be strongly
+  encouraged. Using both Authors@R and Maintainer/Author is not allowed!
 
 - [ ] It is strongly encouraged to include a `fnd` entry in Authors@R with any
   relevant Grant Ids to trace funding activities. Not required but encouraged.
