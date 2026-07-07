@@ -523,24 +523,15 @@ negative.
 
 ### Parallel Recommendations
 
-We recommend using `r BiocStyle::Biocpkg("BiocParallel")`. It provides a
-consistent interface to the user and supports the major parallel computing
-styles: forks and processes on a single computer, ad hoc clusters,
-batch schedulers and cloud computing. By default, `BiocParallel`
-chooses a parallel back-end appropriate for the OS and is supported
-across Unix, Mac and Windows. Coding requirements for `BiocParallel`
-are:
+We recommend using more modern parallel computing packages such as
+`r BiocStyle::CRANpkg("futurize")`, `r BiocStyle::CRANpkg("mirai")`,
+`r BiocStyle::CRANpkg("furrr")` etc.
 
-- Use `lapply()`-style iteration instead of explicit for loops.
-- The `FUN` argument to `bplapply()` must be a self-contained
-  function; all symbols used in the function are from default R
-  packages, from packages `require()`'ed in the function, or passed in
-  as arguments.
-- Allow the user to specify the BiocParallel back-end. Do this by
-  invoking `bplapply()` _without_ specifying `BPPARAM`; the user can
-  then override the default choice with `BiocParallel::register()`.
+Developers should be mindful of supporting the major platforms (Linux, Windows,
+and Mac) when providing parallel implementations.
 
-For more information see the [BiocParallel vignette][].
+For a more detailed summary of parallel recommendations, see the
+High-Performance and [Parallel Computing][] CRAN Task View.
 
-When implementing in package development, a minimal number of cores (1 or 2)
-should be set as a default.
+When using in package development, parallel operations should be set to use
+either one or two cores by default.

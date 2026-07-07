@@ -73,7 +73,6 @@ knitr::write_bib(c(
 [bioc-common]: #reusebioc
 [BiocContributions]: https://github.com/Bioconductor/BiocContributions/issues/new
 [bioc-devel-mail]: https://stat.ethz.ch/mailman/listinfo/bioc-devel
-[BiocParallel vignette]: https://bioconductor.org/packages/devel/bioc/vignettes/BiocParallel/inst/doc/Introduction_To_BiocParallel.pdf
 [biocViews]: https://bioconductor.org/packages/devel/BiocViews.html
 [BiocCredentials application]: https://git.bioconductor.org/BiocCredentials/
 [build reports]: https://bioconductor.org/checkResults/
@@ -121,6 +120,7 @@ knitr::write_bib(c(
 [New package workflow]: #new-package-workflow
 [Open github issue]: https://help.github.com/articles/creating-an-issue/
 [Packages Under Review]: https://github.com/Bioconductor/BiocContributions/issues
+[Parallel Computing]: https://cran.r-project.org/web/views/HighPerformanceComputing.html
 [resolve duplicate commits]: #resolve-duplicate-commits
 [Pull upstream changes]: #pull-upstream-changes
 [Pull Requests]: https://help.github.com/articles/creating-a-pull-request/
