@@ -1075,22 +1075,48 @@ own github repository.
 As of 2023, the recommended way is to first locate any large files, and
 then remove them with `git filter-repo`.
 
-1. Identify large files using [this git rev-list script](
-https://stackoverflow.com/a/42544963):
+1. Create a fresh mirror clone
+
+We recommend using Bioconductor to have all legacy branches present and
+consistent with the current versions officially on Biconductor.
 
 ```
-git rev-list --objects --all \
-| git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' \
-| sed -n 's/^blob //p' \
-| sort --numeric-sort --key=2 \
-| cut -c 1-12,41- \
-| $(command -v gnumfmt || echo numfmt) --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest
+git clone --mirror git@git.bioconductor.org:packages/<PACKAGE>.git
+cd <PACKAGE>.git
 ```
 
-This will list all the objects in your repository, including objects in your
-history, in order of file size. Use this to identify the names of files to remove.
+A mirror clone preserves all branches and refrences. 
 
-2. Remove them with [filter-repo](https://github.com/newren/git-filter-repo).
+2. Identify the offending file(s)
+
+For example:
+
+```
+git rev-list --objects --all | grep offending_file
+```
+
+or determine the largest objects:
+
+```
+git rev-list --objects --all |
+git cat-file --batch-check='%(objectname) %(objecttype) %(objectsize) %(rest)' |
+sort -k3 -n |
+tail -20
+```
+
+Confirm that the file(s) you intend to remove are the only problematic
+objects. GitHub rejects any file larger than 100 MB (104,857,600 bytes).
+
+Instead of looking at all objects, you can filter for those that are over the
+limit and to verify investigation above.
+
+```
+git rev-list --objects --all |
+git cat-file --batch-check='%(objectname) %(objecttype) %(objectsize) %(rest)' |
+awk '$2=="blob" && $3 > 104857600'
+```
+
+3. Remove them with [filter-repo](https://github.com/newren/git-filter-repo).
 
 This is a separate tool that you'll have to install
 (with *e.g.* `pip3 install git-filter-repo`). Then, you can rewrite your repository
@@ -1099,35 +1125,77 @@ history to remove files. Here are a few examples:
 *   To remove a specific file:
 
 ```
-git filter-repo --path path/to/your/large_file --invert-paths
+git filter-repo --path path/to/your/large_file --invert-paths --force
 ```
 
 *   To remove a folder:
 
 ```
-git filter-repo --path path/to/your/folder/ --invert-paths
+git filter-repo --path path/to/your/folder/ --invert-paths --force
 ```
 
 *   To remove all files of a certain type (e.g. `.RData`):
 
 ```
-git filter-repo --path-glob '*.RData' --invert-paths
+git filter-repo --path-glob '*.RData' --invert-paths --force
 ```
 
 *   To remove all files larger than a certain size (e.g. 50MB):
 
 ```
-git filter-repo --strip-blobs-bigger-than 50M
+git filter-repo --strip-blobs-bigger-than 50M --force
 ```
 
-3. Final steps.
+4. Verify the file is gone
+
+Offending path(s) should no longer appear
+
+```
+git rev-list --objects --all | grep offending_file
+```
+
+The expected output is nothing.
+
+
+5. (Optional) Verify there are no remaining oversized objects
+
+```
+git rev-list --objects --all |
+git cat-file --batch-check='%(objectname) %(objecttype) %(objectsize) %(rest)' |
+awk '$2=="blob" && $3 > 104857600'
+```
+
+or
+
+```
+git rev-list --objects --all |
+git cat-file --batch-check='%(objectname) %(objecttype) %(objectsize) %(rest)' |
+sort -k3 -n |
+tail -20
+```
+
+GitHub rejects any file larger than 100 MB (104,857,600 bytes).
+
+6. Verify package versions
+
+Confirm that each branch still has the expected package version
+
+```
+for b in $(git for-each-ref --format='%(refname:short)' refs/heads); do
+    echo "===== $b ====="
+    git show "$b:DESCRIPTION" | grep "^Version:"
+done
+```
+
+The history rewrite should NOT change the contents of DESCRIPTION.
+
+7. Final steps.
 
 This command may reset your remotes. Check with `git remote -v` and
 if needed, you can add remotes back in using something like this:
 
 ```
 git remote add origin git@github.com:<username>/<repo_name>
-git push --set-upstream origin devel --force
 ```
 
 Finally, we have to push with `--mirror` to reset the remote. This will update
