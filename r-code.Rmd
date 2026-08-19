@@ -174,8 +174,9 @@ installation.
 Function names should follow the following conventions:
 
 * Use camelCase: initial lower case, then alternate case between words.
-* Do not use '.' (in the S3 class system, `some(x)` where `x` is class `A` will dispatch to `some.A`).
-* Prefix non-exported functions with a '.'.
+* Do not use '.' in exported function names (in the S3 class system, `some(x)` where `x` is
+  class `A` will dispatch to `some.A`), except to prefix non-exported/internal helper
+  functions with a leading dot: `.internalFunc`.
 
 #### Functional Programming and Length {#functional-programming-and-length}
 
