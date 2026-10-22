@@ -10,6 +10,9 @@ Reviewers can download a template review checklist <a href="docs/package-review-
 This checklist can be pasted into the relevant issue of the [New Submission
 Tracker][Packages Under Review], and updated as the review progresses.
 
+There has also been an effort to make an agentic reviewer. This tool should not
+replace the human review but can be used as a first pass or assistant. Please
+check its comments before posting for accuracy: [AI Review Tool](https://github.com/Bioconductor/BiocPkgReviewer)
 
 ## Example Review {.unnumbered #review-example}
 
