@@ -23,7 +23,7 @@ The schedule for software, data experiment, annotation, books, workflows can be
 found on the [check results page](http://bioconductor.org/checkResults/). In
 order for changes to be included in the report, changes should be committed to
 the Bioconductor git.bioconductor.org location the morning before the listed day
-with a valid version bump. 
+with a valid version bump.
 
 ## How do I reproduce the build system ERROR?
 
@@ -342,7 +342,7 @@ argument matching. Best described with the following example
 Notice the generic uses `breaks` while the setMethod uses `break`; This is an
 example of a partial argument match that will no longer be valid.
 
-Partial argument matching when envoking functions should also be avoided as
+Partial argument matching when invoking functions should also be avoided as
 part of best practices. For example
 
     mycoolfunction <- function( x, myargum, secondarg ) { code }
@@ -444,4 +444,3 @@ noted in Bioconductor 3.11
     Error:
     'calculateQCMetrics' is defunct.
     Use 'perCellQCMetrics' instead.
-

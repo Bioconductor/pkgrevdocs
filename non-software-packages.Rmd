@@ -76,7 +76,7 @@ expected the majority of vignette code chunks are evaluated.
 
 * Workflows are git version controlled. Once the package is accepted it will be
   added to our git repository at git@git.bioconductor.org and instructions will
-  be sent for gaining access for maintainence.
+  be sent for gaining access for maintenance.
 
 
 ### Consistent formatting
