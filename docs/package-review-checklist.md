@@ -1,6 +1,6 @@
 # Package Review Checklist {#review-checklist}
 
-**Version 2.0.0**
+**Version 2.1.0**
 
 This checklist is intended to aid and guide the reviewer through the review process.
 The individual checkboxes match the package review criteria [listed here](https://contributions.bioconductor.org/).
@@ -22,6 +22,7 @@ The functionality should be sufficiently documented in man pages with runnable e
 
 - [ ] `R CMD build` without errors, warnings and notes. Any not fixed should be justified. 
 - [ ] Package passes `BiocCheck::BiocCheck()` when run on the source directory.
+- [ ] In scope for Bioconductor: analysis or infrastructure for biological data, interoperable with existing Bioconductor classes and packages; not a near-duplicate of an existing Bioconductor or CRAN package; not already on CRAN.
 - [ ] File names. Do not use filenames that differ only in case, as not all file systems are case-sensitive.
 - [ ] Package size. Size of tarball <= 10MB.
 - [ ] `R CMD check --no-build-vignettes` within 10 minutes.
@@ -61,7 +62,7 @@ Refer to the [DESCRIPTION](https://contributions.bioconductor.org/description.ht
 
 - [ ] `Package` field.
 - [ ] `Title` field.
-- [ ] `Version` field.
+- [ ] `Version` field. `0.99.z` for a new submission; odd `y` in devel and even `y` in release thereafter.
 - [ ] `Description` field. Longer than three lines.
 - [ ] `Authors@R` field.
 - [ ] `License` field. Bioconductor only accepts Open Source Licenses ideally from: https://www.r-project.org/Licenses/
@@ -118,20 +119,22 @@ If applicable:
 - [ ] Vignette has an *Installation* section.
 - [ ] Vignette has a table of contents.
 - [ ] No disabled code blocks present in vignette. If included, should be minimal and justified.
+- [ ] Vignette and tests do not download from external hosts unconditionally; network resources are cached (`BiocFileCache`) or replaced by small shipped data, so the build system stays within its time limit.
 - [ ] Vignette shows interaction with Bioconductor objects or how to integrate into analysis 
 - [ ] Ensure any hidden code blocks will not affect end user reproducibility running rendered vignette 
 - [ ] Vignette includes `sessionInfo()`.
 - [ ] The `vignettes/` directory contains only vignette file(s) and necessary static images. Rendered products (html, pdf, etc. should not be included)
 
-N.B. Sweave vignettes, while not wrong, are not encouraged. Rmd or Qmd conversion should be
-strongly recommended.
+N.B. Sweave vignettes, while not wrong, are not encouraged. Rmd or Qmd (Quarto, which needs `quarto` in
+`SystemRequirements`) conversion should be strongly recommended.
 
 
 ### Man Pages
 
 - [ ] All exported functions and classes have a man page.
 - [ ] Package level man page present.
-- [ ] All man pages have runnable examples.
+- [ ] Examples for exported objects actually execute on the build system: at least 80% of exported man pages have one (a `BiocCheck` ERROR below that), and `\dontrun`, `\donttest`, and `@examplesIf interactive()` count as no example.
+- [ ] Internal functions need no man page; document them with `@noRd` or `@keywords internal` rather than adding `\value` sections.
 - [ ] Data man pages should indicate how it was generated and relevant source/licensing if relevant
 
 ## Package data
@@ -145,32 +148,36 @@ strongly recommended.
 ### Downloaded from web:
 
 - [ ] really necessary? `BiocFileCache` or other caching mechanism used?
-- [ ] check licensing of database or api utilized to ensure open source. This should be well documented in vignette/man pages if different from package license to ensure appropriate usage.
+- [ ] License or terms of use of the database or API are stated in the vignette or man pages when they differ from the package license, so users know what they may do with the data.
 - [ ] data should NOT be hosted at individual locations. Dropbox, Github, Google Drive, etc is not allowed.  Recommended hosting location: Zenodo, dryad, Institution server, directly accessed from well established location (ensembl, etc)
+
+### Hub-based data packages
+
+- [ ] `inst/extdata/metadata.csv`, `inst/scripts/make-data.R` and `make-metadata.R` present; resources uploaded to ExperimentHub or AnnotationHub and resolvable before review; per-resource provenance and license documented.
 
 ## Unit tests
 
-- [ ] Unit tests present and covering large part of core functionality. (recommend testing with `covr::package_coverage()`)
+- [ ] Unit tests present, covering the main exported functions (recommend measuring with `covr::package_coverage()`).
+- [ ] Tests assert results against known values and cover edge cases and error conditions, not only that code runs: `expect_true(TRUE)`, `expect_no_error()` alone, or a function compared to its own output are not tests.
+- [ ] Tests do not need the network, and `skip_on_bioc()` is not used to skip most of the suite.
 
 ## R code
 
 - [ ] All included code under open source license.
-- [ ] No warnings or errors in `R CMD check`.
-- [ ] No warnings or errors in `BiocCheck()`.
 - [ ] Coding and syntax:
-  - `vapply` instead of `sapply`.
-  - `seq_len` or `seq_along` over `1:n`
-  - `TRUE`, `FALSE` instead of `T`, `F`.
+  - `vapply` instead of `sapply` (checked by `BiocCheck`).
+  - `seq_len` or `seq_along` over `1:n` (checked by `BiocCheck`).
+  - `TRUE`, `FALSE` instead of `T`, `F` (checked by `BiocCheck`).
   - numeric indices.
-  - `is()` instead of `class()`.
-  - `system2` instead of `system`. And calls are appropriate and safe.
-  - no `set.seed()` in any internal code.
-  - no `browser()` in any internal code.
-  - no `<<-`.
+  - `is()` instead of `class()` (checked by `BiocCheck`).
+  - `system2` instead of `system`. And calls are appropriate and safe (checked by `BiocCheck`).
+  - no `set.seed()` in any internal code (checked by `BiocCheck`).
+  - no `browser()` in any internal code (checked by `BiocCheck`).
+  - no `<<-` (checked by `BiocCheck`).
   - no direct slot access with `@` or `slot()` - accessors implemented and used.
-  - `<-` instead of `=`.
+  - `<-` instead of `=` (checked by `BiocCheck`).
   - `dev.new()` instead of `x11`.
-  - `message()`, `warning`, `stop` instead of `cat`. No `paste0` in these methods.
+  - `message()`, `warning`, `stop` instead of `cat`. No `paste0` in these methods (checked by `BiocCheck`).
   - check any download/GET/curl calls. Web data should be trusted site NOT github, dropbox, google drive, etc. see data web section 
   - check any uses of system2 for dangerous calls (rm, unlink, etc)
   - check any install calls that they are not evaluated.
@@ -178,13 +185,14 @@ strongly recommended.
   - ensure no user setting overwrites (config, set, options, etc) that are not returned to original settings 
   - remove unused/commented code. Comments should be explanatory only
 - [ ] Re-use of classes and functionality (if appropriate).
+- [ ] Each exported class has a constructor, a validity method, and a `show()` method; results of the main functions print something useful rather than a raw nested list.
 - [ ] Functional programming: no code repetition.
 - [ ] No excessively long functions.
 - [ ] Function argument names descriptive and documented.
 - [ ] Function arguments should have defaults.
 - [ ] Function arguments are tested for validity.
 - [ ] Vectorize: no unnecessary `for` loops present.
-- [ ] Web resources follow the guideline [Querying Web Resources](http://bioconductor.org/developers/how-to/web-query/).
+- [ ] Web resources follow the guideline [Querying Web Resources](https://contributions.bioconductor.org/querying-web-resources.html); downloads are cached with `BiocFileCache` or `tools::R_user_dir(pkg, "cache")`.
 - [ ] Parallelisation uses `BiocParallel`.
 - [ ] Downloaded files cached with `BiocFileCache`.
 - [ ] Additional files and dependencies: nothing installed on a user's system.
@@ -200,6 +208,10 @@ strongly recommended.
 ## Python
 
 - [ ] Make use of basilisk or reticulate to manage python dependencies
+
+## AI-generated and copied code
+
+- [ ] Non-trivial AI-generated or copied code is disclosed in the submission issue and attributed in-code (a co-author trailer, or an `Assisted-by:` / `Code copied from:` line), per the [AI and third-party code policy](https://contributions.bioconductor.org/ai-policy-third-party.html).
 
 ## Third-party code
 
