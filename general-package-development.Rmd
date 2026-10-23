@@ -60,23 +60,23 @@ Experiment Data, Annotation, and Workflow packages are allowed additional space 
 
 Due to hardware limitations on the Bioconductor Build System (BBS), it is
 recommended that the vignettes, man page examples, and unit tests do not require
-more than 8 GB of memory to run. 
+more than 8 GB of memory to run.
 
 ### Individual file size {#individual-file-size}
 
 For software packages, individual files must be <= 5MB.
 This restriction exists even after the package is accepted and added to the
 [_Bioconductor_][] repository. See [data section](#data) for
-advice on packages using large data files. 
+advice on packages using large data files.
 
 ### Undesirable files {#undesirable-files}
 
 The raw package directory should not contain unnecessary files, system files, or
 hidden files such as `.DS_Store`, `.project`, `.git`, cache files, log files,
-`*.Rproj`, `*.so`, etc. These files may be present in your local directory but should not be commited to
+`*.Rproj`, `*.so`, etc. These files may be present in your local directory but should not be committed to
 git (see [`.gitignore`]{#gitignore}). Any files or directories for other
 applications (Github Actions, devtool, etc) should ideally be in a different
-branch and not submitted to the _Bioconductor_ version of the package. 
+branch and not submitted to the _Bioconductor_ version of the package.
 
 ## R CMD check environment {#r-cmd-check-environment}
 
