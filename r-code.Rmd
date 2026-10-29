@@ -196,7 +196,7 @@ helper functions.
 * Nesting functions should be avoiding. It unnecessarily increases the main
   function length and makes the main function harder to read. Helper functions
   and internal functions should avoid being nested and include at the end of the
-  file or as a seperate file (e.g. internal.R, helpers.R, utils.R)
+  file or as a separate file (e.g. internal.R, helpers.R, utils.R)
 
 #### Function arguments {#function-arguments}
 
@@ -273,7 +273,7 @@ highly encouraged.
 * Do not leave in commented out code chunks that are not utilized
 * Commenting TODO's should be avoided in published package code
 
-#### Additonal style and formatting references
+#### Additional style and formatting references
 
 * [formatR][] a package that assists with formatting.
 

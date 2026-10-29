@@ -1,4 +1,4 @@
---- 
+---
 title: "Bioconductor Packages: Development, Maintenance, and Peer Review"
 author:
   - Kevin Rue-Albrecht
@@ -27,7 +27,7 @@ knitr::include_graphics("https://raw.githubusercontent.com/Bioconductor/BiocStic
 
 The [_Bioconductor_][] project promotes high-quality, well documented, and interoperable software.
 These guidelines help to achieve this objective; they are not meant to put undue
-burden on package authors, and authors having difficultly satisfying guidelines
+burden on package authors, and authors having difficulty satisfying guidelines
 should seek advice on the [bioc-devel][bioc-devel-mail] mailing list.
 
 Package maintainers are urged to follow these guidelines as closely as possible

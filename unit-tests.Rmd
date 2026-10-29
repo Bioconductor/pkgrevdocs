@@ -58,7 +58,7 @@ Here is a `RUnit` test for `divideBy`:
         checkTrue(is.na(divideBy(4, 0)))
         checkEqualsNumeric(divideBy(4, 1.2345), 3.24, tolerance=1.0e-4)
     }
-    
+
 the equivalent test using `tinytest`:
 
     expect_equal(divideBy(4, 2), 2)
@@ -123,7 +123,7 @@ complete set of tests.
 RUnit, tinytest, and testthat are robust testing solutions that are great tools
 for package development, which you choose to use for your package largely comes
 down to personal preference. However here is a brief list of strengths and
-weaknesses of each. Bioconductor slighlty prefers testthat
+weaknesses of each. Bioconductor slightly prefers testthat
 
 ### RUnit Strengths ###
 
@@ -179,7 +179,7 @@ Three things are required:
    functions.
 2. Add a few small (and idiosyncratic) files in other directories.
 3. Make sure the *RUnit* and `r BiocStyle::Biocpkg("BiocGenerics")` packages are
-   available.   
+   available.
 
 Steps two and three are explained in [conventions for the build
 process](#conventions).
@@ -328,8 +328,8 @@ structure.
 1. Test files are placed in the `inst/tinytest` directory with names such as
 `test_FILE.R`.
 2. Remove `RUnit` function shells and extract the function bodies into a single
-script. 
-3. Include a `tinytest.R` file in the `tests` folder that runs: 
+script.
+3. Include a `tinytest.R` file in the `tests` folder that runs:
 ```
 if (requireNamespace("tinytest", quietly = TRUE))
     tinytest::test_package("PACKAGE")
@@ -344,7 +344,7 @@ that is tested by your unit tests. Packages with higher coverage
 have a lower chance of containing bugs.
 
 We highly recommend using the [covr package](https://cran.r-project.org/web/packages/covr/index.html) function
-`package_coverage()` for evaluation.  
+`package_coverage()` for evaluation.
 
 If tests are taking too long to achieve full test coverage, see [long tests][].
 Before implementing long tests we highly recommend reaching out to the
@@ -362,4 +362,3 @@ Some web resources worth reading:
 * [Agile software development][agile]
 * [Testing with testthat][]
 * [testthat: Get Started with Testing][]
-
