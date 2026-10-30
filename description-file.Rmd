@@ -218,7 +218,7 @@ during package installation.
 
 ## `BiocType` {#description-bioctype}
 
-This is required if submitting a `Docker` or `Workflow`.
+This is required if submitting a `Docker`, `Book`, or `Workflow`.
 Otherwise this field could optionally define the type of Bioconductor package
 `Software`, `ExperimentData`, `Annotation`.
 
