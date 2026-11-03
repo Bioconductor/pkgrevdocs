@@ -193,7 +193,6 @@ N.B. Sweave vignettes, while not wrong, are not encouraged. Rmd or Qmd (Quarto, 
 - [ ] Function arguments are tested for validity.
 - [ ] Vectorize: no unnecessary `for` loops present.
 - [ ] Web resources follow the guideline [Querying Web Resources](https://contributions.bioconductor.org/querying-web-resources.html); downloads are cached with `BiocFileCache` or `tools::R_user_dir(pkg, "cache")`.
-- [ ] Parallelisation uses `BiocParallel`.
 - [ ] Downloaded files cached with `BiocFileCache`.
 - [ ] Additional files and dependencies: nothing installed on a user's system.
 
