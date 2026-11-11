@@ -1344,7 +1344,7 @@ repository.
     if they don't already have access. Please identify which packages
     you need read/write access to in the email.
 
-1. What is the relationship between the `origin` and `upstream` remote?
+1.  What is the relationship between the `origin` and `upstream` remote?
 
     In `git` lingo __origin__ is just the default name for a remote
     from which a repository was originally cloned. It might equally
