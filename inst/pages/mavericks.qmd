@@ -1,3 +1,7 @@
+---
+engine: knitr
+---
+
 # C++/Mavericks Best Practices
 
 This guide mostly addresses how to adapt C/C++ code in Bioconductor

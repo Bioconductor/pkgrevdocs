@@ -1,3 +1,7 @@
+---
+engine: knitr
+---
+
 # Common Bioconductor Methods and Classes {#reusebioc}
 
 ## Motivation {#bioc-common-motivation}

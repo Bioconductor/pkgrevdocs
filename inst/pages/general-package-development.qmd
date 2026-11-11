@@ -1,3 +1,7 @@
+---
+engine: knitr
+---
+
 # General _Bioconductor_ Package Development {#general}
 
 ## Version of _Bioconductor_ and <i class="fab fa-r-project"></i>

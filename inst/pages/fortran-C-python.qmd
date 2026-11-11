@@ -1,3 +1,7 @@
+---
+engine: knitr
+---
+
 # Fortran / C / C++ / Python / Third-Party Code {#other-than-Rcode}
 
 If the package contains C or Fortran code, it should adhere to the standards and

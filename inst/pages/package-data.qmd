@@ -1,3 +1,7 @@
+---
+engine: knitr
+---
+
 # Package data {#data}
 
 When developing a software package, an excellent practice is to give a

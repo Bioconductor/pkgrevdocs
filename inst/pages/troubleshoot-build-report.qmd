@@ -1,3 +1,7 @@
+---
+engine: knitr
+---
+
 # Troubleshooting Build Report
 
 ## How and when does the BBS pull? When will my changes propagate? {#propagate}

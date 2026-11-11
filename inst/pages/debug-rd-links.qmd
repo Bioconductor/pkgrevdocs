@@ -1,3 +1,7 @@
+---
+engine: knitr
+---
+
 # Debug: Links in Rd files {#man-links}
 
 ## Context

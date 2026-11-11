@@ -1,3 +1,7 @@
+---
+engine: knitr
+---
+
 # R code {#r-code}
 
 Everyone has their own coding style and formats. There are however some best

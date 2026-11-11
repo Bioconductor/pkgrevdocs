@@ -1,3 +1,7 @@
+---
+engine: knitr
+---
+
 # Unit tests {#tests}
 
 Unit tests are simple to write, easily invoked, and confer large

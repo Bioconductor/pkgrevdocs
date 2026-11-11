@@ -1,3 +1,7 @@
+---
+engine: knitr
+---
+
 # Non-Software Packages {#non-software}
 
 Most packages contributed by users are software packages. However, there are

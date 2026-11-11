@@ -1,3 +1,7 @@
+---
+engine: knitr
+---
+
 # Documentation {#docs}
 
 Package documentation is important for users to understand how to work with your code.
