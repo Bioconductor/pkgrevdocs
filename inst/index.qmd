@@ -1,3 +1,28 @@
+```{r "intro"}
+#| echo: false
+intro <- tryCatch(
+    {
+        description <- packageDescription("contributions.bioconductor.org")
+        pkg <- description$Package
+        version <- description$Version
+        authors <- eval(parse(text = description$Authors))
+        license <- description$License
+        glue::glue(
+            "**Package:** {pkg}<br/>\n", 
+            "**Authors:** {paste(format(authors, include = c('given', 'family', 'role')), collapse = ', ')}<br/>\n", 
+            "**Compiled:** {as.character(Sys.Date())}<br/>\n", 
+            "**Package version:** {version}<br/>\n", 
+            "**R version:** <b style='color:red;'>{R.version.string}</b><br/>\n", 
+            "**BioC version:** <b style='color:red;'>{BiocManager::version()}</b><br/>\n", 
+            "**License:** {license}<br/>"
+        )
+    }, 
+    error = function(e) {"Local preview"}
+)
+```
+
+`r intro`
+
 # Welcome {-}
 
 ```{r, fig.align='center', echo=FALSE, out.height="200px"}
@@ -169,3 +194,80 @@ knitr::write_bib(c(
 [devtools]: https://devtools.r-lib.org/reference/check.html
 [BiocCheck]: https://www.bioconductor.org/packages/BiocCheck/
 [R-Universe]: https://r-universe.dev/search
+
+# Docker image {-}
+
+A `Docker` image built from this repository is available here: 
+
+👉 [ghcr.io/Bioconductor/contributions.bioconductor.org](https://ghcr.io/Bioconductor/contributions.bioconductor.org) 🐳
+
+::: {.callout-tip icon='true'}
+## Get started now 🎉
+
+You can get access to all the packages used in this book in < 1 minute, 
+using this command in a terminal: 
+
+```{sh "docker", filename="bash"}
+#| eval: false
+docker run -it ghcr.io/Bioconductor/contributions.bioconductor.org:devel R
+```
+
+:::
+
+# RStudio Server {-}
+
+An RStudio Server instance can be initiated from the `Docker` image as follows: 
+
+```{sh "rstudio", filename="bash"}
+#| eval: false
+docker run \
+    --volume <local_folder>:<destination_folder> \
+    -e PASSWORD=OHCA \
+    -p 8787:8787 \
+    ghcr.io/Bioconductor/contributions.bioconductor.org:devel
+```
+
+The initiated RStudio Server instance will be available at 
+[https://localhost:8787](https://localhost:8787).
+
+# `python` support {-}
+
+The `Docker` image ships the book's `conda` environment, holding everything
+listed in `inst/requirements.yml`. It is created at build time by
+`BiocBook::setup_python()`, which fetches a pinned `micromamba` if the machine
+has no `conda` at all.
+
+`reticulate` picks it up automatically, so `python` just works in any `R`
+session started from the image:
+
+```{sh "python-env", filename="bash"}
+#| eval: false
+docker run -it ghcr.io/Bioconductor/contributions.bioconductor.org:devel R
+```
+
+``` r
+library(reticulate)
+py_config()          # already points at the book's environment
+```
+
+To execute `python` in a book page, open the page with an `R` chunk calling
+`BiocBook::setup_python()` and write ```` ```{python} ```` chunks after it. Keep
+at least one `R` chunk on the page: that is what keeps `quarto` on the `knitr`
+engine, and therefore on `reticulate`, rather than on `jupyter`.
+
+
+# Session info {-}
+
+::: {.callout-note collapse="true"}
+
+## Click to expand 👇
+
+```{r "session info"}
+#| cache: false
+sessioninfo::session_info(
+    installed.packages()[,"Package"], 
+    include_base = TRUE
+)
+```
+
+:::
