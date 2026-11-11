@@ -1,7 +1,10 @@
 /*-- scss:defaults --*/
 
-$primary: #070707 !default;
-$body-color: #070707 !default;
+// Colours of the former bookdown::bs4_book theme (_output.yml)
+$primary: #00758a !default;
+$yellow: #804600 !default;
+$headings-color: #87b13f !default;
+$h4-font-size: 1.1rem !default;
 
 /*-- scss:rules --*/
 
@@ -51,8 +54,6 @@ div.callout-answer > div.callout .callout-icon::before {
 /* ------------------------------------------------------ */
 /* ------------------------------------------------------ */
 
-code { color: #070707; }
-
 /* Code chunks ------------------------------------------ */
 
 div.sourceCode {
@@ -65,8 +66,8 @@ div.sourceCode {
 pre.sourceCode.r, code.sourceCode.r {
   
   $border: 2px;
-  color: #070707;
-  background: #FFF;
+  color: $body-color;
+  background: $body-bg;
   background-clip: padding-box; /* !importanté */
   border: solid $border transparent; /* !importanté */
   border-radius: 8px;
@@ -86,8 +87,8 @@ pre.sourceCode.r, code.sourceCode.r {
 pre.sourceCode.python, code.sourceCode.python {
   
   $border: 2px;
-  color: #070707;
-  background: #FFF;
+  color: $body-color;
+  background: $body-bg;
   background-clip: padding-box; /* !important */
   border: solid $border transparent; /* !important */
   border-radius: 8px;
@@ -139,10 +140,10 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
 
 .sidebar-tools-main {
   font-weight: normal;
-  background: white;
-  color: black;
+  background: $body-bg;
+  color: $body-color;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: black;
+  -webkit-text-fill-color: $body-color;
 }
 
 .sidebar-navigation li a {
@@ -157,7 +158,7 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
 #quarto-sidebar {
   transition: width .15s ease-in;
   padding: 14px 10%;
-  background-color: white;
+  background-color: $body-bg;
 }
 
 .sidebar.sidebar-navigation:not(.rollup) {
@@ -191,7 +192,7 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
 
 h1 {
   font-size: 36px;
-  color: #070707;
+  color: $headings-color;
   font-weight: 700;
   border-image: linear-gradient(to right, #18a603, #0484a9, #0087af) 1;
   border-bottom-style: solid;
@@ -212,13 +213,12 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
   margin: 0 0 1rem;
   width: fit-content;
   padding-top: 0.5rem;
-  color: #070707;
+  color: $headings-color;
 }
 
 p {
   margin: 0 0 1rem;
   font-size: 1rem;
-  color: #070707;
   line-height: 130%;
   display: block;
   margin-block-start: 1em;
@@ -227,8 +227,9 @@ p {
   margin-inline-end: 0px;
 }
 
+
 .quarto-section-identifier {
-  color: #070707;
+  color: inherit;
   font-weight: normal;
 }
 

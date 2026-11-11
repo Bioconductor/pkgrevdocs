@@ -15,5 +15,5 @@ renv.lock
 /.quarto/
 /*_cache/
 /*_files/
-/docs/
+/inst/docs/
 NOTES.md

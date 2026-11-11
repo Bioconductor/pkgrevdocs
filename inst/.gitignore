@@ -1,3 +1,5 @@
 /.quarto/
 /docs/
 *rds
+
+**/*.quarto_ipynb

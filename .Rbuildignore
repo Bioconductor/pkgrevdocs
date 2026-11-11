@@ -2,7 +2,7 @@
 ^\.png$
 ^\.quarto$
 ^\.github$
-^LICENSE\.md$
 ^NOTES\.md$
 ^README\.Rmd$
 ^Dockerfile$
+^docs$

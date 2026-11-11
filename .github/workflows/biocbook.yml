@@ -5,6 +5,11 @@ on:
     branches:
       - devel
       - RELEASE_**
+  ## Pull requests build the book against Bioconductor devel, without pushing
+  ## the Docker image or deploying the book
+  pull_request:
+    branches:
+      - devel
   ## Manual runs build the book from any other branch against Bioconductor
   ## devel, without pushing the Docker image or deploying the book
   workflow_dispatch:
@@ -20,8 +25,10 @@ jobs:
     runs-on: ubuntu-latest
     name: build-book (${{ github.ref_name }})
     permissions:
-      contents: write
+      contents: read
       packages: write
+      pages: write
+      id-token: write
 
     steps:
       
@@ -103,52 +110,20 @@ jobs:
           echo bundle_path=${{ env.Pkgname }}_${{ env.pkgversion }}.tar.gz >> "${GITHUB_ENV}"
           echo book_path=${{ env.Pkgname }}/inst/doc/book/ >> "${GITHUB_ENV}"
 
-      - name: 🏷 Get gh-branch directory to deploy to
-        run: |
-          echo target_folder=$(echo ${{ github.ref_name }} | sed 's,RELEASE_,,' | tr '_' '.') >> "${GITHUB_ENV}"
+      ## The site (contributions.bioconductor.org) serves the devel book at its
+      ## root, along with the top-level docs/ folder (e.g. the review checklist)
+      - name: 📂 Add the docs/ folder to the book
+        run: cp -R docs "${{ env.book_path }}/docs"
 
-      - name: 🚀 Deploy book to Github Pages on versioned branch
-        if: env.deploy == 'true'
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: 💾 Upload book to GitHub Pages
+        if: github.event_name == 'push' && github.ref_name == 'devel'
+        uses: actions/upload-pages-artifact@v3
         with:
-          folder: ${{ env.book_path }}/ 
-          target-folder: docs/${{ env.target_folder }}/ 
-          branch: gh-pages
-          clean: false 
+          path: ${{ env.book_path }}
 
-      - name: 🤖 Index the llms.txt of every deployed version
-        if: env.deploy == 'true'
-        run: |
-          git fetch --depth 1 origin gh-pages
-          versions=$(git ls-tree --name-only origin/gh-pages docs/ | sed 's,^docs/,,' | sort -rV)
-          mkdir -p llms-index
-          ## Serve every file as it is: otherwise, GitHub Pages runs Jekyll,
-          ## which turns the Markdown copy of each page (<page>.md) into an
-          ## HTML page that collides with the book's own <page>.html
-          touch llms-index/.nojekyll
-          {
-            echo "# ${{ env.Pkgname }}"
-            echo
-            echo "> Every version of this book, one per Bioconductor release, each with its own llms.txt."
-            echo
-            echo "## Versions"
-            echo
-            for v in $(echo "${versions}" | grep -x devel) $(echo "${versions}" | grep -vx devel); do
-              if git cat-file -e "origin/gh-pages:docs/${v}/llms.txt" 2>/dev/null; then
-                echo "- [${v}](${v}/llms.txt)"
-              fi
-            done
-          } > llms-index/llms.txt
-          cat llms-index/llms.txt
-
-      - name: 🚀 Deploy the index of versions to Github Pages
-        if: env.deploy == 'true'
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: llms-index/
-          target-folder: docs/
-          branch: gh-pages
-          clean: false 
+      - name: 🚀 Deploy book to GitHub Pages
+        if: github.event_name == 'push' && github.ref_name == 'devel'
+        uses: actions/deploy-pages@v4
 
       - name: 💾 Upload package bundle artifact
         uses: actions/upload-artifact@v7

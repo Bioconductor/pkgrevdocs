@@ -1,22 +1,27 @@
 Package: contributions.bioconductor.org
 Title: Bioconductor Packages: Development, Maintenance, and Peer Review
-Description: The [_Bioconductor_][] project promotes high-quality, well documented, and interoperable software. These guidelines help to achieve this objective; they are not meant to put undue burden on package authors, and authors having difficulty satisfying guidelines should seek advice on the [bioc-devel][bioc-devel-mail] mailing list. This book package was migrated from the bookdown book 'Bioconductor Packages: Development, Maintenance, and Peer Review' with BiocBook::from_bookdown().
-Version: 0.98.0
-Date: `r date()`
+Description: The Bioconductor project promotes high-quality, well documented,
+  and interoperable software. These guidelines help to achieve this objective;
+  they are not meant to put undue burden on package authors, and authors having
+  difficulty satisfying guidelines should seek advice on the
+  [bioc-devel][bioc-devel-mail] mailing list. This book package was migrated
+  from the bookdown book 'Bioconductor Packages: Development, Maintenance, and
+  Peer Review' with BiocBook::from_bookdown().
+Version: 0.99.0
+Date: 2026-11-11
 Authors@R: c(
-    person("Kevin", "Rue-Albrecht", , "first.last@example.com", role = c("aut", "cre")),
+    person("Kevin", "Rue-Albrecht", , "kevinrue67@gmail.com", role = c("aut", "cre")),
     person("Daniela", "Cassol", role = "aut"),
     person("Johannes", "Rainer", role = "aut"),
     person("Lori", "Shepherd", role = "aut"),
     person("Marcel Ramos", "Pérez", role = "aut"),
     person("Martin", "Morgan", role = "aut")
   )
-URL: https://github.com/Bioconductor/contributions.bioconductor.org
-BugReports: https://github.com/Bioconductor/contributions.bioconductor.org
+URL: https://contributions.bioconductor.org,
+    https://github.com/Bioconductor/pkgrevdocs
+BugReports: https://github.com/Bioconductor/pkgrevdocs/issues
 Depends:
     R (>= 4.3)
-Imports:
-    emo
 Suggests:
     BiocBook,
     BiocManager,
@@ -28,15 +33,11 @@ Suggests:
     knitr,
     downlit,
     xml2,
-    bslib,
     withr
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 BiocType: Book
-License: MIT + file LICENSE
+License: CC BY 4.0
 VignetteBuilder: knitr
 BiocBookTemplate: 1.1.3
 SystemRequirements: quarto
-Remotes:  
-    hadley/emo,
-    r-lib/downlit

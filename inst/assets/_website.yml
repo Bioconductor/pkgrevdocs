@@ -6,6 +6,5 @@ website:
     background: light
     left: |
       This book was built with <a href="https://github.com/js2264/BiocBook/">BiocBook</a> with :heart:
-  repo-branch: devel
-  repo-actions: [edit, issue]
+  site-url: https://contributions.bioconductor.org
   open-graph: true

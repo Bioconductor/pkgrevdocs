@@ -109,7 +109,7 @@ default branch of any repository. First, go to
 `username` and `repo` correspond to your GitHub username and repository,
 respectively.
 
-Then, click on the 'edit' pencil `r emo::ji("pen")` to rename the branch (seen
+Then, click on the 'edit' pencil 🖊️ to rename the branch (seen
 here at the bottom right corner) and rename the branch to 'devel':
 
 ```{r,echo=FALSE,out.width = "100%"}
@@ -125,7 +125,7 @@ repository clones.
 ## What if I already have a 'devel' branch on GitHub?
 
 Simply select the "switch default branch" button (which looks like exchange
-arrows `r emo::ji("arrows_counterclockwise")`) at the top right of the "Default
+arrows 🔄) at the top right of the "Default
 branch" box when navigating to `https://github.com/{username}/{repo}/branches`
 where `username` and `repo` correspond to your GitHub username and repository,
 respectively.

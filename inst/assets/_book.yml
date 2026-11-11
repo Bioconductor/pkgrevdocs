@@ -7,7 +7,7 @@ book:
     - "Lori Shepherd"
     - "Marcel Ramos Pérez"
     - "Martin Morgan"
-  description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+  description: "This book contains development, maintenance, and peer review guidelines for the Bioconductor project."
   date: "today"
   chapters:
     - index.qmd
@@ -65,16 +65,20 @@ book:
     - pages/debug-rd-links.qmd
     - pages/news-for-bookdown.qmd
     - pages/references.qmd
+  repo-url: https://github.com/Bioconductor/pkgrevdocs
+  repo-subdir: inst
+  repo-branch: devel
+  repo-actions: [edit, issue]
   cover-image: assets/cover.png
-  favicon: assets/favicon.png
+  favicon: pages/images/favicon.ico
   sidebar: 
     tools:
       - icon: git
         menu:
           - text: Source Code
-            url:  https://github.com/Bioconductor/contributions.bioconductor.org/
+            url:  https://github.com/Bioconductor/pkgrevdocs/
           - text: Browse version `devel`
-            url:  https://Bioconductor.github.io/contributions.bioconductor.org/devel/
+            url:  https://contributions.bioconductor.org/
     style: "docked"
     background: "light"
     collapse-level: 5

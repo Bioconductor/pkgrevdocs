@@ -3,9 +3,15 @@ format:
     grid:
       sidebar-width: 500px
       body-width: 800px
-    theme: 
-      - cosmo
-      - assets/book.scss
+    theme:
+      light:
+        - cosmo
+        - assets/book.scss
+      dark:
+        - darkly
+        - assets/book.scss
+        - assets/book-dark.scss
+    include-in-header: pages/includes/header.html
     mainfont: "Atkinson Hyperlegible, sans-serif"
     highlight-style: atom-one
     code-link: true

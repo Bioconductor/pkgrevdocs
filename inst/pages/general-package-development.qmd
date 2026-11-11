@@ -87,6 +87,6 @@ Descriptions of all the different options available can be found [here](https://
 The file of utilized flags can be downloaded from [<i class="fab fa-github"></i> GitHub](https://github.com/Bioconductor/packagebuilder/blob/master/check.Renviron).
 The file can either be placed in a default directory as directed [here](https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Checking-and-building-packages) or can be set through environment variable `R_CHECK_ENVIRON` with a command similar to:
 
-```{bash, eval=FALSE}
+```bash
 export R_CHECK_ENVIRON = <path to downloaded file>
 ```
