@@ -1,5 +1,3 @@
-# (PART) _Bioconductor_ Package Maintenance {-}
-
 # Overview  {.unnumbered #package-maintenance}
 
 This section offers useful tools and help pages for continued maintenance and

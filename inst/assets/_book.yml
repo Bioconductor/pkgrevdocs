@@ -1,7 +1,70 @@
 book:
-  title: "contributions.bioconductor.org"
+  title: "Bioconductor Packages: Development, Maintenance, and Peer Review"
+  author:
+    - "Kevin Rue-Albrecht"
+    - "Daniela Cassol"
+    - "Johannes Rainer"
+    - "Lori Shepherd"
+    - "Marcel Ramos Pérez"
+    - "Martin Morgan"
+  description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+  date: "today"
   chapters:
     - index.qmd
+    - part: "Package Submissions"
+      chapters:
+        - pages/package-submission.qmd
+    - part: "Package Development Guidelines"
+      chapters:
+        - pages/devguide-introduction.qmd
+        - pages/package-name.qmd
+        - pages/general-package-development.qmd
+        - pages/important-bioc-features.qmd
+        - pages/bioc-classes-methods.qmd
+        - pages/readme-file.qmd
+        - pages/description-file.qmd
+        - pages/namespace-file.qmd
+        - pages/news-file.qmd
+        - pages/license-file.qmd
+        - pages/citation-file.qmd
+        - pages/install-file.qmd
+        - pages/documentation.qmd
+        - pages/package-data.qmd
+        - pages/unit-tests.qmd
+        - pages/r-code.qmd
+        - pages/fortran-C-python.qmd
+        - pages/shiny-apps.qmd
+        - pages/ai-policy-third-party.qmd
+        - pages/non-software-packages.qmd
+        - pages/gitignore-file.qmd
+        - pages/build-check-bioccheck.qmd
+        - pages/devguide-conclusion.qmd
+    - part: "_Bioconductor_ Package Maintenance"
+      chapters:
+        - pages/package-maintainence.qmd
+        - pages/git-version-control.qmd
+        - pages/version-numbering.qmd
+        - pages/troubleshoot-build-report.qmd
+        - pages/debugging-c-code.qmd
+        - pages/deprecation.qmd
+        - pages/package-end-of-life.qmd
+        - pages/branch-rename-faq.qmd
+    - part: "Package Reviewer Resources"
+      chapters:
+        - pages/review-overview.qmd
+        - pages/review-expectations.qmd
+        - pages/review-resources-and-tools.qmd
+        - pages/volunteer-to-review.qmd
+  appendices:
+    - pages/appendix.qmd
+    - pages/devel-branch.qmd
+    - pages/advanced-build-options.qmd
+    - pages/web-query.qmd
+    - pages/c-and-fortran.qmd
+    - pages/mavericks.qmd
+    - pages/debug-rd-links.qmd
+    - pages/news-for-bookdown.qmd
+    - pages/references.qmd
   cover-image: assets/cover.png
   favicon: assets/favicon.png
   sidebar: 

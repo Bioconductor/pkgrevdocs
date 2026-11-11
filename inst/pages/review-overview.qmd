@@ -1,5 +1,3 @@
-# (PART) Package Reviewer Resources {-}
-
 # Overview {.unnumbered #reviewer-resources-overview}
 
 The following sections contain resources for package reviewers and those
