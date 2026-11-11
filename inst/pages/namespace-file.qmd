@@ -24,3 +24,5 @@ implementation and necessity.
 Exporting all functions with `exportPattern("^[[:alpha:]]+")` is strongly
 discouraged and almost always not allowed. Functions and generics should be
 exported individually, for clarity and control.
+
+{{< include ../assets/_links.md >}}

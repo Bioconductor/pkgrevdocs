@@ -19,7 +19,7 @@ packages present in the _Bioconductor_ Project
 [devel][biocViews] branches of _Bioconductor_. The devel branch has a check box
 under the tree structure which, when checked, displays `biocViews` that are
 defined but not used by any package, in addition to `biocViews` that are in use.
-See also [description section](#description-biocviews)
+See also [description section](description-file.qmd#description-biocviews)
 
 ### Motivation {#biocviews-motivation}
 
@@ -85,4 +85,6 @@ rendering. This should include evaluated R package code and a detailed
 introduction/abstract section that provides motivation for inclusion in
 Bioconductor and when appropriate a review and comparison to existing
 Bioconductor packages with similar functionality or scope. See [vignette
-documentation section](#vignettes) for more details.
+documentation section](documentation.qmd#vignettes) for more details.
+
+{{< include ../assets/_links.md >}}

@@ -41,3 +41,4 @@ deprecate the old named package and to re-submit the newly named package to the
 review tracker and be subject to a new review. This is timely process and should
 not be undertaken lightly.
 
+{{< include ../assets/_links.md >}}

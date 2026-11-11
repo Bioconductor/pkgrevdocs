@@ -14,3 +14,5 @@ will appear on the package landing page on the [_Bioconductor_][] web site. For
 optimal formatting of author names (if a `CITATION` file is not present),
 specify the package author and maintainer using the `Authors@R` field as
 described in the [Writing R Extensions][] manual.
+
+{{< include ../assets/_links.md >}}

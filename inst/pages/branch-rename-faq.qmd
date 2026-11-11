@@ -203,3 +203,5 @@ It is possible to also change the default branch on GitLab. See the
 [change default branch instructions](https://docs.gitlab.com/ee/user/project/repository/branches/default.html#change-the-default-branch-name-for-a-project).
 Once complete, you can update the local repository similarly to the [above
 instructions](#how-do-i-set-devel-as-the-default-local-branch).
+
+{{< include ../assets/_links.md >}}

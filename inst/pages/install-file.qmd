@@ -3,7 +3,7 @@
 An INSTALL file does not have to be included with the package. An INSTALL file
 is utilized for specifying external system requirements needed. It should be
 used in combination with the `SystemRequirements` field of the [Description
-file](#description-sysdep). This file should provide instructions for installing
+file](description-file.qmd#description-sysdep). This file should provide instructions for installing
 the external software on the 3 major OS that we support: Linux, Windows, and
 Mac. This will not only help your users get the external software on their
 machines, but it will also help us install it on the build machines if it's not
@@ -18,4 +18,6 @@ System requirements should never be exclusive to a particular
 version. Maintainers are expected to have their package work with whatever the
 current version of external software is available.
 
-See also [third party code](#third-party-code)
+See also [third party code](fortran-C-python.qmd#third-party-code)
+
+{{< include ../assets/_links.md >}}

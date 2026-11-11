@@ -91,7 +91,7 @@ of clang hold that clang:
 * in some cases yields faster execution speeds (disputed)
 
 For guidance on compiler flags to use while developing, see the
-[relevant section of the Package Guidelines page](#c-fortran).
+[relevant section of the Package Guidelines page](c-and-fortran.qmd#c-fortran).
 
 #### Differences in unspecified behavior, memory addressing policies
 
@@ -119,7 +119,7 @@ to track down memory errors. [Valgrind][] is the
 premier tool for detecting memory errors.
 
 See the Bioconductor guide on [debugging C/C++
-code](#debugging-cc-code) for examples of using a
+code](debugging-c-code.qmd) for examples of using a
 debugger and Valgrind.
 
 #### What if I cannot access a Mavericks machine?
@@ -423,7 +423,7 @@ contributor(s). The most common scenario is to include the source code
 of a library written by a third party. Some packages also use code
 produced by code generation tools, e.g.,
 [SWIG](http://www.swig.org/). First, see the relevant [Package Guidelines
-section][third-party-libraries] for
+section](fortran-C-python.qmd#third-party-code) for
 guidance on code from external sources.
 
 See the [lessons learned](#lessons-learned) section of this guide for
@@ -618,3 +618,5 @@ Solution: If at all possible, remove the need for f2c. The only
 recourse is to finesse makefiles to the point that each supported
 platform more or less has a targeted makefile. Please write the
 [bioc-devel mailing list][bioc-devel-mail] if you have trouble.
+
+{{< include ../assets/_links.md >}}

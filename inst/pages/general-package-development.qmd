@@ -66,7 +66,7 @@ more than 8 GB of memory to run.
 
 For software packages, individual files must be <= 5MB.
 This restriction exists even after the package is accepted and added to the
-[_Bioconductor_][] repository. See [data section](#data) for
+[_Bioconductor_][] repository. See [data section](package-data.qmd#data) for
 advice on packages using large data files.
 
 ### Undesirable files {#undesirable-files}
@@ -90,3 +90,5 @@ The file can either be placed in a default directory as directed [here](https://
 ```bash
 export R_CHECK_ENVIRON = <path to downloaded file>
 ```
+
+{{< include ../assets/_links.md >}}

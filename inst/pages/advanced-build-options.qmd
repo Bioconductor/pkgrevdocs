@@ -99,3 +99,5 @@ by setting the `GPU_reliance` term set to `optional:
 
 Ask on the [bioc-devel][bioc-devel-mail] mailing list if you have questions or
 need help.
+
+{{< include ../assets/_links.md >}}

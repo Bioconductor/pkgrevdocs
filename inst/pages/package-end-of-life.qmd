@@ -156,4 +156,6 @@ interested replacement maintainer is asked to email the original maintainer and
 Unless there is an explicit request for a package to be retired, Bioconductor
 will grant access to the interested replacement maintainer in accordance with
 open source software licenses that Bioconductor packages require and
-[package naming policy](#naming) that maintainers agree to upon submission.
+[package naming policy](package-submission.qmd#naming) that maintainers agree to upon submission.
+
+{{< include ../assets/_links.md >}}

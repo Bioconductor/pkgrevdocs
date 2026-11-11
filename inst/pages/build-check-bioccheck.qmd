@@ -18,5 +18,4 @@ settings](https://docs.github.com/en/repositories/managing-your-repositorys-sett
 have GitHub actions enabled. The process for setting up the workflow to run
 build, check and BiocCheck in github actions is documented on the R-Universe help page section for [Bioconductor and R-universe](https://docs.r-universe.dev/bioconductor/#debugging-the-ci)
 
-
-
+{{< include ../assets/_links.md >}}

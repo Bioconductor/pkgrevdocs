@@ -95,3 +95,4 @@ Date: 2018-05-15
 Text: Submitted to Bioconductor
 ```
 
+{{< include ../assets/_links.md >}}

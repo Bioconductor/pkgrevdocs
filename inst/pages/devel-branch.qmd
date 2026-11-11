@@ -51,3 +51,5 @@ your packages up-to-date.
         install.packages("BiocManager")
     BiocManager::install(version="devel")
     BiocManager::valid()
+
+{{< include ../assets/_links.md >}}

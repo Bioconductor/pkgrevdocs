@@ -16,14 +16,14 @@ robust and efficient.
 ## License {#rcode-license}
 
 Only contain code that can be distributed under the license specified (see also
-[The DESCRIPTION file](#description-license)).
+[The DESCRIPTION file](description-file.qmd#description-license)).
 
 ## R Code Development
 
 ### Re-use of functionality, classes, and generics {#rcode-reuse}
 
 Avoid re-implementing functionality or classes (see also
-[The DESCRIPTION file](description.html#depends-imports-suggests-enhances)).
+[The DESCRIPTION file](description-file.qmd#depends-imports-suggests-enhances)).
 Make use of appropriate existing packages (e.g.,
 `r BiocStyle::Biocpkg("biomaRt")`,
 `r BiocStyle::Biocpkg("AnnotationDbi")`,
@@ -39,7 +39,7 @@ also [Common Bioconductor Methods and Classes][bioc-common].
 This encourages interoperability and simplifies your own package development.
 If a new representation is needed, see [class development section](#class-development).
 In general, [_Bioconductor_][] will insist on interoperability with [Common
-Classes](#commonclass) for acceptance.
+Classes](bioc-classes-methods.qmd#commonclass) for acceptance.
 
 Developers should make an effort to re-use generics that fit the generic
 contract for the proposed class-method pair i.e., the behavior of the method
@@ -74,7 +74,7 @@ we recommend to use standard file format classes inheriting from
 
 ### Naming of packages, functions, and classes {#naming-functions}
 
-See section on [package naming](#package-name). The concepts there should also
+See section on [package naming](package-name.qmd#package-name). The concepts there should also
 apply to function names, class names, etc.
 
 Avoid names that:
@@ -91,7 +91,7 @@ Avoid names that:
 
 We encourage maintainers to only create new methods for classes exported within
 their packages. We discourage the generation of methods for external classes,
-i.e., classes outside of the package [`NAMESPACE`](#namespace). This can
+i.e., classes outside of the package [`NAMESPACE`](namespace-file.qmd#namespace). This can
 potentially cause method name collisions (i.e., where two methods defined on
 the same object but in different packages) and pollute the methods environment
 for those external classes. New methods for established classes can also cause
@@ -123,7 +123,7 @@ _Bioconductor_ prefers the use of S4 classes over S3 class. Please use the S4
 representation for designing new classes. Again, we can not emphasize enough to
 reuse existing class structure if at all possible. If an existing class
 structure is not sufficient, it is also encouraged to look at extending or
-containing an [existing _Bioconductor_ class](#commonclass).
+containing an [existing _Bioconductor_ class](bioc-classes-methods.qmd#commonclass).
 
 If your data requires a new representation or function, carefully
 design an S4 class or generic so that other package developers with
@@ -225,7 +225,7 @@ the `SystemRequirements` field of the `DESCRIPTION` file of the package. These
 requirements should be "reasonable" requirements, that is, trusted software
 only, open source, and relatively easy to install.
 
-Additionally we ask that the package contains an [INSTALL file](#sysdep) (in the
+Additionally we ask that the package contains an [INSTALL file](install-file.qmd#sysdep) (in the
 top-level folder) that provides instructions for installing the external
 software on the 3 major OS that we support: Linux, Windows, and Mac. This
 will not only help your users get the external software on their machines,
@@ -408,7 +408,7 @@ above with `BiocFileCache` (preferred) or `R_user_dir` or `tempdir()/tempfile()`
 if files should not be persistent.
 
 Please also follow guiding principles in Appendix section [Querying Web
-Resources](#querying-web-resources), if applicable.
+Resources](web-query.qmd), if applicable.
 
 
 
@@ -536,3 +536,5 @@ High-Performance and [Parallel Computing][] CRAN Task View.
 
 When using in package development, parallel operations should be set to use
 either one or two cores by default.
+
+{{< include ../assets/_links.md >}}

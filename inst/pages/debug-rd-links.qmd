@@ -69,3 +69,5 @@ At that point, `rcmdcheck::rcmdcheck()` continued to display the initial WARNING
 ## Additional resources
 
 - [Rd formatting](https://cran.r-project.org/web/packages/roxygen2/vignettes/rd-formatting.html)
+
+{{< include ../assets/_links.md >}}

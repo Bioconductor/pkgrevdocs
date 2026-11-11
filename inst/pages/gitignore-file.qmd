@@ -21,3 +21,5 @@ hidden_file_ext = c(
 ```
 There should only be one `.gitignore` file in the top level of a package
 directory. 
+
+{{< include ../assets/_links.md >}}

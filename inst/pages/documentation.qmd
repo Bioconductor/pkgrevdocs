@@ -242,3 +242,5 @@ For more details, see the `Data` chapter in Hadley Wickham's
 Other types of documentation (e.g. static files, jupyter notebooks, etc.) can be
 provided through `inst` subdirectories but do not substitute for the
 [_Bioconductor_ documentation requirements](#doc-require) listed above.
+
+{{< include ../assets/_links.md >}}

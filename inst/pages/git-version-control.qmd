@@ -110,7 +110,7 @@ in
 
 __Goal__: You developed a package in GitHub, following the
 _Bioconductor_ new package [Contributions README][tracker] guidelines,
-[submitted it to _Bioconductor_](#bioconductor-package-submissions), and your package has been
+[submitted it to _Bioconductor_](package-submission.qmd#bioconductor-package-submissions), and your package has been
 moderated. As part of moderation process, the package to be reviewed
 has been added as a repository on the [_Bioconductor_ git server][git].
 
@@ -1552,3 +1552,5 @@ please send an email to <bioc-devel@bioconductor.org>.
 [Pull requests][]
 
 [Open github issues][Open github issue]
+
+{{< include ../assets/_links.md >}}

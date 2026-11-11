@@ -25,7 +25,7 @@ packages are already installed on the user's system.
 
 **Note**. Packages with external software dependencies should use the
 `SystemRequirements` field in the `DESCRIPTION` file. See also
-[the INSTALL file](#sysdep) for system dependencies requirements.
+[the INSTALL file](install-file.qmd#sysdep) for system dependencies requirements.
 
 ## Generating the README.md from the main vignette
 
@@ -51,3 +51,4 @@ The developer can then generate the `README.md` file by running
 rmarkdown::render("inst/scripts/README.Rmd", output_dir = ".")
 ```
 
+{{< include ../assets/_links.md >}}

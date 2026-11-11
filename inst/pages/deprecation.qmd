@@ -199,4 +199,6 @@ Note that steps 3 and 4 are the same as for S3 datasets.
 
 ## How to Deprecate a Package {#deprecate-package}
 
-Please see section on [Package End of Life Policy](#package-end-of-life-policy)
+Please see section on [Package End of Life Policy](package-end-of-life.qmd)
+
+{{< include ../assets/_links.md >}}

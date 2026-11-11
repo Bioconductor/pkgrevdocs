@@ -236,7 +236,7 @@ Here is a possible chain of thought that leads to the right conclusion:
    *past-the-end*](http://www.cplusplus.com/reference/map/map/end/)
    value.  Incrementing an iterator beyond *past-the-end* (the third
    `++it;` at line #17) is [undefined
-   behavior](#undefined-behavior)!
+   behavior](mavericks.qmd#undefined-behavior)!
 
 If we revise `buggy.cpp` to not increment `it` beyond *past-the-end*
 by removing the third `++it;` the program runs without
@@ -418,3 +418,5 @@ it's time to try fixing it (naively,
 diagnosis, or report to the `packageDescription("RCurl")$Maintainer`
 who might have a better sense of the overall structure and intention
 of the code.
+
+{{< include ../assets/_links.md >}}

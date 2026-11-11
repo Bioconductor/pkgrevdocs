@@ -52,3 +52,5 @@ By including third-party code a package maintainer assumes responsibility for
 maintenance of that code. Part of the maintenance responsibility includes
 keeping the code up to date as bug fixes and updates are released for the
 mainline third-party project.
+
+{{< include ../assets/_links.md >}}

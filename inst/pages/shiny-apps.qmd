@@ -171,3 +171,5 @@ Errors and warnings should be handled gracefully and should be visible and
 intelligible to the user. We recommend using
 `r BiocStyle::CRANpkg("shinytoastr")` to display error, warning, and info
 messages to the user.
+
+{{< include ../assets/_links.md >}}

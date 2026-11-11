@@ -11,3 +11,4 @@
   Bioconductor package guidelines listed on main Bioconductor.org website.
   
 
+{{< include ../assets/_links.md >}}

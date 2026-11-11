@@ -90,3 +90,5 @@ and methods:
 | `r BiocStyle::Biocpkg("DESeq2")` | `r BiocStyle::Biocpkg("SummarizedExperiment")`, `r BiocStyle::Biocpkg("GenomicRanges")` |
 | `r BiocStyle::Biocpkg("GenomicAlignments")` | `r BiocStyle::Biocpkg("GenomicRanges")`, `r BiocStyle::Biocpkg("Rsamtools")` |
 | `r BiocStyle::Biocpkg("VariantAnnotation")` | `r BiocStyle::Biocpkg("GenomicRanges")`, `r BiocStyle::Biocpkg("SummarizedExperiment")`, `r BiocStyle::Biocpkg("Rsamtools")` |
+
+{{< include ../assets/_links.md >}}

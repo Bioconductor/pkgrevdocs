@@ -8,3 +8,5 @@ copied from: source’). Make sure to cite the provenance in the new code and th
 the newly contributed code can be redistributed under the software/packages
 licensing terms. You will still be responsible for this code, its reliability
 and maintenance within your package.
+
+{{< include ../assets/_links.md >}}

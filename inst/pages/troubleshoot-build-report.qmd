@@ -214,7 +214,7 @@ and explanation can be found [When you think `class(.) == *`, think again!](http
 The sum up is `class( x ) == "foo"` should be avoided. It can be misleading if classes extend other classes. The
 better option is to use `is( x , "foo")` or `inherits(x, "foo")`.
 
-This is also advised in [Bioconductor best practices](#r-code-best-practices-and-guidelines)
+This is also advised in [Bioconductor best practices](r-code.qmd#r-code-best-practices-and-guidelines)
 
 <a name="matarr"></a>
 
@@ -444,3 +444,5 @@ noted in Bioconductor 3.11
     Error:
     'calculateQCMetrics' is defunct.
     Use 'perCellQCMetrics' instead.
+
+{{< include ../assets/_links.md >}}

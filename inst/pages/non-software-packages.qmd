@@ -209,3 +209,5 @@ You can then use citation keys in the form of `[@label]` to cite an entry with a
 Normally, you will want to end your document with a section header "References" or similar, after which the bibliography will be appended.
 
 For more details see the [rmarkdown documentation][].
+
+{{< include ../assets/_links.md >}}

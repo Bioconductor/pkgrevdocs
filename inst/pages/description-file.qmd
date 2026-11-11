@@ -175,12 +175,12 @@ section of [Writing R Extensions][].
 This field is for listing any external software which is required, but not
 automatically installed by the normal package installation process.
 
-If the installation process is non-trivial, a top-level [`INSTALL` file](#sysdep) should
-be included to document the process. If a user facing [`README`](#readme) is included it
+If the installation process is non-trivial, a top-level [`INSTALL` file](install-file.qmd#sysdep) should
+be included to document the process. If a user facing [`README`](readme-file.qmd#readme) is included it
 is also recommended to document the process there; do not try to install a
 dependency for a user anywhere in the package (i.e. readme, r code, man pages,
 vignette). You may show instructions only in unevaluated sections. See also
-[Additional files and dependencies](#rcode-sysdep)
+[Additional files and dependencies](r-code.qmd#rcode-sysdep)
 
 ## `biocViews` {#description-biocviews}
 
@@ -228,3 +228,5 @@ Add this field to exclude a package binary being propagated for unsupported
 platforms. Possible values are `windows`, `windows-x64`, `macosx`,
 `macosx-x86_64`, `macosx-arm64`. Multiple os-arch types should be separated by
 commas. The option `macosx` excludes the package from all macosx builds.
+
+{{< include ../assets/_links.md >}}

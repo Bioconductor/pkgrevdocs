@@ -126,4 +126,6 @@ and milestones, and a sticker is in progress.
 
 ## Volunteer {.unnumbered #review-volunteer}
 
-Refer to the chapter [Volunteer to Review](#review-volunteer-chapter) for more details.
+Refer to the chapter [Volunteer to Review](volunteer-to-review.qmd#review-volunteer-chapter) for more details.
+
+{{< include ../assets/_links.md >}}

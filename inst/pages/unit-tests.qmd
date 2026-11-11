@@ -226,7 +226,7 @@ invention and style into one or more files in this `tests` directory.
 *RUnit* was added to this already-existing structure and practice
 about 2005, and the additions can be confusing, beginning with the
 indirect way in which your test functions are found and executed. (But
-follow these steps and all should be well.  Post to [bioc-devel][] if
+follow these steps and all should be well.  Post to [bioc-devel][bioc-devel-mail] if
 you run into any difficulty.)
 
 There are two steps:
@@ -346,7 +346,7 @@ have a lower chance of containing bugs.
 We highly recommend using the [covr package](https://cran.r-project.org/web/packages/covr/index.html) function
 `package_coverage()` for evaluation.
 
-If tests are taking too long to achieve full test coverage, see [long tests][].
+If tests are taking too long to achieve full test coverage, see [long tests](advanced-build-options.qmd#long-tests).
 Before implementing long tests we highly recommend reaching out to the
 bioconductor team on the [bioc-devel][bioc-devel-mail] mailing list to ensure
 proper use and justification.
@@ -362,3 +362,5 @@ Some web resources worth reading:
 * [Agile software development][agile]
 * [Testing with testthat][]
 * [testthat: Get Started with Testing][]
+
+{{< include ../assets/_links.md >}}

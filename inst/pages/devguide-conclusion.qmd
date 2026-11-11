@@ -7,8 +7,10 @@ process and may still receive technical feedback from the assigned
 [_Bioconductor_ reviewer][reviewer-list].
 
 An overview of the submission process may be found in the [previous
-section](#subintro) and a package may be submitted to the
+section](package-submission.qmd#subintro) and a package may be submitted to the
 [GitHub package submission repository][tracker].
 
 Thank you for reading these guidelines, and welcome to the [_Bioconductor_][]
 community of users and developers!
+
+{{< include ../assets/_links.md >}}

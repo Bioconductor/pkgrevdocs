@@ -9,3 +9,4 @@ community in addition to assigned reviewers: [Packages Under Review][]. All
 package reviews are publicly accessible, therefore any feedback and interactions on
 submitted packages must abide by the Bioconductor [Code of Conduct][].
 
+{{< include ../assets/_links.md >}}

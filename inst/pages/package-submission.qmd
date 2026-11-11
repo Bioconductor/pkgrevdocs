@@ -86,7 +86,7 @@ ii) Uniqueness of package name. Packages should be named in a way that does not
 conflict (irrespective of case) with any current or past Bioconductor package,
 nor any current or past CRAN package.
 
-See [Package naming guidelines](#package-name) for more guidelines.
+See [Package naming guidelines](package-name.qmd#package-name) for more guidelines.
 
 ## Author / Maintainer Expectations {#author}
 
@@ -96,9 +96,9 @@ package maintenance responsibilities. Package authors are expected to:
 * Follow Bioconductor guidelines
 
   These include standard [guidelines][guidelines],
-  [version numbering][versioning], [coding style](#r-code),
-  [code performance requirements](#correctness-space-and-time),
-  [memory usage](#memory), [using existing data classes][bioc-common],
+  [version numbering][versioning], [coding style](r-code.qmd#r-code),
+  [code performance requirements](general-package-development.qmd#correctness-space-and-time),
+  [memory usage](general-package-development.qmd#memory), [using existing data classes][bioc-common],
   and the other requirements described below.
 
 * Follow the release cycle of Bioconductor
@@ -282,3 +282,5 @@ package documentation and structure.  Use the
 <maintainer@bioconductor.org> to obtain additional support.
 
 * Support Email: <maintainer@bioconductor.org>
+
+{{< include ../assets/_links.md >}}
