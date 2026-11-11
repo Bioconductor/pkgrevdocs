@@ -1,0 +1,34 @@
+## The conda environment this book's python chunks run in, created at build
+## time by BiocBook::setup_python().
+##
+## Pin what you depend on: the book is rebuilt regularly, and an unpinned
+## dependency means the rendered book can change under you without a single
+## commit. Any edit to this file gives the book a new environment on the next
+## render.
+##
+## `nodefaults` keeps the Anaconda `defaults` channel out. It is covered by the
+## Anaconda Terms of Service, which require a paid licence for many
+## organisations; conda-forge and bioconda are not. List conda-forge before
+## bioconda, as bioconda requires.
+##
+## Declare the python packages your book imports under `pip:`, so that they
+## come from PyPI (BiocBook >= 1.11.5). python chunks run inside the R
+## session, and conda builds of these packages link libraries R may already
+## have loaded, in an older version: on the Bioconductor builders, h5py and
+## matplotlib >= 3.11 then fail to import. PyPI wheels carry their own. Keep
+## conda for python itself and for command-line tools. See
+## `?BiocBook::BiocBook-python`.
+name:
+    contributions.bioconductor.org
+channels:
+    - conda-forge
+    - bioconda
+    - nodefaults
+dependencies:
+    - python=3.12
+    ## add the command-line tools your book runs, pinned, e.g.:
+    # - samtools=1.24
+    ## and the python packages it imports, pinned, e.g.:
+    # - pip:
+    #     - numpy==2.5.4
+    #     - matplotlib==3.11.2

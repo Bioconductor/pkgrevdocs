@@ -1,0 +1,7 @@
+## `llms` profile: render `llms.txt` and a Markdown copy of every page, for AI
+## assistants. Books need quarto >= 1.11 for this, and quarto <= 1.8 rejects
+## the option outright, so `vignettes/Makefile` only switches this profile on
+## when the installed quarto supports it. To use it when rendering by hand:
+##   QUARTO_PROFILE=llms quarto render inst/
+book:
+  llms-txt: true

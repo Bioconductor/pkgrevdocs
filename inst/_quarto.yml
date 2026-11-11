@@ -1,0 +1,13 @@
+project:
+  type: book
+  output-dir: docs
+  post-render: assets/post-render.R
+
+metadata-files:
+  - assets/_book.yml
+  - assets/_website.yml
+  - assets/_format.yml
+  - assets/_knitr.yml
+
+filters:
+  - extensions/tools-tabset-ext/tools-tabset.lua

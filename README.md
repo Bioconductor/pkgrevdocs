@@ -1,3 +1,9 @@
+<!-- badges: start -->
+📦 [Repo](https://github.com/Bioconductor/contributions.bioconductor.org)   
+📖 [Book](https://Bioconductor.github.io/contributions.bioconductor.org/devel) [![deployment](https://img.shields.io/github/actions/workflow/status/Bioconductor/contributions.bioconductor.org/pages/pages-build-deployment?label=Book%20deployment)](https://github.com/Bioconductor/contributions.bioconductor.org/actions/workflows/pages/pages-build-deployment)  
+🐳 [Docker](https://github.com/Bioconductor/contributions.bioconductor.org/pkgs/container/contributions.bioconductor.org) [![biocbook](https://img.shields.io/github/actions/workflow/status/Bioconductor/contributions.bioconductor.org/biocbook.yml?label=Docker%20image)](https://github.com/Bioconductor/contributions.bioconductor.org/actions/workflows/biocbook.yml)  
+<!-- badges: end -->
+
 Bioconductor Packages: Guidelines for Developers and Reviewers
 ==============================================================
 

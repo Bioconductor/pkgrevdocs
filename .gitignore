@@ -9,3 +9,13 @@ book_template.pdf
 .Rprofile
 renv
 renv.lock
+.Rdata
+.httr-oauth
+.DS_Store
+.quarto
+*.Rproj
+/.quarto/
+/*_cache/
+/*_files/
+/docs/
+NOTES.md
