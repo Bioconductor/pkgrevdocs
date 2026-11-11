@@ -1,3 +1,8 @@
+---
+aliases:
+  - /review-volunteer-chapter.html
+---
+
 # Volunteer to Review  {#review-volunteer-chapter}
 
 Anyone from the Bioconductor community that has a package in Bioconductor can

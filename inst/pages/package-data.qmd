@@ -1,5 +1,7 @@
 ---
 engine: knitr
+aliases:
+  - /data.html
 ---
 
 # Package data {#data}

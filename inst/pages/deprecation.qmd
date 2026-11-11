@@ -1,3 +1,8 @@
+---
+aliases:
+  - /deprecation.html
+---
+
 # Deprecation Guidelines {#deprecation}
 
 In the normal course of software development, functions, classes, methods, or

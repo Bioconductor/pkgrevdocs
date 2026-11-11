@@ -1,3 +1,8 @@
+---
+aliases:
+  - /booknews.html
+---
+
 
 # NEWS {#booknews}
 

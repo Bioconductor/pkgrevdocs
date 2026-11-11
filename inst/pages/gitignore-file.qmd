@@ -1,3 +1,8 @@
+---
+aliases:
+  - /gitignore.html
+---
+
 # The `.gitignore` file {#gitignore}
 
 [_Bioconductor_][] requires a Git repository for submission.

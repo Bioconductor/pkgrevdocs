@@ -1,3 +1,8 @@
+---
+aliases:
+  - /c-fortran.html
+---
+
 # C and Fortran code {#c-fortran}
 
 If the package contains C or Fortran code, it should adhere to the standards and

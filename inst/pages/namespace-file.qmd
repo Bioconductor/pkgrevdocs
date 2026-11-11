@@ -1,3 +1,8 @@
+---
+aliases:
+  - /namespace.html
+---
+
 # The NAMESPACE file {#namespace}
 
 A [NAMESPACE](http://cran.fhcrc.org/doc/manuals/R-exts.html#Package-namespaces) file defines the functions, classes, and methods that are imported into the namespace, and exported for users.

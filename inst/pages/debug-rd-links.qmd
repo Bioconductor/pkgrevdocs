@@ -1,5 +1,7 @@
 ---
 engine: knitr
+aliases:
+  - /man-links.html
 ---
 
 # Debug: Links in Rd files {#man-links}

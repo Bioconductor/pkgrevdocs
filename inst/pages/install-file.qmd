@@ -1,3 +1,8 @@
+---
+aliases:
+  - /sysdep.html
+---
+
 # The INSTALL file {#sysdep}
 
 An INSTALL file does not have to be included with the package. An INSTALL file

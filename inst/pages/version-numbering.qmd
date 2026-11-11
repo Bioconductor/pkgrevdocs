@@ -1,3 +1,8 @@
+---
+aliases:
+  - /versionnum.html
+---
+
 # Version Numbering {#versionnum}
 
 All _Bioconductor_ packages should have a version number in x.y.z format.

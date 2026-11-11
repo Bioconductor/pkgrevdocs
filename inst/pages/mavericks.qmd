@@ -1,5 +1,7 @@
 ---
 engine: knitr
+aliases:
+  - /cmavericks-best-practices.html
 ---
 
 # C++/Mavericks Best Practices

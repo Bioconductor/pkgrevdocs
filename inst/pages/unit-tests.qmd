@@ -1,5 +1,7 @@
 ---
 engine: knitr
+aliases:
+  - /tests.html
 ---
 
 # Unit tests {#tests}

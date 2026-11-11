@@ -1,3 +1,8 @@
+---
+aliases:
+  - /build-check-bioccheck.html
+---
+
 # Build / Check / BiocCheck
 
 All new packages submitted are checked against the current Bioconductor devel

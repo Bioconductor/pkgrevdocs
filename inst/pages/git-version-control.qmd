@@ -1,3 +1,8 @@
+---
+aliases:
+  - /git-version-control.html
+---
+
 # Git Version Control
 
 The _Bioconductor_ project is maintained in a Git source control

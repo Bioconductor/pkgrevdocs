@@ -1,3 +1,8 @@
+---
+aliases:
+  - /package-end-of-life-policy.html
+---
+
 # Package End of Life Policy
 
 The Bioconductor project strives to provide a software repository that is

@@ -1,5 +1,7 @@
 ---
 engine: knitr
+aliases:
+  - /r-code.html
 ---
 
 # R code {#r-code}

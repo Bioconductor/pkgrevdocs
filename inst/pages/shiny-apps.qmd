@@ -1,3 +1,8 @@
+---
+aliases:
+  - /shiny.html
+---
+
 # Shiny apps {#shiny}
 
 [Shiny apps][shiny-posit] can be submitted to _Bioconductor_ as software packages or as documented and tested functions within packages.

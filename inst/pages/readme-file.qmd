@@ -1,3 +1,8 @@
+---
+aliases:
+  - /readme.html
+---
+
 # The README file {#readme}
 
 Bioconductor does not require `README` files in packages but they

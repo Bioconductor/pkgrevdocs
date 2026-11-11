@@ -1,5 +1,7 @@
 ---
 engine: knitr
+aliases:
+  - /reusebioc.html
 ---
 
 # Common Bioconductor Methods and Classes {#reusebioc}

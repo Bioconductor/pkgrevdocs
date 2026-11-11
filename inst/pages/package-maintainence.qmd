@@ -1,3 +1,8 @@
+---
+aliases:
+  - /package-maintenance.html
+---
+
 # Overview  {.unnumbered #package-maintenance}
 
 This section offers useful tools and help pages for continued maintenance and

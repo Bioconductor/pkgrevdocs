@@ -1,3 +1,8 @@
+---
+aliases:
+  - /conclusion.html
+---
+
 # Conclusion {#conclusion}
 
 The exercise [How to a Build Bioconductor Package with RStudio](http://bioconductor.org/developers/how-to/buildingPackagesForBioc/) may also be helpful.

@@ -1,3 +1,8 @@
+---
+aliases:
+  - /debugging-cc-code.html
+---
+
 # Debugging C/C++ code
 
 The following applies to non-Windows operating systems.  This is not

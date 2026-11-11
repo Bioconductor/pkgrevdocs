@@ -1,3 +1,8 @@
+---
+aliases:
+  - /ai-policy-third-party.html
+---
+
 # AI policy and Third Party Code {#ai-policy-third-party}
 
 If a non-trivial portion of your contribution is copied from somewhere else

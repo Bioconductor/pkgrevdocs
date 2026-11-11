@@ -1,5 +1,8 @@
 ---
 engine: knitr
+aliases:
+  - /bioconductor-package-submissions.html
+  - /submission-overview.html
 ---
 
 # Overview {.unnumbered #submission-overview}

@@ -1,3 +1,8 @@
+---
+aliases:
+  - /package-name.html
+---
+
 # Package name {#package-name}
 
 The package name should match the <i class="fab fa-github"></i> GitHub

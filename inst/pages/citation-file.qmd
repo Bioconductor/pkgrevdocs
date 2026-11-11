@@ -1,3 +1,8 @@
+---
+aliases:
+  - /citation.html
+---
+
 # The CITATION file {#citation}
 
 Appropriate citations must be included in help pages (e.g., in the see also

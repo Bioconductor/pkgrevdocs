@@ -1,5 +1,7 @@
 ---
 engine: knitr
+aliases:
+  - /non-software.html
 ---
 
 # Non-Software Packages {#non-software}

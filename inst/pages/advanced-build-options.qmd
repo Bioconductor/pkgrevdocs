@@ -1,3 +1,8 @@
+---
+aliases:
+  - /advanced-build-options.html
+---
+
 # Advanced Build Options
 
 An optional `.BBSoptions` file at the package root can alter the default

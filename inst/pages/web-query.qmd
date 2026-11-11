@@ -1,3 +1,8 @@
+---
+aliases:
+  - /querying-web-resources.html
+---
+
 # Querying Web Resources
 
 Packages that rely on access to web resources need to be written

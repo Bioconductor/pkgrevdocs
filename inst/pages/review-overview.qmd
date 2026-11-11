@@ -1,3 +1,8 @@
+---
+aliases:
+  - /reviewer-resources-overview.html
+---
+
 # Overview {.unnumbered #reviewer-resources-overview}
 
 The following sections contain resources for package reviewers and those

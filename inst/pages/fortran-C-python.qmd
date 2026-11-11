@@ -1,5 +1,7 @@
 ---
 engine: knitr
+aliases:
+  - /other-than-Rcode.html
 ---
 
 # Fortran / C / C++ / Python / Third-Party Code {#other-than-Rcode}

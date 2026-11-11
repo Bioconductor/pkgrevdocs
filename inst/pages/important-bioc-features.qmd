@@ -1,3 +1,8 @@
+---
+aliases:
+  - /important-bioconductor-package-development-features.html
+---
+
 # Important _Bioconductor_ Package Development Features {#important-bioconductor-package-development-features}
 
 ## biocViews {#biocviews}

@@ -1,3 +1,8 @@
+---
+aliases:
+  - /use-devel.html
+---
+
 # Using the 'Devel' Version of _Bioconductor_ {#use-devel}
 
 ## Which version of R?

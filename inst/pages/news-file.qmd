@@ -1,3 +1,8 @@
+---
+aliases:
+  - /news.html
+---
+
 # The NEWS file {#news}
 
 A `NEWS` file informs the user of changes in the software that may impact user

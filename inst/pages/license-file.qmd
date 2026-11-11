@@ -1,3 +1,8 @@
+---
+aliases:
+  - /license.html
+---
+
 # The LICENSE file {#license}
 
 The license field should preferably refer to a standard license (see

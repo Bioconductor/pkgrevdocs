@@ -1,3 +1,8 @@
+---
+aliases:
+  - /review-expectation.html
+---
+
 # Review Expectations {#review-expectation}
 
 Anyone from the Bioconductor community that has a package in Bioconductor can
