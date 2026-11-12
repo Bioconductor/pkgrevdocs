@@ -36,14 +36,50 @@ Deployment is done via [GitHub Actions](https://github.com/Bioconductor/pkgrevdo
 * on every push to `devel`, the book is built in a Docker image, the image is pushed to the [GitHub Container registry](https://github.com/orgs/Bioconductor/packages/container/package/contributions.bioconductor.org), and the book is deployed to GitHub Pages;
 * pull requests to `devel` build the book without deploying it, and the rendered book is available as a downloadable `book` artifact of the workflow run.
 
-To preview the book locally - preferably before opening a pull request and while reviewing it - make sure [Quarto](https://quarto.org/docs/get-started/) and the book's dependencies (see file `DESCRIPTION`) are installed, then run from the root of this repository:
+## Testing locally
+
+Please build the book locally before opening a pull request, and while reviewing one.
+
+### Requirements
+
+* [Quarto](https://quarto.org/docs/get-started/). Version 1.11 or later also renders `llms.txt`, as the deployed book does; older versions render the book without it.
+* R (>= 4.3) and the book's dependencies, listed in `DESCRIPTION`. From an R console at the root of this repository:
+
+  ```r
+  install.packages(c("BiocManager", "remotes"))
+  remotes::install_deps(dependencies = TRUE, repos = BiocManager::repositories())
+  ```
+
+### Preview while editing
+
+From the root of this repository, run:
 
 ```sh
 quarto preview inst/
 ```
 
-or, from an R console, `BiocBook::preview(BiocBook::BiocBook("."))`.
-The rendered book is written to `inst/docs/`.
+This renders the book, opens it in your browser and re-renders each page as you save it.
+From an R console, use `BiocBook::preview(BiocBook::BiocBook("."), browse = TRUE, watch = TRUE)`.
+To render the book once without the preview server, run `quarto render inst/`.
+The rendered book is written to `inst/docs/`, which git ignores.
+
+### Build the package as CI does
+
+The book is rendered as the package vignette, so building the package checks that the whole book renders:
+
+```sh
+R CMD build --keep-empty-dirs --no-resave-data .
+```
+
+The book ends up under `inst/doc/book/` in the resulting `contributions.bioconductor.org_*.tar.gz`.
+
+### Build the Docker image
+
+To reproduce the GitHub Actions build exactly, including the Bioconductor version and the Quarto release, build the Docker image:
+
+```sh
+docker build --build-arg BIOC_VERSION=devel --build-arg QUARTO_VERSION=1.11.5 -t pkgrevdocs .
+```
 
 ## Original sources
 
