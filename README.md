@@ -7,11 +7,10 @@
 Bioconductor Packages: Guidelines for Developers and Reviewers
 ==============================================================
 
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) 
-[![GitHub Actions](https://github.com/Bioconductor/pkgrevdocs/workflows/build_deploy/badge.svg)](https://github.com/Bioconductor/pkgrevdocs/actions)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
 [_Bioconductor_](https://bioconductor.org/)'s guide for package development, maintenance, and peer review.
-[Read it here](https://bioconductor.github.io/pkgrevdocs/).
+[Read it here](https://contributions.bioconductor.org).
 
 ## Contributing
 
@@ -20,21 +19,31 @@ Bioconductor Packages: Guidelines for Developers and Reviewers
 This book contains our guidelines for packages contributed to the [_Bioconductor_](https://bioconductor.org/) suite of packages.
 These guidelines are always a work in progress - corrections, suggestions and general improvements are welcome as [issue submissions in this repository](https://github.com/Bioconductor/pkgrevdocs/issues/new).
 Open discussions are welcome in our [Zulip](https://community-bioc.zulipchat.com/).
-You can also suggest changes by editing the `.Rmd` files that are at the root of this repository and submitting a [pull request](https://github.com/Bioconductor/pkgrevdocs/pulls).
-An "Edit this page" link in the side bar on the right of each book chapter will take you directly to the relevant page on the GitHub repository to make such changes.
+You can also suggest changes by editing the Quarto (`.qmd`) files under `inst/pages/` and submitting a [pull request](https://github.com/Bioconductor/pkgrevdocs/pulls).
+The "Edit this page" link on each book chapter will take you directly to the relevant file on the GitHub repository to make such changes.
 Please target your pull requests to the `devel` branch.
 
 ### Technical details
 
-Deployment is done via [GitHub Actions](https://github.com/Bioconductor/pkgrevdocs/actions):
+The book is a [BiocBook](https://bioconductor.org/packages/BiocBook/): an R package whose vignette renders a [Quarto](https://quarto.org/) book.
 
-* whenever there's a push to `devel`, the book is built and its content is then pushed to the `gh-pages` branch.
+* `inst/index.qmd` is the landing page and `inst/pages/` holds the chapters.
+* The chapter order and book settings are in `inst/assets/_book.yml`; site settings are in `inst/assets/_website.yml`.
+* `docs/` (e.g. the package review checklist) is copied into the deployed site as-is.
 
-To preview the book locally - preferably before opening a pull request and while reviewing it - use the following code in an R console with the working directory set to the root of this repository, making sure that all the dependencies of the book are available (see file `DESCRIPTION`).
+Deployment is done via [GitHub Actions](https://github.com/Bioconductor/pkgrevdocs/actions/workflows/biocbook.yml):
 
-```r
-bookdown::render_book()
+* on every push to `devel`, the book is built in a Docker image, the image is pushed to the [GitHub Container registry](https://github.com/orgs/Bioconductor/packages/container/package/contributions.bioconductor.org), and the book is deployed to GitHub Pages;
+* pull requests to `devel` build the book without deploying it, and the rendered book is available as a downloadable `book` artifact of the workflow run.
+
+To preview the book locally - preferably before opening a pull request and while reviewing it - make sure [Quarto](https://quarto.org/docs/get-started/) and the book's dependencies (see file `DESCRIPTION`) are installed, then run from the root of this repository:
+
+```sh
+quarto preview inst/
 ```
+
+or, from an R console, `BiocBook::preview(BiocBook::BiocBook("."))`.
+The rendered book is written to `inst/docs/`.
 
 ## Original sources
 
