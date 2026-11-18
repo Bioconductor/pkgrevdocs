@@ -13,6 +13,17 @@ Tracker][Packages Under Review], and updated as the review progresses.
 There has also been an effort to make an agentic reviewer. This tool should not
 replace the human review but can be used as a first pass or assistant. Please
 check its comments before posting for accuracy: [AI Review Tool](https://github.com/Bioconductor/BiocPkgReviewer)
+You must be logged into GitHub to access this repository. If you do not have
+access please reach out to the Core Team for Access.
+
+Another very useful tool created is a dashboard of reviews that lists packages
+assigned and length of wait time to assess package review priority. Also
+available through this dash board is an AI co-assist review tool where the
+reviewer can submit questions to the chatbot to assist in evaulation. To get to
+the Co-review tool click on the package name: [Reviewer
+Dashboard](https://reviewer.bioconductor.org/).
+
+
 
 ## Example Review {.unnumbered #review-example}
 
